@@ -1,0 +1,24 @@
+# ConfigMap for application configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dinhanh-config
+  namespace: dinhanh
+data:
+  DEBUG: "False"
+  ALLOWED_HOSTS: "localhost,127.0.0.1,*.example.com"
+  TIME_ZONE: "Asia/Ho_Chi_Minh"
+  LANGUAGE_CODE: "vi-vn"
+  DB_ENGINE: "django.db.backends.postgresql"
+  DB_HOST: "postgres.dinhanh.svc.cluster.local"
+  DB_PORT: "5432"
+  REDIS_HOST: "redis.dinhanh.svc.cluster.local"
+  REDIS_PORT: "6379"
+  CELERY_BROKER_URL: "redis://redis.dinhanh.svc.cluster.local:6379/0"
+  CELERY_RESULT_BACKEND: "redis://redis.dinhanh.svc.cluster.local:6379/0"
+  LOG_LEVEL: "info"
+  SECURE_SSL_REDIRECT: "True"
+  SESSION_COOKIE_SECURE: "True"
+  CSRF_COOKIE_SECURE: "True"
+  SECURE_HSTS_SECONDS: "31536000"
+  SECURE_HSTS_INCLUDE_SUBDOMAINS: "True"

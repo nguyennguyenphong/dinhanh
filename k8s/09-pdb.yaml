@@ -1,0 +1,23 @@
+# PodDisruptionBudget for Django Web
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: django-web-pdb
+  namespace: dinhanh
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: django-web
+---
+# PodDisruptionBudget for Celery Worker
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: celery-worker-pdb
+  namespace: dinhanh
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: celery-worker

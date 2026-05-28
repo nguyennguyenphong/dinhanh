@@ -1,0 +1,77 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.coverage
+.env
+.venv
+venv/
+ENV/
+
+# Django
+*.log
+local_settings.py
+/staticfiles/
+/media/
+db.sqlite3
+*.pot
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.npmrc
+
+# Docker
+Dockerfile*
+docker-compose*.yaml
+.dockerignore
+
+# Kubernetes
+k8s/
+*.yaml
+*.yml
+K8S_DEPLOYMENT_GUIDE.md
+HELM_GUIDE.md
+k8s-deploy.sh
+k8s-update.sh
+
+# Documentation
+README.md
+docs/
+.github/
+
+# CI/CD
+.gitlab-ci.yml
+.github/workflows/
+Jenkinsfile
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.bak
+*.backup
+.env*
+!.env.example

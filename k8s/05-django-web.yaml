@@ -1,0 +1,188 @@
+# Django Web Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-web
+  namespace: dinhanh
+  labels:
+    app: django-web
+    tier: web
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: django-web
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: django-web
+        tier: web
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: django
+        image: your-registry/dinhanh:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: dinhanh-config
+        - secretRef:
+            name: dinhanh-secret
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)"
+        - name: REDIS_URL
+          value: "redis://$(REDIS_HOST):$(REDIS_PORT)/0"
+        resources:
+          requests:
+            cpu: 500m
+            memory: 512Mi
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+        volumeMounts:
+        - name: static-volume
+          mountPath: /app/staticfiles
+        - name: media-volume
+          mountPath: /app/media
+        livenessProbe:
+          httpGet:
+            path: /health/
+            port: http
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 2
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh", "-c", "sleep 15"]
+      initContainers:
+      - name: migrate
+        image: your-registry/dinhanh:latest
+        imagePullPolicy: Always
+        command: ["python", "manage.py", "migrate"]
+        envFrom:
+        - configMapRef:
+            name: dinhanh-config
+        - secretRef:
+            name: dinhanh-secret
+      - name: collectstatic
+        image: your-registry/dinhanh:latest
+        imagePullPolicy: Always
+        command: ["python", "manage.py", "collectstatic", "--noinput"]
+        envFrom:
+        - configMapRef:
+            name: dinhanh-config
+        - secretRef:
+            name: dinhanh-secret
+        volumeMounts:
+        - name: static-volume
+          mountPath: /app/staticfiles
+      volumes:
+      - name: static-volume
+        persistentVolumeClaim:
+          claimName: static-pvc
+      - name: media-volume
+        persistentVolumeClaim:
+          claimName: media-pvc
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - django-web
+              topologyKey: kubernetes.io/hostname
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-web
+  namespace: dinhanh
+  labels:
+    app: django-web
+spec:
+  type: ClusterIP
+  selector:
+    app: django-web
+    tier: web
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8000
+    protocol: TCP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: django-web-hpa
+  namespace: dinhanh
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: django-web
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: static-pvc
+  namespace: dinhanh
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: standard
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-pvc
+  namespace: dinhanh
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: standard
