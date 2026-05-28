@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@source "../../templates/**/*.html";
+@source "../../**/templates/**/*.html";
+@source "../../**/*.py";
+
+@import "../../node_modules/preline/variants.css";

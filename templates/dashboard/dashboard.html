@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hệ Thống Nhà Xe Định Anh - Dashboard{% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+
+        <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-gray-200 pb-5 dark:border-slate-800">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Tổng quan Vận hành</h1>
+                <p class="text-sm text-gray-500 dark:text-slate-400">Dữ liệu tổng hợp hoạt động nhà xe tính đến hôm nay.
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button type="button"
+                    class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95 transition-all">
+                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="M12 5v14" />
+                    </svg>
+                    Điều chuyến khẩn cấp
+                </button>
+            </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div
+                class="group flex flex-col bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all dark:bg-slate-900 dark:border-slate-800">
+                <div class="flex items-center gap-x-4">
+                    <div
+                        class="size-11 bg-emerald-100 text-emerald-600 rounded-xl flex justify-center items-center dark:bg-emerald-950/50 dark:text-emerald-400">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" x2="12" y1="1" y2="23" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Doanh thu vé ngày</p>
+                        <div class="mt-1 flex items-baseline gap-x-2">
+                            <span class="text-2xl font-bold text-gray-800 dark:text-slate-200">42,850k</span>
+                            <span
+                                class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full dark:bg-emerald-900/30">+14.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="group flex flex-col bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all dark:bg-slate-900 dark:border-slate-800">
+                <div class="flex items-center gap-x-4">
+                    <div
+                        class="size-11 bg-blue-100 text-blue-600 rounded-xl flex justify-center items-center dark:bg-blue-950/50 dark:text-blue-400">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Vé đã bán hôm nay</p>
+                        <div class="mt-1 flex items-baseline gap-x-2">
+                            <span class="text-2xl font-bold text-gray-800 dark:text-slate-200">312 / 400</span>
+                            <span
+                                class="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full dark:bg-blue-900/30">78%
+                                Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="group flex flex-col bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all dark:bg-slate-900 dark:border-slate-800">
+                <div class="flex items-center gap-x-4">
+                    <div
+                        class="size-11 bg-purple-100 text-purple-600 rounded-xl flex justify-center items-center dark:bg-purple-950/50 dark:text-purple-400">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Tỷ lệ xuất bến đúng giờ
+                        </p>
+                        <div class="mt-1 flex items-baseline gap-x-2">
+                            <span class="text-2xl font-bold text-gray-800 dark:text-slate-200">98.4%</span>
+                            <span
+                                class="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full dark:bg-purple-900/30">An
+                                toàn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-slate-800">
+            <div
+                class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Trạng thái các chuyến chạy trục
+                        chính</h3>
+                    <p class="text-sm text-gray-500 dark:text-slate-400">Cập nhật thời gian thực hành trình xe chạy.</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-slate-800">
+                    <thead class="bg-gray-50/70 dark:bg-slate-800/50">
+                        <tr>
+                            <th scope="col"
+                                class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">
+                                Tuyến chạy</th>
+                            <th scope="col"
+                                class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">
+                                Tài xế / Biển số</th>
+                            <th scope="col"
+                                class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">
+                                Giờ chạy</th>
+                            <th scope="col"
+                                class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">
+                                Trạng thái</th>
+                            <th scope="col"
+                                class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">
+                                Hành
+                                động</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-slate-800">
+
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="font-semibold text-gray-800 dark:text-slate-200">Hà Nội ➔ Thanh Hóa</div>
+                                <div class="text-xs text-gray-400">Mã: DA-9921</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-800 dark:text-slate-300">Nguyễn Văn Định</div>
+                                <div class="text-xs text-blue-600 font-mono dark:text-blue-400">29B-123.45</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-slate-400">
+                                14:00 Hôm nay
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span
+                                    class="inline-flex items-center gap-x-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300">
+                                    <span class="size-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+                                    Đang trên đường
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                <button type="button"
+                                    class="text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 font-semibold">Định
+                                    vị GPS</button>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="font-semibold text-gray-800 dark:text-slate-200">Thanh Hóa ➔ Giáp Bát</div>
+                                <div class="text-xs text-gray-400">Mã: DA-8842</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-800 dark:text-slate-300">Lê Anh Tuấn</div>
+                                <div class="text-xs text-blue-600 font-mono dark:text-blue-400">36B-098.76</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-slate-400">
+                                16:30 Hôm nay
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span
+                                    class="inline-flex items-center gap-x-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+                                    <span class="size-1.5 rounded-full bg-amber-500"></span>
+                                    Nốt chờ lệnh
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                <button type="button"
+                                    class="text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 font-semibold">Lệnh
+                                    xuất bến</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

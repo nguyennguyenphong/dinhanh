@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.js"></script>
+    <script type="module" src="{% static 'js/app.js' %}"></script>
+    <script type="module" src="http://127.0.0.1:5173/assets/js/app.js"></script>
+</head>
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+    <script>
+        window.HSStaticMethods?.autoInit();
+    </script>
+
+</body>
+</html>
