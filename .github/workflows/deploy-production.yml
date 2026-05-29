@@ -1,0 +1,323 @@
+name: Deploy to Production
+
+# Manual trigger or automatic on release
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+      image_tag:
+        description: 'Docker image tag to deploy (default: latest)'
+        required: false
+        default: 'latest'
+
+  release:
+    types: [published]
+
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: dinhanh
+  DEPLOYMENT_TIMEOUT: 10m
+
+jobs:
+  # Validate deployment readiness
+  pre-deployment-checks:
+    runs-on: ubuntu-latest
+    name: Pre-Deployment Checks
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate environment configuration
+        run: |
+          echo "🔍 Validating deployment configuration..."
+          
+          if [ -z "${{ secrets.KUBECONFIG }}" ]; then
+            echo "❌ Error: KUBECONFIG secret is not set"
+            exit 1
+          fi
+          
+          if [ -z "${{ secrets.KUBE_NAMESPACE }}" ]; then
+            echo "❌ Error: KUBE_NAMESPACE secret is not set"
+            exit 1
+          fi
+          
+          echo "✅ All required secrets are configured"
+
+      - name: Check deployment files exist
+        run: |
+          echo "🔍 Checking deployment files..."
+          
+          if [ ! -f "k8s-deploy.sh" ]; then
+            echo "⚠️  Warning: k8s-deploy.sh not found"
+          fi
+          
+          if [ ! -f "k8s-migrate-db.sh" ]; then
+            echo "⚠️  Warning: k8s-migrate-db.sh not found"
+          fi
+          
+          if [ ! -f ".env.prod.example" ]; then
+            echo "⚠️  Warning: .env.prod.example not found"
+          fi
+          
+          echo "✅ Deployment files validation complete"
+
+  # Database migrations
+  database-migration:
+    runs-on: ubuntu-latest
+    name: Database Migration
+    needs: pre-deployment-checks
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure Kubernetes access
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0'
+
+      - name: Verify cluster connection
+        run: |
+          kubectl cluster-info
+          kubectl auth can-i create deployments --namespace=${{ secrets.KUBE_NAMESPACE }}
+
+      - name: Run database migrations
+        run: |
+          echo "🚀 Starting database migrations..."
+          
+          # Scale deployment to 1 replica for migration
+          kubectl set image deployment/dinhanh dinhanh=${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.image_tag || 'latest' }} \
+            --namespace=${{ secrets.KUBE_NAMESPACE }} \
+            || true
+          
+          # Run migrations job
+          kubectl apply -f - <<EOF
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: db-migration-$(date +%s)
+            namespace: ${{ secrets.KUBE_NAMESPACE }}
+          spec:
+            backoffLimit: 1
+            template:
+              spec:
+                serviceAccountName: dinhanh
+                containers:
+                - name: migration
+                  image: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.image_tag || 'latest' }}
+                  command: ["python", "manage.py", "migrate"]
+                  env:
+                  - name: ENVIRONMENT
+                    value: production
+                  envFrom:
+                  - secretRef:
+                      name: dinhanh-secrets
+                  resources:
+                    requests:
+                      memory: "512Mi"
+                      cpu: "250m"
+                    limits:
+                      memory: "1Gi"
+                      cpu: "500m"
+                restartPolicy: Never
+          EOF
+          
+          echo "⏳ Waiting for migration job to complete..."
+          kubectl wait --for=condition=complete job -l job-name=db-migration-* \
+            --namespace=${{ secrets.KUBE_NAMESPACE }} \
+            --timeout=${{ env.DEPLOYMENT_TIMEOUT }} || true
+
+  # Deploy to Kubernetes
+  deploy-kubernetes:
+    runs-on: ubuntu-latest
+    name: Deploy to Kubernetes
+    needs: [pre-deployment-checks, database-migration]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure Kubernetes access
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0'
+
+      - name: Verify cluster connection
+        run: kubectl cluster-info
+
+      - name: Get current deployment info
+        run: |
+          echo "📊 Current deployment status:"
+          kubectl get deployment dinhanh -n ${{ secrets.KUBE_NAMESPACE }} -o wide || echo "Deployment not found"
+          kubectl get pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh || echo "No pods found"
+
+      - name: Update deployment image
+        run: |
+          echo "🚀 Deploying image: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.image_tag || 'latest' }}"
+          
+          kubectl set image deployment/dinhanh \
+            dinhanh=${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.image_tag || 'latest' }} \
+            --namespace=${{ secrets.KUBE_NAMESPACE }} \
+            --record
+
+      - name: Wait for rollout to complete
+        run: |
+          echo "⏳ Waiting for deployment to be ready..."
+          
+          kubectl rollout status deployment/dinhanh \
+            --namespace=${{ secrets.KUBE_NAMESPACE }} \
+            --timeout=${{ env.DEPLOYMENT_TIMEOUT }}
+
+      - name: Verify deployment health
+        run: |
+          echo "🏥 Checking deployment health..."
+          
+          # Get pod information
+          kubectl get pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh
+          
+          # Check pod logs for errors
+          LATEST_POD=$(kubectl get pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh -o jsonpath='{.items[0].metadata.name}')
+          
+          if [ ! -z "$LATEST_POD" ]; then
+            echo "📋 Latest pod logs (last 50 lines):"
+            kubectl logs $LATEST_POD -n ${{ secrets.KUBE_NAMESPACE }} --tail=50 || true
+          fi
+
+  # Post-deployment tests
+  post-deployment-tests:
+    runs-on: ubuntu-latest
+    name: Post-Deployment Health Check
+    needs: deploy-kubernetes
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure Kubernetes access
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0'
+
+      - name: Get service endpoint
+        id: service
+        run: |
+          echo "🔍 Getting service endpoint..."
+          
+          # Get service external IP or LoadBalancer endpoint
+          ENDPOINT=$(kubectl get service dinhanh \
+            -n ${{ secrets.KUBE_NAMESPACE }} \
+            -o jsonpath='{.status.loadBalancer.ingress[0].ip}' 2>/dev/null || echo "")
+          
+          if [ -z "$ENDPOINT" ]; then
+            ENDPOINT=$(kubectl get service dinhanh \
+              -n ${{ secrets.KUBE_NAMESPACE }} \
+              -o jsonpath='{.status.loadBalancer.ingress[0].hostname}' 2>/dev/null || echo "")
+          fi
+          
+          if [ -z "$ENDPOINT" ]; then
+            echo "⚠️  Could not determine service endpoint (using port-forward for health check)"
+          else
+            echo "✅ Service endpoint: $ENDPOINT"
+          fi
+          
+          echo "endpoint=$ENDPOINT" >> $GITHUB_OUTPUT
+
+      - name: Health check - port-forward method
+        run: |
+          echo "🏥 Running health checks..."
+          
+          # Start port-forward in background
+          kubectl port-forward service/dinhanh 8000:8000 \
+            -n ${{ secrets.KUBE_NAMESPACE }} &
+          PORT_FORWARD_PID=$!
+          
+          # Wait for port-forward to be ready
+          sleep 5
+          
+          # Test health endpoint
+          echo "📡 Testing /health/ endpoint..."
+          curl -f http://localhost:8000/health/ || {
+            echo "❌ Health check failed"
+            kill $PORT_FORWARD_PID
+            exit 1
+          }
+          
+          echo "✅ Health check passed"
+          kill $PORT_FORWARD_PID
+
+  # Notification on completion
+  notify-deployment:
+    runs-on: ubuntu-latest
+    name: Deployment Notification
+    needs: [deploy-kubernetes, post-deployment-tests]
+    if: always()
+    
+    steps:
+      - name: Determine deployment status
+        id: status
+        run: |
+          if [ "${{ needs.deploy-kubernetes.result }}" == "success" ] && \
+             [ "${{ needs.post-deployment-tests.result }}" == "success" ]; then
+            echo "status=✅ SUCCESS"
+            echo "color=good"
+          else
+            echo "status=❌ FAILED"
+            echo "color=danger"
+          fi
+
+      - name: Send Slack notification
+        if: secrets.SLACK_WEBHOOK_URL != ''
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Deployment Notification*\n${{ steps.status.outputs.status }}\n*Environment:* ${{ github.event.inputs.environment || 'production' }}\n*Image Tag:* ${{ github.event.inputs.image_tag || 'latest' }}\n*Commit:* <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>"
+                  }
+                }
+              ]
+            }
+
+      - name: Create deployment summary
+        run: |
+          echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment**: ${{ github.event.inputs.environment || 'production' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Image Tag**: ${{ github.event.inputs.image_tag || 'latest' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment Status**: ${{ steps.status.outputs.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Jobs Status" >> $GITHUB_STEP_SUMMARY
+          echo "- Database Migration: ${{ needs.database-migration.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Kubernetes Deployment: ${{ needs.deploy-kubernetes.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Health Checks: ${{ needs.post-deployment-tests.result }}" >> $GITHUB_STEP_SUMMARY

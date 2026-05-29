@@ -30,14 +30,24 @@ INSTALLED_APPS = [
     'corsheaders',
 
     # apps
-    'dashboard',
     'accounts',
-    'garage',
-    'vehicles',
+    'branches',
+    'dashboard',
+    'menus',
+    'system_config',
+    'tenants',
+    'feature_flags',
+    'api_tokens',
+    'media',
+    'tags',
+    'webhooks',
+    'tasks',
+    'comments',
     'routes',
-    'tickets',
-    'customers',
-    'payments',
+    'vehicles',
+    'hr',
+    'trips',
+    'customers_tickets',
 ]
 
 MIDDLEWARE = [

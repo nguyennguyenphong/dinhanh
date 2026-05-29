@@ -1,0 +1,174 @@
+name: Scheduled Health Check & Monitoring
+
+# Run health checks every 6 hours in production
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:  # Manual trigger
+
+env:
+  DEPLOYMENT_TIMEOUT: 5m
+
+jobs:
+  # Check production application health
+  health-check:
+    runs-on: ubuntu-latest
+    name: Production Health Check
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure Kubernetes access
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0'
+
+      - name: Check deployment status
+        run: |
+          echo "📊 Checking deployment status..."
+          
+          kubectl get deployment dinhanh -n ${{ secrets.KUBE_NAMESPACE }} -o wide
+          
+          # Check if deployment is ready
+          READY=$(kubectl get deployment dinhanh -n ${{ secrets.KUBE_NAMESPACE }} -o jsonpath='{.status.conditions[?(@.type=="Progressing")].status}')
+          
+          if [ "$READY" != "True" ]; then
+            echo "❌ Deployment is not in ready state"
+            exit 1
+          fi
+          
+          echo "✅ Deployment is healthy"
+
+      - name: Check pod status
+        run: |
+          echo "🏥 Checking pod status..."
+          
+          kubectl get pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh -o wide
+          
+          # Count running pods
+          RUNNING=$(kubectl get pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh --field-selector=status.phase=Running --no-headers | wc -l)
+          
+          if [ "$RUNNING" -lt 1 ]; then
+            echo "❌ No running pods found"
+            exit 1
+          fi
+          
+          echo "✅ Found $RUNNING running pods"
+
+      - name: Check pod resource usage
+        run: |
+          echo "📈 Pod resource usage:"
+          
+          kubectl top pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh || echo "Metrics not available (metrics-server may not be installed)"
+
+      - name: Test application endpoint
+        run: |
+          echo "🌐 Testing application endpoint..."
+          
+          # Start port-forward in background
+          kubectl port-forward service/dinhanh 8000:8000 \
+            -n ${{ secrets.KUBE_NAMESPACE }} &
+          PORT_FORWARD_PID=$!
+          
+          sleep 5
+          
+          # Test various endpoints
+          echo "Testing /health/ endpoint..."
+          curl -f -s http://localhost:8000/health/ > /dev/null || {
+            echo "❌ Health endpoint failed"
+            kill $PORT_FORWARD_PID
+            exit 1
+          }
+          
+          echo "Testing /api/ endpoint..."
+          curl -f -s http://localhost:8000/api/ > /dev/null || echo "⚠️  API endpoint returned non-200"
+          
+          kill $PORT_FORWARD_PID
+          echo "✅ Application endpoints responding"
+
+      - name: Check recent errors in logs
+        run: |
+          echo "🔍 Checking for recent errors in logs..."
+          
+          LATEST_POD=$(kubectl get pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh -o jsonpath='{.items[0].metadata.name}')
+          
+          if [ ! -z "$LATEST_POD" ]; then
+            echo "Checking logs from $LATEST_POD..."
+            
+            ERROR_COUNT=$(kubectl logs $LATEST_POD -n ${{ secrets.KUBE_NAMESPACE }} --tail=100 | grep -i "error" | wc -l)
+            
+            if [ "$ERROR_COUNT" -gt 10 ]; then
+              echo "⚠️  Found $ERROR_COUNT errors in recent logs"
+              kubectl logs $LATEST_POD -n ${{ secrets.KUBE_NAMESPACE }} --tail=50 | grep -i "error"
+            else
+              echo "✅ Minimal errors in logs ($ERROR_COUNT found)"
+            fi
+          fi
+
+  # Database connectivity check
+  database-check:
+    runs-on: ubuntu-latest
+    name: Database Connectivity Check
+    
+    steps:
+      - name: Configure Kubernetes access
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0'
+
+      - name: Run database connectivity test
+        run: |
+          echo "🗄️  Testing database connectivity..."
+          
+          # Create a temporary pod to test database connection
+          kubectl run db-test-$(date +%s) \
+            --image=postgres:16-alpine \
+            --rm -i --restart=Never \
+            -n ${{ secrets.KUBE_NAMESPACE }} \
+            -- psql -h ${{ secrets.DB_HOST }} \
+            -U ${{ secrets.DB_USER }} \
+            -d ${{ secrets.DB_NAME }} \
+            -c "SELECT version();" || {
+            echo "❌ Database connection failed"
+            exit 1
+          }
+          
+          echo "✅ Database connection successful"
+
+  # Alert if checks fail
+  alert-on-failure:
+    runs-on: ubuntu-latest
+    name: Alert Notification
+    needs: [health-check, database-check]
+    if: failure() && secrets.SLACK_WEBHOOK_URL != ''
+    
+    steps:
+      - name: Send failure alert to Slack
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "🚨 *Production Health Check Failed*\n\nPlease investigate the production environment immediately.\n\nCheck the workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                  }
+                }
+              ]
+            }

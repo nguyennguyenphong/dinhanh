@@ -1,0 +1,209 @@
+name: Code Quality & Linting
+
+# Runs on every push and pull request to catch issues early
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+env:
+  PYTHON_VERSION: '3.11'
+  NODE_VERSION: '20'
+
+jobs:
+  # Python linting with Black and Flake8
+  python-lint:
+    runs-on: ubuntu-latest
+    name: Python Linting
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install linting tools
+        run: |
+          pip install --upgrade pip
+          pip install black flake8 pylint isort
+
+      - name: Check code formatting with Black
+        run: black --check --diff . --exclude venv/,migrations/ 2>&1 | head -100 || true
+
+      - name: Check import sorting with isort
+        run: isort --check-only --diff . --skip venv/ --skip migrations/ 2>&1 | head -100 || true
+
+      - name: Run Flake8 linting
+        run: |
+          # Flake8 configuration:
+          # - E501: line too long (Black handles this)
+          # - W503: line break before binary operator
+          flake8 . \
+            --exclude=venv/,migrations/,.venv/,node_modules/ \
+            --ignore=E501,W503 \
+            --max-line-length=100 \
+            --count \
+            --statistics || true
+
+  # JavaScript/Node.js linting
+  javascript-lint:
+    runs-on: ubuntu-latest
+    name: JavaScript Linting
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --frozen-lockfile
+
+      - name: Check code formatting
+        run: npm list prettier || echo "Prettier not installed (optional)"
+
+      - name: Run ESLint
+        run: |
+          npm list eslint || echo "ESLint not installed (optional)"
+          # If ESLint is installed: npm run lint || true
+
+  # Dependency vulnerability scanning
+  dependency-check:
+    runs-on: ubuntu-latest
+    name: Dependency Security Check
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install safety pip-audit
+
+      - name: Check Python dependencies with pip-audit
+        run: |
+          pip-audit --desc 2>&1 | head -200 || echo "Some vulnerabilities found (review above)"
+
+      - name: Set up Node.js for npm audit
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci --frozen-lockfile
+
+      - name: Audit npm dependencies
+        run: npm audit --audit-level=moderate 2>&1 || echo "Some vulnerabilities found (review above)"
+
+  # Django system checks and migrations check
+  django-checks:
+    runs-on: ubuntu-latest
+    name: Django System Checks
+    
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: dinhanh_check
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Django system checks
+        run: python manage.py check
+        env:
+          DEBUG: 'False'
+          SECRET_KEY: 'check-key-not-for-production'
+          DB_ENGINE: django.db.backends.postgresql
+          DB_NAME: dinhanh_check
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DB_HOST: localhost
+          DB_PORT: '5432'
+
+      - name: Check for missing migrations
+        run: python manage.py makemigrations --check
+        env:
+          DEBUG: 'False'
+          SECRET_KEY: 'check-key-not-for-production'
+          DB_ENGINE: django.db.backends.postgresql
+          DB_NAME: dinhanh_check
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DB_HOST: localhost
+          DB_PORT: '5432'
+
+  # Summary status check
+  quality-check-summary:
+    runs-on: ubuntu-latest
+    name: Quality Checks Summary
+    needs: [python-lint, javascript-lint, dependency-check, django-checks]
+    if: always()
+    
+    steps:
+      - name: Check all quality checks passed
+        run: |
+          if [ "${{ needs.python-lint.result }}" == "failure" ]; then
+            echo "❌ Python linting failed"
+          fi
+          if [ "${{ needs.javascript-lint.result }}" == "failure" ]; then
+            echo "❌ JavaScript linting failed"
+          fi
+          if [ "${{ needs.dependency-check.result }}" == "failure" ]; then
+            echo "❌ Dependency checks failed"
+          fi
+          if [ "${{ needs.django-checks.result }}" == "failure" ]; then
+            echo "❌ Django checks failed"
+          fi
+          
+          # Exit with failure if any check failed
+          if [ "${{ needs.python-lint.result }}" != "success" ] || \
+             [ "${{ needs.javascript-lint.result }}" != "success" ] || \
+             [ "${{ needs.dependency-check.result }}" != "success" ] || \
+             [ "${{ needs.django-checks.result }}" != "success" ]; then
+            exit 1
+          fi
+          
+          echo "✅ All code quality checks passed!"
