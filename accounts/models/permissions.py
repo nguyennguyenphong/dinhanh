@@ -169,10 +169,11 @@ class Permission(models.Model):
             ),
             # Check constraint: validate action values
             models.CheckConstraint(
-                check=models.Q(action__in=['view', 'add', 'change', 'delete', 'export', 'approve', 'all']),
+                condition=models.Q(
+                    action__in=['view', 'add', 'change', 'delete', 'export', 'approve', 'all']
+                ),
                 name='chk_permission_action',
-                violation_error_message='Action must be one of: view, add, change, delete, export, approve, all'
-            ),
+            )
         ]
         
         # ====================================================================
@@ -585,7 +586,7 @@ class PermissionAuditLog(models.Model):
     permission = models.ForeignKey(
         Permission,
         on_delete=models.CASCADE,
-        related_name='audit_logs',
+        related_name='permission_audit_logs',
         null=True,
         blank=True
     )

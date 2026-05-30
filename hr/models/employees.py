@@ -312,7 +312,13 @@ class Employee(models.Model):
             ),
             # Direct database-level CHECK constraint for gender structure safety
             models.CheckConstraint(
-                check=models.Q(gender__in=['MALE', 'FEMALE', 'OTHER']),
+                condition=models.Q(
+                    gender__in=[
+                        'MALE',
+                        'FEMALE',
+                        'OTHER'
+                    ]
+                ),
                 name='chk_employee_gender'
             )
         ]

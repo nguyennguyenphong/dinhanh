@@ -217,16 +217,16 @@ class Asset(models.Model):
             ),
             # Direct database-level CHECK constraint enforcing lifecycle state taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(status__in=['IN_USE', 'MAINTENANCE', 'DISPOSED', 'LOST', 'TRANSFERRED']),
+                condition=models.Q(status__in=['IN_USE', 'MAINTENANCE', 'DISPOSED', 'LOST', 'TRANSFERRED']),
                 name='chk_asset_lifecycle_status_enum'
             ),
             # Verification rules: monetary asset values must avoid falling below absolute zero bounds
             models.CheckConstraint(
-                check=models.Q(purchase_price__gte=0) | models.Q(purchase_price__isnull=True),
+                condition=models.Q(purchase_price__gte=0) | models.Q(purchase_price__isnull=True),
                 name='chk_asset_purchase_price_positive'
             ),
             models.CheckConstraint(
-                check=models.Q(current_value__gte=0) | models.Q(current_value__isnull=True),
+                condition=models.Q(current_value__gte=0) | models.Q(current_value__isnull=True),
                 name='chk_asset_current_value_positive'
             )
         ]

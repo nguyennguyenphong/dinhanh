@@ -169,7 +169,7 @@ class Notification(models.Model):
         help_text='The application string name token mapping target business modules (e.g., booking, trip, consignment)'
     )
     
-    ref_id = models.BigAutoField(
+    ref_id = models.BigIntegerField(
         null=True,
         blank=True,
         help_text='The corresponding primary key value pointing onto the source domain model indicated by ref_type'
@@ -220,12 +220,12 @@ class Notification(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing execution state taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'SENT', 'FAILED', 'CANCELLED']),
+                condition=models.Q(status__in=['PENDING', 'SENT', 'FAILED', 'CANCELLED']),
                 name='chk_notification_status_rules'
             ),
             # Direct database-level CHECK constraint restricting recipient classification parameters
             models.CheckConstraint(
-                check=models.Q(recipient_type__in=['USER', 'CUSTOMER', 'EMPLOYEE']),
+                condition=models.Q(recipient_type__in=['USER', 'CUSTOMER', 'EMPLOYEE']),
                 name='chk_notification_recipient_type_enum'
             )
         ]

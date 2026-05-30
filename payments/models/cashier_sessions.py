@@ -172,12 +172,12 @@ class CashierSession(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing workflow state taxonomy security
             models.CheckConstraint(
-                check=models.Q(status__in=['OPEN', 'CLOSED', 'RECONCILED']),
+                condition=models.Q(status__in=['OPEN', 'CLOSED', 'RECONCILED']),
                 name='chk_cashier_session_status_rules'
             ),
             # Verification check: Opening baseline financial data scales must sit in positive numbers bounds
             models.CheckConstraint(
-                check=models.Q(opening_cash__gte=0),
+                condition=models.Q(opening_cash__gte=0),
                 name='chk_session_opening_cash_positive'
             )
         ]

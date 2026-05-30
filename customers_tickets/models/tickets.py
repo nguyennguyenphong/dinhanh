@@ -232,12 +232,12 @@ class Ticket(models.Model):
         constraints = [
             # Direct database CHECK constraint matching CONSTRAINT chk_ticket_status
             models.CheckConstraint(
-                check=models.Q(status__in=['ACTIVE', 'USED', 'CANCELLED', 'REFUNDED', 'EXCHANGED', 'EXPIRED']),
+                condition=models.Q(status__in=['ACTIVE', 'USED', 'CANCELLED', 'REFUNDED', 'EXCHANGED', 'EXPIRED']),
                 name='chk_ticket_status'
             ),
             # Financial data integrity check: Math logic confirmation
             models.CheckConstraint(
-                check=models.Q(final_price__gte=0) & models.Q(base_price__gte=0) & models.Q(discount_amount__gte=0),
+                condition=models.Q(final_price__gte=0) & models.Q(base_price__gte=0) & models.Q(discount_amount__gte=0),
                 name='chk_ticket_prices_positive'
             )
         ]

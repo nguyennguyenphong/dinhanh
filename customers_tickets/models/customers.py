@@ -209,15 +209,15 @@ class Customer(models.Model):
             ),
             # Direct database-level CHECK constraints for structural data integrity parameters
             models.CheckConstraint(
-                check=models.Q(tier__in=['STANDARD', 'SILVER', 'GOLD', 'PLATINUM']),
+                condition=models.Q(tier__in=['STANDARD', 'SILVER', 'GOLD', 'PLATINUM']),
                 name='chk_customer_loyalty_tier'
             ),
             models.CheckConstraint(
-                check=models.Q(source__in=['COUNTER', 'ONLINE', 'AGENT', 'IMPORT']),
+                condition=models.Q(source__in=['COUNTER', 'ONLINE', 'AGENT', 'IMPORT']),
                 name='chk_customer_ingestion_source'
             ),
             models.CheckConstraint(
-                check=models.Q(loyalty_points__gte=0),
+                condition=models.Q(loyalty_points__gte=0),
                 name='chk_customer_loyalty_points_positive'
             )
         ]

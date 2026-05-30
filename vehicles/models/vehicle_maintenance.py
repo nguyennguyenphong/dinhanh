@@ -207,11 +207,26 @@ class VehicleMaintenance(models.Model):
         constraints = [
             # Direct database-level CHECK constraints for absolute data integrity
             models.CheckConstraint(
-                check=models.Q(type__in=['SCHEDULED', 'EMERGENCY', 'INSPECTION', 'CLEANING']),
+                condition=models.Q(
+                    type__in=[
+                        'SCHEDULED',
+                        'EMERGENCY',
+                        'INSPECTION',
+                        'CLEANING'
+                    ]
+                ),
                 name='chk_maintenance_type'
             ),
+
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'IN_PROGRESS', 'DONE', 'CANCELLED']),
+                condition=models.Q(
+                    status__in=[
+                        'PENDING',
+                        'IN_PROGRESS',
+                        'DONE',
+                        'CANCELLED'
+                    ]
+                ),
                 name='chk_maintenance_status'
             )
         ]

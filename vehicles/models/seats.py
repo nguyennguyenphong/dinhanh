@@ -149,7 +149,14 @@ class Seat(models.Model):
             ),
             # Direct database-level CHECK constraint enforcing predefined strict type entries
             models.CheckConstraint(
-                check=models.Q(seat_type__in=['SEAT', 'BED', 'VIP', 'PREMIUM']),
+                condition=models.Q(
+                    seat_type__in=[
+                        'SEAT',
+                        'BED',
+                        'VIP',
+                        'PREMIUM'
+                    ]
+                ),
                 name='chk_seat_type'
             )
         ]

@@ -226,16 +226,16 @@ class TicketBooking(models.Model):
         constraints = [
             # Direct database-level CHECK constraints matching CONSTRAINT chk_booking_status and chk_booking_channel
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'CONFIRMED', 'CANCELLED', 'REFUNDED', 'NO_SHOW']),
+                condition=models.Q(status__in=['PENDING', 'CONFIRMED', 'CANCELLED', 'REFUNDED', 'NO_SHOW']),
                 name='chk_booking_status'
             ),
             models.CheckConstraint(
-                check=models.Q(channel__in=['COUNTER', 'ONLINE', 'AGENT', 'MOBILE_APP', 'B2B']),
+                condition=models.Q(channel__in=['COUNTER', 'ONLINE', 'AGENT', 'MOBILE_APP', 'B2B']),
                 name='chk_booking_channel'
             ),
             # Financial integrity check: Paid scale cannot physically exceed invoice totals
             models.CheckConstraint(
-                check=models.Q(paid_amount__gte=0) & models.Q(total_amount__gte=0),
+                condition=models.Q(paid_amount__gte=0) & models.Q(total_amount__gte=0),
                 name='chk_booking_amounts_positive'
             )
         ]

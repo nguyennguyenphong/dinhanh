@@ -198,12 +198,12 @@ class TicketRefund(models.Model):
         constraints = [
             # Direct database-level CHECK constraints ensuring structural token validation parameters
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'APPROVED', 'COMPLETED', 'REJECTED']),
+                condition=models.Q(status__in=['PENDING', 'APPROVED', 'COMPLETED', 'REJECTED']),
                 name='chk_refund_status_rules'
             ),
             # Financial data integrity logic confirmation checks
             models.CheckConstraint(
-                check=models.Q(original_amount__gte=0) & models.Q(penalty_amount__gte=0) & models.Q(refund_amount__gte=0),
+                condition=models.Q(original_amount__gte=0) & models.Q(penalty_amount__gte=0) & models.Q(refund_amount__gte=0),
                 name='chk_refund_amounts_positive'
             )
         ]

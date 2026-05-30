@@ -196,15 +196,20 @@ class SystemConfig(models.Model):
                 violation_error_message='Config key must be unique within tenant and category'
             ),
             models.CheckConstraint(
-                check=models.Q(value_type__in=[
-                    'string', 'integer', 'boolean', 'json', 'secret', 'text'
-                ]),
+                condition=models.Q(
+                    value_type__in=[
+                        'string', 'integer', 'boolean', 'json', 'secret', 'text'
+                    ]
+                ),
                 name='chk_config_type'
             ),
+
             models.CheckConstraint(
-                check=models.Q(env__in=[
-                    'ALL', 'DEVELOPMENT', 'STAGING', 'PRODUCTION'
-                ]),
+                condition=models.Q(
+                    env__in=[
+                        'ALL', 'DEVELOPMENT', 'STAGING', 'PRODUCTION'
+                    ]
+                ),
                 name='chk_config_env'
             ),
         ]
@@ -358,7 +363,7 @@ class SystemConfigAuditLog(models.Model):
 
     id = models.BigAutoField(primary_key=True)
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, related_name='config_audit_logs', db_index=True)
-    config = models.ForeignKey(SystemConfig, on_delete=models.CASCADE, related_name='audit_logs', null=True, blank=True)
+    config = models.ForeignKey(SystemConfig, on_delete=models.CASCADE, related_name='system_config_audit_logs', null=True, blank=True)
     action = models.CharField(max_length=20, choices=ACTION_CHOICES, db_index=True)
     actor = models.ForeignKey('accounts.UserAccount', on_delete=models.SET_NULL, null=True, blank=True, related_name='config_actions_performed')
     old_value = models.TextField(blank=True, null=True)

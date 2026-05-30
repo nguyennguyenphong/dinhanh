@@ -241,13 +241,17 @@ class Task(models.Model):
         constraints = [
             # Priority constraint
             models.CheckConstraint(
-                check=Q(priority__in=['LOW', 'MEDIUM', 'HIGH', 'URGENT']),
+                condition=Q(
+                    priority__in=['LOW', 'MEDIUM', 'HIGH', 'URGENT']
+                ),
                 name='chk_task_priority',
                 violation_error_message='Invalid priority value'
             ),
-            # Status constraint
+
             models.CheckConstraint(
-                check=Q(status__in=['TODO', 'IN_PROGRESS', 'REVIEW', 'DONE', 'CANCELLED']),
+                condition=Q(
+                    status__in=['TODO', 'IN_PROGRESS', 'REVIEW', 'DONE', 'CANCELLED']
+                ),
                 name='chk_task_status',
                 violation_error_message='Invalid status value'
             ),

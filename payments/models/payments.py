@@ -12,7 +12,7 @@ from django.db.models import Q
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
 from customers_tickets.models.ticket_bookings import TicketBooking
-from apps.consignments.models import Consignment  # Mapped after consignment architecture deployment
+from consignments.models.consignments import Consignment  # Mapped after consignment architecture deployment
 from payments.models.payment_methods import PaymentMethod
 from accounts.models.user_accounts import UserAccount  # Custom user model
 from branches.models.branches import Branch
@@ -202,12 +202,12 @@ class Payment(models.Model):
         constraints = [
             # Direct database-level CHECK constraint matching CONSTRAINT chk_payment_status
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'SUCCESS', 'FAILED', 'REFUNDED', 'EXPIRED']),
+                condition=models.Q(status__in=['PENDING', 'SUCCESS', 'FAILED', 'REFUNDED', 'EXPIRED']),
                 name='chk_payment_status'
             ),
             # Financial safety integrity check: Collected amount cannot sit below zero bounds
             models.CheckConstraint(
-                check=models.Q(amount__gte=0),
+                condition=models.Q(amount__gte=0),
                 name='chk_payment_amount_positive'
             )
         ]

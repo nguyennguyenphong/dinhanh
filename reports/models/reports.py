@@ -170,7 +170,7 @@ class ReportDefinition(models.Model):
             ),
             # Direct database-level CHECK constraint enforcing reporting domain taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(category__in=['REVENUE', 'OPERATIONS', 'HR', 'CARGO', 'CUSTOMERS']),
+                condition=models.Q(category__in=['REVENUE', 'OPERATIONS', 'HR', 'CARGO', 'CUSTOMERS']),
                 name='chk_report_definition_category_enum'
             )
         ]

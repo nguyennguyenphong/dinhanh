@@ -100,7 +100,7 @@ class PromotionUsage(models.Model):
         constraints = [
             # Idempotency Gate: Enforce positive values for applied discount weights
             models.CheckConstraint(
-                check=models.Q(discount_applied__gte=0),
+                condition=models.Q(discount_applied__gte=0),
                 name='chk_promotion_usage_discount_positive'
             ),
             # Security Rule: Prevent the same booking invoice from claiming the same campaign coupon multiple times

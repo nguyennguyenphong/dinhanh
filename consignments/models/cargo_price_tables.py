@@ -201,25 +201,25 @@ class CargoPriceTable(models.Model):
         constraints = [
             # Direct database-level CHECK constraints matching allowed enum types
             models.CheckConstraint(
-                check=models.Q(cargo_type__in=['NORMAL', 'FRAGILE', 'LIQUID', 'FROZEN', 'OVERSIZED', 'HAZARDOUS']) | models.Q(cargo_type__isnull=True),
+                condition=models.Q(cargo_type__in=['NORMAL', 'FRAGILE', 'LIQUID', 'FROZEN', 'OVERSIZED', 'HAZARDOUS']) | models.Q(cargo_type__isnull=True),
                 name='chk_cargo_pricing_type_enum'
             ),
             models.CheckConstraint(
-                check=models.Q(price_unit__in=['PER_KG', 'PER_TRIP', 'FLAT', 'PER_M3']),
+                condition=models.Q(price_unit__in=['PER_KG', 'PER_TRIP', 'FLAT', 'PER_M3']),
                 name='chk_cargo_pricing_unit_enum'
             ),
             # Logical boundary checks: Scales cannot sit in absolute negative spaces
             models.CheckConstraint(
-                check=models.Q(price__gte=0),
+                condition=models.Q(price__gte=0),
                 name='chk_cargo_pricing_value_positive'
             ),
             # High-integrity matrix range rules: Minimum conditions cannot physically surpass Maximum conditions
             models.CheckConstraint(
-                check=models.Q(max_weight__gte=models.F('min_weight')) | models.Q(max_weight__isnull=True) | models.Q(min_weight__isnull=True),
+                condition=models.Q(max_weight__gte=models.F('min_weight')) | models.Q(max_weight__isnull=True) | models.Q(min_weight__isnull=True),
                 name='chk_cargo_pricing_weight_range'
             ),
             models.CheckConstraint(
-                check=models.Q(max_volume__gte=models.F('min_volume')) | models.Q(max_volume__isnull=True) | models.Q(min_volume__isnull=True),
+                condition=models.Q(max_volume__gte=models.F('min_volume')) | models.Q(max_volume__isnull=True) | models.Q(min_volume__isnull=True),
                 name='chk_cargo_pricing_volume_range'
             )
         ]

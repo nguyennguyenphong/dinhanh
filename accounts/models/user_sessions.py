@@ -622,7 +622,7 @@ class SessionAuditLog(models.Model):
     session = models.ForeignKey(
         UserSession,
         on_delete=models.CASCADE,
-        related_name='audit_logs',
+        related_name='user_session_audit_logs',
         null=True,
         blank=True,
         help_text='Session related to this event'

@@ -150,7 +150,7 @@ class NotificationTemplate(models.Model):
             ),
             # Direct database-level CHECK constraint enforcing messaging channel taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(channel__in=['SMS', 'EMAIL', 'PUSH', 'ZALO', 'IN_APP']),
+                condition=models.Q(channel__in=['SMS', 'EMAIL', 'PUSH', 'ZALO', 'IN_APP']),
                 name='chk_notification_template_channel_enum'
             )
         ]

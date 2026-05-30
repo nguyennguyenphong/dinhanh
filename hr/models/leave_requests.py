@@ -161,11 +161,27 @@ class LeaveRequest(models.Model):
         constraints = [
             # Direct database-level CHECK constraints for absolute structural data integrity
             models.CheckConstraint(
-                check=models.Q(leave_type__in=['ANNUAL', 'SICK', 'UNPAID', 'MATERNITY', 'COMPASSIONATE']),
+                condition=models.Q(
+                    leave_type__in=[
+                        'ANNUAL',
+                        'SICK',
+                        'UNPAID',
+                        'MATERNITY',
+                        'COMPASSIONATE'
+                    ]
+                ),
                 name='chk_leave_type'
             ),
+
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'APPROVED', 'REJECTED', 'CANCELLED']),
+                condition=models.Q(
+                    status__in=[
+                        'PENDING',
+                        'APPROVED',
+                        'REJECTED',
+                        'CANCELLED'
+                    ]
+                ),
                 name='chk_leave_status'
             )
         ]

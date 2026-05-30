@@ -136,7 +136,7 @@ class PaymentMethod(models.Model):
             ),
             # Direct database-level CHECK constraint enforcing taxonomy data parameters
             models.CheckConstraint(
-                check=models.Q(code__in=['CASH', 'CARD', 'MOMO', 'VNPAY', 'ZALOPAY', 'BANK_TRANSFER', 'CREDIT']),
+                condition=models.Q(code__in=['CASH', 'CARD', 'MOMO', 'VNPAY', 'ZALOPAY', 'BANK_TRANSFER', 'CREDIT']),
                 name='chk_payment_method_code_rules'
             )
         ]

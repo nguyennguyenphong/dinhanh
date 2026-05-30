@@ -194,7 +194,7 @@ class TenantAuditLog(models.Model):
     tenant = models.ForeignKey(
         Tenant,
         on_delete=models.CASCADE,
-        related_name='audit_logs',
+        related_name='tenant_audit_logs',
         db_index=True
     )
     user_id = models.IntegerField(null=True, blank=True)
@@ -247,7 +247,7 @@ class TenantFeatureFlag(models.Model):
     tenant = models.ForeignKey(
         Tenant,
         on_delete=models.CASCADE,
-        related_name='feature_flags'
+        related_name='tenant_feature_flags'
     )
     code = models.CharField(
         max_length=100,

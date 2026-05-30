@@ -249,12 +249,12 @@ class Invoice(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing workflow state taxonomy security
             models.CheckConstraint(
-                check=models.Q(status__in=['DRAFT', 'ISSUED', 'CANCELLED', 'REPLACED']),
+                condition=models.Q(status__in=['DRAFT', 'ISSUED', 'CANCELLED', 'REPLACED']),
                 name='chk_invoice_status_rules'
             ),
             # Financial data integrity check: Math scales cannot collapse into absolute negative bounds
             models.CheckConstraint(
-                check=models.Q(subtotal__gte=0) & models.Q(vat_amount__gte=0) & models.Q(total_amount__gte=0),
+                condition=models.Q(subtotal__gte=0) & models.Q(vat_amount__gte=0) & models.Q(total_amount__gte=0),
                 name='chk_invoice_amounts_positive'
             )
         ]

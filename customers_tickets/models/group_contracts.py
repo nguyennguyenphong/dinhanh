@@ -11,7 +11,7 @@ from django.db.models import Q
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from tags.models.tags import Trip
+from trips.models.trips import Trip
 from accounts.models.user_accounts import UserAccount  # Custom user model
 
 
@@ -214,17 +214,17 @@ class GroupContract(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing workflow state taxonomy
             models.CheckConstraint(
-                check=models.Q(status__in=['DRAFT', 'CONFIRMED', 'CANCELLED', 'COMPLETED']),
+                condition=models.Q(status__in=['DRAFT', 'CONFIRMED', 'CANCELLED', 'COMPLETED']),
                 name='chk_group_contract_status_rules'
             ),
             # Financial data integrity check: Math bounds verification
             models.CheckConstraint(
-                check=models.Q(total_amount__gte=0) & models.Q(deposit_amount__gte=0),
+                condition=models.Q(total_amount__gte=0) & models.Q(deposit_amount__gte=0),
                 name='chk_contract_amounts_positive'
             ),
             # Logic check: Deposit parameter cannot mathematically bypass total invoice numbers
             models.CheckConstraint(
-                check=models.Q(deposit_amount__lte=models.F('total_amount')),
+                condition=models.Q(deposit_amount__lte=models.F('total_amount')),
                 name='chk_contract_deposit_limit'
             )
         ]

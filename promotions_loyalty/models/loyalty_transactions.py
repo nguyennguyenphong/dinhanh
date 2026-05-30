@@ -118,12 +118,12 @@ class LoyaltyTransaction(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing point action taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(type__in=['EARN', 'REDEEM', 'EXPIRE', 'ADJUST']),
+                condition=models.Q(type__in=['EARN', 'REDEEM', 'EXPIRE', 'ADJUST']),
                 name='chk_loyalty_transaction_type_rules'
             ),
             # Verification check: The running balance pool total can never mathematically sit in negative values
             models.CheckConstraint(
-                check=models.Q(balance__gte=0),
+                condition=models.Q(balance__gte=0),
                 name='chk_loyalty_wallet_balance_positive'
             )
         ]

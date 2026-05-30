@@ -166,12 +166,12 @@ class AfterSales(models.Model):
             ),
             # Direct database-level CHECK constraint enforcing reward strategy taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(type__in=['VOUCHER', 'LOYALTY_POINTS', 'GIFT', 'DISCOUNT_CODE']),
+                condition=models.Q(type__in=['VOUCHER', 'LOYALTY_POINTS', 'GIFT', 'DISCOUNT_CODE']),
                 name='chk_after_sales_type_enum'
             ),
             # Protection check: Numerical balance parameters cannot reside inside absolute negative bounds
             models.CheckConstraint(
-                check=models.Q(value__gte=0) | models.Q(value__isnull=True),
+                condition=models.Q(value__gte=0) | models.Q(value__isnull=True),
                 name='chk_after_sales_value_positive'
             )
         ]

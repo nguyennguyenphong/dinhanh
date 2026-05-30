@@ -195,9 +195,12 @@ class FeatureFlag(models.Model):
             ),
             # Validate rollout percentage
             models.CheckConstraint(
-                check=models.Q(rollout_pct__gte=0, rollout_pct__lte=100),
+                condition=models.Q(
+                    rollout_pct__gte=0,
+                    rollout_pct__lte=100
+                ),
                 name='chk_rollout_pct'
-            ),
+            )
         ]
         
         # ====================================================================
@@ -540,7 +543,7 @@ class FeatureFlagAuditLog(models.Model):
     flag = models.ForeignKey(
         FeatureFlag,
         on_delete=models.CASCADE,
-        related_name='audit_logs',
+        related_name='feature_flag_audit_logs',
         help_text='Feature flag affected by this change'
     )
     

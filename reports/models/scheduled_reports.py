@@ -156,12 +156,12 @@ class ScheduledReport(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing cyclical processing taxonomy limits
             models.CheckConstraint(
-                check=models.Q(frequency__in=['DAILY', 'WEEKLY', 'MONTHLY']),
+                condition=models.Q(frequency__in=['DAILY', 'WEEKLY', 'MONTHLY']),
                 name='chk_scheduled_report_frequency_enum'
             ),
             # Direct database-level CHECK constraint enforcing document file extension type limits
             models.CheckConstraint(
-                check=models.Q(format__in=['PDF', 'EXCEL', 'CSV']),
+                condition=models.Q(format__in=['PDF', 'EXCEL', 'CSV']),
                 name='chk_scheduled_report_format_enum'
             )
         ]

@@ -224,12 +224,12 @@ class Expense(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing workflow state taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'APPROVED', 'REJECTED', 'PAID']),
+                condition=models.Q(status__in=['PENDING', 'APPROVED', 'REJECTED', 'PAID']),
                 name='chk_expense_status_rules'
             ),
             # Target security check: Monetary registers cannot capture absolute negative values
             models.CheckConstraint(
-                check=models.Q(amount__gt=0),
+                condition=models.Q(amount__gt=0),
                 name='chk_expense_amount_positive'
             )
         ]

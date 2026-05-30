@@ -212,7 +212,15 @@ class Vehicle(models.Model):
         constraints = [
             # Direct database-level CHECK constraint for status alignment
             models.CheckConstraint(
-                check=models.Q(status__in=['AVAILABLE', 'IN_TRIP', 'MAINTENANCE', 'INACTIVE', 'DISPOSED']),
+                condition=models.Q(
+                    status__in=[
+                        'AVAILABLE',
+                        'IN_TRIP',
+                        'MAINTENANCE',
+                        'INACTIVE',
+                        'DISPOSED'
+                    ]
+                ),
                 name='chk_vehicle_status'
             )
         ]

@@ -168,12 +168,12 @@ class FuelAllocation(models.Model):
         constraints = [
             # Direct database-level validations: numeric fields cannot accept absolute zero or negative inputs
             models.CheckConstraint(
-                check=models.Q(liters__gt=0) & models.Q(price_per_liter__gt=0) & models.Q(total_cost__gt=0),
+                condition=models.Q(liters__gt=0) & models.Q(price_per_liter__gt=0) & models.Q(total_cost__gt=0),
                 name='chk_fuel_metrics_strictly_positive'
             ),
             # Odometer constraint: dashboard metrics must possess reasonable values if registered
             models.CheckConstraint(
-                check=models.Q(odometer__gte=0) | models.Q(odometer__isnull=True),
+                condition=models.Q(odometer__gte=0) | models.Q(odometer__isnull=True),
                 name='chk_fuel_odometer_positive'
             )
         ]

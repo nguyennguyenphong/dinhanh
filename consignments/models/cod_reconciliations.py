@@ -124,12 +124,12 @@ class CodReconciliation(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing workflow state taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'TRANSFERRED', 'CONFIRMED']),
+                condition=models.Q(status__in=['PENDING', 'TRANSFERRED', 'CONFIRMED']),
                 name='chk_cod_reconciliation_status_rules'
             ),
             # Verification check: Monetary settlement metrics must reside in positive non-zero bounds
             models.CheckConstraint(
-                check=models.Q(amount__gt=0),
+                condition=models.Q(amount__gt=0),
                 name='chk_cod_reconciliation_amount_positive'
             )
         ]

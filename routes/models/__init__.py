@@ -7,3 +7,4 @@ from .routes import *
 from .route_stops import *
 from .stations import *
 from .provinces import *
+from .schedules import *

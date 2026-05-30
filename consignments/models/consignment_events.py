@@ -141,7 +141,7 @@ class ConsignmentEvent(models.Model):
         constraints = [
             # Direct database CHECK constraint restricting event classifications parameters
             models.CheckConstraint(
-                check=models.Q(event_type__in=['STATUS_CHANGE', 'NOTE', 'SCAN', 'PHOTO']),
+                condition=models.Q(event_type__in=['STATUS_CHANGE', 'NOTE', 'SCAN', 'PHOTO']),
                 name='chk_consignment_event_type_enum'
             )
         ]

@@ -155,7 +155,15 @@ class VehicleCategory(models.Model):
             ),
             # Direct database-level CHECK constraint for vehicle_type safety
             models.CheckConstraint(
-                check=models.Q(vehicle_type__in=['BUS', 'SLEEPER_BUS', 'LIMOUSINE', 'MINIBUS', 'OTHER']),
+                condition=models.Q(
+                    vehicle_type__in=[
+                        'BUS',
+                        'SLEEPER_BUS',
+                        'LIMOUSINE',
+                        'MINIBUS',
+                        'OTHER'
+                    ]
+                ),
                 name='chk_vehicle_type'
             )
         ]

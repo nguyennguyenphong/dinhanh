@@ -230,17 +230,17 @@ class Promotion(models.Model):
             ),
             # Direct database-level CHECK constraint replicating CONSTRAINT chk_promotion_type
             models.CheckConstraint(
-                check=models.Q(discount_type__in=['PERCENT', 'FIXED_AMOUNT', 'FREE_SEAT']),
+                condition=models.Q(discount_type__in=['PERCENT', 'FIXED_AMOUNT', 'FREE_SEAT']),
                 name='chk_promotion_discount_type_enum'
             ),
             # Logical boundary constraints checking financial numeric safety parameters
             models.CheckConstraint(
-                check=models.Q(discount_value__gte=0) & models.Q(usage_count__gte=0),
+                condition=models.Q(discount_value__gte=0) & models.Q(usage_count__gte=0),
                 name='chk_promotion_metrics_positive'
             ),
             # Timeline security constraint: Opening dates must physically precede closing windows
             models.CheckConstraint(
-                check=models.Q(valid_to__gt=models.F('valid_from')) | models.Q(valid_to__isnull=True),
+                condition=models.Q(valid_to__gt=models.F('valid_from')) | models.Q(valid_to__isnull=True),
                 name='chk_promotion_timeline_validity'
             )
         ]

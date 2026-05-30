@@ -634,7 +634,7 @@ class APITokenAuditLog(models.Model):
     token = models.ForeignKey(
         APIToken,
         on_delete=models.CASCADE,
-        related_name='audit_logs',
+        related_name='api_token_audit_logs',
         help_text='API token used'
     )
     

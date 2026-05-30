@@ -114,7 +114,7 @@ class ConsignmentManifest(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing workflow state taxonomy compliance
             models.CheckConstraint(
-                check=models.Q(status__in=['OPEN', 'CLOSED', 'DISPATCHED']),
+                condition=models.Q(status__in=['OPEN', 'CLOSED', 'DISPATCHED']),
                 name='chk_consignment_manifest_status_rules'
             )
         ]

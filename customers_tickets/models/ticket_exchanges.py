@@ -149,12 +149,12 @@ class TicketExchange(models.Model):
         constraints = [
             # Direct database-level CHECK constraint enforcing workflow state security matrices
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'COMPLETED', 'REJECTED']),
+                condition=models.Q(status__in=['PENDING', 'COMPLETED', 'REJECTED']),
                 name='chk_exchange_status_rules'
             ),
             # Financial data integrity check: Fee scale cannot physically exist below absolute zero
             models.CheckConstraint(
-                check=models.Q(fee__gte=0),
+                condition=models.Q(fee__gte=0),
                 name='chk_exchange_fee_positive'
             )
         ]

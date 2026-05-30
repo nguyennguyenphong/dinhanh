@@ -226,7 +226,7 @@ class Trip(models.Model):
             ),
             # Direct database-level CHECK constraint for absolute state sequence safety
             models.CheckConstraint(
-                check=models.Q(status__in=[
+                condition=models.Q(status__in=[
                     'SCHEDULED', 'BOARDING', 'DEPARTED', 'ARRIVED', 'CANCELLED', 'DELAYED', 'DIVERTED'
                 ]),
                 name='chk_trip_status'

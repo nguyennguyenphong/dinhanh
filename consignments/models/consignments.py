@@ -352,12 +352,12 @@ class Consignment(models.Model):
         constraints = [
             # Direct database CHECK constraint matching CONSTRAINT chk_consignment_status
             models.CheckConstraint(
-                check=models.Q(status__in=['RECEIVED', 'LOADED', 'IN_TRANSIT', 'ARRIVED', 'DELIVERED', 'RETURNED', 'LOST', 'DAMAGED']),
+                condition=models.Q(status__in=['RECEIVED', 'LOADED', 'IN_TRANSIT', 'ARRIVED', 'DELIVERED', 'RETURNED', 'LOST', 'DAMAGED']),
                 name='chk_consignment_status'
             ),
             # Financial safety constraints: Numerical balances cannot reflect absolute negative parameters
             models.CheckConstraint(
-                check=models.Q(freight_charge__gte=0) & models.Q(insurance_fee__gte=0) & models.Q(cod_amount__gte=0),
+                condition=models.Q(freight_charge__gte=0) & models.Q(insurance_fee__gte=0) & models.Q(cod_amount__gte=0),
                 name='chk_consignment_money_positive'
             )
         ]

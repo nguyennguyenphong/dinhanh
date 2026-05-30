@@ -399,7 +399,7 @@ class BranchAuditLog(models.Model):
     branch = models.ForeignKey(
         Branch,
         on_delete=models.CASCADE,
-        related_name='audit_logs',
+        related_name='branch_audit_logs',
         null=True,
         blank=True,
         help_text='Branch affected by this change'

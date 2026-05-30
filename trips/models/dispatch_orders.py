@@ -127,7 +127,7 @@ class DispatchOrder(models.Model):
         constraints = [
             # Direct database-level CHECK constraint for absolute state sequence safety
             models.CheckConstraint(
-                check=models.Q(status__in=['PENDING', 'ISSUED', 'DEPARTED']),
+                condition=models.Q(status__in=['PENDING', 'ISSUED', 'DEPARTED']),
                 name='chk_dispatch_order_status'
             )
         ]
