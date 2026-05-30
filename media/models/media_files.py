@@ -100,8 +100,7 @@ class MediaFile(models.Model):
         on_delete=models.CASCADE,
         related_name='media_files',
         db_index=True,
-        help_text='Tenant that owns this media file',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this media file'
     )
     
     # ========================================================================
@@ -112,18 +111,15 @@ class MediaFile(models.Model):
         default=uuid.uuid4,
         unique=True,
         db_index=True,
-        help_text='Unique identifier for this file',
-        db_comment='File UUID'
+        help_text='Unique identifier for this file'
     )
     original_name = models.CharField(
         max_length=500,
-        help_text='Original filename as uploaded',
-        db_comment='Original filename'
+        help_text='Original filename as uploaded'
     )
     stored_name = models.CharField(
         max_length=500,
-        help_text='Sanitized filename for storage',
-        db_comment='Stored filename'
+        help_text='Sanitized filename for storage'
     )
     
     # ========================================================================
@@ -134,27 +130,23 @@ class MediaFile(models.Model):
         max_length=30,
         choices=STORAGE_CHOICES,
         default='local',
-        help_text='Storage backend used',
-        db_comment='Storage type'
+        help_text='Storage backend used'
     )
     bucket = models.CharField(
         max_length=100,
         null=True,
         blank=True,
-        help_text='Bucket name (for cloud storage)',
-        db_comment='Storage bucket'
+        help_text='Bucket name (for cloud storage)'
     )
     file_path = models.CharField(
         max_length=1000,
-        help_text='Full path to file in storage',
-        db_comment='File path'
+        help_text='Full path to file in storage'
     )
     url = models.CharField(
         max_length=1000,
         null=True,
         blank=True,
-        help_text='Generated URL for file access',
-        db_comment='File URL'
+        help_text='Generated URL for file access'
     )
     
     # ========================================================================
@@ -165,14 +157,12 @@ class MediaFile(models.Model):
         max_length=100,
         null=True,
         blank=True,
-        help_text='MIME type (e.g., image/jpeg)',
-        db_comment='MIME type'
+        help_text='MIME type (e.g., image/jpeg)'
     )
     size_bytes = models.BigIntegerField(
         null=True,
         blank=True,
-        help_text='File size in bytes',
-        db_comment='File size'
+        help_text='File size in bytes'
     )
     
     # ========================================================================
@@ -182,14 +172,12 @@ class MediaFile(models.Model):
     width = models.IntegerField(
         null=True,
         blank=True,
-        help_text='Image width in pixels (for images)',
-        db_comment='Image width'
+        help_text='Image width in pixels (for images)'
     )
     height = models.IntegerField(
         null=True,
         blank=True,
-        help_text='Image height in pixels (for images)',
-        db_comment='Image height'
+        help_text='Image height in pixels (for images)'
     )
     
     # ========================================================================
@@ -199,8 +187,7 @@ class MediaFile(models.Model):
     is_public = models.BooleanField(
         default=False,
         db_index=True,
-        help_text='File is publicly accessible',
-        db_comment='Public access flag'
+        help_text='File is publicly accessible'
     )
     
     # ========================================================================
@@ -213,8 +200,7 @@ class MediaFile(models.Model):
         null=True,
         blank=True,
         related_name='uploaded_media_files',
-        help_text='User who uploaded this file',
-        db_comment='Uploaded by user'
+        help_text='User who uploaded this file'
     )
     
     # ========================================================================
@@ -227,15 +213,13 @@ class MediaFile(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='Type of entity this file is linked to',
-        db_comment='Entity type'
+        help_text='Type of entity this file is linked to'
     )
     entity_id = models.IntegerField(
         null=True,
         blank=True,
         db_index=True,
-        help_text='ID of entity this file is linked to',
-        db_comment='Entity ID'
+        help_text='ID of entity this file is linked to'
     )
     
     # ========================================================================
@@ -245,8 +229,7 @@ class MediaFile(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this file was uploaded',
-        db_comment='Upload timestamp'
+        help_text='When this file was uploaded'
     )
 
     class Meta:
@@ -263,26 +246,22 @@ class MediaFile(models.Model):
             # Index for finding files by entity
             models.Index(
                 fields=['entity_type', 'entity_id'],
-                name='idx_media_entity',
-                db_comment='Query files by entity'
+                name='idx_media_entity'
             ),
             # Index for finding files by uploader
             models.Index(
                 fields=['uploaded_by'],
-                name='idx_media_uploader',
-                db_comment='Query files by uploader'
+                name='idx_media_uploader'
             ),
             # Index for finding public files
             models.Index(
                 fields=['is_public'],
-                name='idx_media_public',
-                db_comment='Query public files'
+                name='idx_media_public'
             ),
             # Index for tenant queries
             models.Index(
                 fields=['tenant', 'created_at'],
-                name='idx_media_tenant_created',
-                db_comment='Query files by tenant and date'
+                name='idx_media_tenant_created'
             ),
         ]
 

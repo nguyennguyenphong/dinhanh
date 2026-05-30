@@ -69,8 +69,7 @@ class Invoice(models.Model):
         default=1,
         related_name='invoices',
         db_index=True,
-        help_text='Tenant corporate corporate owner holding local fiscal rights over this tax document',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate corporate owner holding local fiscal rights over this tax document'
     )
     
     booking = models.ForeignKey(
@@ -80,8 +79,7 @@ class Invoice(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The retail passenger reservation sheet bound to this financial tax document',
-        db_comment='Soft reference mapping target B2C consumer booking transaction'
+        help_text='The retail passenger reservation sheet bound to this financial tax document'
     )
     
     group_contract = models.ForeignKey(
@@ -91,8 +89,7 @@ class Invoice(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The corporate B2B chart contract order document bound to this financial tax document',
-        db_comment='Soft reference mapping target B2B contract transaction'
+        help_text='The corporate B2B chart contract order document bound to this financial tax document'
     )
     
     issued_by = models.ForeignKey(
@@ -102,8 +99,7 @@ class Invoice(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The licensed internal staff accountant executing the digital gateway HSM signature',
-        db_comment='Reference to authority staff user committing tax ledger transmission'
+        help_text='The licensed internal staff accountant executing the digital gateway HSM signature'
     )
     
     # ========================================================================
@@ -119,14 +115,12 @@ class Invoice(models.Model):
                 message='Invoice number must represent a numeric sequence matching statutory lengths'
             )
         ],
-        help_text='Official sequential invoice identification digit marker string (e.g., 00001234)',
-        db_comment='Statutory legal sequential invoice numbering string index'
+        help_text='Official sequential invoice identification digit marker string (e.g., 00001234)'
     )
     
     series = models.CharField(
         max_length=10,
-        help_text='Official statutory invoice symbol series prefix tracking registration year (e.g., 1C26TAA)',
-        db_comment='Tax authority approved invoice series prefix marker'
+        help_text='Official statutory invoice symbol series prefix tracking registration year (e.g., 1C26TAA)'
     )
     
     # ========================================================================
@@ -137,8 +131,7 @@ class Invoice(models.Model):
         max_length=255,
         null=True,
         blank=True,
-        help_text='Legal corporate entity name text or individual consumer name printed on the certificate header',
-        db_comment='Corporate or customer full legal name text identifier'
+        help_text='Legal corporate entity name text or individual consumer name printed on the certificate header'
     )
     
     buyer_tax_code = models.CharField(
@@ -151,23 +144,20 @@ class Invoice(models.Model):
                 message='Government buyer tax identification code format matrix is invalid'
             )
         ],
-        help_text='Government corporate business tax classification token needed for input tax deduction logs',
-        db_comment='Government issued company tax code identifier token string'
+        help_text='Government corporate business tax classification token needed for input tax deduction logs'
     )
     
     buyer_address = models.TextField(
         null=True,
         blank=True,
-        help_text='Full corporate operational registration address text required by tax departments',
-        db_comment='Buyer legal business registration address text string'
+        help_text='Full corporate operational registration address text required by tax departments'
     )
     
     buyer_email = models.EmailField(
         max_length=254,  # Matches buyer_email VARCHAR(254)
         null=True,
         blank=True,
-        help_text='Electronic mail destination endpoint where the signed XML/PDF invoice files are pushed automatically',
-        db_comment='Customer target destination electronic mail node'
+        help_text='Electronic mail destination endpoint where the signed XML/PDF invoice files are pushed automatically'
     )
     
     # ========================================================================
@@ -177,30 +167,26 @@ class Invoice(models.Model):
     subtotal = models.DecimalField(
         max_digits=15,
         decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The net taxable operational revenue balance calculated prior to adding tax metrics',
-        db_comment='Net commercial subtotal balance excluding tax calculations'
+        help_text='The net taxable operational revenue balance calculated prior to adding tax metrics'
     )
     
     vat_rate = models.DecimalField(
         max_digits=5,
         decimal_places=2,
         default=10.00,  # Matches NUMERIC(5,2) NOT NULL DEFAULT 10.00
-        help_text='Statutory value added tax percentage rate scalar applied to sales (e.g., 8.00 or 10.00)',
-        db_comment='Statutory applied tax percentage percentage value rate'
+        help_text='Statutory value added tax percentage rate scalar applied to sales (e.g., 8.00 or 10.00)'
     )
     
     vat_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The absolute computed tax weight calculated dynamically from (subtotal * (vat_rate / 100))',
-        db_comment='Computed financial value added tax amount balance'
+        help_text='The absolute computed tax weight calculated dynamically from (subtotal * (vat_rate / 100))'
     )
     
     total_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The eventual absolute gross invoice liability cash balance collected (subtotal + vat_amount)',
-        db_comment='Grand gross invoice total financial debt currency value'
+        help_text='The eventual absolute gross invoice liability cash balance collected (subtotal + vat_amount)'
     )
     
     # ========================================================================
@@ -212,8 +198,7 @@ class Invoice(models.Model):
         choices=STATUS_CHOICES,
         default='DRAFT',
         db_index=True,
-        help_text='The internal operational progression phase state tracking this tax document item',
-        db_comment='Workflow statutory progression taxonomy token string state'
+        help_text='The internal operational progression phase state tracking this tax document item'
     )
     
     e_invoice_code = models.CharField(
@@ -221,16 +206,14 @@ class Invoice(models.Model):
         null=True,
         blank=True,
         db_index=True,  # Production index: Vital for lookups when receiving tax gateway updates
-        help_text='Unique cryptographic reference lookup key hash returned by third-party e-invoice provider networks (e.g., Viettel SInvoice, VNPT, Misa MeInvoice)',
-        db_comment='Third-party e-invoice service gateway structural lookup identification code'
+        help_text='Unique cryptographic reference lookup key hash returned by third-party e-invoice provider networks (e.g., Viettel SInvoice, VNPT, Misa MeInvoice)'
     )
     
     e_invoice_url = models.CharField(
         max_length=500,
         null=True,
         blank=True,  # Matches VARCHAR(500)
-        help_text='Cloud storage direct URL link matching online verification portal locations where the client downloads the official PDF copy',
-        db_comment='Web verification portal cloud string path download link link'
+        help_text='Cloud storage direct URL link matching online verification portal locations where the client downloads the official PDF copy'
     )
     
     # ========================================================================
@@ -240,20 +223,17 @@ class Invoice(models.Model):
     issued_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when digital certificates signed this document block out to government systems',
-        db_comment='Real electronic execution transmission timestamp confirmation'
+        help_text='Timezone-aware timestamp logging exactly when digital certificates signed this document block out to government systems'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='System record logging anchor tracking exactly when this invoice layout was initialized inside the DB core',
-        db_comment='Creation timestamp'
+        help_text='System record logging anchor tracking exactly when this invoice layout was initialized inside the DB core'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this financial invoice sheet were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when parameters inside this financial invoice sheet were last modified'
     )
 
     class Meta:

@@ -50,32 +50,29 @@ class TripSchedule(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='trip_schedules',
         db_index=True,
-        help_text='Tenant owner of this recurring scheduling timetable blueprint',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this recurring scheduling timetable blueprint'
     )
     
     route = models.ForeignKey(
         Route,
-        on_delete=models.PROTECT,  # Production safety: prevent deleting a route if active blueprints depend on it
+        on_delete=models.PROTECT,
         related_name='trip_schedules',
         db_index=True,
-        help_text='The core spatial transportation route this schedule runs on',
-        db_comment='Reference to parent structural route entity'
+        help_text='The core spatial transportation route this schedule runs on'
     )
     
     category = models.ForeignKey(
         VehicleCategory,
-        on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
+        on_delete=models.SET_NULL,
         related_name='trip_schedules',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The recommended or required vehicle specification profile for this schedule allocation slot',
-        db_comment='Reference to minimum required vehicle category'
+        help_text='The recommended or required vehicle specification profile for this schedule allocation slot'
     )
     
     # ========================================================================
@@ -90,28 +87,24 @@ class TripSchedule(models.Model):
                 message='Code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique business identification string code per tenant (e.g., FIX-HANOI-0600)',
-        db_comment='Unique system schedule blueprint code token'
+        help_text='Unique business identification string code per tenant (e.g., FIX-HANOI-0600)'
     )
     
     departure_time = models.TimeField(
-        help_text='The official clock time when a vehicle must leave the origin station',
-        db_comment='Planned departure time boundary'
+        help_text='The official clock time when a vehicle must leave the origin station'
     )
     
     arrival_time = models.TimeField(
         null=True,
         blank=True,
-        help_text='Estimated or planned clock time when the vehicle reaches the terminal hub',
-        db_comment='Estimated arrival time boundary'
+        help_text='Estimated or planned clock time when the vehicle reaches the terminal hub'
     )
     
     # Native PostgreSQL array mapping: SMALLINT[] NOT NULL DEFAULT '{1,2,3,4,5,6,7}'
     days_of_week = ArrayField(
         models.PositiveSmallIntegerField(),
-        default=list,  # Initialized as clean list, actual default handled in database or clean() layers
-        help_text='Array of repeating weekday integer index trackers (1=Monday, 2=Tuesday, ..., 7=Sunday)',
-        db_comment='PostgreSQL ArrayField structuring integer day markers'
+        default=list,
+        help_text='Array of repeating weekday integer index trackers (1=Monday, 2=Tuesday, ..., 7=Sunday)'
     )
     
     # ========================================================================
@@ -121,22 +114,19 @@ class TripSchedule(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Designates whether this timetable sequence is operational and actively generating daily trip records',
-        db_comment='Active template dispatch availability status flag'
+        help_text='Designates whether this timetable sequence is operational and actively generating daily trip records'
     )
     
     valid_from = models.DateField(
         null=True,
         blank=True,
-        help_text='The calendar commencement date when this operational schedule becomes effective',
-        db_comment='Calendar timeline starting restriction matrix'
+        help_text='The calendar commencement date when this operational schedule becomes effective'
     )
     
     valid_to = models.DateField(
         null=True,
         blank=True,
-        help_text='The calendar closing date when this operational schedule ceases to be valid',
-        db_comment='Calendar timeline ending restriction matrix'
+        help_text='The calendar closing date when this operational schedule ceases to be valid'
     )
     
     # ========================================================================
@@ -145,14 +135,12 @@ class TripSchedule(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this timetable row master schema was registered',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this timetable row master schema was registered'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when this timetable schema configurations were modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when this timetable schema configurations were modified'
     )
 
     class Meta:
@@ -181,8 +169,7 @@ class TripSchedule(models.Model):
             # Optimizes generation algorithms looking up schedules active for a specific seasonal range
             models.Index(
                 fields=['is_active', 'valid_from', 'valid_to'],
-                name='idx_sch_lifecycle_lookup',
-                db_comment='Cron processing engine optimization index for time ranges'
+                name='idx_sch_lifecycle_lookup'
             ),
         ]
 

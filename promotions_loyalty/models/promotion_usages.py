@@ -47,7 +47,6 @@ class PromotionUsage(models.Model):
         related_name='usages',
         db_index=True,
         help_text='The parent promotion coupon master rule instance consumed in this transaction context',
-        db_comment='Strict reference targeting parent promotion coupon node'
     )
     
     booking = models.ForeignKey(
@@ -56,7 +55,6 @@ class PromotionUsage(models.Model):
         related_name='promotion_usages',
         db_index=True,
         help_text='The target passenger fare booking order invoice where this discount credit was applied',
-        db_comment='Strict reference targeting corresponding ticket booking invoice record'
     )
     
     customer = models.ForeignKey(
@@ -67,7 +65,6 @@ class PromotionUsage(models.Model):
         blank=True,
         db_index=True,
         help_text='The unique verified customer profile account who claimed and executed this code',
-        db_comment='Soft reference mapping individual passenger account profile'
     )
     
     # ========================================================================
@@ -79,7 +76,6 @@ class PromotionUsage(models.Model):
         decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
         validators=[MinValueValidator(0.00)],
         help_text='The exact absolute cash currency credit value subtracted from the gross order ticket total',
-        db_comment='Absolute monetary reduction weight currency value applied'
     )
     
     # ========================================================================
@@ -89,7 +85,6 @@ class PromotionUsage(models.Model):
     used_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at db layer
         help_text='Timezone-aware timestamp logging exactly when this voucher link cleared checkout pipelines',
-        db_comment='Promotion consumption verification timestamp'
     )
 
     class Meta:

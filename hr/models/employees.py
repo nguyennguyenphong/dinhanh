@@ -83,8 +83,7 @@ class Employee(models.Model):
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name='employees',
         db_index=True,
-        help_text='Tenant owner of this employee record',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this employee record'
     )
     
     department = models.ForeignKey(
@@ -94,8 +93,7 @@ class Employee(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='Corporate organizational department division mapping',
-        db_comment='Reference to department structural entity'
+        help_text='Corporate organizational department division mapping'
     )
     
     branch = models.ForeignKey(
@@ -105,8 +103,7 @@ class Employee(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='Physical home branch or hub where staff reports to work',
-        db_comment='Reference to home branch entity'
+        help_text='Physical home branch or hub where staff reports to work'
     )
     
     user_account = models.OneToOneField(
@@ -115,8 +112,7 @@ class Employee(models.Model):
         related_name='employee_profile',
         null=True,
         blank=True,
-        help_text='Associated system user credentials for dashboard and portal login permissions',
-        db_comment='One-to-one reference linking auth user profiles'
+        help_text='Associated system user credentials for dashboard and portal login permissions'
     )
     
     # ========================================================================
@@ -131,22 +127,19 @@ class Employee(models.Model):
                 message='Code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique business identifier system code (e.g., EMP-2026-09)',
-        db_comment='Unique system code token identifier'
+        help_text='Unique business identifier system code (e.g., EMP-2026-09)'
     )
     
     full_name = models.CharField(
         max_length=255,
-        help_text='Official full legal name of the employee',
-        db_comment='Employee full name string'
+        help_text='Official full legal name of the employee'
     )
     
     national_id = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        help_text='National identity card or citizenship passport index (e.g., CCCD)',
-        db_comment='National citizen registry ID'
+        help_text='National identity card or citizenship passport index (e.g., CCCD)'
     )
     
     phone = models.CharField(
@@ -154,8 +147,7 @@ class Employee(models.Model):
         null=True,
         blank=True,
         validators=[RegexValidator(regex=r'^\+?[0-9\s.\-]+$', message='Invalid phone format')],
-        help_text='Primary mobile or telecommunication entry node',
-        db_comment='Primary telephone routing string'
+        help_text='Primary mobile or telecommunication entry node'
     )
     
     email = models.CharField(
@@ -163,15 +155,13 @@ class Employee(models.Model):
         null=True,
         blank=True,
         validators=[EmailValidator()],
-        help_text='Corporate or personal communication contact mailbox address',
-        db_comment='Electronic mailing address field'
+        help_text='Corporate or personal communication contact mailbox address'
     )
     
     date_of_birth = models.DateField(
         null=True,
         blank=True,
-        help_text='Official birth record calendar date',
-        db_comment='Date of birth registry'
+        help_text='Official birth record calendar date'
     )
     
     gender = models.CharField(
@@ -179,23 +169,20 @@ class Employee(models.Model):
         choices=GENDER_CHOICES,
         null=True,
         blank=True,
-        help_text='Biological or legal identity gender profile token',
-        db_comment='Gender taxonomy status token'
+        help_text='Biological or legal identity gender profile token'
     )
     
     address = models.TextField(
         null=True,
         blank=True,
-        help_text='Current residential or permanent accommodation address',
-        db_comment='Full text residential address location'
+        help_text='Current residential or permanent accommodation address'
     )
     
     position = models.CharField(
         max_length=100,
         choices=POSITION_CHOICES,
         db_index=True,
-        help_text='Active job role designation within operational flows',
-        db_comment='Active job profile taxonomy role'
+        help_text='Active job role designation within operational flows'
     )
     
     # ========================================================================
@@ -203,29 +190,25 @@ class Employee(models.Model):
     # ========================================================================
     
     hired_at = models.DateField(
-        help_text='Calendar date when employment officially commenced',
-        db_comment='Contract commencement date'
+        help_text='Calendar date when employment officially commenced'
     )
     
     terminated_at = models.DateField(
         null=True,
         blank=True,
-        help_text='Calendar date when employment contract was formally ended',
-        db_comment='Contract termination date'
+        help_text='Calendar date when employment contract was formally ended'
     )
     
     termination_reason = models.TextField(
         null=True,
         blank=True,
-        help_text='Internal exit log detailing background factors for termination',
-        db_comment='Termination background notes'
+        help_text='Internal exit log detailing background factors for termination'
     )
     
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Designates whether this employee is currently working and on the active payroll',
-        db_comment='Operational inventory identity active flag status'
+        help_text='Designates whether this employee is currently working and on the active payroll'
     )
     
     # ========================================================================
@@ -236,23 +219,20 @@ class Employee(models.Model):
         max_length=50,
         null=True,
         blank=True,
-        help_text='Commercial vehicle driving license identifier token number',
-        db_comment='Driver license serial code'
+        help_text='Commercial vehicle driving license identifier token number'
     )
     
     license_class = models.CharField(
         max_length=10,
         null=True,
         blank=True,
-        help_text='Driving license category tier classification (e.g., B2, C, D, E, FC)',
-        db_comment='License qualification code'
+        help_text='Driving license category tier classification (e.g., B2, C, D, E, FC)'
     )
     
     license_expiry = models.DateField(
         null=True,
         blank=True,
-        help_text='Driving license legal validation expiry date threshold',
-        db_comment='License legal deadline date'
+        help_text='Driving license legal validation expiry date threshold'
     )
     
     # ========================================================================
@@ -263,47 +243,41 @@ class Employee(models.Model):
         max_length=20,
         null=True,
         blank=True,
-        help_text='State-managed social insurance registry profile book identification code',
-        db_comment='Social insurance catalog card token'
+        help_text='State-managed social insurance registry profile book identification code'
     )
     
     health_insurance_no = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        help_text='National health care safety insurance policy tracking index',
-        db_comment='Health insurance code card token'
+        help_text='National health care safety insurance policy tracking index'
     )
     
     tax_code = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        help_text='Personal income tax individual registration index number (PIT)',
-        db_comment='State tax registry ledger index'
+        help_text='Personal income tax individual registration index number (PIT)'
     )
     
     bank_account = models.CharField(
         max_length=30,
         null=True,
         blank=True,
-        help_text='Bank routing ledger account identity number for salary wire disbursements',
-        db_comment='Bank account numbers catalog string'
+        help_text='Bank routing ledger account identity number for salary wire disbursements'
     )
     
     bank_name = models.CharField(
         max_length=100,
         null=True,
         blank=True,
-        help_text='Official institutional commercial bank corporate name',
-        db_comment='Bank corporate identifier name'
+        help_text='Official institutional commercial bank corporate name'
     )
     
     # Native PostgreSQL JSONB architecture integration
     emergency_contact = models.JSONField(
         default=dict,
-        help_text='Complex data object capturing name, kinship relation, phone node array for accidents',
-        db_comment='JSONB matrix structuring primary family point contacts'
+        help_text='Complex data object capturing name, kinship relation, phone node array for accidents'
     )
     
     # ========================================================================
@@ -312,14 +286,12 @@ class Employee(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this personnel file was first created',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this personnel file was first created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when this personnel profile was last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when this personnel profile was last modified'
     )
 
     class Meta:
@@ -353,14 +325,12 @@ class Employee(models.Model):
             # Index for lightning-fast lookups on personnel catalogs by branch operational status
             models.Index(
                 fields=['branch', 'is_active', 'position'],
-                name='idx_emp_branch_dispatch',
-                db_comment='Fleet crew filter engine optimization'
+                name='idx_emp_branch_dispatch'
             ),
             # Chronological optimization for compliance alert processing tasks (e.g., license expiries)
             models.Index(
                 fields=['license_expiry'],
-                name='idx_emp_license_compliance',
-                db_comment='Cron optimization for driver compliance check tasks'
+                name='idx_emp_license_compliance'
             ),
         ]
 

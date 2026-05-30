@@ -75,8 +75,7 @@ class LeaveRequest(models.Model):
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name='leave_requests',
         db_index=True,
-        help_text='The employee asset lodging this time-off request application',
-        db_comment='Reference to applicant employee'
+        help_text='The employee asset lodging this time-off request application'
     )
     
     approved_by = models.ForeignKey(
@@ -86,8 +85,7 @@ class LeaveRequest(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The administrative management account signing off on this decision profile',
-        db_comment='Reference to reviewer user account'
+        help_text='The administrative management account signing off on this decision profile'
     )
     
     # ========================================================================
@@ -98,32 +96,27 @@ class LeaveRequest(models.Model):
         max_length=30,
         choices=LEAVE_TYPE_CHOICES,
         db_index=True,
-        help_text='Classification category determining compensation and matrix handling',
-        db_comment='Leave category type classification'
+        help_text='Classification category determining compensation and matrix handling'
     )
     
     from_date = models.DateField(
-        help_text='The inclusive starting calendar date bound for the leave duration window',
-        db_comment='Duration sequence starting date bound'
+        help_text='The inclusive starting calendar date bound for the leave duration window'
     )
     
     to_date = models.DateField(
-        help_text='The inclusive ending calendar date bound for the leave duration window',
-        db_comment='Duration sequence ending date bound'
+        help_text='The inclusive ending calendar date bound for the leave duration window'
     )
     
     days_count = models.DecimalField(
         max_digits=4,
         decimal_places=1,  # Matches NUMERIC(4,1) supporting fractional inputs like 1.5, 0.5 days
-        help_text='Calculated fractional decimal metric totaling net absences (e.g., 0.5 for half day)',
-        db_comment='Total calculated fraction leave count units'
+        help_text='Calculated fractional decimal metric totaling net absences (e.g., 0.5 for half day)'
     )
     
     reason = models.TextField(
         null=True,
         blank=True,
-        help_text='Contextual statement provided by applicant explaining absence requirements',
-        db_comment='Employee justification note text'
+        help_text='Contextual statement provided by applicant explaining absence requirements'
     )
     
     # ========================================================================
@@ -135,28 +128,24 @@ class LeaveRequest(models.Model):
         choices=STATUS_CHOICES,
         default='PENDING',
         db_index=True,
-        help_text='Workflow progression state measuring administrative review status',
-        db_comment='Operational process lifecycle state token'
+        help_text='Workflow progression state measuring administrative review status'
     )
     
     approved_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when authorization occurred',
-        db_comment='Timestamp of management decision execution'
+        help_text='Timezone-aware timestamp logging exactly when authorization occurred'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='Timestamp when this application sheet was originally created',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this application sheet was originally created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when this application registry parameters were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when this application registry parameters were last modified'
     )
 
     class Meta:
@@ -189,14 +178,12 @@ class LeaveRequest(models.Model):
             # Composite index optimized for HR approval managers reviewing pending logs chronologically
             models.Index(
                 fields=['status', '-created_at'],
-                name='idx_leave_review_pipeline',
-                db_comment='Optimization for dashboard review rosters filtering pending lists'
+                name='idx_leave_review_pipeline'
             ),
             # Index for quick scanning of seasonal overlapping intervals within operational schedules
             models.Index(
                 fields=['from_date', 'to_date'],
-                name='idx_leave_calendar_window',
-                db_comment='Querying calendar ranges optimization'
+                name='idx_leave_calendar_window'
             ),
         ]
 

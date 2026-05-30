@@ -58,8 +58,7 @@ class CashierSession(models.Model):
         default=1,
         related_name='cashier_sessions',
         db_index=True,
-        help_text='Tenant corporate owner who holds rights over this physical point-of-sale shift node',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner who holds rights over this physical point-of-sale shift node'
     )
     
     cashier = models.ForeignKey(
@@ -67,8 +66,7 @@ class CashierSession(models.Model):
         on_delete=models.PROTECT,  # Production safety: block deleting user if historical cash audit trails exist
         related_name='cashier_sessions',
         db_index=True,
-        help_text='The employee user account assigned to manage the physical cash drawer during this shift window',
-        db_comment='Reference to operating cashier staff user profile'
+        help_text='The employee user account assigned to manage the physical cash drawer during this shift window'
     )
     
     branch = models.ForeignKey(
@@ -76,8 +74,7 @@ class CashierSession(models.Model):
         on_delete=models.PROTECT,  # Production safety: block deleting physical branch if accounting sessions refer to it
         related_name='cashier_sessions',
         db_index=True,
-        help_text='The physical branch terminal hub or office location where the transaction drawer is operated',
-        db_comment='Reference to originating physical branch office node'
+        help_text='The physical branch terminal hub or office location where the transaction drawer is operated'
     )
     
     # ========================================================================
@@ -87,15 +84,13 @@ class CashierSession(models.Model):
     opened_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at execution layer
         db_index=True,
-        help_text='Timezone-aware timestamp logging exactly when the cashier initialized the terminal drawer shift',
-        db_comment='Session initialization opening timestamp'
+        help_text='Timezone-aware timestamp logging exactly when the cashier initialized the terminal drawer shift'
     )
     
     closed_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging when the cashier declared the shift finished and locked access keys',
-        db_comment='Session final termination closing timestamp'
+        help_text='Timezone-aware timestamp logging when the cashier declared the shift finished and locked access keys'
     )
     
     # ========================================================================
@@ -106,8 +101,7 @@ class CashierSession(models.Model):
         max_digits=15,
         decimal_places=2,
         default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
-        help_text='The opening cash floating balance inside the terminal drawer drawer at shift start',
-        db_comment='Initial baseline float cash value currency balance'
+        help_text='The opening cash floating balance inside the terminal drawer drawer at shift start'
     )
     
     closing_cash = models.DecimalField(
@@ -115,8 +109,7 @@ class CashierSession(models.Model):
         decimal_places=2,
         null=True,
         blank=True,  # Matches NUMERIC(15,2) without default
-        help_text='The actual physical cash asset total counted by the employee at the end of the shift duration',
-        db_comment='Actual reported drawer physical currency cash balance'
+        help_text='The actual physical cash asset total counted by the employee at the end of the shift duration'
     )
     
     total_sales = models.DecimalField(
@@ -124,8 +117,7 @@ class CashierSession(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='The calculated mathematical sum of all revenue-generating tickets processed during this session',
-        db_comment='System calculated gross transaction sales value ledger'
+        help_text='The calculated mathematical sum of all revenue-generating tickets processed during this session'
     )
     
     total_refunds = models.DecimalField(
@@ -133,8 +125,7 @@ class CashierSession(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='The calculated mathematical sum of all cash payouts refunded out from this drawer during the shift',
-        db_comment='System calculated gross payout cash refunds value ledger'
+        help_text='The calculated mathematical sum of all cash payouts refunded out from this drawer during the shift'
     )
     
     discrepancy = models.DecimalField(
@@ -142,8 +133,7 @@ class CashierSession(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='The calculated variance error metric (reported cash vs mathematically expected cash balance matrix)',
-        db_comment='Audited transaction balance accounting variance anomaly metric'
+        help_text='The calculated variance error metric (reported cash vs mathematically expected cash balance matrix)'
     )
     
     # ========================================================================
@@ -155,21 +145,18 @@ class CashierSession(models.Model):
         choices=STATUS_CHOICES,
         default='OPEN',
         db_index=True,
-        help_text='The operational validation checkpoint phase tracking this cashier point-of-sale terminal sheet',
-        db_comment='Workflow session compliance tracking taxonomy status string token'
+        help_text='The operational validation checkpoint phase tracking this cashier point-of-sale terminal sheet'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Explanations regarding cash drawer discrepancies, bank run delays, or unexpected power losses',
-        db_comment='Administrative text log annotations'
+        help_text='Explanations regarding cash drawer discrepancies, bank run delays, or unexpected power losses'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='System record logging anchor tracking exactly when this session index row was generated',
-        db_comment='Creation timestamp'
+        help_text='System record logging anchor tracking exactly when this session index row was generated'
     )
 
     class Meta:

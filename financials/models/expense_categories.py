@@ -55,7 +55,6 @@ class ExpenseCategory(models.Model):
         related_name='expense_categories',
         db_index=True,
         help_text='Tenant corporate corporate node holding legal data sovereignty over this account code structure',
-        db_comment='Multi-tenancy tenant reference'
     )
     
     # ========================================================================
@@ -70,7 +69,6 @@ class ExpenseCategory(models.Model):
         blank=True,
         db_index=True,
         help_text='Pointer referencing the higher-level master accounting classification group. Sits NULL for root categories.',
-        db_comment='Recursive self-linking foreign key pointing onto parent index record'
     )
     
     # ========================================================================
@@ -80,13 +78,11 @@ class ExpenseCategory(models.Model):
     code = models.CharField(
         max_length=30,  # Matches VARCHAR(30) NOT NULL
         help_text='The specialized uppercase system billing key token (e.g., FUEL_DIESEL, OFFICE_RENT)',
-        db_comment='Alphanumeric financial accounting cost-center classification string token key'
     )
     
     name = models.CharField(
         max_length=100,  # Matches VARCHAR(100) NOT NULL
         help_text='Human-readable balance sheet title label used across corporate ledger accounting dashboards',
-        db_comment='Public ledger structural classification text descriptor name'
     )
     
     # ========================================================================
@@ -96,7 +92,6 @@ class ExpenseCategory(models.Model):
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() natively at database compiler layers
         help_text='Timezone-aware record logging anchor tracking exactly when this financial category row was initialized',
-        db_comment='Creation timestamp log entry'
     )
 
     class Meta:

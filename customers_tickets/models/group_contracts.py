@@ -63,32 +63,29 @@ class GroupContract(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='group_contracts',
         db_index=True,
-        help_text='Tenant corporate owner who holds commercial rights over this group charter ledger',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner who holds commercial rights over this group charter ledger'
     )
     
     trip = models.ForeignKey(
         Trip,
-        on_delete=models.PROTECT,  # Production safety: block trip deletion if B2B contracts are actively linked
+        on_delete=models.PROTECT,
         related_name='group_contracts',
         db_index=True,
-        help_text='The destination commercial trip vehicle journey assigned for this group booking',
-        db_comment='Reference to target trip model instance'
+        help_text='The destination commercial trip vehicle journey assigned for this group booking'
     )
     
     created_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='created_contracts',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The sales agent or corporate account manager who generated this document ledger line',
-        db_comment='Reference to originating creator employee user account'
+        help_text='The sales agent or corporate account manager who generated this document ledger line'
     )
     
     # ========================================================================
@@ -97,21 +94,19 @@ class GroupContract(models.Model):
     
     contract_code = models.CharField(
         max_length=30,
-        unique=True,  # Matches VARCHAR(30) NOT NULL UNIQUE
+        unique=True,
         validators=[
             RegexValidator(
                 regex=r'^[A-Z0-9\-_]+$',
                 message='Contract code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique business reference ledger code tracking this contract sheet (e.g., CTR-2026-001X)',
-        db_comment='Unique system commercial lookup token key code'
+        help_text='Unique business reference ledger code tracking this contract sheet (e.g., CTR-2026-001X)'
     )
     
     customer_name = models.CharField(
         max_length=255,
-        help_text='Full legal individual name or corporate company text purchasing this block contract',
-        db_comment='Primary customer legal entity identifier string'
+        help_text='Full legal individual name or corporate company text purchasing this block contract'
     )
     
     customer_phone = models.CharField(
@@ -122,24 +117,21 @@ class GroupContract(models.Model):
                 message='Customer contact phone number format specification is invalid'
             )
         ],
-        help_text='Primary communication phone sequence used for B2B accounts follow-up operations',
-        db_comment='Customer mobile contact number string sequence'
+        help_text='Primary communication phone sequence used for B2B accounts follow-up operations'
     )
     
     customer_email = models.EmailField(
-        max_length=254,  # Matches VARCHAR(254) email specification rules
+        max_length=254,
         null=True,
         blank=True,
-        help_text='Electronic mail node endpoint used for automatic billing and invoice dispatch lines',
-        db_comment='Corporate customer electronic mail address endpoint'
+        help_text='Electronic mail node endpoint used for automatic billing and invoice dispatch lines'
     )
     
     customer_tax_code = models.CharField(
         max_length=20,
         null=True,
-        blank=True,  # Matches customer_tax_code VARCHAR(20)
-        help_text='Government statutory tax identifier token for corporate legal receipt generation (VAT invoice)',
-        db_comment='Government corporate business tax code string token'
+        blank=True,
+        help_text='Government statutory tax identifier token for corporate legal receipt generation (VAT invoice)'
     )
     
     # ========================================================================
@@ -147,24 +139,21 @@ class GroupContract(models.Model):
     # ========================================================================
     
     seat_count = models.SmallIntegerField(
-        validators=[MinValueValidator(1)],  # Ensures seat block count is logically positive
-        help_text='Total aggregate allocation number of physical seat inventory chunks reserved by the group',
-        db_comment='Total count of blocked physical seat units'
+        validators=[MinValueValidator(1)],
+        help_text='Total aggregate allocation number of physical seat inventory chunks reserved by the group'
     )
     
     total_amount = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The full negotiated gross contract value currency rate calculated for this contract line',
-        db_comment='Total commercial contract financial debt invoice balance'
+        decimal_places=2,
+        help_text='The full negotiated gross contract value currency rate calculated for this contract line'
     )
     
     deposit_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
-        help_text='The initialization payment threshold required to transition the document out of Draft status',
-        db_comment='Required milestone initialization deposit currency balance'
+        default=0.00,
+        help_text='The initialization payment threshold required to transition the document out of Draft status'
     )
     
     # ========================================================================
@@ -174,8 +163,7 @@ class GroupContract(models.Model):
     deposit_paid_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when database confirmed receipt of deposit funds',
-        db_comment='Timestamp of financial milestone deposit clearance confirmation'
+        help_text='Timezone-aware timestamp logging exactly when database confirmed receipt of deposit funds'
     )
     
     status = models.CharField(
@@ -183,23 +171,20 @@ class GroupContract(models.Model):
         choices=STATUS_CHOICES,
         default='DRAFT',
         db_index=True,
-        help_text='The structural workflow state tracking this B2B lease through settlement and execution gates',
-        db_comment='Workflow contract operational progression taxonomy token'
+        help_text='The structural workflow state tracking this B2B lease through settlement and execution gates'
     )
     
     contract_file = models.CharField(
         max_length=500,
         null=True,
-        blank=True,  # Matches VARCHAR(500) representing the string cloud link path
-        help_text='Cloud object storage URL file path string pointing to the digital scan copy of the signed contract PDF file',
-        db_comment='Cloud URL string path reference link targeting physical document asset binary'
+        blank=True,
+        help_text='Cloud object storage URL file path string pointing to the digital scan copy of the signed contract PDF file'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Miscellaneous business negotiation notes, special pickup itineraries, or specific refund exemption logs',
-        db_comment='Administrative commerce profiling text log annotations'
+        help_text='Miscellaneous business negotiation notes, special pickup itineraries, or specific refund exemption logs'
     )
     
     # ========================================================================
@@ -208,14 +193,12 @@ class GroupContract(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this corporate charter contract was first registered inside the core DB',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this corporate charter contract was first registered inside the core DB'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this B2B ledger sheet were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when parameters inside this B2B ledger sheet were last modified'
     )
 
     class Meta:

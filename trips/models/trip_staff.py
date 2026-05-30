@@ -58,7 +58,6 @@ class TripStaff(models.Model):
         related_name='crew_assignments',
         db_index=True,
         help_text='The active commercial trip journey asset target mapping',
-        db_comment='Reference to parent operational trip'
     )
     
     employee = models.ForeignKey(
@@ -67,7 +66,6 @@ class TripStaff(models.Model):
         related_name='trip_assignments',
         db_index=True,
         help_text='The staff member assigned to the trip crew panel',
-        db_comment='Reference to assigned crew employee'
     )
     
     shift_type = models.ForeignKey(
@@ -78,7 +76,6 @@ class TripStaff(models.Model):
         blank=True,
         db_index=True,
         help_text='The specific daily working shift boundary profile covering this assignment time matrix',
-        db_comment='Reference to assigned shift context profile'
     )
     
     # ========================================================================
@@ -90,14 +87,12 @@ class TripStaff(models.Model):
         choices=ROLE_CHOICES,
         db_index=True,
         help_text='The functional deployment role designated to this staff member inside the vehicle',
-        db_comment='Crew operational taxonomy role token'
     )
     
     confirmed = models.BooleanField(
         default=False,
         db_index=True,
         help_text='Designates whether the employee has acknowledged and accepted this flight/trip dispatch roster order',
-        db_comment='Roster mobilization acceptance status indicator'
     )
 
     class Meta:
@@ -127,7 +122,6 @@ class TripStaff(models.Model):
             models.Index(
                 fields=['employee', 'confirmed'],
                 name='idx_staff_pending_rosters',
-                db_comment='Optimize mobile portal queries fetching unconfirmed tasks'
             ),
         ]
 

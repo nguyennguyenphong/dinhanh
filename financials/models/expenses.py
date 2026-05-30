@@ -64,21 +64,19 @@ class Expense(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='expenses',
         db_index=True,
-        help_text='Tenant corporate node owning and financing this commercial outlay row',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate node owning and financing this commercial outlay row'
     )
     
     category = models.ForeignKey(
         ExpenseCategory,
-        on_delete=models.PROTECT,  # Production safety: strict PROTECT prevents breaking account books if a category is altered
+        on_delete=models.PROTECT,
         related_name='expenses',
         db_index=True,
-        help_text='The specialized financial account category code grouping this type of cost outlay',
-        db_comment='Strict reference targeting parent financial catalog node'
+        help_text='The specialized financial account category code grouping this type of cost outlay'
     )
     
     # ========================================================================
@@ -87,46 +85,42 @@ class Expense(models.Model):
     
     vehicle = models.ForeignKey(
         Vehicle,
-        on_delete=models.SET_NULL,  # Matches REFERENCES vehicles(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='expenses',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The target fleet vehicle profile consuming this cash resource (e.g., fuel, tires, repairs)',
-        db_comment='Soft reference mapping target fleet asset model'
+        help_text='The target fleet vehicle profile consuming this cash resource (e.g., fuel, tires, repairs)'
     )
     
     trip = models.ForeignKey(
         Trip,
-        on_delete=models.SET_NULL,  # Matches REFERENCES trips(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='expenses',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The operational route trip execution context where this cost was generated (e.g., bridge toll fees)',
-        db_comment='Soft reference mapping operational trip document instance'
+        help_text='The operational route trip execution context where this cost was generated (e.g., bridge toll fees)'
     )
     
     branch = models.ForeignKey(
         Branch,
-        on_delete=models.SET_NULL,  # Matches REFERENCES branches(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='expenses',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The corporate physical branch office or office station responsible for incurring this liability',
-        db_comment='Soft reference mapping organizational facility division node'
+        help_text='The corporate physical branch office or office station responsible for incurring this liability'
     )
     
     employee = models.ForeignKey(
         Employee,
-        on_delete=models.SET_NULL,  # Matches REFERENCES employees(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='expenses',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The staff member or operational driver to whom this expenditure cash allocation is credited',
-        db_comment='Soft reference mapping corporate human resource profile'
+        help_text='The staff member or operational driver to whom this expenditure cash allocation is credited'
     )
     
     # ========================================================================
@@ -135,24 +129,22 @@ class Expense(models.Model):
     
     submitted_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='submitted_expenses',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The internal operator user account or accounting assistant filing this invoice data row into storage',
-        db_comment='Soft reference tracking initializing entry operator user'
+        help_text='The internal operator user account or accounting assistant filing this invoice data row into storage'
     )
     
     approved_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='approved_expenses',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The chief accountant or regional financial executive approving or rejecting this budget payout request',
-        db_comment='Soft reference tracking authorizing executive user'
+        help_text='The chief accountant or regional financial executive approving or rejecting this budget payout request'
     )
     
     # ========================================================================
@@ -160,38 +152,33 @@ class Expense(models.Model):
     # ========================================================================
     
     title = models.CharField(
-        max_length=255,  # Matches VARCHAR(255) NOT NULL
-        help_text='Short human-readable summary name identifying this expense (e.g., 50L Oil Topup Plate 30K-9999)',
-        db_comment='Public ledger title line descriptor summary text'
+        max_length=255,
+        help_text='Short human-readable summary name identifying this expense (e.g., 50L Oil Topup Plate 30K-9999)'
     )
     
     amount = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
+        decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The exact mathematical total cash volume spent or requested for this specific line item voucher',
-        db_comment='Absolute outbound commercial financial cash weight currency value balance'
+        help_text='The exact mathematical total cash volume spent or requested for this specific line item voucher'
     )
     
     expense_date = models.DateField(
-        db_index=True,  # Critical optimization for generating chronological income/expense monthly balance reports
-        help_text='The real-world business calendar date when the money was spent or when the physical invoice receipt was printed',
-        db_comment='Real-world operational accounting transaction calendar date'
+        db_index=True,
+        help_text='The real-world business calendar date when the money was spent or when the physical invoice receipt was printed'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Granular descriptive annotations or breakdown justifications clarifying specific line parameters',
-        db_comment='Administrative auditing textual log annotations'
+        help_text='Granular descriptive annotations or breakdown justifications clarifying specific line parameters'
     )
     
     attachment = models.CharField(
-        max_length=500,  # Matches VARCHAR(500)
+        max_length=500,
         null=True,
         blank=True,
-        help_text='Cloud storage object URL or server location path pointing to scanned PDF invoices or picture receipts',
-        db_comment='Cloud storage document asset URL string tracking token'
+        help_text='Cloud storage object URL or server location path pointing to scanned PDF invoices or picture receipts'
     )
     
     # ========================================================================
@@ -201,29 +188,25 @@ class Expense(models.Model):
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
-        default='PENDING',  # Matches NOT NULL DEFAULT 'PENDING'
+        default='PENDING',
         db_index=True,
-        help_text='The structural processing stage tracking this cost through auditing and layout payment lifecycles',
-        db_comment='Workflow compliance tracking status taxonomy string token'
+        help_text='The structural processing stage tracking this cost through auditing and layout payment lifecycles'
     )
     
     approved_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when an authorized executive approved or rejected this file',
-        db_comment='Management audit confirmation authorization timestamp'
+        help_text='Timezone-aware timestamp logging exactly when an authorized executive approved or rejected this file'
     )
     
     created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at db compiler layer
-        help_text='System record logging anchor tracking exactly when this entry row was stashed in the main DB',
-        db_comment='Creation initialization timestamp'
+        default=models.functions.Now,
+        help_text='System record logging anchor tracking exactly when this entry row was stashed in the main DB'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp tracking exactly when parameter attributes inside this financial voucher node mutated',
-        db_comment='Last database row tracking mutation modification timestamp'
+        help_text='Timestamp tracking exactly when parameter attributes inside this financial voucher node mutated'
     )
 
     class Meta:

@@ -65,28 +65,25 @@ class Vehicle(models.Model):
         default=1,
         related_name='vehicles',
         db_index=True,
-        help_text='Tenant owner of this vehicle',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this vehicle'
     )
     
     category = models.ForeignKey(
         VehicleCategory,
-        on_delete=models.RESTRICT,  # Production safety: prevent losing category blueprints
+        on_delete=models.RESTRICT,
         related_name='vehicles',
         db_index=True,
-        help_text='Vehicle specification category profile',
-        db_comment='Reference to vehicle category'
+        help_text='Vehicle specification category profile'
     )
     
     branch = models.ForeignKey(
         Branch,
-        on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='vehicles',
         null=True,
         blank=True,
         db_index=True,
-        help_text='Current managing or home branch location',
-        db_comment='Reference to home branch'
+        help_text='Current managing or home branch location'
     )
     
     # ========================================================================
@@ -95,23 +92,21 @@ class Vehicle(models.Model):
     
     plate_number = models.CharField(
         max_length=20,
-        unique=True,  # Matches UNIQUE constraint across entire database instance
+        unique=True,
         validators=[
             RegexValidator(
                 regex=r'^[A-Z0-9\-.\s]+$',
                 message='Plate number format is invalid'
             )
         ],
-        help_text='Unique official vehicle license plate number (e.g., 29A-123.45)',
-        db_comment='License plate number'
+        help_text='Unique official vehicle license plate number (e.g., 29A-123.45)'
     )
     
     vin = models.CharField(
         max_length=50,
         null=True,
         blank=True,
-        help_text='Vehicle Identification Number (Chassis number)',
-        db_comment='Vehicle Identification Number'
+        help_text='Vehicle Identification Number (Chassis number)'
     )
     
     # ========================================================================
@@ -121,32 +116,28 @@ class Vehicle(models.Model):
     manufacture_year = models.PositiveSmallIntegerField(
         null=True,
         blank=True,
-        help_text='Year of manufacture/production',
-        db_comment='Manufacture year'
+        help_text='Year of manufacture/production'
     )
     
     brand = models.CharField(
         max_length=100,
         null=True,
         blank=True,
-        help_text='Manufacturer brand (e.g., Hyundai, Thaco, Ford)',
-        db_comment='Vehicle brand'
+        help_text='Manufacturer brand (e.g., Hyundai, Thaco, Ford)'
     )
     
     model = models.CharField(
         max_length=100,
         null=True,
         blank=True,
-        help_text='Specific manufacturing model name',
-        db_comment='Vehicle model'
+        help_text='Specific manufacturing model name'
     )
     
     color = models.CharField(
         max_length=50,
         null=True,
         blank=True,
-        help_text='Exterior color description',
-        db_comment='Vehicle color'
+        help_text='Exterior color description'
     )
     
     # ========================================================================
@@ -158,8 +149,7 @@ class Vehicle(models.Model):
         choices=STATUS_CHOICES,
         default='AVAILABLE',
         db_index=True,
-        help_text='Current technical or operation lifecycle state',
-        db_comment='Vehicle lifecycle status'
+        help_text='Current technical or operation lifecycle state'
     )
     
     odometer_km = models.DecimalField(
@@ -167,36 +157,31 @@ class Vehicle(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Total cumulative tracked mileage in kilometers',
-        db_comment='Odometer value in km'
+        help_text='Total cumulative tracked mileage in kilometers'
     )
     
     registration_expiry = models.DateField(
         null=True,
         blank=True,
-        help_text='Expiry date of the vehicle official legal registration',
-        db_comment='Registration expiry date'
+        help_text='Expiry date of the vehicle official legal registration'
     )
     
     insurance_expiry = models.DateField(
         null=True,
         blank=True,
-        help_text='Expiry date of the vehicle civil liability/hull insurance policy',
-        db_comment='Insurance expiry date'
+        help_text='Expiry date of the vehicle civil liability/hull insurance policy'
     )
     
     inspection_expiry = models.DateField(
         null=True,
         blank=True,
-        help_text='Expiry date of the vehicle technical safety inspection certificate',
-        db_comment='Inspection expiry date'
+        help_text='Expiry date of the vehicle technical safety inspection certificate'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Internal operational logs, repair flags, or general annotations',
-        db_comment='Internal text notes'
+        help_text='Internal operational logs, repair flags, or general annotations'
     )
     
     # ========================================================================
@@ -206,14 +191,12 @@ class Vehicle(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='Timestamp when the vehicle asset profile was registered',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when the vehicle asset profile was registered'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when the vehicle profile data was modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when the vehicle profile data was modified'
     )
 
     class Meta:
@@ -242,14 +225,12 @@ class Vehicle(models.Model):
             # Optimization for matching operational ready trucks/buses by branch
             models.Index(
                 fields=['branch', 'status'],
-                name='idx_vehicle_branch_status',
-                db_comment='Filter branch assets by operational status'
+                name='idx_vehicle_branch_status'
             ),
             # Optimization for compliance pipelines (cronjobs checking upcoming alerts)
             models.Index(
                 fields=['inspection_expiry', 'insurance_expiry'],
-                name='idx_vehicle_compliance_dates',
-                db_comment='Pipeline optimization for document tracking alerts'
+                name='idx_vehicle_compliance_dates'
             ),
         ]
 

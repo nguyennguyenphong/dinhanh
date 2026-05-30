@@ -68,8 +68,7 @@ class Notification(models.Model):
     
     tenant_id = models.IntegerField(
         default=1,  # Matches NOT NULL DEFAULT 1 from requirement
-        help_text='Tenant corporate node owning and financing this communications ledger execution instance',
-        db_comment='Multi-tenancy tenant reference identity indicator'
+        help_text='Tenant corporate node owning and financing this communications ledger execution instance'
     )
     
     # ========================================================================
@@ -83,8 +82,7 @@ class Notification(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The base blueprint template layer utilized to construct this message payload copy text',
-        db_comment='Soft reference mapping origin blueprint copy template configuration node'
+        help_text='The base blueprint template layer utilized to construct this message payload copy text'
     )
     
     # ========================================================================
@@ -94,31 +92,27 @@ class Notification(models.Model):
     recipient_type = models.CharField(
         max_length=20,
         choices=RECIPIENT_TYPE_CHOICES,  # Enforces structural comment boundaries
-        help_text='The structural category classification governing the target recipient profile mapping layout',
-        db_comment='Recipient category classification taxonomy token string'
+        help_text='The structural category classification governing the target recipient profile mapping layout'
     )
     
     recipient_id = models.IntegerField(
         null=True,
         blank=True,
-        help_text='The abstract primary key referencing the target user/customer/employee table row based on recipient_type',
-        db_comment='Polymorphic raw target entity integer identity pointer'
+        help_text='The abstract primary key referencing the target user/customer/employee table row based on recipient_type'
     )
     
     recipient_phone = models.CharField(
         max_length=20,
         null=True,
         blank=True,  # Matches VARCHAR(20) nullable parameters
-        help_text='Cellular telecommunication string destination required for SMS or ZALO dispatches',
-        db_comment='Target telephone communication destination string line'
+        help_text='Cellular telecommunication string destination required for SMS or ZALO dispatches'
     )
     
     recipient_email = models.EmailField(
         max_length=254,  # Matches VARCHAR(254) cleanly via standard Django definitions
         null=True,
         blank=True,
-        help_text='Electronic digital mail destination address required for EMAIL channel delivery workflows',
-        db_comment='Target digital internet mail address string routing point'
+        help_text='Electronic digital mail destination address required for EMAIL channel delivery workflows'
     )
     
     # ========================================================================
@@ -127,21 +121,18 @@ class Notification(models.Model):
     
     channel = models.CharField(
         max_length=20,
-        help_text='The explicit physical medium selected to route this communication text block (e.g., SMS, EMAIL, PUSH)',
-        db_comment='Omnichannel distribution pathway taxonomy string token'
+        help_text='The explicit physical medium selected to route this communication text block (e.g., SMS, EMAIL, PUSH)'
     )
     
     subject = models.CharField(
         max_length=500,  # Matches VARCHAR(500) nullable parameter specifications
         null=True,
         blank=True,
-        help_text='The specific message title or email subject text banner used during transmission delivery packages',
-        db_comment='Communication header title or subject string text line'
+        help_text='The specific message title or email subject text banner used during transmission delivery packages'
     )
     
     body = models.TextField(
-        help_text='The finalized rendered plaintext or rich HTML text body sent down to third-party telecommunication networks',
-        db_comment='Fully-compiled message text block content payload'
+        help_text='The finalized rendered plaintext or rich HTML text body sent down to third-party telecommunication networks'
     )
     
     # ========================================================================
@@ -152,22 +143,19 @@ class Notification(models.Model):
         max_length=20,
         choices=STATUS_CHOICES,
         default='PENDING',  # Matches NOT NULL DEFAULT 'PENDING'
-        help_text='The real-time operational processing milestone tracking this transaction through queue worker handlers',
-        db_comment='Queue lifecycle tracking status taxonomy string token'
+        help_text='The real-time operational processing milestone tracking this transaction through queue worker handlers'
     )
     
     retry_count = models.SmallIntegerField(
         default=0,  # Matches SMALLINT NOT NULL DEFAULT 0
         validators=[MinValueValidator(0), MaxValueValidator(10)],
-        help_text='Current exponential backoff retry tally tracking delivery attempts made by pipeline workers before failure termination',
-        db_comment='Queue failure transmission retry attempt iteration ledger counter'
+        help_text='Current exponential backoff retry tally tracking delivery attempts made by pipeline workers before failure termination'
     )
     
     error_msg = models.TextField(
         null=True,
         blank=True,
-        help_text='Stashes external vendor diagnostic telemetry dumps or exception logs during failed transmission attempts',
-        db_comment='System failure logs or gateway response exception traces text'
+        help_text='Stashes external vendor diagnostic telemetry dumps or exception logs during failed transmission attempts'
     )
     
     # ========================================================================
@@ -178,15 +166,13 @@ class Notification(models.Model):
         max_length=60,
         null=True,
         blank=True,
-        help_text='The application string name token mapping target business modules (e.g., booking, trip, consignment)',
-        db_comment='Loose operational domain model target context identifier classification token'
+        help_text='The application string name token mapping target business modules (e.g., booking, trip, consignment)'
     )
     
     ref_id = models.BigAutoField(
         null=True,
         blank=True,
-        help_text='The corresponding primary key value pointing onto the source domain model indicated by ref_type',
-        db_comment='Loose target business instance primary identity model tracking reference integer'
+        help_text='The corresponding primary key value pointing onto the source domain model indicated by ref_type'
     )
     
     # ========================================================================
@@ -196,14 +182,12 @@ class Notification(models.Model):
     sent_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when the third-party communication channel confirmed delivery clearance',
-        db_comment='Physical outbound delivery completion timestamp'
+        help_text='Timezone-aware timestamp logging exactly when the third-party communication channel confirmed delivery clearance'
     )
     
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at native execution compilation
-        help_text='Timezone-aware anchor tracking record entry. This is the structural PARTITION KEY routing rows to distinct physical storage sub-tables.',
-        db_comment='Notification queue row registration initialization timestamp'
+        help_text='Timezone-aware anchor tracking record entry. This is the structural PARTITION KEY routing rows to distinct physical storage sub-tables.'
     )
 
     class Meta:

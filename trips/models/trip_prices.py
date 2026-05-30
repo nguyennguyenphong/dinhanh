@@ -56,21 +56,19 @@ class TripPrice(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='trip_prices',
         db_index=True,
-        help_text='Tenant owner of this commercial pricing tariff schema',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this commercial pricing tariff schema'
     )
     
     route = models.ForeignKey(
         Route,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         related_name='tariffs',
         db_index=True,
-        help_text='The specific spatial transportation route this tariff applies to',
-        db_comment='Reference to parent structural route entity'
+        help_text='The specific spatial transportation route this tariff applies to'
     )
     
     # ========================================================================
@@ -82,24 +80,21 @@ class TripPrice(models.Model):
         choices=SEAT_TYPE_CHOICES,
         default='SEAT',
         db_index=True,
-        help_text='The layout material or tier category mapping this fare rate (e.g., SEAT, SLEEPER)',
-        db_comment='Physical seat classification token string'
+        help_text='The layout material or tier category mapping this fare rate (e.g., SEAT, SLEEPER)'
     )
     
     price = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2)
-        help_text='The official adult standard ticket base pricing scalar value',
-        db_comment='Adult standard base tariff value'
+        decimal_places=2,
+        help_text='The official adult standard ticket base pricing scalar value'
     )
     
     child_price = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         null=True,
-        blank=True,  # Optional field matching child_price NUMERIC(15,2)
-        help_text='Concessionary ticket price explicitly allocated for child or minor passengers',
-        db_comment='Subsidized minor passenger tariff value'
+        blank=True,
+        help_text='Concessionary ticket price explicitly allocated for child or minor passengers'
     )
     
     # ========================================================================
@@ -107,22 +102,19 @@ class TripPrice(models.Model):
     # ========================================================================
     
     valid_from = models.DateField(
-        help_text='The activation date from which this fare tariff becomes effective and open for bookings',
-        db_comment='Tariff validity sequence activation date bound'
+        help_text='The activation date from which this fare tariff becomes effective and open for bookings'
     )
     
     valid_to = models.DateField(
         null=True,
         blank=True,
-        help_text='The closure date when this fare tariff structure ceases to be active (Null implies indefinite)',
-        db_comment='Tariff validity sequence expiration date bound'
+        help_text='The closure date when this fare tariff structure ceases to be active (Null implies indefinite)'
     )
     
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Designates whether this specific pricing line is actively considered by the ticketing engine',
-        db_comment='Active status flag toggle'
+        help_text='Designates whether this specific pricing line is actively considered by the ticketing engine'
     )
     
     # ========================================================================
@@ -131,14 +123,12 @@ class TripPrice(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this pricing matrix ledger rule was generated',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this pricing matrix ledger rule was generated'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this pricing rule were modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when parameters inside this pricing rule were modified'
     )
 
     class Meta:
@@ -155,8 +145,7 @@ class TripPrice(models.Model):
             # Compound index optimized for high-velocity queries driving the consumer ticketing search engine
             models.Index(
                 fields=['route', 'seat_type', 'is_active'],
-                name='idx_price_booking_lookup',
-                db_comment='Optimize ticketing checkout engine queries checking current seat prices'
+                name='idx_price_booking_lookup'
             ),
         ]
 

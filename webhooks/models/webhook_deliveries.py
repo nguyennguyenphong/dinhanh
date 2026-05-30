@@ -81,8 +81,7 @@ class WebhookDelivery(models.Model):
         on_delete=models.CASCADE,
         related_name='deliveries',
         db_index=True,
-        help_text='Webhook endpoint',
-        db_comment='Reference to webhook endpoint'
+        help_text='Webhook endpoint'
     )
     
     # ========================================================================
@@ -92,13 +91,11 @@ class WebhookDelivery(models.Model):
     event_type = models.CharField(
         max_length=100,
         db_index=True,
-        help_text='Event type (e.g., "booking.created")',
-        db_comment='Event type'
+        help_text='Event type (e.g., "booking.created")'
     )
     
     payload = models.JSONField(
-        help_text='Event payload as JSON',
-        db_comment='Event payload'
+        help_text='Event payload as JSON'
     )
     
     # ========================================================================
@@ -108,15 +105,13 @@ class WebhookDelivery(models.Model):
     response_code = models.SmallIntegerField(
         null=True,
         blank=True,
-        help_text='HTTP response status code',
-        db_comment='HTTP status code'
+        help_text='HTTP response status code'
     )
     
     response_body = models.TextField(
         blank=True,
         null=True,
-        help_text='HTTP response body (truncated)',
-        db_comment='Response body'
+        help_text='HTTP response body (truncated)'
     )
     
     # ========================================================================
@@ -125,8 +120,7 @@ class WebhookDelivery(models.Model):
     
     attempt = models.SmallIntegerField(
         default=1,
-        help_text='Attempt number',
-        db_comment='Attempt number'
+        help_text='Attempt number'
     )
     
     status = models.CharField(
@@ -134,8 +128,7 @@ class WebhookDelivery(models.Model):
         choices=STATUS_CHOICES,
         default='PENDING',
         db_index=True,
-        help_text='Delivery status',
-        db_comment='Delivery status'
+        help_text='Delivery status'
     )
     
     # ========================================================================
@@ -145,22 +138,19 @@ class WebhookDelivery(models.Model):
     delivered_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When delivery was successful',
-        db_comment='Successful delivery time'
+        help_text='When delivery was successful'
     )
     
     failed_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When delivery failed',
-        db_comment='Failure time'
+        help_text='When delivery failed'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When delivery was created',
-        db_comment='Creation timestamp'
+        help_text='When delivery was created'
     )
 
     class Meta:
@@ -177,26 +167,22 @@ class WebhookDelivery(models.Model):
             # Index for finding deliveries by endpoint and status
             models.Index(
                 fields=['endpoint', 'status'],
-                name='idx_webhook_deliveries_endpoint',
-                db_comment='Query deliveries by endpoint and status'
+                name='idx_webhook_deliveries_endpoint'
             ),
             # Index for time-based queries
             models.Index(
                 fields=['-created_at'],
-                name='idx_webhook_deliveries_created',
-                db_comment='Query deliveries by creation date'
+                name='idx_webhook_deliveries_created'
             ),
             # Index for event type queries
             models.Index(
                 fields=['event_type'],
-                name='idx_webhook_deliveries_event',
-                db_comment='Query deliveries by event type'
+                name='idx_webhook_deliveries_event'
             ),
             # Index for retry queries
             models.Index(
                 fields=['status', 'attempt'],
-                name='idx_webhook_deliveries_retry',
-                db_comment='Query pending retries'
+                name='idx_webhook_deliveries_retry'
             ),
         ]
 

@@ -67,14 +67,12 @@ class Station(models.Model):
                 message='Code must contain only uppercase letters, numbers, and underscores'
             )
         ],
-        help_text='Unique station code (e.g., HN_MAIN, SGN_WEST)',
-        db_comment='Station code'
+        help_text='Unique station code (e.g., HN_MAIN, SGN_WEST)'
     )
     
     name = models.CharField(
         max_length=255,
-        help_text='Station name',
-        db_comment='Station name'
+        help_text='Station name'
     )
     
     # ========================================================================
@@ -86,15 +84,13 @@ class Station(models.Model):
         on_delete=models.CASCADE,
         related_name='stations',
         db_index=True,
-        help_text='Province where station is located',
-        db_comment='Reference to province'
+        help_text='Province where station is located'
     )
     
     address = models.TextField(
         null=True,
         blank=True,
-        help_text='Full address of station',
-        db_comment='Station address'
+        help_text='Full address of station'
     )
     
     # ========================================================================
@@ -106,8 +102,7 @@ class Station(models.Model):
         decimal_places=7,
         null=True,
         blank=True,
-        help_text='Latitude coordinate',
-        db_comment='Latitude'
+        help_text='Latitude coordinate'
     )
     
     longitude = models.DecimalField(
@@ -115,8 +110,7 @@ class Station(models.Model):
         decimal_places=7,
         null=True,
         blank=True,
-        help_text='Longitude coordinate',
-        db_comment='Longitude'
+        help_text='Longitude coordinate'
     )
     
     # ========================================================================
@@ -133,8 +127,7 @@ class Station(models.Model):
                 message='Invalid phone number format'
             )
         ],
-        help_text='Station phone number',
-        db_comment='Phone number'
+        help_text='Station phone number'
     )
     
     # ========================================================================
@@ -144,8 +137,7 @@ class Station(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Station is active and operational',
-        db_comment='Active status'
+        help_text='Station is active and operational'
     )
     
     # ========================================================================
@@ -155,14 +147,12 @@ class Station(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When station was created',
-        db_comment='Creation timestamp'
+        help_text='When station was created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When station was last updated',
-        db_comment='Last update timestamp'
+        help_text='When station was last updated'
     )
 
     class Meta:
@@ -179,20 +169,17 @@ class Station(models.Model):
             # Index for province queries
             models.Index(
                 fields=['province'],
-                name='idx_station_province',
-                db_comment='Query stations by province'
+                name='idx_station_province'
             ),
             # Index for active stations
             models.Index(
                 fields=['is_active'],
-                name='idx_station_active',
-                db_comment='Query active stations'
+                name='idx_station_active'
             ),
             # Index for code lookup
             models.Index(
                 fields=['code'],
-                name='idx_station_code',
-                db_comment='Query station by code'
+                name='idx_station_code'
             ),
         ]
 
@@ -591,14 +578,12 @@ class Route(models.Model):
                 message='Code must contain only uppercase letters, numbers, and underscores'
             )
         ],
-        help_text='Unique route code',
-        db_comment='Route code'
+        help_text='Unique route code'
     )
     
     name = models.CharField(
         max_length=255,
-        help_text='Route name',
-        db_comment='Route name'
+        help_text='Route name'
     )
     
     # ========================================================================
@@ -610,8 +595,7 @@ class Route(models.Model):
         on_delete=models.CASCADE,
         related_name='routes_from',
         db_index=True,
-        help_text='Origin station',
-        db_comment='Origin station'
+        help_text='Origin station'
     )
     
     destination = models.ForeignKey(
@@ -619,8 +603,7 @@ class Route(models.Model):
         on_delete=models.CASCADE,
         related_name='routes_to',
         db_index=True,
-        help_text='Destination station',
-        db_comment='Destination station'
+        help_text='Destination station'
     )
     
     # ========================================================================
@@ -632,15 +615,13 @@ class Route(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Distance in kilometers',
-        db_comment='Distance (km)'
+        help_text='Distance in kilometers'
     )
     
     estimated_duration = models.DurationField(
         null=True,
         blank=True,
-        help_text='Estimated travel duration',
-        db_comment='Estimated duration'
+        help_text='Estimated travel duration'
     )
     
     # ========================================================================
@@ -650,8 +631,7 @@ class Route(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Route is active',
-        db_comment='Active status'
+        help_text='Route is active'
     )
     
     # ========================================================================
@@ -661,14 +641,12 @@ class Route(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When route was created',
-        db_comment='Creation timestamp'
+        help_text='When route was created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When route was last updated',
-        db_comment='Last update timestamp'
+        help_text='When route was last updated'
     )
 
     class Meta:
@@ -697,14 +675,12 @@ class Route(models.Model):
             # Index for origin queries
             models.Index(
                 fields=['origin'],
-                name='idx_route_origin',
-                db_comment='Query routes by origin'
+                name='idx_route_origin'
             ),
             # Index for destination queries
             models.Index(
                 fields=['destination'],
-                name='idx_route_destination',
-                db_comment='Query routes by destination'
+                name='idx_route_destination'
             ),
         ]
 
@@ -748,8 +724,7 @@ class Schedule(models.Model):
         on_delete=models.CASCADE,
         related_name='schedules',
         db_index=True,
-        help_text='Route for this schedule',
-        db_comment='Reference to route'
+        help_text='Route for this schedule'
     )
     
     # ========================================================================
@@ -757,13 +732,11 @@ class Schedule(models.Model):
     # ========================================================================
     
     departure_time = models.TimeField(
-        help_text='Departure time',
-        db_comment='Departure time'
+        help_text='Departure time'
     )
     
     arrival_time = models.TimeField(
-        help_text='Arrival time',
-        db_comment='Arrival time'
+        help_text='Arrival time'
     )
     
     # ========================================================================
@@ -772,8 +745,7 @@ class Schedule(models.Model):
     
     capacity = models.IntegerField(
         default=50,
-        help_text='Vehicle capacity',
-        db_comment='Capacity'
+        help_text='Vehicle capacity'
     )
     
     # ========================================================================
@@ -783,8 +755,7 @@ class Schedule(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Schedule is active',
-        db_comment='Active status'
+        help_text='Schedule is active'
     )
     
     # ========================================================================
@@ -794,8 +765,7 @@ class Schedule(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When schedule was created',
-        db_comment='Creation timestamp'
+        help_text='When schedule was created'
     )
 
     class Meta:
@@ -812,14 +782,12 @@ class Schedule(models.Model):
             # Index for route queries
             models.Index(
                 fields=['route'],
-                name='idx_schedule_route',
-                db_comment='Query schedules by route'
+                name='idx_schedule_route'
             ),
             # Index for time queries
             models.Index(
                 fields=['departure_time'],
-                name='idx_schedule_departure',
-                db_comment='Query schedules by departure time'
+                name='idx_schedule_departure'
             ),
         ]
 

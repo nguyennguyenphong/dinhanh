@@ -7,7 +7,6 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
-from django.db import models
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
@@ -67,8 +66,7 @@ class AfterSales(models.Model):
         default=1,
         related_name='after_sales_policies',
         db_index=True,
-        help_text='Tenant corporate owner holding legal data sovereignty over this CRM retention campaign node',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner holding legal data sovereignty over this CRM retention campaign node'
     )
     
     created_by = models.ForeignKey(
@@ -78,8 +76,7 @@ class AfterSales(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The authorized system administrator or marketing strategist user account who compiled this reward matrix',
-        db_comment='Soft reference mapping executing employee account profile'
+        help_text='The authorized system administrator or marketing strategist user account who compiled this reward matrix'
     )
     
     # ========================================================================
@@ -88,21 +85,18 @@ class AfterSales(models.Model):
     
     code = models.CharField(
         max_length=50,  # Matches VARCHAR(50) NOT NULL
-        help_text='The unique system text key code used to classify this retention policy rule (e.g., RETURN_USER_BONUS)',
-        db_comment='Unique system after-sales policy lookup string identifier token key'
+        help_text='The unique system text key code used to classify this retention policy rule (e.g., RETURN_USER_BONUS)'
     )
     
     name = models.CharField(
         max_length=255,  # Matches VARCHAR(255) NOT NULL
-        help_text='Public or internal campaign title descriptive name text displayed in administrative panels',
-        db_comment='Campaign policy structural identification text label'
+        help_text='Public or internal campaign title descriptive name text displayed in administrative panels'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Detailed descriptions capturing operational parameters, policy scopes, or audit notes',
-        db_comment='Detailed campaign metadata descriptive logs text'
+        help_text='Detailed descriptions capturing operational parameters, policy scopes, or audit notes'
     )
     
     # ========================================================================
@@ -113,8 +107,7 @@ class AfterSales(models.Model):
         max_length=30,
         choices=TYPE_CHOICES,  # Models the implicit ENUM requirement
         db_index=True,
-        help_text='The primary rewarding strategy type framework deployed upon successful qualification check clears',
-        db_comment='Policy reward action taxonomy classification string token'
+        help_text='The primary rewarding strategy type framework deployed upon successful qualification check clears'
     )
     
     value = models.DecimalField(
@@ -123,8 +116,7 @@ class AfterSales(models.Model):
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The raw magnitude scale tracking reward values. Maps to cash weight balances, absolute point counts, or percentages.',
-        db_comment='Base reward numerical magnitude value parameter scale'
+        help_text='The raw magnitude scale tracking reward values. Maps to cash weight balances, absolute point counts, or percentages.'
     )
     
     # ========================================================================
@@ -133,8 +125,7 @@ class AfterSales(models.Model):
     
     conditions = models.JSONField(
         default=dict,  # Matches NOT NULL DEFAULT '{}' natively at database compiler layers
-        help_text='Schemaless validation rule matrices mapping criteria fields (e.g., {"target_route_id": 5, "min_spend": 200000})',
-        db_comment='Binary-stashed JSONB object structural rule validation matrices'
+        help_text='Schemaless validation rule matrices mapping criteria fields (e.g., {"target_route_id": 5, "min_spend": 200000})'
     )
     
     # ========================================================================
@@ -144,20 +135,17 @@ class AfterSales(models.Model):
     is_active = models.BooleanField(
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
-        help_text='Master state switch engine. Setting this False safely deactivates the automatic rule logic processing queues instantly',
-        db_comment='Administrative activation state toggle switch flag'
+        help_text='Master state switch engine. Setting this False safely deactivates the automatic rule logic processing queues instantly'
     )
     
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core DDL layers
-        help_text='System record logging anchor tracking exactly when this rule layout row entered the main database',
-        db_comment='Creation timestamp'
+        help_text='System record logging anchor tracking exactly when this rule layout row entered the main database'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,  # Matches default updated_at trigger requirements cleanly via application side hooks
-        help_text='Timestamp tracking exactly when parameter attributes inside this after-sales configuration node mutated',
-        db_comment='Last database row tracking mutation modification timestamp'
+        help_text='Timestamp tracking exactly when parameter attributes inside this after-sales configuration node mutated'
     )
 
     class Meta:

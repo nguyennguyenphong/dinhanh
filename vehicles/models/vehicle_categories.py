@@ -65,8 +65,7 @@ class VehicleCategory(models.Model):
         default=1,
         related_name='vehicle_categories',
         db_index=True,
-        help_text='Tenant owner of this vehicle category',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this vehicle category'
     )
     
     # ========================================================================
@@ -81,14 +80,12 @@ class VehicleCategory(models.Model):
                 message='Code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique category code per tenant (e.g., STD-45, VIP-22)',
-        db_comment='Category identification code'
+        help_text='Unique category code per tenant (e.g., STD-45, VIP-22)'
     )
     
     name = models.CharField(
         max_length=100,
-        help_text='Display name of the category',
-        db_comment='Category name'
+        help_text='Display name of the category'
     )
     
     # ========================================================================
@@ -96,23 +93,20 @@ class VehicleCategory(models.Model):
     # ========================================================================
     
     seat_count = models.PositiveSmallIntegerField(
-        help_text='Total number of passenger seats/berths available',
-        db_comment='Seat capacity count'
+        help_text='Total number of passenger seats/berths available'
     )
     
     vehicle_type = models.CharField(
         max_length=50,
         choices=VEHICLE_TYPE_CHOICES,
         db_index=True,
-        help_text='Classification type of the vehicle',
-        db_comment='Vehicle core type'
+        help_text='Classification type of the vehicle'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Detailed description of the category and its configuration',
-        db_comment='Detailed description'
+        help_text='Detailed description of the category and its configuration'
     )
     
     # Native PostgreSQL array field to support TEXT[]
@@ -120,8 +114,7 @@ class VehicleCategory(models.Model):
         models.CharField(max_length=50),
         blank=True,
         default=list,
-        help_text='List of available features (e.g., wifi, ac, usb, tv)',
-        db_comment='Array of amenities tags'
+        help_text='List of available features (e.g., wifi, ac, usb, tv)'
     )
     
     # ========================================================================
@@ -130,21 +123,18 @@ class VehicleCategory(models.Model):
     
     is_active = models.BooleanField(
         default=True,
-        help_text='Designates whether this category is active and can be assigned to new vehicles',
-        db_comment='Operational status flag'
+        help_text='Designates whether this category is active and can be assigned to new vehicles'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='Timestamp when the category was created',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when the category was created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when the category was last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when the category was last modified'
     )
 
     class Meta:
@@ -178,8 +168,7 @@ class VehicleCategory(models.Model):
             # Composite index for filtering operational/active categories per tenant quickly
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_veh_cat_tenant_active',
-                db_comment='Filter active categories per tenant'
+                name='idx_veh_cat_tenant_active'
             ),
         ]
 

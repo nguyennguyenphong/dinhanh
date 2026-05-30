@@ -61,7 +61,6 @@ class Seat(models.Model):
         related_name='seats',
         db_index=True,
         help_text='The blueprint seat map configuration template this unit belongs to',
-        db_comment='Reference to parent seat map template'
     )
     
     # ========================================================================
@@ -71,7 +70,6 @@ class Seat(models.Model):
     seat_code = models.CharField(
         max_length=10,
         help_text='Unique identifier code displayed to customer (e.g., A1, 12B, VIP-01)',
-        db_comment='Seat physical code identifier'
     )
     
     seat_type = models.CharField(
@@ -80,7 +78,6 @@ class Seat(models.Model):
         default='SEAT',
         db_index=True,
         help_text='Classification type representing comfort spec and pricing tier',
-        db_comment='Classification seat type string'
     )
     
     # ========================================================================
@@ -91,21 +88,18 @@ class Seat(models.Model):
         default=1,
         validators=[MinValueValidator(1)],
         help_text='Deck/Floor layer identifier (e.g., 1 for Lower Deck, 2 for Upper Deck)',
-        db_comment='Deck or floor number index'
     )
     
     row_num = models.PositiveSmallIntegerField(
         null=True,
         blank=True,
         help_text='Matrix grid logical row sequence coordinate index number',
-        db_comment='Logical row index number'
     )
     
     col_num = models.PositiveSmallIntegerField(
         null=True,
         blank=True,
         help_text='Matrix grid logical column sequence coordinate index number',
-        db_comment='Logical column index number'
     )
     
     # ========================================================================
@@ -118,7 +112,6 @@ class Seat(models.Model):
         null=True,
         blank=True,
         help_text='Absolute or relative graphic coordinate factor mapping onto X horizontal axis',
-        db_comment='UI grid positioning coordinate absolute X'
     )
     
     position_y = models.DecimalField(
@@ -127,7 +120,6 @@ class Seat(models.Model):
         null=True,
         blank=True,
         help_text='Absolute or relative graphic coordinate factor mapping onto Y vertical axis',
-        db_comment='UI grid positioning coordinate absolute Y'
     )
     
     # ========================================================================
@@ -137,7 +129,6 @@ class Seat(models.Model):
     is_available = models.BooleanField(
         default=True,
         help_text='Designates whether this seat template unit is structurally ready for commercial usage',
-        db_comment='Operational physical inventory status availability flag'
     )
 
     class Meta:
@@ -172,7 +163,6 @@ class Seat(models.Model):
             models.Index(
                 fields=['seat_map', 'deck', 'is_available'],
                 name='idx_seat_map_deck_operational',
-                db_comment='Fetch active commercial configurations map structure'
             ),
         ]
 

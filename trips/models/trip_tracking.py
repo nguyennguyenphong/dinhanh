@@ -54,7 +54,6 @@ class TripTracking(models.Model):
         related_name='telemetry_logs',
         db_index=False,  # Enforcing False because we explicitly declare a composite index in the DB
         help_text='The active operational trip journey producing this telematics node frame',
-        db_comment='Reference to monitored trip entity'
     )
     
     # ========================================================================
@@ -65,14 +64,12 @@ class TripTracking(models.Model):
         max_digits=10,
         decimal_places=7,  # Matches NUMERIC(10,7)
         help_text='High-precision GPS latitude coordinate parsed from the hardware device tracking module',
-        db_comment='GPS geographic latitude positioning'
     )
     
     longitude = models.DecimalField(
         max_digits=10,
         decimal_places=7,  # Matches NUMERIC(10,7)
         help_text='High-precision GPS longitude coordinate parsed from the hardware device tracking module',
-        db_comment='GPS geographic longitude positioning'
     )
     
     speed_kmh = models.DecimalField(
@@ -81,7 +78,6 @@ class TripTracking(models.Model):
         null=True,
         blank=True,
         help_text='Real-time velocity metric captured from vehicle OBD/GPS computing matrix units',
-        db_comment='Instantaneous speed scalar value mapped in km/h'
     )
     
     heading = models.DecimalField(
@@ -90,7 +86,6 @@ class TripTracking(models.Model):
         null=True,
         blank=True,
         help_text='Compass azimuth rotation angle in degrees indicating current transit direction vectors',
-        db_comment='Azimuth heading orientation degrees scalar'
     )
     
     # ========================================================================
@@ -103,12 +98,10 @@ class TripTracking(models.Model):
         null=True,
         blank=True,
         help_text='The classification token categorizing the behavioral status of the vehicle at this specific record node',
-        db_comment='Telemetry node classification type taxonomy'
     )
     
     recorded_at = models.DateTimeField(
         help_text='Timezone-aware timestamp logging exactly when this telematics payload was written (Partition Routing Key)',
-        db_comment='Timezone-aware recording timestamp acting as table partitioning key'
     )
 
     class Meta:

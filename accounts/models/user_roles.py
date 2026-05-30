@@ -68,16 +68,14 @@ class UserRole(models.Model):
         on_delete=models.CASCADE,
         related_name='user_roles',
         db_index=True,
-        help_text='User assigned to this role',
-        db_comment='Reference to user account'
+        help_text='User assigned to this role'
     )
     role = models.ForeignKey(
         'Role',
         on_delete=models.CASCADE,
         related_name='user_roles',
         db_index=True,
-        help_text='Role assigned to the user',
-        db_comment='Reference to role'
+        help_text='Role assigned to the user'
     )
     
     # ========================================================================
@@ -87,8 +85,7 @@ class UserRole(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Role assignment is active (soft delete via flag)',
-        db_comment='Assignment is active and valid'
+        help_text='Role assignment is active (soft delete via flag)'
     )
     
     # ========================================================================
@@ -98,8 +95,7 @@ class UserRole(models.Model):
     granted_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this role was granted to the user',
-        db_comment='Role assignment timestamp'
+        help_text='When this role was granted to the user'
     )
     granted_by = models.ForeignKey(
         'UserAccount',
@@ -107,23 +103,20 @@ class UserRole(models.Model):
         null=True,
         blank=True,
         related_name='granted_roles',
-        help_text='User who granted this role (admin/manager)',
-        db_comment='User who performed the assignment'
+        help_text='User who granted this role (admin/manager)'
     )
     granted_by_username = models.CharField(
         max_length=150,
         null=True,
         blank=True,
-        help_text='Username of who granted this role (snapshot)',
-        db_comment='Username snapshot for audit trail'
+        help_text='Username of who granted this role (snapshot)'
     )
     
     # Revocation tracking
     revoked_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When this role was revoked from the user',
-        db_comment='Role revocation timestamp'
+        help_text='When this role was revoked from the user'
     )
     revoked_by = models.ForeignKey(
         'UserAccount',
@@ -131,31 +124,27 @@ class UserRole(models.Model):
         null=True,
         blank=True,
         related_name='revoked_roles',
-        help_text='User who revoked this role',
-        db_comment='User who performed the revocation'
+        help_text='User who revoked this role'
     )
     revoked_by_username = models.CharField(
         max_length=150,
         null=True,
         blank=True,
-        help_text='Username of who revoked this role (snapshot)',
-        db_comment='Username snapshot for revocation audit'
+        help_text='Username of who revoked this role (snapshot)'
     )
     
     # Additional metadata
     reason = models.TextField(
         blank=True,
         null=True,
-        help_text='Reason for granting or revoking this role',
-        db_comment='Assignment/revocation reason'
+        help_text='Reason for granting or revoking this role'
     )
     
     # Expiration support
     expires_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Role assignment expires at this time (null = never)',
-        db_comment='Role expiration timestamp'
+        help_text='Role assignment expires at this time (null = never)'
     )
 
     class Meta:
@@ -185,32 +174,27 @@ class UserRole(models.Model):
             # Index for finding active roles for a user
             models.Index(
                 fields=['user', 'is_active'],
-                name='idx_user_role_user_active',
-                db_comment='Query active roles for a user'
+                name='idx_user_role_user_active'
             ),
             # Index for finding users with a specific role
             models.Index(
                 fields=['role', 'is_active'],
-                name='idx_user_role_role_active',
-                db_comment='Query users with a specific role'
+                name='idx_user_role_role_active'
             ),
             # Index for audit trail
             models.Index(
                 fields=['granted_at'],
-                name='idx_user_role_granted_at',
-                db_comment='Query by assignment date'
+                name='idx_user_role_granted_at'
             ),
             # Index for expired roles
             models.Index(
                 fields=['expires_at'],
-                name='idx_user_role_expires_at',
-                db_comment='Query expired roles'
+                name='idx_user_role_expires_at'
             ),
             # Composite index for common queries
             models.Index(
                 fields=['user', 'role', 'is_active'],
-                name='idx_user_role_composite',
-                db_comment='Composite index for common queries'
+                name='idx_user_role_composite'
             ),
         ]
 

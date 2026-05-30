@@ -64,8 +64,7 @@ class Promotion(models.Model):
         default=1,
         related_name='promotions',
         db_index=True,
-        help_text='Tenant owner corporate node managing this isolated pricing coupon campaign leaf',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner corporate node managing this isolated pricing coupon campaign leaf'
     )
     
     created_by = models.ForeignKey(
@@ -75,8 +74,7 @@ class Promotion(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The specific internal marketing manager or administrator account who configured this coupon schema',
-        db_comment='Soft reference mapping authorized employee account creating this rule layout'
+        help_text='The specific internal marketing manager or administrator account who configured this coupon schema'
     )
     
     # ========================================================================
@@ -85,21 +83,18 @@ class Promotion(models.Model):
     
     code = models.CharField(
         max_length=50,  # Matches VARCHAR(50) NOT NULL
-        help_text='The alphanumeric string coupon key typed by passenger consumers at checkout panels (e.g., SUMMER26)',
-        db_comment='Alphanumeric marketing coupon voucher identifier string code'
+        help_text='The alphanumeric string coupon key typed by passenger consumers at checkout panels (e.g., SUMMER26)'
     )
     
     name = models.CharField(
         max_length=255,  # Matches VARCHAR(255) NOT NULL
-        help_text='Public human-readable campaign label text displayed across booking screens (e.g., Grand Opening Discount)',
-        db_comment='Public structural campaign label text descriptor'
+        help_text='Public human-readable campaign label text displayed across booking screens (e.g., Grand Opening Discount)'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Internal structural scope explanations or visible marketing terms and conditions rules text',
-        db_comment='Detailed campaign metadata descriptive logs text'
+        help_text='Internal structural scope explanations or visible marketing terms and conditions rules text'
     )
     
     # ========================================================================
@@ -110,16 +105,14 @@ class Promotion(models.Model):
         max_length=20,
         choices=DISCOUNT_TYPE_CHOICES,  # Enforces CONSTRAINT chk_promotion_type
         db_index=True,
-        help_text='The algorithmic strategy chosen to compute transaction price deductions',
-        db_comment='Discount calculation methodology taxonomy classification token'
+        help_text='The algorithmic strategy chosen to compute transaction price deductions'
     )
     
     discount_value = models.DecimalField(
         max_digits=10,
         decimal_places=2,  # Matches NUMERIC(10,2) NOT NULL
         validators=[MinValueValidator(0.00)],
-        help_text='The active calculation metric magnitude multiplier. Represents percentages (e.g., 15.50) or absolute currencies (e.g., 50000.00)',
-        db_comment='Base marketing reduction multiplier scale magnitude value'
+        help_text='The active calculation metric magnitude multiplier. Represents percentages (e.g., 15.50) or absolute currencies (e.g., 50000.00)'
     )
     
     min_order_amount = models.DecimalField(
@@ -128,8 +121,7 @@ class Promotion(models.Model):
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='Minimum aggregate shopping cart invoice threshold required to trigger this calculation layout engine',
-        db_comment='Inclusive minimum shopping basket monetary qualification threshold parameter'
+        help_text='Minimum aggregate shopping cart invoice threshold required to trigger this calculation layout engine'
     )
     
     max_discount = models.DecimalField(
@@ -138,8 +130,7 @@ class Promotion(models.Model):
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The structural ceiling safety limit preventing percentage-based deductions from draining excessive campaign funds',
-        db_comment='Absolute safety ceiling ceiling monetary reduction parameter cap'
+        help_text='The structural ceiling safety limit preventing percentage-based deductions from draining excessive campaign funds'
     )
     
     # ========================================================================
@@ -150,23 +141,20 @@ class Promotion(models.Model):
         null=True,
         blank=True,
         validators=[MinValueValidator(1)],
-        help_text='Total cumulative times this code can clear checkpoints system-wide across all consumers prior to exhaustion',
-        db_comment='Global campaign absolute usage exhaustion limit counter ceiling'
+        help_text='Total cumulative times this code can clear checkpoints system-wide across all consumers prior to exhaustion'
     )
     
     usage_limit_per_user = models.IntegerField(
         null=True,
         blank=True,
         validators=[MinValueValidator(1)],
-        help_text='Maximum allocation cycles a single unique client identity identity token can execute this specific code block',
-        db_comment='Per-client unique identity usage exploitation threshold constraint'
+        help_text='Maximum allocation cycles a single unique client identity identity token can execute this specific code block'
     )
     
     usage_count = models.IntegerField(
         default=0,  # Matches NOT NULL DEFAULT 0
         validators=[MinValueValidator(0)],
-        help_text='Live database increment index logging exactly how many times checkout checkouts successfully consumed this coupon line',
-        db_comment='Live structural consumption execution counter index'
+        help_text='Live database increment index logging exactly how many times checkout checkouts successfully consumed this coupon line'
     )
     
     # ========================================================================
@@ -177,24 +165,21 @@ class Promotion(models.Model):
         models.IntegerField(),
         null=True,
         blank=True,  # Matches INTEGER[] without NOT NULL constraint
-        help_text='List arrays storing target Route database keys allowed to consume this coupon line. Empty arrays match ALL paths.',
-        db_comment='Native integer matrix array filtering target operational route primary keys'
+        help_text='List arrays storing target Route database keys allowed to consume this coupon line. Empty arrays match ALL paths.'
     )
     
     applicable_seat_types = ArrayField(
         models.CharField(max_length=30),
         null=True,
         blank=True,  # Matches VARCHAR(30)[] without NOT NULL constraint
-        help_text='List arrays storing distinct cabin classes eligible to request reductions (e.g., [VIP_SLEEPER, STANDARD_SEAT])',
-        db_comment='Native string taxonomy array filtering allowed structural asset tiers'
+        help_text='List arrays storing distinct cabin classes eligible to request reductions (e.g., [VIP_SLEEPER, STANDARD_SEAT])'
     )
     
     applicable_channels = ArrayField(
         models.CharField(max_length=30),
         null=True,
         blank=True,  # Matches VARCHAR(30)[] without NOT NULL constraint
-        help_text='List arrays restricting coupon activation to discrete sale gateways (e.g., [MOBILE_APP, B2B_AGENT, COUNTER_DESK])',
-        db_comment='Native string taxonomy array filtering allowed software client interfaces'
+        help_text='List arrays restricting coupon activation to discrete sale gateways (e.g., [MOBILE_APP, B2B_AGENT, COUNTER_DESK])'
     )
     
     # ========================================================================
@@ -202,34 +187,29 @@ class Promotion(models.Model):
     # ========================================================================
     
     valid_from = models.DateTimeField(
-        help_text='Timezone-aware activation timeline node marking exactly when this coupon rule goes live online',
-        db_comment='Campaign activation timeline window entry node'
+        help_text='Timezone-aware activation timeline node marking exactly when this coupon rule goes live online'
     )
     
     valid_to = models.DateTimeField(
         null=True,
         blank=True,  # Matches TIMESTAMPTZ without NOT NULL constraint
-        help_text='Timezone-aware expiration date node marking exactly when this coupon ruleset automatically loses legal status',
-        db_comment='Campaign expiration timeline window close node'
+        help_text='Timezone-aware expiration date node marking exactly when this coupon ruleset automatically loses legal status'
     )
     
     is_active = models.BooleanField(
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
-        help_text='Master administrative toggle switch. Setting this false instantly blocks all checkout applications regardless of chronology rules',
-        db_comment='Administrative campaign execution state toggle switch flag'
+        help_text='Master administrative toggle switch. Setting this false instantly blocks all checkout applications regardless of chronology rules'
     )
     
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at db layer
-        help_text='System record logging anchor tracking exactly when this rule layout row entered the central database',
-        db_comment='Creation timestamp'
+        help_text='System record logging anchor tracking exactly when this rule layout row entered the central database'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp tracking when parameters inside this promotional campaign node were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp tracking when parameters inside this promotional campaign node were last modified'
     )
 
     class Meta:

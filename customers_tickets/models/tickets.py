@@ -83,33 +83,30 @@ class Ticket(models.Model):
     
     booking = models.ForeignKey(
         TicketBooking,
-        on_delete=models.CASCADE,  # Matches NOT NULL REFERENCES ticket_bookings(id) ON DELETE CASCADE
+        on_delete=models.CASCADE,
         related_name='tickets',
-        db_index=True,  # Matches CREATE INDEX idx_tickets_booking
-        help_text='The parent transactional ledger configuration header mapping this ticket asset',
-        db_comment='Reference to parent booking transaction'
+        db_index=True,
+        help_text='The parent transactional ledger configuration header mapping this ticket asset'
     )
     
     seat = models.ForeignKey(
         Seat,
-        on_delete=models.SET_NULL,  # Matches REFERENCES seats(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='tickets',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The physical asset seat coordinate row currently assigned inside the vehicle model',
-        db_comment='Soft reference to current assigned seat inventory node'
+        help_text='The physical asset seat coordinate row currently assigned inside the vehicle model'
     )
     
     checked_in_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='processed_ticket_checkins',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The terminal controller or conductor user who scanned and cleared this ticket at the gate',
-        db_comment='Reference to terminal authority user executing check-in logging'
+        help_text='The terminal controller or conductor user who scanned and cleared this ticket at the gate'
     )
     
     # ========================================================================
@@ -120,16 +117,14 @@ class Ticket(models.Model):
         max_length=10,
         null=True,
         blank=True,
-        help_text='Immutable string copy snapshot of the seat code (e.g., A12, B04) to prevent historic data loss',
-        db_comment='Redundant historical seat code string marker'
+        help_text='Immutable string copy snapshot of the seat code (e.g., A12, B04) to prevent historic data loss'
     )
     
     passenger_name = models.CharField(
         max_length=255,
         null=True,
         blank=True,
-        help_text='Full name coordinates of the physical individual traveling on this seat pass',
-        db_comment='Passenger full legal name string text'
+        help_text='Full name coordinates of the physical individual traveling on this seat pass'
     )
     
     passenger_phone = models.CharField(
@@ -142,8 +137,7 @@ class Ticket(models.Model):
                 message='Passenger phone number format specification is invalid'
             )
         ],
-        help_text='Contact mobile string sequence belonging specifically to the passenger assigned to this seat',
-        db_comment='Passenger contact mobile number sequence'
+        help_text='Contact mobile string sequence belonging specifically to the passenger assigned to this seat'
     )
     
     passenger_type = models.CharField(
@@ -151,8 +145,7 @@ class Ticket(models.Model):
         choices=PASSENGER_TYPE_CHOICES,
         default='ADULT',
         db_index=True,
-        help_text='The demographic price calculation category class mapped to this passenger',
-        db_comment='Demographic passenger classification taxonomy token'
+        help_text='The demographic price calculation category class mapped to this passenger'
     )
     
     # ========================================================================
@@ -161,24 +154,21 @@ class Ticket(models.Model):
     
     base_price = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The unmodified standard entry-level price allocated for this seat routing specification',
-        db_comment='Base standard unit tariff value'
+        decimal_places=2,
+        help_text='The unmodified standard entry-level price allocated for this seat routing specification'
     )
     
     discount_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
-        help_text='The total deducted monetary value derived from promotional voucher campaigns or concession tiers',
-        db_comment='Deducted campaign discount value'
+        default=0.00,
+        help_text='The total deducted monetary value derived from promotional voucher campaigns or concession tiers'
     )
     
     final_price = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The actual final commercial revenue collected for this specific seat item (base_price - discount_amount)',
-        db_comment='Net collected revenue settlement value'
+        decimal_places=2,
+        help_text='The actual final commercial revenue collected for this specific seat item (base_price - discount_amount)'
     )
     
     # ========================================================================
@@ -189,18 +179,16 @@ class Ticket(models.Model):
         max_length=100,
         unique=True,
         null=True,
-        blank=True,  # Matches VARCHAR(100) UNIQUE
-        help_text='Cryptographically unique text token string rendered into QR graphic matrix blocks for mobile phone scanning',
-        db_comment='Unique secure QR code parsing token text key'
+        blank=True,
+        help_text='Cryptographically unique text token string rendered into QR graphic matrix blocks for mobile phone scanning'
     )
     
     barcode = models.CharField(
         max_length=100,
         unique=True,
         null=True,
-        blank=True,  # Matches VARCHAR(100) UNIQUE
-        help_text='Cryptographically unique text token string rendered into physical 1D barcode layouts for printed thermal stubs',
-        db_comment='Unique secure 1D barcode parsing token text key'
+        blank=True,
+        help_text='Cryptographically unique text token string rendered into physical 1D barcode layouts for printed thermal stubs'
     )
     
     # ========================================================================
@@ -211,28 +199,24 @@ class Ticket(models.Model):
         max_length=30,
         choices=STATUS_CHOICES,
         default='ACTIVE',
-        db_index=True,  # Matches CREATE INDEX idx_tickets_status
-        help_text='The current functional stage state tracking this boarding pass ticket asset',
-        db_comment='Workflow ticket item progression status string token'
+        db_index=True,
+        help_text='The current functional stage state tracking this boarding pass ticket asset'
     )
     
     checked_in_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when the customer successfully cleared bến bãi checkpoint gates',
-        db_comment='Real execution checkpoint check-in record timestamp'
+        help_text='Timezone-aware timestamp logging exactly when the customer successfully cleared bến bãi checkpoint gates'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this specific individual boarding line ticket seat node was generated',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this specific individual boarding line ticket seat node was generated'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this boarding pass item were last modified (Trigger handled in DDL)',
-        db_comment='Last modification timestamp managed by core DB schema hooks'
+        help_text='Timestamp when parameters inside this boarding pass item were last modified (Trigger handled in DDL)'
     )
 
     class Meta:
@@ -268,8 +252,7 @@ class Ticket(models.Model):
             models.Index(
                 fields=['qr_code'],
                 name='idx_tickets_qr_partial',
-                condition=models.Q(qr_code__isnull=False),
-                db_comment='Partial index accelerating real-time barcode reader hardware pings at terminal gates'
+                condition=models.Q(qr_code__isnull=False)
             ),
         ]
 

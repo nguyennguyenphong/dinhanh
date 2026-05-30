@@ -81,52 +81,47 @@ class TicketBooking(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='ticket_bookings',
         db_index=True,
-        help_text='Tenant corporate owner who holds rights over this transactional booking ledger',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner who holds rights over this transactional booking ledger'
     )
     
     customer = models.ForeignKey(
         Customer,
-        on_delete=models.PROTECT,  # Production safety: block deleting a customer profile if booking logs exist
+        on_delete=models.PROTECT,
         related_name='bookings',
-        db_index=True,  # Matches CREATE INDEX idx_bookings_customer
-        help_text='The customer asset or primary passenger lodging this transaction sheet',
-        db_comment='Reference to customer profile purchaser'
+        db_index=True,
+        help_text='The customer asset or primary passenger lodging this transaction sheet'
     )
     
     trip = models.ForeignKey(
         Trip,
-        on_delete=models.PROTECT,  # Production safety: block deleting a trip commercial node if tickets are issued
+        on_delete=models.PROTECT,
         related_name='bookings',
-        db_index=True,  # Matches CREATE INDEX idx_bookings_trip
-        help_text='The active physical commercial trip journey line assigned under this ticket',
-        db_comment='Reference to commercial trip model instance'
+        db_index=True,
+        help_text='The active physical commercial trip journey line assigned under this ticket'
     )
     
     booked_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='processed_bookings',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The corporate system user account who executed or processed this sale profile',
-        db_comment='Reference to employee user account executing the order'
+        help_text='The corporate system user account who executed or processed this sale profile'
     )
     
     branch = models.ForeignKey(
         Branch,
-        on_delete=models.SET_NULL,  # Matches REFERENCES branches(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='branch_bookings',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The physical branch office station hub where this booking transaction was logged',
-        db_comment='Reference to originating office branch node'
+        help_text='The physical branch office station hub where this booking transaction was logged'
     )
     
     # ========================================================================
@@ -135,33 +130,30 @@ class TicketBooking(models.Model):
     
     booking_code = models.CharField(
         max_length=30,
-        unique=True,  # Matches VARCHAR(30) NOT NULL UNIQUE
+        unique=True,
         validators=[
             RegexValidator(
                 regex=r'^[A-Z0-9\-_]+$',
                 message='Booking code must contain only uppercase alphanumeric characters, hyphens, and underscores'
             )
         ],
-        help_text='Unique human-readable ticketing code index used for customer reservation validation (e.g., PNR-9982X)',
-        db_comment='Unique system transaction lookup token key code'
+        help_text='Unique human-readable ticketing code index used for customer reservation validation (e.g., PNR-9982X)'
     )
     
     channel = models.CharField(
         max_length=30,
         choices=CHANNEL_CHOICES,
         default='COUNTER',
-        db_index=True,  # Matches CREATE INDEX idx_bookings_channel
-        help_text='The distribution sales channel pipeline through which this transaction entered the system',
-        db_comment='Sales ingestion distribution pipeline taxonomy token'
+        db_index=True,
+        help_text='The distribution sales channel pipeline through which this transaction entered the system'
     )
     
     status = models.CharField(
         max_length=30,
         choices=STATUS_CHOICES,
         default='PENDING',
-        db_index=True,  # Matches CREATE INDEX idx_bookings_status
-        help_text='The core transactional stage tracking this reservation lifecycle step sequence',
-        db_comment='Workflow transaction progression taxonomy status string token'
+        db_index=True,
+        help_text='The core transactional stage tracking this reservation lifecycle step sequence'
     )
     
     # ========================================================================
@@ -171,17 +163,15 @@ class TicketBooking(models.Model):
     total_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
-        help_text='The gross commercial price balance calculated for this entire ticket booking sheet',
-        db_comment='Total calculated invoice financial debt balance'
+        default=0.00,
+        help_text='The gross commercial price balance calculated for this entire ticket booking sheet'
     )
     
     paid_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
-        help_text='The total cash/digital ledger values successfully cleared and captured for this invoice',
-        db_comment='Total captured incoming payment currency ledger sum'
+        default=0.00,
+        help_text='The total cash/digital ledger values successfully cleared and captured for this invoice'
     )
     
     # ========================================================================
@@ -191,42 +181,36 @@ class TicketBooking(models.Model):
     note = models.TextField(
         null=True,
         blank=True,
-        help_text='Miscellaneous customer preferences notes, specific wheelchair alerts, or manual audit details',
-        db_comment='Administrative text log annotations'
+        help_text='Miscellaneous customer preferences notes, specific wheelchair alerts, or manual audit details'
     )
     
     cancelled_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when this ticket profile was aborted',
-        db_comment='Timestamp tracking reservation termination execution'
+        help_text='Timezone-aware timestamp logging exactly when this ticket profile was aborted'
     )
     
     cancel_reason = models.TextField(
         null=True,
         blank=True,
-        help_text='Explicit text statement provided explaining why this ticket reservation was aborted',
-        db_comment='Cancellation background context logs'
+        help_text='Explicit text statement provided explaining why this ticket reservation was aborted'
     )
     
     expires_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware ticket hold duration window boundary. If payment drops past this, hold voids automatically',
-        db_comment='Timezone-aware countdown hold threshold limit'
+        help_text='Timezone-aware ticket hold duration window boundary. If payment drops past this, hold voids automatically'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        db_index=True,  # Matches CREATE INDEX idx_bookings_created ON ticket_bookings(created_at DESC)
-        help_text='Timestamp when this booking ledger paper row was first initialized inside the architecture',
-        db_comment='Creation timestamp'
+        db_index=True,
+        help_text='Timestamp when this booking ledger paper row was first initialized inside the architecture'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when fields inside this transaction profile were last modified (Managed via trigger in DDL)',
-        db_comment='Last modification timestamp managed by core DB schema hooks'
+        help_text='Timestamp when fields inside this transaction profile were last modified (Managed via trigger in DDL)'
     )
 
     class Meta:

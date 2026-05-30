@@ -102,8 +102,7 @@ class APIToken(models.Model):
         on_delete=models.CASCADE,
         related_name='api_tokens',
         db_index=True,
-        help_text='Tenant that owns this API token',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this API token'
     )
     
     # ========================================================================
@@ -112,20 +111,17 @@ class APIToken(models.Model):
     
     name = models.CharField(
         max_length=100,
-        help_text='Human-readable name for the token (e.g., "Mobile App")',
-        db_comment='Token name'
+        help_text='Human-readable name for the token (e.g., "Mobile App")'
     )
     token_hash = models.CharField(
         max_length=255,
         unique=True,
-        help_text='SHA256 hash of the token (never store raw token)',
-        db_comment='Token hash'
+        help_text='SHA256 hash of the token (never store raw token)'
     )
     token_prefix = models.CharField(
         max_length=8,
         db_index=True,
-        help_text='First 8 characters of token for identification',
-        db_comment='Token prefix'
+        help_text='First 8 characters of token for identification'
     )
     
     # ========================================================================
@@ -135,8 +131,7 @@ class APIToken(models.Model):
     scopes = ArrayField(
         models.CharField(max_length=50),
         default=list,
-        help_text='List of scopes this token has access to',
-        db_comment='API scopes'
+        help_text='List of scopes this token has access to'
     )
     
     # ========================================================================
@@ -149,14 +144,12 @@ class APIToken(models.Model):
         null=True,
         blank=True,
         related_name='api_tokens_created',
-        help_text='User who created this token',
-        db_comment='Created by user'
+        help_text='User who created this token'
     )
     branch_id = models.IntegerField(
         null=True,
         blank=True,
-        help_text='Optional branch ID for branch-specific tokens',
-        db_comment='Branch ID'
+        help_text='Optional branch ID for branch-specific tokens'
     )
     
     # ========================================================================
@@ -166,19 +159,16 @@ class APIToken(models.Model):
     last_used_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When this token was last used',
-        db_comment='Last used timestamp'
+        help_text='When this token was last used'
     )
     last_used_ip = models.GenericIPAddressField(
         null=True,
         blank=True,
-        help_text='IP address of last usage',
-        db_comment='Last used IP'
+        help_text='IP address of last usage'
     )
     request_count = models.BigIntegerField(
         default=0,
-        help_text='Total number of requests made with this token',
-        db_comment='Request count'
+        help_text='Total number of requests made with this token'
     )
     
     # ========================================================================
@@ -188,8 +178,7 @@ class APIToken(models.Model):
     rate_limit = models.IntegerField(
         default=1000,
         validators=[MinValueValidator(1)],
-        help_text='Maximum requests per hour',
-        db_comment='Rate limit (requests/hour)'
+        help_text='Maximum requests per hour'
     )
     
     # ========================================================================
@@ -199,14 +188,12 @@ class APIToken(models.Model):
     expires_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Token expires at this date (null = no expiration)',
-        db_comment='Expiration timestamp'
+        help_text='Token expires at this date (null = no expiration)'
     )
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Token is active and can be used',
-        db_comment='Active status'
+        help_text='Token is active and can be used'
     )
     
     # ========================================================================
@@ -216,8 +203,7 @@ class APIToken(models.Model):
     notes = models.TextField(
         blank=True,
         null=True,
-        help_text='Additional notes about this token',
-        db_comment='Token notes'
+        help_text='Additional notes about this token'
     )
     
     # ========================================================================
@@ -227,13 +213,11 @@ class APIToken(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this token was created',
-        db_comment='Creation timestamp'
+        help_text='When this token was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When this token was last updated',
-        db_comment='Last update timestamp'
+        help_text='When this token was last updated'
     )
 
     class Meta:
@@ -250,26 +234,22 @@ class APIToken(models.Model):
             # Index for finding active tokens
             models.Index(
                 fields=['is_active'],
-                name='idx_api_tokens_active',
-                db_comment='Query active tokens'
+                name='idx_api_tokens_active'
             ),
             # Index for token prefix lookup
             models.Index(
                 fields=['token_prefix'],
-                name='idx_api_tokens_prefix',
-                db_comment='Query tokens by prefix'
+                name='idx_api_tokens_prefix'
             ),
             # Index for tenant and active
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_api_tokens_tenant_active',
-                db_comment='Query active tokens by tenant'
+                name='idx_api_tokens_tenant_active'
             ),
             # Index for expiration queries
             models.Index(
                 fields=['expires_at'],
-                name='idx_api_tokens_expires',
-                db_comment='Query expired tokens'
+                name='idx_api_tokens_expires'
             ),
         ]
 

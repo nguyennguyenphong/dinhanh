@@ -45,7 +45,6 @@ class StorageUnit(models.Model):
         related_name='storage_units',
         db_index=True,
         help_text='Tenant corporate node holding legal data sovereignty over this inventory location cluster',
-        db_comment='Multi-tenancy tenant reference'
     )
     
     branch = models.ForeignKey(
@@ -56,7 +55,6 @@ class StorageUnit(models.Model):
         blank=True,
         db_index=True,
         help_text='The specific regional corporate branch office or shipping station controlling this physical depot',
-        db_comment='Soft reference mapping organizational facility location node'
     )
     
     # ========================================================================
@@ -66,20 +64,17 @@ class StorageUnit(models.Model):
     code = models.CharField(
         max_length=30,  # Matches VARCHAR(30) NOT NULL
         help_text='Unique system identifier text key assigned to this warehouse facility (e.g., KHO_LOGISTICS_Q5)',
-        db_comment='Unique system storage unit lookup string identifier token key'
     )
     
     name = models.CharField(
         max_length=100,  # Matches VARCHAR(100) NOT NULL
         help_text='Human-readable descriptive title label identifying this physical stockroom location',
-        db_comment='Physical storage site structural identification text label'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
         help_text='Granular physical details, operation hours, capacity restrictions, or logistical notes',
-        db_comment='Detailed inventory warehouse metadata descriptive logs text'
     )
     
     # ========================================================================
@@ -89,13 +84,11 @@ class StorageUnit(models.Model):
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compiler layers
         help_text='Timezone-aware log record tracking exactly when this storage site was added to the platform',
-        db_comment='Creation timestamp log entry'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,  # Automatically syncs database row mutation operations via application hooks
         help_text='Timestamp tracking exactly when parameter attributes inside this storage configuration node changed',
-        db_comment='Last database row tracking mutation modification timestamp'
     )
 
     class Meta:

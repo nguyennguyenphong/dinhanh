@@ -65,8 +65,7 @@ class Attendance(models.Model):
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name='attendances',
         db_index=True,
-        help_text='The employee asset profile this log sheet maps to',
-        db_comment='Reference to employee'
+        help_text='The employee asset profile this log sheet maps to'
     )
     
     shift_type = models.ForeignKey(
@@ -76,8 +75,7 @@ class Attendance(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The planned working timeframe configuration target schema',
-        db_comment='Reference to shift configuration blueprint'
+        help_text='The planned working timeframe configuration target schema'
     )
     
     approved_by = models.ForeignKey(
@@ -87,8 +85,7 @@ class Attendance(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The administrative authority account signing off or adjusting this record',
-        db_comment='Reference to manager user auditing the asset log'
+        help_text='The administrative authority account signing off or adjusting this record'
     )
     
     # ========================================================================
@@ -97,22 +94,19 @@ class Attendance(models.Model):
     
     work_date = models.DateField(
         db_index=True,
-        help_text='The targeted calendar date context for this schedule log entry',
-        db_comment='Targeted attendance calendar date'
+        help_text='The targeted calendar date context for this schedule log entry'
     )
     
     check_in = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp capturing the exact check-in puncture',
-        db_comment='Timezone-aware check-in timestamp'
+        help_text='Timezone-aware timestamp capturing the exact check-in puncture'
     )
     
     check_out = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp capturing the exact check-out puncture',
-        db_comment='Timezone-aware check-out timestamp'
+        help_text='Timezone-aware timestamp capturing the exact check-out puncture'
     )
     
     # ========================================================================
@@ -124,8 +118,7 @@ class Attendance(models.Model):
         decimal_places=7,
         null=True,
         blank=True,
-        help_text='High-precision GPS latitude coordinate parsed at check-in node',
-        db_comment='Check-in geographic latitude'
+        help_text='High-precision GPS latitude coordinate parsed at check-in node'
     )
     
     check_in_lng = models.DecimalField(
@@ -133,8 +126,7 @@ class Attendance(models.Model):
         decimal_places=7,
         null=True,
         blank=True,
-        help_text='High-precision GPS longitude coordinate parsed at check-in node',
-        db_comment='Check-in geographic longitude'
+        help_text='High-precision GPS longitude coordinate parsed at check-in node'
     )
     
     # ========================================================================
@@ -146,15 +138,13 @@ class Attendance(models.Model):
         choices=STATUS_CHOICES,
         default='PRESENT',
         db_index=True,
-        help_text='Operational status classifying compliance of the logging day metrics',
-        db_comment='Daily alignment status taxonomy'
+        help_text='Operational status classifying compliance of the logging day metrics'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Annotations detailing late reasons, geo-location errors, or adjustments',
-        db_comment='Internal operational text notes'
+        help_text='Annotations detailing late reasons, geo-location errors, or adjustments'
     )
     
     # ========================================================================
@@ -163,8 +153,7 @@ class Attendance(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this attendance ledger line was opened in system',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this attendance ledger line was opened in system'
     )
 
     class Meta:
@@ -193,8 +182,7 @@ class Attendance(models.Model):
             # Highly critical index optimizing core time-tracking sheets and monthly payroll pipelines
             models.Index(
                 fields=['work_date', 'status'],
-                name='idx_att_date_status_metrics',
-                db_comment='Batch report optimization for operational statuses'
+                name='idx_att_date_status_metrics'
             ),
         ]
 

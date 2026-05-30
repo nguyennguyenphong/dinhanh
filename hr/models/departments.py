@@ -43,7 +43,6 @@ class Department(models.Model):
         related_name='departments',
         db_index=True,
         help_text='Tenant owner of this department corporate division',
-        db_comment='Multi-tenancy tenant reference'
     )
     
     manager = models.ForeignKey(
@@ -54,7 +53,6 @@ class Department(models.Model):
         blank=True,
         db_index=True,
         help_text='The staff account designated as the head/manager of this division',
-        db_comment='Reference to department manager'
     )
     
     # ========================================================================
@@ -64,7 +62,6 @@ class Department(models.Model):
     name = models.CharField(
         max_length=100,
         help_text='Official name of the department (e.g., Human Resources, Accounting)',
-        db_comment='Department display name'
     )
     
     # ========================================================================
@@ -75,7 +72,6 @@ class Department(models.Model):
         auto_now_add=True,
         db_index=True,
         help_text='Timestamp when this corporate department was registered',
-        db_comment='Creation timestamp'
     )
 
     class Meta:
@@ -105,7 +101,6 @@ class Department(models.Model):
             models.Index(
                 fields=['tenant', 'name'],
                 name='idx_dept_tenant_name_lookup',
-                db_comment='Query departments efficiently by tenant hierarchy'
             ),
         ]
 

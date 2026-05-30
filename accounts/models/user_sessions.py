@@ -91,8 +91,7 @@ class UserSession(models.Model):
         on_delete=models.CASCADE,
         related_name='sessions',
         db_index=True,
-        help_text='User who owns this session',
-        db_comment='Reference to user account'
+        help_text='User who owns this session'
     )
     
     # ========================================================================
@@ -103,8 +102,7 @@ class UserSession(models.Model):
         max_length=255,
         unique=True,
         db_index=True,
-        help_text='JWT access token for API requests',
-        db_comment='Access token (JWT)'
+        help_text='JWT access token for API requests'
     )
     refresh_token = models.CharField(
         max_length=255,
@@ -112,8 +110,7 @@ class UserSession(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='JWT refresh token for obtaining new access tokens',
-        db_comment='Refresh token (JWT)'
+        help_text='JWT refresh token for obtaining new access tokens'
     )
     
     # ========================================================================
@@ -123,16 +120,13 @@ class UserSession(models.Model):
     device_info = models.TextField(
         blank=True,
         null=True,
-        help_text='Device information (JSON: device type, OS, browser, etc.)',
-        db_comment='Device fingerprint data'
+        help_text='Device information (JSON: device type, OS, browser, etc.)'
     )
     ip_address = models.GenericIPAddressField(
-        help_text='IP address of the session',
-        db_comment='Session IP address'
+        help_text='IP address of the session'
     )
     user_agent = models.TextField(
-        help_text='User agent string (browser/device info)',
-        db_comment='User agent header'
+        help_text='User agent string (browser/device info)'
     )
     
     # ========================================================================
@@ -141,13 +135,11 @@ class UserSession(models.Model):
     
     expires_at = models.DateTimeField(
         db_index=True,
-        help_text='When this session expires',
-        db_comment='Session expiration timestamp'
+        help_text='When this session expires'
     )
     last_activity = models.DateTimeField(
         auto_now=True,
-        help_text='Last activity timestamp for this session',
-        db_comment='Last activity timestamp'
+        help_text='Last activity timestamp for this session'
     )
     
     # ========================================================================
@@ -158,15 +150,13 @@ class UserSession(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='When this session was revoked (null = active)',
-        db_comment='Session revocation timestamp'
+        help_text='When this session was revoked (null = active)'
     )
     revocation_reason = models.CharField(
         max_length=100,
         blank=True,
         null=True,
-        help_text='Reason for revocation (logout, security, etc.)',
-        db_comment='Revocation reason'
+        help_text='Reason for revocation (logout, security, etc.)'
     )
     
     # ========================================================================
@@ -176,8 +166,7 @@ class UserSession(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this session was created',
-        db_comment='Session creation timestamp'
+        help_text='When this session was created'
     )
 
     class Meta:
@@ -194,32 +183,27 @@ class UserSession(models.Model):
             # Index for finding active sessions
             models.Index(
                 fields=['user', 'revoked_at'],
-                name='idx_session_user_active',
-                db_comment='Query active sessions for a user'
+                name='idx_session_user_active'
             ),
             # Index for token lookups
             models.Index(
                 fields=['session_token'],
-                name='idx_session_token',
-                db_comment='Query session by access token'
+                name='idx_session_token'
             ),
             # Index for refresh token lookups
             models.Index(
                 fields=['refresh_token'],
-                name='idx_session_refresh_token',
-                db_comment='Query session by refresh token'
+                name='idx_session_refresh_token'
             ),
             # Index for expired sessions
             models.Index(
                 fields=['expires_at'],
-                name='idx_session_expires_at',
-                db_comment='Query expired sessions'
+                name='idx_session_expires_at'
             ),
             # Composite index for common queries
             models.Index(
                 fields=['user', 'expires_at', 'revoked_at'],
-                name='idx_session_composite',
-                db_comment='Composite index for session queries'
+                name='idx_session_composite'
             ),
         ]
 

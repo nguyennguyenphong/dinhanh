@@ -58,8 +58,7 @@ class LoyaltyTransaction(models.Model):
         on_delete=models.CASCADE,  # Matches REFERENCES customers(id) ON DELETE CASCADE
         related_name='loyalty_transactions',
         db_index=True,
-        help_text='The parent client identity account profile who owns this points transaction snapshot',
-        db_comment='Cascade reference targeting originating customer profile'
+        help_text='The parent client identity account profile who owns this points transaction snapshot'
     )
     
     booking = models.ForeignKey(
@@ -69,8 +68,7 @@ class LoyaltyTransaction(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The specific revenue order booking ticket that triggered this points event. Holds NULL for adjustments or expiries.',
-        db_comment='Soft reference mapping target ticket booking invoice record'
+        help_text='The specific revenue order booking ticket that triggered this points event. Holds NULL for adjustments or expiries.'
     )
     
     # ========================================================================
@@ -81,18 +79,15 @@ class LoyaltyTransaction(models.Model):
         max_length=20,
         choices=TYPE_CHOICES,
         db_index=True,
-        help_text='The dynamic action vector classification tracking the direction of this point mutation entry',
-        db_comment='Points allocation workflow categorization taxonomy string token'
+        help_text='The dynamic action vector classification tracking the direction of this point mutation entry'
     )
     
     points = models.IntegerField(
-        help_text='The absolute value magnitude of points shifted in this event. Can hold negative values for deductions.',
-        db_comment='Delta change points magnitude weight numerical integer'
+        help_text='The absolute value magnitude of points shifted in this event. Can hold negative values for deductions.'
     )
     
     balance = models.IntegerField(
-        help_text='The historical running snapshot balance total remaining inside the customer wallet immediately post-transaction',
-        db_comment='Historical wallet running balance total integer snapshot value'
+        help_text='The historical running snapshot balance total remaining inside the customer wallet immediately post-transaction'
     )
     
     # ========================================================================
@@ -102,14 +97,12 @@ class LoyaltyTransaction(models.Model):
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Detailed textual ledger notes specifying why this change triggered (e.g., Earned from Trip Hanoi-Haiphong)',
-        db_comment='Descriptive metadata log textual narrative string'
+        help_text='Detailed textual ledger notes specifying why this change triggered (e.g., Earned from Trip Hanoi-Haiphong)'
     )
     
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at compilation layers
-        help_text='Timezone-aware timestamp logging exactly when this point entry row committed into storage blocks',
-        db_comment='Points registration chronology timestamp'
+        help_text='Timezone-aware timestamp logging exactly when this point entry row committed into storage blocks'
     )
 
     class Meta:

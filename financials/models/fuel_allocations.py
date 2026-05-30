@@ -47,44 +47,40 @@ class FuelAllocation(models.Model):
     
     vehicle = models.ForeignKey(
         Vehicle,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         related_name='fuel_allocations',
         db_index=True,
-        help_text='The target fleet vehicle profile node receiving the physical fuel volume injection',
-        db_comment='Cascade reference targeting primary fleet asset vehicle model'
+        help_text='The target fleet vehicle profile node receiving the physical fuel volume injection'
     )
     
     trip = models.ForeignKey(
         Trip,
-        on_delete=models.SET_NULL,  # Matches REFERENCES trips(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='fuel_allocations',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The specific operational route journey execution segment where this fuel consumption is assigned',
-        db_comment='Soft reference mapping operational trip document instance'
+        help_text='The specific operational route journey execution segment where this fuel consumption is assigned'
     )
     
     driver = models.ForeignKey(
         Employee,
-        on_delete=models.SET_NULL,  # Matches REFERENCES employees(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='fuel_allocations',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The professional driver operational employee operating the vehicle at the timestamp of refueling',
-        db_comment='Soft reference mapping corporate fleet operator employee profile'
+        help_text='The professional driver operational employee operating the vehicle at the timestamp of refueling'
     )
     
     allocated_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='authorized_fuel_allocations',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The dispatcher clerk or internal back-office user logging or signing off this fuel ticket voucher',
-        db_comment='Soft reference tracking authorizing supervisor user account'
+        help_text='The dispatcher clerk or internal back-office user logging or signing off this fuel ticket voucher'
     )
     
     # ========================================================================
@@ -93,44 +89,39 @@ class FuelAllocation(models.Model):
     
     liters = models.DecimalField(
         max_digits=8,
-        decimal_places=2,  # Matches NUMERIC(8,2) NOT NULL
+        decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The volume of fuel pumped, measured precisely in liters',
-        db_comment='Physical fuel liquid volume magnitude quantity in liters'
+        help_text='The volume of fuel pumped, measured precisely in liters'
     )
     
     price_per_liter = models.DecimalField(
         max_digits=10,
-        decimal_places=2,  # Matches NUMERIC(10,2) NOT NULL
+        decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The single unit market price weight per fuel liter at the timestamp of allocation (e.g., VND/Liter)',
-        db_comment='Single unit fuel volume currency cost pricing scalar'
+        help_text='The single unit market price weight per fuel liter at the timestamp of allocation (e.g., VND/Liter)'
     )
     
     total_cost = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
+        decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The aggregate financial liability cash weight (liters multiplied by price_per_liter)',
-        db_comment='Calculated absolute aggregate gross expenditure currency total cost'
+        help_text='The aggregate financial liability cash weight (liters multiplied by price_per_liter)'
     )
     
     station_name = models.CharField(
-        max_length=255,  # Matches VARCHAR(255) nullable specifications
+        max_length=255,
         null=True,
         blank=True,
-        help_text='The physical commercial brand name or location metadata text of the gas pump station (e.g., PV OIL Branch 2)',
-        db_comment='Commercial petrol supply station enterprise brand text'
+        help_text='The physical commercial brand name or location metadata text of the gas pump station (e.g., PV OIL Branch 2)'
     )
     
     odometer = models.DecimalField(
         max_digits=10,
-        decimal_places=2,  # Matches NUMERIC(10,2) nullable specifications
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The absolute physical counter dashboard mileage meter reading snapshot at refueling checkpoint',
-        db_comment='Vehicular structural counter dashboard mileage meter snapshot value'
+        help_text='The absolute physical counter dashboard mileage meter reading snapshot at refueling checkpoint'
     )
     
     # ========================================================================
@@ -140,20 +131,17 @@ class FuelAllocation(models.Model):
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Granular operational explanations or unexpected incident logging data lines',
-        db_comment='Administrative textual log annotations'
+        help_text='Granular operational explanations or unexpected incident logging data lines'
     )
     
     allocated_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at DDL compilation layer
-        help_text='Timezone-aware calendar timestamp tracking when the physical fuel was dispensed into the tank',
-        db_comment='Physical fuel deployment execution timestamp'
+        default=models.functions.Now,
+        help_text='Timezone-aware calendar timestamp tracking when the physical fuel was dispensed into the tank'
     )
     
     created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at DDL core layer
-        help_text='System log row registration initialization milestone timestamp',
-        db_comment='Creation timestamp'
+        default=models.functions.Now,
+        help_text='System log row registration initialization milestone timestamp'
     )
 
     class Meta:

@@ -56,16 +56,14 @@ class RolePermission(models.Model):
         on_delete=models.CASCADE,
         related_name='role_permissions',
         db_index=True,
-        help_text='Role that has this permission',
-        db_comment='Reference to role'
+        help_text='Role that has this permission'
     )
     permission = models.ForeignKey(
         'Permission',
         on_delete=models.CASCADE,
         related_name='role_permissions',
         db_index=True,
-        help_text='Permission assigned to the role',
-        db_comment='Reference to permission'
+        help_text='Permission assigned to the role'
     )
     
     # ========================================================================
@@ -75,8 +73,7 @@ class RolePermission(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Permission assignment is active (soft delete via flag)',
-        db_comment='Assignment is active and valid'
+        help_text='Permission assignment is active (soft delete via flag)'
     )
     
     # ========================================================================
@@ -86,50 +83,43 @@ class RolePermission(models.Model):
     assigned_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this permission was assigned to the role',
-        db_comment='Assignment timestamp'
+        help_text='When this permission was assigned to the role'
     )
     assigned_by_id = models.IntegerField(
         null=True,
         blank=True,
-        help_text='User ID who assigned this permission (admin user)',
-        db_comment='User who performed the assignment'
+        help_text='User ID who assigned this permission (admin user)'
     )
     assigned_by_username = models.CharField(
         max_length=150,
         null=True,
         blank=True,
-        help_text='Username of who assigned this permission (snapshot)',
-        db_comment='Username snapshot for audit trail'
+        help_text='Username of who assigned this permission (snapshot)'
     )
     
     # Revocation tracking
     revoked_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When this permission was revoked from the role',
-        db_comment='Revocation timestamp'
+        help_text='When this permission was revoked from the role'
     )
     revoked_by_id = models.IntegerField(
         null=True,
         blank=True,
-        help_text='User ID who revoked this permission',
-        db_comment='User who performed the revocation'
+        help_text='User ID who revoked this permission'
     )
     revoked_by_username = models.CharField(
         max_length=150,
         null=True,
         blank=True,
-        help_text='Username of who revoked this permission (snapshot)',
-        db_comment='Username snapshot for revocation audit'
+        help_text='Username of who revoked this permission (snapshot)'
     )
     
     # Additional metadata
     reason = models.TextField(
         blank=True,
         null=True,
-        help_text='Reason for assigning or revoking this permission',
-        db_comment='Assignment/revocation reason'
+        help_text='Reason for assigning or revoking this permission'
     )
 
     class Meta:
@@ -159,26 +149,22 @@ class RolePermission(models.Model):
             # Index for finding active permissions for a role
             models.Index(
                 fields=['role', 'is_active'],
-                name='idx_role_permission_role_active',
-                db_comment='Query active permissions for a role'
+                name='idx_role_permission_role_active'
             ),
             # Index for finding roles with a specific permission
             models.Index(
                 fields=['permission', 'is_active'],
-                name='idx_role_permission_perm_active',
-                db_comment='Query roles with a specific permission'
+                name='idx_role_permission_perm_active'
             ),
             # Index for audit trail
             models.Index(
                 fields=['assigned_at'],
-                name='idx_role_permission_assigned_at',
-                db_comment='Query by assignment date'
+                name='idx_role_permission_assigned_at'
             ),
             # Composite index for common queries
             models.Index(
                 fields=['role', 'permission', 'is_active'],
-                name='idx_role_permission_composite',
-                db_comment='Composite index for common queries'
+                name='idx_role_permission_composite'
             ),
         ]
 

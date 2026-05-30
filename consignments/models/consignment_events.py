@@ -56,22 +56,20 @@ class ConsignmentEvent(models.Model):
     
     consignment = models.ForeignKey(
         Consignment,
-        on_delete=models.CASCADE,  # Matches REFERENCES consignments(id) ON DELETE CASCADE
+        on_delete=models.CASCADE,
         related_name='events',
         db_index=True,
-        help_text='The parent parcel transport ledger line being audited by this telemetry timestamp snapshot',
-        db_comment='Cascade reference targeting originating consignment freight row'
+        help_text='The parent parcel transport ledger line being audited by this telemetry timestamp snapshot'
     )
     
     recorded_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='logged_consignment_events',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The employee profile account or system background daemon executing this tracking snapshot log',
-        db_comment='Soft reference mapping employee account capturing telematics rows'
+        help_text='The employee profile account or system background daemon executing this tracking snapshot log'
     )
     
     # ========================================================================
@@ -81,39 +79,34 @@ class ConsignmentEvent(models.Model):
     event_type = models.CharField(
         max_length=30,
         choices=EVENT_TYPE_CHOICES,
-        help_text='The primary structural action classification assigned to this timeline snapshot row',
-        db_comment='Operational category grouping taxonomy classification string token'
+        help_text='The primary structural action classification assigned to this timeline snapshot row'
     )
     
     old_status = models.CharField(
         max_length=30,
         null=True,
         blank=True,
-        help_text='The previous state string cloned from parent logs prior to executing mutations (e.g., RECEIVED)',
-        db_comment='Cloned pre-transition workflow state code mapping token'
+        help_text='The previous state string cloned from parent logs prior to executing mutations (e.g., RECEIVED)'
     )
     
     new_status = models.CharField(
         max_length=30,
         null=True,
         blank=True,
-        help_text='The target current state string mapped down onto the parent log (e.g., LOADED)',
-        db_comment='Cloned post-transition workflow state code mapping token'
+        help_text='The target current state string mapped down onto the parent log (e.g., LOADED)'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Descriptive telemetry summaries or specific event context text data blocks (e.g., Packed inside Truck 29B-123.45)',
-        db_comment='Descriptive metadata log textual narrative string'
+        help_text='Descriptive telemetry summaries or specific event context text data blocks (e.g., Packed inside Truck 29B-123.45)'
     )
     
     location = models.CharField(
         max_length=255,
         null=True,
         blank=True,
-        help_text='Physical office text string or text description logging where the action executed',
-        db_comment='Geographic location string descriptive index'
+        help_text='Physical office text string or text description logging where the action executed'
     )
     
     # ========================================================================
@@ -121,9 +114,8 @@ class ConsignmentEvent(models.Model):
     # ========================================================================
     
     recorded_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at database compilation layers
-        help_text='Timezone-aware timestamp logging exactly when this micro-action entered database storage frameworks',
-        db_comment='Event logging timeline registration timestamp'
+        default=models.functions.Now,
+        help_text='Timezone-aware timestamp logging exactly when this micro-action entered database storage frameworks'
     )
 
     class Meta:

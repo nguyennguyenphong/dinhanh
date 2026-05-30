@@ -65,8 +65,7 @@ class Payroll(models.Model):
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name='payrolls',
         db_index=True,
-        help_text='The employee asset whose monthly earnings are calculated',
-        db_comment='Reference to target employee beneficiary'
+        help_text='The employee asset whose monthly earnings are calculated'
     )
     
     approved_by = models.ForeignKey(
@@ -76,8 +75,7 @@ class Payroll(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The financial or HR authority account signing off on this statement line',
-        db_comment='Reference to reviewer user account'
+        help_text='The financial or HR authority account signing off on this statement line'
     )
     
     # ========================================================================
@@ -85,13 +83,11 @@ class Payroll(models.Model):
     # ========================================================================
     
     period_year = models.PositiveSmallIntegerField(
-        help_text='The specific calendar tracking year for this payment cycle (e.g., 2026)',
-        db_comment='Target compensation period year code'
+        help_text='The specific calendar tracking year for this payment cycle (e.g., 2026)'
     )
     
     period_month = models.PositiveSmallIntegerField(
-        help_text='The specific calendar tracking month for this payment cycle (1 to 12)',
-        db_comment='Target compensation period month code'
+        help_text='The specific calendar tracking month for this payment cycle (1 to 12)'
     )
     
     # ========================================================================
@@ -102,8 +98,7 @@ class Payroll(models.Model):
         max_digits=4,
         decimal_places=1,
         default=0.0,  # Matches NUMERIC(4,1) supporting fractional inputs like 21.5 working days
-        help_text='Total cumulative productive attendance days logged in the current cycle month',
-        db_comment='Total fractional working days count'
+        help_text='Total cumulative productive attendance days logged in the current cycle month'
     )
     
     # ========================================================================
@@ -114,32 +109,28 @@ class Payroll(models.Model):
         max_digits=15,
         decimal_places=2,
         default=0.00,  # Matches NUMERIC(15,2)
-        help_text='Contractual fixed base salary allocated for the standard cycle period',
-        db_comment='Base contract salary scalar value'
+        help_text='Contractual fixed base salary allocated for the standard cycle period'
     )
     
     allowances = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         default=0.00,
-        help_text='Total standard recurring allowances (e.g., lunch, fuel, phone support)',
-        db_comment='Total dynamic additions allowances sum'
+        help_text='Total standard recurring allowances (e.g., lunch, fuel, phone support)'
     )
     
     overtime_pay = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         default=0.00,
-        help_text='Total accrued compensation generated from approved overtime working hour shifts',
-        db_comment='Overtime accumulated payment sum'
+        help_text='Total accrued compensation generated from approved overtime working hour shifts'
     )
     
     bonus = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         default=0.00,
-        help_text='Discretionary performance bonuses, commissions, or milestone incentives',
-        db_comment='One-off performance incentive bonus allocation'
+        help_text='Discretionary performance bonuses, commissions, or milestone incentives'
     )
     
     # ========================================================================
@@ -150,24 +141,21 @@ class Payroll(models.Model):
         max_digits=15,
         decimal_places=2,
         default=0.00,
-        help_text='Standard internal deductions (e.g., disciplinary fines, asset damages, advanced payroll draws)',
-        db_comment='Internal operational penalty deductions sum'
+        help_text='Standard internal deductions (e.g., disciplinary fines, asset damages, advanced payroll draws)'
     )
     
     insurance_deduct = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         default=0.00,
-        help_text='Employee-borne statutory social, health, and unemployment insurance co-pay withholding',
-        db_comment='State-mandated welfare insurance deduction scale'
+        help_text='Employee-borne statutory social, health, and unemployment insurance co-pay withholding'
     )
     
     tax_deduct = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         default=0.00,
-        help_text='Calculated Personal Income Tax (PIT) withholding value scheduled for state treasury remittance',
-        db_comment='Personal income tax deduction allocation'
+        help_text='Calculated Personal Income Tax (PIT) withholding value scheduled for state treasury remittance'
     )
     
     # ========================================================================
@@ -178,8 +166,7 @@ class Payroll(models.Model):
         max_digits=15,
         decimal_places=2,
         default=0.00,
-        help_text='The definitive final take-home net earnings payable to the employee after arithmetic reduction rules',
-        db_comment='Net commercial payout figure balance'
+        help_text='The definitive final take-home net earnings payable to the employee after arithmetic reduction rules'
     )
     
     # ========================================================================
@@ -191,34 +178,29 @@ class Payroll(models.Model):
         choices=STATUS_CHOICES,
         default='DRAFT',
         db_index=True,
-        help_text='The workflow stage representing review pipeline status tracking',
-        db_comment='Workflow progression taxonomy status'
+        help_text='The workflow stage representing review pipeline status tracking'
     )
     
     paid_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when financial bank wire transaction occurred',
-        db_comment='Actual payout banking wire execution timestamp'
+        help_text='Timezone-aware timestamp logging exactly when financial bank wire transaction occurred'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Internal auditing annotations explaining specific modifications, tax exceptions, or formulas',
-        db_comment='Administrative text log annotations'
+        help_text='Internal auditing annotations explaining specific modifications, tax exceptions, or formulas'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this payroll statement row was originally generated',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this payroll statement row was originally generated'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when the compensation profile entries were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when the compensation profile entries were last modified'
     )
 
     class Meta:
@@ -247,8 +229,7 @@ class Payroll(models.Model):
             # Composite index specialized for high-speed calculation dashboard overview filters
             models.Index(
                 fields=['period_year', 'period_month', 'status'],
-                name='idx_pay_period_status_lookup',
-                db_comment='Optimize monthly payroll auditing pipeline workflows'
+                name='idx_pay_period_status_lookup'
             ),
         ]
 

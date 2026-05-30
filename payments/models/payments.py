@@ -70,8 +70,7 @@ class Payment(models.Model):
         default=1,
         related_name='payments',
         db_index=True,
-        help_text='Tenant corporate owner who holds rights over this incoming cash flow ledger line',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner who holds rights over this incoming cash flow ledger line'
     )
     
     booking = models.ForeignKey(
@@ -81,8 +80,7 @@ class Payment(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The passenger reservation sheet being funded by this transaction line',
-        db_comment='Soft reference to originating ticket booking document'
+        help_text='The passenger reservation sheet being funded by this transaction line'
     )
     
     consignment = models.ForeignKey(
@@ -92,8 +90,7 @@ class Payment(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The logistics cargo consignment packet funded by this transaction line',
-        db_comment='Soft reference to originating cargo package entity'
+        help_text='The logistics cargo consignment packet funded by this transaction line'
     )
     
     method = models.ForeignKey(
@@ -101,8 +98,7 @@ class Payment(models.Model):
         on_delete=models.PROTECT,  # Production safety: block deleting configuration lines if transaction logs depend on it
         related_name='payments',
         db_index=True,
-        help_text='The configured channel path configuration through which this capital entry cleared',
-        db_comment='Reference to active payment method configuration'
+        help_text='The configured channel path configuration through which this capital entry cleared'
     )
     
     cashier = models.ForeignKey(
@@ -112,8 +108,7 @@ class Payment(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The offline front-office clerk or counter agent who hand-received the cash asset',
-        db_comment='Reference to clerk cashier executing cash capture'
+        help_text='The offline front-office clerk or counter agent who hand-received the cash asset'
     )
     
     branch = models.ForeignKey(
@@ -123,8 +118,7 @@ class Payment(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The physical branch terminal hub office housing the cashier who logged the funds',
-        db_comment='Reference to localized business collection branch node'
+        help_text='The physical branch terminal hub office housing the cashier who logged the funds'
     )
     
     # ========================================================================
@@ -140,15 +134,13 @@ class Payment(models.Model):
                 message='Payment billing code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique system transaction lookup token key code (e.g., INV-2026-99A8X)',
-        db_comment='Unique system financial transaction invoice lookup code'
+        help_text='Unique system transaction lookup token key code (e.g., INV-2026-99A8X)'
     )
     
     amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The net currency scalar balance captured or requested under this specific billing invoice',
-        db_comment='Invoice transactional financial value balance'
+        help_text='The net currency scalar balance captured or requested under this specific billing invoice'
     )
     
     status = models.CharField(
@@ -156,8 +148,7 @@ class Payment(models.Model):
         choices=STATUS_CHOICES,
         default='PENDING',
         db_index=True,
-        help_text='The current verification phase tracking this incoming payment execution',
-        db_comment='Workflow financial transaction tracking taxonomy status string token'
+        help_text='The current verification phase tracking this incoming payment execution'
     )
     
     # ========================================================================
@@ -169,15 +160,13 @@ class Payment(models.Model):
         null=True,
         blank=True,
         db_index=True,  # Production index: Essential for lookups inside dynamic payment gateway callbacks
-        help_text='The external unique identification index string returned from bank gateway clearing networks',
-        db_comment='Third-party payment gateway transaction identification tracker key'
+        help_text='The external unique identification index string returned from bank gateway clearing networks'
     )
     
     # Native PostgreSQL JSONB architecture integration
     gateway_response = models.JSONField(
         default=dict,
-        help_text='Raw JSON database tree mapping the absolute unedited telemetry response packet emitted by IPN callback webhooks',
-        db_comment='JSONB log matrix storing unedited external gateway callback data packets'
+        help_text='Raw JSON database tree mapping the absolute unedited telemetry response packet emitted by IPN callback webhooks'
     )
     
     # ========================================================================
@@ -187,20 +176,17 @@ class Payment(models.Model):
     paid_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when funds cleared gateway validation protocols',
-        db_comment='Timezone-aware successful execution settlement date'
+        help_text='Timezone-aware timestamp logging exactly when funds cleared gateway validation protocols'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this incoming payment request ledger row was initialized inside the database',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this incoming payment request ledger row was initialized inside the database'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this financial invoice line were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when parameters inside this financial invoice line were last modified'
     )
 
     class Meta:

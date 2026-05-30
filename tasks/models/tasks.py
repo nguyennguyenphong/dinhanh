@@ -98,8 +98,7 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         related_name='tasks',
         db_index=True,
-        help_text='Tenant that owns this task',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this task'
     )
     
     # ========================================================================
@@ -113,8 +112,7 @@ class Task(models.Model):
         blank=True,
         related_name='tasks',
         db_index=True,
-        help_text='Task list this task belongs to',
-        db_comment='Reference to task list'
+        help_text='Task list this task belongs to'
     )
     
     # ========================================================================
@@ -123,15 +121,13 @@ class Task(models.Model):
     
     title = models.CharField(
         max_length=500,
-        help_text='Task title',
-        db_comment='Task title'
+        help_text='Task title'
     )
     
     description = models.TextField(
         blank=True,
         null=True,
-        help_text='Detailed task description',
-        db_comment='Task description'
+        help_text='Detailed task description'
     )
     
     # ========================================================================
@@ -143,8 +139,7 @@ class Task(models.Model):
         choices=PRIORITY_CHOICES,
         default='MEDIUM',
         db_index=True,
-        help_text='Task priority',
-        db_comment='Task priority'
+        help_text='Task priority'
     )
     
     status = models.CharField(
@@ -152,8 +147,7 @@ class Task(models.Model):
         choices=STATUS_CHOICES,
         default='TODO',
         db_index=True,
-        help_text='Task status',
-        db_comment='Task status'
+        help_text='Task status'
     )
     
     # ========================================================================
@@ -167,8 +161,7 @@ class Task(models.Model):
         blank=True,
         related_name='assigned_tasks',
         db_index=True,
-        help_text='User this task is assigned to',
-        db_comment='Assigned to user'
+        help_text='User this task is assigned to'
     )
     
     # ========================================================================
@@ -181,8 +174,7 @@ class Task(models.Model):
         null=True,
         blank=True,
         related_name='tasks_created',
-        help_text='User who created this task',
-        db_comment='Created by user'
+        help_text='User who created this task'
     )
     
     # ========================================================================
@@ -193,15 +185,13 @@ class Task(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='Due date for task',
-        db_comment='Due date'
+        help_text='Due date for task'
     )
     
     completed_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When task was completed',
-        db_comment='Completion time'
+        help_text='When task was completed'
     )
     
     # ========================================================================
@@ -213,16 +203,14 @@ class Task(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='Type of entity this task is linked to',
-        db_comment='Entity type'
+        help_text='Type of entity this task is linked to'
     )
     
     entity_id = models.BigIntegerField(
         null=True,
         blank=True,
         db_index=True,
-        help_text='ID of entity this task is linked to',
-        db_comment='Entity ID'
+        help_text='ID of entity this task is linked to'
     )
     
     # ========================================================================
@@ -232,14 +220,12 @@ class Task(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When task was created',
-        db_comment='Creation timestamp'
+        help_text='When task was created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When task was last updated',
-        db_comment='Last update timestamp'
+        help_text='When task was last updated'
     )
 
     class Meta:
@@ -275,33 +261,28 @@ class Task(models.Model):
             # Index for assignee queries
             models.Index(
                 fields=['assignee_id'],
-                name='idx_tasks_assignee',
-                db_comment='Query tasks by assignee'
+                name='idx_tasks_assignee'
             ),
             # Index for entity linking
             models.Index(
                 fields=['entity_type', 'entity_id'],
-                name='idx_tasks_entity',
-                db_comment='Query tasks by entity'
+                name='idx_tasks_entity'
             ),
             # Index for active tasks
             models.Index(
                 fields=['status'],
                 condition=Q(status__in=['TODO', 'IN_PROGRESS', 'REVIEW']),
-                name='idx_tasks_status',
-                db_comment='Query active tasks'
+                name='idx_tasks_status'
             ),
             # Index for overdue tasks
             models.Index(
                 fields=['due_date', 'status'],
-                name='idx_tasks_due_status',
-                db_comment='Query overdue tasks'
+                name='idx_tasks_due_status'
             ),
             # Index for tenant queries
             models.Index(
                 fields=['tenant', 'status'],
-                name='idx_tasks_tenant_status',
-                db_comment='Query tasks by tenant and status'
+                name='idx_tasks_tenant_status'
             ),
         ]
 

@@ -68,64 +68,58 @@ class Trip(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='trips',
         db_index=True,
-        help_text='Tenant owner of this active operational trip journey',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this active operational trip journey'
     )
     
     schedule = models.ForeignKey(
         TripSchedule,
-        on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
+        on_delete=models.SET_NULL,
         related_name='trips',
         null=True,
         blank=True,
         db_index=True,
-        help_text='Reference to parent timetable blueprint configuration template if auto-generated',
-        db_comment='Soft reference to originating timetable template'
+        help_text='Reference to parent timetable blueprint configuration template if auto-generated'
     )
     
     route = models.ForeignKey(
         Route,
-        on_delete=models.PROTECT,  # Production safety: lock route deletion if commercial trips are attached
+        on_delete=models.PROTECT,
         related_name='trips',
         db_index=True,
-        help_text='The active physical transportation route corridor assigned to this trip',
-        db_comment='Reference to structural track core'
+        help_text='The active physical transportation route corridor assigned to this trip'
     )
     
     vehicle = models.ForeignKey(
         Vehicle,
-        on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
+        on_delete=models.SET_NULL,
         related_name='trips',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The physical commercial fleet asset deployed to execute this journey',
-        db_comment='Reference to deployed mechanical fleet asset'
+        help_text='The physical commercial fleet asset deployed to execute this journey'
     )
     
     seat_map = models.ForeignKey(
         SeatMap,
-        on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
+        on_delete=models.SET_NULL,
         related_name='trips',
         null=True,
         blank=True,
-        help_text='The configuration matrix snapshot blueprint determining layout inventory allocation',
-        db_comment='Reference to structural layout map blueprint'
+        help_text='The configuration matrix snapshot blueprint determining layout inventory allocation'
     )
     
     branch = models.ForeignKey(
         Branch,
-        on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
+        on_delete=models.SET_NULL,
         related_name='trips',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The dispatch managing branch station hub holding tracking accountability',
-        db_comment='Reference to supervising branch node'
+        help_text='The dispatch managing branch station hub holding tracking accountability'
     )
     
     # ========================================================================
@@ -140,8 +134,7 @@ class Trip(models.Model):
                 message='Code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique commercial business code matching ticketing indexes (e.g., HAN-SGN-20260530-01)',
-        db_comment='Unique system commercial transaction lookup token code'
+        help_text='Unique commercial business code matching ticketing indexes (e.g., HAN-SGN-20260530-01)'
     )
     
     # ========================================================================
@@ -150,29 +143,25 @@ class Trip(models.Model):
     
     departure_time = models.DateTimeField(
         db_index=True,
-        help_text='The official planned/scheduled calendar date and time for departure gate release',
-        db_comment='Planned departure timezone-aware timeline point'
+        help_text='The official planned/scheduled calendar date and time for departure gate release'
     )
     
     estimated_arrival = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='The calculated estimated date and time for terminal destination arrival logs',
-        db_comment='Estimated arrival timezone-aware timeline point'
+        help_text='The calculated estimated date and time for terminal destination arrival logs'
     )
     
     actual_departure = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='The exact physical timestamp logged when wheel rotation began past terminal gates',
-        db_comment='Real departure execution record timestamp'
+        help_text='The exact physical timestamp logged when wheel rotation began past terminal gates'
     )
     
     actual_arrival = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='The exact physical timestamp logged when the asset successfully safely docked at destination terminal',
-        db_comment='Real arrival execution record timestamp'
+        help_text='The exact physical timestamp logged when the asset successfully safely docked at destination terminal'
     )
     
     # ========================================================================
@@ -184,29 +173,25 @@ class Trip(models.Model):
         choices=STATUS_CHOICES,
         default='SCHEDULED',
         db_index=True,
-        help_text='The core operational stage representing current journey lifecycle status',
-        db_comment='Workflow progression taxonomy status string token'
+        help_text='The core operational stage representing current journey lifecycle status'
     )
     
     cancel_reason = models.TextField(
         null=True,
         blank=True,
-        help_text='Explicit legal/operational annotation stating why a scheduled line was aborted',
-        db_comment='Cancellation background context logs'
+        help_text='Explicit legal/operational annotation stating why a scheduled line was aborted'
     )
     
     delay_reason = models.TextField(
         null=True,
         blank=True,
-        help_text='Context annotations explaining schedule drift variables (e.g., highway congestion, tire repairs)',
-        db_comment='Timing delay background context logs'
+        help_text='Context annotations explaining schedule drift variables (e.g., highway congestion, tire repairs)'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Miscellaneous operational dispatcher logging data sheets, special alerts, or crew notes',
-        db_comment='Administrative text log annotations'
+        help_text='Miscellaneous operational dispatcher logging data sheets, special alerts, or crew notes'
     )
     
     # ========================================================================
@@ -215,14 +200,12 @@ class Trip(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this live commercial journey entity sheet was registered',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this live commercial journey entity sheet was registered'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this trip profile sheet were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when parameters inside this trip profile sheet were last modified'
     )
 
     class Meta:
@@ -258,14 +241,12 @@ class Trip(models.Model):
             # Multi-column index optimizing high-velocity queries driving customer-facing reservation searches
             models.Index(
                 fields=['route', 'status', 'departure_time'],
-                name='idx_trip_customer_search',
-                db_comment='Optimize routing queries for active booking applications'
+                name='idx_trip_customer_search'
             ),
             # Index optimized for GPS monitoring boards or tracking pipelines checking active road nodes
             models.Index(
                 fields=['vehicle', 'status'],
-                name='idx_trip_fleet_active_tracking',
-                db_comment='Optimize fleet dispatcher board lookup speed'
+                name='idx_trip_fleet_active_tracking'
             ),
         ]
 

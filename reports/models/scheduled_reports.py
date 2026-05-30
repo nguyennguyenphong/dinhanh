@@ -71,8 +71,7 @@ class ScheduledReport(models.Model):
         on_delete=models.CASCADE,  # Matches REFERENCES report_definitions(id) ON DELETE CASCADE
         related_name='schedules',
         db_index=True,
-        help_text='The dynamic database analytics report definition blueprint model acting as the extraction engine for this job',
-        db_comment='Cascade reference targeting primary source analytical report configuration row'
+        help_text='The dynamic database analytics report definition blueprint model acting as the extraction engine for this job'
     )
     
     # ========================================================================
@@ -81,24 +80,21 @@ class ScheduledReport(models.Model):
     
     name = models.CharField(
         max_length=100,  # Matches VARCHAR(100) NOT NULL
-        help_text='Short descriptive title identifying this background automated mailing task schedule configuration',
-        db_comment='Public administrative task tracking label text summary'
+        help_text='Short descriptive title identifying this background automated mailing task schedule configuration'
     )
     
     frequency = models.CharField(
         max_length=20,
         choices=FREQUENCY_CHOICES,  # Enforces structural enum compliance parameters
         db_index=True,
-        help_text='The high-level macro cyclic category block governing transmission timing patterns',
-        db_comment='Cyclical execution frequency taxonomy token string'
+        help_text='The high-level macro cyclic category block governing transmission timing patterns'
     )
     
     cron_expr = models.CharField(
         max_length=50,  # Matches VARCHAR(50) nullable specifications
         null=True,
         blank=True,
-        help_text='Standard five-field Unix crontab string syntax expression for custom precision execution mapping (e.g., "30 7 * * 1-5")',
-        db_comment='Standard Unix-styled cron syntax timing control pattern text line'
+        help_text='Standard five-field Unix crontab string syntax expression for custom precision execution mapping (e.g., "30 7 * * 1-5")'
     )
     
     # ========================================================================
@@ -107,16 +103,14 @@ class ScheduledReport(models.Model):
     
     recipients = models.JSONField(
         default=list,  # Matches NOT NULL DEFAULT '[]' using clean array factory generators
-        help_text='JSONB array containing direct communication delivery routing targets. Structure layout: [{"type": "email"|"user", "value": "..."}]',
-        db_comment='Binary-JSON parameters configuration mapping downstream dispatch distribution destinations'
+        help_text='JSONB array containing direct communication delivery routing targets. Structure layout: [{"type": "email"|"user", "value": "..."}]'
     )
     
     format = models.CharField(
         max_length=10,
         choices=FORMAT_CHOICES,
         default='PDF',  # Matches NOT NULL DEFAULT 'PDF'
-        help_text='The physical target electronic extension file format structure built during task rendering executions',
-        db_comment='Output compilation file structure document format taxonomy token string'
+        help_text='The physical target electronic extension file format structure built during task rendering executions'
     )
     
     # ========================================================================
@@ -126,29 +120,25 @@ class ScheduledReport(models.Model):
     last_run_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware calendar timestamp documenting the last moment this automation task ran successfully',
-        db_comment='Chronological snapshot of previous operational execution completion milestone'
+        help_text='Timezone-aware calendar timestamp documenting the last moment this automation task ran successfully'
     )
     
     next_run_at = models.DateTimeField(
         null=True,
         blank=True,
         db_index=True,  # Critical production optimization: allows cron workers to perform ultra-fast sweep queries
-        help_text='Timezone-aware timestamp marking the immediate future target milestone when background workers should run this row',
-        db_comment='Chronological target projection indicator for upcoming background execution sweeps'
+        help_text='Timezone-aware timestamp marking the immediate future target milestone when background workers should run this row'
     )
     
     is_active = models.BooleanField(
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
-        help_text='Master administrative toggle switch. Turning this off flags the worker pool daemon to ignore scheduling executions for this row.',
-        db_comment='System global infrastructure scheduling state activation toggle indicator'
+        help_text='Master administrative toggle switch. Turning this off flags the worker pool daemon to ignore scheduling executions for this row.'
     )
     
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compilation levels
-        help_text='Timezone-aware log record tracking exactly when this schedule record entry was registered inside the database',
-        db_comment='Creation timestamp log entry'
+        help_text='Timezone-aware log record tracking exactly when this schedule record entry was registered inside the database'
     )
 
     class Meta:

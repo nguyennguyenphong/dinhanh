@@ -144,8 +144,7 @@ class UserAccount(AbstractBaseUser):
         editable=False,
         unique=True,
         db_index=True,
-        help_text='Unique identifier for external API calls',
-        db_comment='UUID for API references'
+        help_text='Unique identifier for external API calls'
     )
     
     # ========================================================================
@@ -157,8 +156,7 @@ class UserAccount(AbstractBaseUser):
         on_delete=models.CASCADE,
         related_name='user_accounts',
         db_index=True,
-        help_text='Tenant that owns this user',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this user'
     )
     
     # ========================================================================
@@ -173,19 +171,16 @@ class UserAccount(AbstractBaseUser):
                 message='Username can only contain letters, numbers, dots, underscores, and hyphens'
             )
         ],
-        help_text='Unique username per tenant',
-        db_comment='User login username'
+        help_text='Unique username per tenant'
     )
     email = models.EmailField(
         max_length=254,
         validators=[EmailValidator()],
-        help_text='Unique email per tenant',
-        db_comment='User email address'
+        help_text='Unique email per tenant'
     )
     password = models.CharField(
         max_length=255,
-        help_text='Hashed password (PBKDF2)',
-        db_comment='Password hash'
+        help_text='Hashed password (PBKDF2)'
     )
     
     # ========================================================================
@@ -194,8 +189,7 @@ class UserAccount(AbstractBaseUser):
     
     full_name = models.CharField(
         max_length=255,
-        help_text='User full name',
-        db_comment='Full name of user'
+        help_text='User full name'
     )
     phone = models.CharField(
         max_length=20,
@@ -207,15 +201,13 @@ class UserAccount(AbstractBaseUser):
                 message='Invalid phone number format'
             )
         ],
-        help_text='User phone number',
-        db_comment='Contact phone number'
+        help_text='User phone number'
     )
     avatar = models.URLField(
         max_length=500,
         blank=True,
         null=True,
-        help_text='URL to user avatar image',
-        db_comment='Avatar image URL'
+        help_text='URL to user avatar image'
     )
     
     # ========================================================================
@@ -228,8 +220,7 @@ class UserAccount(AbstractBaseUser):
         null=True,
         blank=True,
         related_name='users',
-        help_text='Branch where user works',
-        db_comment='Associated branch'
+        help_text='Branch where user works'
     )
     
     # ========================================================================
@@ -239,18 +230,15 @@ class UserAccount(AbstractBaseUser):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='User account is active',
-        db_comment='Account active status'
+        help_text='User account is active'
     )
     is_staff = models.BooleanField(
         default=False,
-        help_text='User can access admin interface',
-        db_comment='Staff status'
+        help_text='User can access admin interface'
     )
     is_superuser = models.BooleanField(
         default=False,
-        help_text='User has all permissions',
-        db_comment='Superuser status'
+        help_text='User has all permissions'
     )
     
     # ========================================================================
@@ -259,20 +247,17 @@ class UserAccount(AbstractBaseUser):
     
     must_change_password = models.BooleanField(
         default=False,
-        help_text='User must change password on next login',
-        db_comment='Password change required flag'
+        help_text='User must change password on next login'
     )
     last_password_change = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When password was last changed',
-        db_comment='Last password change timestamp'
+        help_text='When password was last changed'
     )
     password_expires_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When password expires (null = never)',
-        db_comment='Password expiration timestamp'
+        help_text='When password expires (null = never)'
     )
     
     # ========================================================================
@@ -281,21 +266,18 @@ class UserAccount(AbstractBaseUser):
     
     two_fa_enabled = models.BooleanField(
         default=False,
-        help_text='Two-factor authentication is enabled',
-        db_comment='2FA enabled status'
+        help_text='Two-factor authentication is enabled'
     )
     two_fa_secret = models.CharField(
         max_length=100,
         blank=True,
         null=True,
-        help_text='TOTP secret for 2FA (encrypted in production)',
-        db_comment='2FA TOTP secret'
+        help_text='TOTP secret for 2FA (encrypted in production)'
     )
     two_fa_backup_codes = models.JSONField(
         default=list,
         blank=True,
-        help_text='Backup codes for 2FA recovery',
-        db_comment='2FA backup codes'
+        help_text='Backup codes for 2FA recovery'
     )
     
     # ========================================================================
@@ -305,14 +287,12 @@ class UserAccount(AbstractBaseUser):
     last_login = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Last successful login timestamp',
-        db_comment='Last login timestamp'
+        help_text='Last successful login timestamp'
     )
     last_login_ip = models.GenericIPAddressField(
         null=True,
         blank=True,
-        help_text='IP address of last login',
-        db_comment='Last login IP address'
+        help_text='IP address of last login'
     )
     
     # ========================================================================
@@ -321,14 +301,12 @@ class UserAccount(AbstractBaseUser):
     
     failed_login_count = models.SmallIntegerField(
         default=0,
-        help_text='Number of consecutive failed login attempts',
-        db_comment='Failed login attempts counter'
+        help_text='Number of consecutive failed login attempts'
     )
     locked_until = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Account locked until this time (null = not locked)',
-        db_comment='Account lock expiration'
+        help_text='Account locked until this time (null = not locked)'
     )
     
     # ========================================================================
@@ -338,8 +316,7 @@ class UserAccount(AbstractBaseUser):
     preferences = models.JSONField(
         default=dict,
         blank=True,
-        help_text='User UI preferences (theme, language, etc.)',
-        db_comment='User preferences JSON'
+        help_text='User UI preferences (theme, language, etc.)'
     )
     
     # ========================================================================
@@ -349,13 +326,11 @@ class UserAccount(AbstractBaseUser):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When user account was created',
-        db_comment='Account creation timestamp'
+        help_text='When user account was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When user account was last updated',
-        db_comment='Account last update timestamp'
+        help_text='When user account was last updated'
     )
 
     # Set custom user manager
@@ -398,32 +373,27 @@ class UserAccount(AbstractBaseUser):
             # Index for finding active users
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_user_tenant_active',
-                db_comment='Query active users by tenant'
+                name='idx_user_tenant_active'
             ),
             # Index for email lookups
             models.Index(
                 fields=['tenant', 'email'],
-                name='idx_user_tenant_email',
-                db_comment='Query users by email'
+                name='idx_user_tenant_email'
             ),
             # Index for username lookups
             models.Index(
                 fields=['tenant', 'username'],
-                name='idx_user_tenant_username',
-                db_comment='Query users by username'
+                name='idx_user_tenant_username'
             ),
             # Index for locked accounts
             models.Index(
                 fields=['locked_until'],
-                name='idx_user_locked_until',
-                db_comment='Query locked accounts'
+                name='idx_user_locked_until'
             ),
             # Index for staff users
             models.Index(
                 fields=['is_staff'],
-                name='idx_user_is_staff',
-                db_comment='Query staff users'
+                name='idx_user_is_staff'
             ),
         ]
 

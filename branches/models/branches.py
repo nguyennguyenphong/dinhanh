@@ -65,8 +65,7 @@ class Branch(models.Model):
         on_delete=models.CASCADE,
         related_name='branches',
         db_index=True,
-        help_text='Tenant that owns this branch',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this branch'
     )
     
     # ========================================================================
@@ -81,13 +80,11 @@ class Branch(models.Model):
                 message='Code must contain only uppercase letters, numbers, and underscores'
             )
         ],
-        help_text='Unique code for the branch (e.g., "HCM", "HN", "DN")',
-        db_comment='Branch code identifier'
+        help_text='Unique code for the branch (e.g., "HCM", "HN", "DN")'
     )
     name = models.CharField(
         max_length=255,
-        help_text='Display name of the branch',
-        db_comment='Branch name'
+        help_text='Display name of the branch'
     )
     
     # ========================================================================
@@ -97,8 +94,7 @@ class Branch(models.Model):
     address = models.TextField(
         blank=True,
         null=True,
-        help_text='Physical address of the branch',
-        db_comment='Branch address'
+        help_text='Physical address of the branch'
     )
     phone = models.CharField(
         max_length=20,
@@ -110,16 +106,14 @@ class Branch(models.Model):
                 message='Invalid phone number format'
             )
         ],
-        help_text='Contact phone number',
-        db_comment='Branch phone number'
+        help_text='Contact phone number'
     )
     email = models.EmailField(
         max_length=254,
         blank=True,
         null=True,
         validators=[EmailValidator()],
-        help_text='Contact email address',
-        db_comment='Branch email address'
+        help_text='Contact email address'
     )
     
     # ========================================================================
@@ -132,8 +126,7 @@ class Branch(models.Model):
         null=True,
         blank=True,
         related_name='managed_branches',
-        help_text='Manager of this branch',
-        db_comment='Branch manager'
+        help_text='Manager of this branch'
     )
     
     # ========================================================================
@@ -145,23 +138,20 @@ class Branch(models.Model):
         decimal_places=7,
         null=True,
         blank=True,
-        help_text='Latitude coordinate',
-        db_comment='Branch latitude'
+        help_text='Latitude coordinate'
     )
     longitude = models.DecimalField(
         max_digits=10,
         decimal_places=7,
         null=True,
         blank=True,
-        help_text='Longitude coordinate',
-        db_comment='Branch longitude'
+        help_text='Longitude coordinate'
     )
     timezone = models.CharField(
         max_length=50,
         choices=TIMEZONE_CHOICES,
         default='Asia/Ho_Chi_Minh',
-        help_text='Timezone for this branch',
-        db_comment='Branch timezone'
+        help_text='Timezone for this branch'
     )
     
     # ========================================================================
@@ -171,8 +161,7 @@ class Branch(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Branch is active and operational',
-        db_comment='Active status'
+        help_text='Branch is active and operational'
     )
     
     # ========================================================================
@@ -182,8 +171,7 @@ class Branch(models.Model):
     metadata = models.JSONField(
         default=dict,
         blank=True,
-        help_text='Branch-specific metadata and settings',
-        db_comment='Metadata JSON'
+        help_text='Branch-specific metadata and settings'
     )
     
     # ========================================================================
@@ -193,13 +181,11 @@ class Branch(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this branch was created',
-        db_comment='Creation timestamp'
+        help_text='When this branch was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When this branch was last updated',
-        db_comment='Last update timestamp'
+        help_text='When this branch was last updated'
     )
 
     class Meta:
@@ -229,20 +215,17 @@ class Branch(models.Model):
             # Index for finding active branches
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_branch_tenant_active',
-                db_comment='Query active branches by tenant'
+                name='idx_branch_tenant_active'
             ),
             # Index for manager queries
             models.Index(
                 fields=['manager_id'],
-                name='idx_branch_manager',
-                db_comment='Query branches by manager'
+                name='idx_branch_manager'
             ),
             # Index for timezone queries
             models.Index(
                 fields=['timezone'],
-                name='idx_branch_timezone',
-                db_comment='Query branches by timezone'
+                name='idx_branch_timezone'
             ),
         ]
 

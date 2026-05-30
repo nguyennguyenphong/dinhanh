@@ -75,23 +75,21 @@ class CargoPriceTable(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='cargo_price_tables',
         db_index=True,
-        help_text='Tenant corporate owner managing this isolated logistics tariffs configuration leaf',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner managing this isolated logistics tariffs configuration leaf'
     )
     
     route = models.ForeignKey(
         Route,
-        on_delete=models.SET_NULL,  # Matches REFERENCES routes(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='cargo_tariffs',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The specific geography transport route assigned to this tariff rate. If NULL, acts as a global baseline rule.',
-        db_comment='Soft reference link targeting operational dispatch lines'
+        help_text='The specific geography transport route assigned to this tariff rate. If NULL, acts as a global baseline rule.'
     )
     
     # ========================================================================
@@ -102,10 +100,9 @@ class CargoPriceTable(models.Model):
         max_length=50,
         choices=CARGO_TYPE_CHOICES,
         null=True,
-        blank=True,  # Matches cargo_type VARCHAR(50) without NOT NULL constraint
+        blank=True,
         db_index=True,
-        help_text='The specialized transport properties group classification assigned to this matrix rule line',
-        db_comment='Cargo material and structural handling properties categorization string token'
+        help_text='The specialized transport properties group classification assigned to this matrix rule line'
     )
     
     # ========================================================================
@@ -114,22 +111,20 @@ class CargoPriceTable(models.Model):
     
     min_weight = models.DecimalField(
         max_digits=8,
-        decimal_places=2,  # Matches NUMERIC(8,2)
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The inclusive lower mass boundary benchmark requirement calculated in kilograms (KG)',
-        db_comment='Inclusive minimum package mass threshold capacity value'
+        help_text='The inclusive lower mass boundary benchmark requirement calculated in kilograms (KG)'
     )
     
     max_weight = models.DecimalField(
         max_digits=8,
-        decimal_places=2,  # Matches NUMERIC(8,2)
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The inclusive upper mass boundary benchmark requirement calculated in kilograms (KG)',
-        db_comment='Inclusive maximum package mass threshold capacity value'
+        help_text='The inclusive upper mass boundary benchmark requirement calculated in kilograms (KG)'
     )
     
     # ========================================================================
@@ -138,22 +133,20 @@ class CargoPriceTable(models.Model):
     
     min_volume = models.DecimalField(
         max_digits=8,
-        decimal_places=3,  # Matches NUMERIC(8,3)
+        decimal_places=3,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.000)],
-        help_text='The inclusive lower spatial dimension volume check calculation threshold in cubic meters (M3)',
-        db_comment='Inclusive minimum spatial metric capacity volume calculation threshold'
+        help_text='The inclusive lower spatial dimension volume check calculation threshold in cubic meters (M3)'
     )
     
     max_volume = models.DecimalField(
         max_digits=8,
-        decimal_places=3,  # Matches NUMERIC(8,3)
+        decimal_places=3,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.000)],
-        help_text='The inclusive upper spatial dimension volume check calculation threshold in cubic meters (M3)',
-        db_comment='Inclusive maximum spatial metric capacity volume calculation threshold'
+        help_text='The inclusive upper spatial dimension volume check calculation threshold in cubic meters (M3)'
     )
     
     # ========================================================================
@@ -162,19 +155,17 @@ class CargoPriceTable(models.Model):
     
     price = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
+        decimal_places=2,
         validators=[MinValueValidator(0.00)],
-        help_text='The gross core billing tariff coefficient rate value assigned to this rule setup configuration',
-        db_comment='Commercial currency baseline tariff rate parameter value'
+        help_text='The gross core billing tariff coefficient rate value assigned to this rule setup configuration'
     )
     
     price_unit = models.CharField(
         max_length=20,
         choices=PRICE_UNIT_CHOICES,
-        default='PER_KG',  # Matches NOT NULL DEFAULT 'PER_KG'
+        default='PER_KG',
         db_index=True,
-        help_text='The evaluation formula methodology applied to calculate eventual final customer parcel invoice values',
-        db_comment='Tariff formula calculation methodology index mapping taxonomy token'
+        help_text='The evaluation formula methodology applied to calculate eventual final customer parcel invoice values'
     )
     
     # ========================================================================
@@ -182,22 +173,19 @@ class CargoPriceTable(models.Model):
     # ========================================================================
     
     is_active = models.BooleanField(
-        default=True,  # Matches NOT NULL DEFAULT TRUE
+        default=True,
         db_index=True,
-        help_text='Active validation switch flag. Turning this off flags the matching arithmetic engine to skip evaluating this row entry',
-        db_comment='Logical calculation visibility state switch boolean flag'
+        help_text='Active validation switch flag. Turning this off flags the matching arithmetic engine to skip evaluating this row entry'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this logistics tariff row rule was opened inside the core database layout',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this logistics tariff row rule was opened inside the core database layout'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when structural parameters inside this dynamic tariff node were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when structural parameters inside this dynamic tariff node were last modified'
     )
 
     class Meta:

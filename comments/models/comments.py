@@ -83,8 +83,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name='comments',
         db_index=True,
-        help_text='Tenant that owns this comment',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this comment'
     )
     
     # ========================================================================
@@ -94,14 +93,12 @@ class Comment(models.Model):
     entity_type = models.CharField(
         max_length=60,
         db_index=True,
-        help_text='Type of entity being commented on',
-        db_comment='Entity type'
+        help_text='Type of entity being commented on'
     )
     
     entity_id = models.BigIntegerField(
         db_index=True,
-        help_text='ID of entity being commented on',
-        db_comment='Entity ID'
+        help_text='ID of entity being commented on'
     )
     
     # ========================================================================
@@ -115,8 +112,7 @@ class Comment(models.Model):
         blank=True,
         related_name='replies',
         db_index=True,
-        help_text='Parent comment (for nested replies)',
-        db_comment='Parent comment'
+        help_text='Parent comment (for nested replies)'
     )
     
     # ========================================================================
@@ -124,8 +120,7 @@ class Comment(models.Model):
     # ========================================================================
     
     body = models.TextField(
-        help_text='Comment text',
-        db_comment='Comment body'
+        help_text='Comment text'
     )
     
     # ========================================================================
@@ -138,8 +133,7 @@ class Comment(models.Model):
         null=True,
         blank=True,
         related_name='comments',
-        help_text='User who wrote this comment',
-        db_comment='Comment author'
+        help_text='User who wrote this comment'
     )
     
     # ========================================================================
@@ -149,15 +143,13 @@ class Comment(models.Model):
     is_internal = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Comment is internal (staff only)',
-        db_comment='Internal flag'
+        help_text='Comment is internal (staff only)'
     )
     
     is_pinned = models.BooleanField(
         default=False,
         db_index=True,
-        help_text='Comment is pinned to top',
-        db_comment='Pinned flag'
+        help_text='Comment is pinned to top'
     )
     
     # ========================================================================
@@ -167,8 +159,7 @@ class Comment(models.Model):
     edited_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When comment was last edited',
-        db_comment='Last edit time'
+        help_text='When comment was last edited'
     )
     
     # ========================================================================
@@ -178,8 +169,7 @@ class Comment(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When comment was created',
-        db_comment='Creation timestamp'
+        help_text='When comment was created'
     )
 
     class Meta:
@@ -196,33 +186,28 @@ class Comment(models.Model):
             # Index for finding comments by entity
             models.Index(
                 fields=['entity_type', 'entity_id'],
-                name='idx_comments_entity',
-                db_comment='Query comments by entity'
+                name='idx_comments_entity'
             ),
             # Index for finding replies
             models.Index(
                 fields=['parent_id'],
                 condition=Q(parent_id__isnull=False),
-                name='idx_comments_parent',
-                db_comment='Query replies by parent'
+                name='idx_comments_parent'
             ),
             # Index for finding internal comments
             models.Index(
                 fields=['is_internal'],
-                name='idx_comments_internal',
-                db_comment='Query internal comments'
+                name='idx_comments_internal'
             ),
             # Index for finding pinned comments
             models.Index(
                 fields=['is_pinned'],
-                name='idx_comments_pinned',
-                db_comment='Query pinned comments'
+                name='idx_comments_pinned'
             ),
             # Index for author queries
             models.Index(
                 fields=['author_id'],
-                name='idx_comments_author',
-                db_comment='Query comments by author'
+                name='idx_comments_author'
             ),
         ]
 

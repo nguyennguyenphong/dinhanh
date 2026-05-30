@@ -75,8 +75,7 @@ class FeatureFlag(models.Model):
         on_delete=models.CASCADE,
         related_name='feature_flags',
         db_index=True,
-        help_text='Tenant that owns this feature flag',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this feature flag'
     )
     
     # ========================================================================
@@ -91,19 +90,16 @@ class FeatureFlag(models.Model):
                 message='Key must contain only lowercase letters, numbers, and underscores'
             )
         ],
-        help_text='Unique key for the feature flag (e.g., "online_payment_vnpay")',
-        db_comment='Feature flag key identifier'
+        help_text='Unique key for the feature flag (e.g., "online_payment_vnpay")'
     )
     label = models.CharField(
         max_length=255,
-        help_text='Human-readable label for the feature',
-        db_comment='Feature label'
+        help_text='Human-readable label for the feature'
     )
     description = models.TextField(
         blank=True,
         null=True,
-        help_text='Detailed description of the feature',
-        db_comment='Feature description'
+        help_text='Detailed description of the feature'
     )
     
     # ========================================================================
@@ -113,8 +109,7 @@ class FeatureFlag(models.Model):
     is_enabled = models.BooleanField(
         default=False,
         db_index=True,
-        help_text='Feature flag is enabled',
-        db_comment='Enabled status'
+        help_text='Feature flag is enabled'
     )
     rollout_pct = models.SmallIntegerField(
         default=100,
@@ -122,8 +117,7 @@ class FeatureFlag(models.Model):
             MinValueValidator(0),
             MaxValueValidator(100)
         ],
-        help_text='Percentage of users to enable feature for (0-100)',
-        db_comment='Rollout percentage'
+        help_text='Percentage of users to enable feature for (0-100)'
     )
     
     # ========================================================================
@@ -134,15 +128,13 @@ class FeatureFlag(models.Model):
         models.IntegerField(),
         null=True,
         blank=True,
-        help_text='List of role IDs that can access this feature (null = all roles)',
-        db_comment='Allowed role IDs'
+        help_text='List of role IDs that can access this feature (null = all roles)'
     )
     allowed_users = ArrayField(
         models.IntegerField(),
         null=True,
         blank=True,
-        help_text='List of user IDs that can access this feature (whitelist)',
-        db_comment='Allowed user IDs'
+        help_text='List of user IDs that can access this feature (whitelist)'
     )
     
     # ========================================================================
@@ -152,14 +144,12 @@ class FeatureFlag(models.Model):
     valid_from = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Feature becomes active from this date',
-        db_comment='Valid from timestamp'
+        help_text='Feature becomes active from this date'
     )
     valid_to = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Feature becomes inactive after this date',
-        db_comment='Valid to timestamp'
+        help_text='Feature becomes inactive after this date'
     )
     
     # ========================================================================
@@ -169,8 +159,7 @@ class FeatureFlag(models.Model):
     metadata = models.JSONField(
         default=dict,
         blank=True,
-        help_text='Additional configuration and metadata',
-        db_comment='Metadata JSON'
+        help_text='Additional configuration and metadata'
     )
     
     # ========================================================================
@@ -180,13 +169,11 @@ class FeatureFlag(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this feature flag was created',
-        db_comment='Creation timestamp'
+        help_text='When this feature flag was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When this feature flag was last updated',
-        db_comment='Last update timestamp'
+        help_text='When this feature flag was last updated'
     )
 
     class Meta:
@@ -221,14 +208,12 @@ class FeatureFlag(models.Model):
             # Index for finding enabled flags
             models.Index(
                 fields=['tenant', 'is_enabled'],
-                name='idx_feature_tenant_enabled',
-                db_comment='Query enabled features by tenant'
+                name='idx_feature_tenant_enabled'
             ),
             # Index for time-based queries
             models.Index(
                 fields=['valid_from', 'valid_to'],
-                name='idx_feature_valid_dates',
-                db_comment='Query features by validity dates'
+                name='idx_feature_valid_dates'
             ),
         ]
 

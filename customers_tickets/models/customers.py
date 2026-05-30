@@ -71,31 +71,27 @@ class Customer(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='customers',
         db_index=True,
-        help_text='Tenant owner who maintains ownership of this customer CRM identity profile',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner who maintains ownership of this customer CRM identity profile'
     )
     
     # ========================================================================
     # CORE IDENTIFIERS & SECURE TOKENS
     # ========================================================================
     
-    # Matches UUID NOT NULL DEFAULT uuid_generate_v4() UNIQUE
     uuid = models.UUIDField(
         default=uuid.uuid4,
         unique=True,
         editable=False,
-        help_text='Global immutable UUIDv4 identifier string optimized for external API exposure frameworks',
-        db_comment='Cryptographically secure unique identity token'
+        help_text='Global immutable UUIDv4 identifier string optimized for external API exposure frameworks'
     )
     
     full_name = models.CharField(
         max_length=255,
-        help_text='The full legal name coordinates of the passenger customer',
-        db_comment='Customer legal full name text'
+        help_text='The full legal name coordinates of the passenger customer'
     )
     
     phone = models.CharField(
@@ -106,8 +102,7 @@ class Customer(models.Model):
                 message='Phone number format specification is invalid'
             )
         ],
-        help_text='The primary contact mobile phone string sequence used for transaction and authentication logs',
-        db_comment='Primary communication phone sequence'
+        help_text='The primary contact mobile phone string sequence used for transaction and authentication logs'
     )
     
     # ========================================================================
@@ -115,41 +110,36 @@ class Customer(models.Model):
     # ========================================================================
     
     email = models.EmailField(
-        max_length=254,  # Matches max_length=254 adhering to standard email specifications
+        max_length=254,
         null=True,
         blank=True,
-        help_text='Electronic mail endpoint reference utilized for dynamic receipt or ticket issuance dispatches',
-        db_comment='Electronic communication mail address node'
+        help_text='Electronic mail endpoint reference utilized for dynamic receipt or ticket issuance dispatches'
     )
     
     national_id = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        help_text='Government issued asset identity validation parameters (e.g., Citizen ID, Passport number)',
-        db_comment='Government statutory identity verification key token'
+        help_text='Government issued asset identity validation parameters (e.g., Citizen ID, Passport number)'
     )
     
     date_of_birth = models.DateField(
         null=True,
         blank=True,
-        help_text='Calendar birth date marker utilized in age-group price classification algorithms',
-        db_comment='Passenger birth calendar date marker'
+        help_text='Calendar birth date marker utilized in age-group price classification algorithms'
     )
     
     gender = models.CharField(
         max_length=10,
         null=True,
         blank=True,
-        help_text='Demographic taxonomy identification context gender indicator metadata',
-        db_comment='Demographic gender metadata string description'
+        help_text='Demographic taxonomy identification context gender indicator metadata'
     )
     
     address = models.TextField(
         null=True,
         blank=True,
-        help_text='The formal dynamic physical localized living residence reference context text',
-        db_comment='Physical home address directory block text'
+        help_text='The formal dynamic physical localized living residence reference context text'
     )
     
     # ========================================================================
@@ -158,8 +148,7 @@ class Customer(models.Model):
     
     loyalty_points = models.IntegerField(
         default=0,
-        help_text='Cumulative arithmetic currency ledger balance accumulated through successful corporate booking cycles',
-        db_comment='Loyalty reward metrics ledger calculation point balance'
+        help_text='Cumulative arithmetic currency ledger balance accumulated through successful corporate booking cycles'
     )
     
     tier = models.CharField(
@@ -167,8 +156,7 @@ class Customer(models.Model):
         choices=TIER_CHOICES,
         default='STANDARD',
         db_index=True,
-        help_text='The classification segmentation tier evaluating customer priority metrics ranking matrices',
-        db_comment='Loyalty matrix classification membership status index token'
+        help_text='The classification segmentation tier evaluating customer priority metrics ranking matrices'
     )
     
     # ========================================================================
@@ -180,15 +168,13 @@ class Customer(models.Model):
         choices=SOURCE_CHOICES,
         default='COUNTER',
         db_index=True,
-        help_text='The primary customer onboarding ingestion origin channel context metric token',
-        db_comment='Marketing CRM ingestion funnel system entry tag'
+        help_text='The primary customer onboarding ingestion origin channel context metric token'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Miscellaneous service notes, wheelchair requirements, allergy alerts, or loyalty exemptions log',
-        db_comment='Administrative CRM profiling text log annotations'
+        help_text='Miscellaneous service notes, wheelchair requirements, allergy alerts, or loyalty exemptions log'
     )
     
     # ========================================================================
@@ -197,14 +183,12 @@ class Customer(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this customer registration entry card was formally opened inside the architecture CRM',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this customer registration entry card was formally opened inside the architecture CRM'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this customer account profile were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when parameters inside this customer account profile were last modified'
     )
 
     class Meta:
@@ -246,8 +230,7 @@ class Customer(models.Model):
             # Composite index optimized for CRM dashboards searching active phone contacts or name keywords matching tiers
             models.Index(
                 fields=['tenant', 'tier', 'full_name'],
-                name='idx_crm_tenant_tier_search',
-                db_comment='Optimize marketing campaign segment filter queries'
+                name='idx_crm_tenant_tier_search'
             ),
         ]
 

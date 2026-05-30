@@ -95,8 +95,7 @@ class WebhookEndpoint(models.Model):
         on_delete=models.CASCADE,
         related_name='webhook_endpoints',
         db_index=True,
-        help_text='Tenant that owns this webhook',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this webhook'
     )
     
     # ========================================================================
@@ -105,14 +104,12 @@ class WebhookEndpoint(models.Model):
     
     name = models.CharField(
         max_length=100,
-        help_text='Human-readable name for the webhook',
-        db_comment='Webhook name'
+        help_text='Human-readable name for the webhook'
     )
     url = models.CharField(
         max_length=500,
         validators=[URLValidator()],
-        help_text='URL to send webhook events to',
-        db_comment='Webhook URL'
+        help_text='URL to send webhook events to'
     )
     
     # ========================================================================
@@ -123,8 +120,7 @@ class WebhookEndpoint(models.Model):
         max_length=255,
         null=True,
         blank=True,
-        help_text='HMAC-SHA256 secret for signing requests',
-        db_comment='Secret hash'
+        help_text='HMAC-SHA256 secret for signing requests'
     )
     
     # ========================================================================
@@ -134,8 +130,7 @@ class WebhookEndpoint(models.Model):
     events = ArrayField(
         models.CharField(max_length=50),
         default=list,
-        help_text='List of events to subscribe to',
-        db_comment='Subscribed events'
+        help_text='List of events to subscribe to'
     )
     
     # ========================================================================
@@ -148,8 +143,7 @@ class WebhookEndpoint(models.Model):
             MinValueValidator(1),
             MaxValueValidator(60)
         ],
-        help_text='Request timeout in seconds',
-        db_comment='Timeout seconds'
+        help_text='Request timeout in seconds'
     )
     retry_count = models.SmallIntegerField(
         default=3,
@@ -157,8 +151,7 @@ class WebhookEndpoint(models.Model):
             MinValueValidator(0),
             MaxValueValidator(10)
         ],
-        help_text='Number of retry attempts on failure',
-        db_comment='Retry count'
+        help_text='Number of retry attempts on failure'
     )
     
     # ========================================================================
@@ -168,8 +161,7 @@ class WebhookEndpoint(models.Model):
     headers = models.JSONField(
         default=dict,
         blank=True,
-        help_text='Custom headers to include in requests',
-        db_comment='Custom headers'
+        help_text='Custom headers to include in requests'
     )
     
     # ========================================================================
@@ -179,8 +171,7 @@ class WebhookEndpoint(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Webhook is active and will receive events',
-        db_comment='Active status'
+        help_text='Webhook is active and will receive events'
     )
     
     # ========================================================================
@@ -193,8 +184,7 @@ class WebhookEndpoint(models.Model):
         null=True,
         blank=True,
         related_name='webhooks_created',
-        help_text='User who created this webhook',
-        db_comment='Created by user'
+        help_text='User who created this webhook'
     )
     
     # ========================================================================
@@ -204,13 +194,11 @@ class WebhookEndpoint(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this webhook was created',
-        db_comment='Creation timestamp'
+        help_text='When this webhook was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When this webhook was last updated',
-        db_comment='Last update timestamp'
+        help_text='When this webhook was last updated'
     )
 
     class Meta:
@@ -227,14 +215,12 @@ class WebhookEndpoint(models.Model):
             # Index for finding active webhooks
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_webhook_tenant_active',
-                db_comment='Query active webhooks by tenant'
+                name='idx_webhook_tenant_active'
             ),
             # Index for event queries
             models.Index(
                 fields=['events'],
-                name='idx_webhook_events',
-                db_comment='Query webhooks by events'
+                name='idx_webhook_events'
             ),
         ]
 
@@ -503,8 +489,7 @@ class WebhookDelivery(models.Model):
         on_delete=models.CASCADE,
         related_name='deliveries',
         db_index=True,
-        help_text='Webhook endpoint',
-        db_comment='Reference to webhook'
+        help_text='Webhook endpoint'
     )
     
     # ========================================================================
@@ -514,13 +499,11 @@ class WebhookDelivery(models.Model):
     event_type = models.CharField(
         max_length=50,
         db_index=True,
-        help_text='Event type (e.g., "booking.created")',
-        db_comment='Event type'
+        help_text='Event type (e.g., "booking.created")'
     )
     
     payload = models.TextField(
-        help_text='Event payload (JSON)',
-        db_comment='Event payload'
+        help_text='Event payload (JSON)'
     )
     
     # ========================================================================
@@ -532,14 +515,12 @@ class WebhookDelivery(models.Model):
         choices=STATUS_CHOICES,
         default='pending',
         db_index=True,
-        help_text='Delivery status',
-        db_comment='Delivery status'
+        help_text='Delivery status'
     )
     
     attempt = models.SmallIntegerField(
         default=1,
-        help_text='Attempt number',
-        db_comment='Attempt number'
+        help_text='Attempt number'
     )
     
     # ========================================================================
@@ -549,22 +530,19 @@ class WebhookDelivery(models.Model):
     response_status_code = models.IntegerField(
         null=True,
         blank=True,
-        help_text='HTTP response status code',
-        db_comment='Response status'
+        help_text='HTTP response status code'
     )
     
     response_body = models.TextField(
         blank=True,
         null=True,
-        help_text='HTTP response body',
-        db_comment='Response body'
+        help_text='HTTP response body'
     )
     
     error_message = models.TextField(
         blank=True,
         null=True,
-        help_text='Error message if delivery failed',
-        db_comment='Error message'
+        help_text='Error message if delivery failed'
     )
     
     # ========================================================================
@@ -574,15 +552,13 @@ class WebhookDelivery(models.Model):
     duration_ms = models.IntegerField(
         null=True,
         blank=True,
-        help_text='Request duration in milliseconds',
-        db_comment='Duration (ms)'
+        help_text='Request duration in milliseconds'
     )
     
     next_retry_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When to retry next',
-        db_comment='Next retry time'
+        help_text='When to retry next'
     )
     
     # ========================================================================
@@ -592,15 +568,13 @@ class WebhookDelivery(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When delivery was created',
-        db_comment='Creation timestamp'
+        help_text='When delivery was created'
     )
     
     sent_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When delivery was sent',
-        db_comment='Sent timestamp'
+        help_text='When delivery was sent'
     )
 
     class Meta:
@@ -612,13 +586,11 @@ class WebhookDelivery(models.Model):
         indexes = [
             models.Index(
                 fields=['webhook', 'status'],
-                name='idx_webhook_delivery_status',
-                db_comment='Query deliveries by webhook and status'
+                name='idx_webhook_delivery_status'
             ),
             models.Index(
                 fields=['event_type'],
-                name='idx_webhook_delivery_event',
-                db_comment='Query deliveries by event type'
+                name='idx_webhook_delivery_event'
             ),
         ]
 

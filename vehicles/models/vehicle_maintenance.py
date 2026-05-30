@@ -71,22 +71,20 @@ class VehicleMaintenance(models.Model):
     
     vehicle = models.ForeignKey(
         Vehicle,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         related_name='maintenances',
         db_index=True,
-        help_text='The specific vehicle asset undergoing maintenance',
-        db_comment='Reference to vehicle parent asset'
+        help_text='The specific vehicle asset undergoing maintenance'
     )
     
     performed_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='supervised_maintenances',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The staff member or technician responsible for managing this operation',
-        db_comment='Reference to responsible user account'
+        help_text='The staff member or technician responsible for managing this operation'
     )
     
     # ========================================================================
@@ -97,13 +95,11 @@ class VehicleMaintenance(models.Model):
         max_length=30,
         choices=TYPE_CHOICES,
         db_index=True,
-        help_text='Classification categories distinguishing service context',
-        db_comment='Maintenance category type'
+        help_text='Classification categories distinguishing service context'
     )
     
     description = models.TextField(
-        help_text='Detailed logs explaining mechanical faults, parts swapped, or work scope',
-        db_comment='Detailed logs text description'
+        help_text='Detailed logs explaining mechanical faults, parts swapped, or work scope'
     )
     
     cost = models.DecimalField(
@@ -111,16 +107,14 @@ class VehicleMaintenance(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Total cumulative monetary value billed for parts and labor',
-        db_comment='Total cost of maintenance'
+        help_text='Total cumulative monetary value billed for parts and labor'
     )
     
     vendor = models.CharField(
         max_length=255,
         null=True,
         blank=True,
-        help_text='Name of the external garage, workshop, or third-party service provider',
-        db_comment='Vendor name'
+        help_text='Name of the external garage, workshop, or third-party service provider'
     )
     
     # ========================================================================
@@ -132,8 +126,7 @@ class VehicleMaintenance(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Odometer reading when the vehicle entered the workshop',
-        db_comment='Odometer value at check-in'
+        help_text='Odometer reading when the vehicle entered the workshop'
     )
     
     odometer_out = models.DecimalField(
@@ -141,8 +134,7 @@ class VehicleMaintenance(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Odometer reading when the vehicle left the workshop',
-        db_comment='Odometer value at check-out'
+        help_text='Odometer reading when the vehicle left the workshop'
     )
     
     # ========================================================================
@@ -152,15 +144,13 @@ class VehicleMaintenance(models.Model):
     scheduled_at = models.DateField(
         null=True,
         blank=True,
-        help_text='Target date on which this maintenance task is planned to occur',
-        db_comment='Planned maintenance date'
+        help_text='Target date on which this maintenance task is planned to occur'
     )
     
     completed_at = models.DateField(
         null=True,
         blank=True,
-        help_text='Official date when the job card was signed off as completed',
-        db_comment='Actual completion date'
+        help_text='Official date when the job card was signed off as completed'
     )
     
     status = models.CharField(
@@ -168,8 +158,7 @@ class VehicleMaintenance(models.Model):
         choices=STATUS_CHOICES,
         default='PENDING',
         db_index=True,
-        help_text='Operational stage representing current job progression state',
-        db_comment='Workflow status token string'
+        help_text='Operational stage representing current job progression state'
     )
     
     # ========================================================================
@@ -181,15 +170,13 @@ class VehicleMaintenance(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Predicted mileage target threshold when the asset must return for the next cycle',
-        db_comment='Next milestone odometer requirement'
+        help_text='Predicted mileage target threshold when the asset must return for the next cycle'
     )
     
     next_due_date = models.DateField(
         null=True,
         blank=True,
-        help_text='Calendar target date dead-line when the asset must return for the next cycle',
-        db_comment='Next milestone deadline target date'
+        help_text='Calendar target date dead-line when the asset must return for the next cycle'
     )
     
     # ========================================================================
@@ -199,14 +186,12 @@ class VehicleMaintenance(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='Timestamp when this job log sheet was originally opened in system',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this job log sheet was originally opened in system'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when the workflow profile entries were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when the workflow profile entries were last modified'
     )
 
     class Meta:
@@ -239,14 +224,12 @@ class VehicleMaintenance(models.Model):
             # Optimizes performance for asset dashboard looking up chronological repair history
             models.Index(
                 fields=['vehicle', 'status'],
-                name='idx_maint_vehicle_status',
-                db_comment='Filter asset logs by historical operational status'
+                name='idx_maint_vehicle_status'
             ),
             # Optimizes reporting engines filtering by calendar windows
             models.Index(
                 fields=['scheduled_at', 'completed_at'],
-                name='idx_maint_timeline_metrics',
-                db_comment='Optimization index for metric window reports'
+                name='idx_maint_timeline_metrics'
             ),
         ]
 

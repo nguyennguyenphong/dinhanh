@@ -56,33 +56,30 @@ class TicketExchange(models.Model):
     
     original_ticket = models.ForeignKey(
         Ticket,
-        on_delete=models.PROTECT,  # Production safety: lock original ticket deletion if an audit trail depends on it
+        on_delete=models.PROTECT,
         related_name='exchange_as_original',
         db_index=True,
-        help_text='The historical core passenger boarding pass targeted to be revoked and replaced',
-        db_comment='Reference to original source ticket line'
+        help_text='The historical core passenger boarding pass targeted to be revoked and replaced'
     )
     
     new_ticket = models.ForeignKey(
         Ticket,
-        on_delete=models.SET_NULL,  # Matches REFERENCES tickets(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='exchange_as_new',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The newly minted replacement boarding pass ticket issued under this mutation pipeline',
-        db_comment='Soft reference to newly generated target destination ticket line'
+        help_text='The newly minted replacement boarding pass ticket issued under this mutation pipeline'
     )
     
     processed_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='processed_exchanges',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The ticket box clerk or helpdesk user account executing this rerouting transition',
-        db_comment='Reference to employee user account executing the order'
+        help_text='The ticket box clerk or helpdesk user account executing this rerouting transition'
     )
     
     # ========================================================================
@@ -91,22 +88,20 @@ class TicketExchange(models.Model):
     
     exchange_code = models.CharField(
         max_length=30,
-        unique=True,  # Matches VARCHAR(30) NOT NULL UNIQUE
+        unique=True,
         validators=[
             RegexValidator(
                 regex=r'^[A-Z0-9\-_]+$',
                 message='Exchange voucher code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique operational index token used for tracking outbound modification vouchers (e.g., EXC-9921-X)',
-        db_comment='Unique system transaction lookup token key code'
+        help_text='Unique operational index token used for tracking outbound modification vouchers (e.g., EXC-9921-X)'
     )
     
     reason = models.TextField(
         null=True,
         blank=True,
-        help_text='Explicit text statement provided explaining why the customer requested a route mutation',
-        db_comment='Exchange background justification text logs'
+        help_text='Explicit text statement provided explaining why the customer requested a route mutation'
     )
     
     # ========================================================================
@@ -116,9 +111,8 @@ class TicketExchange(models.Model):
     fee = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
-        help_text='The administrative surcharge penalty penalty assessed for processing the ticket modification',
-        db_comment='Modification processing administrative fee currency value'
+        default=0.00,
+        help_text='The administrative surcharge penalty penalty assessed for processing the ticket modification'
     )
     
     # ========================================================================
@@ -130,8 +124,7 @@ class TicketExchange(models.Model):
         choices=STATUS_CHOICES,
         default='PENDING',
         db_index=True,
-        help_text='The progression phase state tracking this swap log through verification and payment gates',
-        db_comment='Workflow transactional mutation progression taxonomy token'
+        help_text='The progression phase state tracking this swap log through verification and payment gates'
     )
     
     # ========================================================================
@@ -140,8 +133,7 @@ class TicketExchange(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this operational modification log row was opened inside the database core',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this operational modification log row was opened inside the database core'
     )
 
     class Meta:

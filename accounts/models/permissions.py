@@ -81,12 +81,10 @@ class Permission(models.Model):
             )
         ],
         help_text='Unique permission code (e.g., "tickets.add_ticket", "vehicles.change_vehicle")',
-        db_comment='Unique identifier for permission across tenant'
     )
     name = models.CharField(
         max_length=255,
         help_text='Human-readable permission name (e.g., "Can add ticket")',
-        db_comment='Display name for permission'
     )
     
     # ========================================================================
@@ -97,21 +95,18 @@ class Permission(models.Model):
         max_length=100,
         db_index=True,
         help_text='Module name (e.g., "tickets", "vehicles", "hr", "reports")',
-        db_comment='Functional module this permission belongs to'
     )
     action = models.CharField(
         max_length=30,
         choices=ACTION_CHOICES,
         default='view',
         help_text='Action type (view, add, change, delete, export, approve, all)',
-        db_comment='Type of action this permission allows'
     )
     
     description = models.TextField(
         blank=True,
         null=True,
         help_text='Detailed description of what this permission allows',
-        db_comment='Detailed permission description'
     )
     
     # ========================================================================
@@ -125,7 +120,6 @@ class Permission(models.Model):
         blank=True,
         related_name='children',
         help_text='Parent permission (for hierarchical permissions)',
-        db_comment='Parent permission for hierarchical structure'
     )
     
     # ========================================================================
@@ -136,12 +130,10 @@ class Permission(models.Model):
         default=True,
         db_index=True,
         help_text='Inactive permissions cannot be assigned to roles',
-        db_comment='Permission is active and available'
     )
     is_system = models.BooleanField(
         default=False,
         help_text='System permissions are predefined and cannot be modified',
-        db_comment='System-defined permission (read-only)'
     )
     
     # ========================================================================
@@ -152,12 +144,10 @@ class Permission(models.Model):
         auto_now_add=True,
         db_index=True,
         help_text='When this permission was created',
-        db_comment='Permission creation timestamp'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
         help_text='When this permission was last updated',
-        db_comment='Permission last update timestamp'
     )
 
     class Meta:
@@ -194,25 +184,21 @@ class Permission(models.Model):
             models.Index(
                 fields=['tenant', 'module'],
                 name='idx_permission_tenant_module',
-                db_comment='Query permissions by tenant and module'
             ),
             # Index for active permissions
             models.Index(
                 fields=['tenant', 'is_active'],
                 name='idx_permission_tenant_active',
-                db_comment='Query active permissions by tenant'
             ),
             # Index for system permissions
             models.Index(
                 fields=['is_system'],
                 name='idx_permission_is_system',
-                db_comment='Query system permissions'
             ),
             # Composite index for role queries
             models.Index(
                 fields=['tenant', 'action'],
                 name='idx_permission_tenant_action',
-                db_comment='Query permissions by tenant and action'
             ),
         ]
 

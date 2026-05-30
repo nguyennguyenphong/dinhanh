@@ -69,8 +69,7 @@ class MenuItem(models.Model):
         on_delete=models.CASCADE,
         related_name='menu_items',
         db_index=True,
-        help_text='Tenant that owns this menu item',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this menu item'
     )
     
     # ========================================================================
@@ -84,8 +83,7 @@ class MenuItem(models.Model):
         blank=True,
         related_name='menu_items',
         db_index=True,
-        help_text='Menu group this item belongs to',
-        db_comment='Reference to menu group'
+        help_text='Menu group this item belongs to'
     )
     parent = models.ForeignKey(
         'self',
@@ -94,8 +92,7 @@ class MenuItem(models.Model):
         blank=True,
         related_name='children',
         db_index=True,
-        help_text='Parent menu item (for nested menus)',
-        db_comment='Parent menu item'
+        help_text='Parent menu item (for nested menus)'
     )
     
     # ========================================================================
@@ -110,13 +107,11 @@ class MenuItem(models.Model):
                 message='Code must contain only lowercase letters, numbers, and underscores'
             )
         ],
-        help_text='Unique code for the menu item',
-        db_comment='Menu item code identifier'
+        help_text='Unique code for the menu item'
     )
     label = models.CharField(
         max_length=150,
-        help_text='Display label for the menu item',
-        db_comment='Menu item display label'
+        help_text='Display label for the menu item'
     )
     
     # ========================================================================
@@ -127,15 +122,13 @@ class MenuItem(models.Model):
         max_length=150,
         blank=True,
         null=True,
-        help_text='Django URL name or route name (e.g., "tickets:list")',
-        db_comment='Django URL name'
+        help_text='Django URL name or route name (e.g., "tickets:list")'
     )
     url_path = models.CharField(
         max_length=300,
         blank=True,
         null=True,
-        help_text='Static URL path fallback (e.g., "/tickets/list")',
-        db_comment='Static URL path'
+        help_text='Static URL path fallback (e.g., "/tickets/list")'
     )
     
     # ========================================================================
@@ -145,8 +138,7 @@ class MenuItem(models.Model):
     icon = models.TextField(
         blank=True,
         null=True,
-        help_text='SVG path string or icon name (e.g., "mdi-list")',
-        db_comment='Icon SVG or name'
+        help_text='SVG path string or icon name (e.g., "mdi-list")'
     )
     
     # ========================================================================
@@ -157,8 +149,7 @@ class MenuItem(models.Model):
         max_length=30,
         blank=True,
         null=True,
-        help_text='Badge text (e.g., "NEW", "BETA", "5" for notifications)',
-        db_comment='Badge display text'
+        help_text='Badge text (e.g., "NEW", "BETA", "5" for notifications)'
     )
     badge_color = models.CharField(
         max_length=7,
@@ -169,8 +160,7 @@ class MenuItem(models.Model):
                 message='Badge color must be a valid hex color (e.g., #EF4444)'
             )
         ],
-        help_text='Badge color in hex format (default: red #EF4444)',
-        db_comment='Badge color'
+        help_text='Badge color in hex format (default: red #EF4444)'
     )
     
     # ========================================================================
@@ -182,8 +172,7 @@ class MenuItem(models.Model):
         blank=True,
         null=True,
         db_index=True,
-        help_text='Required permission code to view this item',
-        db_comment='Required permission code'
+        help_text='Required permission code to view this item'
     )
     
     # ========================================================================
@@ -193,13 +182,11 @@ class MenuItem(models.Model):
     sort_order = models.SmallIntegerField(
         default=0,
         db_index=True,
-        help_text='Display order (lower values appear first)',
-        db_comment='Sort order'
+        help_text='Display order (lower values appear first)'
     )
     open_in_new_tab = models.BooleanField(
         default=False,
-        help_text='Open URL in new tab/window',
-        db_comment='Open in new tab flag'
+        help_text='Open URL in new tab/window'
     )
     
     # ========================================================================
@@ -209,13 +196,11 @@ class MenuItem(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Menu item is active and visible',
-        db_comment='Active status'
+        help_text='Menu item is active and visible'
     )
     is_hidden = models.BooleanField(
         default=False,
-        help_text='Item is hidden from menu but route still works',
-        db_comment='Hidden status'
+        help_text='Item is hidden from menu but route still works'
     )
     
     # ========================================================================
@@ -225,13 +210,11 @@ class MenuItem(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this menu item was created',
-        db_comment='Creation timestamp'
+        help_text='When this menu item was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When this menu item was last updated',
-        db_comment='Last update timestamp'
+        help_text='When this menu item was last updated'
     )
 
     class Meta:
@@ -261,32 +244,27 @@ class MenuItem(models.Model):
             # Index for finding active items
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_menu_item_tenant_active',
-                db_comment='Query active menu items by tenant'
+                name='idx_menu_item_tenant_active'
             ),
             # Index for group queries
             models.Index(
                 fields=['group', 'is_active'],
-                name='idx_menu_item_group_active',
-                db_comment='Query active menu items by group'
+                name='idx_menu_item_group_active'
             ),
             # Index for parent-child queries
             models.Index(
                 fields=['parent', 'sort_order'],
-                name='idx_menu_item_parent_sort',
-                db_comment='Query child items by parent and sort order'
+                name='idx_menu_item_parent_sort'
             ),
             # Index for permission queries
             models.Index(
                 fields=['permission_code'],
-                name='idx_menu_item_permission',
-                db_comment='Query menu items by permission'
+                name='idx_menu_item_permission'
             ),
             # Index for hidden items
             models.Index(
                 fields=['is_hidden'],
-                name='idx_menu_item_hidden',
-                db_comment='Query hidden menu items'
+                name='idx_menu_item_hidden'
             ),
         ]
 

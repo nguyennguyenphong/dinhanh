@@ -85,7 +85,6 @@ class AuditLog(models.Model):
         related_name='audit_logs',
         db_index=True,
         help_text='Tenant that owns this audit log',
-        db_comment='Reference to tenant'
     )
     
     # ========================================================================
@@ -100,14 +99,12 @@ class AuditLog(models.Model):
         related_name='audit_logs',
         db_index=True,
         help_text='User who performed the action',
-        db_comment='Reference to user account'
     )
     username = models.CharField(
         max_length=150,
         null=True,
         blank=True,
         help_text='Username snapshot at time of action',
-        db_comment='Username for audit trail'
     )
     
     # ========================================================================
@@ -119,13 +116,11 @@ class AuditLog(models.Model):
         choices=ACTION_CHOICES,
         db_index=True,
         help_text='Type of action performed',
-        db_comment='Action type'
     )
     module = models.CharField(
         max_length=100,
         db_index=True,
         help_text='Module name (e.g., "tickets", "vehicles", "hr")',
-        db_comment='Module name'
     )
     
     # ========================================================================
@@ -137,7 +132,6 @@ class AuditLog(models.Model):
         null=True,
         blank=True,
         help_text='Type of object affected (e.g., "Ticket", "Vehicle")',
-        db_comment='Object class name'
     )
     object_id = models.CharField(
         max_length=50,
@@ -145,14 +139,12 @@ class AuditLog(models.Model):
         blank=True,
         db_index=True,
         help_text='ID of the object affected',
-        db_comment='Object identifier'
     )
     object_repr = models.CharField(
         max_length=500,
         null=True,
         blank=True,
         help_text='String representation of the object',
-        db_comment='Object display representation'
     )
     
     # ========================================================================
@@ -163,19 +155,16 @@ class AuditLog(models.Model):
         null=True,
         blank=True,
         help_text='Previous values before change',
-        db_comment='Old values (JSON)'
     )
     new_values = models.JSONField(
         null=True,
         blank=True,
         help_text='New values after change',
-        db_comment='New values (JSON)'
     )
     changes = models.JSONField(
         null=True,
         blank=True,
         help_text='Summary of changes made',
-        db_comment='Changes summary (JSON)'
     )
     
     # ========================================================================
@@ -186,13 +175,11 @@ class AuditLog(models.Model):
         null=True,
         blank=True,
         help_text='IP address of the request',
-        db_comment='Request IP address'
     )
     user_agent = models.TextField(
         null=True,
         blank=True,
         help_text='User agent string',
-        db_comment='User agent header'
     )
     
     # ========================================================================
@@ -204,7 +191,6 @@ class AuditLog(models.Model):
         blank=True,
         db_index=True,
         help_text='Correlation ID for tracking related operations',
-        db_comment='Request correlation ID'
     )
     
     # ========================================================================
@@ -215,7 +201,6 @@ class AuditLog(models.Model):
         auto_now_add=True,
         db_index=True,
         help_text='When this audit log was created',
-        db_comment='Audit log creation timestamp'
     )
 
     class Meta:
@@ -233,38 +218,32 @@ class AuditLog(models.Model):
             models.Index(
                 fields=['user_id'],
                 name='idx_audit_user',
-                db_comment='Query logs by user'
             ),
             # Index for time range queries
             models.Index(
                 fields=['-created_at'],
                 name='idx_audit_created',
-                db_comment='Query logs by creation date'
             ),
             # Index for module and action queries
             models.Index(
                 fields=['module', 'action'],
                 name='idx_audit_module',
-                db_comment='Query logs by module and action'
             ),
             # Index for object queries
             models.Index(
                 fields=['object_id'],
                 name='idx_audit_object',
                 condition=models.Q(object_id__isnull=False),
-                db_comment='Query logs by object ID'
             ),
             # Index for correlation ID queries
             models.Index(
                 fields=['request_id'],
                 name='idx_audit_request_id',
-                db_comment='Query logs by request correlation ID'
             ),
             # Composite index for common queries
             models.Index(
                 fields=['tenant', 'created_at'],
                 name='idx_audit_tenant_created',
-                db_comment='Query logs by tenant and date'
             ),
         ]
 

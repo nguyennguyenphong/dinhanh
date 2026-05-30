@@ -77,53 +77,48 @@ class Consignment(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='consignments',
         db_index=True,
-        help_text='Tenant corporate owner holding legal data sovereignty over this cargo parcel log',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner holding legal data sovereignty over this cargo parcel log'
     )
     
     trip = models.ForeignKey(
         Trip,
-        on_delete=models.SET_NULL,  # Matches REFERENCES trips(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='consignments',
         null=True,
         blank=True,
-        db_index=True,  # Matches explicitly built index: idx_consignments_trip
-        help_text='The active vehicle journey transit route assigned to convey this physical bưu kiện',
-        db_comment='Soft reference mapping target dispatch vehicle trip'
+        db_index=True,
+        help_text='The active vehicle journey transit route assigned to convey this physical bưu kiện'
     )
     
     origin_station = models.ForeignKey(
         Station,
-        on_delete=models.SET_NULL,  # Matches REFERENCES stations(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='origin_consignments',
         null=True,
         blank=True,
-        help_text='The physical origin station hub node where the package was dropped off',
-        db_comment='Soft reference mapping source station node'
+        help_text='The physical origin station hub node where the package was dropped off'
     )
     
     destination_station = models.ForeignKey(
         Station,
-        on_delete=models.SET_NULL,  # Matches REFERENCES stations(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='destination_consignments',
         null=True,
         blank=True,
-        help_text='The target destination station hub node where the parcel is destined to be picked up',
-        db_comment='Soft reference mapping target station node'
+        help_text='The target destination station hub node where the parcel is destined to be picked up'
     )
     
     branch = models.ForeignKey(
         Branch,
-        on_delete=models.SET_NULL,  # Matches REFERENCES branches(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='consignments',
         null=True,
         blank=True,
-        help_text='The physical corporate retail office terminal location currently managing the item lifecycle',
-        db_comment='Soft reference mapping executing branch terminal office hub'
+        help_text='The physical corporate retail office terminal location currently managing the item lifecycle'
     )
     
     # ========================================================================
@@ -132,33 +127,30 @@ class Consignment(models.Model):
     
     waybill_code = models.CharField(
         max_length=30,
-        unique=True,  # Matches VARCHAR(30) NOT NULL UNIQUE
+        unique=True,
         validators=[
             RegexValidator(
                 regex=r'^[A-Z0-9\-_]+$',
                 message='Waybill tracking code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique human-readable tracking index string token (e.g., WAY-1002-X89)',
-        db_comment='Unique system logistics waybill identity token key code'
+        help_text='Unique human-readable tracking index string token (e.g., WAY-1002-X89)'
     )
     
     barcode = models.CharField(
         max_length=100,
-        unique=True,  # Matches VARCHAR(100) UNIQUE
+        unique=True,
         null=True,
         blank=True,
-        help_text='Standardized 1D barcode sequence mapped onto physical paper shipping labels for scanner guns',
-        db_comment='Unique 1D barcode identification string sequence'
+        help_text='Standardized 1D barcode sequence mapped onto physical paper shipping labels for scanner guns'
     )
     
     qr_code = models.CharField(
         max_length=100,
-        unique=True,  # Matches VARCHAR(100) UNIQUE
+        unique=True,
         null=True,
         blank=True,
-        help_text='High-density 2D matrix QR token enabling fast mobile camera manifest scans on bến bãi floors',
-        db_comment='Unique 2D matrix QR token string sequence'
+        help_text='High-density 2D matrix QR token enabling fast mobile camera manifest scans on bến bãi floors'
     )
     
     # ========================================================================
@@ -167,40 +159,36 @@ class Consignment(models.Model):
     
     sender_name = models.CharField(
         max_length=255,
-        help_text='Full individual name or corporate company text shipping this package line',
-        db_comment='Sender profile full identification name text'
+        help_text='Full individual name or corporate company text shipping this package line'
     )
     
     sender_phone = models.CharField(
         max_length=20,
-        db_index=True,  # Matches explicitly built index: idx_consignments_sender
+        db_index=True,
         validators=[
             RegexValidator(
                 regex=r'^\+?[0-9\s\-]{7,20}$',
                 message='Sender phone contact compilation sequence is invalid'
             )
         ],
-        help_text='Primary contact mobile number sequence tracking originating client accounts',
-        db_comment='Sender telephone communication sequence string'
+        help_text='Primary contact mobile number sequence tracking originating client accounts'
     )
     
     receiver_name = models.CharField(
         max_length=255,
-        help_text='Full legal individual identity name authorized to claim or pull the package at target counters',
-        db_comment='Target recipient full identification name text'
+        help_text='Full legal individual identity name authorized to claim or pull the package at target counters'
     )
     
     receiver_phone = models.CharField(
         max_length=20,
-        db_index=True,  # Matches explicitly built index: idx_consignments_recv
+        db_index=True,
         validators=[
             RegexValidator(
                 regex=r'^\+?[0-9\s\-]{7,20}$',
                 message='Receiver phone contact compilation sequence is invalid'
             )
         ],
-        help_text='Primary mobile sequence utilized to dispatch arrival notice automated SMS text lines',
-        db_comment='Target recipient telephone communication sequence string'
+        help_text='Primary mobile sequence utilized to dispatch arrival notice automated SMS text lines'
     )
     
     # ========================================================================
@@ -211,35 +199,31 @@ class Consignment(models.Model):
         max_length=50,
         null=True,
         blank=True,
-        help_text='Classification category grouping layout matching the pricing engine rules matrix (e.g., FRAGILE, NORMAL)',
-        db_comment='Material composition categorization taxonomies string token'
+        help_text='Classification category grouping layout matching the pricing engine rules matrix (e.g., FRAGILE, NORMAL)'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Detailed content declarations required for freight safety checking (e.g., Red Asus Laptop inside leather sleeve)',
-        db_comment='Declared content descriptive text logs'
+        help_text='Detailed content declarations required for freight safety checking (e.g., Red Asus Laptop inside leather sleeve)'
     )
     
     weight_kg = models.DecimalField(
         max_digits=8,
-        decimal_places=2,  # Matches NUMERIC(8,2)
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.01)],
-        help_text='The physical scale mass value metric calculated in kilograms (KG)',
-        db_comment='Actual measured physical scale mass weight parameter value'
+        help_text='The physical scale mass value metric calculated in kilograms (KG)'
     )
     
     volume_m3 = models.DecimalField(
         max_digits=8,
-        decimal_places=3,  # Matches NUMERIC(8,3)
+        decimal_places=3,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.001)],
-        help_text='Volumetric spatial calculation tracking dimensional capacity occupied inside chassis decks in cubic meters (M3)',
-        db_comment='Computed volumetric displacement capacity spatial property value'
+        help_text='Volumetric spatial calculation tracking dimensional capacity occupied inside chassis decks in cubic meters (M3)'
     )
     
     # ========================================================================
@@ -248,30 +232,27 @@ class Consignment(models.Model):
     
     declared_value = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2)
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The customer estimated cash valuation of parcel properties used to establish safety liability caps',
-        db_comment='Declared monetary asset liability evaluation cap'
+        help_text='The customer estimated cash valuation of parcel properties used to establish safety liability caps'
     )
     
     freight_charge = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
+        default=0.00,
         validators=[MinValueValidator(0.00)],
-        help_text='The core tariff transport operational fee invoice price assessed to move the cargo unit',
-        db_comment='Base logistics transit service tariff rate currency value'
+        help_text='The core tariff transport operational fee invoice price assessed to move the cargo unit'
     )
     
     insurance_fee = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
+        default=0.00,
         validators=[MinValueValidator(0.00)],
-        help_text='Surcharge applied to high-value items protecting the tenant against financial indemnity claims',
-        db_comment='Administrative asset security indemnity processing fee currency value'
+        help_text='Surcharge applied to high-value items protecting the tenant against financial indemnity claims'
     )
     
     # ========================================================================
@@ -281,22 +262,19 @@ class Consignment(models.Model):
     cod_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
+        default=0.00,
         validators=[MinValueValidator(0.00)],
-        help_text='Cash-on-delivery collection threshold target to collect from receiver before handover approval',
-        db_comment='Target Cash-on-delivery currency balance requested by sender'
+        help_text='Cash-on-delivery collection threshold target to collect from receiver before handover approval'
     )
     
     cod_collected = models.BooleanField(
-        default=False,  # Matches NOT NULL DEFAULT FALSE
-        help_text='Boolean verification flag logging if counter clerk physically captured the cash during delivery handover',
-        db_comment='Cash-on-delivery physical capture execution status boolean switch flag'
+        default=False,
+        help_text='Boolean verification flag logging if counter clerk physically captured the cash during delivery handover'
     )
     
     cod_transferred = models.BooleanField(
-        default=False,  # Matches NOT NULL DEFAULT FALSE
-        help_text='Accounting audit flag confirming system successfully transferred collected COD funds back into sender accounts',
-        db_comment='Cash-on-delivery bank settlement back to originating client verification switch'
+        default=False,
+        help_text='Accounting audit flag confirming system successfully transferred collected COD funds back into sender accounts'
     )
     
     # ========================================================================
@@ -307,16 +285,14 @@ class Consignment(models.Model):
         max_length=30,
         choices=STATUS_CHOICES,
         default='RECEIVED',
-        db_index=True,  # Matches explicitly built index: idx_consignments_status
-        help_text='The current logistics lifecycle milestone phase tracking this parcel through processing grids',
-        db_comment='Workflow tracking operational progress status taxonomy string token'
+        db_index=True,
+        help_text='The current logistics lifecycle milestone phase tracking this parcel through processing grids'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Operational alerts such as secondary recipient authorization notes or localized damage annotations',
-        db_comment='Administrative logistics textual log annotations'
+        help_text='Operational alerts such as secondary recipient authorization notes or localized damage annotations'
     )
     
     # ========================================================================
@@ -325,48 +301,42 @@ class Consignment(models.Model):
     
     received_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='received_consignments',
         null=True,
         blank=True,
-        help_text='The intake desk clerk user profile account who scanned the parcel into origin storage inventory',
-        db_comment='Reference to origin intake employee account profile'
+        help_text='The intake desk clerk user profile account who scanned the parcel into origin storage inventory'
     )
     
     delivered_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='delivered_consignments',
         null=True,
         blank=True,
-        help_text='The delivery window desk counter agent who confirmed cash capture and handed parcel to customer',
-        db_comment='Reference to destination handover employee account profile'
+        help_text='The delivery window desk counter agent who confirmed cash capture and handed parcel to customer'
     )
     
     received_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when intake clerks committed initial entry protocols',
-        db_comment='Intake warehouse entrance timestamp execution log'
+        help_text='Timezone-aware timestamp logging exactly when intake clerks committed initial entry protocols'
     )
     
     delivered_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when final client signed off the delivery certificate',
-        db_comment='Ultimate delivery dispatch timestamp confirmation log'
+        help_text='Timezone-aware timestamp logging exactly when final client signed off the delivery certificate'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='System record logging anchor tracking exactly when this record line row entered the main database',
-        db_comment='Creation timestamp'
+        help_text='System record logging anchor tracking exactly when this record line row entered the main database'
     )
     
     updated_at = models.DateTimeField(
-        auto_now=True,  # Emulates SELECT create_updated_at_trigger('consignments'); application-side automation
-        help_text='Timestamp tracking exactly when attributes inside this logistics row node were modified',
-        db_comment='Last database row tracking mutation modification timestamp'
+        auto_now=True,
+        help_text='Timestamp tracking exactly when attributes inside this logistics row node were modified'
     )
 
     class Meta:

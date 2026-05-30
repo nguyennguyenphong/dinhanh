@@ -61,14 +61,12 @@ class Province(models.Model):
                 message='Code must contain only uppercase letters and numbers'
             )
         ],
-        help_text='Province code (e.g., HN, HCM, DN)',
-        db_comment='Province code'
+        help_text='Province code (e.g., HN, HCM, DN)'
     )
     
     name = models.CharField(
         max_length=100,
-        help_text='Province name',
-        db_comment='Province name'
+        help_text='Province name'
     )
     
     # ========================================================================
@@ -81,8 +79,7 @@ class Province(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='Geographic region',
-        db_comment='Region'
+        help_text='Geographic region'
     )
 
     class Meta:
@@ -99,14 +96,12 @@ class Province(models.Model):
             # Index for region queries
             models.Index(
                 fields=['region'],
-                name='idx_province_region',
-                db_comment='Query provinces by region'
+                name='idx_province_region'
             ),
             # Index for code lookup
             models.Index(
                 fields=['code'],
-                name='idx_province_code',
-                db_comment='Query province by code'
+                name='idx_province_code'
             ),
         ]
 
@@ -243,8 +238,7 @@ class District(models.Model):
         on_delete=models.CASCADE,
         related_name='districts',
         db_index=True,
-        help_text='Province this district belongs to',
-        db_comment='Reference to province'
+        help_text='Province this district belongs to'
     )
     
     # ========================================================================
@@ -259,14 +253,12 @@ class District(models.Model):
                 message='Code must contain only uppercase letters and numbers'
             )
         ],
-        help_text='District code',
-        db_comment='District code'
+        help_text='District code'
     )
     
     name = models.CharField(
         max_length=100,
-        help_text='District name',
-        db_comment='District name'
+        help_text='District name'
     )
 
     class Meta:
@@ -295,8 +287,7 @@ class District(models.Model):
             # Index for province queries
             models.Index(
                 fields=['province'],
-                name='idx_district_province',
-                db_comment='Query districts by province'
+                name='idx_district_province'
             ),
         ]
 
@@ -388,8 +379,7 @@ class Ward(models.Model):
         on_delete=models.CASCADE,
         related_name='wards',
         db_index=True,
-        help_text='District this ward belongs to',
-        db_comment='Reference to district'
+        help_text='District this ward belongs to'
     )
     
     # ========================================================================
@@ -404,14 +394,12 @@ class Ward(models.Model):
                 message='Code must contain only uppercase letters and numbers'
             )
         ],
-        help_text='Ward code',
-        db_comment='Ward code'
+        help_text='Ward code'
     )
     
     name = models.CharField(
         max_length=100,
-        help_text='Ward name',
-        db_comment='Ward name'
+        help_text='Ward name'
     )
 
     class Meta:
@@ -440,8 +428,7 @@ class Ward(models.Model):
             # Index for district queries
             models.Index(
                 fields=['district'],
-                name='idx_ward_district',
-                db_comment='Query wards by district'
+                name='idx_ward_district'
             ),
         ]
 
@@ -557,8 +544,7 @@ class Location(models.Model):
         on_delete=models.CASCADE,
         related_name='locations',
         db_index=True,
-        help_text='Ward this location is in',
-        db_comment='Reference to ward'
+        help_text='Ward this location is in'
     )
     
     # ========================================================================
@@ -567,14 +553,12 @@ class Location(models.Model):
     
     name = models.CharField(
         max_length=200,
-        help_text='Location name',
-        db_comment='Location name'
+        help_text='Location name'
     )
     
     address = models.CharField(
         max_length=500,
-        help_text='Street address',
-        db_comment='Street address'
+        help_text='Street address'
     )
     
     location_type = models.CharField(
@@ -582,8 +566,7 @@ class Location(models.Model):
         choices=LOCATION_TYPE_CHOICES,
         default='CUSTOM',
         db_index=True,
-        help_text='Type of location',
-        db_comment='Location type'
+        help_text='Type of location'
     )
     
     # ========================================================================
@@ -595,8 +578,7 @@ class Location(models.Model):
         decimal_places=6,
         null=True,
         blank=True,
-        help_text='Latitude coordinate',
-        db_comment='Latitude'
+        help_text='Latitude coordinate'
     )
     
     longitude = models.DecimalField(
@@ -604,8 +586,7 @@ class Location(models.Model):
         decimal_places=6,
         null=True,
         blank=True,
-        help_text='Longitude coordinate',
-        db_comment='Longitude'
+        help_text='Longitude coordinate'
     )
     
     # ========================================================================
@@ -615,8 +596,7 @@ class Location(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When location was created',
-        db_comment='Creation timestamp'
+        help_text='When location was created'
     )
 
     class Meta:
@@ -633,14 +613,12 @@ class Location(models.Model):
             # Index for ward queries
             models.Index(
                 fields=['ward'],
-                name='idx_location_ward',
-                db_comment='Query locations by ward'
+                name='idx_location_ward'
             ),
             # Index for location type queries
             models.Index(
                 fields=['location_type'],
-                name='idx_location_type',
-                db_comment='Query locations by type'
+                name='idx_location_type'
             ),
         ]
 

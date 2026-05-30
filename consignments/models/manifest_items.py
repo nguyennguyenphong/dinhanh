@@ -42,7 +42,6 @@ class ManifestItem(models.Model):
         related_name='manifest_items',
         db_index=True,
         help_text='The parent batch manifest document compiling this cargo structural entry lines',
-        db_comment='Cascade reference targeting parent cargo manifest document row'
     )
     
     consignment = models.ForeignKey(
@@ -51,7 +50,6 @@ class ManifestItem(models.Model):
         related_name='manifest_links',
         db_index=True,
         help_text='The explicit separate cargo package object being packed into the vehicle deck space',
-        db_comment='Strict reference targeting originating physical parcel transport ledger'
     )
     
     # ========================================================================
@@ -61,7 +59,6 @@ class ManifestItem(models.Model):
     loaded_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at execution layer
         help_text='Timezone-aware timestamp logging exactly when the warehouse laser gun scanned this item into the trip batch',
-        db_comment='Physical loading execution timestamp log entry'
     )
 
     class Meta:

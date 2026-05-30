@@ -56,7 +56,6 @@ class ConsignmentManifest(models.Model):
         related_name='consignment_manifests',
         db_index=True,
         help_text='The specific active vehicle fleet journey assigned to physically transport this consolidated batch',
-        db_comment='Strict operational link targeting destination vehicle trip execution'
     )
     
     created_by = models.ForeignKey(
@@ -67,7 +66,6 @@ class ConsignmentManifest(models.Model):
         blank=True,
         db_index=True,
         help_text='The specific logistics officer or warehouse clerk who compiled and authorized the cargo loading sheet',
-        db_comment='Soft reference mapping employee user account initializing this manifest'
     )
     
     # ========================================================================
@@ -84,7 +82,6 @@ class ConsignmentManifest(models.Model):
             )
         ],
         help_text='Unique human-readable system manifest identity string token (e.g., MNF-HANOI-2026-X9A)',
-        db_comment='Unique system logistics manifest lookup identity token key code'
     )
     
     status = models.CharField(
@@ -93,7 +90,6 @@ class ConsignmentManifest(models.Model):
         default='OPEN',  # Matches NOT NULL DEFAULT 'OPEN'
         db_index=True,
         help_text='The operational validation phase tracking this aggregated shipment listing through transport loops',
-        db_comment='Workflow tracking taxonomy operational status string token'
     )
     
     # ========================================================================
@@ -103,7 +99,6 @@ class ConsignmentManifest(models.Model):
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at compilation layers
         help_text='Timezone-aware timestamp logging exactly when this manifest row layout was opened inside the database',
-        db_comment='Manifest creation initialization timestamp'
     )
 
     class Meta:

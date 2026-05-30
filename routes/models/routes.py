@@ -52,8 +52,7 @@ class Route(models.Model):
         default=1,
         related_name='routes',
         db_index=True,
-        help_text='Tenant owner of this route',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this route'
     )
     
     origin = models.ForeignKey(
@@ -61,8 +60,7 @@ class Route(models.Model):
         on_delete=models.RESTRICT,  # Production safety: prevent accidental station deletion
         related_name='origin_routes',
         db_index=True,
-        help_text='Starting station of the route',
-        db_comment='Reference to origin station'
+        help_text='Starting station of the route'
     )
     
     destination = models.ForeignKey(
@@ -70,8 +68,7 @@ class Route(models.Model):
         on_delete=models.RESTRICT,  # Production safety: prevent accidental station deletion
         related_name='destination_routes',
         db_index=True,
-        help_text='Ending station of the route',
-        db_comment='Reference to destination station'
+        help_text='Ending station of the route'
     )
     
     # ========================================================================
@@ -86,14 +83,12 @@ class Route(models.Model):
                 message='Code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique route code per tenant (e.g., HN-SGN-01)',
-        db_comment='Route identification code'
+        help_text='Unique route code per tenant (e.g., HN-SGN-01)'
     )
     
     name = models.CharField(
         max_length=255,
-        help_text='Descriptive name of the route',
-        db_comment='Route display name'
+        help_text='Descriptive name of the route'
     )
     
     # ========================================================================
@@ -105,21 +100,18 @@ class Route(models.Model):
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Route distance in kilometers',
-        db_comment='Distance in km'
+        help_text='Route distance in kilometers'
     )
     
     duration_min = models.IntegerField(
         null=True,
         blank=True,
-        help_text='Estimated travel duration in minutes',
-        db_comment='Duration in minutes'
+        help_text='Estimated travel duration in minutes'
     )
     
     is_active = models.BooleanField(
         default=True,
-        help_text='Designates whether this route is active and operational',
-        db_comment='Operational status flag'
+        help_text='Designates whether this route is active and operational'
     )
     
     # ========================================================================
@@ -129,14 +121,12 @@ class Route(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='Timestamp when the route was created',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when the route was created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,  # Matches the update-on-modification intent of production
-        help_text='Timestamp when the route was last updated',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when the route was last updated'
     )
 
     class Meta:
@@ -165,14 +155,12 @@ class Route(models.Model):
             # Index for performance filtering on active tenant routes
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_route_tenant_active',
-                db_comment='Query active routes by tenant'
+                name='idx_route_tenant_active'
             ),
             # Index for performance filtering on specific paths
             models.Index(
                 fields=['origin', 'destination'],
-                name='idx_route_path',
-                db_comment='Query routes by origin and destination pairs'
+                name='idx_route_path'
             ),
         ]
 

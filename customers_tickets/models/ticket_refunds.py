@@ -73,33 +73,30 @@ class TicketRefund(models.Model):
     
     ticket = models.ForeignKey(
         Ticket,
-        on_delete=models.PROTECT,  # Production safety: lock ticket deletion if historical financial ledger logs depend on it
+        on_delete=models.PROTECT,
         related_name='refund_records',
         db_index=True,
-        help_text='The specific boarding pass ticket identity sheet being processed for liquidation',
-        db_comment='Reference to target ticket model line'
+        help_text='The specific boarding pass ticket identity sheet being processed for liquidation'
     )
     
     processed_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='initiated_refunds',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The staff accountant or agent counter employee who initiated this liquidation line',
-        db_comment='Reference to initiating user account (Maker)'
+        help_text='The staff accountant or agent counter employee who initiated this liquidation line'
     )
     
     approved_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='authorized_refunds',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The supervisor or station manager validating and granting commercial clearance sign-off',
-        db_comment='Reference to authorizing supervisor user account (Checker)'
+        help_text='The supervisor or station manager validating and granting commercial clearance sign-off'
     )
     
     # ========================================================================
@@ -108,22 +105,20 @@ class TicketRefund(models.Model):
     
     refund_code = models.CharField(
         max_length=30,
-        unique=True,  # Matches VARCHAR(30) NOT NULL UNIQUE
+        unique=True,
         validators=[
             RegexValidator(
                 regex=r'^[A-Z0-9\-_]+$',
                 message='Refund voucher code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique commercial index token used for tracking outbound financial vouchers (e.g., REF-9921-X)',
-        db_comment='Unique system financial transaction lookup token key code'
+        help_text='Unique commercial index token used for tracking outbound financial vouchers (e.g., REF-9921-X)'
     )
     
     reason = models.TextField(
         null=True,
         blank=True,
-        help_text='Contextual justification annotations explaining why this specific ticket was voided',
-        db_comment='Refund background justification text logs'
+        help_text='Contextual justification annotations explaining why this specific ticket was voided'
     )
     
     # ========================================================================
@@ -132,24 +127,21 @@ class TicketRefund(models.Model):
     
     original_amount = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The net collected revenue amount paid originally for the ticket seat line',
-        db_comment='Original invoice historical payment value'
+        decimal_places=2,
+        help_text='The net collected revenue amount paid originally for the ticket seat line'
     )
     
     penalty_amount = models.DecimalField(
         max_digits=15,
         decimal_places=2,
-        default=0.00,  # Matches NUMERIC(15,2) NOT NULL DEFAULT 0
-        help_text='The cancellation administrative fee penalty deducted from the client balance based on timeline policies',
-        db_comment='Deducted policy violation penalty fee value'
+        default=0.00,
+        help_text='The cancellation administrative fee penalty deducted from the client balance based on timeline policies'
     )
     
     refund_amount = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
-        help_text='The exact ultimate payout capital cash sum returned back to the consumer (original_amount - penalty_amount)',
-        db_comment='Net liquidated currency settlement payout value'
+        decimal_places=2,
+        help_text='The exact ultimate payout capital cash sum returned back to the consumer (original_amount - penalty_amount)'
     )
     
     refund_method = models.CharField(
@@ -158,8 +150,7 @@ class TicketRefund(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The target liquidation path used to route the outgoing capital back to the customer',
-        db_comment='Outbound financial channel pipeline taxonomy token'
+        help_text='The target liquidation path used to route the outgoing capital back to the customer'
     )
     
     # ========================================================================
@@ -171,8 +162,7 @@ class TicketRefund(models.Model):
         choices=STATUS_CHOICES,
         default='PENDING',
         db_index=True,
-        help_text='The structural state mapping this liquidation voucher through review and payout channels',
-        db_comment='Workflow financial progression taxonomy status string token'
+        help_text='The structural state mapping this liquidation voucher through review and payout channels'
     )
     
     # ========================================================================
@@ -182,20 +172,17 @@ class TicketRefund(models.Model):
     processed_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when final completion or rejection was executed',
-        db_comment='Timestamp of ultimate workflow resolution'
+        help_text='Timezone-aware timestamp logging exactly when final completion or rejection was executed'
     )
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this financial refund ledger line was first registered inside the core database',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this financial refund ledger line was first registered inside the core database'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when parameters inside this financial refund line were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when parameters inside this financial refund line were last modified'
     )
 
     class Meta:

@@ -49,8 +49,7 @@ class RouteStop(models.Model):
         on_delete=models.CASCADE,
         related_name='stops',
         db_index=True,
-        help_text='Route this stop belongs to',
-        db_comment='Reference to route'
+        help_text='Route this stop belongs to'
     )
     
     station = models.ForeignKey(
@@ -58,8 +57,7 @@ class RouteStop(models.Model):
         on_delete=models.RESTRICT,  # Production safety: prevent accidental station deletion
         related_name='route_stops',
         db_index=True,
-        help_text='Station where the route stops',
-        db_comment='Reference to station'
+        help_text='Station where the route stops'
     )
     
     # ========================================================================
@@ -67,8 +65,7 @@ class RouteStop(models.Model):
     # ========================================================================
     
     stop_order = models.PositiveSmallIntegerField(
-        help_text='Sequence order of this stop within the route (starts from 1)',
-        db_comment='Sequence stop order'
+        help_text='Sequence order of this stop within the route (starts from 1)'
     )
     
     # ========================================================================
@@ -78,15 +75,13 @@ class RouteStop(models.Model):
     arrive_offset_min = models.IntegerField(
         null=True,
         blank=True,
-        help_text='Arrival time offset in minutes from route start time',
-        db_comment='Arrival offset in minutes'
+        help_text='Arrival time offset in minutes from route start time'
     )
     
     depart_offset_min = models.IntegerField(
         null=True,
         blank=True,
-        help_text='Departure time offset in minutes from route start time',
-        db_comment='Departure offset in minutes'
+        help_text='Departure time offset in minutes from route start time'
     )
     
     # ========================================================================
@@ -95,14 +90,12 @@ class RouteStop(models.Model):
     
     pickup_allowed = models.BooleanField(
         default=True,
-        help_text='Designates whether passengers can board at this station',
-        db_comment='Flag for allowing pickup'
+        help_text='Designates whether passengers can board at this station'
     )
     
     dropoff_allowed = models.BooleanField(
         default=True,
-        help_text='Designates whether passengers can alight at this station',
-        db_comment='Flag for allowing dropoff'
+        help_text='Designates whether passengers can alight at this station'
     )
 
     class Meta:
@@ -131,14 +124,12 @@ class RouteStop(models.Model):
             # Highly critical index for loading route timetables/itineraries smoothly
             models.Index(
                 fields=['route', 'stop_order'],
-                name='idx_route_stop_sequence',
-                db_comment='Query and sort stops by route sequence'
+                name='idx_route_stop_sequence'
             ),
             # Index for reverse lookup (finding which routes pass through a specific station)
             models.Index(
                 fields=['station'],
-                name='idx_stop_station_lookup',
-                db_comment='Query routes passing through a specific station'
+                name='idx_stop_station_lookup'
             ),
         ]
 

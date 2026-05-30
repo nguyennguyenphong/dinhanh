@@ -40,7 +40,6 @@ class AssetCategory(models.Model):
         related_name='asset_categories',
         db_index=True,
         help_text='Tenant corporate node holding legal data sovereignty over this inventory catalog segment',
-        db_comment='Multi-tenancy tenant reference'
     )
     
     # ========================================================================
@@ -50,7 +49,6 @@ class AssetCategory(models.Model):
     name = models.CharField(
         max_length=100,  # Matches VARCHAR(100) NOT NULL
         help_text='The unique descriptive name of the asset category group (e.g., Garage Repair Machinery, Office Electronics)',
-        db_comment='Asset category structural group classification text descriptor name'
     )
     
     # ========================================================================
@@ -60,7 +58,6 @@ class AssetCategory(models.Model):
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core DDL layers
         help_text='Timezone-aware database anchor tracking exactly when this asset category configuration row was initialized',
-        db_comment='Creation timestamp log entry'
     )
 
     class Meta:

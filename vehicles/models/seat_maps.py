@@ -63,7 +63,6 @@ class SeatMap(models.Model):
         related_name='seat_maps',
         db_index=True,
         help_text='Vehicle category profile this schematic blueprint applies to',
-        db_comment='Reference to vehicle category parent blueprint'
     )
     
     # ========================================================================
@@ -73,19 +72,16 @@ class SeatMap(models.Model):
     name = models.CharField(
         max_length=100,
         help_text='Descriptive title of the layout configuration template (e.g., Standard 2+2 Layout)',
-        db_comment='Seat map structural layout name'
     )
     
     total_seats = models.PositiveSmallIntegerField(
         help_text='Declared number of total sellable seats configured inside this map blueprint',
-        db_comment='Calculated sellable seats count'
     )
     
     # Native PostgreSQL JSONB architecture integration
     layout_config = models.JSONField(
         default=dict,  # Standard factory for empty object initialization '{}'
         help_text='Complex data object matrix capturing row, col, type, floor and specific coordinate structures',
-        db_comment='JSONB structured configuration layout matrix'
     )
     
     # ========================================================================
@@ -96,13 +92,11 @@ class SeatMap(models.Model):
         auto_now_add=True,
         db_index=True,
         help_text='Timestamp when the schematic layout structure template was registered',
-        db_comment='Creation timestamp'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
         help_text='Timestamp when the schema configuration matrix was last modified',
-        db_comment='Last modification timestamp'
     )
 
     class Meta:
@@ -120,7 +114,6 @@ class SeatMap(models.Model):
             models.Index(
                 fields=['category', 'name'],
                 name='idx_seat_map_lookup',
-                db_comment='Filter layouts optimization matrix'
             ),
             # Note for Advanced Production: If query capabilities on internal components of 'layout_config'
             # are heavily required, a django.contrib.postgres.indexes.GinIndex can be substituted here.

@@ -62,8 +62,7 @@ class NotificationTemplate(models.Model):
         default=1,
         related_name='notification_templates',
         db_index=True,
-        help_text='Tenant corporate node owning and controlling this isolated communications blueprint segment',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate node owning and controlling this isolated communications blueprint segment'
     )
     
     # ========================================================================
@@ -72,22 +71,19 @@ class NotificationTemplate(models.Model):
     
     code = models.CharField(
         max_length=50,  # Matches VARCHAR(50) NOT NULL
-        help_text='System-internal lookup identifier string token (e.g., OTP_VERIFICATION, TRIP_CANCELLED)',
-        db_comment='Alphanumeric notification taxonomy functional code token'
+        help_text='System-internal lookup identifier string token (e.g., OTP_VERIFICATION, TRIP_CANCELLED)'
     )
     
     name = models.CharField(
         max_length=255,  # Matches VARCHAR(255) NOT NULL
-        help_text='Human-readable administrative title label identifying this blueprint copy layout',
-        db_comment='Public structural template identification text label'
+        help_text='Human-readable administrative title label identifying this blueprint copy layout'
     )
     
     channel = models.CharField(
         max_length=20,
         choices=CHANNEL_CHOICES,  # Enforces compliance bounds mapping comments
         db_index=True,
-        help_text='The explicit physical transport gateway medium selected to route this communication data packet',
-        db_comment='Omnichannel distribution routing channel taxonomy string token'
+        help_text='The explicit physical transport gateway medium selected to route this communication data packet'
     )
     
     # ========================================================================
@@ -98,13 +94,11 @@ class NotificationTemplate(models.Model):
         max_length=500,  # Matches VARCHAR(500)
         null=True,
         blank=True,
-        help_text='The target header caption line text. Heavily utilized by EMAIL blocks; usually sits NULL for SMS.',
-        db_comment='Communication header title or subject string text line'
+        help_text='The target header caption line text. Heavily utilized by EMAIL blocks; usually sits NULL for SMS.'
     )
     
     body = models.TextField(
-        help_text='The core textual messaging content blueprint layout payload supporting dynamic curly bracket variable slots (e.g., {otp_code})',
-        db_comment='Main messaging template content text block payload'
+        help_text='The core textual messaging content blueprint layout payload supporting dynamic curly bracket variable slots (e.g., {otp_code})'
     )
     
     # ========================================================================
@@ -115,8 +109,7 @@ class NotificationTemplate(models.Model):
         models.TextField(),
         null=True,
         blank=True,  # Matches TEXT[] array without NOT NULL constraint
-        help_text='Array matrix logging explicit system keywords allowed to reside inside this layout body (e.g., [customer_name, passenger_id])',
-        db_comment='Native text array storing verified internal placeholder dynamic token strings'
+        help_text='Array matrix logging explicit system keywords allowed to reside inside this layout body (e.g., [customer_name, passenger_id])'
     )
     
     # ========================================================================
@@ -126,20 +119,17 @@ class NotificationTemplate(models.Model):
     is_active = models.BooleanField(
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
-        help_text='Master state switch engine. Disabling this instantly silences this notification pathway across workers',
-        db_comment='Administrative activation state toggle switch flag'
+        help_text='Master state switch engine. Disabling this instantly silences this notification pathway across workers'
     )
     
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compilation
-        help_text='System record logging anchor tracking exactly when this template row entered the core DB',
-        db_comment='Creation timestamp'
+        help_text='System record logging anchor tracking exactly when this template row entered the core DB'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,  # Automatically handles updated_at synchronization across mutations
-        help_text='Timestamp tracking exactly when attributes inside this notification blueprint configuration node changed',
-        db_comment='Last database row tracking mutation modification timestamp'
+        help_text='Timestamp tracking exactly when attributes inside this notification blueprint configuration node changed'
     )
 
     class Meta:

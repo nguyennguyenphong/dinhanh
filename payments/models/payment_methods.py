@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.db.models import Q
 
-# Assuming this model exists in your production architecture
+# Assuming these model exist in your production architecture
 from tenants.models.tenants import Tenant
 
 
@@ -69,8 +69,7 @@ class PaymentMethod(models.Model):
         default=1,
         related_name='payment_methods',
         db_index=True,
-        help_text='Tenant corporate owner managing this isolated billing configurations node',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner managing this isolated billing configurations node'
     )
     
     # ========================================================================
@@ -80,22 +79,19 @@ class PaymentMethod(models.Model):
     code = models.CharField(
         max_length=30,
         choices=CODE_CHOICES,
-        help_text='System taxonomy identifier token tracking payment processors core routing rules',
-        db_comment='Payment channel unique classification string token'
+        help_text='System taxonomy identifier token tracking payment processors core routing rules'
     )
     
     name = models.CharField(
         max_length=100,
-        help_text='Human-readable user interface descriptive name shown to customers at checkout windows',
-        db_comment='Payment method descriptive localized label'
+        help_text='Human-readable user interface descriptive name shown to customers at checkout windows'
     )
     
     provider = models.CharField(
         max_length=50,
         null=True,
         blank=True,
-        help_text='The official merchant service provider or third-party banking institution clearing the gateway operations',
-        db_comment='Third-party payment processor gateway provider name text'
+        help_text='The official merchant service provider or third-party banking institution clearing the gateway operations'
     )
     
     # ========================================================================
@@ -105,8 +101,7 @@ class PaymentMethod(models.Model):
     # Native PostgreSQL JSONB architecture integration
     config = models.JSONField(
         default=dict,
-        help_text='Complex parameter matrix map capturing gateway credentials, client endpoints, and API secure hashes',
-        db_comment='JSONB matrix holding encrypted payment system API parameters and credentials'
+        help_text='Complex parameter matrix map capturing gateway credentials, client endpoints, and API secure hashes'
     )
     
     # ========================================================================
@@ -115,14 +110,12 @@ class PaymentMethod(models.Model):
     
     sort_order = models.SmallIntegerField(
         default=0,
-        help_text='UI hierarchy ordering sequence value. Lower integers scale directly to the top of list maps',
-        db_comment='Client user interface rendering sort order scalar'
+        help_text='UI hierarchy ordering sequence value. Lower integers scale directly to the top of list maps'
     )
     
     is_active = models.BooleanField(
         default=True,
-        help_text='Logical activation flag. Setting this parameter to False disables visibility on mobile/counter interfaces',
-        db_comment='Logical execution operational availability boolean switch flag'
+        help_text='Logical activation flag. Setting this parameter to False disables visibility on mobile/counter interfaces'
     )
 
     class Meta:

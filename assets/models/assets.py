@@ -64,23 +64,21 @@ class Asset(models.Model):
     
     tenant = models.ForeignKey(
         Tenant,
-        on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from DDL requirement
+        on_delete=models.CASCADE,
         default=1,
         related_name='assets',
         db_index=True,
-        help_text='Tenant corporate node holding legal data sovereignty over this inventory asset record',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate node holding legal data sovereignty over this inventory asset record'
     )
     
     category = models.ForeignKey(
         AssetCategory,
-        on_delete=models.SET_NULL,  # Matches REFERENCES asset_categories(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='assets',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The generalized asset catalog categorization group managing this inventory node',
-        db_comment='Soft reference targeting parent inventory classification node'
+        help_text='The generalized asset catalog categorization group managing this inventory node'
     )
     
     # ========================================================================
@@ -89,24 +87,22 @@ class Asset(models.Model):
     
     branch = models.ForeignKey(
         Branch,
-        on_delete=models.SET_NULL,  # Matches REFERENCES branches(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='assets',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The physical corporate branch office or garage outpost currently storing or utilizing this item',
-        db_comment='Soft reference mapping organizational facility location node'
+        help_text='The physical corporate branch office or garage outpost currently storing or utilizing this item'
     )
     
     assigned_to = models.ForeignKey(
         Employee,
-        on_delete=models.SET_NULL,  # Matches REFERENCES employees(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='assigned_assets',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The primary custodian employee or operational staff driver held personally accountable for this unit',
-        db_comment='Soft reference mapping corporate human resource profile'
+        help_text='The primary custodian employee or operational staff driver held personally accountable for this unit'
     )
     
     # ========================================================================
@@ -114,23 +110,20 @@ class Asset(models.Model):
     # ========================================================================
     
     code = models.CharField(
-        max_length=30,  # Matches VARCHAR(30) NOT NULL
-        help_text='Unique localized alphanumeric asset tag bar-code string identifier (e.g., FIX-EQUIP-0092)',
-        db_comment='Unique system asset lookup string identifier token key'
+        max_length=30,
+        help_text='Unique localized alphanumeric asset tag bar-code string identifier (e.g., FIX-EQUIP-0092)'
     )
     
     name = models.CharField(
-        max_length=255,  # Matches VARCHAR(255) NOT NULL
-        help_text='Full commercial description descriptive name label of the physical hardware asset unit',
-        db_comment='Physical asset item structural identification text label'
+        max_length=255,
+        help_text='Full commercial description descriptive name label of the physical hardware asset unit'
     )
     
     serial_number = models.CharField(
-        max_length=100,  # Matches VARCHAR(100) nullable specifications
+        max_length=100,
         null=True,
         blank=True,
-        help_text='The raw factory hardware engraving serial number string provided by the original manufacturer',
-        db_comment='Factory manufacturing unique serial label identifier'
+        help_text='The raw factory hardware engraving serial number string provided by the original manufacturer'
     )
     
     # ========================================================================
@@ -140,45 +133,40 @@ class Asset(models.Model):
     purchase_date = models.DateField(
         null=True,
         blank=True,
-        help_text='The official calendar commercial procurement date matching invoice purchase receipts',
-        db_comment='Official procurement transactional calendar date'
+        help_text='The official calendar commercial procurement date matching invoice purchase receipts'
     )
     
     purchase_price = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2)
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The initial gross cost basis capitalization currency amount paid to secure the asset unit',
-        db_comment='Initial acquisition capitalization gross cost currency balance'
+        help_text='The initial gross cost basis capitalization currency amount paid to secure the asset unit'
     )
     
     depreciation_rate = models.DecimalField(
         max_digits=5,
-        decimal_places=2,  # Matches NUMERIC(5,2) representing % per year
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00), MaxValueValidator(100.00)],
-        help_text='The annual straight-line depreciation loss percentage scale parameter (e.g., 12.50 for 12.5% annualized decay)',
-        db_comment='Annualized asset depreciation decay factor ratio percentage scale'
+        help_text='The annual straight-line depreciation loss percentage scale parameter (e.g., 12.50 for 12.5% annualized decay)'
     )
     
     current_value = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2)
+        decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The adjusted current net book value representing asset worth post-depreciation cycles',
-        db_comment='Adjusted real-time inventory net book asset worth currency valuation'
+        help_text='The adjusted current net book value representing asset worth post-depreciation cycles'
     )
     
     warranty_expiry = models.DateField(
         null=True,
         blank=True,
-        help_text='The final contractual calendar coverage expiration date logged by the manufacturer warranty agreement',
-        db_comment='Contractual vendor manufacturing warranty coverage expiration calendar deadline'
+        help_text='The final contractual calendar coverage expiration date logged by the manufacturer warranty agreement'
     )
     
     # ========================================================================
@@ -188,29 +176,25 @@ class Asset(models.Model):
     status = models.CharField(
         max_length=30,
         choices=STATUS_CHOICES,
-        default='IN_USE',  # Matches NOT NULL DEFAULT 'IN_USE'
+        default='IN_USE',
         db_index=True,
-        help_text='The current active lifecycle pipeline phase state configuration tracking the hardware asset node',
-        db_comment='Lifecycle tracking status taxonomy string token'
+        help_text='The current active lifecycle pipeline phase state configuration tracking the hardware asset node'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Granular physical damage tracking notes, audit log annotations, or liquidation justifications',
-        db_comment='Administrative inventory auditing textual log annotations'
+        help_text='Granular physical damage tracking notes, audit log annotations, or liquidation justifications'
     )
     
     created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core compiler layers
-        help_text='Timezone-aware log record tracking exactly when this asset index joined the database system',
-        db_comment='Creation timestamp'
+        default=models.functions.Now,
+        help_text='Timezone-aware log record tracking exactly when this asset index joined the database system'
     )
     
     updated_at = models.DateTimeField(
-        auto_now=True,  # Automatically forces updated_at calculations across application-layer modifications
-        help_text='Timestamp tracking exactly when parameter attributes inside this inventory node mutated',
-        db_comment='Last database row tracking mutation modification timestamp'
+        auto_now=True,
+        help_text='Timestamp tracking exactly when parameter attributes inside this inventory node mutated'
     )
 
     class Meta:

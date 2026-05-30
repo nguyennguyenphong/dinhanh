@@ -71,8 +71,7 @@ class ReportDefinition(models.Model):
         default=1,
         related_name='report_definitions',
         db_index=True,
-        help_text='Tenant corporate node holding legal data sovereignty over this analytics report definition',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant corporate owner holding legal data sovereignty over this analytics report definition'
     )
     
     created_by = models.ForeignKey(
@@ -82,8 +81,7 @@ class ReportDefinition(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The specialized user account profile or BI analyst who constructed this dynamic configuration layout',
-        db_comment='Soft reference tracking initializing author user account'
+        help_text='The specialized user account profile or BI analyst who constructed this dynamic configuration layout'
     )
     
     # ========================================================================
@@ -92,29 +90,25 @@ class ReportDefinition(models.Model):
     
     code = models.CharField(
         max_length=60,  # Matches VARCHAR(60) NOT NULL
-        help_text='Unique system lookup identifier string token key (e.g., FINANCIAL_P_L_STATEMENT, TRIP_KPI_SUMMARY)',
-        db_comment='Alphanumeric report lookup definition identifier classification code'
+        help_text='Unique system lookup identifier string token key (e.g., FINANCIAL_P_L_STATEMENT, TRIP_KPI_SUMMARY)'
     )
     
     name = models.CharField(
         max_length=255,  # Matches VARCHAR(255) NOT NULL
-        help_text='Human-readable title description banner utilized across executive dashboard reporting navigation bars',
-        db_comment='Public structural report lookup descriptor name text'
+        help_text='Human-readable title description banner utilized across executive dashboard reporting navigation bars'
     )
     
     category = models.CharField(
         max_length=60,
         choices=CATEGORY_CHOICES,  # Enforces compliance bounds mapping comments precisely
         db_index=True,
-        help_text='The business intelligence domain vertical that this report parsing pipeline operates inside',
-        db_comment='Business sector reporting taxonomy division string token'
+        help_text='The business intelligence domain vertical that this report parsing pipeline operates inside'
     )
     
     description = models.TextField(
         null=True,
         blank=True,
-        help_text='Granular text detailing analytical goals, source data limitations, or interpretation guides for staff',
-        db_comment='Detailed structural report instruction annotations text'
+        help_text='Granular text detailing analytical goals, source data limitations, or interpretation guides for staff'
     )
     
     # ========================================================================
@@ -123,14 +117,12 @@ class ReportDefinition(models.Model):
     
     query_config = models.JSONField(
         default=dict,  # Matches NOT NULL DEFAULT '{}' using safe dictionary factories
-        help_text='JSON metadata mapping analytical extraction rules (filters, aggregation dimensions, selected KPI metrics)',
-        db_comment='Binary-JSON parameters configuration mapping query pipelines'
+        help_text='JSON metadata mapping analytical extraction rules (filters, aggregation dimensions, selected KPI metrics)'
     )
     
     chart_config = models.JSONField(
         default=dict,  # Matches NOT NULL DEFAULT '{}'
-        help_text='JSON metadata mapping data rendering instructions (visualization type e.g. line/bar/pie, axis bindings, UI themes)',
-        db_comment='Binary-JSON parameters configuration mapping frontend interface rendering engines'
+        help_text='JSON metadata mapping data rendering instructions (visualization type e.g. line/bar/pie, axis bindings, UI themes)'
     )
     
     # ========================================================================
@@ -140,26 +132,22 @@ class ReportDefinition(models.Model):
     is_builtin = models.BooleanField(
         default=False,  # Matches NOT NULL DEFAULT FALSE
         db_index=True,
-        help_text='Flag marking core hardcoded system reports. Protects critical core records from casual user deletions.',
-        db_comment='System global infrastructure pre-installed blueprint flag indicator'
+        help_text='Flag marking core hardcoded system reports. Protects critical core records from casual user deletions.'
     )
     
     is_public = models.BooleanField(
         default=False,  # Matches NOT NULL DEFAULT FALSE
-        help_text='Determines visibility bounds. When TRUE, other global operators within this node can inspect layout metrics.',
-        db_comment='Cross-organization report layout visibility access matrix toggle'
+        help_text='Determines visibility bounds. When TRUE, other global operators within this node can inspect layout metrics.'
     )
     
     created_at = models.DateTimeField(
         default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compiler layers
-        help_text='Timezone-aware record logging anchor tracking exactly when this report definition row was initialized',
-        db_comment='Creation timestamp log entry'
+        help_text='Timezone-aware record logging anchor tracking exactly when this report definition row was initialized'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,  # Automatically triggers updated_at synchronization across application mutations
-        help_text='Timestamp tracking exactly when parameter attributes inside this analytics structure node mutated',
-        db_comment='Last database row tracking mutation modification timestamp'
+        help_text='Timestamp tracking exactly when parameter attributes inside this analytics structure node mutated'
     )
 
     class Meta:

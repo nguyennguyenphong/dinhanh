@@ -60,8 +60,7 @@ class TaskList(models.Model):
         on_delete=models.CASCADE,
         related_name='task_lists',
         db_index=True,
-        help_text='Tenant that owns this task list',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this task list'
     )
     
     # ========================================================================
@@ -70,8 +69,7 @@ class TaskList(models.Model):
     
     name = models.CharField(
         max_length=100,
-        help_text='Name of the task list',
-        db_comment='Task list name'
+        help_text='Name of the task list'
     )
     
     # ========================================================================
@@ -84,8 +82,7 @@ class TaskList(models.Model):
         null=True,
         blank=True,
         related_name='task_lists',
-        help_text='Branch this task list belongs to',
-        db_comment='Reference to branch'
+        help_text='Branch this task list belongs to'
     )
     
     # ========================================================================
@@ -98,8 +95,7 @@ class TaskList(models.Model):
         null=True,
         blank=True,
         related_name='task_lists_created',
-        help_text='User who created this task list',
-        db_comment='Created by user'
+        help_text='User who created this task list'
     )
     
     # ========================================================================
@@ -109,8 +105,7 @@ class TaskList(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this task list was created',
-        db_comment='Creation timestamp'
+        help_text='When this task list was created'
     )
 
     class Meta:
@@ -127,20 +122,17 @@ class TaskList(models.Model):
             # Index for finding task lists by tenant
             models.Index(
                 fields=['tenant'],
-                name='idx_task_list_tenant',
-                db_comment='Query task lists by tenant'
+                name='idx_task_list_tenant'
             ),
             # Index for finding task lists by branch
             models.Index(
                 fields=['branch'],
-                name='idx_task_list_branch',
-                db_comment='Query task lists by branch'
+                name='idx_task_list_branch'
             ),
             # Index for finding task lists by creator
             models.Index(
                 fields=['created_by'],
-                name='idx_task_list_creator',
-                db_comment='Query task lists by creator'
+                name='idx_task_list_creator'
             ),
         ]
 
@@ -345,8 +337,7 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         related_name='tasks',
         db_index=True,
-        help_text='Task list this task belongs to',
-        db_comment='Reference to task list'
+        help_text='Task list this task belongs to'
     )
     
     # ========================================================================
@@ -355,15 +346,13 @@ class Task(models.Model):
     
     title = models.CharField(
         max_length=200,
-        help_text='Task title',
-        db_comment='Task title'
+        help_text='Task title'
     )
     
     description = models.TextField(
         blank=True,
         null=True,
-        help_text='Detailed task description',
-        db_comment='Task description'
+        help_text='Detailed task description'
     )
     
     # ========================================================================
@@ -375,8 +364,7 @@ class Task(models.Model):
         choices=PRIORITY_CHOICES,
         default='normal',
         db_index=True,
-        help_text='Task priority',
-        db_comment='Task priority'
+        help_text='Task priority'
     )
     
     status = models.CharField(
@@ -384,8 +372,7 @@ class Task(models.Model):
         choices=STATUS_CHOICES,
         default='pending',
         db_index=True,
-        help_text='Task status',
-        db_comment='Task status'
+        help_text='Task status'
     )
     
     # ========================================================================
@@ -398,8 +385,7 @@ class Task(models.Model):
         null=True,
         blank=True,
         related_name='assigned_tasks',
-        help_text='User this task is assigned to',
-        db_comment='Assigned to user'
+        help_text='User this task is assigned to'
     )
     
     # ========================================================================
@@ -410,22 +396,19 @@ class Task(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='Due date for task',
-        db_comment='Due date'
+        help_text='Due date for task'
     )
     
     started_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When task was started',
-        db_comment='Start time'
+        help_text='When task was started'
     )
     
     completed_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='When task was completed',
-        db_comment='Completion time'
+        help_text='When task was completed'
     )
     
     # ========================================================================
@@ -435,14 +418,12 @@ class Task(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When task was created',
-        db_comment='Creation timestamp'
+        help_text='When task was created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When task was last updated',
-        db_comment='Last update timestamp'
+        help_text='When task was last updated'
     )
 
     class Meta:
@@ -459,26 +440,22 @@ class Task(models.Model):
             # Index for finding tasks by status
             models.Index(
                 fields=['status'],
-                name='idx_task_status',
-                db_comment='Query tasks by status'
+                name='idx_task_status'
             ),
             # Index for finding tasks by assignee
             models.Index(
                 fields=['assigned_to'],
-                name='idx_task_assigned_to',
-                db_comment='Query tasks by assignee'
+                name='idx_task_assigned_to'
             ),
             # Index for finding overdue tasks
             models.Index(
                 fields=['due_date', 'status'],
-                name='idx_task_due_status',
-                db_comment='Query overdue tasks'
+                name='idx_task_due_status'
             ),
             # Index for finding tasks by priority
             models.Index(
                 fields=['priority'],
-                name='idx_task_priority',
-                db_comment='Query tasks by priority'
+                name='idx_task_priority'
             ),
         ]
 
@@ -728,8 +705,7 @@ class TaskComment(models.Model):
         on_delete=models.CASCADE,
         related_name='comments',
         db_index=True,
-        help_text='Task this comment belongs to',
-        db_comment='Reference to task'
+        help_text='Task this comment belongs to'
     )
     
     user = models.ForeignKey(
@@ -738,8 +714,7 @@ class TaskComment(models.Model):
         null=True,
         blank=True,
         related_name='task_comments',
-        help_text='User who made this comment',
-        db_comment='Comment author'
+        help_text='User who made this comment'
     )
     
     # ========================================================================
@@ -747,8 +722,7 @@ class TaskComment(models.Model):
     # ========================================================================
     
     text = models.TextField(
-        help_text='Comment text',
-        db_comment='Comment text'
+        help_text='Comment text'
     )
     
     # ========================================================================
@@ -758,8 +732,7 @@ class TaskComment(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When comment was created',
-        db_comment='Creation timestamp'
+        help_text='When comment was created'
     )
 
     class Meta:
@@ -771,13 +744,11 @@ class TaskComment(models.Model):
         indexes = [
             models.Index(
                 fields=['task'],
-                name='idx_task_comment_task',
-                db_comment='Query comments by task'
+                name='idx_task_comment_task'
             ),
             models.Index(
                 fields=['user'],
-                name='idx_task_comment_user',
-                db_comment='Query comments by user'
+                name='idx_task_comment_user'
             ),
         ]
 

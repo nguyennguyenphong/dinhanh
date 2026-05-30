@@ -51,22 +51,20 @@ class CodReconciliation(models.Model):
     
     consignment = models.ForeignKey(
         Consignment,
-        on_delete=models.PROTECT,  # Production safety: strict PROTECT blocks deleting original consignment records if finance ledger lines exist
+        on_delete=models.PROTECT,
         related_name='cod_reconciliations',
         db_index=True,
-        help_text='The specific source parcel consignment document whose cash flow liability is managed here',
-        db_comment='Strict reference targeting parent logistics parcel ledger'
+        help_text='The specific source parcel consignment document whose cash flow liability is managed here'
     )
     
     transferred_by = models.ForeignKey(
         UserAccount,
-        on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
+        on_delete=models.SET_NULL,
         related_name='processed_cod_settlements',
         null=True,
         blank=True,
         db_index=True,
-        help_text='The financial staff user or accountant account who cleared the payout and signed the bank voucher',
-        db_comment='Soft reference mapping operating accounting user account profile'
+        help_text='The financial staff user or accountant account who cleared the payout and signed the bank voucher'
     )
     
     # ========================================================================
@@ -75,10 +73,9 @@ class CodReconciliation(models.Model):
     
     amount = models.DecimalField(
         max_digits=15,
-        decimal_places=2,  # Matches NUMERIC(15,2) NOT NULL
+        decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The precise mathematical cash currency total amount to be paid back out to the parcel sender client',
-        db_comment='Explicit cash-on-delivery financial liability currency value balance'
+        help_text='The precise mathematical cash currency total amount to be paid back out to the parcel sender client'
     )
     
     # ========================================================================
@@ -88,17 +85,15 @@ class CodReconciliation(models.Model):
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
-        default='PENDING',  # Matches NOT NULL DEFAULT 'PENDING'
+        default='PENDING',
         db_index=True,
-        help_text='The accounting audit phase tracking this cash settlement through clearance banking pipelines',
-        db_comment='Workflow compliance tracking status taxonomy string token'
+        help_text='The accounting audit phase tracking this cash settlement through clearance banking pipelines'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Bank transaction sequence hashes, account details, or manual tracking annotations for discrepancies',
-        db_comment='Administrative auditing textual log annotations'
+        help_text='Bank transaction sequence hashes, account details, or manual tracking annotations for discrepancies'
     )
     
     # ========================================================================
@@ -108,14 +103,12 @@ class CodReconciliation(models.Model):
     transferred_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when the bank transfer API or cash desk pushed out the money',
-        db_comment='Outbound cash dispatch completion timestamp'
+        help_text='Timezone-aware timestamp logging exactly when the bank transfer API or cash desk pushed out the money'
     )
     
     created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at execution layer
-        help_text='System record logging anchor tracking exactly when this reconciliation row was opened inside the core DB',
-        db_comment='Creation initialization timestamp'
+        default=models.functions.Now,
+        help_text='System record logging anchor tracking exactly when this reconciliation row was opened inside the core DB'
     )
 
     class Meta:

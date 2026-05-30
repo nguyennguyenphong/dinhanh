@@ -51,7 +51,6 @@ class MenuItemRole(models.Model):
         related_name='role_assignments',
         db_index=True,
         help_text='Menu item assigned to this role',
-        db_comment='Reference to menu item'
     )
     role = models.ForeignKey(
         'accounts.Role',
@@ -59,7 +58,6 @@ class MenuItemRole(models.Model):
         related_name='menu_item_assignments',
         db_index=True,
         help_text='Role that can access this menu item',
-        db_comment='Reference to role'
     )
 
     class Meta:
@@ -89,13 +87,11 @@ class MenuItemRole(models.Model):
             models.Index(
                 fields=['menu_item'],
                 name='idx_menu_item_role_item',
-                db_comment='Query roles for a menu item'
             ),
             # Index for finding menu items for a role
             models.Index(
                 fields=['role'],
                 name='idx_menu_item_role_role',
-                db_comment='Query menu items for a role'
             ),
         ]
 

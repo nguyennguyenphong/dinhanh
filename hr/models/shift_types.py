@@ -58,8 +58,7 @@ class ShiftType(models.Model):
         default=1,
         related_name='shift_types',
         db_index=True,
-        help_text='Tenant owner of this operational shift type configuration',
-        db_comment='Multi-tenancy tenant reference'
+        help_text='Tenant owner of this operational shift type configuration'
     )
     
     # ========================================================================
@@ -74,14 +73,12 @@ class ShiftType(models.Model):
                 message='Code must contain only uppercase letters, numbers, hyphens, and underscores'
             )
         ],
-        help_text='Unique operational shift code identifier per tenant (e.g., MORNING, NIGHT_01)',
-        db_comment='Shift classification code identifier'
+        help_text='Unique operational shift code identifier per tenant (e.g., MORNING, NIGHT_01)'
     )
     
     name = models.CharField(
         max_length=100,
-        help_text='Human readable display name of the shift schedule pattern',
-        db_comment='Shift template descriptive name'
+        help_text='Human readable display name of the shift schedule pattern'
     )
     
     # ========================================================================
@@ -89,19 +86,16 @@ class ShiftType(models.Model):
     # ========================================================================
     
     start_time = models.TimeField(
-        help_text='The official clock time when the work shift begins',
-        db_comment='Shift start time boundary'
+        help_text='The official clock time when the work shift begins'
     )
     
     end_time = models.TimeField(
-        help_text='The official clock time when the work shift ends',
-        db_comment='Shift end time boundary'
+        help_text='The official clock time when the work shift ends'
     )
     
     is_overnight = models.BooleanField(
         default=False,
-        help_text='Designates whether the shift boundary spans across midnight (e.g., 22:00 to 06:00 next day)',
-        db_comment='Flag signaling overnight schedule duration'
+        help_text='Designates whether the shift boundary spans across midnight (e.g., 22:00 to 06:00 next day)'
     )
     
     # ========================================================================
@@ -111,14 +105,12 @@ class ShiftType(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='Timestamp when this shift configuration template was created',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this shift configuration template was created'
     )
     
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when this shift configuration parameters were last modified',
-        db_comment='Last modification timestamp'
+        help_text='Timestamp when this shift configuration parameters were last modified'
     )
 
     class Meta:
@@ -147,8 +139,7 @@ class ShiftType(models.Model):
             # Composite index optimized for roster filters looking up shifts by specific timeline blocks
             models.Index(
                 fields=['tenant', 'start_time', 'end_time'],
-                name='idx_shift_timeline_lookup',
-                db_comment='Query tenant shifts efficiently by timeframe blocks'
+                name='idx_shift_timeline_lookup'
             ),
         ]
 

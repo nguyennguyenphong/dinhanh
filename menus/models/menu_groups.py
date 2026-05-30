@@ -47,8 +47,7 @@ class MenuGroup(models.Model):
         on_delete=models.CASCADE,
         related_name='menu_groups',
         db_index=True,
-        help_text='Tenant that owns this menu group',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this menu group'
     )
     
     # ========================================================================
@@ -63,13 +62,11 @@ class MenuGroup(models.Model):
                 message='Code must contain only lowercase letters, numbers, and underscores'
             )
         ],
-        help_text='Unique code for the menu group (e.g., "operations", "hr")',
-        db_comment='Menu group code identifier'
+        help_text='Unique code for the menu group (e.g., "operations", "hr")'
     )
     label = models.CharField(
         max_length=100,
-        help_text='Display label for the menu group (e.g., "Vận hành xe")',
-        db_comment='Menu group display label'
+        help_text='Display label for the menu group (e.g., "Vận hành xe")'
     )
     
     # ========================================================================
@@ -79,14 +76,12 @@ class MenuGroup(models.Model):
     icon = models.TextField(
         blank=True,
         null=True,
-        help_text='SVG path string or icon name (e.g., "mdi-truck", "<svg>...</svg>")',
-        db_comment='Icon SVG or name'
+        help_text='SVG path string or icon name (e.g., "mdi-truck", "<svg>...</svg>")'
     )
     sort_order = models.SmallIntegerField(
         default=0,
         db_index=True,
-        help_text='Display order (lower values appear first)',
-        db_comment='Sort order'
+        help_text='Display order (lower values appear first)'
     )
     
     # ========================================================================
@@ -96,8 +91,7 @@ class MenuGroup(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Menu group is active and visible',
-        db_comment='Active status'
+        help_text='Menu group is active and visible'
     )
     
     # ========================================================================
@@ -107,13 +101,11 @@ class MenuGroup(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this menu group was created',
-        db_comment='Creation timestamp'
+        help_text='When this menu group was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When this menu group was last updated',
-        db_comment='Last update timestamp'
+        help_text='When this menu group was last updated'
     )
 
     class Meta:
@@ -143,14 +135,12 @@ class MenuGroup(models.Model):
             # Index for finding active groups
             models.Index(
                 fields=['tenant', 'is_active'],
-                name='idx_menu_group_tenant_active',
-                db_comment='Query active menu groups by tenant'
+                name='idx_menu_group_tenant_active'
             ),
             # Index for sorting
             models.Index(
                 fields=['tenant', 'sort_order'],
-                name='idx_menu_group_tenant_sort',
-                db_comment='Query menu groups by tenant and sort order'
+                name='idx_menu_group_tenant_sort'
             ),
         ]
 
@@ -242,8 +232,7 @@ class MenuItem(models.Model):
         on_delete=models.CASCADE,
         related_name='menu_items',
         db_index=True,
-        help_text='Tenant that owns this menu item',
-        db_comment='Reference to tenant'
+        help_text='Tenant that owns this menu item'
     )
     
     # ========================================================================
@@ -255,8 +244,7 @@ class MenuItem(models.Model):
         on_delete=models.CASCADE,
         related_name='menu_items',
         db_index=True,
-        help_text='Menu group this item belongs to',
-        db_comment='Reference to menu group'
+        help_text='Menu group this item belongs to'
     )
     parent = models.ForeignKey(
         'self',
@@ -265,8 +253,7 @@ class MenuItem(models.Model):
         blank=True,
         related_name='children',
         db_index=True,
-        help_text='Parent menu item (for submenu)',
-        db_comment='Parent menu item'
+        help_text='Parent menu item (for submenu)'
     )
     
     # ========================================================================
@@ -281,13 +268,11 @@ class MenuItem(models.Model):
                 message='Code must contain only lowercase letters, numbers, and underscores'
             )
         ],
-        help_text='Unique code for the menu item',
-        db_comment='Menu item code identifier'
+        help_text='Unique code for the menu item'
     )
     label = models.CharField(
         max_length=100,
-        help_text='Display label for the menu item',
-        db_comment='Menu item display label'
+        help_text='Display label for the menu item'
     )
     
     # ========================================================================
@@ -298,15 +283,13 @@ class MenuItem(models.Model):
         max_length=500,
         blank=True,
         null=True,
-        help_text='URL or route for this menu item',
-        db_comment='Menu item URL/route'
+        help_text='URL or route for this menu item'
     )
     url_type = models.CharField(
         max_length=20,
         choices=URL_TYPE_CHOICES,
         default='route',
-        help_text='Type of URL (internal, external, route, action)',
-        db_comment='URL type'
+        help_text='Type of URL (internal, external, route, action)'
     )
     
     # ========================================================================
@@ -316,21 +299,18 @@ class MenuItem(models.Model):
     icon = models.TextField(
         blank=True,
         null=True,
-        help_text='SVG path string or icon name',
-        db_comment='Icon SVG or name'
+        help_text='SVG path string or icon name'
     )
     badge = models.CharField(
         max_length=50,
         blank=True,
         null=True,
-        help_text='Badge text (e.g., "NEW", "5")',
-        db_comment='Badge text'
+        help_text='Badge text (e.g., "NEW", "5")'
     )
     sort_order = models.SmallIntegerField(
         default=0,
         db_index=True,
-        help_text='Display order',
-        db_comment='Sort order'
+        help_text='Display order'
     )
     
     # ========================================================================
@@ -343,8 +323,7 @@ class MenuItem(models.Model):
         null=True,
         blank=True,
         related_name='menu_items',
-        help_text='Required permission to view this item',
-        db_comment='Required permission'
+        help_text='Required permission to view this item'
     )
     
     # ========================================================================
@@ -354,8 +333,7 @@ class MenuItem(models.Model):
     is_active = models.BooleanField(
         default=True,
         db_index=True,
-        help_text='Menu item is active and visible',
-        db_comment='Active status'
+        help_text='Menu item is active and visible'
     )
     
     # ========================================================================
@@ -365,8 +343,7 @@ class MenuItem(models.Model):
     metadata = models.JSONField(
         default=dict,
         blank=True,
-        help_text='Additional configuration (e.g., target, params)',
-        db_comment='Metadata JSON'
+        help_text='Additional configuration (e.g., target, params)'
     )
     
     # ========================================================================
@@ -376,13 +353,11 @@ class MenuItem(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='When this menu item was created',
-        db_comment='Creation timestamp'
+        help_text='When this menu item was created'
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='When this menu item was last updated',
-        db_comment='Last update timestamp'
+        help_text='When this menu item was last updated'
     )
 
     class Meta:
@@ -412,20 +387,17 @@ class MenuItem(models.Model):
             # Index for finding active items
             models.Index(
                 fields=['group', 'is_active'],
-                name='idx_menu_item_group_active',
-                db_comment='Query active menu items by group'
+                name='idx_menu_item_group_active'
             ),
             # Index for parent-child queries
             models.Index(
                 fields=['parent', 'sort_order'],
-                name='idx_menu_item_parent_sort',
-                db_comment='Query child items by parent and sort order'
+                name='idx_menu_item_parent_sort'
             ),
             # Index for permission queries
             models.Index(
                 fields=['permission'],
-                name='idx_menu_item_permission',
-                db_comment='Query menu items by permission'
+                name='idx_menu_item_permission'
             ),
         ]
 

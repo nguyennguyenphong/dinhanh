@@ -58,8 +58,7 @@ class DispatchOrder(models.Model):
         Trip,
         on_delete=models.CASCADE,  # Matches NOT NULL UNIQUE REFERENCES trips(id) ON DELETE CASCADE
         related_name='dispatch_order',
-        help_text='The unique commercial trip journey assigned under this dispatch directive paper',
-        db_comment='One-to-one reference linking a unique trip profile'
+        help_text='The unique commercial trip journey assigned under this dispatch directive paper'
     )
     
     issued_by = models.ForeignKey(
@@ -69,8 +68,7 @@ class DispatchOrder(models.Model):
         null=True,
         blank=True,
         db_index=True,
-        help_text='The active dispatcher or station manager authorizing this departure clearance',
-        db_comment='Reference to authority user account signing off the manifest'
+        help_text='The active dispatcher or station manager authorizing this departure clearance'
     )
     
     # ========================================================================
@@ -80,22 +78,19 @@ class DispatchOrder(models.Model):
     issued_at = models.DateTimeField(
         null=True,
         blank=True,
-        help_text='Timezone-aware timestamp logging exactly when clearance approval was executed',
-        db_comment='Timestamp of operational clearance execution'
+        help_text='Timezone-aware timestamp logging exactly when clearance approval was executed'
     )
     
     # Native PostgreSQL JSONB architecture integration
     checklist = models.JSONField(
         default=dict,
-        help_text='Complex data matrix validating dynamic safe pre-departure parameters (e.g., fuel, brakes, safety)',
-        db_comment='JSONB map structuring safety check questions and boolean marks'
+        help_text='Complex data matrix validating dynamic safe pre-departure parameters (e.g., fuel, brakes, safety)'
     )
     
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Miscellaneous comments from the supervisor, delay flags, or terminal exceptional logs',
-        db_comment='Administrative text log annotations'
+        help_text='Miscellaneous comments from the supervisor, delay flags, or terminal exceptional logs'
     )
     
     # ========================================================================
@@ -107,8 +102,7 @@ class DispatchOrder(models.Model):
         choices=STATUS_CHOICES,
         default='PENDING',
         db_index=True,
-        help_text='The progression state tracking this dispatch order within the gate house terminal ecosystem',
-        db_comment='Workflow progression taxonomy status string token'
+        help_text='The progression state tracking this dispatch order within the gate house terminal ecosystem'
     )
     
     # ========================================================================
@@ -117,8 +111,7 @@ class DispatchOrder(models.Model):
     
     created_at = models.DateTimeField(
         auto_now_add=True,
-        help_text='Timestamp when this dispatch ledger paper line was first opened',
-        db_comment='Creation timestamp'
+        help_text='Timestamp when this dispatch ledger paper line was first opened'
     )
 
     class Meta:
