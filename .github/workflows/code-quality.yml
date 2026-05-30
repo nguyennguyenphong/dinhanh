@@ -1,6 +1,5 @@
 name: Code Quality & Linting
 
-# Runs on every push and pull request to catch issues early
 on:
   push:
     branches:
@@ -12,20 +11,22 @@ on:
       - develop
 
 env:
-  PYTHON_VERSION: '3.11'
+  PYTHON_VERSION: '3.12'
   NODE_VERSION: '20'
 
 jobs:
-  # Python linting with Black and Flake8
+  # ─────────────────────────────────────────────
+  # 1. Python Linting
+  # ─────────────────────────────────────────────
   python-lint:
     runs-on: ubuntu-latest
     name: Python Linting
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
@@ -34,36 +35,41 @@ jobs:
       - name: Install linting tools
         run: |
           pip install --upgrade pip
-          pip install black flake8 pylint isort
+          pip install black flake8 isort
 
       - name: Check code formatting with Black
-        run: black --check --diff . --exclude venv/,migrations/ 2>&1 | head -100 || true
+        # Fails the job if any file is not formatted correctly
+        run: black --check --diff . --exclude "/(venv|\.venv|migrations|node_modules)/"
 
       - name: Check import sorting with isort
-        run: isort --check-only --diff . --skip venv/ --skip migrations/ 2>&1 | head -100 || true
+        run: |
+          isort --check-only --diff . \
+            --skip venv \
+            --skip .venv \
+            --skip migrations \
+            --profile black
 
       - name: Run Flake8 linting
         run: |
-          # Flake8 configuration:
-          # - E501: line too long (Black handles this)
-          # - W503: line break before binary operator
           flake8 . \
             --exclude=venv/,migrations/,.venv/,node_modules/ \
             --ignore=E501,W503 \
             --max-line-length=100 \
             --count \
-            --statistics || true
+            --statistics
 
-  # JavaScript/Node.js linting
+  # ─────────────────────────────────────────────
+  # 2. JavaScript / Node.js Linting
+  # ─────────────────────────────────────────────
   javascript-lint:
     runs-on: ubuntu-latest
     name: JavaScript Linting
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -72,39 +78,49 @@ jobs:
       - name: Install dependencies
         run: npm ci --frozen-lockfile
 
-      - name: Check code formatting
-        run: npm list prettier || echo "Prettier not installed (optional)"
+      - name: Run Prettier format check
+        run: |
+          if npm list prettier --depth=0 2>/dev/null | grep -q prettier; then
+            npm run format:check
+          else
+            echo "Prettier not found in package.json — skipping format check"
+          fi
 
       - name: Run ESLint
         run: |
-          npm list eslint || echo "ESLint not installed (optional)"
-          # If ESLint is installed: npm run lint || true
+          if npm list eslint --depth=0 2>/dev/null | grep -q eslint; then
+            npm run lint
+          else
+            echo "ESLint not found in package.json — skipping lint check"
+          fi
 
-  # Dependency vulnerability scanning
+  # ─────────────────────────────────────────────
+  # 3. Dependency Security Check
+  # ─────────────────────────────────────────────
   dependency-check:
     runs-on: ubuntu-latest
     name: Dependency Security Check
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip'
 
-      - name: Install dependencies
+      - name: Install pip-audit
         run: |
           pip install --upgrade pip
-          pip install safety pip-audit
+          pip install pip-audit
 
-      - name: Check Python dependencies with pip-audit
-        run: |
-          pip-audit --desc 2>&1 | head -200 || echo "Some vulnerabilities found (review above)"
+      - name: Audit Python dependencies
+        # Fail on HIGH or CRITICAL vulnerabilities
+        run: pip-audit -r requirements.txt --desc
 
-      - name: Set up Node.js for npm audit
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -114,13 +130,16 @@ jobs:
         run: npm ci --frozen-lockfile
 
       - name: Audit npm dependencies
-        run: npm audit --audit-level=moderate 2>&1 || echo "Some vulnerabilities found (review above)"
+        # Fail on moderate or above
+        run: npm audit --audit-level=moderate
 
-  # Django system checks and migrations check
+  # ─────────────────────────────────────────────
+  # 4. Django System Checks & Migration Integrity
+  # ─────────────────────────────────────────────
   django-checks:
     runs-on: ubuntu-latest
     name: Django System Checks
-    
+
     services:
       postgres:
         image: postgres:16-alpine
@@ -136,11 +155,21 @@ jobs:
         ports:
           - 5432:5432
 
+    env:
+      DEBUG: 'False'
+      SECRET_KEY: 'check-key-not-for-production'
+      DB_ENGINE: django.db.backends.postgresql
+      DB_NAME: dinhanh_check
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: localhost
+      DB_PORT: '5432'
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
@@ -153,57 +182,37 @@ jobs:
 
       - name: Run Django system checks
         run: python manage.py check
-        env:
-          DEBUG: 'False'
-          SECRET_KEY: 'check-key-not-for-production'
-          DB_ENGINE: django.db.backends.postgresql
-          DB_NAME: dinhanh_check
-          DB_USER: postgres
-          DB_PASSWORD: postgres
-          DB_HOST: localhost
-          DB_PORT: '5432'
 
-      - name: Check for missing migrations
-        run: python manage.py makemigrations --check
-        env:
-          DEBUG: 'False'
-          SECRET_KEY: 'check-key-not-for-production'
-          DB_ENGINE: django.db.backends.postgresql
-          DB_NAME: dinhanh_check
-          DB_USER: postgres
-          DB_PASSWORD: postgres
-          DB_HOST: localhost
-          DB_PORT: '5432'
+      - name: Check for pending (uncommitted) migrations
+        # Ensures all model changes have corresponding migration files
+        run: python manage.py makemigrations --check --dry-run
 
-  # Summary status check
+  # ─────────────────────────────────────────────
+  # 5. Summary Gate
+  # ─────────────────────────────────────────────
   quality-check-summary:
     runs-on: ubuntu-latest
     name: Quality Checks Summary
     needs: [python-lint, javascript-lint, dependency-check, django-checks]
     if: always()
-    
+
     steps:
-      - name: Check all quality checks passed
+      - name: Write summary
         run: |
-          if [ "${{ needs.python-lint.result }}" == "failure" ]; then
-            echo "❌ Python linting failed"
-          fi
-          if [ "${{ needs.javascript-lint.result }}" == "failure" ]; then
-            echo "❌ JavaScript linting failed"
-          fi
-          if [ "${{ needs.dependency-check.result }}" == "failure" ]; then
-            echo "❌ Dependency checks failed"
-          fi
-          if [ "${{ needs.django-checks.result }}" == "failure" ]; then
-            echo "❌ Django checks failed"
-          fi
-          
-          # Exit with failure if any check failed
-          if [ "${{ needs.python-lint.result }}" != "success" ] || \
-             [ "${{ needs.javascript-lint.result }}" != "success" ] || \
-             [ "${{ needs.dependency-check.result }}" != "success" ] || \
-             [ "${{ needs.django-checks.result }}" != "success" ]; then
-            exit 1
-          fi
-          
-          echo "✅ All code quality checks passed!"
+          echo "## Code Quality Results" >> $GITHUB_STEP_SUMMARY
+          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Python Linting     | ${{ needs.python-lint.result }}      |" >> $GITHUB_STEP_SUMMARY
+          echo "| JavaScript Linting | ${{ needs.javascript-lint.result }}  |" >> $GITHUB_STEP_SUMMARY
+          echo "| Dependency Audit   | ${{ needs.dependency-check.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Django Checks      | ${{ needs.django-checks.result }}    |" >> $GITHUB_STEP_SUMMARY
+
+      - name: Fail if any check failed
+        run: |
+          FAILED=0
+          [ "${{ needs.python-lint.result }}"      == "failure" ] && { echo "Python linting failed";      FAILED=1; }
+          [ "${{ needs.javascript-lint.result }}"  == "failure" ] && { echo "JavaScript linting failed";  FAILED=1; }
+          [ "${{ needs.dependency-check.result }}" == "failure" ] && { echo "Dependency audit failed";    FAILED=1; }
+          [ "${{ needs.django-checks.result }}"    == "failure" ] && { echo "Django system checks failed"; FAILED=1; }
+          [ $FAILED -eq 1 ] && exit 1
+          echo "All code quality checks passed!"

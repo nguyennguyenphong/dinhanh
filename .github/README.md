@@ -1,239 +1,212 @@
-# 🚀 GitHub Actions - Complete Production Setup
+# GitHub Actions — CI/CD Documentation
 
-Welcome! This directory contains all GitHub Actions workflows for your production-ready CI/CD pipeline.
+This document describes the automated pipelines that guard the **Dinhanh** project (Django 6.0.5 + PostgreSQL + Node.js 20).
 
-## 📁 What's in This Directory?
+---
+
+## Workflow Overview
+
+| File | Trigger | Purpose |
+|------|---------|---------|
+| `ci-cd.yml` | Push / PR → `main` | Run tests, build frontend, push Docker image |
+| `code-quality.yml` | Push / PR → `main`, `develop` | Lint, format, dependency audit, Django checks |
+| `deploy-production.yml` | Manual dispatch / GitHub Release | Database migration → K8s deploy → health check → auto-rollback |
+| `health-check.yml` | Scheduled (every 6 h) + manual | Monitor pods, endpoints, database, error rate |
+
+---
+
+## Secrets Required
+
+All secrets are configured in **Settings → Secrets and variables → Actions**.
+
+### Docker Hub
+
+| Secret | Description |
+|--------|-------------|
+| `DOCKERHUB_USERNAME` | Docker Hub account username |
+| `DOCKERHUB_TOKEN` | Docker Hub access token (not your password) |
+
+### Kubernetes
+
+| Secret | Description |
+|--------|-------------|
+| `KUBECONFIG` | Full kubeconfig file, **base64-encoded** (`base64 -w0 ~/.kube/config`) |
+| `KUBE_NAMESPACE` | Kubernetes namespace where the app runs (e.g. `dinhanh-prod`) |
+
+### Database (used by health-check monitoring only)
+
+| Secret | Description |
+|--------|-------------|
+| `DB_HOST` | PostgreSQL host (in-cluster service name or external IP) |
+| `DB_USER` | PostgreSQL username |
+| `DB_PASSWORD` | PostgreSQL password |
+| `DB_NAME` | PostgreSQL database name |
+
+### Notifications (optional)
+
+| Secret | Description |
+|--------|-------------|
+| `SLACK_WEBHOOK_URL` | Incoming Webhook URL for deployment and alert notifications |
+
+---
+
+## Workflow Details
+
+### 1. `ci-cd.yml` — Production CI/CD Pipeline
+
+**Jobs (in order):**
 
 ```
-.github/
-├── workflows/                      # Workflow definitions
-│   ├── ci-cd.yml                 # Main CI/CD pipeline
-│   ├── code-quality.yml          # Code quality checks
-│   ├── deploy-production.yml      # Production deployment
-│   └── health-check.yml          # Production monitoring
-│
-├── README.md                       # This file
-├── QUICK_REFERENCE.md             # Quick lookup guide (START HERE!)
-├── GITHUB_ACTIONS_GUIDE.md        # Complete beginner guide
-├── SETUP_CHECKLIST.md             # Setup verification
-├── ARCHITECTURE.md                # System architecture diagrams
-└── SETUP_SECRETS.md               # Vietnamese setup guide
+test-django ──┬── build-and-push
+build-frontend─┤
+security-scan ─┘
+               └── notify
 ```
 
-## 🎯 Quick Start (5 minutes)
+- **test-django** — Spins up PostgreSQL 16 + Redis 7, runs `pytest` with coverage (minimum 70 %). Fails the pipeline if coverage drops below threshold.
+- **build-frontend** — Installs npm dependencies and runs `npm run build`. Uploads the `dist/` folder as an artifact for the Docker build step.
+- **security-scan** — Trivy filesystem scan. Fails on **CRITICAL** CVEs; results are uploaded to the GitHub Security tab.
+- **build-and-push** — Runs only on push to `main`. Downloads the `dist/` artifact, builds the Docker image, and pushes it to Docker Hub with multi-tag support (`latest`, branch name, short SHA, semver). Also generates SBOM and provenance attestations.
 
-### 1. Add GitHub Secrets
+**Docker image tags produced:**
+
+| Tag | Example |
+|-----|---------|
+| `latest` | Always points to the newest main build |
+| `main` | Branch name |
+| `main-<sha>` | Short commit SHA, e.g. `main-a1b2c3d` |
+| `1.2.3` | From Git semver tag |
+| `1.2` | Major.minor from Git semver tag |
+
+---
+
+### 2. `code-quality.yml` — Code Quality & Linting
+
+Runs in parallel across four jobs — **all must pass** for the pipeline to be green.
+
+| Job | Tools | Behaviour |
+|-----|-------|-----------|
+| `python-lint` | Black, isort, Flake8 | Hard fail — no `\|\| true` |
+| `javascript-lint` | ESLint, Prettier | Hard fail if the scripts exist in `package.json`; skips gracefully if not installed |
+| `dependency-check` | pip-audit, npm audit | Fails on any HIGH/CRITICAL Python CVE; fails on moderate+ npm vulnerability |
+| `django-checks` | `manage.py check`, `makemigrations --check` | Fails if any Django system check fails or if a model change lacks a migration file |
+
+> **Tip:** Add `[skip ci]` to a commit message to bypass these checks temporarily.
+
+---
+
+### 3. `deploy-production.yml` — Deploy to Production
+
+**Trigger options:**
+
+1. **Manual dispatch** (`workflow_dispatch`) — choose environment (`production` or `staging`) and image tag.
+2. **GitHub Release published** — automatically deploys the release.
+
+**Job flow:**
+
 ```
-Settings → Secrets and variables → Actions → New repository secret
-
-Add:
-- DOCKERHUB_USERNAME: your-username
-- DOCKERHUB_TOKEN: your-personal-access-token
+pre-deployment-checks
+        │
+database-migration          ← runs python manage.py migrate in a K8s Job
+        │
+deploy-kubernetes           ← kubectl set image + rollout status
+        │
+post-deployment-tests       ← curl /health/ via port-forward (6 retries × 5 s)
+        │
+rollback-on-failure (if any above job fails)
+        │
+notify-deployment (always)
 ```
 
-**Get token from:** https://hub.docker.com/settings/security
+**Rollback mechanism:**  
+Before updating the deployment image, the current image digest is saved as a job output. If either `deploy-kubernetes` or `post-deployment-tests` fails, the `rollback-on-failure` job automatically re-pins the deployment to the previous image.
 
-### 2. Test the Setup
+**Kubernetes annotation** (replaces deprecated `--record`):
+```
+kubernetes.io/change-cause: "GitHub Actions deploy: <sha> by <actor>"
+```
+Use `kubectl rollout history deployment/dinhanh` to view this history.
+
+---
+
+### 4. `health-check.yml` — Scheduled Monitoring
+
+Runs automatically **every 6 hours** (00:00, 06:00, 12:00, 18:00 UTC). Can also be triggered manually.
+
+**Checks performed:**
+
+| Check | Pass condition |
+|-------|----------------|
+| Deployment readiness | `Available` condition is `True` |
+| Pod count | At least 1 pod in `Running` phase |
+| Resource usage | `kubectl top` (informational; no fail if metrics-server is absent) |
+| `/health/` endpoint | HTTP 200 within 30 s (6 retries) |
+| `/api/` endpoint | HTTP 200 (warning only) |
+| Error rate in logs | < 20 ERROR/CRITICAL lines in last 200 log lines (warning only; Slack alert sent) |
+| Database connectivity | `psql SELECT version()` via a temporary pod |
+
+If any check fails, a Slack alert is sent automatically (requires `SLACK_WEBHOOK_URL` secret).
+
+---
+
+## Python & Runtime Versions
+
+| Component | Version |
+|-----------|---------|
+| Django | 6.0.5 |
+| Python | 3.12 (minimum required by Django 6) |
+| PostgreSQL | 16 |
+| Node.js | 20 LTS |
+| kubectl | v1.29.0 |
+
+> Django 6.0 dropped support for Python 3.11 and below. Always use Python 3.12+.
+
+---
+
+## Local Pre-commit Checks
+
+Run the same checks locally before pushing:
+
 ```bash
-git push origin main
-# Go to Actions tab to watch it run!
-```
+# Python formatting
+black .
+isort . --profile black
 
-### 3. Read the Guide
-- **NEW TO GITHUB ACTIONS?** Start with: `QUICK_REFERENCE.md` (2 min)
-- **WANT FULL EXPLANATION?** Read: `GITHUB_ACTIONS_GUIDE.md` (15 min)
+# Python lint
+flake8 . --exclude=venv/,migrations/ --ignore=E501,W503 --max-line-length=100
 
-## 📊 Your Workflows at a Glance
+# Check for missing migrations
+python manage.py makemigrations --check --dry-run
 
-| Workflow | Triggers | Time | Purpose |
-|----------|----------|------|---------|
-| **CI/CD** | Push & PR | 15 min | Test, build, push Docker image |
-| **Code Quality** | Push & PR | 5 min | Lint code, scan dependencies |
-| **Deploy** | Manual/Release | 10 min | Deploy to production |
-| **Health Check** | Every 6h | 2 min | Monitor production health |
+# Run tests with coverage
+pytest --ds=dinhanh.settings --cov=. --cov-report=term-missing
 
-## 🔄 What Happens When You Push Code?
-
-```
-git push → GitHub detects → Workflows run automatically
-
-1. Tests run (Django, frontend)
-2. Code quality checks run
-3. If main branch: Docker build & push
-4. Status shows in PR/commit
-5. Merge when green ✅
-```
-
-## 🚀 How to Deploy
-
-### Manual Deploy
-1. Go to **Actions** tab
-2. Click **Deploy to Production**
-3. Click **Run workflow**
-4. Choose environment
-5. Click **Run workflow**
-
-### Automatic Deploy (On Release)
-1. Create release on GitHub
-2. Tag version (e.g., `v1.0.0`)
-3. Publish release
-4. Deploy workflow runs automatically
-
-## 🔐 Secrets You Need
-
-### Minimum Required
-```
-DOCKERHUB_USERNAME      - Your Docker Hub username
-DOCKERHUB_TOKEN         - Docker Hub Personal Access Token
-```
-
-### For Production Deploy (Add Later)
-```
-KUBECONFIG              - Kubernetes config (base64)
-KUBE_NAMESPACE          - Kubernetes namespace
-SLACK_WEBHOOK_URL       - For notifications (optional)
-```
-
-## 🎓 Learning Path
-
-**Week 1:**
-- Read `QUICK_REFERENCE.md`
-- Add Docker Hub secrets
-- Push code and watch workflows
-- Understand each job
-
-**Week 2:**
-- Read `GITHUB_ACTIONS_GUIDE.md`
-- Check workflow logs
-- Learn YAML basics
-
-**Week 3:**
-- Troubleshoot failed workflows
-- Test locally before pushing
-- Understand error messages
-
-**Week 4:**
-- Deploy to production
-- Set up branch protection
-- Add Slack notifications
-
-## 📚 Documentation
-
-### For Beginners
-- 📖 **QUICK_REFERENCE.md** - Quick lookup (2 min)
-- 📖 **GITHUB_ACTIONS_GUIDE.md** - Complete guide (15 min)
-- 📖 **SETUP_CHECKLIST.md** - Verification steps
-
-### For Understanding the System
-- 📊 **ARCHITECTURE.md** - Visual diagrams
-- 🔧 **workflows/** - Actual workflow YAML files
-
-### For Setup Help
-- 🔐 **SETUP_SECRETS.md** - Vietnamese setup guide
-
-## 🚨 If Something Goes Wrong
-
-### Workflow Failed?
-1. Click on failed workflow
-2. Find the red ❌ job
-3. Read the error message
-4. Fix locally and push again
-
-### Tests Failing?
-```bash
-# Test locally first
-python manage.py test
-
-# Build frontend locally
+# Frontend
+npm run lint
+npm run format:check
 npm run build
-
-# Build Docker image locally
-docker build .
 ```
-
-### Docker Push Failed?
-- Check token not expired (Docker Hub)
-- Check token has Write permissions
-- Verify username is correct
-
-## ✨ Features Included
-
-- ✅ **Django Tests** - With PostgreSQL + Redis
-- ✅ **Frontend Build** - Vite optimization
-- ✅ **Docker Build** - Multi-stage optimization
-- ✅ **Security Scanning** - Vulnerability detection
-- ✅ **Code Quality** - Linting + formatting checks
-- ✅ **Production Deploy** - Kubernetes deployment
-- ✅ **Health Monitoring** - Automated health checks
-- ✅ **Notifications** - Slack integration
-
-## 🔗 Useful Links
-
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Docker Hub Help](https://docs.docker.com/docker-hub/)
-- [Kubernetes Documentation](https://kubernetes.io/docs/)
-- [Trivy Security Scanner](https://github.com/aquasecurity/trivy)
-
-## 💡 Pro Tips
-
-1. **Test locally before pushing** - Saves CI/CD time
-2. **Write meaningful commits** - Helps identify changes
-3. **Keep secrets secure** - Never commit passwords
-4. **Monitor workflows** - Check Actions tab weekly
-5. **Rotate tokens** - Every 6 months
-6. **Skip CI for docs** - Add `[skip ci]` to commit
-7. **Use branch protection** - Require tests to pass
-
-## 🎯 Common Commands
-
-### View Workflow Results
-```
-GitHub.com → Repository → Actions tab
-```
-
-### Trigger Workflow Manually
-```
-Actions tab → Choose workflow → Run workflow
-```
-
-### View Logs
-```
-Actions tab → Click run → Click job → Expand steps
-```
-
-### Skip CI for a Commit
-```bash
-git commit -m "Update docs [skip ci]"
-```
-
-## 📈 Performance
-
-| Task | Time |
-|------|------|
-| PR checks | 15 min |
-| Code quality | 5 min |
-| Docker build | 10 min |
-| Production deploy | 10 min |
-| Health check | 2 min |
-
-## 🎉 You're All Set!
-
-Your production-grade GitHub Actions setup is complete and ready to use!
-
-**Next steps:**
-1. ✅ Add Docker Hub secrets (5 min)
-2. ✅ Push code to test (2 min)
-3. ✅ Read QUICK_REFERENCE.md (2 min)
-4. ✅ Monitor first runs (10 min)
 
 ---
 
-**Questions?** Check the documentation files above or search GitHub Actions docs.
+## Adding a New Environment Variable
 
-**Need help?** Look at the error logs first - they usually explain the problem clearly!
+1. Add the secret in **Settings → Secrets and variables → Actions**.
+2. Reference it in the relevant workflow with `${{ secrets.YOUR_SECRET_NAME }}`.
+3. Add it to the `dinhanh-secrets` Kubernetes Secret so that in-cluster jobs can access it.
 
 ---
 
-**Status**: ✅ Production Ready
-**Last Updated**: 2024
-**Beginner Friendly**: Yes! ✨
+## Troubleshooting
+
+### Migration job fails
+Check logs: `kubectl logs -l component=migration -n <namespace> --tail=100`
+
+### Docker push fails with `unauthorized`
+Verify `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` are still valid (tokens expire).
+
+### Health check cannot reach `/health/`
+Ensure the `dinhanh` Kubernetes Service is exposing port `8000` and the Django `ALLOWED_HOSTS` includes the cluster internal hostname.
+
+### `kubectl wait` times out
+The deployment may be stuck in a pending state. Check: `kubectl describe deployment dinhanh -n <namespace>` and `kubectl get events -n <namespace> --sort-by=.lastTimestamp`.

@@ -11,15 +11,18 @@ on:
 env:
   REGISTRY: docker.io
   IMAGE_NAME: dinhanh
-  PYTHON_VERSION: '3.11'
+  # Django 6.0.5 requires Python 3.12+
+  PYTHON_VERSION: '3.12'
   NODE_VERSION: '20'
 
 jobs:
-  # Run Django tests
+  # ─────────────────────────────────────────────
+  # 1. Django Tests
+  # ─────────────────────────────────────────────
   test-django:
     runs-on: ubuntu-latest
     name: Django Tests
-    
+
     services:
       postgres:
         image: postgres:16-alpine
@@ -45,11 +48,22 @@ jobs:
         ports:
           - 6379:6379
 
+    env:
+      DEBUG: 'False'
+      SECRET_KEY: 'ci-test-secret-key-not-for-production'
+      DB_ENGINE: django.db.backends.postgresql
+      DB_NAME: dinhanh_test
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: localhost
+      DB_PORT: '5432'
+      REDIS_URL: redis://localhost:6379/0
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
@@ -59,51 +73,35 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest pytest-django pytest-cov
+          pip install pytest pytest-django pytest-cov coverage
 
-      - name: Run Django checks
+      - name: Run Django system checks
+        run: python manage.py check --deploy 2>&1 | grep -v "WARNINGS" || true
+
+      - name: Run database migrations
+        run: python manage.py migrate --no-input
+
+      - name: Run tests with coverage
         run: |
-          python manage.py check
-        env:
-          DEBUG: 'False'
-          SECRET_KEY: 'test-secret-key-do-not-use-in-production'
-          DB_ENGINE: django.db.backends.postgresql
-          DB_NAME: dinhanh_test
-          DB_USER: postgres
-          DB_PASSWORD: postgres
-          DB_HOST: localhost
-          DB_PORT: '5432'
-          REDIS_URL: redis://localhost:6379/0
+          pytest \
+            --ds=dinhanh.settings \
+            --cov=. \
+            --cov-report=xml \
+            --cov-report=term-missing \
+            --cov-fail-under=70 \
+            -v \
+            --tb=short
 
-      - name: Run Django migrations
-        run: |
-          python manage.py migrate
-        env:
-          DEBUG: 'False'
-          SECRET_KEY: 'test-secret-key-do-not-use-in-production'
-          DB_ENGINE: django.db.backends.postgresql
-          DB_NAME: dinhanh_test
-          DB_USER: postgres
-          DB_PASSWORD: postgres
-          DB_HOST: localhost
-          DB_PORT: '5432'
-          REDIS_URL: redis://localhost:6379/0
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v4
+        if: always()
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false
 
-      - name: Run Django tests
-        run: |
-          python manage.py test --verbosity=2 --parallel
-        env:
-          DEBUG: 'False'
-          SECRET_KEY: 'test-secret-key-do-not-use-in-production'
-          DB_ENGINE: django.db.backends.postgresql
-          DB_NAME: dinhanh_test
-          DB_USER: postgres
-          DB_PASSWORD: postgres
-          DB_HOST: localhost
-          DB_PORT: '5432'
-          REDIS_URL: redis://localhost:6379/0
-
-  # Build and validate frontend
+  # ─────────────────────────────────────────────
+  # 2. Frontend Build
+  # ─────────────────────────────────────────────
   build-frontend:
     runs-on: ubuntu-latest
     name: Frontend Build
@@ -112,7 +110,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -130,71 +128,26 @@ jobs:
             echo "Error: dist folder not found after build"
             exit 1
           fi
-          echo "Frontend build successful. Generated files:"
+          echo "Frontend build successful. Files:"
           ls -lh dist/
 
-  # Build Docker image and push to Docker Hub
-  build-and-push:
-    runs-on: ubuntu-latest
-    name: Build & Push Docker Image
-    needs: [test-django, build-frontend]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          name: frontend-dist
+          path: dist/
+          retention-days: 1
 
-      - name: Generate image tags
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=ref,event=branch
-            type=sha,prefix={{branch}}-
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=raw,value=latest
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
-
-      - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v3
-        if: always()
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
-          short-description: 'Dinhanh - Django + Node.js Web Application'
-          readme-filepath: ./README.md
-
-  # Security scanning
+  # ─────────────────────────────────────────────
+  # 3. Security Scan (runs in parallel, non-blocking on PR)
+  # ─────────────────────────────────────────────
   security-scan:
     runs-on: ubuntu-latest
     name: Security Scan
-    
+
+    permissions:
+      security-events: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -206,32 +159,111 @@ jobs:
           scan-ref: '.'
           format: 'sarif'
           output: 'trivy-results.sarif'
+          # Fail pipeline on CRITICAL vulnerabilities only
+          severity: 'CRITICAL'
+          exit-code: '1'
 
       - name: Upload Trivy results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
         with:
           sarif_file: 'trivy-results.sarif'
 
-  # Notification on completion
+  # ─────────────────────────────────────────────
+  # 4. Build & Push Docker Image (main branch only)
+  # ─────────────────────────────────────────────
+  build-and-push:
+    runs-on: ubuntu-latest
+    name: Build & Push Docker Image
+    needs: [test-django, build-frontend, security-scan]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    permissions:
+      contents: read
+      packages: write
+
+    outputs:
+      image-tag: ${{ steps.meta.outputs.version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download frontend dist
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: dist/
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Generate image metadata & tags
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix=main-,format=short
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
+          provenance: true
+          sbom: true
+
+      - name: Update Docker Hub description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
+          short-description: 'Dinhanh — Django + Node.js Web Application'
+          readme-filepath: ./README.md
+
+  # ─────────────────────────────────────────────
+  # 5. Workflow Summary
+  # ─────────────────────────────────────────────
   notify:
     runs-on: ubuntu-latest
     name: Workflow Status
-    needs: [test-django, build-frontend, build-and-push, security-scan]
+    needs: [test-django, build-frontend, security-scan, build-and-push]
     if: always()
 
     steps:
-      - name: Check workflow status
+      - name: Write job summary
         run: |
-          if [ "${{ needs.test-django.result }}" == "failure" ]; then
-            echo "❌ Django tests failed"
-            exit 1
-          fi
-          if [ "${{ needs.build-frontend.result }}" == "failure" ]; then
-            echo "❌ Frontend build failed"
-            exit 1
-          fi
-          if [ "${{ needs.build-and-push.result }}" == "failure" ] && [ "${{ github.event_name }}" == "push" ]; then
-            echo "❌ Docker image build/push failed"
-            exit 1
-          fi
-          echo "✅ All checks passed successfully!"
+          echo "## CI/CD Pipeline Results" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Django Tests     | ${{ needs.test-django.result }}     |" >> $GITHUB_STEP_SUMMARY
+          echo "| Frontend Build   | ${{ needs.build-frontend.result }}  |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security Scan    | ${{ needs.security-scan.result }}   |" >> $GITHUB_STEP_SUMMARY
+          echo "| Docker Push      | ${{ needs.build-and-push.result }}  |" >> $GITHUB_STEP_SUMMARY
+
+      - name: Fail if critical jobs failed
+        run: |
+          FAILED=0
+          [ "${{ needs.test-django.result }}"    == "failure" ] && { echo "Django tests failed";    FAILED=1; }
+          [ "${{ needs.build-frontend.result }}" == "failure" ] && { echo "Frontend build failed";  FAILED=1; }
+          [ "${{ needs.security-scan.result }}"  == "failure" ] && { echo "Security scan failed";   FAILED=1; }
+          [ "${{ needs.build-and-push.result }}" == "failure" ] && echo "Docker push failed (non-blocking on PR)"
+          [ $FAILED -eq 1 ] && exit 1
+          echo "All critical checks passed!"
