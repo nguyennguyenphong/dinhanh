@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django_filters',
     'import_export',
     'corsheaders',
+    "django_components",
 
     # apps
     'accounts',
@@ -164,3 +165,10 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 # CORS
 # https://github.com/adamchainz/django-cors-headers
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Components
+# https://django-components.readthedocs.io/en/latest/
+COMPONENTS_NAMESPACE = 'components'
+COMPONENTS = {
+    "autodiscover": True,
+}

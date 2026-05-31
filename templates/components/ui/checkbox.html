@@ -1,0 +1,58 @@
+<div class="{{ wrapper_class }}">
+    <div class="flex items-center gap-x-3">
+
+        <input
+            type="checkbox"
+            id="{{ id }}"
+            name="{{ name }}"
+
+            {% if checked %}checked{% endif %}
+            {% if required %}required{% endif %}
+            {% if disabled %}disabled{% endif %}
+
+            {% for key, value in attrs.items %}
+                {{ key }}="{{ value }}"
+            {% endfor %}
+
+            class="
+                size-4
+                rounded
+                border-gray-300
+                text-blue-600
+                focus:ring-blue-500
+                cursor-pointer
+
+                dark:border-slate-600
+                dark:bg-slate-800
+
+                {{ input_class }}
+            "
+        >
+
+        {% if label %}
+        <label
+            for="{{ id }}"
+            class="text-sm text-gray-600 dark:text-slate-400 cursor-pointer select-none"
+        >
+            {{ label }}
+
+            {% if required %}
+            <span class="text-red-500">*</span>
+            {% endif %}
+        </label>
+        {% endif %}
+
+    </div>
+
+    {% if help_text %}
+    <p class="mt-1 text-xs text-gray-500">
+        {{ help_text }}
+    </p>
+    {% endif %}
+
+    {% if error %}
+    <p class="mt-1 text-xs text-red-500">
+        {{ error }}
+    </p>
+    {% endif %}
+</div>

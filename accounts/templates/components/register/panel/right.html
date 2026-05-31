@@ -1,0 +1,80 @@
+{% load static %}
+{% load component_tags %}
+
+<div class="flex-1 flex flex-col items-center justify-center p-6 sm:p-10">
+    <div class="w-full max-w-md">
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Chào mừng trở lại</h2>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-slate-400">Đăng nhập để tiếp tục điều hành hệ
+                thống.</p>
+        </div>
+        {% if messages %}
+        <div
+            class="mb-5 flex items-start gap-x-3 p-4 rounded-xl bg-red-50 border border-red-200 dark:bg-red-950/30 dark:border-red-800/50">
+            <svg class="size-4.5 text-red-500 mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" x2="12" y1="8" y2="12" />
+                <line x1="12" x2="12.01" y1="16" y2="16" />
+            </svg>
+            <div>
+                {% for message in messages %}
+                <p class="text-sm font-medium text-red-700 dark:text-red-400">{{ message }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <form method="POST" action="{% url 'login' %}" class="space-y-5">
+            {% csrf_token %}
+
+            {% component "input"
+                name="username"
+                label="Tên đăng nhập"
+                placeholder="Nhập tên đăng nhập"
+                required=True
+                autocomplete="username"
+            / %}
+
+            {% component "input"
+                name="password"
+                type="password"
+                label="Mật khẩu"
+                placeholder="Nhập mật khẩu"
+                required=True
+                autocomplete="password"
+            / %}
+
+            {% component "checkbox"
+                name="remember"
+                label="Ghi nhớ đăng nhập trong 30 ngày"
+            / %}
+
+            {% component "button"
+                type="submit"
+                text="Đăng nhập hệ thống"
+                variant="primary"
+                size="md"
+                full_width=True
+            /%}
+        </form>
+        <div class="mt-6 flex items-center gap-x-3">
+            <div class="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
+            <span class="text-xs text-gray-400">hoặc</span>
+            <div class="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
+        </div>
+        <p class="mt-5 text-center text-sm text-gray-500 dark:text-slate-400">
+            Chưa có tài khoản?
+            <a href="{% url 'register' %}"
+                class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 hover:underline ms-1">
+                Đăng ký ngay
+            </a>
+        </p>
+        <div class="mt-8 flex items-center justify-center gap-x-2 text-xs text-gray-400 dark:text-slate-600">
+            <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Kết nối được mã hóa SSL 256-bit
+        </div>
+    </div>
+</div>

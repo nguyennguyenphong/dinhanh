@@ -1,0 +1,122 @@
+{% load static %}
+
+<button
+    type="{{ type }}"
+
+    {% if disabled or loading %}
+    disabled
+    {% endif %}
+
+    {% for key, value in attrs.items %}
+        {{ key }}="{{ value }}"
+    {% endfor %}
+
+    class="
+        inline-flex
+        items-center
+        justify-center
+        gap-x-2
+        font-semibold
+        rounded-xl
+        transition-all
+        duration-200
+        focus:outline-none
+
+        active:scale-[0.98]
+
+        {% if full_width %}
+            w-full
+        {% endif %}
+
+        {% if size == 'xs' %}
+            px-2 py-1 text-xs
+        {% elif size == 'sm' %}
+            px-3 py-2 text-sm
+        {% elif size == 'lg' %}
+            px-6 py-3.5 text-base
+        {% elif size == 'xl' %}
+            px-7 py-4 text-lg
+        {% else %}
+            px-4 py-3 text-sm
+        {% endif %}
+
+        {% if variant == 'primary' %}
+            bg-blue-600
+            text-white
+            hover:bg-blue-700
+            shadow-md
+            shadow-blue-500/20
+
+        {% elif variant == 'secondary' %}
+            bg-slate-600
+            text-white
+            hover:bg-slate-700
+
+        {% elif variant == 'success' %}
+            bg-emerald-600
+            text-white
+            hover:bg-emerald-700
+
+        {% elif variant == 'danger' %}
+            bg-red-600
+            text-white
+            hover:bg-red-700
+
+        {% elif variant == 'warning' %}
+            bg-amber-500
+            text-white
+            hover:bg-amber-600
+
+        {% elif variant == 'outline' %}
+            border
+            border-gray-300
+            bg-white
+            text-gray-700
+            hover:bg-gray-50
+
+        {% elif variant == 'ghost' %}
+            text-gray-700
+            hover:bg-gray-100
+
+        {% endif %}
+
+        disabled:opacity-50
+        disabled:pointer-events-none
+
+        {{ button_class }}
+    "
+>
+
+    {% if loading %}
+        <svg
+            class="size-4 animate-spin"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+        >
+            <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+            />
+            <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v8z"
+            />
+        </svg>
+    {% endif %}
+
+    {% if icon and not loading %}
+        <img src="{% static icon %}" alt="" class="size-4">
+    {% endif %}
+
+    <span>{{ text }}</span>
+
+    {% if icon_right %}
+        <img src="{% static icon_right %}" alt="" class="size-4">
+    {% endif %}
+</button>
