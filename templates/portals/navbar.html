@@ -127,24 +127,18 @@
                     <div class="mt-2 py-1.5 space-y-0.5">
                         <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
                             href="#">
-                            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                                <circle cx="12" cy="7" r="4" />
-                            </svg>
+                            <img src="{% static 'icons/person.svg' %}" alt="person" class="size-4.5">
                             Hồ sơ cá nhân
+                        </a>
+                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                            href="{% url 'login' %}">
+                            <img src="{% static 'icons/login.svg' %}" alt="login" class="size-4.5">
+                            Đăng nhập
                         </a>
                         <hr class="border-gray-100 dark:border-slate-700">
                         <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950/30"
                             href="#">
-                            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                <polyline points="16 17 21 12 16 7" />
-                                <line x1="21" x2="9" y1="12" y2="12" />
-                            </svg>
+                            <img src="{% static 'icons/logout.svg' %}" alt="logout" class="size-4.5">
                             Đăng xuất hệ thống
                         </a>
                     </div>

@@ -1,0 +1,419 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản - Hệ Thống Nhà Xe Định Anh</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/preline@4.2.0/+esm"></script>
+</head>
+
+<body class="h-full bg-gray-50 dark:bg-slate-900">
+
+    <div class="min-h-screen flex">
+
+        <!-- Left Panel - Branding (same pattern as login) -->
+        <div
+            class="hidden lg:flex lg:w-[45%] xl:w-1/2 flex-col justify-between bg-blue-600 p-12 relative overflow-hidden">
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute -top-24 -right-24 size-96 bg-blue-500/40 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 -left-24 size-80 bg-blue-700/50 rounded-full blur-3xl"></div>
+                <svg class="absolute inset-0 opacity-10" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <defs>
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+            </div>
+
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-x-3">
+                    <div class="size-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                        <svg class="size-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M8 6v6m0 0v6m0-6h8m0-6v6m0 0v6" />
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold text-white tracking-wide">Định Anh CMS</span>
+                </div>
+            </div>
+
+            <div class="relative z-10 space-y-6">
+                <div class="space-y-4">
+                    <div
+                        class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-full bg-white/15 backdrop-blur-sm text-white/90 text-xs font-medium">
+                        <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        Tạo tài khoản mới
+                    </div>
+                    <h1 class="text-4xl xl:text-5xl font-bold text-white leading-tight">
+                        Bắt đầu quản lý<br>
+                        <span class="text-blue-200">chuyên nghiệp hơn</span>
+                    </h1>
+                    <p class="text-blue-100/80 text-base leading-relaxed max-w-sm">
+                        Đăng ký tài khoản để được cấp quyền truy cập vào hệ thống điều hành nhà xe Định Anh.
+                    </p>
+                </div>
+
+                <!-- Feature list -->
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-x-3 text-sm text-blue-100">
+                        <div class="size-5 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="size-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        Quản lý vé & chuyến xe theo thời gian thực
+                    </li>
+                    <li class="flex items-center gap-x-3 text-sm text-blue-100">
+                        <div class="size-5 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="size-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        Báo cáo doanh thu & phân tích dữ liệu
+                    </li>
+                    <li class="flex items-center gap-x-3 text-sm text-blue-100">
+                        <div class="size-5 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="size-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        Phân quyền linh hoạt theo vai trò
+                    </li>
+                </ul>
+            </div>
+
+            <div class="relative z-10">
+                <p class="text-blue-200/60 text-xs">© 2025 Nhà Xe Định Anh. All rights reserved.</p>
+            </div>
+        </div>
+
+        <!-- Right Panel - Register Form -->
+        <div class="flex-1 flex flex-col items-center justify-center p-6 sm:p-10 overflow-y-auto">
+            <!-- Mobile Logo -->
+            <div class="lg:hidden mb-8 text-center">
+                <div class="inline-flex items-center gap-x-2">
+                    <div class="size-9 bg-blue-600 rounded-xl flex items-center justify-center">
+                        <svg class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M8 6v6m0 0v6m0-6h8m0-6v6m0 0v6" />
+                        </svg>
+                    </div>
+                    <span class="text-lg font-bold text-gray-800 dark:text-white">Định Anh CMS</span>
+                </div>
+            </div>
+
+            <div class="w-full max-w-md">
+                <!-- Header -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Tạo tài khoản mới</h2>
+                    <p class="mt-1.5 text-sm text-gray-500 dark:text-slate-400">Điền đầy đủ thông tin để được cấp quyền
+                        truy cập.</p>
+                </div>
+
+                <!-- Errors -->
+                {% if form.errors %}
+                <div
+                    class="mb-5 flex items-start gap-x-3 p-4 rounded-xl bg-red-50 border border-red-200 dark:bg-red-950/30 dark:border-red-800/50">
+                    <svg class="size-4.5 text-red-500 mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" x2="12" y1="8" y2="12" />
+                        <line x1="12" x2="12.01" y1="16" y2="16" />
+                    </svg>
+                    <div class="text-sm font-medium text-red-700 dark:text-red-400">Vui lòng kiểm tra lại thông tin đăng
+                        ký.</div>
+                </div>
+                {% endif %}
+
+                <!-- Form -->
+                <form method="POST" action="{% url 'register' %}" class="space-y-4" id="register-form">
+                    {% csrf_token %}
+
+                    <!-- Full name -->
+                    <div class="space-y-1.5">
+                        <label for="full_name" class="block text-sm font-medium text-gray-700 dark:text-slate-300">Họ và
+                            tên <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div
+                                class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                            </div>
+                            <input type="text" id="full_name" name="full_name" required autocomplete="name"
+                                class="py-3 px-4 ps-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 dark:placeholder-slate-500"
+                                placeholder="Nguyễn Văn A...">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="space-y-1.5">
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-slate-300">Email
+                            công việc <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div
+                                class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </div>
+                            <input type="email" id="email" name="email" required autocomplete="email"
+                                class="py-3 px-4 ps-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 dark:placeholder-slate-500"
+                                placeholder="email@dinhanh.vn...">
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="space-y-1.5">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-slate-300">Số điện
+                            thoại</label>
+                        <div class="relative">
+                            <div
+                                class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel"
+                                class="py-3 px-4 ps-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 dark:placeholder-slate-500"
+                                placeholder="0912 345 678...">
+                        </div>
+                    </div>
+
+                    <!-- Username -->
+                    <div class="space-y-1.5">
+                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-slate-300">Tên
+                            đăng nhập <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div
+                                class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                    <path d="M2 12h20" />
+                                </svg>
+                            </div>
+                            <input type="text" id="username" name="username" required autocomplete="username"
+                                class="py-3 px-4 ps-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 dark:placeholder-slate-500"
+                                placeholder="dinhanh_admin...">
+                            <p class="mt-1 text-xs text-gray-400">Chỉ dùng chữ cái, số và dấu gạch dưới. Tối thiểu 4 ký
+                                tự.</p>
+                        </div>
+                    </div>
+
+                    <!-- Role -->
+                    <div class="space-y-1.5">
+                        <label for="role" class="block text-sm font-medium text-gray-700 dark:text-slate-300">Vai trò
+                            trong hệ thống <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div
+                                class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <select id="role" name="role" required
+                                class="py-3 px-4 ps-11 pe-10 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all appearance-none dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 cursor-pointer">
+                                <option value="" disabled selected>Chọn vai trò...</option>
+                                <option value="dispatcher">Nhân viên điều vận</option>
+                                <option value="cashier">Nhân viên bán vé</option>
+                                <option value="manager">Quản lý</option>
+                                <option value="accountant">Kế toán</option>
+                                <option value="driver">Tài xế</option>
+                            </select>
+                            <div
+                                class="absolute inset-y-0 inset-end-0 flex items-center pe-4 pointer-events-none text-gray-400">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password + Confirm -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label for="password"
+                                class="block text-sm font-medium text-gray-700 dark:text-slate-300">Mật khẩu <span
+                                    class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400">
+                                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                    </svg>
+                                </div>
+                                <input type="password" id="password" name="password" required
+                                    autocomplete="new-password"
+                                    class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 dark:placeholder-slate-500"
+                                    placeholder="••••••••" oninput="checkStrength(this.value)">
+                                <button type="button" onclick="togglePassword('password', this)"
+                                    class="absolute inset-y-0 inset-end-0 flex items-center pe-4 text-gray-400 hover:text-gray-600">
+                                    <svg class="size-4" data-eye xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Password strength -->
+                            <div class="flex gap-x-1 mt-1.5" id="strength-bars">
+                                <div class="h-1 flex-1 rounded-full bg-gray-200 transition-colors" id="bar-1"></div>
+                                <div class="h-1 flex-1 rounded-full bg-gray-200 transition-colors" id="bar-2"></div>
+                                <div class="h-1 flex-1 rounded-full bg-gray-200 transition-colors" id="bar-3"></div>
+                                <div class="h-1 flex-1 rounded-full bg-gray-200 transition-colors" id="bar-4"></div>
+                            </div>
+                            <p class="text-xs text-gray-400" id="strength-label">Tối thiểu 8 ký tự</p>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label for="confirm_password"
+                                class="block text-sm font-medium text-gray-700 dark:text-slate-300">Xác nhận mật khẩu
+                                <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400">
+                                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                </div>
+                                <input type="password" id="confirm_password" name="confirm_password" required
+                                    autocomplete="new-password"
+                                    class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 dark:placeholder-slate-500"
+                                    placeholder="••••••••" oninput="checkMatch()">
+                                <span class="absolute inset-y-0 inset-e-0 flex items-center pe-4" id="match-icon"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="flex items-start gap-x-3 pt-1">
+                        <input type="checkbox" id="terms" name="terms" required
+                            class="size-4 mt-0.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 cursor-pointer">
+                        <label for="terms"
+                            class="text-sm text-gray-600 dark:text-slate-400 cursor-pointer select-none leading-relaxed">
+                            Tôi đã đọc và đồng ý với <a href="#" class="text-blue-600 hover:underline font-medium">Điều
+                                khoản sử dụng</a> và <a href="#" class="text-blue-600 hover:underline font-medium">Chính
+                                sách bảo mật</a> của hệ thống.
+                        </label>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 active:scale-[0.98] focus:outline-none transition-all mt-2">
+                        <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <line x1="19" x2="19" y1="8" y2="14" />
+                            <line x1="22" x2="16" y1="11" y2="11" />
+                        </svg>
+                        Tạo tài khoản
+                    </button>
+                </form>
+
+                <p class="mt-5 text-center text-sm text-gray-500 dark:text-slate-400">
+                    Đã có tài khoản?
+                    <a href="{% url 'login' %}"
+                        class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 hover:underline ms-1">
+                        Đăng nhập ngay
+                    </a>
+                </p>
+
+                <div class="mt-6 flex items-center justify-center gap-x-2 text-xs text-gray-400 dark:text-slate-600">
+                    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Thông tin được mã hóa và bảo mật SSL
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            const icon = btn.querySelector('[data-eye]');
+            icon.innerHTML = isPassword
+                ? `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>`
+                : `<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>`;
+        }
+
+        function checkStrength(val) {
+            const bars = [document.getElementById('bar-1'), document.getElementById('bar-2'), document.getElementById('bar-3'), document.getElementById('bar-4')];
+            const label = document.getElementById('strength-label');
+            bars.forEach(b => b.className = 'h-1 flex-1 rounded-full bg-gray-200 transition-colors');
+            if (!val) { label.textContent = 'Tối thiểu 8 ký tự'; return; }
+            let score = 0;
+            if (val.length >= 8) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+            const colors = ['bg-red-500', 'bg-amber-500', 'bg-yellow-400', 'bg-emerald-500'];
+            const labels = ['Rất yếu', 'Trung bình', 'Khá mạnh', 'Rất mạnh'];
+            for (let i = 0; i < score; i++) bars[i].classList.add(colors[score - 1]);
+            label.textContent = labels[score - 1] || 'Tối thiểu 8 ký tự';
+            label.className = `text-xs transition-colors ${score === 4 ? 'text-emerald-600' : score >= 2 ? 'text-amber-600' : 'text-red-500'}`;
+        }
+
+        function checkMatch() {
+            const pw = document.getElementById('password').value;
+            const cpw = document.getElementById('confirm_password').value;
+            const icon = document.getElementById('match-icon');
+            if (!cpw) { icon.innerHTML = ''; return; }
+            if (pw === cpw) {
+                icon.innerHTML = `<svg class="size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+            } else {
+                icon.innerHTML = `<svg class="size-4 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+            }
+        }
+        window.HSStaticMethods?.autoInit();
+    </script>
+</body>
+
+</html>
