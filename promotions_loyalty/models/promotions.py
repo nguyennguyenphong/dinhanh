@@ -3,18 +3,19 @@
 # Marketing Campaign & Promotional Coupon Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.contrib.postgres.fields import (  # Production feature required for Array data structures
+    ArrayField,
+)
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
-from django.contrib.postgres.fields import (
-    ArrayField,
-)  # Production feature required for Array data structures
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from accounts.models.user_accounts import UserAccount  # Custom user model
 
 
 class Promotion(models.Model):
@@ -306,8 +307,9 @@ class Promotion(models.Model):
         Returns:
             Tuple (Boolean status, String message error if False)
         """
-        from django.utils import timezone
         from decimal import Decimal
+
+        from django.utils import timezone
 
         now = timezone.now()
 

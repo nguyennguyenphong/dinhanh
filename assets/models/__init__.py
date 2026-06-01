@@ -3,6 +3,6 @@
 # Example:
 # from assets.models.assets import Asset
 
-from .assets import *
 from .asset_categories import *
+from .assets import *
 from .storage_units import *

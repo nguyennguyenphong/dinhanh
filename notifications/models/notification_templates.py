@@ -4,12 +4,13 @@
 # ============================================================================
 
 import re
+
+from django.contrib.postgres.fields import (  # Production feature required for Array data structures
+    ArrayField,
+)
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.exceptions import ValidationError
-from django.contrib.postgres.fields import (
-    ArrayField,
-)  # Production feature required for Array data structures
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant

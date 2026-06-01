@@ -3,18 +3,19 @@
 # Ticket Bookings Operational Core Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
+from branches.models.branches import Branch
+from customers_tickets.models.customers import Customer
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from customers_tickets.models.customers import Customer
 from trips.models.trips import Trip
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
 
 
 class TicketBooking(models.Model):

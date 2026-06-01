@@ -1,9 +1,10 @@
 # Url account's module
 from django.urls import path
+
 from accounts.views.login import login
-from accounts.views.register import register
 from accounts.views.password_reset import password_reset
 from accounts.views.password_reset_confirm import password_reset_confirm
+from accounts.views.register import register
 from accounts.views.verify_email import verify_email
 
 urlpatterns = [

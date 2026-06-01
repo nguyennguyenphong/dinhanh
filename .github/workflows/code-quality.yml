@@ -17,15 +17,18 @@ env:
 
 jobs:
   # ─────────────────────────────────────────────
-  # 1. Python Linting
+  # 1. Python Linting & Auto-Fix
   # ─────────────────────────────────────────────
   python-lint:
     runs-on: ubuntu-latest
-    name: Python Linting
+    name: Python Linting & Auto-Fix
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
@@ -38,17 +41,31 @@ jobs:
           pip install --upgrade pip
           pip install black flake8 isort
 
-      - name: Check code formatting with Black
-        # Fails the job if any file is not formatted correctly
-        run: black --check --diff . --exclude "/(venv|\.venv|migrations|node_modules)/"
-
-      - name: Check import sorting with isort
+      - name: Auto-fix formatting and imports
         run: |
-          isort --check-only --diff . \
+          echo "Đang tự động sửa định dạng code với Black..."
+          black . --exclude "/(venv|\.venv|migrations|node_modules)/"
+          
+          echo "Đang tự động sắp xếp lại import với isort..."
+          isort . \
             --skip venv \
             --skip .venv \
             --skip migrations \
             --profile black
+
+      - name: Commit and Push auto-fixed changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Phát hiện lỗi định dạng, đang tiến hành commit và push code đã sửa..."
+            git add .
+            git commit -m "style: auto-fixed code formatting and import sorting"
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
+          else
+            echo "Chúc mừng! Code đã chuẩn định dạng, không cần sửa đổi gì."
+          fi
 
       - name: Run Flake8 linting
         run: |
@@ -118,7 +135,6 @@ jobs:
           pip install pip-audit
 
       - name: Audit Python dependencies
-        # Fail on HIGH or CRITICAL vulnerabilities
         run: pip-audit -r requirements.txt --desc
 
       - name: Set up Node.js ${{ env.NODE_VERSION }}
@@ -131,7 +147,6 @@ jobs:
         run: npm ci --frozen-lockfile
 
       - name: Audit npm dependencies
-        # Fail on moderate or above
         run: npm audit --audit-level=moderate
 
   # ─────────────────────────────────────────────
@@ -159,6 +174,7 @@ jobs:
     env:
       DEBUG: 'False'
       SECRET_KEY: 'check-key-not-for-production'
+      ALLOWED_HOSTS: 'localhost,127.0.0.1'
       DB_ENGINE: django.db.backends.postgresql
       DB_NAME: dinhanh_check
       DB_USER: postgres
@@ -185,7 +201,6 @@ jobs:
         run: python manage.py check
 
       - name: Check for pending (uncommitted) migrations
-        # Ensures all model changes have corresponding migration files
         run: python manage.py makemigrations --check --dry-run
 
   # ─────────────────────────────────────────────

@@ -3,11 +3,13 @@
 # System Config History Models with Versioning
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.utils import timezone
 import difflib
 from datetime import timedelta
+
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
 from system_config.models.system_configs import SystemConfig
 
 

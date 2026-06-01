@@ -4,8 +4,8 @@
 # ============================================================================
 
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
 
 # Assuming this model exists in your production architecture
 from vehicles.models.vehicle_categories import VehicleCategory

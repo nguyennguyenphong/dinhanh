@@ -3,11 +3,12 @@
 # Station Models with Routes and Services
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
-from django.db.models import Q, F
+from django.core.validators import RegexValidator
+from django.db import models
+from django.db.models import F, Q
+from django.utils.translation import gettext_lazy as _
+
 from routes.models.provinces import Province
 
 
@@ -228,7 +229,7 @@ class Station(models.Model):
         if not self.has_coordinates() or not other_station.has_coordinates():
             return None
 
-        from math import radians, cos, sin, asin, sqrt
+        from math import asin, cos, radians, sin, sqrt
 
         lat1, lon1 = float(self.latitude), float(self.longitude)
         lat2, lon2 = float(other_station.latitude), float(other_station.longitude)
@@ -480,7 +481,7 @@ class Station(models.Model):
         Example:
             nearby = Station.get_nearby_stations(21.0285, 105.8542, 50)
         """
-        from math import radians, cos, sin, asin, sqrt
+        from math import asin, cos, radians, sin, sqrt
 
         stations = cls.objects.filter(
             latitude__isnull=False, longitude__isnull=False, is_active=True

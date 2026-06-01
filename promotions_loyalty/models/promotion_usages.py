@@ -3,16 +3,16 @@
 # Marketing Campaign & Coupon Consumption Ledger Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+from customers_tickets.models.customers import Customer
+from customers_tickets.models.ticket_bookings import TicketBooking
 
 # Assuming these models exist in your production architecture
 from promotions_loyalty.models.promotions import Promotion
-from customers_tickets.models.ticket_bookings import TicketBooking
-from customers_tickets.models.customers import Customer
 
 
 class PromotionUsage(models.Model):

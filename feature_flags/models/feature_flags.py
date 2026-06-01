@@ -3,14 +3,16 @@
 # Feature Flags Models with A/B Testing Support
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
-from django.core.cache import cache
-from django.utils import timezone
-from django.core.exceptions import ValidationError
-from django.contrib.postgres.fields import ArrayField
 import hashlib
+
+from django.contrib.postgres.fields import ArrayField
+from django.core.cache import cache
+from django.core.exceptions import ValidationError
+from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
 from tenants.models.tenants import Tenant
 
 

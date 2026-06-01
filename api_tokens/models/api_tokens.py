@@ -3,16 +3,18 @@
 # API Token Models with Security Features
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import MinValueValidator
-from django.utils import timezone
-from django.core.exceptions import ValidationError
-from django.contrib.postgres.fields import ArrayField
 import hashlib
 import secrets
 import string
 from datetime import timedelta
+
+from django.contrib.postgres.fields import ArrayField
+from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
 from tenants.models.tenants import Tenant
 
 

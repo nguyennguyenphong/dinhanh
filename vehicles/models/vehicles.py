@@ -3,14 +3,15 @@
 # Vehicles Management Models
 # ============================================================================
 
+from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator
+
+from branches.models.branches import Branch
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
 from vehicles.models.vehicle_categories import VehicleCategory
-from branches.models.branches import Branch
 
 
 class Vehicle(models.Model):
@@ -302,8 +303,9 @@ class Vehicle(models.Model):
         Returns:
             QuerySet of Vehicle objects
         """
-        from django.utils import timezone
         from datetime import timedelta
+
+        from django.utils import timezone
 
         target_date = timezone.localdate() + timedelta(days=days_threshold)
         return cls.objects.filter(

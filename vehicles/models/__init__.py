@@ -3,8 +3,8 @@
 # Example:
 # from vehicles.models.vehicles import Vehicle
 
-from .vehicles import *
-from .vehicle_maintenance import *
 from .seat_maps import *
 from .seats import *
 from .vehicle_categories import *
+from .vehicle_maintenance import *
+from .vehicles import *

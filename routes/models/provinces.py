@@ -3,10 +3,10 @@
 # Province, District, Ward Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
 
 
 class Province(models.Model):
@@ -661,7 +661,7 @@ class Location(models.Model):
         if not self.has_coordinates() or not other_location.has_coordinates():
             return None
 
-        from math import radians, cos, sin, asin, sqrt
+        from math import asin, cos, radians, sin, sqrt
 
         lat1, lon1 = self.latitude, self.longitude
         lat2, lon2 = other_location.latitude, other_location.longitude

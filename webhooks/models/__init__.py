@@ -3,5 +3,5 @@
 # Example:
 # from webhooks.models.webhooks import Webhook
 
-from .webhook_endpoints import *
 from .webhook_deliveries import *
+from .webhook_endpoints import *

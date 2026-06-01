@@ -3,15 +3,16 @@
 # Cashier POS Session & Point of Sale Operations Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
+from branches.models.branches import Branch
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
 
 
 class CashierSession(models.Model):
@@ -236,11 +237,12 @@ class CashierSession(models.Model):
                 )
             )
 
-        from django.utils import timezone
         from django.db.models import Sum
-        from payments.models.payments import (
+        from django.utils import timezone
+
+        from payments.models.payments import (  # Dynamic relative cross-imports referencing
             Payment,
-        )  # Dynamic relative cross-imports referencing
+        )
 
         # 1. Fetch and aggregate total point-of-sale invoice revenues captured by this cashier in cash
         # Filtering for payment method 'CASH' and status 'SUCCESS' under this specific shift window

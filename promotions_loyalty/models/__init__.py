@@ -5,5 +5,5 @@
 
 from .after_sales import *
 from .loyalty_transactions import *
-from .promotions import *
 from .promotion_usages import *
+from .promotions import *

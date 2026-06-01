@@ -3,14 +3,15 @@
 # Trip Pricing Tariff Management Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from routes.models.routes import Route
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from routes.models.routes import Route
 
 
 class TripPrice(models.Model):

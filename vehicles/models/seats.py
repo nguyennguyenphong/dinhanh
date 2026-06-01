@@ -3,9 +3,9 @@
 # Individual Seats Management Models
 # ============================================================================
 
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.validators import MinValueValidator
 
 # Assuming this model exists in your production architecture
 from vehicles.models.seat_maps import SeatMap

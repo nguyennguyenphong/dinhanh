@@ -3,13 +3,14 @@
 # Cargo Logistics & Manifest Junction Models
 # ============================================================================
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.exceptions import ValidationError
+
+from consignments.models.consignment_manifests import ConsignmentManifest
 
 # Assuming these models exist in your production architecture
 from consignments.models.consignments import Consignment
-from consignments.models.consignment_manifests import ConsignmentManifest
 
 
 class ManifestItem(models.Model):

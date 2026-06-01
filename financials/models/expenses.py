@@ -3,19 +3,20 @@
 # Corporate Finance, Expense Tracking & Cash Outflow Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
+from branches.models.branches import Branch
+from financials.models.expense_categories import ExpenseCategory
+from hr.models.employees import Employee
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from financials.models.expense_categories import ExpenseCategory
-from vehicles.models.vehicles import Vehicle
 from trips.models.trips import Trip
-from branches.models.branches import Branch
-from hr.models.employees import Employee
-from accounts.models.user_accounts import UserAccount  # Custom user model
+from vehicles.models.vehicles import Vehicle
 
 
 class Expense(models.Model):

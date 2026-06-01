@@ -3,16 +3,17 @@
 # Employees Management Models
 # ============================================================================
 
+from django.core.validators import EmailValidator, RegexValidator
 from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator, EmailValidator
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
+from branches.models.branches import Branch
+from hr.models.departments import Department
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from hr.models.departments import Department
-from branches.models.branches import Branch
-from accounts.models.user_accounts import UserAccount  # Custom user model
 
 
 class Employee(models.Model):

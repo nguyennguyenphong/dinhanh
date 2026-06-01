@@ -3,14 +3,15 @@
 # User Session Models with JWT Support
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.utils import timezone
-from django.core.exceptions import ValidationError
 import json
 from datetime import timedelta
+
 import jwt
 from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 
 class UserSession(models.Model):

@@ -3,14 +3,15 @@
 # Fleet Dispatch Order Management Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
 
 # Assuming these models exist in your production architecture
 from trips.models.trips import Trip
-from accounts.models.user_accounts import UserAccount  # Custom user model
 
 
 class DispatchOrder(models.Model):

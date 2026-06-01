@@ -4,10 +4,11 @@
 # ============================================================================
 
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-from tenants.models.tenants import Tenant
+from django.utils.translation import gettext_lazy as _
+
 from tasks.models.tasks import Task
+from tenants.models.tenants import Tenant
 
 
 class TaskList(models.Model):

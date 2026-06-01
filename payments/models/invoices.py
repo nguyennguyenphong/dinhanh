@@ -3,17 +3,18 @@
 # Financial VAT & Electronic Invoice Management Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
+from customers_tickets.models.group_contracts import GroupContract
+from customers_tickets.models.ticket_bookings import TicketBooking
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from customers_tickets.models.ticket_bookings import TicketBooking
-from customers_tickets.models.group_contracts import GroupContract
-from accounts.models.user_accounts import UserAccount  # Custom user model
 
 
 class Invoice(models.Model):

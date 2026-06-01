@@ -4,8 +4,8 @@
 # ============================================================================
 
 from django.db import models
+from django.db.models import Count, Q
 from django.utils.translation import gettext_lazy as _
-from django.db.models import Q, Count
 
 
 class EntityTag(models.Model):
@@ -318,8 +318,9 @@ class EntityTag(models.Model):
 
     @classmethod
     def get_user_tagging_activity(cls, user, days=30):
-        from django.utils import timezone
         from datetime import timedelta
+
+        from django.utils import timezone
 
         start_date = timezone.now() - timedelta(days=days)
         entity_tags = cls.objects.filter(tagged_by=user, tagged_at__gte=start_date)

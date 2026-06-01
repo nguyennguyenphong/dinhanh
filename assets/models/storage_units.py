@@ -3,13 +3,14 @@
 # Inventory Logistics & Physical Storage Unit Models
 # ============================================================================
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.exceptions import ValidationError
+
+from branches.models.branches import Branch
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from branches.models.branches import Branch
 
 
 class StorageUnit(models.Model):

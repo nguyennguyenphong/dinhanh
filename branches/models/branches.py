@@ -3,12 +3,13 @@
 # Branch Models with Multi-Tenant Support
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import EmailValidator, RegexValidator
-from django.utils import timezone
 from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator, RegexValidator
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from pytz import common_timezones
+
 from tenants.models.tenants import Tenant
 
 

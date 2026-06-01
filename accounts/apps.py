@@ -6,6 +6,6 @@ class AccountsConfig(AppConfig):
     name = "accounts"
 
     def ready(self):
-        import accounts.components.input
-        import accounts.components.checkbox
         import accounts.components.button
+        import accounts.components.checkbox
+        import accounts.components.input

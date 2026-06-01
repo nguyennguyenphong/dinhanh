@@ -3,19 +3,20 @@
 # Trips Lifecycle Management Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from branches.models.branches import Branch
+from routes.models.routes import Route
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from routes.models.routes import Route
 from trips.models.trip_schedules import TripSchedule
-from vehicles.models.vehicles import Vehicle
 from vehicles.models.seat_maps import SeatMap
-from branches.models.branches import Branch
+from vehicles.models.vehicles import Vehicle
 
 
 class Trip(models.Model):

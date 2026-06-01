@@ -4,11 +4,12 @@
 # ============================================================================
 
 import uuid
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator
+
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
 
 # Assuming this model exists in your production architecture
 from tenants.models.tenants import Tenant

@@ -3,9 +3,9 @@
 # Automated Report Scheduling, Cron Jobs & Distribution Engines
 # ============================================================================
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.exceptions import ValidationError
 
 # Assuming these models exist in your production architecture
 from reports.models.reports import ReportDefinition
@@ -257,8 +257,9 @@ class ScheduledReport(models.Model):
         Calculates and advances the next chronological runtime execution block inside database tracks.
         Invoked by background script workers immediately post successful execution sweeps.
         """
-        from django.utils import timezone
         import datetime
+
+        from django.utils import timezone
 
         now = timezone.now()
         self.last_run_at = now

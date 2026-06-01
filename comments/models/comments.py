@@ -3,11 +3,12 @@
 # Comment Models with Threading and Visibility
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.utils import timezone
 from django.core.exceptions import ValidationError
-from django.db.models import Q, Prefetch
+from django.db import models
+from django.db.models import Prefetch, Q
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
 from tenants.models.tenants import Tenant
 
 

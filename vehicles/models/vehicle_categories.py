@@ -3,12 +3,12 @@
 # Vehicle Categories Management Models
 # ============================================================================
 
+from django.contrib.postgres.fields import (  # Production feature for PostgreSQL TEXT[]
+    ArrayField,
+)
+from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator
-from django.contrib.postgres.fields import (
-    ArrayField,
-)  # Production feature for PostgreSQL TEXT[]
 
 # Assuming this model exists in your production architecture
 from tenants.models.tenants import Tenant

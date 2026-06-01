@@ -3,10 +3,11 @@
 # Role-Permission Relationship Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
 from tenants.models.tenants import Tenant
 
 
@@ -156,7 +157,7 @@ class RolePermission(models.Model):
             ),
             # Index for audit trail
             models.Index(
-                fields=["assigned_at"], name="idx_role_permission_assigned_at"
+                fields=["assigned_at"], name="idx_role_perm_assigned_at"
             ),
             # Composite index for common queries
             models.Index(

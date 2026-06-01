@@ -3,13 +3,15 @@
 # Media File Models with Multi-Storage Support
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.utils import timezone
-from django.core.exceptions import ValidationError
-import uuid
-import os
 import mimetypes
+import os
+import uuid
+
+from django.core.exceptions import ValidationError
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
 from tenants.models.tenants import Tenant
 
 
@@ -547,8 +549,9 @@ class MediaFile(models.Model):
     def _extract_image_dimensions(self):
         """Extract image dimensions"""
         try:
-            from PIL import Image
             import io
+
+            from PIL import Image
 
             if self.storage == "local":
                 from django.conf import settings

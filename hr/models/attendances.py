@@ -4,13 +4,14 @@
 # ============================================================================
 
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
 
 # Assuming these models exist in your production architecture
 from hr.models.employees import Employee
 from hr.models.shift_types import ShiftType
-from accounts.models.user_accounts import UserAccount  # Custom user model
 
 
 class Attendance(models.Model):

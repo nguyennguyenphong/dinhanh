@@ -3,15 +3,16 @@
 # Ticket Operational Exchange Ledger Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
 
 # Assuming these models exist in your production architecture
 from customers_tickets.models.tickets import Ticket
-from accounts.models.user_accounts import UserAccount  # Custom user model
 
 
 class TicketExchange(models.Model):

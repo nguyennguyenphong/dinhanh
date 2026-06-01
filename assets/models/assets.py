@@ -3,16 +3,17 @@
 # Fixed Asset Management & Depreciation Ledger Models
 # ============================================================================
 
+from django.core.exceptions import ValidationError
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.exceptions import ValidationError
-from django.core.validators import MinValueValidator, MaxValueValidator
 
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
 from assets.models.asset_categories import AssetCategory
 from branches.models.branches import Branch
 from hr.models.employees import Employee
+
+# Assuming these models exist in your production architecture
+from tenants.models.tenants import Tenant
 
 
 class Asset(models.Model):

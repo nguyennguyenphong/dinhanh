@@ -3,21 +3,22 @@
 # Payment Transaction Ledger Models
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.db import models
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
+
+from accounts.models.user_accounts import UserAccount  # Custom user model
+from branches.models.branches import Branch
+from consignments.models.consignments import (  # Mapped after consignment architecture deployment
+    Consignment,
+)
+from customers_tickets.models.ticket_bookings import TicketBooking
+from payments.models.payment_methods import PaymentMethod
 
 # Assuming these models exist in your production architecture
 from tenants.models.tenants import Tenant
-from customers_tickets.models.ticket_bookings import TicketBooking
-from consignments.models.consignments import (
-    Consignment,
-)  # Mapped after consignment architecture deployment
-from payments.models.payment_methods import PaymentMethod
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
 
 
 class Payment(models.Model):

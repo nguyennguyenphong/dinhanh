@@ -3,7 +3,7 @@
 # Example:
 # from payments.models.payments import Payment
 
+from .cashier_sessions import *
+from .invoices import *
 from .payment_methods import *
 from .payments import *
-from .invoices import *
-from .cashier_sessions import *

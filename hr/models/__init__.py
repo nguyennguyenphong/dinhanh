@@ -4,8 +4,8 @@
 # from hr.models.employees import Employee
 
 from .attendances import *
+from .departments import *
 from .employees import *
 from .leave_requests import *
 from .payroll import *
 from .shift_types import *
-from .departments import *

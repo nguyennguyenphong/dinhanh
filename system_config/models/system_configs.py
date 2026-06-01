@@ -3,14 +3,16 @@
 # System Configuration Models with Encryption
 # ============================================================================
 
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator
+import json
+
+from cryptography.fernet import Fernet
+from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import ValidationError
-from django.conf import settings
-from cryptography.fernet import Fernet
-import json
+from django.core.validators import RegexValidator
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
 from tenants.models.tenants import Tenant
 
 
