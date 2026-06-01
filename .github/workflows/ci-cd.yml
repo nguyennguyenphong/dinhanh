@@ -13,6 +13,7 @@ env:
   IMAGE_NAME: dinhanh
   # Django 6.0.5 requires Python 3.12+
   PYTHON_VERSION: '3.12'
+  ALLOWED_HOSTS: 'localhost,127.0.0.1'
   NODE_VERSION: '20'
 
 jobs:

@@ -1,5 +1,5 @@
-# Import models from module in this package 
-# This is to avoid circular imports 
+# Import models from module in this package
+# This is to avoid circular imports
 # Example:
 # from webhooks.models.webhooks import Webhook
 

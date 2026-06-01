@@ -8,7 +8,6 @@ from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 from datetime import datetime
 
-
 # Assuming this model exists in your production architecture
 from tenants.models.tenants import Tenant
 
@@ -16,14 +15,14 @@ from tenants.models.tenants import Tenant
 class ShiftType(models.Model):
     """
     ShiftType model defining operational working hours configurations per tenant.
-    
+
     Features:
     - Multi-tenancy: Securely partitioned via tenant_id
     - Code Identification: Unique identifier string code per tenant scope
     - Timeline Boundaries: Manages strict daily start and end working time limits
     - Overnight Intelligence: Flag to signal if a shift spans across midnight boundary
     - High-Performance Indexing: Built for fast timeline checking and schedule filtering
-    
+
     Example:
         # Create a standard day shift (08:00 AM -> 05:00 PM)
         day_shift = ShiftType.objects.create(
@@ -34,7 +33,7 @@ class ShiftType(models.Model):
             end_time='17:00:00',
             is_overnight=False
         )
-        
+
         # Create an overnight night shift (10:00 PM -> 06:00 AM next day)
         night_shift = ShiftType.objects.create(
             tenant_id=1,
@@ -47,99 +46,98 @@ class ShiftType(models.Model):
     """
 
     id = models.BigAutoField(primary_key=True)
-    
+
     # ========================================================================
     # RELATIONSHIPS & MULTI-TENANCY
     # ========================================================================
-    
+
     tenant = models.ForeignKey(
         Tenant,
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
-        related_name='shift_types',
+        related_name="shift_types",
         db_index=True,
-        help_text='Tenant owner of this operational shift type configuration'
+        help_text="Tenant owner of this operational shift type configuration",
     )
-    
+
     # ========================================================================
     # SHIFT TAXONOMY & CODES
     # ========================================================================
-    
+
     code = models.CharField(
         max_length=20,
         validators=[
             RegexValidator(
-                regex=r'^[A-Z0-9\-_]+$',
-                message='Code must contain only uppercase letters, numbers, hyphens, and underscores'
+                regex=r"^[A-Z0-9\-_]+$",
+                message="Code must contain only uppercase letters, numbers, hyphens, and underscores",
             )
         ],
-        help_text='Unique operational shift code identifier per tenant (e.g., MORNING, NIGHT_01)'
+        help_text="Unique operational shift code identifier per tenant (e.g., MORNING, NIGHT_01)",
     )
-    
+
     name = models.CharField(
         max_length=100,
-        help_text='Human readable display name of the shift schedule pattern'
+        help_text="Human readable display name of the shift schedule pattern",
     )
-    
+
     # ========================================================================
     # TIMELINE MATRIX (DAILY WORKING BOUNDARIES)
     # ========================================================================
-    
+
     start_time = models.TimeField(
-        help_text='The official clock time when the work shift begins'
+        help_text="The official clock time when the work shift begins"
     )
-    
+
     end_time = models.TimeField(
-        help_text='The official clock time when the work shift ends'
+        help_text="The official clock time when the work shift ends"
     )
-    
+
     is_overnight = models.BooleanField(
         default=False,
-        help_text='Designates whether the shift boundary spans across midnight (e.g., 22:00 to 06:00 next day)'
+        help_text="Designates whether the shift boundary spans across midnight (e.g., 22:00 to 06:00 next day)",
     )
-    
+
     # ========================================================================
     # TIMESTAMPS
     # ========================================================================
-    
+
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
-        help_text='Timestamp when this shift configuration template was created'
+        help_text="Timestamp when this shift configuration template was created",
     )
-    
+
     updated_at = models.DateTimeField(
         auto_now=True,
-        help_text='Timestamp when this shift configuration parameters were last modified'
+        help_text="Timestamp when this shift configuration parameters were last modified",
     )
 
     class Meta:
-        db_table = 'shift_types'
-        verbose_name = _('Shift Type')
-        verbose_name_plural = _('Shift Types')
-        ordering = ['tenant', 'start_time', 'code']
-        
+        db_table = "shift_types"
+        verbose_name = _("Shift Type")
+        verbose_name_plural = _("Shift Types")
+        ordering = ["tenant", "start_time", "code"]
+
         # ====================================================================
         # CONSTRAINTS
         # ====================================================================
-        
+
         constraints = [
             # Unique shift configuration code per tenant (Matches UNIQUE (tenant_id, code))
             models.UniqueConstraint(
-                fields=['tenant', 'code'],
-                name='unique_tenant_shift_type_code'
+                fields=["tenant", "code"], name="unique_tenant_shift_type_code"
             ),
         ]
-        
+
         # ====================================================================
         # INDEXES
         # ====================================================================
-        
+
         indexes = [
             # Composite index optimized for roster filters looking up shifts by specific timeline blocks
             models.Index(
-                fields=['tenant', 'start_time', 'end_time'],
-                name='idx_shift_timeline_lookup'
+                fields=["tenant", "start_time", "end_time"],
+                name="idx_shift_timeline_lookup",
             ),
         ]
 
@@ -153,7 +151,7 @@ class ShiftType(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Overriding save method to automatically deduce and enforce the 'is_overnight' 
+        Overriding save method to automatically deduce and enforce the 'is_overnight'
         property if it wasn't manually calculated at application boundary layers.
         """
         if self.start_time and self.end_time:
@@ -162,31 +160,32 @@ class ShiftType(models.Model):
                 self.is_overnight = True
             else:
                 self.is_overnight = False
-                
+
         super().save(*args, **kwargs)
 
     def calculate_duration_minutes(self):
         """
         Calculate total net working time duration mapped in minutes.
         Handles standard and complex overnight cross-midnight calculations seamlessly.
-        
+
         Returns:
             Integer (Total shift duration in minutes)
         """
         if not self.start_time or not self.end_time:
             return 0
-            
+
         # Convert daily time objects into abstract calculation datetime structures
         today = datetime.today()
         start_dt = datetime.combine(today, self.start_time)
-        
+
         if self.is_overnight:
             # End time belongs to the subsequent calendar date
             from datetime import timedelta
+
             end_dt = datetime.combine(today, self.end_time) + timedelta(days=1)
         else:
             end_dt = datetime.combine(today, self.end_time)
-            
+
         duration = end_dt - start_dt
         return int(duration.total_seconds() / 60)
 
@@ -198,10 +197,10 @@ class ShiftType(models.Model):
     def get_overnight_shifts(cls, tenant_id):
         """
         Fetch all cross-midnight configured shifts under a specific corporate enterprise tenant.
-        
+
         Args:
             tenant_id: Integer
-            
+
         Returns:
             QuerySet of ShiftType objects
         """

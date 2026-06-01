@@ -18,13 +18,13 @@ from accounts.models.user_accounts import UserAccount  # Custom user model
 class FuelAllocation(models.Model):
     """
     FuelAllocation model tracking physical fuel injections, pricing, and consumption logs per fleet vehicle.
-    
+
     Features:
     - Automated Financial Derivation: Validates and auto-calculates gross totals mathematically to preserve ledger sync.
     - Anti-Fraud Odometer Logs: Snapshots odometer metrics to calculate fuel efficiency (km/liter) analytics down-stream.
     - Double-Anchor Logistics Tracking: Binds fuel expenses directly to a physical truck/bus and an active route trip node.
     - High-Performance Combined Indexing: Optimized for rapid chronological consumption queries per vehicular asset.
-    
+
     Example:
         # Commit a verified diesel allocation receipt filled at a partner petrol station
         allocation = FuelAllocation.objects.create(
@@ -40,142 +40,141 @@ class FuelAllocation(models.Model):
     """
 
     id = models.AutoField(primary_key=True)
-    
+
     # ========================================================================
     # RELATIONSHIPS & PHYSICAL ASSET DESTINATIONS
     # ========================================================================
-    
+
     vehicle = models.ForeignKey(
         Vehicle,
         on_delete=models.CASCADE,
-        related_name='fuel_allocations',
+        related_name="fuel_allocations",
         db_index=True,
-        help_text='The target fleet vehicle profile node receiving the physical fuel volume injection'
+        help_text="The target fleet vehicle profile node receiving the physical fuel volume injection",
     )
-    
+
     trip = models.ForeignKey(
         Trip,
         on_delete=models.SET_NULL,
-        related_name='fuel_allocations',
+        related_name="fuel_allocations",
         null=True,
         blank=True,
         db_index=True,
-        help_text='The specific operational route journey execution segment where this fuel consumption is assigned'
+        help_text="The specific operational route journey execution segment where this fuel consumption is assigned",
     )
-    
+
     driver = models.ForeignKey(
         Employee,
         on_delete=models.SET_NULL,
-        related_name='fuel_allocations',
+        related_name="fuel_allocations",
         null=True,
         blank=True,
         db_index=True,
-        help_text='The professional driver operational employee operating the vehicle at the timestamp of refueling'
+        help_text="The professional driver operational employee operating the vehicle at the timestamp of refueling",
     )
-    
+
     allocated_by = models.ForeignKey(
         UserAccount,
         on_delete=models.SET_NULL,
-        related_name='authorized_fuel_allocations',
+        related_name="authorized_fuel_allocations",
         null=True,
         blank=True,
         db_index=True,
-        help_text='The dispatcher clerk or internal back-office user logging or signing off this fuel ticket voucher'
+        help_text="The dispatcher clerk or internal back-office user logging or signing off this fuel ticket voucher",
     )
-    
+
     # ========================================================================
     # QUANTITATIVE FUEL MATRICES & LOGISTICAL REGISTERS
     # ========================================================================
-    
+
     liters = models.DecimalField(
         max_digits=8,
         decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The volume of fuel pumped, measured precisely in liters'
+        help_text="The volume of fuel pumped, measured precisely in liters",
     )
-    
+
     price_per_liter = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The single unit market price weight per fuel liter at the timestamp of allocation (e.g., VND/Liter)'
+        help_text="The single unit market price weight per fuel liter at the timestamp of allocation (e.g., VND/Liter)",
     )
-    
+
     total_cost = models.DecimalField(
         max_digits=15,
         decimal_places=2,
         validators=[MinValueValidator(0.01)],
-        help_text='The aggregate financial liability cash weight (liters multiplied by price_per_liter)'
+        help_text="The aggregate financial liability cash weight (liters multiplied by price_per_liter)",
     )
-    
+
     station_name = models.CharField(
         max_length=255,
         null=True,
         blank=True,
-        help_text='The physical commercial brand name or location metadata text of the gas pump station (e.g., PV OIL Branch 2)'
+        help_text="The physical commercial brand name or location metadata text of the gas pump station (e.g., PV OIL Branch 2)",
     )
-    
+
     odometer = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         null=True,
         blank=True,
         validators=[MinValueValidator(0.00)],
-        help_text='The absolute physical counter dashboard mileage meter reading snapshot at refueling checkpoint'
+        help_text="The absolute physical counter dashboard mileage meter reading snapshot at refueling checkpoint",
     )
-    
+
     # ========================================================================
     # CHRONOLOGY WINDOWS & METADATA LOGS
     # ========================================================================
-    
+
     notes = models.TextField(
         null=True,
         blank=True,
-        help_text='Granular operational explanations or unexpected incident logging data lines'
+        help_text="Granular operational explanations or unexpected incident logging data lines",
     )
-    
+
     allocated_at = models.DateTimeField(
         default=models.functions.Now,
-        help_text='Timezone-aware calendar timestamp tracking when the physical fuel was dispensed into the tank'
+        help_text="Timezone-aware calendar timestamp tracking when the physical fuel was dispensed into the tank",
     )
-    
+
     created_at = models.DateTimeField(
         default=models.functions.Now,
-        help_text='System log row registration initialization milestone timestamp'
+        help_text="System log row registration initialization milestone timestamp",
     )
 
     class Meta:
-        db_table = 'fuel_allocations'
-        verbose_name = _('Fuel Allocation Voucher')
-        verbose_name_plural = _('Fuel Allocation Vouchers')
-        
+        db_table = "fuel_allocations"
+        verbose_name = _("Fuel Allocation Voucher")
+        verbose_name_plural = _("Fuel Allocation Vouchers")
+
         # Matches down-stream query optimizations: Priority on latest fuel ticket rows per truck
-        ordering = ['vehicle', '-allocated_at']
-        
+        ordering = ["vehicle", "-allocated_at"]
+
         # ====================================================================
         # HIGH-PERFORMANCE COMPOSITE PRODUCTION INDEXES & CONSTRAINTS
         # ====================================================================
-        
+
         indexes = [
             # Replicates exact structure of: CREATE INDEX idx_fuel_vehicle ON fuel_allocations(vehicle_id, allocated_at DESC);
             # Critical optimization for fuel efficiency calculations monitoring consumption trends of a single bus/truck chronologically.
-            models.Index(
-                fields=['vehicle', '-allocated_at'],
-                name='idx_fuel_vehicle'
-            )
+            models.Index(fields=["vehicle", "-allocated_at"], name="idx_fuel_vehicle")
         ]
-        
+
         constraints = [
             # Direct database-level validations: numeric fields cannot accept absolute zero or negative inputs
             models.CheckConstraint(
-                condition=models.Q(liters__gt=0) & models.Q(price_per_liter__gt=0) & models.Q(total_cost__gt=0),
-                name='chk_fuel_metrics_strictly_positive'
+                condition=models.Q(liters__gt=0)
+                & models.Q(price_per_liter__gt=0)
+                & models.Q(total_cost__gt=0),
+                name="chk_fuel_metrics_strictly_positive",
             ),
             # Odometer constraint: dashboard metrics must possess reasonable values if registered
             models.CheckConstraint(
                 condition=models.Q(odometer__gte=0) | models.Q(odometer__isnull=True),
-                name='chk_fuel_odometer_positive'
-            )
+                name="chk_fuel_odometer_positive",
+            ),
         ]
 
     def __str__(self):
@@ -191,35 +190,55 @@ class FuelAllocation(models.Model):
         Application-layer auditing matrix synchronizing numeric calculations and odometer validation.
         """
         super().clean()
-        
+
         from decimal import Decimal
-        
+
         # 1. Automating Financial Calculus & Integrity Synchronization
         if self.liters and self.price_per_liter:
-            calculated_cost = Decimal(str(self.liters)) * Decimal(str(self.price_per_liter))
-            
+            calculated_cost = Decimal(str(self.liters)) * Decimal(
+                str(self.price_per_liter)
+            )
+
             if not self.total_cost:
                 # Automate assignment if the developer/API leaves it out of payload dictionary arguments
                 self.total_cost = calculated_cost
             else:
                 # Verification Check: Block entries with math disparities between fields to prevent fraud
-                if abs(Decimal(str(self.total_cost)) - calculated_cost) > Decimal('0.01'):
-                    raise ValidationError({
-                        'total_cost': _(f"Ledger Balance Deflection: Disparity detected. Mathematically expected total is {calculated_cost:,.2f} VND.")
-                    })
-                    
+                if abs(Decimal(str(self.total_cost)) - calculated_cost) > Decimal(
+                    "0.01"
+                ):
+                    raise ValidationError(
+                        {
+                            "total_cost": _(
+                                f"Ledger Balance Deflection: Disparity detected. Mathematically expected total is {calculated_cost:,.2f} VND."
+                            )
+                        }
+                    )
+
         # 2. Advanced Security Check: Historical Odometer Sequence Auditing
         if self.vehicle_id and self.odometer:
             # Query the latest sequential allocation record prior to this current timestamp
-            latest_ticket = FuelAllocation.objects.filter(
-                vehicle_id=self.vehicle_id,
-                allocated_at__lt=self.allocated_at or models.functions.Now()
-            ).order_by('-allocated_at').first()
-            
-            if latest_ticket and latest_ticket.odometer and self.odometer < latest_ticket.odometer:
-                raise ValidationError({
-                    'odometer': _(f"Anti-Fraud Sequence Fault: Current mileage ({self.odometer:,.2f} km) cannot mathematically sit lower than the last recorded entry ({latest_ticket.odometer:,.2f} km).")
-                })
+            latest_ticket = (
+                FuelAllocation.objects.filter(
+                    vehicle_id=self.vehicle_id,
+                    allocated_at__lt=self.allocated_at or models.functions.Now(),
+                )
+                .order_by("-allocated_at")
+                .first()
+            )
+
+            if (
+                latest_ticket
+                and latest_ticket.odometer
+                and self.odometer < latest_ticket.odometer
+            ):
+                raise ValidationError(
+                    {
+                        "odometer": _(
+                            f"Anti-Fraud Sequence Fault: Current mileage ({self.odometer:,.2f} km) cannot mathematically sit lower than the last recorded entry ({latest_ticket.odometer:,.2f} km)."
+                        )
+                    }
+                )
 
     def save(self, *args, **kwargs):
         """

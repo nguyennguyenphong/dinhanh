@@ -2,16 +2,17 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from routes.models.routes import Route
 
+
 class Schedule(models.Model):
     """
     Schedule model for route schedules
-    
+
     Features:
     - Route assignment
     - Departure and arrival times
     - Capacity management
     - Status tracking
-    
+
     Example:
         # Create schedule
         schedule = Schedule.objects.create(
@@ -23,81 +24,64 @@ class Schedule(models.Model):
     """
 
     id = models.BigAutoField(primary_key=True)
-    
+
     # ========================================================================
     # RELATIONSHIPS
     # ========================================================================
-    
+
     route = models.ForeignKey(
         Route,
         on_delete=models.CASCADE,
-        related_name='schedules',
+        related_name="schedules",
         db_index=True,
-        help_text='Route for this schedule'
+        help_text="Route for this schedule",
     )
-    
+
     # ========================================================================
     # TIMING
     # ========================================================================
-    
-    departure_time = models.TimeField(
-        help_text='Departure time'
-    )
-    
-    arrival_time = models.TimeField(
-        help_text='Arrival time'
-    )
-    
+
+    departure_time = models.TimeField(help_text="Departure time")
+
+    arrival_time = models.TimeField(help_text="Arrival time")
+
     # ========================================================================
     # CAPACITY
     # ========================================================================
-    
-    capacity = models.IntegerField(
-        default=50,
-        help_text='Vehicle capacity'
-    )
-    
+
+    capacity = models.IntegerField(default=50, help_text="Vehicle capacity")
+
     # ========================================================================
     # STATUS
     # ========================================================================
-    
+
     is_active = models.BooleanField(
-        default=True,
-        db_index=True,
-        help_text='Schedule is active'
+        default=True, db_index=True, help_text="Schedule is active"
     )
-    
+
     # ========================================================================
     # TIMESTAMPS
     # ========================================================================
-    
+
     created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text='When schedule was created'
+        auto_now_add=True, db_index=True, help_text="When schedule was created"
     )
 
     class Meta:
-        db_table = 'schedules'
-        verbose_name = _('Schedule')
-        verbose_name_plural = _('Schedules')
-        ordering = ['route', 'departure_time']
-        
+        db_table = "schedules"
+        verbose_name = _("Schedule")
+        verbose_name_plural = _("Schedules")
+        ordering = ["route", "departure_time"]
+
         # ====================================================================
         # INDEXES
         # ====================================================================
-        
+
         indexes = [
             # Index for route queries
-            models.Index(
-                fields=['route'],
-                name='idx_schedule_route'
-            ),
+            models.Index(fields=["route"], name="idx_schedule_route"),
             # Index for time queries
-            models.Index(
-                fields=['departure_time'],
-                name='idx_schedule_departure'
-            ),
+            models.Index(fields=["departure_time"], name="idx_schedule_departure"),
         ]
 
     def __str__(self):

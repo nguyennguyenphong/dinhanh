@@ -1,5 +1,6 @@
 from django_components import Component, register
 
+
 @register("button")
 class Button(Component):
     template_file = "components/ui/button.html"
