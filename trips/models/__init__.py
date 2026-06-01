@@ -3,9 +3,9 @@
 # Example:
 # trips.models.trips import Trip
 
-from .dispatch_orders import *
-from .trip_prices import *
-from .trip_schedules import *
-from .trip_staff import *
-from .trip_tracking import *
-from .trips import *
+from .dispatch_orders import DispatchOrder
+from .trip_prices import TripPrice
+from .trip_schedules import TripSchedule
+from .trip_staff import TripStaff
+from .trip_tracking import TripTracking
+from .trips import Trip

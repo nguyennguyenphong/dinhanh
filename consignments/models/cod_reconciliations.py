@@ -8,11 +8,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from consignments.models.consignments import Consignment
-
 
 class CodReconciliation(models.Model):
     """
@@ -66,7 +61,7 @@ class CodReconciliation(models.Model):
     # ========================================================================
 
     consignment = models.ForeignKey(
-        Consignment,
+        "consignments.Consignment",
         on_delete=models.PROTECT,
         related_name="cod_reconciliations",
         db_index=True,
@@ -74,7 +69,7 @@ class CodReconciliation(models.Model):
     )
 
     transferred_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="processed_cod_settlements",
         null=True,

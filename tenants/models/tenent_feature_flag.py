@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 
 class TenantFeatureFlag(models.Model):
     """
@@ -11,7 +9,7 @@ class TenantFeatureFlag(models.Model):
     """
 
     tenant = models.ForeignKey(
-        Tenant, on_delete=models.CASCADE, related_name="tenant_feature_flags"
+        "tenants.Tenant", on_delete=models.CASCADE, related_name="tenant_feature_flags"
     )
     code = models.CharField(
         max_length=100, db_index=True, help_text="Mã feature (VD: ADVANCED_REPORTING)"

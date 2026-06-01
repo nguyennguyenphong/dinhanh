@@ -7,12 +7,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from branches.models.branches import Branch
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-from vehicles.models.vehicle_categories import VehicleCategory
-
 
 class Vehicle(models.Model):
     """
@@ -61,7 +55,7 @@ class Vehicle(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="vehicles",
@@ -70,7 +64,7 @@ class Vehicle(models.Model):
     )
 
     category = models.ForeignKey(
-        VehicleCategory,
+        "vehicles.VehicleCategory",
         on_delete=models.RESTRICT,
         related_name="vehicles",
         db_index=True,
@@ -78,7 +72,7 @@ class Vehicle(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,
         related_name="vehicles",
         null=True,

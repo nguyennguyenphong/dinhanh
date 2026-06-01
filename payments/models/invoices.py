@@ -9,13 +9,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from customers_tickets.models.group_contracts import GroupContract
-from customers_tickets.models.ticket_bookings import TicketBooking
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class Invoice(models.Model):
     """
@@ -74,7 +67,7 @@ class Invoice(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="invoices",
@@ -83,7 +76,7 @@ class Invoice(models.Model):
     )
 
     booking = models.ForeignKey(
-        TicketBooking,
+        "customers_tickets.TicketBooking",
         on_delete=models.SET_NULL,  # Matches REFERENCES ticket_bookings(id) ON DELETE SET NULL
         related_name="invoices",
         null=True,
@@ -93,7 +86,7 @@ class Invoice(models.Model):
     )
 
     group_contract = models.ForeignKey(
-        GroupContract,
+        "customers_tickets.GroupContract",
         on_delete=models.SET_NULL,  # Matches REFERENCES group_contracts(id) ON DELETE SET NULL
         related_name="invoices",
         null=True,
@@ -103,7 +96,7 @@ class Invoice(models.Model):
     )
 
     issued_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
         related_name="issued_invoices",
         null=True,

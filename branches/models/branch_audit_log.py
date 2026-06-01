@@ -1,9 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-from .branches import Branch
-
 
 class BranchAuditLog(models.Model):
     """
@@ -30,7 +27,7 @@ class BranchAuditLog(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="branch_audit_logs",
         db_index=True,
@@ -38,7 +35,7 @@ class BranchAuditLog(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.CASCADE,
         related_name="branch_audit_logs",
         null=True,

@@ -9,13 +9,7 @@ from django.contrib.postgres.fields import (  # Production feature required for 
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
 
 
 class Promotion(models.Model):
@@ -71,7 +65,7 @@ class Promotion(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="promotions",
@@ -80,7 +74,7 @@ class Promotion(models.Model):
     )
 
     created_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
         related_name="created_promotions",
         null=True,

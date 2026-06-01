@@ -4,12 +4,7 @@
 # ============================================================================
 
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-# Assuming this model exists in your production architecture
-from vehicles.models.vehicle_categories import VehicleCategory
-
 
 class SeatMap(models.Model):
     """
@@ -58,7 +53,7 @@ class SeatMap(models.Model):
     # ========================================================================
 
     category = models.ForeignKey(
-        VehicleCategory,
+        "vehicles.VehicleCategory",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name="seat_maps",
         db_index=True,

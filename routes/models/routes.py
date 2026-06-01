@@ -8,11 +8,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from routes.models.stations import Station
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class Route(models.Model):
     """
@@ -48,7 +43,7 @@ class Route(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="routes",
@@ -57,7 +52,7 @@ class Route(models.Model):
     )
 
     origin = models.ForeignKey(
-        Station,
+        "routes.Station",
         on_delete=models.RESTRICT,  # Production safety: prevent accidental station deletion
         related_name="origin_routes",
         db_index=True,
@@ -65,7 +60,7 @@ class Route(models.Model):
     )
 
     destination = models.ForeignKey(
-        Station,
+        "routes.Station",
         on_delete=models.RESTRICT,  # Production safety: prevent accidental station deletion
         related_name="destination_routes",
         db_index=True,

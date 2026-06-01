@@ -6,9 +6,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming this model exists in your production architecture
-from trips.models.trips import Trip
-
 
 class TripTracking(models.Model):
     """
@@ -49,7 +46,7 @@ class TripTracking(models.Model):
     # ========================================================================
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.CASCADE,  # Matches REFERENCES trips(id) ON DELETE CASCADE
         related_name="telemetry_logs",
         db_index=False,  # Enforcing False because we explicitly declare a composite index in the DB

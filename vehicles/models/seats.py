@@ -7,9 +7,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming this model exists in your production architecture
-from vehicles.models.seat_maps import SeatMap
-
 
 class Seat(models.Model):
     """
@@ -56,7 +53,7 @@ class Seat(models.Model):
     # ========================================================================
 
     seat_map = models.ForeignKey(
-        SeatMap,
+        "vehicles.SeatMap",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name="seats",
         db_index=True,

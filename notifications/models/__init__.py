@@ -3,5 +3,5 @@
 # Example:
 # from notifications.models.notifications import Notification
 
-from .notification_templates import *
-from .notifications import *
+from .notification_templates import NotificationTemplate
+from .notifications import Notification

@@ -3,6 +3,6 @@
 # Example:
 # from financials.models.financials import Expense
 
-from .expense_categories import *
-from .expenses import *
-from .fuel_allocations import *
+from .expense_categories import ExpenseCategory
+from .expenses import Expense
+from .fuel_allocations import FuelAllocation

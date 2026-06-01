@@ -8,9 +8,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-# Assuming these model exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class PaymentMethod(models.Model):
     """
@@ -67,7 +64,7 @@ class PaymentMethod(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="payment_methods",

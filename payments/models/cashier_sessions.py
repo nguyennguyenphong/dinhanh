@@ -8,12 +8,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class CashierSession(models.Model):
     """
@@ -69,7 +63,7 @@ class CashierSession(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="cashier_sessions",
@@ -78,7 +72,7 @@ class CashierSession(models.Model):
     )
 
     cashier = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.PROTECT,  # Production safety: block deleting user if historical cash audit trails exist
         related_name="cashier_sessions",
         db_index=True,
@@ -86,7 +80,7 @@ class CashierSession(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.PROTECT,  # Production safety: block deleting physical branch if accounting sessions refer to it
         related_name="cashier_sessions",
         db_index=True,

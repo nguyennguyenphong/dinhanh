@@ -9,8 +9,6 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 
 class MenuItem(models.Model):
     """
@@ -66,7 +64,7 @@ class MenuItem(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="menu_items",
         db_index=True,

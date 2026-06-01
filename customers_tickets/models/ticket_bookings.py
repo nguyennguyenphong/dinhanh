@@ -6,16 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
-from customers_tickets.models.customers import Customer
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-from trips.models.trips import Trip
 
 
 class TicketBooking(models.Model):
@@ -87,7 +78,7 @@ class TicketBooking(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="ticket_bookings",
@@ -96,7 +87,7 @@ class TicketBooking(models.Model):
     )
 
     customer = models.ForeignKey(
-        Customer,
+        "customers_tickets.Customer",
         on_delete=models.PROTECT,
         related_name="bookings",
         db_index=True,
@@ -104,7 +95,7 @@ class TicketBooking(models.Model):
     )
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.PROTECT,
         related_name="bookings",
         db_index=True,
@@ -112,7 +103,7 @@ class TicketBooking(models.Model):
     )
 
     booked_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="processed_bookings",
         null=True,
@@ -122,7 +113,7 @@ class TicketBooking(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,
         related_name="branch_bookings",
         null=True,

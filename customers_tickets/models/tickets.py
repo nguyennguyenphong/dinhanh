@@ -6,14 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from customers_tickets.models.ticket_bookings import TicketBooking
-from vehicles.models.seats import Seat
 
 
 class Ticket(models.Model):
@@ -89,7 +82,7 @@ class Ticket(models.Model):
     # ========================================================================
 
     booking = models.ForeignKey(
-        TicketBooking,
+        "customers_tickets.TicketBooking",
         on_delete=models.CASCADE,
         related_name="tickets",
         db_index=True,
@@ -97,7 +90,7 @@ class Ticket(models.Model):
     )
 
     seat = models.ForeignKey(
-        Seat,
+        "vehicles.Seat",
         on_delete=models.SET_NULL,
         related_name="tickets",
         null=True,
@@ -107,7 +100,7 @@ class Ticket(models.Model):
     )
 
     checked_in_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="processed_ticket_checkins",
         null=True,

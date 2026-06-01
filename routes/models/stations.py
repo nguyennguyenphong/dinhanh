@@ -6,10 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import F, Q
 from django.utils.translation import gettext_lazy as _
-
-from routes.models.provinces import Province
 
 
 class Station(models.Model):
@@ -78,7 +75,7 @@ class Station(models.Model):
     # ========================================================================
 
     province = models.ForeignKey(
-        Province,
+        "routes.Province",
         on_delete=models.CASCADE,
         related_name="stations",
         db_index=True,
@@ -285,6 +282,8 @@ class Station(models.Model):
             routes = station.get_all_routes()
         """
         from django.db.models import Q
+        from django.apps import apps
+        Route = apps.get_model("routes", "Route")
 
         return Route.objects.filter(
             Q(origin=self) | Q(destination=self), is_active=True
@@ -301,7 +300,8 @@ class Station(models.Model):
             count = station.get_route_count()
         """
         from django.db.models import Q
-
+        from django.apps import apps
+        Route = apps.get_model("routes", "Route")
         return Route.objects.filter(
             Q(origin=self) | Q(destination=self), is_active=True
         ).count()
@@ -321,6 +321,8 @@ class Station(models.Model):
             schedules = station.get_schedules()
         """
         from django.db.models import Q
+        from django.apps import apps
+        Schedule = apps.get_model("routes", "Schedule")
 
         return Schedule.objects.filter(
             Q(route__origin=self) | Q(route__destination=self), is_active=True
@@ -336,6 +338,9 @@ class Station(models.Model):
         Example:
             departures = station.get_departures()
         """
+        from django.apps import apps
+        Schedule = apps.get_model("routes", "Schedule")
+
         return Schedule.objects.filter(route__origin=self, is_active=True).order_by(
             "departure_time"
         )
@@ -350,6 +355,9 @@ class Station(models.Model):
         Example:
             arrivals = station.get_arrivals()
         """
+        from django.apps import apps
+        Schedule = apps.get_model("routes", "Schedule")
+
         return Schedule.objects.filter(
             route__destination=self, is_active=True
         ).order_by("arrival_time")
@@ -375,7 +383,10 @@ class Station(models.Model):
             # }
         """
         from django.db.models import Q
-
+        from django.apps import apps
+        Schedule = apps.get_model("routes", "Schedule")
+        Route = apps.get_model("routes", "Route")
+        
         routes = Route.objects.filter(
             Q(origin=self) | Q(destination=self), is_active=True
         ).count()

@@ -15,8 +15,6 @@ from django.db.models import Avg
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from webhooks.models.webhook_endpoints import WebhookEndpoint
-
 
 class WebhookDelivery(models.Model):
     """
@@ -79,7 +77,7 @@ class WebhookDelivery(models.Model):
     # ========================================================================
 
     endpoint = models.ForeignKey(
-        WebhookEndpoint,
+        "webhooks.WebhookEndpoint",
         on_delete=models.CASCADE,
         related_name="deliveries",
         db_index=True,

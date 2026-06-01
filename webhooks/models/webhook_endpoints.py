@@ -12,10 +12,7 @@ from django.contrib.postgres.fields import ArrayField
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator, URLValidator
 from django.db import models
-from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-
-from tenants.models.tenants import Tenant
 
 
 class WebhookEndpoint(models.Model):
@@ -93,7 +90,7 @@ class WebhookEndpoint(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="webhook_endpoints",
         db_index=True,

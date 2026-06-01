@@ -6,9 +6,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class AssetCategory(models.Model):
     """
@@ -34,7 +31,7 @@ class AssetCategory(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from DDL requirement
         default=1,
         related_name="asset_categories",

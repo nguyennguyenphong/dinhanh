@@ -8,11 +8,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from trips.models.trips import Trip
-
 
 class ConsignmentManifest(models.Model):
     """
@@ -66,7 +61,7 @@ class ConsignmentManifest(models.Model):
     # ========================================================================
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.PROTECT,  # Production safety: strict PROTECT blocks deleting core trips if freight manifests depend on it
         related_name="consignment_manifests",
         db_index=True,
@@ -74,7 +69,7 @@ class ConsignmentManifest(models.Model):
     )
 
     created_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
         related_name="created_manifests",
         null=True,

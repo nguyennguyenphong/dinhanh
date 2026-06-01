@@ -1,10 +1,6 @@
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from .locations import Location
-from .provinces import Province
-
 
 class District(models.Model):
     """
@@ -38,7 +34,7 @@ class District(models.Model):
     # ========================================================================
 
     province = models.ForeignKey(
-        Province,
+        "routes.Province",
         on_delete=models.CASCADE,
         related_name="districts",
         db_index=True,
@@ -134,6 +130,7 @@ class District(models.Model):
         Example:
             stats = district.get_statistics()
         """
+        from .locations import Location
         wards = self.wards.count()
         locations = Location.objects.filter(ward__district=self).count()
 

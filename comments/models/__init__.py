@@ -3,4 +3,4 @@
 # Example:
 # from comments.models.comments import Comment
 
-from .comments import *
+from .comments import Comment

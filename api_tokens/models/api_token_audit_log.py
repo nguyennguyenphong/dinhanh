@@ -1,9 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-from .api_tokens import APIToken
-
 
 class APITokenAuditLog(models.Model):
     """
@@ -31,7 +28,7 @@ class APITokenAuditLog(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="api_token_audit_logs",
         db_index=True,
@@ -39,7 +36,7 @@ class APITokenAuditLog(models.Model):
     )
 
     token = models.ForeignKey(
-        APIToken,
+        "api_tokens.APIToken",
         on_delete=models.CASCADE,
         related_name="api_token_audit_logs",
         help_text="API token used",

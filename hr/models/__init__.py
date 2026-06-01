@@ -3,9 +3,9 @@
 # Example:
 # from hr.models.employees import Employee
 
-from .attendances import *
-from .departments import *
-from .employees import *
-from .leave_requests import *
-from .payroll import *
-from .shift_types import *
+from .attendances import Attendance
+from .departments import Department
+from .employees import Employee
+from .leave_requests import LeaveRequest
+from .payroll import Payroll
+from .shift_types import ShiftType

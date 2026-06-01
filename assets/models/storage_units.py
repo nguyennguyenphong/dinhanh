@@ -7,11 +7,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from branches.models.branches import Branch
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class StorageUnit(models.Model):
     """
@@ -40,7 +35,7 @@ class StorageUnit(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from DDL requirement
         default=1,
         related_name="storage_units",
@@ -49,7 +44,7 @@ class StorageUnit(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,  # Matches REFERENCES branches(id) ON DELETE SET NULL
         related_name="storage_units",
         null=True,

@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount
-
 
 class PasswordResetToken(models.Model):
     """
@@ -17,7 +15,7 @@ class PasswordResetToken(models.Model):
     id = models.AutoField(primary_key=True)
 
     user = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.CASCADE,
         related_name="password_reset_tokens",
         help_text="User requesting password reset",

@@ -8,11 +8,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class AfterSales(models.Model):
     """
@@ -78,7 +73,7 @@ class AfterSales(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="after_sales_policies",
@@ -87,7 +82,7 @@ class AfterSales(models.Model):
     )
 
     created_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
         related_name="created_after_sales",
         null=True,

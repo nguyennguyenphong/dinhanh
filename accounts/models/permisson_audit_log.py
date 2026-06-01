@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 class PermissionAuditLog(models.Model):
     """
     Audit log for permission changes
@@ -25,7 +23,7 @@ class PermissionAuditLog(models.Model):
 
     # Tenant
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="permission_audit_logs",
         db_index=True,
@@ -33,7 +31,7 @@ class PermissionAuditLog(models.Model):
 
     # Permission reference
     permission = models.ForeignKey(
-        Permission,
+        "accounts.Permission",
         on_delete=models.CASCADE,
         related_name="permission_audit_logs",
         null=True,

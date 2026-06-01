@@ -12,9 +12,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class NotificationTemplate(models.Model):
     """
@@ -73,7 +70,7 @@ class NotificationTemplate(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",  # Assuming a Tenant model exists in a tenants app
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="notification_templates",

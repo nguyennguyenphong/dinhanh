@@ -3,8 +3,11 @@
 # Example:
 # from routes.models.routes import Route
 
-from .provinces import *
-from .route_stops import *
-from .routes import *
-from .schedules import *
-from .stations import *
+from .provinces import Province
+from .districts import District
+from .wards import Ward
+from .locations import Location
+from .route_stops import RouteStop
+from .routes import Route
+from .schedules import Schedule
+from .stations import Station

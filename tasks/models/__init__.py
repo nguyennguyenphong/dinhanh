@@ -3,5 +3,5 @@
 # Example:
 # tasks.models.tasks import Task
 
-from .task_lists import *
-from .tasks import *
+from .task_lists import TaskList
+from .tasks import Task

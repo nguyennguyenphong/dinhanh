@@ -6,19 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
-from consignments.models.consignments import (  # Mapped after consignment architecture deployment
-    Consignment,
-)
-from customers_tickets.models.ticket_bookings import TicketBooking
-from payments.models.payment_methods import PaymentMethod
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
 
 
 class Payment(models.Model):
@@ -80,7 +68,7 @@ class Payment(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="payments",
@@ -89,7 +77,7 @@ class Payment(models.Model):
     )
 
     booking = models.ForeignKey(
-        TicketBooking,
+        "customers_tickets.TicketBooking",
         on_delete=models.SET_NULL,  # Matches REFERENCES ticket_bookings(id) ON DELETE SET NULL
         related_name="payments",
         null=True,
@@ -99,7 +87,7 @@ class Payment(models.Model):
     )
 
     consignment = models.ForeignKey(
-        Consignment,
+        "consignments.Consignment",
         on_delete=models.SET_NULL,  # Soft reference mapping the consignment module link
         related_name="payments",
         null=True,
@@ -109,7 +97,7 @@ class Payment(models.Model):
     )
 
     method = models.ForeignKey(
-        PaymentMethod,
+        "payments.PaymentMethod",
         on_delete=models.PROTECT,  # Production safety: block deleting configuration lines if transaction logs depend on it
         related_name="payments",
         db_index=True,
@@ -117,7 +105,7 @@ class Payment(models.Model):
     )
 
     cashier = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
         related_name="collected_payments",
         null=True,
@@ -127,7 +115,7 @@ class Payment(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,  # Matches REFERENCES branches(id) ON DELETE SET NULL
         related_name="branch_payments",
         null=True,

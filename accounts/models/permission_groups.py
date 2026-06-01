@@ -2,8 +2,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 class PermissionGroup(models.Model):
     """
     Group related permissions together for easier management
@@ -26,7 +24,7 @@ class PermissionGroup(models.Model):
 
     # Multi-tenant relationship
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="permission_groups",
         db_index=True,
@@ -55,7 +53,7 @@ class PermissionGroup(models.Model):
 
     # Permissions in this group
     permissions = models.ManyToManyField(
-        Permission,
+        "accounts.Permission",
         related_name="groups",
         help_text="Permissions included in this group",
     )

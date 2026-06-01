@@ -3,4 +3,4 @@
 # Example:
 # from media.models.media_files import MediaFile
 
-from .media_files import *
+from .media_files import MediaFile

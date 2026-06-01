@@ -12,12 +12,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from routes.models.routes import Route
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-from vehicles.models.vehicle_categories import VehicleCategory
-
 
 class TripSchedule(models.Model):
     """
@@ -52,7 +46,7 @@ class TripSchedule(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="trip_schedules",
@@ -61,7 +55,7 @@ class TripSchedule(models.Model):
     )
 
     route = models.ForeignKey(
-        Route,
+        "routes.Route",
         on_delete=models.PROTECT,
         related_name="trip_schedules",
         db_index=True,
@@ -69,7 +63,7 @@ class TripSchedule(models.Model):
     )
 
     category = models.ForeignKey(
-        VehicleCategory,
+        "vehicles.VehicleCategory",
         on_delete=models.SET_NULL,
         related_name="trip_schedules",
         null=True,

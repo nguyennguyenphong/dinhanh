@@ -8,13 +8,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from assets.models.asset_categories import AssetCategory
-from branches.models.branches import Branch
-from hr.models.employees import Employee
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class Asset(models.Model):
     """
@@ -87,7 +80,7 @@ class Asset(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="assets",
@@ -96,7 +89,7 @@ class Asset(models.Model):
     )
 
     category = models.ForeignKey(
-        AssetCategory,
+        "assets.AssetCategory",
         on_delete=models.SET_NULL,
         related_name="assets",
         null=True,
@@ -110,7 +103,7 @@ class Asset(models.Model):
     # ========================================================================
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,
         related_name="assets",
         null=True,
@@ -120,7 +113,7 @@ class Asset(models.Model):
     )
 
     assigned_to = models.ForeignKey(
-        Employee,
+        "hr.Employee",
         on_delete=models.SET_NULL,
         related_name="assigned_assets",
         null=True,

@@ -8,13 +8,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from hr.models.employees import Employee
-from trips.models.trips import Trip
-
-# Assuming these models exist in your production architecture
-from vehicles.models.vehicles import Vehicle
-
 
 class FuelAllocation(models.Model):
     """
@@ -47,7 +40,7 @@ class FuelAllocation(models.Model):
     # ========================================================================
 
     vehicle = models.ForeignKey(
-        Vehicle,
+        "vehicles.Vehicle",
         on_delete=models.CASCADE,
         related_name="fuel_allocations",
         db_index=True,
@@ -55,7 +48,7 @@ class FuelAllocation(models.Model):
     )
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.SET_NULL,
         related_name="fuel_allocations",
         null=True,
@@ -65,7 +58,7 @@ class FuelAllocation(models.Model):
     )
 
     driver = models.ForeignKey(
-        Employee,
+        "hr.Employee",
         on_delete=models.SET_NULL,
         related_name="fuel_allocations",
         null=True,
@@ -75,7 +68,7 @@ class FuelAllocation(models.Model):
     )
 
     allocated_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="authorized_fuel_allocations",
         null=True,

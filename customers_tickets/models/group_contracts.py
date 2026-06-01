@@ -6,14 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-from trips.models.trips import Trip
 
 
 class GroupContract(models.Model):
@@ -72,7 +65,7 @@ class GroupContract(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="group_contracts",
@@ -81,7 +74,7 @@ class GroupContract(models.Model):
     )
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.PROTECT,
         related_name="group_contracts",
         db_index=True,
@@ -89,7 +82,7 @@ class GroupContract(models.Model):
     )
 
     created_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="created_contracts",
         null=True,

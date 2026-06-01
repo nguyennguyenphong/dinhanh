@@ -45,7 +45,7 @@ class MenuItemRole(models.Model):
     """
 
     menu_item = models.ForeignKey(
-        "MenuItem",
+        "menus.MenuItem",
         on_delete=models.CASCADE,
         related_name="role_assignments",
         db_index=True,

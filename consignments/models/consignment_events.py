@@ -5,13 +5,7 @@
 
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from consignments.models.consignments import Consignment
 
 
 class ConsignmentEvent(models.Model):
@@ -74,7 +68,7 @@ class ConsignmentEvent(models.Model):
     # ========================================================================
 
     consignment = models.ForeignKey(
-        Consignment,
+        "consignments.Consignment",
         on_delete=models.CASCADE,
         related_name="events",
         db_index=True,
@@ -82,7 +76,7 @@ class ConsignmentEvent(models.Model):
     )
 
     recorded_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="logged_consignment_events",
         null=True,

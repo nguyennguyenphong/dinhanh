@@ -5,13 +5,7 @@
 
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from hr.models.employees import Employee
 
 
 class LeaveRequest(models.Model):
@@ -71,7 +65,7 @@ class LeaveRequest(models.Model):
     # ========================================================================
 
     employee = models.ForeignKey(
-        Employee,
+        "hr.Employee",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name="leave_requests",
         db_index=True,
@@ -79,7 +73,7 @@ class LeaveRequest(models.Model):
     )
 
     approved_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
         related_name="reviewed_leaves",
         null=True,

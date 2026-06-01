@@ -8,12 +8,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from customers_tickets.models.customers import Customer
-from customers_tickets.models.ticket_bookings import TicketBooking
-
-# Assuming these models exist in your production architecture
-from promotions_loyalty.models.promotions import Promotion
-
 
 class PromotionUsage(models.Model):
     """
@@ -42,7 +36,7 @@ class PromotionUsage(models.Model):
     # ========================================================================
 
     promotion = models.ForeignKey(
-        Promotion,
+        "promotions_loyalty.Promotion",
         on_delete=models.PROTECT,  # Production safety: block deleting promotion rules if consumption history exists
         related_name="usages",
         db_index=True,
@@ -50,7 +44,7 @@ class PromotionUsage(models.Model):
     )
 
     booking = models.ForeignKey(
-        TicketBooking,
+        "customers_tickets.TicketBooking",
         on_delete=models.PROTECT,  # Production safety: block deleting ticket orders if marketing ledger data depends on it
         related_name="promotion_usages",
         db_index=True,
@@ -58,7 +52,7 @@ class PromotionUsage(models.Model):
     )
 
     customer = models.ForeignKey(
-        Customer,
+        "customers_tickets.Customer",
         on_delete=models.SET_NULL,  # Matches REFERENCES customers(id) ON DELETE SET NULL
         related_name="coupon_usages",
         null=True,

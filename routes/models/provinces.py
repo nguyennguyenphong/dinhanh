@@ -5,10 +5,7 @@
 
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from .locations import Location
-from .wards import Ward
 
 
 class Province(models.Model):
@@ -149,6 +146,10 @@ class Province(models.Model):
             #     'locations': 500
             # }
         """
+        from django.apps import apps
+        Ward = apps.get_model('locations', 'Ward')
+        Location = apps.get_model('locations', 'Location')
+
         districts = self.districts.count()
         wards = Ward.objects.filter(district__province=self).count()
         locations = Location.objects.filter(ward__district__province=self).count()

@@ -10,9 +10,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming this model exists in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class VehicleCategory(models.Model):
     """
@@ -62,7 +59,7 @@ class VehicleCategory(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="vehicle_categories",

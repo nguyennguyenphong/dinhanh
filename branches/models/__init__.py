@@ -3,4 +3,5 @@
 # Example:
 # from branches.models.branches import Branch
 
-from .branches import *
+from .branches import Branch
+from .branch_audit_log import BranchAuditLog

@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 
 class MenuAuditLog(models.Model):
     """
@@ -19,7 +17,7 @@ class MenuAuditLog(models.Model):
     id = models.BigAutoField(primary_key=True)
 
     tenant = models.ForeignKey(
-        Tenant, on_delete=models.CASCADE, related_name="menu_audit_logs", db_index=True
+        "tenants.Tenant", on_delete=models.CASCADE, related_name="menu_audit_logs", db_index=True
     )
 
     action = models.CharField(max_length=20, choices=ACTION_CHOICES, db_index=True)

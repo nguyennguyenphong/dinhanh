@@ -3,9 +3,9 @@
 # Example:
 # from customers_tickets.models.customers_tickets import CustomerTicket
 
-from .customers import *
-from .group_contracts import *
-from .ticket_bookings import *
-from .ticket_exchanges import *
-from .ticket_refunds import *
-from .tickets import *
+from .customers import Customer
+from .group_contracts import GroupContract
+from .ticket_bookings import TicketBooking
+from .ticket_exchanges import TicketExchange
+from .ticket_refunds import TicketRefund
+from .tickets import Ticket

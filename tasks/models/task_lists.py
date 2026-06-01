@@ -7,9 +7,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from tasks.models.tasks import Task
-from tenants.models.tenants import Tenant
-
 
 class TaskList(models.Model):
     """
@@ -58,7 +55,7 @@ class TaskList(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="task_lists",
         db_index=True,
@@ -156,6 +153,8 @@ class TaskList(models.Model):
                 assigned_to=user
             )
         """
+        from django.apps import apps
+        Task = apps.get_model("tasks", "Task")
         task = Task.objects.create(
             task_list=self,
             title=title,

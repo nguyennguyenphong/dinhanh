@@ -8,11 +8,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from vehicles.models.vehicles import Vehicle
-
 
 class VehicleMaintenance(models.Model):
     """
@@ -71,7 +66,7 @@ class VehicleMaintenance(models.Model):
     # ========================================================================
 
     vehicle = models.ForeignKey(
-        Vehicle,
+        "vehicles.Vehicle",
         on_delete=models.CASCADE,
         related_name="maintenances",
         db_index=True,
@@ -79,7 +74,7 @@ class VehicleMaintenance(models.Model):
     )
 
     performed_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="supervised_maintenances",
         null=True,

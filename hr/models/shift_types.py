@@ -9,10 +9,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming this model exists in your production architecture
-from tenants.models.tenants import Tenant
-
-
 class ShiftType(models.Model):
     """
     ShiftType model defining operational working hours configurations per tenant.
@@ -53,7 +49,7 @@ class ShiftType(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         default=1,
         related_name="shift_types",

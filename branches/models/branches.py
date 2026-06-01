@@ -10,8 +10,6 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from pytz import common_timezones
 
-from tenants.models.tenants import Tenant
-
 
 class Branch(models.Model):
     """
@@ -62,7 +60,7 @@ class Branch(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="branches",
         db_index=True,

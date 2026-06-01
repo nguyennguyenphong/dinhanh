@@ -8,13 +8,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
-from hr.models.departments import Department
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class Employee(models.Model):
     """
@@ -80,7 +73,7 @@ class Employee(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name="employees",
         db_index=True,
@@ -88,7 +81,7 @@ class Employee(models.Model):
     )
 
     department = models.ForeignKey(
-        Department,
+        "hr.Department",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL
         related_name="employees",
         null=True,
@@ -98,7 +91,7 @@ class Employee(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL
         related_name="employees",
         null=True,
@@ -108,7 +101,7 @@ class Employee(models.Model):
     )
 
     user_account = models.OneToOneField(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL / UNIQUE combined
         related_name="employee_profile",
         null=True,

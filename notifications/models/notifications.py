@@ -8,9 +8,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming these models exist in your production architecture
-from notifications.models.notification_templates import NotificationTemplate
-
 
 class Notification(models.Model):
     """
@@ -103,7 +100,7 @@ class Notification(models.Model):
     # ========================================================================
 
     template = models.ForeignKey(
-        NotificationTemplate,
+        "notifications.NotificationTemplate",
         on_delete=models.SET_NULL,  # Matches REFERENCES notification_templates(id) ON DELETE SET NULL
         related_name="notifications",
         null=True,

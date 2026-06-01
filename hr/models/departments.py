@@ -6,11 +6,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-
 
 class Department(models.Model):
     """
@@ -38,7 +33,7 @@ class Department(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="departments",
@@ -47,7 +42,7 @@ class Department(models.Model):
     )
 
     manager = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
         related_name="managed_departments",
         null=True,

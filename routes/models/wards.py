@@ -1,7 +1,6 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from .districts import District
 
 
 class Ward(models.Model):
@@ -33,7 +32,7 @@ class Ward(models.Model):
     # ========================================================================
 
     district = models.ForeignKey(
-        District,
+        "routes.District",
         on_delete=models.CASCADE,
         related_name="wards",
         db_index=True,

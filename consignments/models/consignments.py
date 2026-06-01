@@ -6,16 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
-from routes.models.stations import Station
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-from trips.models.trips import Trip
 
 
 class Consignment(models.Model):
@@ -97,7 +88,7 @@ class Consignment(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="consignments",
@@ -106,7 +97,7 @@ class Consignment(models.Model):
     )
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.SET_NULL,
         related_name="consignments",
         null=True,
@@ -116,7 +107,7 @@ class Consignment(models.Model):
     )
 
     origin_station = models.ForeignKey(
-        Station,
+        "routes.Station",
         on_delete=models.SET_NULL,
         related_name="origin_consignments",
         null=True,
@@ -125,7 +116,7 @@ class Consignment(models.Model):
     )
 
     destination_station = models.ForeignKey(
-        Station,
+        "routes.Station",
         on_delete=models.SET_NULL,
         related_name="destination_consignments",
         null=True,
@@ -134,7 +125,7 @@ class Consignment(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,
         related_name="consignments",
         null=True,
@@ -321,7 +312,7 @@ class Consignment(models.Model):
     # ========================================================================
 
     received_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="received_consignments",
         null=True,
@@ -330,7 +321,7 @@ class Consignment(models.Model):
     )
 
     delivered_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="delivered_consignments",
         null=True,

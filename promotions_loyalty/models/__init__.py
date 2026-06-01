@@ -3,7 +3,7 @@
 # Example:
 # promotions_loyalty.models.promotions_loyalty import PromotionLoyalty
 
-from .after_sales import *
-from .loyalty_transactions import *
-from .promotion_usages import *
-from .promotions import *
+from .after_sales import AfterSales
+from .loyalty_transactions import LoyaltyTransaction
+from .promotion_usages import PromotionUsage
+from .promotions import Promotion

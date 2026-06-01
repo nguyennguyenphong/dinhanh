@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 
 class TenantAuditLog(models.Model):
     """
@@ -20,7 +18,7 @@ class TenantAuditLog(models.Model):
 
     id = models.BigAutoField(primary_key=True)
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="tenant_audit_logs",
         db_index=True,

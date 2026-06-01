@@ -7,12 +7,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from hr.models.employees import Employee
-from hr.models.shift_types import ShiftType
-
 
 class Attendance(models.Model):
     """
@@ -62,7 +56,7 @@ class Attendance(models.Model):
     # ========================================================================
 
     employee = models.ForeignKey(
-        Employee,
+        "hr.Employee",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name="attendances",
         db_index=True,
@@ -70,7 +64,7 @@ class Attendance(models.Model):
     )
 
     shift_type = models.ForeignKey(
-        ShiftType,
+        "hr.ShiftType",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL
         related_name="attendances",
         null=True,
@@ -80,7 +74,7 @@ class Attendance(models.Model):
     )
 
     approved_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL
         related_name="approved_attendances",
         null=True,

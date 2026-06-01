@@ -7,10 +7,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming these models exist in your production architecture
-from customers_tickets.models.customers import Customer
-from customers_tickets.models.ticket_bookings import TicketBooking
-
 
 class LoyaltyTransaction(models.Model):
     """
@@ -72,7 +68,7 @@ class LoyaltyTransaction(models.Model):
     # ========================================================================
 
     customer = models.ForeignKey(
-        Customer,
+        "customers_tickets.Customer",
         on_delete=models.CASCADE,  # Matches REFERENCES customers(id) ON DELETE CASCADE
         related_name="loyalty_transactions",
         db_index=True,
@@ -80,7 +76,7 @@ class LoyaltyTransaction(models.Model):
     )
 
     booking = models.ForeignKey(
-        TicketBooking,
+        "customers_tickets.TicketBooking",
         on_delete=models.SET_NULL,  # Matches REFERENCES ticket_bookings(id) ON DELETE SET NULL
         related_name="loyalty_transactions",
         null=True,
@@ -201,6 +197,9 @@ class LoyaltyTransaction(models.Model):
             # Production Engine Security Block: Use PostgreSQL row-level locks (SELECT FOR UPDATE)
             # on the parent Customer model to prevent race condition corruption under massive concurrent traffic
             from django.db import transaction
+            from django.apps import apps
+
+            Customer = apps.get_model("customers_tickets", "Customer")
 
             with transaction.atomic():
                 # Lock parent record to pull a high-fidelity point balance checkpoint

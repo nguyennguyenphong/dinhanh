@@ -11,8 +11,6 @@ from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 
 class Task(models.Model):
     """
@@ -96,7 +94,7 @@ class Task(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="tasks",
         db_index=True,

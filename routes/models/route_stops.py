@@ -6,10 +6,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming these models exist in your production architecture
-from routes.models.routes import Route
-from routes.models.stations import Station
-
 
 class RouteStop(models.Model):
     """
@@ -45,7 +41,7 @@ class RouteStop(models.Model):
     # ========================================================================
 
     route = models.ForeignKey(
-        Route,
+        "routes.Route",  # String reference to avoid circular import issues
         on_delete=models.CASCADE,
         related_name="stops",
         db_index=True,
@@ -53,7 +49,7 @@ class RouteStop(models.Model):
     )
 
     station = models.ForeignKey(
-        Station,
+        "routes.Station",
         on_delete=models.RESTRICT,  # Production safety: prevent accidental station deletion
         related_name="route_stops",
         db_index=True,
@@ -211,6 +207,8 @@ class RouteStop(models.Model):
         Example:
             matching_routes = RouteStop.get_routes_by_station_pair(10, 15)
         """
+        from django.apps import apps
+        Route = apps.get_model('routes', 'Route')
         # Finds routes where origin stop exists and is ordered before destination stop
         return (
             Route.objects.filter(

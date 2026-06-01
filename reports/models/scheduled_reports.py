@@ -7,9 +7,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Assuming these models exist in your production architecture
-from reports.models.reports import ReportDefinition
-
 
 class ScheduledReport(models.Model):
     """
@@ -94,7 +91,7 @@ class ScheduledReport(models.Model):
     # ========================================================================
 
     report = models.ForeignKey(
-        ReportDefinition,
+        "reports.ReportDefinition",
         on_delete=models.CASCADE,  # Matches REFERENCES report_definitions(id) ON DELETE CASCADE
         related_name="schedules",
         db_index=True,

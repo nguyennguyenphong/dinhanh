@@ -1,8 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from .provinces import Province
-from .districts import District
-from .wards import Ward
 
 
 class Location(models.Model):
@@ -58,7 +55,7 @@ class Location(models.Model):
     # ========================================================================
 
     ward = models.ForeignKey(
-        Ward,
+        "routes.Ward",
         on_delete=models.CASCADE,
         related_name="locations",
         db_index=True,

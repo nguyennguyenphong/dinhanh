@@ -5,13 +5,7 @@
 
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from trips.models.trips import Trip
 
 
 class DispatchOrder(models.Model):
@@ -59,14 +53,14 @@ class DispatchOrder(models.Model):
     # ========================================================================
 
     trip = models.OneToOneField(
-        Trip,
+        "trips.Trip",
         on_delete=models.CASCADE,  # Matches NOT NULL UNIQUE REFERENCES trips(id) ON DELETE CASCADE
         related_name="dispatch_order",
         help_text="The unique commercial trip journey assigned under this dispatch directive paper",
     )
 
     issued_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,  # Matches REFERENCES user_accounts(id) ON DELETE SET NULL
         related_name="issued_dispatches",
         null=True,

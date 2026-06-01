@@ -7,11 +7,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from consignments.models.consignment_manifests import ConsignmentManifest
-
-# Assuming these models exist in your production architecture
-from consignments.models.consignments import Consignment
-
 
 class ManifestItem(models.Model):
     """
@@ -39,7 +34,7 @@ class ManifestItem(models.Model):
     # ========================================================================
 
     manifest = models.ForeignKey(
-        ConsignmentManifest,
+        "consignments.ConsignmentManifest",
         on_delete=models.CASCADE,  # Matches REFERENCES consignment_manifests(id) ON DELETE CASCADE
         related_name="manifest_items",
         db_index=True,
@@ -47,7 +42,7 @@ class ManifestItem(models.Model):
     )
 
     consignment = models.ForeignKey(
-        Consignment,
+        "consignments.Consignment",
         on_delete=models.PROTECT,  # Production safety: block deleting parcel records if they are already historically tracked inside a manifest
         related_name="manifest_links",
         db_index=True,

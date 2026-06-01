@@ -3,12 +3,9 @@
 # Menu Models with Hierarchical Structure
 # ============================================================================
 
-from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
-from tenants.models.tenants import Tenant
 
 
 class MenuGroup(models.Model):
@@ -44,7 +41,7 @@ class MenuGroup(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="menu_groups",
         db_index=True,

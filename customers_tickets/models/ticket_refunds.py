@@ -6,13 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from accounts.models.user_accounts import UserAccount  # Custom user model
-
-# Assuming these models exist in your production architecture
-from customers_tickets.models.tickets import Ticket
 
 
 class TicketRefund(models.Model):
@@ -79,7 +73,7 @@ class TicketRefund(models.Model):
     # ========================================================================
 
     ticket = models.ForeignKey(
-        Ticket,
+        "customers_tickets.Ticket",
         on_delete=models.PROTECT,
         related_name="refund_records",
         db_index=True,
@@ -87,7 +81,7 @@ class TicketRefund(models.Model):
     )
 
     processed_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="initiated_refunds",
         null=True,
@@ -97,7 +91,7 @@ class TicketRefund(models.Model):
     )
 
     approved_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="authorized_refunds",
         null=True,

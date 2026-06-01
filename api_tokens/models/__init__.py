@@ -3,4 +3,5 @@
 # Example:
 # from api_tokens.models.api_tokens import APIToken
 
-from .api_tokens import *
+from .api_tokens import APIToken
+from .api_token_audit_log import APITokenAuditLog

@@ -6,17 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from branches.models.branches import Branch
-from routes.models.routes import Route
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-from trips.models.trip_schedules import TripSchedule
-from vehicles.models.seat_maps import SeatMap
-from vehicles.models.vehicles import Vehicle
 
 
 class Trip(models.Model):
@@ -68,7 +58,7 @@ class Trip(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="trips",
@@ -77,7 +67,7 @@ class Trip(models.Model):
     )
 
     schedule = models.ForeignKey(
-        TripSchedule,
+        "trips.TripSchedule",
         on_delete=models.SET_NULL,
         related_name="trips",
         null=True,
@@ -87,7 +77,7 @@ class Trip(models.Model):
     )
 
     route = models.ForeignKey(
-        Route,
+        "routes.Route",
         on_delete=models.PROTECT,
         related_name="trips",
         db_index=True,
@@ -95,7 +85,7 @@ class Trip(models.Model):
     )
 
     vehicle = models.ForeignKey(
-        Vehicle,
+        "vehicles.Vehicle",
         on_delete=models.SET_NULL,
         related_name="trips",
         null=True,
@@ -105,7 +95,7 @@ class Trip(models.Model):
     )
 
     seat_map = models.ForeignKey(
-        SeatMap,
+        "vehicles.SeatMap",
         on_delete=models.SET_NULL,
         related_name="trips",
         null=True,
@@ -114,7 +104,7 @@ class Trip(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,
         related_name="trips",
         null=True,

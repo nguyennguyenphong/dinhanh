@@ -5,13 +5,7 @@
 
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from routes.models.routes import Route
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
 
 
 class TripPrice(models.Model):
@@ -56,7 +50,7 @@ class TripPrice(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="trip_prices",
@@ -65,7 +59,7 @@ class TripPrice(models.Model):
     )
 
     route = models.ForeignKey(
-        Route,
+        "routes.Route",
         on_delete=models.CASCADE,
         related_name="tariffs",
         db_index=True,

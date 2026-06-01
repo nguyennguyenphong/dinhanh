@@ -8,16 +8,6 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from accounts.models.user_accounts import UserAccount  # Custom user model
-from branches.models.branches import Branch
-from financials.models.expense_categories import ExpenseCategory
-from hr.models.employees import Employee
-
-# Assuming these models exist in your production architecture
-from tenants.models.tenants import Tenant
-from trips.models.trips import Trip
-from vehicles.models.vehicles import Vehicle
-
 
 class Expense(models.Model):
     """
@@ -82,7 +72,7 @@ class Expense(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         default=1,
         related_name="expenses",
@@ -91,7 +81,7 @@ class Expense(models.Model):
     )
 
     category = models.ForeignKey(
-        ExpenseCategory,
+        "financials.ExpenseCategory",
         on_delete=models.PROTECT,
         related_name="expenses",
         db_index=True,
@@ -103,7 +93,7 @@ class Expense(models.Model):
     # ========================================================================
 
     vehicle = models.ForeignKey(
-        Vehicle,
+        "vehicles.Vehicle",
         on_delete=models.SET_NULL,
         related_name="expenses",
         null=True,
@@ -113,7 +103,7 @@ class Expense(models.Model):
     )
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.SET_NULL,
         related_name="expenses",
         null=True,
@@ -123,7 +113,7 @@ class Expense(models.Model):
     )
 
     branch = models.ForeignKey(
-        Branch,
+        "branches.Branch",
         on_delete=models.SET_NULL,
         related_name="expenses",
         null=True,
@@ -133,7 +123,7 @@ class Expense(models.Model):
     )
 
     employee = models.ForeignKey(
-        Employee,
+        "hr.Employee",
         on_delete=models.SET_NULL,
         related_name="expenses",
         null=True,
@@ -147,7 +137,7 @@ class Expense(models.Model):
     # ========================================================================
 
     submitted_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="submitted_expenses",
         null=True,
@@ -157,7 +147,7 @@ class Expense(models.Model):
     )
 
     approved_by = models.ForeignKey(
-        UserAccount,
+        "accounts.UserAccount",
         on_delete=models.SET_NULL,
         related_name="approved_expenses",
         null=True,

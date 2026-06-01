@@ -10,8 +10,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from system_config.models.system_configs import SystemConfig
-
 
 class SystemConfigHistory(models.Model):
     """
@@ -35,7 +33,7 @@ class SystemConfigHistory(models.Model):
     # ========================================================================
 
     config = models.ForeignKey(
-        SystemConfig,
+        "system_config.SystemConfig",
         on_delete=models.CASCADE,
         related_name="history",
         db_index=True,

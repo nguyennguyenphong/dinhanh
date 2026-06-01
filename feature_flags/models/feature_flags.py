@@ -13,8 +13,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from tenants.models.tenants import Tenant
-
 
 class FeatureFlag(models.Model):
     """
@@ -73,7 +71,7 @@ class FeatureFlag(models.Model):
     # ========================================================================
 
     tenant = models.ForeignKey(
-        Tenant,
+        "tenants.Tenant",
         on_delete=models.CASCADE,
         related_name="feature_flags",
         db_index=True,

@@ -5,14 +5,7 @@
 
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
-from hr.models.employees import Employee
-from hr.models.shift_types import ShiftType
-
-# Assuming these models exist in your production architecture
-from trips.models.trips import Trip
 
 
 class TripStaff(models.Model):
@@ -54,7 +47,7 @@ class TripStaff(models.Model):
     # ========================================================================
 
     trip = models.ForeignKey(
-        Trip,
+        "trips.Trip",
         on_delete=models.CASCADE,  # Matches ON DELETE CASCADE from requirement
         related_name="crew_assignments",
         db_index=True,
@@ -62,7 +55,7 @@ class TripStaff(models.Model):
     )
 
     employee = models.ForeignKey(
-        Employee,
+        "hr.Employee",
         on_delete=models.PROTECT,  # Production safety: lock employee deletion if active trip logs depend on them
         related_name="trip_assignments",
         db_index=True,
@@ -70,7 +63,7 @@ class TripStaff(models.Model):
     )
 
     shift_type = models.ForeignKey(
-        ShiftType,
+        "hr.ShiftType",
         on_delete=models.SET_NULL,  # Matches ON DELETE SET NULL from requirement
         related_name="trip_crew_shifts",
         null=True,
