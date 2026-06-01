@@ -13,3 +13,8 @@
 
 /* Preline Themes */
 /* @import "./themes/theme.css"; */
+
+/* @preline/select */
+@source "../../node_modules/@preline/select/*.js";
+@import "../../node_modules/@preline/select/variants.css";
+@import "../../node_modules/@preline/select/theme.css";

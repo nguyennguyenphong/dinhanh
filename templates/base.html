@@ -1,28 +1,32 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="min-h-screen">
 <head>
     <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/preline@4.2.0/css/themes/theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
 
-    <script src="https://cdn.jsdelivr.net/npm/preline@4.2.0/dist/preline.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/preline@4.2.0/+esm"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.1.0/dist/preline.min.js"></script>
+    <script>
+        window.FloatingUIDOM = window.FloatingUIDOM || {};
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="h-full bg-gray-50 dark:bg-slate-900">
+<body class="min-h-screen bg-gray-50 dark:bg-slate-900">
 
     {% block content %}
     {% endblock %}
 
     <script>
-        window.HSStaticMethods?.autoInit();
+        const observer = new MutationObserver(() => {
+            window.HSStaticMethods?.autoInit();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
     </script>
 
 </body>

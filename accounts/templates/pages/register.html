@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% block title %} Đăng nhập {% endblock %}
-    <div class="min-h-screen flex">
-        
-        {% include 'components/login/panel/left.html' %}
+{% block title %} Đăng ký {% endblock %}
 
-        {% include 'components/login/panel/right.html' %}
-    </div>
 {% block content %}
 
-{% endblock %}
+<div class="min-h-screen flex">
+    
+    {% include 'components/register/panel/left.html' %}
 
-{% load static %}
+    {% include 'components/register/panel/right.html' %}
+</div>
+
+{% endblock %}

@@ -2,6 +2,8 @@
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-24 -right-24 size-96 bg-blue-500/40 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 -left-24 size-80 bg-blue-700/50 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-150 bg-blue-500/10 rounded-full">
+        </div>
         <svg class="absolute inset-0 opacity-10" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <defs>
                 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -11,56 +13,36 @@
             <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
     </div>
-    <div class="relative z-10 space-y-6">
+    <div class="relative z-10 space-y-8">
         <div class="space-y-4">
             <div
                 class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-full bg-white/15 backdrop-blur-sm text-white/90 text-xs font-medium">
-                <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-                Tạo tài khoản mới
+                <span class="size-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Hệ thống vận hành 24/7
             </div>
             <h1 class="text-4xl xl:text-5xl font-bold text-white leading-tight">
-                Bắt đầu quản lý<br>
-                <span class="text-blue-200">chuyên nghiệp hơn</span>
+                Quản lý nhà xe<br>
+                <span class="text-blue-200">thông minh hơn</span>
             </h1>
             <p class="text-blue-100/80 text-base leading-relaxed max-w-sm">
-                Đăng ký tài khoản để được cấp quyền truy cập vào hệ thống điều hành nhà xe Định Anh.
+                Nền tảng điều hành tích hợp — từ đặt vé, quản lý tuyến đường đến báo cáo doanh thu theo thời
+                gian thực.
             </p>
         </div>
-        <ul class="space-y-3">
-            <li class="flex items-center gap-x-3 text-sm text-blue-100">
-                <div class="size-5 bg-white/20 rounded-full flex items-center justify-center shrink-0">
-                    <svg class="size-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                </div>
-                Quản lý vé & chuyến xe theo thời gian thực
-            </li>
-            <li class="flex items-center gap-x-3 text-sm text-blue-100">
-                <div class="size-5 bg-white/20 rounded-full flex items-center justify-center shrink-0">
-                    <svg class="size-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                </div>
-                Báo cáo doanh thu & phân tích dữ liệu
-            </li>
-            <li class="flex items-center gap-x-3 text-sm text-blue-100">
-                <div class="size-5 bg-white/20 rounded-full flex items-center justify-center shrink-0">
-                    <svg class="size-3 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                </div>
-                Phân quyền linh hoạt theo vai trò
-            </li>
-        </ul>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                <p class="text-2xl font-bold text-white">98.4%</p>
+                <p class="text-xs text-blue-200 mt-1">Xuất bến đúng giờ</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                <p class="text-2xl font-bold text-white">312+</p>
+                <p class="text-xs text-blue-200 mt-1">Vé bán mỗi ngày</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                <p class="text-2xl font-bold text-white">24/7</p>
+                <p class="text-xs text-blue-200 mt-1">Hỗ trợ trực tuyến</p>
+            </div>
+        </div>
     </div>
     <div class="relative z-10">
         <p class="text-blue-200/60 text-xs">© 2025 Nhà Xe Định Anh. All rights reserved.</p>

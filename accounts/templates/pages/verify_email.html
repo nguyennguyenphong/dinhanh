@@ -1,51 +1,25 @@
+{% extends 'base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="vi" class="h-full">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác minh Email - Hệ Thống Nhà Xe Định Anh</title>
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
-    <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/preline@4.2.0/+esm"></script>
-</head>
-<body class="min-h-screen bg-gray-50 dark:bg-slate-900 flex items-center justify-center p-4 sm:p-6">
+{% block title %} Xác minh Email {% endblock %}
 
-    <div class="w-full max-w-md">
+{% block content %}
 
-        <!-- Logo -->
-        <div class="text-center mb-8">
-            <div class="inline-flex items-center gap-x-2">
-                <div class="size-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/30">
-                    <svg class="size-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M8 6v6m0 0v6m0-6h8m0-6v6m0 0v6"/>
-                    </svg>
-                </div>
-                <span class="text-lg font-bold text-gray-800 dark:text-white">Định Anh CMS</span>
-            </div>
-        </div>
-
-        <!-- Card -->
+<div class="min-h-screen w-full flex flex-col items-center justify-center p-4 bg-gray-50 dark:bg-slate-950">
+    <div class="w-full max-w-md mx-auto">
         <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-slate-800">
-
-            <!-- Top accent bar -->
-            <div class="h-1.5 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-sky-400"></div>
-
+            <div class="h-1.5 w-full bg-linear-to-r from-blue-500 via-blue-400 to-sky-400"></div>
             <div class="p-8">
-                <!-- Icon & heading -->
                 <div class="flex flex-col items-center text-center mb-7">
                     <div class="relative mb-4">
                         <div class="size-16 bg-blue-100 rounded-2xl flex items-center justify-center dark:bg-blue-950/30">
-                            <svg class="size-8 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="20" height="16" x="2" y="4" rx="2"/>
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                            </svg>
+                            <img src="{% static 'icons/mail.svg' %}" alt="mail" class="size-8 text-blue-600 dark:text-blue-400">
                         </div>
-                        <!-- Animated pulse rings -->
+                        
                         <span class="absolute -top-1 -right-1 flex size-4">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-60"></span>
                             <span class="relative inline-flex rounded-full size-4 bg-blue-500 items-center justify-center">
-                                <svg class="size-2.5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <img src="{% static 'icons/check.svg' %}" alt="check" class="size-2.5 text-white">
                             </span>
                         </span>
                     </div>
@@ -54,98 +28,27 @@
                         Chúng tôi đã gửi email xác minh đến địa chỉ:
                     </p>
                     <div class="mt-2 inline-flex items-center gap-x-2 py-1.5 px-3.5 rounded-full bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-800/40">
-                        <svg class="size-3.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                        </svg>
+                        <img src="{% static 'icons/mail.svg' %}" alt="mail" class="size-3 text-blue-600 dark:text-blue-400">
                         <span class="text-sm font-semibold text-blue-700 dark:text-blue-300">{{ user.email }}</span>
                     </div>
                 </div>
 
-                <!-- Steps -->
-                <div class="space-y-3 mb-7">
-                    <div class="flex items-start gap-x-3.5 p-3.5 rounded-xl bg-gray-50 dark:bg-slate-800/50">
-                        <div class="size-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</div>
-                        <p class="text-sm text-gray-600 dark:text-slate-400">Mở email từ <span class="font-medium text-gray-800 dark:text-slate-200">noreply@dinhanh.vn</span></p>
-                    </div>
-                    <div class="flex items-start gap-x-3.5 p-3.5 rounded-xl bg-gray-50 dark:bg-slate-800/50">
-                        <div class="size-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</div>
-                        <p class="text-sm text-gray-600 dark:text-slate-400">Nhấn vào nút <span class="font-medium text-gray-800 dark:text-slate-200">"Xác minh tài khoản"</span> trong email</p>
-                    </div>
-                    <div class="flex items-start gap-x-3.5 p-3.5 rounded-xl bg-gray-50 dark:bg-slate-800/50">
-                        <div class="size-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</div>
-                        <p class="text-sm text-gray-600 dark:text-slate-400">Quay lại hệ thống để <span class="font-medium text-gray-800 dark:text-slate-200">đăng nhập</span></p>
-                    </div>
-                </div>
-
-                <!-- Divider -->
+                {% include 'components/verify_email/steps_verify.html' %}
+                
                 <div class="flex items-center gap-x-3 mb-5">
                     <div class="flex-1 h-px bg-gray-100 dark:bg-slate-700"></div>
                     <span class="text-xs text-gray-400">Không nhận được email?</span>
                     <div class="flex-1 h-px bg-gray-100 dark:bg-slate-700"></div>
                 </div>
 
-                <!-- Resend form -->
-                <form method="POST" action="{% url 'resend_verification' %}" id="resend-form">
-                    {% csrf_token %}
-                    <input type="hidden" name="email" value="{{ user.email }}">
-                    <button type="submit" id="resend-btn"
-                        class="w-full py-2.5 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-xl border-[1.5px] border-gray-200 bg-white text-gray-700 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 active:scale-[0.98] focus:outline-none transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400">
-                        <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 2 9 13"/><path d="M21 2 15 22 9 13 2 9l19-7z"/>
-                        </svg>
-                        <span id="resend-text">Gửi lại email xác minh</span>
-                    </button>
-                </form>
+                {% include 'components/verify_email/main_form.html' %}
 
-                <!-- Spam note -->
-                <div class="mt-4 flex items-start gap-x-2.5 p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-800/30">
-                    <svg class="size-4 text-amber-500 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                        <line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/>
-                    </svg>
-                    <p class="text-xs text-amber-700 dark:text-amber-400 leading-relaxed">
-                        Nếu không thấy email, hãy kiểm tra <strong>thư mục Spam / Junk</strong>. Email có hiệu lực trong <strong>24 giờ</strong>.
-                    </p>
-                </div>
+                {% include 'components/verify_email/label_notice.html' %}
 
-                <!-- Actions -->
-                <div class="mt-6 pt-5 border-t border-gray-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
-                    <a href="{% url 'login' %}" class="inline-flex items-center gap-x-1.5 text-gray-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors group">
-                        <svg class="size-4 transition-transform group-hover:-translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m15 18-6-6 6-6"/>
-                        </svg>
-                        Quay lại đăng nhập
-                    </a>
-                    <a href="mailto:admin@dinhanh.vn" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 font-medium hover:underline">
-                        Liên hệ hỗ trợ
-                    </a>
-                </div>
+                {% include 'components/verify_email/direction.html' %}
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        // Cooldown resend button
-        let cooldown = 0;
-        document.getElementById('resend-form').addEventListener('submit', function(e) {
-            if (cooldown > 0) { e.preventDefault(); return; }
-            const btn = document.getElementById('resend-btn');
-            const text = document.getElementById('resend-text');
-            cooldown = 60;
-            btn.disabled = true;
-            btn.classList.add('opacity-60', 'cursor-not-allowed');
-            const timer = setInterval(() => {
-                cooldown--;
-                text.textContent = `Gửi lại sau ${cooldown}s`;
-                if (cooldown <= 0) {
-                    clearInterval(timer);
-                    btn.disabled = false;
-                    btn.classList.remove('opacity-60', 'cursor-not-allowed');
-                    text.textContent = 'Gửi lại email xác minh';
-                }
-            }, 1000);
-        });
-        window.HSStaticMethods?.autoInit();
-    </script>
-</body>
-</html>
+{% endblock %}

@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@alpinejs/persist": "^3.15.12",
+    "@preline/select": "^4.2.0",
     "alpinejs": "^3.15.12",
     "vite": "^8.0.14"
   }

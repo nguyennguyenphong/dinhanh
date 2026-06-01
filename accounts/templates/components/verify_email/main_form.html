@@ -1,0 +1,14 @@
+{% load component_tags %}
+
+<form method="POST" id="resend-form">
+    {% csrf_token %}
+    <input type="hidden" name="email" value="{{ user.email }}">
+
+    {% component "button"
+    type="submit"
+    text="Gửi lại email xác minh"
+    variant="primary"
+    size="md"
+    full_width=True
+    / %}
+</form>

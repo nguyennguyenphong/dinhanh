@@ -116,25 +116,25 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --frozen-lockfile # Bước này sẽ chạy tốt sau khi bạn push package-lock.json mới lên
+        run: npm ci --frozen-lockfile
 
       - name: Build frontend
         run: npm run build
 
-      - name: Verify dist folder
+      - name: Verify static/build folder
         run: |
-          if [ ! -d "dist" ]; then
-            echo "Error: dist folder not found after build"
+          if [ ! -d "static/build" ]; then
+            echo "Error: static/build folder not found after build"
             exit 1
           fi
           echo "Frontend build successful. Files:"
-          ls -lh dist/
+          ls -lh static/build/
 
-      - name: Upload dist artifact
+      - name: Upload static/build artifact
         uses: actions/upload-artifact@v4
         with:
           name: frontend-dist
-          path: dist/
+          path: static/build/ # Đổi đường dẫn upload sang thư mục thực tế
           retention-days: 1
 
   # ─────────────────────────────────────────────
@@ -179,11 +179,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Download frontend dist
+
+      - name: Download frontend static/build
         uses: actions/download-artifact@v4
         with:
           name: frontend-dist
-          path: dist/
+          path: static/build/ # Đảm bảo tải về đúng cấu trúc thư mục của dự án Django
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Docker Hub

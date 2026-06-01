@@ -1,0 +1,36 @@
+{% load component_tags %}
+
+<form method="POST" action="{% url 'password_reset' %}" class="space-y-5">
+    {% csrf_token %}
+
+    <div class="space-y-1.5">
+        {% component "input"
+        name="email"
+        label="Email"
+        placeholder="Nhập email"
+        required=True
+        autocomplete="email"
+        type="email"
+        / %}
+
+        {% if form.email.errors %}
+        <p class="text-xs text-red-500 flex items-center gap-x-1 mt-1">
+            <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" x2="12" y1="8" y2="12" />
+                <line x1="12" x2="12.01" y1="16" y2="16" />
+            </svg>
+            {{ form.email.errors.0 }}
+        </p>
+        {% endif %}
+    </div>
+
+    {% component "button"
+    type="submit"
+    text="Gửi link đặt lại mật khẩu"
+    variant="primary"
+    size="md"
+    full_width=True
+    / %}
+</form>
