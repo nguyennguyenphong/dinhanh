@@ -3,10 +3,6 @@
 # Roles, Permissions, and User Account Models
 # ============================================================================
 
-import uuid
-
-from django.contrib.auth.models import AbstractUser
-from django.contrib.postgres.fields import ArrayField
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.text import slugify
