@@ -146,12 +146,12 @@ class RolePermission(models.Model):
         indexes = [
             # Index for finding active permissions for a role
             models.Index(
-                fields=["role", "is_active"], name="idx_role_permission_role_active"
+                fields=["role", "is_active"], name="idx_role_perm_role_active"
             ),
             # Index for finding roles with a specific permission
             models.Index(
                 fields=["permission", "is_active"],
-                name="idx_role_permission_perm_active",
+                name="idx_role_perm_perm_active",
             ),
             # Index for audit trail
             models.Index(

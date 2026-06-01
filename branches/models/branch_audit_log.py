@@ -92,10 +92,10 @@ class BranchAuditLog(models.Model):
 
         indexes = [
             models.Index(
-                fields=["tenant", "created_at"], name="idx_branch_audit_tenant_created"
+                fields=["tenant", "created_at"], name="idx_branch_at_tenant_created"
             ),
             models.Index(
-                fields=["branch", "created_at"], name="idx_branch_audit_branch_created"
+                fields=["branch", "created_at"], name="idx_branch_at_branch_created"
             ),
         ]
 

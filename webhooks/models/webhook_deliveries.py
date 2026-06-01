@@ -11,8 +11,9 @@ from datetime import timedelta
 
 import requests
 from django.db import models
-from django.db.models import Avg
 from django.utils import timezone
+from django.db.models import Count, Value, CharField, Avg
+from django.db.models.functions import Coalesce
 from django.utils.translation import gettext_lazy as _
 
 
@@ -149,7 +150,7 @@ class WebhookDelivery(models.Model):
         indexes = [
             # Index for finding deliveries by endpoint and status
             models.Index(
-                fields=["endpoint", "status"], name="idx_webhook_deliveries_endpoint"
+                fields=["endpoint", "status"], name="idx_wk_deliver_endpoint"
             ),
             # Index for time-based queries
             models.Index(fields=["-created_at"], name="idx_webhook_deliveries_created"),
@@ -563,32 +564,22 @@ class WebhookDelivery(models.Model):
     @classmethod
     def get_failed_deliveries_by_reason(cls, endpoint=None, limit=10):
         """
-        Get failed deliveries grouped by response code
-
-        Args:
-            endpoint: Optional WebhookEndpoint instance
-            limit: Maximum number of groups
-
-        Returns:
-            List of tuples (response_code, count)
-
-        Example:
-            failures = WebhookDelivery.get_failed_deliveries_by_reason(endpoint)
+        Get failed deliveries grouped by response code using Database Aggregation.
         """
         query = cls.objects.filter(status="FAILED")
-
+        
         if endpoint:
             query = query.filter(endpoint=endpoint)
 
-        failures = {}
-        for delivery in query:
-            code = delivery.response_code or "TIMEOUT"
-            failures[code] = failures.get(code, 0) + 1
-
-        # Sort by count
-        sorted_failures = sorted(failures.items(), key=lambda x: x[1], reverse=True)
-
-        return sorted_failures[:limit]
+        return (
+            query.annotate(
+                reason=Coalesce("response_code", Value("TIMEOUT", output_field=CharField()))
+            )
+            .values("reason")
+            .annotate(count=Count("reason"))
+            .order_by("-count")[:limit]
+            .values_list("reason", "count")
+        )
 
     @classmethod
     def get_retry_candidates(cls):

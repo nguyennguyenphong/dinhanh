@@ -101,13 +101,13 @@ class MenuItemRoleAuditLog(models.Model):
         indexes = [
             models.Index(
                 fields=["tenant", "created_at"],
-                name="idx_menu_item_role_audit_tenant_created",
+                name="idx_menui_role_tenant_created",
             ),
             models.Index(
                 fields=["menu_item", "created_at"],
-                name="idx_menu_item_role_audit_item_created",
+                name="idx_menu_item_role_created",
             ),
-            models.Index(fields=["action"], name="idx_menu_item_role_audit_action"),
+            models.Index(fields=["action"], name="idx_menu_item_role_at_action"),
         ]
 
     def __str__(self):

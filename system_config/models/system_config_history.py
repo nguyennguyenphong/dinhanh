@@ -98,16 +98,16 @@ class SystemConfigHistory(models.Model):
             # Index for finding history by config
             models.Index(
                 fields=["config", "changed_at"],
-                name="idx_config_history_config_changed",
+                name="idx_conf_his_conf_changed",
             ),
             # Index for finding changes by user
             models.Index(
                 fields=["changed_by", "changed_at"],
-                name="idx_config_history_user_changed",
+                name="idx_conf_his_user_changed",
             ),
             # Index for time range queries
             models.Index(
-                fields=["-changed_at"], name="idx_config_history_changed_desc"
+                fields=["-changed_at"], name="idx_conf_his_changed_desc"
             ),
         ]
 

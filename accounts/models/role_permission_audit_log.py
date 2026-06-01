@@ -116,10 +116,10 @@ class RolePermissionAuditLog(models.Model):
         indexes = [
             models.Index(
                 fields=["tenant", "created_at"],
-                name="idx_role_perm_audit_tenant_created",
+                name="idx_role_perm_tenant_created",
             ),
             models.Index(
-                fields=["role", "created_at"], name="idx_role_perm_audit_role_created"
+                fields=["role", "created_at"], name="idx_role_perm_at_role_created"
             ),
             models.Index(fields=["action"], name="idx_role_perm_audit_action"),
         ]

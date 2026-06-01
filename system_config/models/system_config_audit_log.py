@@ -43,10 +43,10 @@ class SystemConfigAuditLog(models.Model):
         ordering = ["-created_at"]
         indexes = [
             models.Index(
-                fields=["tenant", "created_at"], name="idx_config_audit_tenant_created"
+                fields=["tenant", "created_at"], name="idx_conf_at_tenant_created"
             ),
             models.Index(
-                fields=["config", "created_at"], name="idx_config_audit_config_created"
+                fields=["config", "created_at"], name="idx_audit_config_created"
             ),
         ]
 

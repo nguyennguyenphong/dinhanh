@@ -15,7 +15,7 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = env("SECRET_KEY")
 
 # Django settings
-DEBUG = False
+DEBUG = env.bool("DEBUG", default=False)
 
 # Allowed hosts
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])

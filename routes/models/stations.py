@@ -516,6 +516,8 @@ class Station(models.Model):
             if distance <= radius_km:
                 results.append((station, distance))
 
+        def get_distance(item):
+            return item[1]
         # Sort by distance
-        results.sort(key=lambda x: x[1])
+        results.sort(key=get_distance)
         return results
