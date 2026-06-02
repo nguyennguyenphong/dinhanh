@@ -10,5 +10,6 @@ class SharedConfig(AppConfig):
             import shared.components.ui.input
             import shared.components.ui.checkbox
             import shared.components.ui.select
+            import shared.components.ui.page_header
         except ImportError:
             pass

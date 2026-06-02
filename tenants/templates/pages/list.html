@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load component_tags %}
+
+{% block title %} Cấu hình tenant {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+
+        {% component "page_header" title="Cấu hình tenant" description="Quản lý định danh, trạng thái tài nguyên và môi trường phân tách." %}
+            {% block actions %}
+                <div class="flex gap-3">
+                    {% component "button" type="submit" text="Tạo tenant" variant="primary" size="sm" full_width=True %}
+                    {% endcomponent %}
+                </div>
+            {% endblock %}
+        {% endcomponent %}
+
+        <div class="flex flex-col bg-white border border-gray-200 rounded-md shadow-xs overflow-hidden">
+            <div class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Danh sách đơn vị thành viên</h3>
+                    <p class="text-sm text-gray-500 dark:text-slate-400">Quản lý định danh, trạng thái tài nguyên và môi trường phân tách.</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto w-full">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-slate-800">
+                    <thead class="bg-gray-50/70 dark:bg-slate-800/50 whitespace-nowrap">
+                        <tr>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Code</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Tên tenant</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Domain</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Logo</th>
+                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Primary Color</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Trang thái</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Người dùng tối đa</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Chi nhánh tối đa</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Phương tiên tối đa</th>
+                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Kế hoạch</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Người tạo</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Thời gian tạo</th>
+                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Người cập nhật</th>
+                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Thời gian cập nhật</th>
+                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
+                        <tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

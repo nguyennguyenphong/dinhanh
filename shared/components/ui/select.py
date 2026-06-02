@@ -34,9 +34,9 @@ class Select(Component):
         element_id = id or f"select_{name}"
 
         size_configs = {
-            "sm": {"btn": "py-2 px-3 text-xs rounded-lg", "icon": "w-3.5 h-3.5"},
-            "md": {"btn": "py-3 px-4 text-sm rounded-xl", "icon": "w-4 h-4"},
-            "lg": {"btn": "py-4 px-5 text-base rounded-2xl", "icon": "w-5 h-5"},
+            "sm": {"btn": "py-2 px-3 text-xs rounded-md", "icon": "w-3.5 h-3.5"},
+            "md": {"btn": "py-3 px-4 text-sm rounded-md", "icon": "w-4 h-4"},
+            "lg": {"btn": "py-4 px-5 text-base rounded-md", "icon": "w-5 h-5"},
         }
         size_style = size_configs.get(size, size_configs["md"])
 

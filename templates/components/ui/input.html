@@ -38,7 +38,7 @@
                 {{ key }}="{{ value }}"
             {% endfor %}
 
-            class="w-full border-[1.5px] border-gray-200 rounded-xl bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 {% if icon %} pl-11 {% else %} px-4 {% endif %} {% if size == 'sm' %} py-2 text-xs {% elif size == 'lg' %} py-4 text-base {% else %} py-3 text-sm {% endif %} {{ input_class }}">
+            class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 {% if icon %} pl-11 {% else %} px-4 {% endif %} {% if size == 'sm' %} py-2 text-xs {% elif size == 'lg' %} py-4 text-base {% else %} py-3 text-sm {% endif %} {{ input_class }}">
     </div>
 
     {% if help_text %}

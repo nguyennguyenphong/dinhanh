@@ -18,7 +18,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 
 # Allowed hosts
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+ALLOWED_HOSTS = ["*"] # env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 # Installed apps
 # https://docs.djangoproject.com/en/4.0/ref/applications/
@@ -102,6 +102,9 @@ TEMPLATES = [
                 "django_components.template_loader.Loader",
                 "django.template.loaders.filesystem.Loader",
                 "django.template.loaders.app_directories.Loader",
+            ],
+            "builtins": [
+                "django_components.templatetags.component_tags",
             ],
         },
     },

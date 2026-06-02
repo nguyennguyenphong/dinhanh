@@ -33,7 +33,7 @@
                 </svg>
             </div>
             <input :type="showPassword ? 'text' : 'password'" id="new_password1" name="new_password1" required autocomplete="new-password" x-model="password"
-                class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
+                class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-md text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
                 placeholder="••••••••">
             <button type="button" @click="showPassword = !showPassword"
                 class="absolute inset-y-0 inset-e-0 flex items-center pe-4 text-gray-400 hover:text-gray-600">
@@ -50,10 +50,10 @@
             </button>
         </div>
         <div class="flex gap-x-1 mt-1.5">
-            <div class="h-1 flex-1 rounded-full transition-colors duration-300" :class="password ? (metrics.score >= 1 ? (metrics.score == 1 ? 'bg-red-500' : (metrics.score == 2 ? 'bg-amber-500' : 'bg-emerald-500')) : 'bg-gray-200') : 'bg-gray-200'"></div>
-            <div class="h-1 flex-1 rounded-full transition-colors duration-300" :class="password ? (metrics.score >= 2 ? (metrics.score == 2 ? 'bg-amber-500' : 'bg-emerald-500') : 'bg-gray-200') : 'bg-gray-200'"></div>
-            <div class="h-1 flex-1 rounded-full transition-colors duration-300" :class="password ? (metrics.score >= 3 ? 'bg-emerald-500' : 'bg-gray-200') : 'bg-gray-200'"></div>
-            <div class="h-1 flex-1 rounded-full bg-gray-200 transition-colors duration-300" :class="password && metrics.score == 3 ? 'bg-emerald-500' : 'bg-gray-200'"></div>
+            <div class="h-1 flex-1 rounded-md transition-colors duration-300" :class="password ? (metrics.score >= 1 ? (metrics.score == 1 ? 'bg-red-500' : (metrics.score == 2 ? 'bg-amber-500' : 'bg-emerald-500')) : 'bg-gray-200') : 'bg-gray-200'"></div>
+            <div class="h-1 flex-1 rounded-md transition-colors duration-300" :class="password ? (metrics.score >= 2 ? (metrics.score == 2 ? 'bg-amber-500' : 'bg-emerald-500') : 'bg-gray-200') : 'bg-gray-200'"></div>
+            <div class="h-1 flex-1 rounded-md transition-colors duration-300" :class="password ? (metrics.score >= 3 ? 'bg-emerald-500' : 'bg-gray-200') : 'bg-gray-200'"></div>
+            <div class="h-1 flex-1 rounded-md bg-gray-200 transition-colors duration-300" :class="password && metrics.score == 3 ? 'bg-emerald-500' : 'bg-gray-200'"></div>
         </div>
         <p class="text-xs transition-colors duration-300" 
            :class="password ? (metrics.score == 1 ? 'text-red-500' : (metrics.score == 2 ? 'text-amber-500' : 'text-emerald-500')) : 'text-gray-400'"
@@ -71,7 +71,7 @@
                 </svg>
             </div>
             <input type="password" id="new_password2" name="new_password2" required autocomplete="new-password" x-model="confirmPassword"
-                class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-xl text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
+                class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-md text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
                 placeholder="••••••••">
             <span class="absolute inset-y-0 inset-e-0 flex items-center pe-4" id="match-icon">
                 <svg x-show="confirmPassword && password === confirmPassword" x-cloak class="size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -87,7 +87,7 @@
         {% endif %}
     </div>
 
-    <div class="p-4 rounded-xl bg-gray-50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 space-y-2">
+    <div class="p-4 rounded-md bg-gray-50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 space-y-2">
         <p class="text-xs font-semibold text-gray-600 dark:text-slate-400 uppercase tracking-wider">Yêu cầu mật khẩu:</p>
         <ul class="space-y-1.5">
             <li class="flex items-center gap-x-2 text-xs transition-colors duration-200" :class="metrics.length ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-500 dark:text-slate-400'">

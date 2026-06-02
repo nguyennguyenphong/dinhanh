@@ -9,7 +9,7 @@
         </div>
         {% if form.errors %}
         <div
-            class="mb-5 flex items-start gap-x-3 p-4 rounded-xl bg-red-50 border border-red-200 dark:bg-red-950/30 dark:border-red-800/50">
+            class="mb-5 flex items-start gap-x-3 p-4 rounded-md bg-red-50 border border-red-200 dark:bg-red-950/30 dark:border-red-800/50">
             <svg class="size-4.5 text-red-500 mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -73,7 +73,7 @@
                 <div class="relative">
                     <button type="button" @click="open = !open" @click.away="open = false"
                         :class="open ? 'border-blue-500 ring-0 ring-blue-500/20' : 'border-gray-200 dark:border-slate-700'"
-                        class="py-3 px-4 w-full border-[1.5px] rounded-xl text-sm bg-white hover:border-blue-400 text-start flex justify-between items-center transition-all dark:bg-slate-800 text-gray-800 dark:text-gray-200 cursor-pointer focus:outline-hidden">
+                        class="py-3 px-4 w-full border-[1.5px] rounded-md text-sm bg-white hover:border-blue-400 text-start flex justify-between items-center transition-all dark:bg-slate-800 text-gray-800 dark:text-gray-200 cursor-pointer focus:outline-hidden">
                         <span x-text="selectedLabel"
                             :class="selectedVal === '' ? 'text-gray-400 dark:text-slate-500' : 'text-gray-800 dark:text-gray-200'"></span>
                         <div class="text-gray-500 transition-transform duration-200" :class="open ? 'rotate-180' : ''">
@@ -88,18 +88,18 @@
                         x-transition:leave="transition ease-in duration-75"
                         x-transition:leave-start="opacity-100 transform scale-100"
                         x-transition:leave-end="opacity-0 transform scale-95"
-                        class="absolute mt-2 z-50 w-full max-h-72 p-1.5 space-y-0.5 bg-white border border-gray-200 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden overflow-y-auto dark:bg-slate-800"
+                        class="absolute mt-2 z-50 w-full max-h-72 p-1.5 space-y-0.5 bg-white border border-gray-200 dark:border-slate-700 rounded-md shadow-xl overflow-hidden overflow-y-auto dark:bg-slate-800"
                         style="display: none;">
 
                         <div @click="selectOption({value: '', label: 'Chọn vai trò...'})"
-                            class="py-2.5 px-4 w-full text-sm text-gray-400 cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700/50 rounded-lg">
+                            class="py-2.5 px-4 w-full text-sm text-gray-400 cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700/50 rounded-md">
                             Chọn vai trò...
                         </div>
 
                         <template x-for="option in options" :key="option.value">
                             <div @click="selectOption(option)"
                                 :class="selectedVal === option.value ? 'bg-blue-500 text-white dark:bg-blue-600' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700'"
-                                class="py-2.5 px-4 w-full text-sm cursor-pointer rounded-lg flex justify-between items-center transition-colors">
+                                class="py-2.5 px-4 w-full text-sm cursor-pointer rounded-md flex justify-between items-center transition-colors">
 
                                 <span x-text="option.label"></span>
 
