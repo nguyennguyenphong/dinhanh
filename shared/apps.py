@@ -11,5 +11,7 @@ class SharedConfig(AppConfig):
             import shared.components.ui.checkbox
             import shared.components.ui.select
             import shared.components.ui.page_header
+            import shared.components.ui.datepicker
+            import shared.components.ui.fileuploader
         except ImportError:
             pass

@@ -2,14 +2,16 @@
 <div id="application-sidebar"
     class="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform w-68 fixed inset-y-0 inset-s-0 z-60 bg-white border-e border-gray-200 pt-5 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:inset-e-auto lg:bottom-0 dark:bg-slate-900 dark:border-slate-800 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500">
     <div class="px-6 flex items-center justify-between border-b border-gray-100 pb-4 mb-2 dark:border-slate-800">
-        <a class="flex-none text-xl font-bold tracking-wider text-blue-600 focus:outline-none focus:opacity-80 dark:text-blue-500" href="{% url 'dashboard' %}" aria-label="Brand">
-            <h2 class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-md ms-1 dark:bg-blue-900 dark:text-blue-200"> CMS </h2>
+        <a class="flex-none text-xl font-bold tracking-wider text-blue-600 focus:outline-none focus:opacity-80 dark:text-blue-500"
+            href="{% url 'dashboard' %}" aria-label="Brand">
+            <h2 class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-md ms-1 dark:bg-blue-900 dark:text-blue-200"> CMS
+            </h2>
         </a>
         <div class="lg:hidden">
             <button type="button"
                 class="size-8 inline-flex justify-center items-center gap-x-2 rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none dark:bg-slate-900 dark:border-slate-700 dark:text-white dark:hover:bg-slate-800 transition-all duration-200 hover:rotate-90"
                 data-hs-overlay="#application-sidebar" aria-label="Close sidebar">
-                <span class="sr-only"> Đóng sidebar </span> 
+                <span class="sr-only"> Đóng sidebar </span>
                 <img src="{% static 'icons/close.svg' %}" alt="close" class="size-4.5">
             </button>
         </div>
@@ -17,16 +19,17 @@
     <nav class="hs-accordion-group p-4 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
         <ul class="space-y-1.5">
             <li>
-                <a href="{% url 'dashboard' %}" class="w-full flex items-center gap-x-3.5 py-2.5 px-3 bg-gray-100 text-sm text-blue-600 font-medium rounded-md hover:bg-gray-100 dark:bg-slate-800 dark:text-white">
-                    <img src="{% static 'icons/dashboard.svg' %}" alt="dashboard" class="size-4.5"> Bảng điều khiển 
+                <a href="{% url 'dashboard' %}"
+                    class="w-full flex items-center gap-x-3.5 py-2.5 px-3 bg-gray-100 text-sm text-blue-600 font-medium rounded-md hover:bg-gray-100 dark:bg-slate-800 dark:text-white">
+                    <img src="{% static 'icons/dashboard.svg' %}" alt="dashboard" class="size-4.5"> Bảng điều khiển
                 </a>
             </li>
             <li class="px-3 pt-5 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider dark:text-slate-500">
                 Vận hành xe
             </li>
-            <li class="hs-accordion" id="control-vehicles-accordion"> 
+            <li class="hs-accordion" id="control-vehicles-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="control-vehicles-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/ticket.svg' %}" alt="ticket" class="size-4.5">
@@ -50,7 +53,7 @@
             </li>
             <li class="hs-accordion" id="schedule-routers-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="schedule-routers-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/schedule.svg' %}" alt="schedule" class="size-4.5">
@@ -76,7 +79,7 @@
             </li>
             <li class="hs-accordion" id="refund-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="refund-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/refund.svg' %}" alt="refund" class="size-4.5">
@@ -102,7 +105,7 @@
             </li>
             <li class="hs-accordion" id="sell-ticket-group-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="sell-ticket-group-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/contract.svg' %}" alt="contract" class="size-4.5">
@@ -125,7 +128,7 @@
             </li>
             <li class="hs-accordion" id="vehicles-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="vehicles-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/vehicle.svg' %}" alt="vehicle" class="size-4.5">
@@ -157,7 +160,7 @@
             </li>
             <li class="hs-accordion" id="seat-map-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="seat-map-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/map-seat.svg' %}" alt="map-seat" class="size-4.5">
@@ -182,10 +185,11 @@
             </li>
             <li class="hs-accordion" id="vehicles-management-advance-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="vehicles-management-accordion-child">
                     <div class="flex items-center gap-x-3.5">
-                        <img src="{% static 'icons/advance-mg-vehicle.svg' %}" alt="advance-mg-vehicle" class="size-4.5">
+                        <img src="{% static 'icons/advance-mg-vehicle.svg' %}" alt="advance-mg-vehicle"
+                            class="size-4.5">
                         <span> Quản lý xe nâng cao </span>
                     </div>
                     <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" class="size-4.5">
@@ -211,7 +215,7 @@
             </li>
             <li class="hs-accordion" id="consignment-management-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="consignment-management-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/consignment.svg' %}" alt="consignment" class="size-4.5">
@@ -246,7 +250,7 @@
             </li>
             <li class="hs-accordion" id="freight-pricing-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="freight-pricing-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/map-seat.svg' %}" alt="freight-pricing" class="size-4.5">
@@ -275,7 +279,7 @@
             </li>
             <li class="hs-accordion" id="routers-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="routers-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/route.svg' %}" alt="route" class="size-4.5">
@@ -304,7 +308,7 @@
             </li>
             <li class="hs-accordion" id="human-resources-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="routers-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/hr.svg' %}" alt="hr" class="size-4.5">
@@ -342,7 +346,7 @@
             </li>
             <li class="hs-accordion" id="shifts-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="shifts-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/shift.svg' %}" alt="shift" class="size-4.5">
@@ -372,7 +376,7 @@
             </li>
             <li class="hs-accordion" id="moderation-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="moderation-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/moderation.svg' %}" alt="moderation" class="size-4.5">
@@ -400,7 +404,7 @@
             </li>
             <li class="hs-accordion" id="discount-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="discount-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/vouncher.svg' %}" alt="vouncher" class="size-4.5">
@@ -431,7 +435,7 @@
             </li>
             <li class="hs-accordion" id="after-sales-management-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="after-sales-management-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/after-sales.svg' %}" alt="after-sales" class="size-4.5">
@@ -458,7 +462,7 @@
                 Thông báo</li>
             <li class="hs-accordion" id="notification-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="notification-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/bell.svg' %}" alt="bell" class="size-4.5">
@@ -482,23 +486,23 @@
             <li class="px-3 pt-5 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider dark:text-slate-500">
                 Thống kê tài chính
             </li>
-            <li> 
+            <li>
                 <a class="w-full flex items-center gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
                     href="#">
                     <img src="{% static 'icons/chart.svg' %}" alt="chart" class="size-4.5">
-                    Báo cáo doanh thu 
+                    Báo cáo doanh thu
                 </a>
             </li>
             <li>
                 <a class="w-full flex items-center gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
                     href="#">
-                    <img src="{% static 'icons/kpi.svg' %}" alt="kpi" class="size-4.5"> 
+                    <img src="{% static 'icons/kpi.svg' %}" alt="kpi" class="size-4.5">
                     Dashboard KPI
                 </a>
             </li>
             <li class="hs-accordion" id="costs-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="costs-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/cost.svg' %}" alt="cost" class="size-4.5">
@@ -527,7 +531,7 @@
             </li>
             <li class="hs-accordion" id="payment-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="payment-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/payment.svg' %}" alt="payment" class="size-4.5">
@@ -553,7 +557,7 @@
             </li>
             <li class="hs-accordion" id="invoice-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="invoice-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/invoice.svg' %}" alt="invoice" class="size-4.5">
@@ -578,7 +582,7 @@
                 Chi nhánh</li>
             <li class="hs-accordion" id="branches-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="branches-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/branch.svg' %}" alt="branch" class="size-4.5">
@@ -603,7 +607,7 @@
                 Tài sản</li>
             <li class="hs-accordion" id="assets-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="assets-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/asset.svg' %}" alt="asset" class="size-4.5">
@@ -626,7 +630,7 @@
             </li>
             <li class="hs-accordion" id="units-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="units-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/unit.svg' %}" alt="unit" class="size-4.5">
@@ -651,7 +655,7 @@
                 Tài khoản</li>
             <li class="hs-accordion" id="accounts-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="accounts-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/account.svg' %}" alt="account" class="size-4.5">
@@ -674,7 +678,7 @@
             </li>
             <li class="hs-accordion" id="permissions-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="permissions-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/permission.svg' %}" alt="permission" class="size-4.5">
@@ -706,7 +710,7 @@
             </li>
             <li class="hs-accordion" id="audit-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
                     aria-expanded="false" aria-controls="audit-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/log.svg' %}" alt="log" class="size-4.5">
@@ -731,26 +735,62 @@
                 Cài đặt</li>
             <li class="hs-accordion" id="setting-accordion">
                 <button type="button"
-                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" 
-                    aria-expanded="false" aria-controls="setting-accordion-child">
+                    class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+        {% if request.resolver_match.url_name in 'tenants,create_tenants' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                    aria-expanded="{% if request.resolver_match.url_name in 'tenants,create_tenants' %}true{% else %}false{% endif %}"
+                    aria-controls="setting-accordion-child">
+
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/setting.svg' %}" alt="setting" class="size-4.5">
                         <span> Cài đặt </span>
                     </div>
-                    <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" class="size-4.5">
+
+                    <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down"
+                        class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'tenants,create_tenants' %} rotate-180 {% endif %}">
                 </button>
-                <div id="setting-accordion-child"
-                    class="hs-accordion-content w-full overflow-hidden hidden transition-[height] duration-300"
+
+                <div id="setting-accordion-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 
+        {% if request.resolver_match.url_name in 'tenants,create_tenants' %} block {% else %} hidden {% endif %}"
                     role="region">
+
                     <ul class="pt-1.5 ps-7 space-y-1">
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="{% url 'tenants' %}"><span class="size-1.5 bg-gray-400 rounded-md"></span> Cấu hình tenant</a>
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                {% if request.resolver_match.url_name == 'tenants' %}
+                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                {% else %}
+                    text-gray-600 dark:text-slate-400
+                {% endif %}" href="{% url 'tenants' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'tenants' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Cấu hình tenant
+                            </a>
                         </li>
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="#"><span class="size-1.5 bg-gray-400 rounded-md"></span> Cấu hình hệ thống</a>
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                {% if request.resolver_match.url_name == 'create_tenants' %}
+                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                {% else %}
+                    text-gray-600 dark:text-slate-400
+                {% endif %}" href="{% url 'create_tenants' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'create_tenants' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Tạo tenant
+                            </a>
                         </li>
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="#"><span class="size-1.5 bg-gray-400 rounded-md"></span> Điều chỉnh màu sắc</a>
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
+                                href="#">
+                                <span class="size-1.5 bg-gray-400 rounded-md"></span> Cấu hình hệ thống
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
+                                href="#">
+                                <span class="size-1.5 bg-gray-400 rounded-md"></span> Điều chỉnh màu sắc
+                            </a>
                         </li>
                     </ul>
                 </div>

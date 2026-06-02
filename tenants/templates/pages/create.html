@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load component_tags %}
+
+{% block title %} Tạo tenant {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+        <div class="border border-gray-200 p-4 bg-white rounded-md">
+            {% component "page_header" title="Tạo tenant" description="Tạo định danh, trạng thái tài nguyên và môi trường phân tách." %}
+                {% block actions %}
+                    <div class="flex gap-3">
+                        {% component "button" type="submit" text="Trờ về trang danh sách" variant="primary" size="md" full_width=True %}
+                        {% endcomponent %}
+                    </div>
+                {% endblock %}
+            {% endcomponent %}
+        </div>
+
+        <div class="border border-gray-200 rounded-md p-4 bg-white mt-0">
+            <form action="{% url 'create_tenants' %}" method="POST" enctype="multipart/form-data" class="space-y-6" autocomplete="off">
+                {% csrf_token %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-4">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+                            Thông tin cơ bản
+                        </h3>
+                        
+                        {% component "input" name="name" label="Tên tenant" placeholder="Nhập tenant" required=True autocomplete="off" %}{% endcomponent %}
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                            <div>
+                                {% component "input" type="text" name="code" label="Tên code" placeholder="Nhập code" required=True autocomplete="off" %}{% endcomponent %}
+                            </div>
+
+                            <div>
+                                {% component "input" type="text" name="domain" label="Tên miền" placeholder="Nhập tên miền" required=True autocomplete="off" %}{% endcomponent %}
+                            </div>
+                        </div>
+
+                        {% component "input" type="text" name="domain" label="Tên miền" placeholder="Nhập tên miền" required=True autocomplete="off" %}{% endcomponent %}
+                    </div>
+
+                    
+
+                    <div class="space-y-4 mt-4">
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+                            Cấu hình
+                        </h3>
+                        <div class="grid grid-cols-3 gap-4 items-end">
+                            <div class="col-span-2">
+                                {% component "fileuploader" name="logo_url" label="Brand Logo" file_type="image" max_size="2MB" required=True %}{% endcomponent %}
+                            </div>
+                            <div class="col-span-1">
+                                <label for="primary_color" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">Màu chủ đạo</label>
+                                <div class="flex items-center h-10">
+                                    <input type="color" name="primary_color" id="primary_color" value="#3b82f6"
+                                        class="p-0 size-9 border border-gray-300 dark:border-slate-700 bg-transparent cursor-pointer rounded-md custom-color-picker">
+                                </div>
+                            </div>
+                            <div>
+                                {% component "datepicker" name="subscription_expires_at" label="Ngày hết hạn gói" min_date="today" placeholder="Chọn ngày hết hạn..." required=True %}{% endcomponent %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+                            Giới hạn tài nguyên
+                        </h3>
+                        <div>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div>
+                                    {% component "input" type="number" name="max_users" label="Số người dùng tối đa" placeholder="Nhập số người dùng tối đa" required=True autocomplete="off" %}{% endcomponent %}
+                                </div>
+                                <div>
+                                    {% component "input" type="number" name="max_branches" label="Số chi nhánh tối đa" placeholder="Nhập số lượng chi nhánh tối đa" required=True autocomplete="off" %}{% endcomponent %}
+                                </div>
+                                <div>
+                                    {% component "input" type="number" name="max_vehicles" label="Số phương tiện tối đa" placeholder="Nhập số phương tiện tối đa" required=True autocomplete="off" %}{% endcomponent %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 mt-4 dark:border-slate-800 pt-4">
+                    <a href="{% url 'tenants' %}" 
+                    class="px-4 py-2 border border-gray-300 dark:border-slate-700 rounded-md text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                        Hủy bỏ
+                    </a>
+                    <button type="submit" 
+                        class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium shadow-sm transition-colors">
+                        Khởi tạo ngay
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
