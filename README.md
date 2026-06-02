@@ -389,6 +389,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+**Install others libraries**
+```bash
+pip freeze > requirements.txt
+```
+
 ### Issue: "Connection refused" for PostgreSQL
 **Solution**: Check if PostgreSQL is running:
 ```bash

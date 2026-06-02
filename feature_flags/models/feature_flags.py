@@ -389,7 +389,7 @@ class FeatureFlag(models.Model):
             return None
 
     @classmethod
-    def is_enabled(cls, tenant, key, user=None):
+    def check_is_enabled(cls, tenant, key, user=None):
         """
         Check if feature is enabled
 
@@ -402,7 +402,7 @@ class FeatureFlag(models.Model):
             Boolean
 
         Example:
-            if FeatureFlag.is_enabled(tenant, 'online_payment_vnpay', user):
+            if FeatureFlag.check_is_enabled(tenant, 'online_payment_vnpay', user):
                 # Show feature
         """
         flag = cls.get_flag(tenant, key)
