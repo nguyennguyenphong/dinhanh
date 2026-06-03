@@ -732,64 +732,52 @@
                 </div>
             </li>
             <li class="px-3 pt-5 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider dark:text-slate-500">
-                Cài đặt</li>
-            <li class="hs-accordion" id="setting-accordion">
+                Cấu hình</li>
+
+            <li class="hs-accordion" id="company-accordion">
                 <button type="button"
                     class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
-        {% if request.resolver_match.url_name in 'tenants,create_tenants' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                    {% if request.resolver_match.url_name in 'tenants,create_tenants' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                     aria-expanded="{% if request.resolver_match.url_name in 'tenants,create_tenants' %}true{% else %}false{% endif %}"
-                    aria-controls="setting-accordion-child">
+                    aria-controls="company-accordion-child">
 
                     <div class="flex items-center gap-x-3.5">
-                        <img src="{% static 'icons/setting.svg' %}" alt="setting" class="size-4.5">
-                        <span> Cài đặt </span>
+                        <img src="{% static 'icons/company.svg' %}" alt="company" class="size-4.5">
+                        <span> Tenant </span>
                     </div>
 
                     <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down"
                         class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'tenants,create_tenants' %} rotate-180 {% endif %}">
                 </button>
 
-                <div id="setting-accordion-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 
-        {% if request.resolver_match.url_name in 'tenants,create_tenants' %} block {% else %} hidden {% endif %}"
+                <div id="company-accordion-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 
+                    {% if request.resolver_match.url_name in 'tenants,create_tenants' %} block {% else %} hidden {% endif %}"
                     role="region">
 
                     <ul class="pt-1.5 ps-7 space-y-1">
                         <li>
                             <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
-                {% if request.resolver_match.url_name == 'tenants' %}
-                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
-                {% else %}
-                    text-gray-600 dark:text-slate-400
-                {% endif %}" href="{% url 'tenants' %}">
+                                {% if request.resolver_match.url_name == 'tenants' %}
+                                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                                {% else %}
+                                    text-gray-600 dark:text-slate-400
+                                {% endif %}" href="{% url 'tenants' %}">
                                 <span
                                     class="size-1.5 {% if request.resolver_match.url_name == 'tenants' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
-                                Cấu hình tenant
+                                Danh sách tenant
                             </a>
                         </li>
 
                         <li>
                             <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
-                {% if request.resolver_match.url_name == 'create_tenants' %}
-                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
-                {% else %}
-                    text-gray-600 dark:text-slate-400
-                {% endif %}" href="{% url 'create_tenants' %}">
+                            {% if request.resolver_match.url_name == 'create_tenants' %}
+                                bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                            {% else %}
+                                text-gray-600 dark:text-slate-400
+                            {% endif %}" href="{% url 'create_tenants' %}">
                                 <span
                                     class="size-1.5 {% if request.resolver_match.url_name == 'create_tenants' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
                                 Tạo tenant
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="#">
-                                <span class="size-1.5 bg-gray-400 rounded-md"></span> Cấu hình hệ thống
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="#">
-                                <span class="size-1.5 bg-gray-400 rounded-md"></span> Điều chỉnh màu sắc
                             </a>
                         </li>
                     </ul>

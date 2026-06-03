@@ -1,12 +1,46 @@
-<div class="space-y-4 mt-4">
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
     <h3
         class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
         Cấu hình
     </h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-            {% component "fileuploader" name="logo_url" label="Logo" file_type="image" max_size="2MB"
-            required=True %}{% endcomponent %}
+            <link href="https://releases.transloadit.com/uppy/v3.25.0/uppy.min.css" rel="stylesheet">
+
+            <div id="uppy-dashboard"></div>
+
+            <script type="module">
+                import { Uppy, Dashboard } from "https://releases.transloadit.com/uppy/v3.25.0/uppy.min.mjs";
+
+                const uppy = new Uppy({ 
+                    autoProceed: false, 
+                    restrictions: { maxNumberOfFiles: 1 } 
+                });
+                
+                const hiddenInput = document.getElementById('hidden-input');
+
+                uppy.use(Dashboard, {
+                    target: '#uppy-dashboard',
+                    inline: true,
+                    height: 300,
+                    showProgressDetails: false,
+                    proudlyDisplayPoweredByUppy: false,
+                    hideUploadButton: true,
+                    hideCancelButton: false,
+                    hideRetryButton: true,
+                    hidePauseResumeButton: true
+                });
+
+                uppy.on('file-added', (file) => {
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file.data);
+                    hiddenInput.files = dataTransfer.files;
+                });
+
+                uppy.on('file-removed', () => {
+                    hiddenInput.value = '';
+                });
+            </script>
         </div>
 
         <div>
@@ -40,6 +74,40 @@
                     <span class="text-sm ms-3 text-muted-foreground-1">Ngừng kích hoạt</span>
                 </label>
             </div>
+        </div>
+    </div>
+    <div x-data="{ currency: '' }" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+            <label for="currency" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                Đơn vị tiền tệ <span class="text-red-500">*</span>
+            </label>
+
+            <select
+                name="currency"
+                id="currency"
+                x-model="currency"
+                required
+                class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
+            >
+                <option value="">Chọn đơn vị tiền tệ</option>
+                <option value="USD">Đồng Đô La Mỹ</option>
+                <option value="VND">Việt Nam Đồng</option>
+            </select>
+        </div>
+
+        <div x-show="currency === 'USD'" x-transition>
+            <label for="exchange_rate" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                Tỉ giá <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="number"
+                name="exchange_rate"
+                id="exchange_rate"
+                :required="currency === 'USD'"
+                step="0.01"
+                class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
+            >
         </div>
     </div>
 </div>
