@@ -1,0 +1,10 @@
+<div class="border border-gray-200 p-4 bg-white rounded-md">
+    {% component "page_header" title="Tạo tenant" description="Tạo định danh, trạng thái tài nguyên và môi trường phân tách." %}
+        {% block actions %}
+            <div class="flex gap-3">
+                {% component "button" type="submit" text="Trờ về trang danh sách" variant="primary" size="md" full_width=True %}
+                {% endcomponent %}
+            </div>
+        {% endblock %}
+    {% endcomponent %}
+</div>

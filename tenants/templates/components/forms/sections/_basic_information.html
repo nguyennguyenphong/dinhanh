@@ -1,0 +1,25 @@
+<div class="space-y-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Thông tin cơ bản
+    </h3>
+
+    {% component "input" name="name" label="Tên tenant" placeholder="Nhập tenant" required=True autocomplete="off" %}{%
+    endcomponent %}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <div>
+            {% component "input" type="text" name="code" label="Tên code" placeholder="Nhập code" required=True
+            autocomplete="off" %}{% endcomponent %}
+        </div>
+
+        <div>
+            {% component "input" type="text" name="domain" label="Tên miền" placeholder="Nhập tên miền" required=True
+            autocomplete="off" %}{% endcomponent %}
+        </div>
+    </div>
+
+    {% component "input" type="text" name="domain" label="Tên miền" placeholder="Nhập tên miền" required=True
+    autocomplete="off" %}{% endcomponent %}
+</div>

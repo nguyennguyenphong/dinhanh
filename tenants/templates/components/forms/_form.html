@@ -1,0 +1,14 @@
+<form action="{% url 'create_tenants' %}" method="POST" enctype="multipart/form-data" class="space-y-6"
+    autocomplete="off">
+    {% csrf_token %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-4">
+        
+        {% include 'components/forms/sections/_basic_information.html' %}
+
+        {% include 'components/forms/sections/_tenant_config.html' %}
+
+        {% include 'components/forms/sections/_limited_resources.html' %}
+    </div>
+
+    {% include 'components/forms/sections/_button_action.html' %}
+</form>

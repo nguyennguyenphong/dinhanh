@@ -1,7 +1,6 @@
 import json
 from django_components import Component, register
 
-
 @register("fileuploader")
 class FileUploader(Component):
     template_file = "components/ui/fileuploader.html"
@@ -15,21 +14,26 @@ class FileUploader(Component):
         help_text=None,
         error=None,
         wrapper_class="",
-        # --- Cấu hình riêng cho FilePond ---
-        allow_multiple=False,       # Cho phép up nhiều file cùng lúc: True/False
-        max_files=5,                # Số lượng file tối đa nếu chọn nhiều
-        max_size="10MB",            # Dung lượng tối đa của 1 file (Ví dụ: 5MB, 50MB, 1GB)
-        file_type="all",            # Các nhóm phím tắt: 'image', 'video', 'document', hoặc 'all'
+        allow_multiple=False,
+        max_files=5,
+        max_size="10MB",
+        file_type="all",
         **attrs,
     ):
-        # Bản đồ định nghĩa MIME types chuẩn Production
         mime_maps = {
-            "image": ["image/jpeg", "image/png", "image/gif", "image/webp", "image/svg+xml"],
-            "video": ["video/mp4", "video/mpeg", "video/quicktime", "video/x-msvideo"],
-            "document": ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"],
-            "all": [] # Sẽ xử lý chấp nhận tất cả ở JS nếu để trống
+            "image": ["image/*"], 
+            "video": ["video/*"],
+            "document": [
+                "application/pdf", 
+                "application/msword", 
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                "application/vnd.ms-excel",
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            ],
+            "all": []
         }
 
+        # Nếu file_type không nằm trong map hoặc là 'all', để trống để cho phép mọi loại file
         accepted_mime = mime_maps.get(file_type, [])
 
         pond_attrs = {
@@ -38,7 +42,8 @@ class FileUploader(Component):
             "data-multiple": str(allow_multiple).lower(),
             "data-max-files": max_files,
             "data-max-size": max_size,
-            "data-accepted-types": json.dumps(accepted_mime),
+            # Nếu là 'all' hoặc danh sách rỗng, FilePond sẽ tự hiểu là không lọc
+            "data-accepted-types": json.dumps(accepted_mime) if accepted_mime else "[]",
         }
         attrs.update(pond_attrs)
 

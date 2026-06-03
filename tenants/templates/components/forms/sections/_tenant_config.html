@@ -1,0 +1,45 @@
+<div class="space-y-4 mt-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Cấu hình
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+            {% component "fileuploader" name="logo_url" label="Logo" file_type="image" max_size="2MB"
+            required=True %}{% endcomponent %}
+        </div>
+
+        <div>
+            {% component "datepicker" name="subscription_expires_at" label="Ngày hết hạn gói" min_date="today"
+            placeholder="Chọn ngày hết hạn..." required=True %}{% endcomponent %}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+            {% component "input" type="color" name="primary_color" label="Màu chủ đạo" required=True %}{% endcomponent
+            %}
+        </div>
+
+        <div>
+            <span class="block text-sm font-medium text-gray-700 dark:text-slate-300"> Trạng thái tenant <span class="text-red-500">*</span></span>
+            <div class="grid sm:grid-cols-2 gap-2 mt-1">
+                <label for="hs-radio-in-form" name="hs-radio-in-form"
+                    class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
+                    <input type="radio" name="hs-radio-in-form"
+                        class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
+                        id="hs-radio-in-form" checked>
+                    <span class="text-sm ms-3 text-muted-foreground-1">Kích hoạt</span>
+                </label>
+
+                <label for="hs-radio-checked-in-form" name="hs-radio-in-form"
+                    class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
+                    <input type="radio" name="hs-radio-in-form"
+                        class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
+                        id="hs-radio-checked-in-form">
+                    <span class="text-sm ms-3 text-muted-foreground-1">Ngừng kích hoạt</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

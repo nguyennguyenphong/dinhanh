@@ -1,0 +1,19 @@
+<div class="space-y-4 mt-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Giới hạn tài nguyên
+    </h3>
+    <div>
+        <div class="grid grid-cols-3 gap-3">
+            <div>
+                {% component "input" type="number" name="max_users" label="Số người dùng tối đa" placeholder="Nhập số người dùng tối đa" required=True autocomplete="off" %}{% endcomponent %}
+            </div>
+            <div>
+                {% component "input" type="number" name="max_branches" label="Số chi nhánh tối đa" placeholder="Nhập số lượng chi nhánh tối đa" required=True autocomplete="off" %}{% endcomponent %}
+            </div>
+            <div>
+                {% component "input" type="number" name="max_vehicles" label="Số phương tiện tối đa" placeholder="Nhập số phương tiện tối đa" required=True autocomplete="off" %}{% endcomponent %}
+            </div>
+        </div>
+    </div>
+</div>
