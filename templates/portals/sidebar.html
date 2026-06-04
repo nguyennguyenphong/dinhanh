@@ -679,8 +679,9 @@
             <li class="hs-accordion" id="permissions-accordion">
                 <button type="button"
                     class="hs-accordion-toggle w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
-                    {% if request.resolver_match.url_name in 'role_list,role_create' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
-                    aria-expanded="{% if request.resolver_match.url_name in 'role_list,role_create' %}true{% else %}false{% endif %}"
+                    {% if request.resolver_match.url_name in 'role_list,role_create,permission_list,permission_create,group_permissions_create,group_permissions_list' %}
+                    text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                    aria-expanded="{% if request.resolver_match.url_name in 'role_list,role_create,permission_list,permission_create,group_permissions_create,group_permissions_list' %}true{% else %}false{% endif %}"
                     aria-controls="permissions-accordion-child">
                     <div class="flex items-center gap-x-3.5">
                         <img src="{% static 'icons/permission.svg' %}" alt="permission" class="size-4.5">
@@ -689,7 +690,8 @@
                     <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" class="size-4.5">
                 </button>
                 <div id="permissions-accordion-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 
-                    {% if request.resolver_match.url_name in 'role_list,role_create,permission_list,permission_create' %} block {% else %} hidden {% endif %}"
+                    {% if request.resolver_match.url_name in 'role_list,role_create,permission_list,permission_create,group_permissions_create,group_permissions_list' %}
+                    block {% else %} hidden {% endif %}"
                     role="region">
                     <ul class="pt-1.5 ps-7 space-y-1">
                         <li>
@@ -739,6 +741,32 @@
                                     class="size-1.5 {% if request.resolver_match.url_name == 'permission_create' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
                                 Thêm quyền mới
                             </a>
+                        </li>
+                        <!-- group_permissions_list -->
+                         <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                                {% if request.resolver_match.url_name == 'group_permissions_list' %}
+                                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                                {% else %}
+                                    text-gray-600 dark:text-slate-400
+                                {% endif %}" href="{% url 'group_permissions_list' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'group_permissions_list' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Danh sách nhóm quyền
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                                {% if request.resolver_match.url_name == 'group_permissions_create' %}
+                                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                                {% else %}
+                                    text-gray-600 dark:text-slate-400
+                                {% endif %}" href="{% url 'group_permissions_create' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'group_permissions_create' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Thêm nhóm quyền mới
+                            </a>
+                        </li>
                         <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
                                 href="#"><span class="size-1.5 bg-gray-400 rounded-md"></span> Gán quyền</a></li>
                         <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
