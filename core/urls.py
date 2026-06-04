@@ -27,8 +27,8 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     # dashboard
     path("", dashboard, name="dashboard"),
-    # accounts
-    path("auth/", include("accounts.urls")),
+    # accounts app
+    path("", include("accounts.urls")),
     # tenants
     path("tenants/", include("tenants.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
