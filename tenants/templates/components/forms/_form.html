@@ -1,4 +1,4 @@
-<form action="{% url 'create_tenants' %}" method="POST" enctype="multipart/form-data" class="space-y-6"
+<form action="{% url 'tenant_create_execute' %}" method="POST" enctype="multipart/form-data" class="space-y-6"
     autocomplete="off">
     {% csrf_token %}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-4">

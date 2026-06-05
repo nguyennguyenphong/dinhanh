@@ -823,26 +823,26 @@
                     <ul class="pt-1.5 ps-7 space-y-1">
                         <li>
                             <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
-                                {% if request.resolver_match.url_name == 'tenants' %}
+                                {% if request.resolver_match.url_name == 'tenant_list' %}
                                     bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
                                 {% else %}
                                     text-gray-600 dark:text-slate-400
-                                {% endif %}" href="{% url 'tenants' %}">
+                                {% endif %}" href="{% url 'tenant_list' %}">
                                 <span
-                                    class="size-1.5 {% if request.resolver_match.url_name == 'tenants' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'tenant_list' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
                                 Danh sách tenant
                             </a>
                         </li>
 
                         <li>
                             <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
-                            {% if request.resolver_match.url_name == 'create_tenants' %}
+                            {% if request.resolver_match.url_name == 'tenant_create_ui' %}
                                 bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
                             {% else %}
                                 text-gray-600 dark:text-slate-400
-                            {% endif %}" href="{% url 'create_tenants' %}">
+                            {% endif %}" href="{% url 'tenant_create_ui' %}">
                                 <span
-                                    class="size-1.5 {% if request.resolver_match.url_name == 'create_tenants' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'tenant_create_ui' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
                                 Tạo tenant
                             </a>
                         </li>

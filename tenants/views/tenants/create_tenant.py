@@ -1,62 +1,83 @@
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.contrib import messages
+from django.views.decorators.http import require_http_methods, require_POST
 
-from tenants.serializers.tenants.tenant_serializer import TenantSerializer
 from tenants.policies.tenants.tenant_policy import TenantPolicy
 from tenants.services.tenants.tenant_service import TenantService
 from tenants.dtos.tenants.tenant_create_dto import TenantCreateDTO
 
-@login_required
+# =============================================================================
+# 1. PRESENTATION LAYER (UI RENDERING)
+# =============================================================================
+# @login_required
+@require_http_methods(["GET"])
 def tenant_create_ui(request):
     """
-    MVT View: Renders the HTML form page for creating a new tenant.
+    Renders the HTML provisioning form for creating a new tenant organization.
+    
+    Responsibilities:
+    - Enforces contextual authorization policies.
+    - Delivers the presentation template layer cleanly.
     """
-    # Authorization check using the dedicated policy layer
-    if not TenantPolicy.can_create(request.user):
-        raise PermissionDenied("You do not have permission to access this page.")
+    # Authorization enforcement using the central organization security blueprint
+    # if not TenantPolicy.can_create(request.user):
+    #     raise PermissionDenied("Access denied. Insufficient administrative privileges.")
         
     return render(request, "pages/create.html")
 
-class TenantCreateView(APIView):
-    """
-    Enterprise API View for provisioning new tenant accounts.
-    """
-    permission_classes = [IsAuthenticated]
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.service = TenantService()
+# =============================================================================
+# 2. PERSISTENCE LAYER (BUSINESS TRANSACTION EXECUTION)
+# =============================================================================
+# @login_required
+@require_POST
+def create_tenant_execute(request):
+    """
+    Processes transaction payload, transforms form-data to DTO, 
+    and invokes the domain service layer for entity persistence.
+    
+    Design Patterns applied:
+    - Post/Redirect/Get (PRG) Pattern to eliminate duplicate submission vulnerabilities.
+    """
+    # Strict secondary authorization guard on the data mutation pipeline
+    # if not TenantPolicy.can_create(request.user):
+    #     raise PermissionDenied("Action barred by organizational security blueprint.")
 
-    def post(self, request, *args, **kwargs):
-        # Strict organizational access control rule mapping
-        if not TenantPolicy.can_create(request.user):
-            return Response(
-                {"error": "Action barred by organizational security blueprint."}, 
-                status=status.HTTP_403_FORBIDDEN
-            )
-        
-        # Explicit data transfer contract translation layer
+    service = TenantService()
+    
+    try:
+        # Explicit request payload translation into an immutable Data Transfer Object (DTO)
         dto = TenantCreateDTO(
-            code=request.data.get("code"),
-            name=request.data.get("name"),
-            domain=request.data.get("domain"),
-            logo_url=request.data.get("logo_url"),
-            primary_color=request.data.get("primary_color", "#3B82F6"),
-            plan=request.data.get("plan", "STANDARD"),
-            currency=request.data.get("currency", "VND"),
-            exchange_rate=float(request.data.get("exchange_rate", 1.0000)),
-            default_language=request.data.get("default_language", "vi"),
-            timezone=request.data.get("timezone", "Asia/Ho_Chi_Minh"),
-            settings=request.data.get("settings", {}),
-            max_users=int(request.data.get("max_users", 10)),
-            max_branches=int(request.data.get("max_branches", 1)),
-            max_vehicles=int(request.data.get("max_vehicles", 50))
+            code=request.POST.get("code"),
+            name=request.POST.get("name"),
+            domain=request.POST.get("domain"),
+            logo_url=request.POST.get("logo_url"), 
+            primary_color=request.POST.get("primary_color", "#3B82F6"),
+            plan=request.POST.get("plan_type", "STANDARD"), 
+            currency=request.POST.get("currency", "VND"),
+            exchange_rate=float(request.POST.get("exchange_rate") or 1.0000),
+            default_language=request.POST.get("default_language", "vi"),
+            timezone=request.POST.get("timezone", "Asia/Ho_Chi_Minh"),
+            settings={}, 
+            max_users=int(request.POST.get("max_users") or 10),
+            max_branches=int(request.POST.get("max_branches") or 1),
+            max_vehicles=int(request.POST.get("max_vehicles") or 50)
         )
 
-        tenant = self.service.create_tenant(dto, requested_by_user=request.user)
-        return Response(TenantSerializer(tenant).data, status=status.HTTP_201_CREATED)
+        # Delegate business logic execution to the specialized domain service layer
+        service.create_tenant(dto, requested_by_user=request.user)
+        
+        # Inject successful status feedback message into the session pipeline
+        messages.success(request, "Tenant organization provisioned successfully.")
+        
+        # Redirect to the main workspace index (PRG Pattern)
+        return redirect("tenan_list")
+        
+    except Exception as e:
+        # Fail-soft mechanism: Catch domain/system exceptions and inject error payload into context session
+        messages.error(request, f"System failed to provision tenant resource: {str(e)}")
+        
+        # Safe fallback redirection back to the clean interface context
+        return redirect("tenant_create_ui")

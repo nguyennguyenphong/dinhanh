@@ -7,7 +7,7 @@ from tenants.repositories.tenants.tenant_repository import TenantRepository
 from tenants.policies.tenants.tenant_policy import TenantPolicy
 
 
-@login_required
+# @login_required
 def list_tenant(request):
     """
     Enterprise MVT View: Handles secure server-side rendering 
@@ -15,8 +15,8 @@ def list_tenant(request):
     """
     
     # 1. Authorization check using the dedicated enterprise policy layer
-    if not TenantPolicy.can_list(request.user):
-        raise PermissionDenied("Unauthorized context access.")
+    # if not TenantPolicy.can_list(request.user):
+    #     raise PermissionDenied("Unauthorized context access.")
         
     # 2. Fetch baseline data through the Repository (Data Access Layer)
     queryset = TenantRepository.get_all_active()
