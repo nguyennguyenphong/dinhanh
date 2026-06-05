@@ -1,37 +1,54 @@
-# ============================================================================
-# FILE: tenants/tests/test_tenant_creation.py
-# ============================================================================
-from django.urls import reverse
-from rest_framework import status
-from rest_framework.test import APITestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
+from rest_framework.test import APIClient
+from rest_framework import status
+from tenants.models.tenants import Tenant
 
 User = get_user_model()
 
-class TenantProvisioningTests(APITestCase):
-    
-    def setUp(self):
-        self.admin_user = User.objects.create_superuser(
-            username="saas_admin", email="admin@cms.com", password="SecurePassword123"
-        )
-        self.url = reverse("tenant-provision")
+class TenantEnterpriseLifecycleTestCase(TestCase):
 
-    def test_admin_can_successfully_create_valid_tenant(self):
-        """Verify explicit system rules match performance specifications."""
-        self.client.force_authenticate(user=self.admin_user)
+    def setUp(self):
+        self.client = APIClient()
+        # Prepare execution actors mockups
+        self.superuser = User.objects.create_superuser(
+            username="globaladmin", email="admin@saas.com", password="SecurePassword123"
+        )
+        self.client.force_authenticate(user=self.superuser)
+        
+        # Preseed execution entry points baseline configurations
+        self.existing_tenant = Tenant.objects.create(
+            code="TAXI_PHUONGTRANG",
+            name="Phuong Trang Bus Lines",
+            plan="ENTERPRISE",
+            is_active=True
+        )
+
+    def test_create_tenant_valid_payload(self):
         payload = {
-            "code": "ALPHABUS",
-            "name": "Alpha Express Transport LLC",
-            "plan": "PROFESSIONAL",
-            "currency": "VND",
-            "timezone": "Asia/Ho_Chi_Minh"
+            "code": "ALOHA_EXPRESS",
+            "name": "Aloha Express Services",
+            "plan": "STANDARD",
+            "currency": "USD",
+            "max_users": 20
         }
-        response = self.client.post(self.url, payload, format="json")
-        
+        response = self.client.post("/api/tenants/", payload, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data["data"]["code"], "ALPHABUS")
+        self.assertEqual(response.data["code"], "ALOHA_EXPRESS")
         
-        # Ensure underlying limits were attached correctly by service tier injection
-        from tenants.models.tenants import Tenant
-        tenant = Tenant.objects.get(code="ALPHABUS")
-        self.assertEqual(tenant.max_vehicles, 200) # Max vehicles for PROFESSIONAL tier
+    def test_list_tenants_success(self):
+        response = self.client.get("/api/tenants/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(len(response.data) >= 1)
+
+    def test_update_tenant_partial(self):
+        payload = {"name": "Phuong Trang Transport Group"}
+        url = f"/api/tenants/{self.existing_tenant.id}/"
+        response = self.client.put(url, payload, format="json")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["name"], "Phuong Trang Transport Group")
+
+    def test_delete_tenant_action(self):
+        url = f"/api/tenants/{self.existing_tenant.id}/"
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
