@@ -1,12 +1,12 @@
 # Url account's module
 from django.urls import path
 
-from accounts.views.login import login
-from accounts.views.password_reset import password_reset
-from accounts.views.password_reset_confirm import password_reset_confirm
-from accounts.views.register import register
-from accounts.views.verify_email import verify_email
-from accounts.views.password_reset_complete import password_reset_complete
+from accounts.views.auth.login import login
+from accounts.views.auth.password_reset import password_reset
+from accounts.views.auth.password_reset_confirm import password_reset_confirm
+from accounts.views.auth.register import register
+from accounts.views.auth.verify_email import verify_email
+from accounts.views.auth.password_reset_complete import password_reset_complete
 
 urlpatterns = [
     path("login/", login, name="login"),

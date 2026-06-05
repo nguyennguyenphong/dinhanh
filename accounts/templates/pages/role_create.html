@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load component_tags %}
+
+{% block title %} Tạo vai trò {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+
+        <div class="border border-gray-200 p-4 bg-white rounded-md">
+            {% component "page_header" title="Tạo vai trò" description="Tạo vai trò hệ thống." %}
+            {% endcomponent %}
+        </div>
+
+        <div class="rounded-md">
+
+            <form action="{% url 'role_create' %}" method="POST" class="space-y-6" autocomplete="off">
+                {% csrf_token %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-4">
+
+                    <div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+                        <h3
+                            class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+                            Thông tin cơ bản
+                        </h3>
+
+                        {% component "input" name="name" label="Tên vai trò" placeholder="Nhập tên vai trò" required=True autocomplete="off" %}{% endcomponent %}
+
+                        <div class="w-full">
+                            <label for="description" class="block text-sm font-medium text-gray-700 dark:text-slate-300"> Mô tả </label>
+                            <textarea id="description" placeholder="Nhập mô tả" rows="5" class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+                        <h3
+                            class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+                            Cấu hình vai trò
+                        </h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                            <div>
+                                <span class="block text-sm font-medium text-gray-700 dark:text-slate-300"> Vai trò hệ thống <span
+                                        class="text-red-500">*</span></span>
+                                <div class="grid sm:grid-cols-2 gap-2 mt-1">
+                                    <label for="isSystem" name="hisSystem"
+                                        class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
+                                        <input type="radio" name="isSystem"
+                                            class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
+                                            id="isSystem" value="True">
+                                        <span class="text-sm ms-3 text-muted-foreground-1">Là vai trò hệ thống</span>
+                                    </label>
+
+                                    <label for="isSystem" name="isSystem"
+                                        class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
+                                        <input type="radio" name="isSystem"
+                                            class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
+                                            id="isSystem" value="False" checked>
+                                        <span class="text-sm ms-3 text-muted-foreground-1">Không phải vai trò hệ thống</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="block text-sm font-medium text-gray-700 dark:text-slate-300"> Trạng thái vai trò <span
+                                        class="text-red-500">*</span></span>
+                                <div class="grid sm:grid-cols-2 gap-2 mt-1">
+                                    <label for="isActive" name="isActive"
+                                        class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
+                                        <input type="radio" name="isActive"
+                                            class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
+                                            id="isActive" value="True" checked>
+                                        <span class="text-sm ms-3 text-muted-foreground-1">Kích hoạt</span>
+                                    </label>
+
+                                    <label for="isActive" name="isActive"
+                                        class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
+                                        <input type="radio" name="isActive"
+                                            class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
+                                            id="isActive" value="False">
+                                        <span class="text-sm ms-3 text-muted-foreground-1">Ngừng kích hoạt</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="tenant" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                                Vai trò thuộc tenant <span class="text-red-500">*</span>
+                            </label>
+
+                            <select
+                                name="tenant"
+                                id="tenant"
+                                required
+                                class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
+                            >
+                                <option value="">Chọn tenant</option>
+                                <option value="1">VTSCT4A0ILRH</option>
+                                <option value="2">JL65XR24G4D4</option>
+                                <option value="3">50EN16EIDJ0J</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 mt-4 dark:border-slate-800 pt-4">
+                    <a href="{% url 'tenants' %}"
+                        class="px-4 py-2 border border-gray-300 dark:border-slate-700 rounded-md text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                        Hủy bỏ
+                    </a>
+                    {% component "button" type="submit" text="Khởi tạo ngay" variant="primary" size="md"
+                    full_width=False %}{% endcomponent %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
