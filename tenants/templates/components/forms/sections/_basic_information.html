@@ -20,6 +20,22 @@
         </div>
     </div>
 
-    {% component "input" type="text" name="domain" label="Tên miền" placeholder="Nhập tên miền" required=True
-    autocomplete="off" %}{% endcomponent %}
+    <div>
+        <label for="plan_type" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            Gói dịch vụ <span class="text-red-500">*</span>
+        </label>
+
+        <select
+            name="plan_type"
+            id="plan_type"
+            required
+            class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
+        >
+            <option value="">Chọn gói dịch vụ</option>
+            <option value="free" selected>Miễn phí</option>
+            <option value="standard">Tiêu chuẩn</option>
+            <option value="pro">Chuyên nghiệp</option>
+            <option value="enterprise">Doanh nghiệp</option>
+        </select>
+    </div>
 </div>

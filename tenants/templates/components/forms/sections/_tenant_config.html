@@ -43,9 +43,16 @@
             </script>
         </div>
 
-        <div>
-            {% component "datepicker" name="subscription_expires_at" label="Ngày hết hạn gói" min_date="today"
-            placeholder="Chọn ngày hết hạn..." required=True %}{% endcomponent %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+                {% component "datepicker" name="subscription_started_at" label="Ngày bắt đầu gói" min_date="today"
+                placeholder="Chọn ngày bắt đầu" required=True %}{% endcomponent %}
+            </div>
+
+            <div>
+                {% component "datepicker" name="subscription_ended_at" label="Ngày kết thúc gói" min_date="today"
+                placeholder="Chọn ngày kết thúc" required=True %}{% endcomponent %}
+            </div>
         </div>
     </div>
 
@@ -57,21 +64,29 @@
 
         <div>
             <span class="block text-sm font-medium text-gray-700 dark:text-slate-300"> Trạng thái tenant <span class="text-red-500">*</span></span>
-            <div class="grid sm:grid-cols-2 gap-2 mt-1">
-                <label for="hs-radio-in-form" name="hs-radio-in-form"
+            <div class="grid grid-cols-3 gap-3 mt-1">
+                <label for="statusActive" name="status"
                     class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
-                    <input type="radio" name="hs-radio-in-form"
+                    <input type="radio" name="status"
                         class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
-                        id="hs-radio-in-form" checked>
+                        id="statusActive" checked value="active">
                     <span class="text-sm ms-3 text-muted-foreground-1">Kích hoạt</span>
                 </label>
 
-                <label for="hs-radio-checked-in-form" name="hs-radio-in-form"
+                <label for="statusInactive" name="status"
                     class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
-                    <input type="radio" name="hs-radio-in-form"
+                    <input type="radio" name="status" value="inactive"
                         class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
-                        id="hs-radio-checked-in-form">
+                        id="statusInactive">
                     <span class="text-sm ms-3 text-muted-foreground-1">Ngừng kích hoạt</span>
+                </label>
+
+                <label for="statusSuspended" name="status"
+                    class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
+                    <input type="radio" name="status" value="suspended"
+                        class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
+                        id="statusSuspended">
+                    <span class="text-sm ms-3 text-muted-foreground-1">Tạm khóa</span>
                 </label>
             </div>
         </div>

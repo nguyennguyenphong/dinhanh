@@ -24,6 +24,28 @@ class Tenant(models.Model):
         ("ENTERPRISE", _("Enterprise")),
     )
 
+    CURRENCY_CHOICES = (
+        ("VND", _("Vietnam Dong (₫)")),
+        ("USD", _("US Dollar ($)")),
+        ("EUR", _("Euro (€)")),
+        ("LAK", _("Lao Kip (₭)")),
+        ("KHR", _("Cambodian Riel (៛)")),
+    )
+
+    LANGUAGE_CHOICES = (
+        ("vi", _("Tiếng Việt")),
+        ("en", _("English")),
+        ("lo", _("Lao")),
+        ("km", _("Khmer")),
+    )
+
+    TIMEZONE_CHOICES = (
+        ("Asia/Ho_Chi_Minh", _("Asia/Ho_Chi_Minh (GMT+7)")),
+        ("Asia/Vientiane", _("Asia/Vientiane (GMT+7)")),
+        ("Asia/Phnom_Penh", _("Asia/Phnom_Penh (GMT+7)")),
+        ("Asia/Bangkok", _("Asia/Bangkok (GMT+7)")),
+    )
+
     id = models.AutoField(primary_key=True)
     uuid = models.UUIDField(
         default=uuid.uuid4, editable=False, unique=True, db_index=True
@@ -69,6 +91,33 @@ class Tenant(models.Model):
         db_index=True,
         help_text="Gói dịch vụ",
     )
+
+    currency = models.CharField(
+        max_length=10,
+        choices=CURRENCY_CHOICES,
+        default="VND",
+        help_text="Đơn vị tiền tệ mặc định của nhà xe",
+    )
+    exchange_rate = models.DecimalField(
+        max_length=10,
+        max_digits=12,
+        decimal_places=4,
+        default=1.0000,
+        help_text="Tỉ giá quy đổi so với đồng tiền gốc của hệ thống (VD: Hệ thống dùng USD, tỉ giá VND là 25000.0000)",
+    )
+    default_language = models.CharField(
+        max_length=10,
+        choices=LANGUAGE_CHOICES,
+        default="vi",
+        help_text="Ngôn ngữ hiển thị mặc định cho backend/frontend của tenant",
+    )
+    timezone = models.CharField(
+        max_length=50,
+        choices=TIMEZONE_CHOICES,
+        default="Asia/Ho_Chi_Minh",
+        help_text="Múi giờ của nhà xe để đồng bộ thời gian chạy xe, lịch trình",
+    )
+
     is_active = models.BooleanField(
         default=True, db_index=True, help_text="Tenant có hoạt động không"
     )
