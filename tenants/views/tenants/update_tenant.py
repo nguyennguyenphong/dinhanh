@@ -7,7 +7,7 @@ from tenants.models.tenants import Tenant
 from tenants.serializers.tenants.tenant_serializer import TenantSerializer
 from tenants.policies.tenants.tenant_policy import TenantPolicy
 from tenants.services.tenants.tenant_service import TenantService
-from tenants.dtos.tenants.tenant_update_dto import TenantUpdateDTO
+from tenants.application.dtos.tenants.tenant_update_dto import TenantUpdateDTO
 
 
 class TenantUpdateView(APIView):

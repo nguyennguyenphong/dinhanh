@@ -8,7 +8,7 @@ from rest_framework.exceptions import ValidationError
 
 from tenants.policies.tenants.tenant_policy import TenantPolicy
 from tenants.services.tenants.tenant_service import TenantService
-from tenants.dtos.tenants.tenant_create_dto import TenantCreateDTO
+from tenants.application.dtos.tenants.tenant_create_dto import TenantCreateDTO
 from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
 
 # =============================================================================

@@ -1,4 +1,4 @@
-# call tenant usecase
+# call tenant dto
 
 from .tenants import *
 
