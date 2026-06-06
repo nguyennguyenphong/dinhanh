@@ -326,7 +326,6 @@ python manage.py shell
 
 # Create superuser
 python manage.py createsuperuser
-
 # Collect static files
 python manage.py collectstatic
 ```

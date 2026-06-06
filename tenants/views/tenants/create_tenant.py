@@ -3,10 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods, require_POST
+from django.urls import NoReverseMatch
+from rest_framework.exceptions import ValidationError
 
 from tenants.policies.tenants.tenant_policy import TenantPolicy
 from tenants.services.tenants.tenant_service import TenantService
 from tenants.dtos.tenants.tenant_create_dto import TenantCreateDTO
+from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
 
 # =============================================================================
 # 1. PRESENTATION LAYER (UI RENDERING)
@@ -45,39 +48,19 @@ def create_tenant_execute(request):
     # if not TenantPolicy.can_create(request.user):
     #     raise PermissionDenied("Action barred by organizational security blueprint.")
 
-    service = TenantService()
-    
-    try:
-        # Explicit request payload translation into an immutable Data Transfer Object (DTO)
-        dto = TenantCreateDTO(
-            code=request.POST.get("code"),
-            name=request.POST.get("name"),
-            domain=request.POST.get("domain"),
-            logo_url=request.POST.get("logo_url"), 
-            primary_color=request.POST.get("primary_color", "#3B82F6"),
-            plan=request.POST.get("plan_type", "STANDARD"), 
-            currency=request.POST.get("currency", "VND"),
-            exchange_rate=float(request.POST.get("exchange_rate") or 1.0000),
-            default_language=request.POST.get("default_language", "vi"),
-            timezone=request.POST.get("timezone", "Asia/Ho_Chi_Minh"),
-            settings={}, 
-            max_users=int(request.POST.get("max_users") or 10),
-            max_branches=int(request.POST.get("max_branches") or 1),
-            max_vehicles=int(request.POST.get("max_vehicles") or 50)
-        )
+    serializer = TenantCreateSerializer(data=request.POST)
+    serializer.is_valid(raise_exception=True)
 
-        # Delegate business logic execution to the specialized domain service layer
-        service.create_tenant(dto, requested_by_user=request.user)
-        
-        # Inject successful status feedback message into the session pipeline
-        messages.success(request, "Tenant organization provisioned successfully.")
-        
-        # Redirect to the main workspace index (PRG Pattern)
-        return redirect("tenan_list")
-        
-    except Exception as e:
-        # Fail-soft mechanism: Catch domain/system exceptions and inject error payload into context session
-        messages.error(request, f"System failed to provision tenant resource: {str(e)}")
-        
-        # Safe fallback redirection back to the clean interface context
-        return redirect("tenant_create_ui")
+    dto = TenantCreateDTO(**serializer.validated_data)
+
+    TenantService().create_tenant(
+        dto=dto,
+        requested_by_user=request.user
+    )
+
+    messages.success(
+        request,
+        "Tenant organization provisioned successfully."
+    )
+
+    return redirect("tenant_list")

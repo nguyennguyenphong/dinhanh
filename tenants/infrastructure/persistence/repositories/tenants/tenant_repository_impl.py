@@ -4,7 +4,7 @@ from django.db.models import QuerySet
 from tenants.models.tenants import Tenant
 
 
-class TenantRepository:
+class TenantRepositoryImpl:
 
     @staticmethod
     def get_all_active() -> QuerySet[Tenant]:

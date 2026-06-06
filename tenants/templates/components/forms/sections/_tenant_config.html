@@ -50,7 +50,7 @@
             </div>
 
             <div>
-                {% component "datepicker" name="subscription_ended_at" label="Ngày kết thúc gói" min_date="today"
+                {% component "datepicker" name="subscription_expires_at" label="Ngày kết thúc gói" min_date="today"
                 placeholder="Chọn ngày kết thúc" required=True %}{% endcomponent %}
             </div>
         </div>
@@ -65,28 +65,20 @@
         <div>
             <span class="block text-sm font-medium text-gray-700 dark:text-slate-300"> Trạng thái tenant <span class="text-red-500">*</span></span>
             <div class="grid grid-cols-3 gap-3 mt-1">
-                <label for="statusActive" name="status"
+                <label for="statusActive" name="is_active"
                     class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
                     <input type="radio" name="status"
                         class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
-                        id="statusActive" checked value="active">
+                        id="statusActive" checked value="True">
                     <span class="text-sm ms-3 text-muted-foreground-1">Kích hoạt</span>
                 </label>
 
-                <label for="statusInactive" name="status"
+                <label for="statusInactive" name="is_active"
                     class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
-                    <input type="radio" name="status" value="inactive"
+                    <input type="radio" name="status" value="False"
                         class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
                         id="statusInactive">
                     <span class="text-sm ms-3 text-muted-foreground-1">Ngừng kích hoạt</span>
-                </label>
-
-                <label for="statusSuspended" name="status"
-                    class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
-                    <input type="radio" name="status" value="suspended"
-                        class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
-                        id="statusSuspended">
-                    <span class="text-sm ms-3 text-muted-foreground-1">Tạm khóa</span>
                 </label>
             </div>
         </div>
@@ -106,7 +98,7 @@
             >
                 <option value="">Chọn đơn vị tiền tệ</option>
                 <option value="USD">Đồng Đô La Mỹ</option>
-                <option value="VND">Việt Nam Đồng</option>
+                <option value="VND" selected>Việt Nam Đồng</option>
             </select>
         </div>
 

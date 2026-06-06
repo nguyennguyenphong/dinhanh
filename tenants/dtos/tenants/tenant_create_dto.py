@@ -12,6 +12,7 @@ class TenantCreateDTO:
     code: str
     name: str
     plan: str
+
     domain: Optional[str] = None
     logo_url: Optional[str] = None
     primary_color: str = "#3B82F6"
@@ -19,8 +20,11 @@ class TenantCreateDTO:
     exchange_rate: Decimal = Decimal("1.0000")
     default_language: str = "vi"
     timezone: str = "Asia/Ho_Chi_Minh"
+    is_active: bool = True
+    settings: Dict[str, Any] = field(default_factory=dict)
+    subscription_started_at: Optional[str] = None
+    subscription_expires_at: Optional[str] = None
     max_users: Optional[int] = None
     max_branches: Optional[int] = None
     max_vehicles: Optional[int] = None
-    settings: Dict[str, Any] = field(default_factory=dict)
-    subscription_days: int = 30
+    

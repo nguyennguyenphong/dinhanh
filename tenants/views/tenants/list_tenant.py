@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 
 # Import from Repository layer instead of direct ORM inside View for Enterprise abstraction
-from tenants.repositories.tenants.tenant_repository import TenantRepository
+from tenants.infrastructure.persistence.repositories.tenants.tenant_repository_impl import TenantRepositoryImpl
 from tenants.policies.tenants.tenant_policy import TenantPolicy
 
 
@@ -19,7 +19,7 @@ def list_tenant(request):
     #     raise PermissionDenied("Unauthorized context access.")
         
     # 2. Fetch baseline data through the Repository (Data Access Layer)
-    queryset = TenantRepository.get_all_active()
+    queryset = TenantRepositoryImpl.get_all_active()
     
     # 3. High-performance filtering directly from URL GET query string parameters
     code_filter = request.GET.get('code', '').strip()

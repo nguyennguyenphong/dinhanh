@@ -5,7 +5,7 @@ from rest_framework.exceptions import ValidationError
 
 from tenants.models.tenants import Tenant
 from tenants.models.tenent_audit_log import TenantAuditLog
-from tenants.repositories.tenants.tenant_repository import TenantRepository
+from tenants.infrastructure.persistence.repositories.tenants.tenant_repository_impl import TenantRepositoryImpl
 from tenants.dtos.tenants.tenant_create_dto import TenantCreateDTO
 from tenants.dtos.tenants.tenant_update_dto import TenantUpdateDTO
 from tenants.serializers.tenants.tenant_serializer import TenantSerializer
@@ -14,7 +14,7 @@ from tenants.serializers.tenants.tenant_serializer import TenantSerializer
 class TenantService:
 
     def __init__(self):
-        self.repo = TenantRepository()
+        self.repo = TenantRepositoryImpl()
 
     @transaction.atomic
     def create_tenant(self, dto: TenantCreateDTO, requested_by_user) -> Tenant:
