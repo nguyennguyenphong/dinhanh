@@ -1,44 +1,29 @@
-"""
-DRF API views for Tenant CRUD operations.
-
-Endpoint map (wired in urls/tenant_urls.py):
-    GET    /tenants/<pk>/  — retrieve one tenant
-"""
-from __future__ import annotations
-
-from rest_framework import status
-from rest_framework.request import Request
-from rest_framework.response import Response
-from rest_framework.views import APIView
-
-from tenants.exceptions.exception import TenantDomainError
-from tenants.policies import TenantPolicy
+from django.shortcuts import render, redirect
+from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from tenants.providers import TenantProvider
-from tenants.serializers import TenantResponseSerializer
+from tenants.exceptions.exception import TenantDomainError
+from tenants.views.helpers.view_helpers import RequestContext
 
-from views.helpers.view_helpers import RequestContext, domain_error_response
-
-
-class TenantDetailView(APIView):
+class TenantDetailView(LoginRequiredMixin, View):
     """
-    GET    /tenants/<pk>/  — retrieve one tenant
+    Handle viewing and deactivating a tenant in MVT style.
     """
 
-    def get(self, request: Request, pk: int) -> Response:
-        TenantPolicy.can_retrieve(request, pk)
-
+    def get(self, request, pk: int):
         try:
-            result = TenantProvider.get_tenant().by_id(pk)
-        except TenantDomainError as exc:
-            return domain_error_response(exc)
+            # Call provider to get tenant data
+            tenant = TenantProvider.get_tenant().by_id(pk)
+        except TenantDomainError as e:
+            return render(request, 'pages/404.html', {'error': str(e)})
 
-        return Response(TenantResponseSerializer(vars(result)).data)
+        return render(request, 'pages/detail.html', {'tenant': tenant})
 
-    def delete(self, request: Request, pk: int) -> Response:
-        TenantPolicy.can_deactivate(request)
-
+    def post(self, request, pk: int):
+        """
+        Handle deactivation via POST (standard for forms in MVT).
+        """
         ctx = RequestContext.from_request(request)
-
         try:
             TenantProvider.deactivate_tenant().execute(
                 pk,
@@ -47,7 +32,8 @@ class TenantDetailView(APIView):
                 ip_address=ctx.ip_address,
                 user_agent=ctx.user_agent,
             )
-        except TenantDomainError as exc:
-            return domain_error_response(exc)
-
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        except TenantDomainError:
+            # Handle error (maybe show a message on the detail page)
+            pass
+            
+        return redirect('tenant_list') # Redirect back to list after action

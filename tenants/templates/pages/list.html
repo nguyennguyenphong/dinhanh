@@ -117,15 +117,15 @@
                                 {{ tenant.updated_at|date:"H:i:s Y/m/d" }}
                             </td>
                             <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                <a href="#"
+                                <a href="{% url 'tenant_detail' tenant.id %}"
                                     class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
                                     Chi tiết
                                 </a>
-                                <a href="#"
+                                <a href="{% url 'tenant_detail' tenant.id %}"
                                     class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
                                     Chỉnh sửa
                                 </a>
-                                <a href="#"
+                                <a href="{% url 'tenant_detail' tenant.id %}"
                                     class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100">
                                     Xóa
                                 </a>

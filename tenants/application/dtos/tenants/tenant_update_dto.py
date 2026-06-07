@@ -5,7 +5,8 @@ from datetime import datetime
 
 @dataclass
 class TenantUpdateDTO:
-    tenant_id: int
+    tenant_id: int | None
+    code: str | None = None
     name: str | None = None
     plan: str | None = None
     currency: str | None = None
@@ -13,6 +14,7 @@ class TenantUpdateDTO:
     default_language: str | None = None
     timezone: str | None = None
     primary_color: str | None = None
+    is_active: bool | None = None
     max_users: int | None = None
     max_branches: int | None = None
     max_vehicles: int | None = None

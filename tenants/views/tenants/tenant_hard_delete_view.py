@@ -16,7 +16,7 @@ from tenants.exceptions.exception import TenantDomainError
 from tenants.policies import TenantPolicy
 from tenants.providers import TenantProvider
 
-from views.helpers.view_helpers import RequestContext, domain_error_response
+from tenants.views.helpers.view_helpers import RequestContext, domain_error_response
 
 
 

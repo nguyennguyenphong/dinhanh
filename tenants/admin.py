@@ -7,9 +7,15 @@ from __future__ import annotations
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
+from tenants.models import (
+        Tenant,
+        TenantAuditLog,
+        TenantFeatureFlag,
+        TenantInvitation,
+    )
 
 
-@admin.register_model("core.Tenant")
+@admin.register(Tenant)
 class TenantAdmin(admin.ModelAdmin):
     list_display = (
         "code",
@@ -82,7 +88,7 @@ class TenantAdmin(admin.ModelAdmin):
         return super().get_queryset(request).prefetch_related("tenant_feature_flags")
 
 
-@admin.register_model("core.TenantAuditLog")
+@admin.register(TenantAuditLog)
 class TenantAuditLogAdmin(admin.ModelAdmin):
     list_display = (
         "tenant",
@@ -126,7 +132,7 @@ class TenantAuditLogAdmin(admin.ModelAdmin):
         return request.user.is_superuser
 
 
-@admin.register_model("core.TenantFeatureFlag")
+@admin.register(TenantFeatureFlag)
 class TenantFeatureFlagAdmin(admin.ModelAdmin):
     list_display = (
         "tenant",
@@ -141,7 +147,7 @@ class TenantFeatureFlagAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
 
 
-@admin.register_model("core.TenantInvitation")
+@admin.register(TenantInvitation)
 class TenantInvitationAdmin(admin.ModelAdmin):
     list_display = (
         "tenant",
@@ -155,27 +161,3 @@ class TenantInvitationAdmin(admin.ModelAdmin):
     list_filter = ("status", "tenant")
     search_fields = ("email", "tenant__code")
     readonly_fields = ("token", "created_at", "accepted_at")
-
-
-# ---------------------------------------------------------------------------
-# Correct approach: import models at the bottom to avoid circular imports,
-# then re-register using the standard decorator pattern.
-# ---------------------------------------------------------------------------
-
-def register_admin():
-    """
-    Called from TenantAppConfig.ready() after all models are loaded.
-    Replaces the @admin.register_model placeholder decorators above.
-    """
-    from tenants.models import (
-        Tenant,
-        TenantAuditLog,
-        TenantFeatureFlag,
-        TenantInvitation,
-    )
-
-    # Unregister placeholder decorators (they used string labels)
-    admin.site.register(Tenant, TenantAdmin)
-    admin.site.register(TenantAuditLog, TenantAuditLogAdmin)
-    admin.site.register(TenantFeatureFlag, TenantFeatureFlagAdmin)
-    admin.site.register(TenantInvitation, TenantInvitationAdmin)

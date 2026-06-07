@@ -1,6 +1,33 @@
-<form action="{% url 'tenant_create_execute' %}" method="POST" enctype="multipart/form-data" class="space-y-6"
-    autocomplete="off">
+{% if form.non_field_errors %}
+    <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+{% endif %}
+
+<form action="{% url 'tenant_create' %}" method="POST" enctype="multipart/form-data" class="space-y-6" autocomplete="off">
     {% csrf_token %}
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Code</label>
+            {{ form.code }}
+            {% if form.code.errors %}<p class="text-red-500 text-xs mt-1">{{ form.code.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Name</label>
+            {{ form.name }}
+            {% if form.name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Plan</label>
+            {{ form.plan }}
+            {% if form.plan.errors %}<p class="text-red-500 text-xs mt-1">{{ form.plan.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Domain</label>
+        {{ form.domain }}
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-4">
         
         {% include 'components/forms/sections/_basic_information.html' %}

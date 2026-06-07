@@ -1,20 +1,17 @@
-
 @import "tailwindcss";
 
-@source "../../**/*.html";
-@source "../../**/*.py";
-
-/* Preline UI */
+@source "../../templates/**/*.html";
+@source "../../tenants/**/*.html";
 @source "../../node_modules/preline/dist/*.js";
+
 @import "../../node_modules/preline/variants.css";
+@import "../../node_modules/@preline/select/variants.css";
 
 /* Plugins */
 @plugin "@tailwindcss/forms";
 
-/* Preline Themes */
-/* @import "./themes/theme.css"; */
+@source "../../templates/**/*.html";
+@source "../../tenants/templates/**/*.html";
 
-/* @preline/select */
-@source "../../node_modules/@preline/select/*.js";
-@import "../../node_modules/@preline/select/variants.css";
-@import "../../node_modules/@preline/select/theme.css";
+@source "../../**/*.html";
+@source "../../**/*.py";

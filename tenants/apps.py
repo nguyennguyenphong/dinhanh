@@ -13,16 +13,4 @@ class TenantAppConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
 
     def ready(self):
-        # Register signal handlers
-        import tenants.signals  # noqa: F401
-
-        # Register admin classes after all models are loaded
-        try:
-            from tenants.admin import register_admin
-            register_admin()
-        except Exception:
-            # Admin registration failure must never crash the app startup
-            import logging
-            logging.getLogger(__name__).exception(
-                "Failed to register tenant admin classes."
-            )
+        pass

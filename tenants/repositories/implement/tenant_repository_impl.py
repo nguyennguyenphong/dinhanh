@@ -81,9 +81,9 @@ class TenantRepositoryImpl(ITenantRepository):
 
         # Apply structured filters
         if filters:
-            if "is_active" in filters:
+            if filters.get("is_active") is not None:
                 qs = qs.filter(is_active=filters["is_active"])
-            if "plan" in filters:
+            if filters.get("plan"):
                 qs = qs.filter(plan=filters["plan"])
 
         # Full-text search across code, name
