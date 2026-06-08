@@ -1,0 +1,104 @@
+INFO 2026-06-08 18:25:50,960 autoreload 22340 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:25:54,418 log 22340 6155104256 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:25:54,539 log 22340 6155104256 "GET /static/src/css/output.css HTTP/1.1" 304 0
+INFO 2026-06-08 18:25:54,539 log 22340 6171930624 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
+WARNING 2026-06-08 18:25:54,555 log 22340 6171930624 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:25:54,556 log 22340 6171930624 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:25:54,725 log 22340 6171930624 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:25:55,079 log 22340 6171930624 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:26:23,795 autoreload 22340 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:26:24,702 autoreload 22645 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:26:25,236 log 22645 6215184384 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 18:26:25,343 log 22645 6215184384 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:26:25,344 log 22645 6215184384 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:26:28,080 autoreload 22645 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:26:28,830 autoreload 22694 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:26:29,100 log 22694 6184136704 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 18:26:29,278 log 22694 6184136704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:26:29,278 log 22694 6184136704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:26:30,081 autoreload 22694 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:26:30,686 autoreload 22725 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:26:33,011 autoreload 22725 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:26:33,536 autoreload 22749 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:26:33,825 log 22749 6176026624 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 18:26:33,952 log 22749 6176026624 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:26:33,953 log 22749 6176026624 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:26:58,992 autoreload 22749 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:26:59,780 autoreload 23029 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:27:00,172 log 23029 6218559488 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:27:00,291 log 23029 6218559488 "GET /static/src/css/output.css HTTP/1.1" 304 0
+INFO 2026-06-08 18:27:00,292 log 23029 6235385856 "GET /static/src/js/components/datepicker.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:27:00,295 log 23029 6252212224 "GET /static/src/js/components/fileuploader.js HTTP/1.1" 304 0
+WARNING 2026-06-08 18:27:00,308 log 23029 6252212224 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:27:00,309 log 23029 6252212224 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:27:01,040 autoreload 23029 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:27:01,624 autoreload 23061 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:27:03,945 autoreload 23061 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:27:04,521 autoreload 23079 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:27:04,871 log 23079 6217986048 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 18:27:05,100 log 23079 6217986048 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:27:05,102 log 23079 6217986048 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:27:05,850 autoreload 23079 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:27:06,554 autoreload 23107 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:27:08,005 autoreload 23107 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:27:08,609 autoreload 23124 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:27:09,086 log 23124 6185791488 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 18:27:09,167 log 23124 6185791488 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:27:09,167 log 23124 6185791488 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:27:20,289 autoreload 23124 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:27:21,007 autoreload 23229 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:27:21,331 log 23229 6183874560 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:27:21,617 log 23229 6200700928 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
+WARNING 2026-06-08 18:27:21,646 log 23229 6183874560 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:27:21,646 log 23229 6183874560 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:27:21,761 log 23229 6183874560 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:27:22,109 log 23229 6183874560 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:28:24,321 autoreload 23229 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:28:25,427 autoreload 23776 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:28:26,095 log 23776 6185611264 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:28:26,225 log 23776 6185611264 "GET /static/src/css/output.css HTTP/1.1" 304 0
+WARNING 2026-06-08 18:28:26,229 log 23776 6202437632 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:28:26,230 log 23776 6202437632 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:28:27,717 autoreload 23776 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:28:28,805 autoreload 23806 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:28:30,258 autoreload 23806 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:28:31,153 autoreload 23836 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:28:32,487 log 23836 6177353728 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:28:32,568 autoreload 23836 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:28:33,615 autoreload 23854 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:28:45,650 log 23854 6203043840 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 18:28:45,790 log 23854 6203043840 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:28:45,790 log 23854 6203043840 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:29:06,383 autoreload 23854 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/local.py changed, reloading.
+INFO 2026-06-08 18:29:07,217 autoreload 24151 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:29:07,722 log 24151 6207795200 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:29:07,850 log 24151 6207795200 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
+WARNING 2026-06-08 18:29:07,873 log 24151 6207795200 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:29:07,873 log 24151 6207795200 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:29:08,063 log 24151 6207795200 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:29:08,434 log 24151 6207795200 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:29:58,986 autoreload 24151 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:29:59,936 autoreload 24551 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:30:00,662 log 24551 6187020288 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:30:00,948 log 24551 6203846656 "GET /static/src/css/output.css HTTP/1.1" 304 0
+WARNING 2026-06-08 18:30:00,965 log 24551 6187020288 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:30:00,965 log 24551 6187020288 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:30:02,249 autoreload 24551 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:30:03,331 autoreload 24604 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:30:07,816 autoreload 24604 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:30:08,542 autoreload 24659 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:30:09,820 autoreload 24659 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:30:10,356 autoreload 24675 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:30:11,127 log 24675 6184415232 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 18:30:11,274 log 24675 6184415232 "GET /static/src/js/components/datepicker.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:30:11,277 log 24675 6201241600 "GET /static/src/js/components/fileuploader.js HTTP/1.1" 304 0
+WARNING 2026-06-08 18:30:11,293 log 24675 6201241600 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:30:11,293 log 24675 6201241600 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:30:11,841 autoreload 24675 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/core/settings/base.py changed, reloading.
+INFO 2026-06-08 18:30:12,545 autoreload 24694 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 18:30:57,215 log 24694 6182137856 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 18:30:57,370 log 24694 6182137856 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 18:30:57,370 log 24694 6182137856 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 18:30:57,371 log 24694 6198964224 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:30:57,515 log 24694 6198964224 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-08 18:30:57,996 log 24694 6198964224 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0

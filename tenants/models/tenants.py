@@ -10,6 +10,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from tenants.constants import PLAN_TRIAL, PLAN_STANDARD, PLAN_PROFESSIONAL, PLAN_ENTERPRISE
+
 
 class Tenant(models.Model):
     """
@@ -87,7 +89,7 @@ class Tenant(models.Model):
     plan = models.CharField(
         max_length=30,
         choices=PLAN_CHOICES,
-        default="STANDARD",
+        default=PLAN_STANDARD,
         db_index=True,
         help_text="Gói dịch vụ",
     )
@@ -171,32 +173,5 @@ class Tenant(models.Model):
         return timezone.now() <= self.subscription_expires_at
 
     def get_plan_features(self):
-        """Lấy features theo gói dịch vụ"""
-        features = {
-            "TRIAL": {
-                "duration_days": 30,
-                "max_users": 3,
-                "max_branches": 1,
-                "max_vehicles": 10,
-                "features": ["basic_ticketing", "basic_reporting"],
-            },
-            "STANDARD": {
-                "max_users": 10,
-                "max_branches": 1,
-                "max_vehicles": 50,
-                "features": ["ticketing", "hr", "basic_cargo", "reporting"],
-            },
-            "PROFESSIONAL": {
-                "max_users": 50,
-                "max_branches": 5,
-                "max_vehicles": 200,
-                "features": ["ticketing", "hr", "cargo", "reporting", "api"],
-            },
-            "ENTERPRISE": {
-                "max_users": 999,
-                "max_branches": 999,
-                "max_vehicles": 9999,
-                "features": ["all"],
-            },
-        }
-        return features.get(self.plan, {})
+        from tenants.constants import PLAN_LIMITS
+        return PLAN_LIMITS.get(self.plan, {})

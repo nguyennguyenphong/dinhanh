@@ -28,6 +28,13 @@ DATABASES = {
         "PASSWORD": env("DATABASE_PASSWORD", default="T+75yTa_Z(wj"),
         "HOST": env("DATABASE_HOST", default="localhost"),
         "PORT": env("DATABASE_PORT", default="5432"),
+        # Performance settings
+        "CONN_MAX_AGE": 600,
+        "OPTIONS": {
+            "connect_timeout": 10,
+        },
+        # Connection pooling
+        "ATOMIC_REQUESTS": False,
     }
 }
 

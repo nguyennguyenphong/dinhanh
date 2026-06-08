@@ -1,8 +1,8 @@
 {
-  "static/js/app.js": {
-    "file": "assets/app-CX6qOlJ1.js",
+  "static/src/js/app.js": {
+    "file": "assets/app-CRKItUx4.js",
     "name": "app",
-    "src": "static/js/app.js",
+    "src": "static/src/js/app.js",
     "isEntry": true
   }
 }
