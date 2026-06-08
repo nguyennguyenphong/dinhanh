@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "import_export",
     "corsheaders",
     "django_components",
+    'compressor',
     # apps
     'shared',
     "accounts",

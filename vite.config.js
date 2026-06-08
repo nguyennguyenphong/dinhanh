@@ -13,7 +13,7 @@ export default defineConfig({
 
         rollupOptions: {
             input: {
-                app: './static/js/app.js',
+                app: './static/src/js/app.js',
             },
         },
     },

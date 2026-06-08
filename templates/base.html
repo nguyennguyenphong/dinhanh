@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/output.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
     <link href="https://cdn.jsdelivr.net/npm/filepond@4.30.6/dist/filepond.min.css" rel="stylesheet">
@@ -16,13 +16,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/preline@4.2.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
     <script>
         window.FloatingUIDOM = window.FloatingUIDOM || {};
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="{% static 'js/components/datepicker.js' %}"></script>
-    <script src="{% static 'js/components/fileuploader.js' %}"></script>
+    <script src="{% static 'src/js/components/datepicker.js' %}"></script>
+    <script src="{% static 'src/js/components/fileuploader.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/filepond@4.30.6/dist/filepond.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/filepond-plugin-file-validate-type@1.2.8/dist/filepond-plugin-file-validate-type.min.js"></script>
@@ -34,13 +34,6 @@
 
     {% block content %}
     {% endblock %}
-
-    <script>
-        const observer = new MutationObserver(() => {
-            window.HSStaticMethods?.autoInit();
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
-    </script>
 
 </body>
 </html>

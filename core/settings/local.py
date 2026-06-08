@@ -12,9 +12,7 @@ INSTALLED_APPS += [
     "django_browser_reload",
 ]
 
-MIDDLEWARE += [
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
-]
+MIDDLEWARE.insert(1, "django_browser_reload.middleware.BrowserReloadMiddleware")
 
 # DATABASES = {
 #     "default": {
@@ -40,3 +38,16 @@ INTERNAL_IPS = [
 # 
 WHITENOISE_AUTOREFRESH = True
 WHITENOISE_USE_FINDERS = True
+
+
+# 
+
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+]
