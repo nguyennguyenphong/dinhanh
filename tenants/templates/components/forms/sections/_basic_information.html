@@ -4,38 +4,30 @@
         Thông tin cơ bản
     </h3>
 
-    {% component "input" name="name" label="Tên tenant" placeholder="Nhập tenant" required=True autocomplete="off" %}{%
-    endcomponent %}
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-        <div>
-            {% component "input" type="text" name="code" label="Tên code" placeholder="Nhập code" required=True
-            autocomplete="off" %}{% endcomponent %}
-        </div>
-
-        <div>
-            {% component "input" type="text" name="domain" label="Tên miền" placeholder="Nhập tên miền" required=True
-            autocomplete="off" %}{% endcomponent %}
-        </div>
+    <div>
+        <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.name.label }}</label>
+        {{ form.name }}
+        {% if form.name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
     </div>
 
-    <div>
-        <label for="plan_type" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
-            Gói dịch vụ <span class="text-red-500">*</span>
-        </label>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
-        <select
-            name="plan_type"
-            id="plan_type"
-            required
-            class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
-        >
-            <option value="">Chọn gói dịch vụ</option>
-            <option value="free" selected>Miễn phí</option>
-            <option value="standard">Tiêu chuẩn</option>
-            <option value="pro">Chuyên nghiệp</option>
-            <option value="enterprise">Doanh nghiệp</option>
-        </select>
+        <div>
+            <label for="{{ form.code.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.code.label }}</label>
+            {{ form.code }}
+            {% if form.code.errors %}<p class="text-red-500 text-xs mt-1">{{ form.code.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.domain.label }}</label>
+            {{ form.domain }}
+            {% if form.domain.errors %}<p class="text-red-500 text-xs mt-1">{{ form.domain.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">{{ form.plan.label }}</label>
+            {{ form.plan }}
+            {% if form.plan.errors %}<p class="text-red-500 text-xs mt-1">{{ form.plan.errors.0 }}</p>{% endif %}
+        </div>
     </div>
 </div>

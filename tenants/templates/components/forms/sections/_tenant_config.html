@@ -3,45 +3,14 @@
         class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
         Cấu hình
     </h3>
+
+    <div>
+        <label for="{{ form.logo_url.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.logo_url.label }}</label>
+        {{ form.logo_url }}
+        {% if form.logo_url.errors %}<p class="text-red-500 text-xs mt-1">{{ form.logo_url.errors.0 }}</p>{% endif %}
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-            <link href="https://releases.transloadit.com/uppy/v3.25.0/uppy.min.css" rel="stylesheet">
-
-            <div id="uppy-dashboard"></div>
-
-            <script type="module">
-                import { Uppy, Dashboard } from "https://releases.transloadit.com/uppy/v3.25.0/uppy.min.mjs";
-
-                const uppy = new Uppy({ 
-                    autoProceed: false, 
-                    restrictions: { maxNumberOfFiles: 1 } 
-                });
-                
-                const hiddenInput = document.getElementById('hidden-input');
-
-                uppy.use(Dashboard, {
-                    target: '#uppy-dashboard',
-                    inline: true,
-                    height: 300,
-                    showProgressDetails: false,
-                    proudlyDisplayPoweredByUppy: false,
-                    hideUploadButton: true,
-                    hideCancelButton: false,
-                    hideRetryButton: true,
-                    hidePauseResumeButton: true
-                });
-
-                uppy.on('file-added', (file) => {
-                    const dataTransfer = new DataTransfer();
-                    dataTransfer.items.add(file.data);
-                    hiddenInput.files = dataTransfer.files;
-                });
-
-                uppy.on('file-removed', () => {
-                    hiddenInput.value = '';
-                });
-            </script>
-        </div>
+        
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>

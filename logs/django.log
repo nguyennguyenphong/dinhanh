@@ -102,3 +102,332 @@ WARNING 2026-06-08 18:30:57,370 log 24694 6182137856 "GET /.well-known/appspecif
 INFO 2026-06-08 18:30:57,371 log 24694 6198964224 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
 INFO 2026-06-08 18:30:57,515 log 24694 6198964224 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
 INFO 2026-06-08 18:30:57,996 log 24694 6198964224 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:23:57,561 log 24694 6164738048 "GET /tenants/create/ HTTP/1.1" 200 104861
+INFO 2026-06-08 22:23:57,692 log 24694 6164738048 "GET /static/src/css/output.css HTTP/1.1" 304 0
+INFO 2026-06-08 22:23:57,694 log 24694 6215790592 "GET /static/src/js/components/datepicker.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:23:57,695 log 24694 6198964224 "GET /static/src/js/components/fileuploader.js HTTP/1.1" 304 0
+WARNING 2026-06-08 22:23:57,714 log 24694 6215790592 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:23:57,715 log 24694 6215790592 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:23:57,716 log 24694 6232616960 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:23:57,893 log 24694 6232616960 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:23:59,059 log 24694 6232616960 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:26:13,145 log 24694 6215790592 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 22:26:13,260 log 24694 6215790592 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:26:13,260 log 24694 6215790592 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:26:39,181 log 24694 6198964224 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 22:26:39,315 log 24694 6198964224 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:26:39,315 log 24694 6198964224 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:26:45,399 log 24694 6164738048 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 22:26:45,564 log 24694 6164738048 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:26:45,564 log 24694 6164738048 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:26:51,788 log 24694 6232616960 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 22:26:51,995 log 24694 6232616960 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:26:51,996 log 24694 6232616960 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:26:54,139 log 24694 6249443328 "GET /tenants/create/ HTTP/1.1" 200 104861
+WARNING 2026-06-08 22:26:54,260 log 24694 6249443328 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:26:54,261 log 24694 6249443328 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:27:28,011 log 24694 6181564416 "GET /tenants/create/ HTTP/1.1" 200 104875
+WARNING 2026-06-08 22:27:28,210 log 24694 6181564416 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:27:28,211 log 24694 6181564416 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:27:56,989 autoreload 24694 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:27:58,827 autoreload 31084 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:27:59,666 log 31084 6147747840 "GET /tenants/create/ HTTP/1.1" 200 104875
+WARNING 2026-06-08 22:27:59,858 log 31084 6147747840 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:27:59,858 log 31084 6147747840 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:28:06,803 log 31084 6164574208 "GET /tenants/create/ HTTP/1.1" 200 104881
+WARNING 2026-06-08 22:28:06,990 log 31084 6164574208 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:28:06,992 log 31084 6164574208 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:28:11,015 log 31084 6130348032 "GET /tenants/create/ HTTP/1.1" 200 104881
+WARNING 2026-06-08 22:28:11,188 log 31084 6130348032 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-08 22:28:11,189 log 31084 6130348032 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-08 22:28:24,660 log 31084 6181400576 "GET /tenants/create/ HTTP/1.1" 200 104881
+INFO 2026-06-08 22:28:33,241 log 31084 6198226944 "GET /tenants/create/ HTTP/1.1" 200 104894
+INFO 2026-06-08 22:28:43,415 log 31084 6215053312 "GET /tenants/create/ HTTP/1.1" 200 104902
+INFO 2026-06-08 22:28:45,652 log 31084 6231879680 "GET /tenants/create/ HTTP/1.1" 200 104917
+INFO 2026-06-08 22:28:49,711 log 31084 6181400576 "GET /tenants/create/ HTTP/1.1" 200 104928
+INFO 2026-06-08 22:28:58,311 log 31084 6147174400 "GET /tenants/create/ HTTP/1.1" 200 104937
+INFO 2026-06-08 22:29:10,665 log 31084 6164000768 "GET /tenants/create/ HTTP/1.1" 200 102880
+INFO 2026-06-08 22:29:12,777 log 31084 6180827136 "GET /tenants/create/ HTTP/1.1" 200 102878
+INFO 2026-06-08 22:29:15,918 log 31084 6198226944 "GET /tenants/create/ HTTP/1.1" 200 102406
+INFO 2026-06-08 22:29:30,667 log 31084 6215053312 "GET /tenants/create/ HTTP/1.1" 200 102358
+INFO 2026-06-08 22:29:55,500 log 31084 6248706048 "GET /tenants/create/ HTTP/1.1" 200 104421
+INFO 2026-06-08 22:29:57,859 log 31084 6265532416 "GET /tenants/create/ HTTP/1.1" 200 104417
+INFO 2026-06-08 22:30:52,519 log 31084 6282358784 "GET /tenants/create/ HTTP/1.1" 200 104188
+INFO 2026-06-08 22:30:54,682 log 31084 6299185152 "GET /tenants/create/ HTTP/1.1" 200 104172
+INFO 2026-06-08 22:31:51,908 log 31084 6316011520 "GET /tenants/create/ HTTP/1.1" 200 104208
+INFO 2026-06-08 22:31:54,316 log 31084 6332837888 "GET /tenants/create/ HTTP/1.1" 200 104208
+INFO 2026-06-08 22:31:59,553 log 31084 6349664256 "GET /tenants/create/ HTTP/1.1" 200 104172
+INFO 2026-06-08 22:32:12,894 autoreload 31084 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:32:14,001 autoreload 33058 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:32:14,505 log 33058 6209368064 "GET /tenants/create/ HTTP/1.1" 200 104172
+INFO 2026-06-08 22:32:52,373 log 33058 6226194432 "GET /tenants/create/ HTTP/1.1" 200 103898
+INFO 2026-06-08 22:32:53,419 log 33058 6208794624 "GET /tenants/create/ HTTP/1.1" 200 103914
+INFO 2026-06-08 22:32:56,665 log 33058 6243020800 "GET /tenants/create/ HTTP/1.1" 200 103915
+INFO 2026-06-08 22:32:59,583 log 33058 6259847168 "GET /tenants/create/ HTTP/1.1" 200 103915
+INFO 2026-06-08 22:33:00,585 log 33058 6276673536 "GET /tenants/create/ HTTP/1.1" 200 103915
+INFO 2026-06-08 22:33:01,741 log 33058 6293499904 "GET /tenants/create/ HTTP/1.1" 200 103916
+INFO 2026-06-08 22:33:03,928 log 33058 6310326272 "GET /tenants/create/ HTTP/1.1" 200 103916
+INFO 2026-06-08 22:33:16,208 autoreload 33058 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:33:17,118 autoreload 33561 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:33:17,666 log 33561 6140719104 "GET /tenants/create/ HTTP/1.1" 200 103918
+INFO 2026-06-08 22:33:30,106 log 33561 6157545472 "GET /tenants/create/ HTTP/1.1" 200 104354
+INFO 2026-06-08 22:33:36,447 log 33561 6174371840 "GET /tenants/create/ HTTP/1.1" 200 101423
+INFO 2026-06-08 22:33:43,722 log 33561 6191198208 "GET /tenants/create/ HTTP/1.1" 200 101423
+INFO 2026-06-08 22:33:44,877 log 33561 6208024576 "GET /tenants/create/ HTTP/1.1" 200 101423
+INFO 2026-06-08 22:33:58,660 log 33561 6224850944 "GET /tenants/create/ HTTP/1.1" 200 101423
+INFO 2026-06-08 22:33:59,660 log 33561 6241677312 "GET /tenants/create/ HTTP/1.1" 200 101423
+INFO 2026-06-08 22:34:02,287 log 33561 6258503680 "GET /tenants/create/ HTTP/1.1" 200 101429
+INFO 2026-06-08 22:34:12,695 log 33561 6140719104 "GET /tenants/create/ HTTP/1.1" 200 101430
+INFO 2026-06-08 22:34:14,601 log 33561 6123892736 "GET /tenants/create/ HTTP/1.1" 200 101430
+INFO 2026-06-08 22:34:18,578 autoreload 33561 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:34:19,480 autoreload 34103 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:34:19,964 log 34103 6217773056 "GET /tenants/create/ HTTP/1.1" 200 101430
+INFO 2026-06-08 22:34:24,087 log 34103 6234599424 "GET /tenants/create/ HTTP/1.1" 200 101430
+INFO 2026-06-08 22:34:27,362 log 34103 6217199616 "GET /tenants/create/ HTTP/1.1" 200 101320
+INFO 2026-06-08 22:34:43,008 log 34103 6251425792 "GET /tenants/create/ HTTP/1.1" 200 101320
+INFO 2026-06-08 22:34:49,384 log 34103 6268252160 "GET /tenants/create/ HTTP/1.1" 200 101327
+INFO 2026-06-08 22:34:51,560 log 34103 6285078528 "GET /tenants/create/ HTTP/1.1" 200 101332
+INFO 2026-06-08 22:35:48,898 autoreload 34103 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:35:49,815 autoreload 34843 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:35:50,344 log 34843 6180499456 "GET /tenants/create/ HTTP/1.1" 200 101332
+INFO 2026-06-08 22:35:53,122 autoreload 34843 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:35:53,667 autoreload 34883 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:35:54,788 autoreload 34883 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:35:55,792 autoreload 34903 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:35:56,444 log 34903 6187413504 "GET /tenants/create/ HTTP/1.1" 200 101370
+INFO 2026-06-08 22:38:31,016 autoreload 34903 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:38:31,906 autoreload 36089 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:38:39,252 autoreload 36089 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:38:40,001 autoreload 36216 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:38:41,061 log 36216 6146306048 "GET /tenants/create/ HTTP/1.1" 200 101204
+INFO 2026-06-08 22:38:43,973 log 36216 6163132416 "GET /tenants/create/ HTTP/1.1" 200 101204
+INFO 2026-06-08 22:38:58,206 log 36216 6128906240 "GET /tenants/create/ HTTP/1.1" 200 101204
+INFO 2026-06-08 22:39:13,809 autoreload 36216 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:14,794 autoreload 36513 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:15,312 log 36513 6156890112 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:16,281 autoreload 36513 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:17,153 autoreload 36552 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:17,450 log 36552 6155956224 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:18,526 autoreload 36552 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:19,483 autoreload 36591 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:19,947 log 36591 6153285632 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:20,926 autoreload 36591 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:21,869 autoreload 36628 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:22,150 log 36628 6178189312 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:26,464 autoreload 36628 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:27,208 autoreload 36712 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:27,605 log 36712 6155874304 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:30,393 log 36712 6139047936 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:34,877 autoreload 36712 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:35,656 autoreload 36824 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:36,024 log 36824 6210547712 "GET /tenants/create/ HTTP/1.1" 200 101222
+INFO 2026-06-08 22:39:37,028 autoreload 36824 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:37,798 autoreload 36849 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:38,032 log 36849 6150582272 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:43,209 autoreload 36849 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:44,001 autoreload 36938 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:44,473 log 36938 6151958528 "GET /tenants/create/ HTTP/1.1" 200 101222
+INFO 2026-06-08 22:39:45,366 autoreload 36938 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:46,023 autoreload 36967 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:46,366 log 36967 6141718528 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:47,439 autoreload 36967 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:48,330 autoreload 37004 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:48,628 log 37004 6147469312 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:49,613 autoreload 37004 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:50,678 autoreload 37034 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:51,268 log 37034 6147878912 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:54,338 autoreload 37034 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:39:54,945 autoreload 37111 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:39:55,316 log 37111 6175191040 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:39:57,560 log 37111 6192017408 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:08,809 autoreload 37111 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:09,466 autoreload 37291 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:09,784 log 37291 6152613888 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:11,851 autoreload 37291 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:12,494 autoreload 37364 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:12,823 log 37364 6185414656 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:19,023 autoreload 37364 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:19,628 autoreload 37458 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:19,927 log 37458 6177091584 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:20,907 autoreload 37458 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:21,635 autoreload 37488 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:22,491 log 37488 6214758400 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:27,301 autoreload 37488 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:27,778 autoreload 37566 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:28,024 log 37566 6145454080 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:30,209 autoreload 37566 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:30,734 autoreload 37603 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:31,074 log 37603 6176567296 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:41,433 autoreload 37603 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:42,158 autoreload 37775 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:42,479 log 37775 6180810752 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:49,649 autoreload 37775 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:50,407 autoreload 37884 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:51,545 autoreload 37884 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:52,003 autoreload 37902 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:52,622 log 37902 6140702720 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:40:55,490 autoreload 37902 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:40:56,328 autoreload 37981 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:40:56,615 log 37981 6223409152 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:41:01,857 autoreload 37981 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:41:02,372 autoreload 38066 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:41:03,484 autoreload 38066 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:41:03,970 autoreload 38095 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:41:04,382 log 38095 6143864832 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:41:05,336 autoreload 38095 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:41:05,879 autoreload 38106 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:41:06,096 log 38106 6151319552 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:41:09,273 autoreload 38106 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:41:09,776 autoreload 38184 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:41:10,024 log 38184 6151352320 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:42:13,914 autoreload 38184 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:42:14,899 autoreload 38728 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:42:15,878 log 38728 6182154240 "GET /tenants/create/ HTTP/1.1" 200 101234
+INFO 2026-06-08 22:42:26,752 autoreload 38728 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:42:27,483 autoreload 38848 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:42:28,077 log 38848 6215544832 "GET /tenants/create/ HTTP/1.1" 200 101354
+INFO 2026-06-08 22:42:38,205 autoreload 38848 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:42:39,163 autoreload 38945 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:42:39,659 log 38945 6217707520 "GET /tenants/create/ HTTP/1.1" 200 101354
+INFO 2026-06-08 22:42:53,998 autoreload 38945 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:42:54,766 autoreload 39093 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:42:55,335 log 39093 6141063168 "GET /tenants/create/ HTTP/1.1" 200 101354
+INFO 2026-06-08 22:43:42,228 autoreload 39093 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:43:43,241 autoreload 39490 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:43:43,859 log 39490 6174158848 "GET /tenants/create/ HTTP/1.1" 200 101324
+INFO 2026-06-08 22:43:46,719 autoreload 39490 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:43:47,505 autoreload 39549 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:43:47,851 log 39549 6148943872 "GET /tenants/create/ HTTP/1.1" 200 101324
+INFO 2026-06-08 22:43:51,145 autoreload 39549 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:43:51,881 autoreload 39627 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:43:52,200 log 39627 6219165696 "GET /tenants/create/ HTTP/1.1" 200 101324
+INFO 2026-06-08 22:43:54,211 autoreload 39627 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:43:55,739 autoreload 39668 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:43:56,390 log 39668 6186577920 "GET /tenants/create/ HTTP/1.1" 200 101354
+INFO 2026-06-08 22:44:08,965 autoreload 39668 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:44:09,907 autoreload 39824 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:44:11,043 log 39824 6148993024 "GET /tenants/create/ HTTP/1.1" 200 101354
+INFO 2026-06-08 22:44:11,180 autoreload 39824 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:44:11,921 autoreload 39852 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:44:20,619 autoreload 39852 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:44:21,375 autoreload 39927 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:44:21,779 log 39927 6155923456 "GET /tenants/create/ HTTP/1.1" 200 101354
+INFO 2026-06-08 22:44:25,811 autoreload 39927 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:44:26,857 autoreload 39980 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:44:27,419 log 39980 6145191936 "GET /tenants/create/ HTTP/1.1" 200 101377
+INFO 2026-06-08 22:44:28,199 autoreload 39980 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:44:29,755 autoreload 40009 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:44:35,874 log 40009 6146715648 "GET /tenants/create/ HTTP/1.1" 200 101377
+INFO 2026-06-08 22:46:24,429 autoreload 40009 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:46:25,561 autoreload 40973 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:46:28,770 autoreload 40973 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:46:29,931 autoreload 41064 8468405888 Watching for file changes with StatReloader
+ERROR 2026-06-08 22:46:30,763 log 41064 6152876032 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_create_view.py", line 31, in get
+    form = TenantCreateForm(request.GET)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py", line 58, in __init__
+    if isinstance(widget, (
+                  ^^^^^^
+NameError: name 'widget' is not defined
+ERROR 2026-06-08 22:46:30,768 log 41064 6152876032 "GET /tenants/create/ HTTP/1.1" 500 106945
+INFO 2026-06-08 22:46:36,758 autoreload 41064 8468405888 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-08 22:46:37,815 autoreload 41151 8468405888 Watching for file changes with StatReloader
+INFO 2026-06-08 22:46:38,201 log 41151 6214053888 "GET /tenants/create/ HTTP/1.1" 200 101377
+INFO 2026-06-08 22:46:46,713 log 41151 6230880256 "GET /tenants/create/ HTTP/1.1" 200 101377
+INFO 2026-06-08 22:46:47,881 log 41151 6247706624 "GET /tenants/create/ HTTP/1.1" 200 101377
+INFO 2026-06-08 22:46:57,433 log 41151 6264532992 "GET /tenants/create/ HTTP/1.1" 200 99969
+INFO 2026-06-08 22:47:03,739 log 41151 6281359360 "GET /tenants/create/ HTTP/1.1" 200 99969
+INFO 2026-06-08 22:47:33,068 log 41151 6298185728 "GET /tenants/create/ HTTP/1.1" 200 100583
+INFO 2026-06-08 22:47:34,290 log 41151 6315012096 "GET /tenants/create/ HTTP/1.1" 200 100567
+INFO 2026-06-08 22:47:35,310 log 41151 6331838464 "GET /tenants/create/ HTTP/1.1" 200 100567
+INFO 2026-06-08 22:47:36,635 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100567
+INFO 2026-06-08 22:47:37,680 log 41151 6230880256 "GET /tenants/create/ HTTP/1.1" 200 100567
+INFO 2026-06-08 22:47:49,392 log 41151 6247706624 "GET /tenants/create/ HTTP/1.1" 200 100571
+INFO 2026-06-08 22:47:51,963 log 41151 6264532992 "GET /tenants/create/ HTTP/1.1" 200 100474
+INFO 2026-06-08 22:47:53,089 log 41151 6281359360 "GET /tenants/create/ HTTP/1.1" 200 100474
+INFO 2026-06-08 22:48:01,837 log 41151 6298185728 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:49:28,759 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:49:28,856 log 41151 6197227520 "GET /static/src/css/output.css HTTP/1.1" 304 0
+INFO 2026-06-08 22:49:28,856 log 41151 6315012096 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:49:29,069 log 41151 6315012096 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:49:29,086 log 41151 6315012096 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:49:43,116 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:49:44,219 log 41151 6214053888 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:49:58,799 log 41151 6315012096 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:49:59,802 log 41151 6365491200 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:12,590 log 41151 6382317568 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:13,544 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:27,301 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:28,262 log 41151 6399143936 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:43,021 log 41151 6415970304 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:43,997 log 41151 12901707776 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:58,812 log 41151 6432796672 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:50:58,856 log 41151 6432796672 "GET /static/src/js/components/datepicker.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:50:58,860 log 41151 12935360512 "GET /static/src/js/components/fileuploader.js HTTP/1.1" 304 0
+INFO 2026-06-08 22:51:12,472 log 41151 6432796672 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:51:27,216 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:51:40,860 log 41151 6399143936 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:51:42,903 log 41151 6415970304 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:51:56,681 log 41151 12918534144 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:09,304 log 41151 12935360512 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:10,243 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:23,059 log 41151 6399143936 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:24,023 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:25,106 log 41151 12952186880 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:38,907 log 41151 6415970304 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:39,905 log 41151 12985839616 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:53,655 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:52:54,690 log 41151 6399143936 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:07,314 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:08,230 log 41151 13002665984 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:20,959 log 41151 13019492352 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:22,093 log 41151 13036318720 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:35,616 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:36,585 log 41151 6399143936 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:50,371 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:53:51,477 log 41151 13053145088 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:54:05,233 log 41151 12969013248 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:54:17,957 log 41151 13069971456 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:54:31,501 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:54:42,081 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:54:54,707 log 41151 13086797824 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:54:55,775 log 41151 13103624192 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:55:07,266 log 41151 6399143936 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:15,337 log 41151 13137276928 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:16,193 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:17,237 log 41151 13086797824 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:18,468 log 41151 13120450560 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:21,467 log 41151 13154103296 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:33,019 log 41151 13170929664 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:35,103 log 41151 13187756032 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:37,209 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:38,345 log 41151 13086797824 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:40,369 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:52,019 log 41151 13204582400 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:53,058 log 41151 13221408768 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:57:54,090 log 41151 13238235136 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:58:07,804 log 41151 6197227520 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:58:08,923 log 41151 6348664832 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:58:34,231 log 41151 13120450560 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 22:59:33,540 log 41151 13255061504 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 23:03:14,079 log 41151 13086797824 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 23:30:24,862 log 41151 13288714240 "GET /tenants/create/ HTTP/1.1" 200 100468
+INFO 2026-06-08 23:30:24,948 log 41151 13288714240 "GET /static/src/css/output.css HTTP/1.1" 304 0
+INFO 2026-06-08 23:30:24,950 log 41151 6197227520 "GET /static/src/js/components/datepicker.js HTTP/1.1" 304 0
+INFO 2026-06-08 23:30:24,952 log 41151 6348664832 "GET /static/src/js/components/fileuploader.js HTTP/1.1" 304 0
+INFO 2026-06-08 23:30:24,952 log 41151 13120450560 "GET /static/django_components/django_components.min.js HTTP/1.1" 304 0
+INFO 2026-06-08 23:30:25,301 log 41151 13120450560 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-08 23:30:25,330 log 41151 13120450560 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
