@@ -1,9 +1,26 @@
+# Ignore the entire share directory
+share/
+
+# Ignore all files in the migrate directory, except for the init file
+migrate/*
+!migrate/__init__.py
+# (If your init file has a different name, e.g., init.sql, change it to !migrate/init.sql)
+
+# Virtual environments and system configurations
 venv/
 .env
+
+# Python cache files
 __pycache__/
 *.pyc
+
+# Database and Node modules
 db.sqlite3
 node_modules/
+
+# Static and build directories
 staticfiles/
 dist/
+
+# Log directory
 log/
