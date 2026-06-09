@@ -5,14 +5,20 @@
     </h3>
     <div>
         <div class="grid grid-cols-3 gap-3">
-            <div>
-                {% component "input" type="number" name="max_users" label="Số người dùng tối đa" placeholder="Nhập số người dùng tối đa" required=True autocomplete="off" %}{% endcomponent %}
+            <div class="space-y-1">
+                <label for="{{ form.max_users.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.max_users.label }} <span class="text-red-500">*</span></label>
+                {{ form.max_users }}
+                {% if form.max_users.errors %}<p class="text-red-500 text-xs mt-1">{{ form.max_users.errors.0 }}</p>{% endif %}
             </div>
-            <div>
-                {% component "input" type="number" name="max_branches" label="Số chi nhánh tối đa" placeholder="Nhập số lượng chi nhánh tối đa" required=True autocomplete="off" %}{% endcomponent %}
+            <div class="space-y-1">
+                <label for="{{ form.max_branches.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.max_branches.label }} <span class="text-red-500">*</span></label>
+                {{ form.max_branches }}
+                {% if form.max_branches.errors %}<p class="text-red-500 text-xs mt-1">{{ form.max_branches.errors.0 }}</p>{% endif %}
             </div>
-            <div>
-                {% component "input" type="number" name="max_vehicles" label="Số phương tiện tối đa" placeholder="Nhập số phương tiện tối đa" required=True autocomplete="off" %}{% endcomponent %}
+            <div class="space-y-1">
+                <label for="{{ form.max_vehicles.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.max_vehicles.label }} <span class="text-red-500">*</span></label>
+                {{ form.max_vehicles }}
+                {% if form.max_vehicles.errors %}<p class="text-red-500 text-xs mt-1">{{ form.max_vehicles.errors.0 }}</p>{% endif %}
             </div>
         </div>
     </div>

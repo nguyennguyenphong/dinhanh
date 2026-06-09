@@ -1,89 +1,113 @@
-<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
-    <h3
-        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
-        Cấu hình
+<div class="space-y-6 p-6 rounded-md bg-white border border-gray-200 dark:bg-slate-900 dark:border-slate-800 mb-4">
+    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-2">
+        Configuration Settings
     </h3>
 
-    <div>
-        <label for="{{ form.logo_url.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.logo_url.label }}</label>
-        {{ form.logo_url }}
-        {% if form.logo_url.errors %}<p class="text-red-500 text-xs mt-1">{{ form.logo_url.errors.0 }}</p>{% endif %}
+    {% if form.non_field_errors %}
+    <div class="p-4 mb-4 text-sm text-red-700 bg-red-50 rounded-md dark:bg-red-900/30 dark:text-red-400">
+        {{ form.non_field_errors }}
     </div>
+    {% endif %}
+
+    <div class="space-y-1">
+        <label for="{{ form.logo_upload.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.logo_upload.label }}
+        </label>
+        {{ form.logo_upload }}
+        {% if form.logo_upload.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.logo_upload.errors.0 }}</p>
+        {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.subscription_started_at.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.subscription_started_at.label }}
+            </label>
+            {{ form.subscription_started_at }}
+            {% if form.subscription_started_at.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.subscription_started_at.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="space-y-1">
+            <label for="{{ form.subscription_expires_at.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.subscription_expires_at.label }}
+            </label>
+            {{ form.subscription_expires_at }}
+            {% if form.subscription_expires_at.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.subscription_expires_at.errors.0 }}</p>
+            {% endif %}
+        </div>
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-                {% component "datepicker" name="subscription_started_at" label="Ngày bắt đầu gói" min_date="today"
-                placeholder="Chọn ngày bắt đầu" required=True %}{% endcomponent %}
+        <div class="space-y-1" x-data="{ color: '{{ form.primary_color.value|default:"#3B82F6" }}' }">
+            <label for="{{ form.primary_color.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.primary_color.label }} <span class="text-red-500">*</span>
+            </label>
+            
+            <div class="flex items-center gap-3 mt-1">
+                <div x-init="$el.querySelector('input').setAttribute('x-model', 'color')">
+                    {{ form.primary_color }}
+                    <span class="text-xs text-gray-500">Click để chọn màu</span>
+                </div>
+                
+                <input 
+                    type="text" 
+                    x-model="color" 
+                    maxlength="7"
+                    class="w-full border-[1.5px] border-gray-200 rounded-md bg-white text-sm px-4 py-2.5 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 transition-all uppercase focus:border-blue-500 focus:ring-0"
+                    placeholder="#FFFFFF"
+                />
             </div>
+            {% if form.primary_color.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.primary_color.errors.0 }}</p>
+            {% endif %}
+        </div>
 
-            <div>
-                {% component "datepicker" name="subscription_expires_at" label="Ngày kết thúc gói" min_date="today"
-                placeholder="Chọn ngày kết thúc" required=True %}{% endcomponent %}
+        <div class="space-y-1">
+            <span class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.is_active.label }} <span class="text-red-500">*</span>
+            </span>
+            <div class="flex gap-4 mt-2">
+                {% for radio in form.is_active %}
+                    <label for="{{ radio.id_for_label }}" class="flex items-center gap-2 p-3 w-full border border-gray-200 rounded-md cursor-pointer hover:bg-gray-100 transition-colors dark:bg-slate-800 dark:border-slate-700">
+                        {{ radio.tag }}
+                        <span class="text-sm font-medium text-gray-700 dark:text-slate-200">{{ radio.choice_label }}</span>
+                    </label>
+                {% endfor %}
             </div>
+            {% if form.is_active.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.is_active.errors.0 }}</p>
+            {% endif %}
         </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-            {% component "input" type="color" name="primary_color" label="Màu chủ đạo" required=True %}{% endcomponent
-            %}
-        </div>
-
-        <div>
-            <span class="block text-sm font-medium text-gray-700 dark:text-slate-300"> Trạng thái tenant <span class="text-red-500">*</span></span>
-            <div class="grid grid-cols-3 gap-3 mt-1">
-                <label for="statusActive" name="is_active"
-                    class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
-                    <input type="radio" name="status"
-                        class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
-                        id="statusActive" checked value="True">
-                    <span class="text-sm ms-3 text-muted-foreground-1">Kích hoạt</span>
-                </label>
-
-                <label for="statusInactive" name="is_active"
-                    class="flex items-center gap-3 p-3 w-full bg-layer border border-layer-line rounded-lg text-sm focus:border-primary-focus focus:ring-primary-focus">
-                    <input type="radio" name="status" value="False"
-                        class="shrink-0 size-4 bg-transparent border-line-3 rounded-full shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none"
-                        id="statusInactive">
-                    <span class="text-sm ms-3 text-muted-foreground-1">Ngừng kích hoạt</span>
-                </label>
+    <div x-data="{ currency: '{{ form.currency.value|default_if_none:"VND" }}' }" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.currency.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.currency.label }} <span class="text-red-500">*</span>
+            </label>
+            <div @change="currency = $event.target.value">
+                {{ form.currency }}
             </div>
-        </div>
-    </div>
-    <div x-data="{ currency: '' }" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-            <label for="currency" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
-                Đơn vị tiền tệ <span class="text-red-500">*</span>
-            </label>
-
-            <select
-                name="currency"
-                id="currency"
-                x-model="currency"
-                required
-                class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
-            >
-                <option value="">Chọn đơn vị tiền tệ</option>
-                <option value="USD">Đồng Đô La Mỹ</option>
-                <option value="VND" selected>Việt Nam Đồng</option>
-            </select>
+            {% if form.currency.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.currency.errors.0 }}</p>
+            {% endif %}
         </div>
 
-        <div x-show="currency === 'USD'" x-transition>
-            <label for="exchange_rate" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
-                Tỉ giá <span class="text-red-500">*</span>
+        <div class="space-y-1" x-show="currency !== 'VND'" x-transition>
+            <label for="{{ form.exchange_rate.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.exchange_rate.label }} <span class="text-red-500">*</span>
             </label>
-
-            <input
-                type="number"
-                name="exchange_rate"
-                id="exchange_rate"
-                :required="currency === 'USD'"
-                step="0.01"
-                class="w-full py-3 mt-1 border-[1.5px] border-gray-200 rounded-md text-sm hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
-            >
+            <div x-init="$el.querySelector('input')?.setAttribute(':required', 'currency !== \'VND\'')">
+                {{ form.exchange_rate }}
+            </div>
+            {% if form.exchange_rate.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.exchange_rate.errors.0 }}</p>
+            {% endif %}
         </div>
     </div>
 </div>

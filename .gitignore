@@ -1,5 +1,5 @@
 # Ignore the entire share directory
-share/
+shared/
 
 # Ignore all files in the migrate directory, except for the init file
 migrate/*
@@ -23,4 +23,4 @@ staticfiles/
 dist/
 
 # Log directory
-log/
+logs/

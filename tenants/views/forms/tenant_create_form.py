@@ -1,14 +1,17 @@
+import uuid
 from django import forms
+from django.core.files.storage import default_storage
 from tenants.models.tenants import Tenant
 
 class TailwindFormMixin:
     """
     Mixin to automatically apply Tailwind CSS classes to all fields.
-    This keeps the code clean and maintains consistency across the platform.
+    Keeps layout styles unified and clean across the application.
     """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Standard Tailwind classes for input fields
+        
+        # Standard input class configuration
         tailwind_classes = (
             "w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all "
             "hover:border-blue-400 focus:border-blue-500 focus:ring-0 "
@@ -19,133 +22,121 @@ class TailwindFormMixin:
             'code': 'VD: DINHANH, VEXPRESS',
             'name': 'Nhập tên công ty hoặc nhà xe',
             'domain': 'https://example.com',
-            'logo_url': 'https://example.com/logo.png',
-            'primary_color': '#000000',
-            'plan': 'STANDARD',
-            'currency': 'VND',
             'exchange_rate': '1.0000',
-            'default_language': 'vi',
-            'timezone': 'Asia/Ho_Chi_Minh',
-            'is_active': 'true',
-            'settings': 'Cài đặt',
-            'subscription_started_at': 'Ngày bắt đầu',
-            'subscription_end_at': 'Ngày kết thúc',
         }
 
         labels = {
             'code': 'Mã tenant',
             'name': 'Tên tenant',
             'domain': 'Tên miền',
-            'logo_url': 'Logo',
+            'logo_url': 'Tải ảnh logo lên',
             'primary_color': 'Màu chủ đạo',
             'plan': 'Gói dịch vụ',
             'currency': 'Tiền tệ',
             'exchange_rate': 'Tỷ giá',
             'default_language': 'Ngôn ngữ mặc định',
             'timezone': 'Múi giờ',
-            'is_active': 'Trạng thái',
-            'settings': 'Cài đặt',
-            'subscription_started_at': 'Ngày bắt đầu',
-            'subscription_end_at': 'Ngày kết thúc',
+            'is_active': 'Trạng thái hoạt động',
+            'max_users': 'Số người dùng tối đa',
+            'max_branches': 'Số chi nhánh tối đa',
+            'max_vehicles': 'Số phương tiện tối đa',
+            'subscription_started_at': 'Ngày bắt đầu',
+            'subscription_expires_at': 'Ngày kết thúc',
         }
         
         for field_name, field in self.fields.items():
-            # Add placeholder if defined
-            if field_name in placeholders:
-                field.widget.attrs.update({'placeholder': placeholders[field_name]})
+            if field_name in labels:
+                field.label = labels[field_name]
 
             widget = field.widget
+            current_placeholder = placeholders.get(field_name, '')
 
-            # Text input
-            if isinstance(widget, (
-                forms.TextInput,
-                forms.EmailInput,
-                forms.URLInput,
-                forms.NumberInput,
-                forms.PasswordInput,
-                forms.Textarea,
-            )):
+            # Check if it is a color input first to prevent text class overriding
+            if isinstance(widget, forms.TextInput) and widget.attrs.get('type') == 'color':
                 widget.attrs.update({
-                    'class': tailwind_classes,
-                    'placeholder': placeholders.get(field_name, '')
+                    'class': 'h-10 w-12 p-0.5 block bg-transparent border border-gray-200 rounded-md cursor-pointer dark:border-slate-700'
                 })
 
-            # Date
-            elif isinstance(widget, forms.DateInput):
+            elif isinstance(widget, (forms.TextInput, forms.EmailInput, forms.URLInput, forms.NumberInput)):
                 widget.attrs.update({
                     'class': tailwind_classes,
-                    'type': 'date'
+                    'placeholder': current_placeholder
                 })
 
-            # Datetime
-            elif isinstance(widget, forms.DateTimeInput):
+            elif isinstance(widget, (forms.DateInput, forms.DateTimeInput)):
                 widget.attrs.update({
                     'class': tailwind_classes,
-                    'type': 'datetime-local'
                 })
 
-            # File/Image
             elif isinstance(widget, forms.FileInput):
                 widget.attrs.update({
-                    'class': 'block w-full text-sm'
+                    'class': 'block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all cursor-pointer'
                 })
 
-            # Select
             elif isinstance(widget, forms.Select):
                 widget.attrs.update({
                     'class': tailwind_classes.replace('px-4', 'px-3')
                 })
 
-            # Checkbox
-            elif isinstance(widget, forms.CheckboxInput):
-                widget.attrs.update({
-                    'class': 'h-5 w-5 rounded border-gray-300'
-                })
-
-            # Apply labels
-            if field_name in labels:
-                field.label = labels[field_name]
 
 class TenantCreateForm(TailwindFormMixin, forms.ModelForm):
     """
-    Form for creating a new Tenant.
-    Includes comprehensive validation and UI configuration.
+    Production Tenant generation form. Handles explicit calendar enforcement 
+    and handles file uploading logic gracefully.
     """
+    
+    logo_url = forms.FileField(
+        required=False,
+        help_text="Chọn tệp ảnh logo từ máy tính của bạn."
+    )
+
     class Meta:
         model = Tenant
         fields = [
-            'code', 'name', 'domain', 'logo_url', 'primary_color', 
-            'plan', 'currency', 'default_language', 'timezone', 'is_active'
+            'code', 'name', 'domain', 'primary_color', 'plan', 
+            'currency', 'exchange_rate', 'default_language', 'timezone', 
+            'is_active', 'subscription_started_at', 'subscription_expires_at',
+            'max_users', 'max_branches', 'max_vehicles',
         ]
         widgets = {
-            'primary_color': forms.TextInput(attrs={'type': 'color', 'class': 'h-12 w-full'}),
-            'timezone': forms.Select(attrs={'class': 'w-full'}), # Ensure proper Select styling
+            # Let template and mixin control specific responsive design attributes
+            'primary_color': forms.TextInput(attrs={'type': 'color'}),
+            'is_active': forms.RadioSelect(choices=[(True, 'Kích hoạt'), (False, 'Ngừng kích hoạt')]),
+            
+            'subscription_started_at': forms.DateTimeInput(attrs={'type': 'datetime-local', 'onkeydown': 'return false;'}),
+            'subscription_expires_at': forms.DateTimeInput(attrs={'type': 'datetime-local', 'onkeydown': 'return false;'}),
         }
 
+    def __init__(self, *args, **kwargs):
+        # 1. Call the parent class's init function to initialize the fields and apply Tailwind CSS first.
+        super().__init__(*args, **kwargs)
+        
+        # 2. Override the configuration so that the exchange_rate field is NOT required in the Django Form layer.
+        if 'exchange_rate' in self.fields:
+            self.fields['exchange_rate'].required = False
+
     def clean_code(self):
-        """Normalize code to uppercase and ensure uniqueness."""
         code = self.cleaned_data.get('code', '').strip().upper()
         if Tenant.objects.filter(code=code).exists():
             raise forms.ValidationError("A tenant with this code already exists.")
         return code
 
     def clean_domain(self):
-        """Sanitize domain input."""
         domain = self.cleaned_data.get('domain')
         return domain.lower().strip() if domain else None
 
-    def clean_name(self):
-        """Ensure name is cleaned of leading/trailing whitespaces."""
-        return self.cleaned_data.get('name', '').strip()
-
     def save(self, commit=True):
-        """
-        Optional: Override save to perform additional logic like 
-        initializing default settings JSON or initial quota.
-        """
         instance = super().save(commit=False)
         if not instance.settings:
-            instance.settings = {} # Ensure JSONField is initialized
+            instance.settings = {}
+
+        logo_file = self.cleaned_data.get('logo_url')
+        if logo_file:
+            ext = logo_file.name.split('.')[-1]
+            unique_filename = f"tenants/logos/{uuid.uuid4()}.{ext}"
+            saved_path = default_storage.save(unique_filename, logo_file)
+            instance.logo_url = default_storage.url(saved_path)
+
         if commit:
             instance.save()
         return instance

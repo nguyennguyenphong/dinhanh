@@ -28,7 +28,7 @@ class TenantCreateView(LoginRequiredMixin, View):
     """
 
     def get(self, request):
-        form = TenantCreateForm(request.GET)
+        form = TenantCreateForm()
         return render(request, 'pages/create.html', {'form': form})
     
     def post(self, request):

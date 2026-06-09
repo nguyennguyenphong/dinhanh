@@ -4,28 +4,27 @@
         Thông tin cơ bản
     </h3>
 
-    <div>
-        <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.name.label }}</label>
-        {{ form.name }}
+    <div class="space-y-1">
+        <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.name.label }} <span class="text-red-500">*</span></label>
+        {{ form.name }} 
         {% if form.name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-
-        <div>
-            <label for="{{ form.code.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.code.label }}</label>
+        <div class="space-y-1">
+            <label for="{{ form.code.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.code.label }} <span class="text-red-500">*</span></label>
             {{ form.code }}
             {% if form.code.errors %}<p class="text-red-500 text-xs mt-1">{{ form.code.errors.0 }}</p>{% endif %}
         </div>
 
-        <div>
+        <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">{{ form.domain.label }}</label>
             {{ form.domain }}
             {% if form.domain.errors %}<p class="text-red-500 text-xs mt-1">{{ form.domain.errors.0 }}</p>{% endif %}
-        </div>
+        </div class="space-y-1">
 
         <div>
-            <label class="block text-sm font-medium text-gray-700">{{ form.plan.label }}</label>
+            <label class="block text-sm font-medium text-gray-700">{{ form.plan.label }} <span class="text-red-500">*</span></label>
             {{ form.plan }}
             {% if form.plan.errors %}<p class="text-red-500 text-xs mt-1">{{ form.plan.errors.0 }}</p>{% endif %}
         </div>
