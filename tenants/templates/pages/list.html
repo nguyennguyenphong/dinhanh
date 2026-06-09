@@ -55,8 +55,8 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
+                        {% for tenant in tenants %}
                         <tr>
-                            {% for tenant in tenants %}
                             <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
                                 {{ forloop.counter }}
                             </td>
@@ -130,8 +130,8 @@
                                     Xóa
                                 </a>
                             </td>
-                            {% endfor %}
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

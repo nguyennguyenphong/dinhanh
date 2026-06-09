@@ -30,6 +30,7 @@ django-extensions==4.1
 django-filter==25.2
 django-import-export==4.4.1
 django-libsass==0.9
+django-ratelimit==4.1.0
 django-redis==6.0.0
 django-tailwind==4.4.2
 django_components==0.150.1
