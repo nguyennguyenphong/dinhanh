@@ -139,8 +139,7 @@ class AuditLog(models.Model):
         db_index=True,
         help_text="ID of the object affected",
     )
-    object_repr = models.CharField(
-        max_length=500,
+    object_repr = models.TextField(
         null=True,
         blank=True,
         help_text="String representation of the object",

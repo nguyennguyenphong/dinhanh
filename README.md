@@ -61,7 +61,7 @@ venv\Scripts\activate
 Install all required Python packages from requirements.txt:
 
 ```bash
-pip install --upgrade pip
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
