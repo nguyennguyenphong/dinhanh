@@ -1,0 +1,13 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Cài đặt khác
+    </h3>
+    <div>
+        <div class="space-y-1">
+            <label for="{{ form.settings.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.settings.label }}</label>
+            {{ form.settings }} 
+            {% if form.settings.errors %}<p class="text-red-500 text-xs mt-1">{{ form.settings.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+</div>

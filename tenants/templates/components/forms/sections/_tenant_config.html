@@ -10,12 +10,12 @@
     {% endif %}
 
     <div class="space-y-1">
-        <label for="{{ form.logo_upload.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
-            {{ form.logo_upload.label }}
+        <label for="{{ form.logo_url.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.logo_url.label }}
         </label>
-        {{ form.logo_upload }}
-        {% if form.logo_upload.errors %}
-            <p class="text-red-500 text-xs mt-1">{{ form.logo_upload.errors.0 }}</p>
+        {{ form.logo_url }}
+        {% if form.logo_url.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.logo_url.errors.0 }}</p>
         {% endif %}
     </div>
 
@@ -55,7 +55,8 @@
                 </div>
                 
                 <input 
-                    type="text" 
+                    type="text"
+                    id="{{ form.primary_color.id_for_label }}"
                     x-model="color" 
                     maxlength="7"
                     class="w-full border-[1.5px] border-gray-200 rounded-md bg-white text-sm px-4 py-2.5 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 transition-all uppercase focus:border-blue-500 focus:ring-0"

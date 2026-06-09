@@ -40,6 +40,7 @@ class TailwindFormMixin:
             'max_users': 'Số người dùng tối đa',
             'max_branches': 'Số chi nhánh tối đa',
             'max_vehicles': 'Số phương tiện tối đa',
+            'settings': 'Cài đặt khác',
             'subscription_started_at': 'Ngày bắt đầu',
             'subscription_expires_at': 'Ngày kết thúc',
         }
@@ -60,7 +61,8 @@ class TailwindFormMixin:
             elif isinstance(widget, (forms.TextInput, forms.EmailInput, forms.URLInput, forms.NumberInput)):
                 widget.attrs.update({
                     'class': tailwind_classes,
-                    'placeholder': current_placeholder
+                    'placeholder': current_placeholder,
+                    'autocomplete': 'off'
                 })
 
             elif isinstance(widget, (forms.DateInput, forms.DateTimeInput)):
@@ -68,14 +70,31 @@ class TailwindFormMixin:
                     'class': tailwind_classes,
                 })
 
-            elif isinstance(widget, forms.FileInput):
-                widget.attrs.update({
-                    'class': 'block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all cursor-pointer'
-                })
-
             elif isinstance(widget, forms.Select):
                 widget.attrs.update({
                     'class': tailwind_classes.replace('px-4', 'px-3')
+                })
+
+            elif isinstance(widget, forms.FileInput):
+                widget.attrs.update({
+                    'class': (
+                        'block w-full text-sm text-gray-500 '
+                        'border border-gray-200 rounded-md '
+                        'dark:border-slate-700 dark:text-gray-300 '
+                        'file:mr-4 file:py-3 file:px-4 '
+                        'file:rounded-md file:border-0 '
+                        'file:text-sm file:font-medium '
+                        'file:bg-blue-50 file:text-blue-700 '
+                        'hover:file:bg-blue-100 pl-4'
+                    )
+                })
+            
+            elif isinstance(widget, forms.Textarea):
+                widget.attrs.update({
+                    'class': (
+                        f'{tailwind_classes} font-mono '
+                        'text-xs leading-6 resize-y min-h-[200px]'
+                    )
                 })
 
 
@@ -96,7 +115,8 @@ class TenantCreateForm(TailwindFormMixin, forms.ModelForm):
             'code', 'name', 'domain', 'primary_color', 'plan', 
             'currency', 'exchange_rate', 'default_language', 'timezone', 
             'is_active', 'subscription_started_at', 'subscription_expires_at',
-            'max_users', 'max_branches', 'max_vehicles',
+            'max_users', 'max_branches', 'max_vehicles', 'settings',
+            'logo_url',
         ]
         widgets = {
             # Let template and mixin control specific responsive design attributes

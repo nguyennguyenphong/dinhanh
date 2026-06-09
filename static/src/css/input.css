@@ -2,7 +2,6 @@
 
 /* npx @tailwindcss/cli -i ./static/src/css/input.css -o ./static/src/css/output.css --watch */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "flowbite/src/themes/default";
 
 @plugin "flowbite/plugin";

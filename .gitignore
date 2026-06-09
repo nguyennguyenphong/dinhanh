@@ -1,9 +1,6 @@
-# Ignore the entire share directory
-shared/
-
 # Ignore all files in the migrate directory, except for the init file
-migrate/*
-!migrate/__init__.py
+**/migrations/*
+!**/migrations/__init__.py
 # (If your init file has a different name, e.g., init.sql, change it to !migrate/init.sql)
 
 # Virtual environments and system configurations
@@ -22,5 +19,8 @@ node_modules/
 staticfiles/
 dist/
 
-# Log directory
-logs/
+# Ignore all migration files
+**/migrations/*
+
+# No ignore __init__.py
+!**/migrations/__init__.py

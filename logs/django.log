@@ -1,0 +1,75 @@
+INFO 2026-06-10 00:27:05,038 log 35757 6137982976 "GET /tenants/create/ HTTP/1.1" 200 97245
+INFO 2026-06-10 00:27:33,612 log 35757 6171635712 "GET /tenants/list/ui/ HTTP/1.1" 200 85296
+INFO 2026-06-10 00:27:37,489 log 35757 6137982976 "GET /tenants/create/ HTTP/1.1" 200 97245
+INFO 2026-06-10 00:28:02,351 log 35757 6171635712 "GET /tenants/create/ HTTP/1.1" 200 97245
+INFO 2026-06-10 00:28:12,641 log 35757 6154809344 "GET /tenants/create/ HTTP/1.1" 200 97244
+INFO 2026-06-10 00:28:14,518 log 35757 6188462080 "GET /tenants/create/ HTTP/1.1" 200 97244
+WARNING 2026-06-10 00:28:18,866 log 35757 6154809344 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:28:18,868 log 35757 6154809344 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:28:27,346 log 35757 6154809344 "GET /tenants/create/ HTTP/1.1" 200 97244
+INFO 2026-06-10 00:28:32,566 log 35757 6154809344 "GET /tenants/create/ HTTP/1.1" 200 97244
+INFO 2026-06-10 00:29:41,501 log 35757 6171635712 "GET /tenants/create/ HTTP/1.1" 200 97290
+INFO 2026-06-10 00:29:43,634 log 35757 6154809344 "GET /tenants/create/ HTTP/1.1" 200 97314
+WARNING 2026-06-10 00:29:56,423 log 35757 6171635712 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:29:56,424 log 35757 6171635712 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:30:26,825 log 35757 6171635712 "GET /tenants/create/ HTTP/1.1" 200 97244
+WARNING 2026-06-10 00:30:27,023 log 35757 6171635712 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:30:27,023 log 35757 6171635712 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:30:44,356 log 35757 6154809344 "GET /tenants/create/ HTTP/1.1" 200 97258
+WARNING 2026-06-10 00:30:44,544 log 35757 6154809344 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:30:44,545 log 35757 6154809344 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:30:48,328 log 35757 6171635712 "GET /tenants/create/ HTTP/1.1" 200 97260
+WARNING 2026-06-10 00:30:48,486 log 35757 6171635712 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:30:48,486 log 35757 6171635712 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:31:04,002 log 35757 6154809344 "GET /tenants/create/ HTTP/1.1" 200 97261
+WARNING 2026-06-10 00:31:04,143 log 35757 6154809344 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:31:04,144 log 35757 6154809344 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:31:06,259 log 35757 6171635712 "GET /tenants/create/ HTTP/1.1" 200 97274
+WARNING 2026-06-10 00:31:06,376 log 35757 6171635712 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:31:06,377 log 35757 6171635712 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:31:53,864 autoreload 35757 8502140544 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/forms/tenant_create_form.py changed, reloading.
+INFO 2026-06-10 00:31:55,440 autoreload 38912 8502140544 Watching for file changes with StatReloader
+INFO 2026-06-10 00:31:56,865 log 38912 6154661888 "GET /tenants/create/ HTTP/1.1" 200 97464
+WARNING 2026-06-10 00:31:56,997 log 38912 6154661888 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:31:57,000 log 38912 6154661888 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:32:31,428 log 38912 6171488256 "GET /tenants/create/ HTTP/1.1" 200 97486
+WARNING 2026-06-10 00:32:31,627 log 38912 6171488256 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:32:31,627 log 38912 6171488256 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:32:33,865 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:32:34,115 log 38912 6154088448 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:32:34,116 log 38912 6154088448 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:33:57,916 log 38912 6170914816 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:33:58,090 log 38912 6170914816 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:33:58,090 log 38912 6170914816 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:34:00,978 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:34:01,085 log 38912 6154088448 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:34:01,085 log 38912 6154088448 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:34:03,111 log 38912 6170914816 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:34:03,203 log 38912 6170914816 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:34:03,204 log 38912 6170914816 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:34:34,455 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:34:34,556 log 38912 6154088448 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:34:34,556 log 38912 6154088448 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:34:43,822 log 38912 6137262080 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:34:44,168 log 38912 6137262080 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:34:44,169 log 38912 6137262080 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:34:54,589 log 38912 6170914816 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:34:54,831 log 38912 6170914816 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:34:54,831 log 38912 6170914816 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:35:01,576 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:35:01,734 log 38912 6154088448 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:35:01,734 log 38912 6154088448 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:35:04,343 log 38912 6170914816 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:35:04,438 log 38912 6170914816 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:35:04,438 log 38912 6170914816 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:35:19,378 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 97505
+WARNING 2026-06-10 00:35:19,499 log 38912 6154088448 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-10 00:35:19,500 log 38912 6154088448 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-10 00:36:12,391 log 38912 6170914816 "GET /tenants/create/ HTTP/1.1" 200 96644
+INFO 2026-06-10 00:36:22,107 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 96060
+INFO 2026-06-10 00:36:24,798 log 38912 6170914816 "GET /tenants/create/ HTTP/1.1" 200 96060
+INFO 2026-06-10 00:36:43,903 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 96060
+INFO 2026-06-10 00:36:44,724 log 38912 6137262080 "GET /tenants/create/ HTTP/1.1" 200 96060
+INFO 2026-06-10 00:36:58,408 log 38912 6154088448 "GET /tenants/create/ HTTP/1.1" 200 96060
+INFO 2026-06-10 00:37:29,748 log 38912 6170914816 "GET /tenants/create/ HTTP/1.1" 200 96060
+INFO 2026-06-10 00:39:46,019 autoreload 38912 8502140544 /Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/admin/apps.py changed, reloading.
