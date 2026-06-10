@@ -6582,3 +6582,110 @@ INFO 2026-06-10 14:25:19,726 log 29888 18964 "GET /tenants/list/ui/ HTTP/1.1" 20
 INFO 2026-06-10 14:25:24,003 log 29888 10672 "GET /tenants/list/ui/?search_tenant=&status=all&plan=all&created_at= HTTP/1.1" 200 94103
 INFO 2026-06-10 14:39:14,442 autoreload 29888 27636 D:\Private\Files\file\dinhanh\tenants\application\usecases\tenant_audit_log\list_tenant_audit_log_usecase.py changed, reloading.
 INFO 2026-06-10 14:39:21,055 autoreload 9456 24584 Watching for file changes with StatReloader
+INFO 2026-06-10 15:32:54,188 autoreload 2420 21200 Watching for file changes with StatReloader
+INFO 2026-06-10 15:33:04,126 log 2420 14684 "GET / HTTP/1.1" 200 91306
+INFO 2026-06-10 15:33:04,150 log 2420 14684 "GET /static/src/css/output.css HTTP/1.1" 304 0
+INFO 2026-06-10 15:33:04,205 log 2420 14684 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-10 15:33:04,304 log 2420 14684 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-10 15:33:08,313 log 2420 21176 "GET /tenants/list/ui/ HTTP/1.1" 200 103951
+INFO 2026-06-10 15:33:34,994 log 2420 5408 "GET /tenants/list/ui/ HTTP/1.1" 200 103792
+INFO 2026-06-10 15:33:42,880 log 2420 23688 "GET /tenants/list/ui/ HTTP/1.1" 200 103333
+INFO 2026-06-10 15:34:21,376 log 2420 33912 "GET /tenants/list/ui/ HTTP/1.1" 200 103660
+INFO 2026-06-10 15:34:23,560 log 2420 13872 "GET /tenants/list/ui/ HTTP/1.1" 200 103724
+INFO 2026-06-10 15:34:28,219 log 2420 25968 "GET /tenants/list/ui/ HTTP/1.1" 200 103519
+INFO 2026-06-10 15:34:41,703 log 2420 9532 "GET /tenants/list/ui/ HTTP/1.1" 200 104022
+INFO 2026-06-10 15:34:42,844 log 2420 27156 "GET /tenants/list/ui/ HTTP/1.1" 200 104022
+INFO 2026-06-10 15:34:44,027 log 2420 18916 "GET /tenants/list/ui/ HTTP/1.1" 200 104022
+INFO 2026-06-10 15:34:54,297 log 2420 27636 "GET /tenants/list/ui/ HTTP/1.1" 200 103288
+INFO 2026-06-10 15:37:31,297 autoreload 2420 21200 D:\Private\Files\file\dinhanh\tenants\views\forms\tenant_filter_form.py changed, reloading.
+INFO 2026-06-10 15:37:32,537 autoreload 21792 10716 Watching for file changes with StatReloader
+INFO 2026-06-10 15:37:34,586 autoreload 21792 10716 D:\Private\Files\file\dinhanh\tenants\views\forms\tenant_filter_form.py changed, reloading.
+INFO 2026-06-10 15:37:35,688 autoreload 15872 17752 Watching for file changes with StatReloader
+INFO 2026-06-10 15:37:51,498 autoreload 15872 17752 D:\Private\Files\file\dinhanh\tenants\views\forms\tenant_filter_form.py changed, reloading.
+INFO 2026-06-10 15:37:52,597 autoreload 13200 30108 Watching for file changes with StatReloader
+INFO 2026-06-10 15:37:54,621 autoreload 13200 30108 D:\Private\Files\file\dinhanh\tenants\views\forms\tenant_filter_form.py changed, reloading.
+INFO 2026-06-10 15:37:55,715 autoreload 32296 8436 Watching for file changes with StatReloader
+INFO 2026-06-10 15:38:30,591 autoreload 32296 8436 D:\Private\Files\file\dinhanh\tenants\views\forms\tenant_filter_form.py changed, reloading.
+INFO 2026-06-10 15:38:31,750 autoreload 31696 28348 Watching for file changes with StatReloader
+INFO 2026-06-10 15:38:46,274 autoreload 31696 28348 D:\Private\Files\file\dinhanh\tenants\views\forms\tenant_filter_form.py changed, reloading.
+INFO 2026-06-10 15:38:47,445 autoreload 30944 19568 Watching for file changes with StatReloader
+INFO 2026-06-10 15:39:06,250 log 30944 35304 "GET /tenants/list/ui/ HTTP/1.1" 200 105080
+INFO 2026-06-10 15:39:06,546 log 30944 14024 "GET /tenants/list/ui/ HTTP/1.1" 200 105080
+INFO 2026-06-10 15:39:19,916 log 30944 23400 "GET /tenants/list/ui/ HTTP/1.1" 200 102888
+INFO 2026-06-10 15:39:24,352 log 30944 18900 "GET /tenants/list/ui/ HTTP/1.1" 200 103288
+INFO 2026-06-10 15:39:26,620 log 30944 24360 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:39:28,473 log 30944 14944 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:11,892 log 30944 31904 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:19,387 log 30944 19952 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:40:26,940 log 30944 34688 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:29,880 log 30944 24440 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:30,880 log 30944 7376 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:31,856 log 30944 32732 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:40:33,585 log 30944 33892 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:34,435 log 30944 20724 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:40:35,369 log 30944 12680 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:43,765 log 30944 30844 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=True&plan=free&created_at=2026-06-18 HTTP/1.1" 200 94227
+INFO 2026-06-10 15:40:47,200 log 30944 5580 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:40:53,194 log 30944 8016 "GET /tenants/list/ui/?search_tenant=00000&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 94217
+INFO 2026-06-10 15:40:55,465 log 30944 2792 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:41:00,231 log 30944 34472 "GET /tenants/list/ui/?search_tenant=0000&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 94216
+INFO 2026-06-10 15:41:05,936 log 30944 22228 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:41:09,501 log 30944 12228 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:41:15,083 log 30944 15588 "GET /tenants/list/ui/?search_tenant=60GQBKDW9FUY&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 97266
+INFO 2026-06-10 15:41:20,538 log 30944 4872 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:41:24,069 log 30944 27012 "GET /tenants/list/ui/?search_tenant=&sort_by=az&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:41:25,117 log 30944 4412 "GET /tenants/list/ui/?search_tenant=&sort_by=az&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:41:29,177 log 30944 35820 "GET /tenants/list/ui/?search_tenant=&sort_by=az&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:41:31,044 log 30944 4320 "GET /tenants/list/ui/?search_tenant=&sort_by=az&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103291
+INFO 2026-06-10 15:56:40,686 log 30944 13044 "GET / HTTP/1.1" 200 91306
+INFO 2026-06-10 15:56:45,677 log 30944 26960 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:57:34,599 log 30944 26244 "GET /tenants/list/ui/?search_tenant=00&sort_by=za&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 94214
+INFO 2026-06-10 15:57:38,339 log 30944 34676 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:57:41,935 log 30944 14060 "GET /tenants/list/ui/?search_tenant=00&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 94214
+INFO 2026-06-10 15:57:45,050 log 30944 17612 "GET /tenants/list/ui/?search_tenant=0&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 97255
+INFO 2026-06-10 15:57:48,686 log 30944 19636 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:57:50,290 log 30944 4752 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:57:55,749 log 30944 10404 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=True&plan=all&created_at= HTTP/1.1" 200 103301
+INFO 2026-06-10 15:58:01,838 log 30944 2132 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=False&plan=all&created_at= HTTP/1.1" 200 94207
+INFO 2026-06-10 15:58:04,551 log 30944 34460 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:58:09,443 log 30944 19148 "GET /tenants/list/ui/?search_tenant=&sort_by=latest&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:58:17,482 log 30944 24496 "GET /tenants/list/ui/?search_tenant=&sort_by=oldest&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:58:21,806 log 30944 2708 "GET /tenants/list/ui/?search_tenant=&sort_by=oldest&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103291
+INFO 2026-06-10 15:58:29,450 log 30944 32740 "GET /tenants/list/ui/?search_tenant=&sort_by=oldest&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:58:34,894 log 30944 27984 "GET /tenants/list/ui/?search_tenant=&sort_by=oldest&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:58:38,245 log 30944 32092 "GET /tenants/list/ui/?search_tenant=&sort_by=oldest&status=all&plan=all&created_at= HTTP/1.1" 200 103283
+INFO 2026-06-10 15:58:40,573 log 30944 12036 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:58:45,429 log 30944 21924 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=free&created_at= HTTP/1.1" 200 94205
+INFO 2026-06-10 15:58:49,684 log 30944 14028 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103299
+INFO 2026-06-10 15:58:51,154 log 30944 8344 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+ERROR 2026-06-10 15:58:58,830 log 30944 27528 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 32, in get
+    form = TenantCreateForm()
+           ^^^^^^^^^^^^^^^^
+NameError: name 'TenantCreateForm' is not defined. Did you mean: 'TenantCreateDTO'?
+ERROR 2026-06-10 15:58:58,834 log 30944 27528 "GET /tenants/create/ HTTP/1.1" 500 104304
+INFO 2026-06-10 15:59:34,301 autoreload 30944 19568 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_list_view.py changed, reloading.
+INFO 2026-06-10 15:59:35,529 autoreload 19408 17492 Watching for file changes with StatReloader
+INFO 2026-06-10 15:59:39,906 autoreload 19408 17492 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-10 15:59:41,176 autoreload 4432 32488 Watching for file changes with StatReloader
+INFO 2026-06-10 15:59:44,414 autoreload 4432 32488 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-10 15:59:45,597 autoreload 26932 25508 Watching for file changes with StatReloader
+INFO 2026-06-10 15:59:47,079 log 26932 7188 "GET /tenants/create/ HTTP/1.1" 200 96181
+INFO 2026-06-10 15:59:48,777 log 26932 32116 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 15:59:49,774 log 26932 11884 "GET /tenants/create/ HTTP/1.1" 200 96181
+INFO 2026-06-10 16:00:00,606 log 26932 22976 "GET /tenants/list/ui/ HTTP/1.1" 200 103287
+INFO 2026-06-10 16:00:03,198 log 26932 15996 "GET /tenants/create/ HTTP/1.1" 200 96181
+INFO 2026-06-10 16:00:05,953 log 26932 20236 "GET /tenants/list/ui/ HTTP/1.1" 200 103287

@@ -17,6 +17,7 @@ from tenants.exceptions.exception import TenantDomainError
 from tenants.policies import TenantPolicy
 from tenants.providers import TenantProvider
 from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
+from tenants.views.forms import TenantCreateForm 
 
 from tenants.views.helpers.view_helpers import RequestContext
 

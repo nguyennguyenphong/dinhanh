@@ -25,19 +25,17 @@
         <form action="" method="get" class="space-y-4 w-full">
             <div class="flex flex-row items-center gap-3 w-full">
                 <div class="grid grid-cols-3 gap-3 flex-1">
-                    <div class="relative">
-                        <input type="text" name="search_tenant" placeholder="Tìm kiếm tên tenant, code"
-                            value="{{ request.GET.search_tenant|default:'' }}"
-                            class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
+                    <div class="space-y-1">
+                        {{ form.search_tenant }}
+                        {% if form.search_tenant.errors %}<p class="text-red-500 text-xs mt-1">{{ form.search_tenant.errors.0 }}</p>{% endif %}
                     </div>
-                    <div>
-                        <select name="sort_by" class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
-    <option value="" disabled {% if not request.GET.sort_by %}selected{% endif %} hidden>Sắp xếp theo</option>
-    <option value="az" {% if request.GET.sort_by == 'az' %}selected{% endif %}>Tên: A → Z</option>
-    <option value="za" {% if request.GET.sort_by == 'za' %}selected{% endif %}>Tên: Z → A</option>
-    <option value="latest" {% if request.GET.sort_by == 'latest' %}selected{% endif %}>Mới nhất</option>
-    <option value="oldest" {% if request.GET.sort_by == 'oldest' %}selected{% endif %}>Cũ nhất</option>
-</select>
+                    <div class="space-y-1">
+                        <div>
+                            {{ form.sort_by }}
+                        </div>
+                        {% if form.sort_by.errors %}
+                            <p class="text-red-500 text-xs mt-1">{{ form.sort_by.errors.0 }}</p>
+                        {% endif %}
                     </div>
 
                     <div class="relative" x-data="{ open: false, isUp: false }" @click.away="open = false">
@@ -50,20 +48,14 @@
 
                         <div x-show="open"
                             :class="isUp ? 'bottom-full mb-2 origin-bottom-left' : 'top-full mt-2 origin-top-left'"
-                            class="absolute left-0 z-10 w-full rounded-lg bg-white dark:bg-slate-800 p-3 shadow-xl border border-gray-100 dark:border-slate-700 max-h-60 overflow-y-auto space-y-2"
+                            class="absolute left-0 z-10 w-full rounded-md bg-white dark:bg-slate-800 p-3 shadow-xl border border-gray-100 dark:border-slate-700 max-h-60 overflow-y-auto space-y-2"
                             style="display: none;" x-transition>
-                            <label
-                                class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer select-none hover:text-gray-900 dark:hover:text-white">
-                                <input type="checkbox" checked
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                                <span>Code</span>
-                            </label>
-                            <label
-                                class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer select-none hover:text-gray-900 dark:hover:text-white">
-                                <input type="checkbox" checked
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                                <span>Tên Tenant</span>
-                            </label>
+                            
+                            {% for checkbox in form.columns %}
+                                <label class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer select-none hover:text-gray-900 dark:hover:text-white">
+                                    {{ checkbox.tag }} <span>{{ checkbox.choice_label }}</span> </label>
+                            {% endfor %}
+
                         </div>
                     </div>
                 </div>
