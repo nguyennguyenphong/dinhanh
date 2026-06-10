@@ -29,7 +29,7 @@ class TenantAuditLog(models.Model):
     module = models.CharField(max_length=100, db_index=True)
     object_type = models.CharField(max_length=100, null=True, blank=True)
     object_id = models.CharField(max_length=50, null=True, blank=True)
-    object_repr = models.CharField(max_length=500, null=True, blank=True)
+    object_repr = models.TextField(max_length=500, null=True, blank=True)
 
     old_values = models.JSONField(null=True, blank=True)
     new_values = models.JSONField(null=True, blank=True)

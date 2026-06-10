@@ -9,135 +9,28 @@
 {% include 'portals/navbar.html' %}
 
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
-    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
-        <div class="border border-gray-200 p-4 bg-white rounded-md">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-5 dark:border-slate-800">
-                <div>
-                    <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
-                        Danh sách tenant
-                    </h1>
-                    <p class="text-sm text-gray-500 dark:text-slate-400">Quản lý tài nguyên tenant hệ thống.</p>
-                </div>
-                <div>
-                    <a href="{% url 'tenant_create' %}"
-                        class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm  bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20">
-                        Tạo tenant
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
+
+        {% include 'components/breadcrumb/_tenant_list_breadcrumb.html' %}
+        
+        {% include 'components/page_header/_page_header.html' %}
+        
+        {% include 'components/filter/_filter_section.html' %}
+
         <div class="flex flex-col bg-white border border-gray-200 rounded-md shadow-xs overflow-hidden">
-            <div class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div
+                class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                     <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Danh sách đơn vị thành viên</h3>
-                    <p class="text-sm text-gray-500 dark:text-slate-400">Quản lý định danh, trạng thái tài nguyên và môi trường phân tách.</p>
+                    <p class="text-sm text-gray-500 dark:text-slate-400">Quản lý định danh, trạng thái tài nguyên và môi
+                        trường phân tách.</p>
                 </div>
             </div>
 
             <div class="overflow-x-auto w-full">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-slate-800">
-                    <thead class="bg-gray-50/70 dark:bg-slate-800/50 whitespace-nowrap">
-                        <tr>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">#</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Code</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Tên tenant</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Domain</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Logo</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Primary Color</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Trang thái</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Người dùng tối đa</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Chi nhánh tối đa</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Phương tiên tối đa</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Kế hoạch</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Timezone</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Ngôn ngữ mặt định</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Đơn vị tiền tệ</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Tỉ giá tiền tệ</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Thời gian tạo</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Thời gian cập nhật</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
-                        {% for tenant in tenants %}
-                        <tr>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ forloop.counter }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.code }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.name }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.domain }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.logo }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.primary_color }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start">
-                                {% if tenant.is_active %}
-                                    <span class="text-xs font-medium text-green-600">
-                                        Kích hoạt
-                                    </span>
-                                {% else %}
-                                    <span class="text-xs font-medium text-red-600">
-                                        Ngừng kích hoạt
-                                    </span>
-                                {% endif %}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.max_users }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.max_branches }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.max_vehicles }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.plan }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.timezone }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.default_language }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.currency }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.exchange_rate }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.created_at|date:"H:i:s Y/m/d" }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                {{ tenant.updated_at|date:"H:i:s Y/m/d" }}
-                            </td>
-                            <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-                                <a href="{% url 'tenant_detail' tenant.id %}"
-                                    class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
-                                    Chi tiết
-                                </a>
-                                <a href="{% url 'tenant_detail' tenant.id %}"
-                                    class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
-                                    Chỉnh sửa
-                                </a>
-                                <a href="{% url 'tenant_detail' tenant.id %}"
-                                    class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100">
-                                    Xóa
-                                </a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                
+                {% include 'components/tables/_tenant_list_table.html' %}
+
             </div>
         </div>
     </div>

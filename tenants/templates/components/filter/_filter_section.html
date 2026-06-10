@@ -1,0 +1,116 @@
+<div x-data="{ 
+    showAdvancedFilters: $persist(false).as('advanced_filter_state') 
+    }" x-init="
+    if ('{{ request.GET.status }}' && '{{ request.GET.status }}' !== 'all' || '{{ request.GET.plan }}' && '{{ request.GET.plan }}' !== 'all' || '{{ request.GET.created_at }}') {
+        showAdvancedFilters = true;
+    }
+    }" class="border border-gray-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900 rounded-md space-y-4">
+
+    <div class="flex items-center justify-between pb-3">
+        <h1 class="text-base font-bold text-gray-800 dark:text-white flex items-center gap-2">
+            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+            </svg>
+            Bộ lọc nâng cao
+        </h1>
+
+        <button type="button" @click="showAdvancedFilters = !showAdvancedFilters"
+            class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-300 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm border border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-500 dark:text-blue-400 dark:hover:bg-blue-950/30 cursor-pointer">
+            <span x-text="showAdvancedFilters ? 'Thu gọn bộ lọc' : 'Tất cả bộ lọc'">Tất cả bộ lọc</span>
+        </button>
+    </div>
+
+    <div class="flex flex-col gap-3 w-full">
+        <form action="" method="get" class="space-y-4 w-full">
+            <div class="flex flex-row items-center gap-3 w-full">
+                <div class="grid grid-cols-3 gap-3 flex-1">
+                    <div class="relative">
+                        <input type="text" name="search_tenant" placeholder="Tìm kiếm tên tenant, code"
+                            value="{{ request.GET.search_tenant|default:'' }}"
+                            class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
+                    </div>
+                    <div>
+                        <select name="sort_by" class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
+    <option value="" disabled {% if not request.GET.sort_by %}selected{% endif %} hidden>Sắp xếp theo</option>
+    <option value="az" {% if request.GET.sort_by == 'az' %}selected{% endif %}>Tên: A → Z</option>
+    <option value="za" {% if request.GET.sort_by == 'za' %}selected{% endif %}>Tên: Z → A</option>
+    <option value="latest" {% if request.GET.sort_by == 'latest' %}selected{% endif %}>Mới nhất</option>
+    <option value="oldest" {% if request.GET.sort_by == 'oldest' %}selected{% endif %}>Cũ nhất</option>
+</select>
+                    </div>
+
+                    <div class="relative" x-data="{ open: false, isUp: false }" @click.away="open = false">
+                        <button
+                            @click="open = !open; if(open) { let spaceBottom = window.innerHeight - $el.getBoundingClientRect().bottom; isUp = spaceBottom < 250; }"
+                            type="button"
+                            class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
+                            <span class="flex items-center gap-2">Ẩn hiện cột</span>
+                        </button>
+
+                        <div x-show="open"
+                            :class="isUp ? 'bottom-full mb-2 origin-bottom-left' : 'top-full mt-2 origin-top-left'"
+                            class="absolute left-0 z-10 w-full rounded-lg bg-white dark:bg-slate-800 p-3 shadow-xl border border-gray-100 dark:border-slate-700 max-h-60 overflow-y-auto space-y-2"
+                            style="display: none;" x-transition>
+                            <label
+                                class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer select-none hover:text-gray-900 dark:hover:text-white">
+                                <input type="checkbox" checked
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                <span>Code</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer select-none hover:text-gray-900 dark:hover:text-white">
+                                <input type="checkbox" checked
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                <span>Tên Tenant</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 whitespace-nowrap justify-end">
+                    <a href="{{ request.path }}" @click="showAdvancedFilters = false"
+                        class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm border border-gray-300 text-gray-600 hover:bg-gray-50 dark:border-gray-500 dark:text-gray-400 dark:hover:bg-gray-950/30 cursor-pointer">
+                        Reset
+                    </a>
+                    <button type="submit"
+                        class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20">
+                        Áp dụng
+                    </button>
+                </div>
+            </div>
+
+            <div x-show="showAdvancedFilters" x-cloak x-transition:enter="transition ease-out duration-300 transform"
+                x-transition:enter-start="opacity-0 -translate-y-4 scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                x-transition:leave="transition ease-in duration-200 transform"
+                x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                x-transition:leave-end="opacity-0 -translate-y-4 scale-95" class="pt-2">
+
+                <div
+                    class="grid grid-cols-3 gap-3">
+                    <div>
+                        <select name="status"
+                            class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
+                            <option value="all" {% if request.GET.status == 'all' or not request.GET.status %}selected{% endif %}>Tất cả trạng thái</option>
+                            <option value="True" {% if request.GET.status == 'True' %}selected{% endif %}>Hoạt động</option>
+                            <option value="False" {% if request.GET.status == 'False' %}selected{% endif %}>Khóa</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select name="plan"
+                            class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
+                            <option value="all" {% if request.GET.plan == 'all' or not request.GET.plan %}selected{% endif %}>Tất cả gói</option>
+                            <option value="free" {% if request.GET.plan == 'free' %}selected{% endif %}>Free</option>
+                            <option value="pro" {% if request.GET.plan == 'pro' %}selected{% endif %}>Pro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="date" name="created_at" value="{{ request.GET.created_at|default:'' }}"
+                            class="w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all hover:border-blue-400 focus:border-blue-500 focus:ring-0 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

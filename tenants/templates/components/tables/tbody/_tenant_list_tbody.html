@@ -1,0 +1,79 @@
+<tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
+    {% for tenant in tenants %}
+    <tr>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ forloop.counter }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.code }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.name }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.domain }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.logo }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.primary_color }}
+        </td>
+        <td class="px-6 py-3.5 text-start">
+            {% if tenant.is_active %}
+            <span class="text-xs font-medium text-green-600">
+                Kích hoạt
+            </span>
+            {% else %}
+            <span class="text-xs font-medium text-red-600">
+                Ngừng kích hoạt
+            </span>
+            {% endif %}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.max_users }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.max_branches }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.max_vehicles }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.plan }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.timezone }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.default_language }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.currency }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.exchange_rate }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.created_at|date:"H:i:s Y/m/d" }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.updated_at|date:"H:i:s Y/m/d" }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            <a href="{% url 'tenant_detail' tenant.id %}"
+                class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
+                Chi tiết
+            </a>
+            <a href="{% url 'tenant_detail' tenant.id %}"
+                class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
+                Chỉnh sửa
+            </a>
+            <a href="{% url 'tenant_detail' tenant.id %}"
+                class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100">
+                Xóa
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>

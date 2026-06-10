@@ -343,7 +343,7 @@ npm run build
 npm run watch
 
 # Build Tailwind CSS
-npx tailwindcss -i ./assets/input.css -o ./static/output.css --watch
+npx tailwindcss -i ./static/src/css/input.css -o ./static/src/css/output.css --watch
 ```
 
 ### Celery Commands

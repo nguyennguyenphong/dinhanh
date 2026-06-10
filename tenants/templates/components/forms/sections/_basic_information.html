@@ -23,7 +23,7 @@
             {% if form.domain.errors %}<p class="text-red-500 text-xs mt-1">{{ form.domain.errors.0 }}</p>{% endif %}
         </div class="space-y-1">
 
-        <div>
+        <div class="space-y-1">
             <label for="{{ form.plan.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.plan.label }} <span class="text-red-500">*</span></label>
             {{ form.plan }}
             {% if form.plan.errors %}<p class="text-red-500 text-xs mt-1">{{ form.plan.errors.0 }}</p>{% endif %}

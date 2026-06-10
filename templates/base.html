@@ -9,18 +9,19 @@
 
     <link rel="stylesheet" href="{% static 'src/css/output.css' %}">
 
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
     <script>
         window.FloatingUIDOM = window.FloatingUIDOM || {};
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="min-h-screen bg-white dark:bg-slate-900">
 
     {% block content %}
     {% endblock %}
 
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 </body>
 </html>
