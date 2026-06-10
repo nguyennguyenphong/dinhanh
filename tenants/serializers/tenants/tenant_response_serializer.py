@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+
 class TenantResponseSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     uuid = serializers.CharField()

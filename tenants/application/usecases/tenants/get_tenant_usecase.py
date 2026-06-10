@@ -3,13 +3,15 @@ Use-cases for Tenant CRUD operations.
 Each use-case class has a single public method and
 orchestrates domain logic + repositories + audit logging.
 """
+
 from __future__ import annotations
 
-from tenants.application.usecases.tenants.tenant_usecase import _entity_to_response
 from tenants.application.dtos.tenants.tenant_response_dto import TenantResponseDTO
+from tenants.application.usecases.tenants.tenant_usecase import _entity_to_response
 from tenants.exceptions.exception import TenantNotFoundError
-from tenants.repositories.interfaces.tenant_repository_interface import ITenantRepository
-
+from tenants.repositories.interfaces.tenant_repository_interface import (
+    ITenantRepository,
+)
 
 
 class GetTenantUseCase:

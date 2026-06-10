@@ -1,11 +1,13 @@
 """
 Use-cases for TenantFeatureFlag and TenantInvitation operations.
 """
+
 from __future__ import annotations
 
-
 from tenants.domain.entities.tenant_feature_flag_entity import TenantFeatureFlagEntity
-from tenants.repositories.interfaces.tenant_feature_flag_interface import ITenantFeatureFlagRepository
+from tenants.repositories.interfaces.tenant_feature_flag_interface import (
+    ITenantFeatureFlagRepository,
+)
 
 
 class ListFeatureFlagsUseCase:

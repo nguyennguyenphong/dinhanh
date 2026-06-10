@@ -147,8 +147,9 @@ class Province(models.Model):
             # }
         """
         from django.apps import apps
-        Ward = apps.get_model('locations', 'Ward')
-        Location = apps.get_model('locations', 'Location')
+
+        Ward = apps.get_model("locations", "Ward")
+        Location = apps.get_model("locations", "Location")
 
         districts = self.districts.count()
         wards = Ward.objects.filter(district__province=self).count()

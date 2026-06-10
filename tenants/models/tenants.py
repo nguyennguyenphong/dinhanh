@@ -10,7 +10,12 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from tenants.constants import PLAN_TRIAL, PLAN_STANDARD, PLAN_PROFESSIONAL, PLAN_ENTERPRISE
+from tenants.constants import (
+    PLAN_ENTERPRISE,
+    PLAN_PROFESSIONAL,
+    PLAN_STANDARD,
+    PLAN_TRIAL,
+)
 
 
 class Tenant(models.Model):
@@ -174,4 +179,5 @@ class Tenant(models.Model):
 
     def get_plan_features(self):
         from tenants.constants import PLAN_LIMITS
+
         return PLAN_LIMITS.get(self.plan, {})

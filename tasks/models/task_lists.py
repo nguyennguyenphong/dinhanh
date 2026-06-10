@@ -154,6 +154,7 @@ class TaskList(models.Model):
             )
         """
         from django.apps import apps
+
         Task = apps.get_model("tasks", "Task")
         task = Task.objects.create(
             task_list=self,

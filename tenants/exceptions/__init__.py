@@ -1,16 +1,16 @@
 # call exception module
 
 from .exception import (
-    TenantDomainError,
-    TenantNotFoundError,
     TenantAlreadyExistsError,
+    TenantDomainError,
+    TenantFeatureFlagNotFoundError,
     TenantInactiveError,
-    TenantSubscriptionExpiredError,
-    TenantLimitExceededError,
+    TenantInvitationAlreadyUsedError,
     TenantInvitationError,
     TenantInvitationExpiredError,
-    TenantInvitationAlreadyUsedError,
-    TenantFeatureFlagNotFoundError
+    TenantLimitExceededError,
+    TenantNotFoundError,
+    TenantSubscriptionExpiredError,
 )
 
 __all__ = [
@@ -23,5 +23,5 @@ __all__ = [
     "TenantInvitationError",
     "TenantInvitationExpiredError",
     "TenantInvitationAlreadyUsedError",
-    "TenantFeatureFlagNotFoundError"
+    "TenantFeatureFlagNotFoundError",
 ]

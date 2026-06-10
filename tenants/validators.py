@@ -1,7 +1,9 @@
 """
 Centralized validation logic for tenants domain.
 """
+
 import re
+
 from django.core.exceptions import ValidationError
 
 
@@ -17,7 +19,7 @@ class TenantValidator:
         """
         if not code or len(code) < 3 or len(code) > 30:
             raise ValidationError("Code phải có 3-30 ký tự")
-        
+
         if not re.match(r"^[A-Z0-9_]+$", code):
             raise ValidationError("Code chỉ chứa chữ hoa, số và dấu gạch dưới")
 
@@ -31,6 +33,7 @@ class TenantValidator:
     def validate_plan(plan: str) -> None:
         """Validate plan value"""
         from tenants.constants import PLAN_CHOICES
+
         if plan not in PLAN_CHOICES:
             raise ValidationError(f"Plan phải là một trong: {PLAN_CHOICES}")
 

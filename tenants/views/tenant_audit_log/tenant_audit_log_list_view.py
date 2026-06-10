@@ -4,6 +4,7 @@ DRF API views for:
   - TenantInvitation   (/tenants/<pk>/invitations/)
   - TenantAuditLog     (/tenants/<pk>/audit-logs/)
 """
+
 from __future__ import annotations
 
 from rest_framework.request import Request
@@ -18,7 +19,6 @@ from tenants.serializers.tenant_audit_log import (
     TenantAuditLogQuerySerializer,
     TenantAuditLogResponseSerializer,
 )
-
 from tenants.views.helpers.view_helpers import domain_error_response, paginated_response
 
 

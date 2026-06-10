@@ -8,16 +8,18 @@ Example:
 - DTO: TenantCreateDTO (used by UseCase)
 - Serializer: TenantSerializer (used by API view)
 """
+
+import uuid
 from dataclasses import dataclass
+from datetime import datetime
 from decimal import Decimal
 from typing import Any, Optional
-from datetime import datetime
-import uuid
 
 
 @dataclass
 class TenantCreateDTO:
     """Input DTO for creating a tenant"""
+
     code: str
     name: str
     plan: str = "STANDARD"
@@ -34,6 +36,7 @@ class TenantCreateDTO:
 @dataclass
 class TenantResponseDTO:
     """Output DTO returned from services"""
+
     id: int
     uuid: uuid.UUID
     code: str
@@ -49,6 +52,7 @@ class TenantResponseDTO:
 @dataclass
 class TenantUpdateDTO:
     """Input DTO for updating a tenant"""
+
     tenant_id: int
     code: Optional[str] = None
     name: Optional[str] = None
@@ -60,6 +64,7 @@ class TenantUpdateDTO:
 @dataclass
 class TenantListQueryDTO:
     """Input DTO for listing tenants with filters"""
+
     search: Optional[str] = None
     plan: Optional[str] = None
     is_active: Optional[bool] = None

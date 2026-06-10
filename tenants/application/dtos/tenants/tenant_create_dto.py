@@ -2,14 +2,15 @@
 Data Transfer Objects for Tenant CRUD operations.
 Used by use-cases and serializers — no ORM/domain logic here.
 """
+
 from __future__ import annotations
- 
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from decimal import Decimal
 from typing import Any
- 
- 
+
+
 @dataclass
 class TenantCreateDTO:
     code: str
@@ -29,4 +30,3 @@ class TenantCreateDTO:
     domain: str | None = None
     logo_url: str | None = None
     is_active: bool = True
- 

@@ -1,4 +1,4 @@
-# 
+#
 
 
 from .tenant_audit_log_repository_impl import TenantAuditLogRepositoryImpl
@@ -12,4 +12,3 @@ __all__ = [
     "TenantInvitationRepositoryImpl",
     "TenantRepositoryImpl",
 ]
-

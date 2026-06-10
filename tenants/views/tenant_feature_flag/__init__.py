@@ -1,4 +1,4 @@
-# 
+#
 
 
 from .tenant_feature_flag_detail_view import TenantFeatureFlagDetailView

@@ -7,6 +7,7 @@ Rules:
 - Feature flags and invitations are managed by tenant admins.
 - Audit log is read-only for tenant admins; full access for superusers.
 """
+
 from __future__ import annotations
 
 from rest_framework.exceptions import PermissionDenied
@@ -80,7 +81,9 @@ class TenantPolicy:
             return
         user_tenant_id = getattr(request, "tenant_id", None)
         if user_tenant_id != tenant_id:
-            raise PermissionDenied("You can only manage feature flags for your own tenant.")
+            raise PermissionDenied(
+                "You can only manage feature flags for your own tenant."
+            )
         if not getattr(request.user, "is_tenant_admin", False):
             raise PermissionDenied("Tenant admin role required.")
 
@@ -92,7 +95,9 @@ class TenantPolicy:
             return
         user_tenant_id = getattr(request, "tenant_id", None)
         if user_tenant_id != tenant_id:
-            raise PermissionDenied("You can only manage invitations for your own tenant.")
+            raise PermissionDenied(
+                "You can only manage invitations for your own tenant."
+            )
         if not getattr(request.user, "is_tenant_admin", False):
             raise PermissionDenied("Tenant admin role required.")
 

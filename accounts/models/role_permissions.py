@@ -154,9 +154,7 @@ class RolePermission(models.Model):
                 name="idx_role_perm_perm_active",
             ),
             # Index for audit trail
-            models.Index(
-                fields=["assigned_at"], name="idx_role_perm_assigned_at"
-            ),
+            models.Index(fields=["assigned_at"], name="idx_role_perm_assigned_at"),
             # Composite index for common queries
             models.Index(
                 fields=["role", "permission", "is_active"],

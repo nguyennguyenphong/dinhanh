@@ -2,6 +2,7 @@
 Domain entities for Tenant Feature Flag bounded context.
 Pure Python dataclasses — no Django ORM dependency here.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass

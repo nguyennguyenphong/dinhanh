@@ -5,6 +5,7 @@ Usage:
     python manage.py expire_invitations
     python manage.py expire_invitations --dry-run
 """
+
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 

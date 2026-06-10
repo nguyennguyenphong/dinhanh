@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 class PermissionCache(models.Model):
     """
     Cache layer for permission lookups to improve performance

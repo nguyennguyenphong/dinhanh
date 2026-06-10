@@ -6,6 +6,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 class SeatMap(models.Model):
     """
     SeatMap model for managing physical or logical grid layouts of vehicle categories.

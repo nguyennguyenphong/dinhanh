@@ -9,6 +9,7 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 class ShiftType(models.Model):
     """
     ShiftType model defining operational working hours configurations per tenant.

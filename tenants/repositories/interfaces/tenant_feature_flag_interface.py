@@ -2,6 +2,7 @@
 Abstract repository interfaces for the Tenant Feature Flag bounded context.
 Concrete implementations live in repositories/implement/.
 """
+
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
@@ -15,17 +16,13 @@ class ITenantFeatureFlagRepository(ABC):
     @abstractmethod
     def get_by_code(
         self, tenant_id: int, code: str
-    ) -> TenantFeatureFlagEntity | None:
-        ...
+    ) -> TenantFeatureFlagEntity | None: ...
 
     @abstractmethod
-    def list_by_tenant(self, tenant_id: int) -> list[TenantFeatureFlagEntity]:
-        ...
+    def list_by_tenant(self, tenant_id: int) -> list[TenantFeatureFlagEntity]: ...
 
     @abstractmethod
-    def upsert(self, entity: TenantFeatureFlagEntity) -> TenantFeatureFlagEntity:
-        ...
+    def upsert(self, entity: TenantFeatureFlagEntity) -> TenantFeatureFlagEntity: ...
 
     @abstractmethod
-    def delete(self, tenant_id: int, code: str) -> None:
-        ...
+    def delete(self, tenant_id: int, code: str) -> None: ...

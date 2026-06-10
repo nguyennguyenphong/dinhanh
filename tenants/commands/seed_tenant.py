@@ -5,6 +5,7 @@ Usage:
     python manage.py seed_tenant
     python manage.py seed_tenant --code ACME --name "ACME Bus" --plan PROFESSIONAL
 """
+
 from __future__ import annotations
 
 from decimal import Decimal
@@ -30,7 +31,9 @@ class Command(BaseCommand):
         )
         parser.add_argument("--currency", default="VND")
         parser.add_argument("--language", default="vi")
-        parser.add_argument("--force", action="store_true", help="Skip if already exists.")
+        parser.add_argument(
+            "--force", action="store_true", help="Skip if already exists."
+        )
 
     def handle(self, *args, **options):
         code = options["code"].upper()

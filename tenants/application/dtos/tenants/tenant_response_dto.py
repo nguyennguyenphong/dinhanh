@@ -2,13 +2,13 @@
 Data Transfer Objects for Tenant CRUD operations.
 Used by use-cases and serializers — no ORM/domain logic here.
 """
+
 from __future__ import annotations
- 
+
 from dataclasses import dataclass
 from datetime import datetime
 from decimal import Decimal
 from typing import Any
-
 
 
 @dataclass

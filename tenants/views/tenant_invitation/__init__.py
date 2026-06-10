@@ -1,4 +1,4 @@
-# 
+#
 
 
 from .tenant_invitation_accept_view import TenantInvitationAcceptView

@@ -2,8 +2,9 @@
 Data Transfer Objects for Tenant CRUD operations.
 Used by use-cases and serializers — no ORM/domain logic here.
 """
+
 from __future__ import annotations
- 
+
 from dataclasses import dataclass, field
 
 
@@ -15,4 +16,3 @@ class TenantListQueryDTO:
     ordering: list[str] = field(default_factory=lambda: ["-created_at"])
     limit: int = 20
     offset: int = 0
- 

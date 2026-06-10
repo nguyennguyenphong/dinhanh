@@ -1,4 +1,4 @@
-# 
+#
 
 from .tenant_audit_log_repository_interface import ITenantAuditLogRepository
 from .tenant_feature_flag_interface import ITenantFeatureFlagRepository
@@ -9,5 +9,5 @@ __all__ = [
     "ITenantRepository",
     "ITenantFeatureFlagRepository",
     "ITenantInvitationRepository",
-    "ITenantAuditLogRepository"
+    "ITenantAuditLogRepository",
 ]

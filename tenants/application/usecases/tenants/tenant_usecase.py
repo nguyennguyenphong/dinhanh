@@ -1,14 +1,14 @@
 """
 Use-cases for Tenant Init operations.
-Each use-case class has a single public method and 
+Each use-case class has a single public method and
 orchestrates domain logic + repositories + audit logging.
 """
+
 from __future__ import annotations
 
 from typing import Any
 
 from tenants.application.dtos.tenants.tenant_response_dto import TenantResponseDTO
-
 from tenants.domain.entities.tenant_entity import (
     TENANT_PLANS,
     TenantEntity,
