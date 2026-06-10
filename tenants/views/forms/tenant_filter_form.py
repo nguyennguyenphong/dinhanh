@@ -118,9 +118,7 @@ class TailwindFormMixin:
                 )
 
             if isinstance(widget, forms.CheckboxSelectMultiple):
-                widget.attrs.update({
-                    "class": checkbox_classes
-                })
+                widget.attrs.update({"class": checkbox_classes})
 
 
 class TenantFilterForm(TailwindFormMixin, forms.Form):
@@ -154,44 +152,32 @@ class TenantFilterForm(TailwindFormMixin, forms.Form):
         ("name", "Tên Tenant"),
     ]
 
-    search_tenant = forms.CharField(
-        required=False,
-        widget=forms.TextInput()
-    )
-    
+    search_tenant = forms.CharField(required=False, widget=forms.TextInput())
+
     sort_by = forms.ChoiceField(
-        choices=SORT_CHOICES,
-        required=False,
-        widget=forms.Select()
+        choices=SORT_CHOICES, required=False, widget=forms.Select()
     )
 
     status = forms.ChoiceField(
-        choices=STATUS_CHOICES,
-        required=False,
-        initial="all",
-        widget=forms.Select()
+        choices=STATUS_CHOICES, required=False, initial="all", widget=forms.Select()
     )
 
     plan = forms.ChoiceField(
-        choices=PLAN_CHOICES,
-        required=False,
-        initial="all",
-        widget=forms.Select()
+        choices=PLAN_CHOICES, required=False, initial="all", widget=forms.Select()
     )
 
     created_at = forms.DateField(
-        required=False,
-        widget=forms.DateInput(attrs={"type": "date"})
+        required=False, widget=forms.DateInput(attrs={"type": "date"})
     )
 
     columns = forms.MultipleChoiceField(
         choices=COLUMN_CHOICES,
         required=False,
         initial=["code", "name"],
-        widget=forms.CheckboxSelectMultiple()
+        widget=forms.CheckboxSelectMultiple(),
     )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         self.fields["sort_by"].widget.choices[0] = ("", "Sắp xếp theo")

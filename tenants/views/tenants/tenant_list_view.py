@@ -5,7 +5,7 @@ from django.views import View
 from tenants.application.dtos import TenantListQueryDTO
 from tenants.exceptions.exception import TenantDomainError
 from tenants.providers import TenantProvider
-from tenants.views.forms import TenantFilterForm 
+from tenants.views.forms import TenantFilterForm
 
 
 class TenantListView(LoginRequiredMixin, View):
@@ -23,7 +23,7 @@ class TenantListView(LoginRequiredMixin, View):
         search_value = request.GET.get("search_tenant", "")
         plan_value = request.GET.get("plan")
         status_value = request.GET.get("status")
-        
+
         if form.is_valid():
             search_value = form.cleaned_data.get("search_tenant")
             plan_value = form.cleaned_data.get("plan")

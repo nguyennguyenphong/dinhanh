@@ -17,8 +17,7 @@ from tenants.exceptions.exception import TenantDomainError
 from tenants.policies import TenantPolicy
 from tenants.providers import TenantProvider
 from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
-from tenants.views.forms import TenantCreateForm 
-
+from tenants.views.forms import TenantCreateForm
 from tenants.views.helpers.view_helpers import RequestContext
 
 
@@ -42,7 +41,7 @@ class TenantCreateView(LoginRequiredMixin, View):
             if serializer.is_valid():
                 ctx = RequestContext.from_request(request)
                 dto = TenantCreateDTO(**serializer.validated_data)
-                
+
                 try:
                     TenantProvider.create_tenant().execute(
                         dto,
