@@ -1,6 +1,12 @@
 from rest_framework import serializers
+import re
+import json
 
 from tenants.models.tenants import Tenant
+from tenants.constants import (
+    PLAN_LIMITS,
+    PLAN_STANDARD,
+)
 
 
 class TenantCreateSerializer(serializers.Serializer):
@@ -117,6 +123,75 @@ class TenantCreateSerializer(serializers.Serializer):
             raise serializers.ValidationError({
                 "subscription_ended_at":
                     "Ngày kết thúc phải lớn hơn ngày bắt đầu."
+            })
+
+        return attrs
+    
+    def validate_primary_color(self, value):
+        if not value:
+            return value
+
+        hex_regex = r'^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$'
+        if not re.match(hex_regex, value):
+            raise serializers.ValidationError(
+                "Mã màu không hợp lệ. Định dạng chuẩn là #Hex (Ví dụ: #3B82F6)."
+            )
+            
+        return value
+    
+    def validate_settings(self, value):
+        if not value:
+            return {}
+
+        if isinstance(value, str):
+            try:
+                parsed_value = json.loads(value)
+
+                if not isinstance(parsed_value, dict):
+                    raise serializers.ValidationError(
+                        "Dữ liệu settings phải là một JSON Object (bắt đầu bằng { và kết thúc bằng })."
+                    )
+                return parsed_value
+                
+            except json.JSONDecodeError:
+                raise serializers.ValidationError(
+                    "Định dạng JSON không hợp lệ. Vui lòng kiểm tra lại dấu ngoặc, dấu phẩy hoặc dấu nháy kép."
+                )
+        if not isinstance(value, dict):
+            raise serializers.ValidationError("Dữ liệu phải là một JSON Object hợp lệ.")
+
+        return value
+    
+    # --- VALIDATE: A COMPREHENSIVE LINK OF REAL-WORLD LOGICAL CONNECTIONS ---
+
+    def validate(self, attrs):
+        chosen_plan = attrs.get("plan", self.fields['plan'].default)
+        
+        plan_config = PLAN_LIMITS.get(chosen_plan, PLAN_LIMITS[PLAN_STANDARD])
+
+        for field in ["max_branches", "max_vehicles", "max_users"]:
+            user_value = attrs.get(field)
+            max_allowed = plan_config[field]
+
+            if user_value is None:
+                attrs[field] = max_allowed
+            else:
+                if user_value <= 0:
+                    raise serializers.ValidationError({
+                        field: "Giá trị cấu hình phải lớn hơn 0."
+                    })
+                if user_value > max_allowed:
+                    raise serializers.ValidationError({
+                        field: f"Gói {chosen_plan} chỉ cho phép cấu hình tối đa {max_allowed}. "
+                               f"Bạn không thể thiết lập {user_value}."
+                    })
+
+        started_at = attrs.get("subscription_started_at")
+        ended_at = attrs.get("subscription_ended_at")
+
+        if started_at and ended_at and started_at >= ended_at:
+            raise serializers.ValidationError({
+                "subscription_ended_at": "Ngày kết thúc phải lớn hơn ngày bắt đầu."
             })
 
         return attrs

@@ -135,16 +135,6 @@ class TenantCreateForm(TailwindFormMixin, forms.ModelForm):
         if 'exchange_rate' in self.fields:
             self.fields['exchange_rate'].required = False
 
-    def clean_code(self):
-        code = self.cleaned_data.get('code', '').strip().upper()
-        if Tenant.objects.filter(code=code).exists():
-            raise forms.ValidationError("A tenant with this code already exists.")
-        return code
-
-    def clean_domain(self):
-        domain = self.cleaned_data.get('domain')
-        return domain.lower().strip() if domain else None
-
     def save(self, commit=True):
         instance = super().save(commit=False)
         if not instance.settings:
