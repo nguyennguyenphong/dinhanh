@@ -48,12 +48,13 @@ jobs:
       SECRET_KEY: 'ci-test-secret-key-not-for-production'
       ALLOWED_HOSTS: 'localhost,127.0.0.1'
       DB_ENGINE: django.db.backends.postgresql
-      DB_NAME: dinhanh_test
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_HOST: localhost
-      DB_PORT: '5432'
+      DATABASE_NAME: dinhanh_test
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      DATABASE_PORT: '5432'
       REDIS_URL: redis://localhost:6379/0
+      DJANGO_SETTINGS_MODULE: core.settings.local
 
     steps:
       - name: Checkout code
