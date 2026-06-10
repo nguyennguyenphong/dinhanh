@@ -5,6 +5,7 @@ Endpoint map (wired in urls/tenant_urls.py):
     DELETE /tenants/<pk>/           -> TenantDetailView  (soft deactivate)
     DELETE /tenants/<pk>/hard/      -> TenantHardDeleteView (superuser only)
 """
+
 from __future__ import annotations
 
 from rest_framework import status
@@ -15,9 +16,7 @@ from rest_framework.views import APIView
 from tenants.exceptions.exception import TenantDomainError
 from tenants.policies import TenantPolicy
 from tenants.providers import TenantProvider
-
 from tenants.views.helpers.view_helpers import RequestContext, domain_error_response
-
 
 
 class TenantHardDeleteView(APIView):

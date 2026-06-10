@@ -106,9 +106,7 @@ class SystemConfigHistory(models.Model):
                 name="idx_conf_his_user_changed",
             ),
             # Index for time range queries
-            models.Index(
-                fields=["-changed_at"], name="idx_conf_his_changed_desc"
-            ),
+            models.Index(fields=["-changed_at"], name="idx_conf_his_changed_desc"),
         ]
 
     def __str__(self):

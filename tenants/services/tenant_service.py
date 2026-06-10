@@ -5,15 +5,16 @@ Purpose: provides a clean Python API that other Django apps (not views)
 can call without knowing about DTOs or repositories. Views should prefer
 TenantProvider + use-cases directly; this layer is for inter-app use.
 """
+
 from __future__ import annotations
 
 from decimal import Decimal
 from typing import Any
 
 from tenants.application.dtos import (
+    TenantCreateDTO,
     TenantListQueryDTO,
     TenantResponseDTO,
-    TenantCreateDTO,
     TenantUpdateDTO,
 )
 from tenants.application.dtos.tenant_feature_flags import UpsertTenantFeatureFlagDTO
@@ -94,9 +95,7 @@ class TenantService:
 
     @staticmethod
     def deactivate(tenant_id: int, actor_id: int | None = None) -> TenantResponseDTO:
-        return TenantProvider.deactivate_tenant().execute(
-            tenant_id, actor_id=actor_id
-        )
+        return TenantProvider.deactivate_tenant().execute(tenant_id, actor_id=actor_id)
 
     # ------------------------------------------------------------------ #
     # Feature flags                                                        #

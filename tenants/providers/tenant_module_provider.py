@@ -7,6 +7,7 @@ Usage:
     use_case = TenantProvider.create_tenant_use_case()
     result = use_case.execute(dto, actor_id=request.user.pk, ...)
 """
+
 from __future__ import annotations
 
 from tenants.application.usecases import (

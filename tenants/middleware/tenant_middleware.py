@@ -9,6 +9,7 @@ Resolution order:
 
 Attach to MIDDLEWARE in settings.py AFTER AuthenticationMiddleware.
 """
+
 from __future__ import annotations
 
 import logging
@@ -93,6 +94,7 @@ class TenantMiddleware(MiddlewareMixin):
     def _get_active_tenant_by_code(code: str):
         try:
             from tenants.models.tenants import Tenant
+
             return Tenant.objects.filter(code=code, is_active=True).first()
         except Exception:
             logger.exception("Error resolving tenant by code=%s", code)
@@ -102,6 +104,7 @@ class TenantMiddleware(MiddlewareMixin):
     def _get_active_tenant_by_id(tenant_id: int):
         try:
             from tenants.models.tenants import Tenant
+
             return Tenant.objects.filter(pk=tenant_id, is_active=True).first()
         except Exception:
             logger.exception("Error resolving tenant by id=%s", tenant_id)

@@ -2,6 +2,7 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 class District(models.Model):
     """
     District model for sub-provincial organization
@@ -131,6 +132,7 @@ class District(models.Model):
             stats = district.get_statistics()
         """
         from .locations import Location
+
         wards = self.wards.count()
         locations = Location.objects.filter(ward__district=self).count()
 

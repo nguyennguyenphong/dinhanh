@@ -65,7 +65,7 @@ class TaggedItem(models.Model):
     # ========================================================================
     # QUERY METHODS
     # ========================================================================
-    
+
     @classmethod
     def tag_entity(cls, tag, entity_type, entity_id):
         tagged, created = cls.objects.get_or_create(
@@ -83,6 +83,7 @@ class TaggedItem(models.Model):
     @classmethod
     def get_entity_tags(cls, entity_type, entity_id):
         from django.apps import apps
+
         Tag = apps.get_model("tags", "Tag")
         return Tag.objects.filter(
             tagged_items__entity_type=entity_type, tagged_items__entity_id=entity_id
@@ -120,8 +121,9 @@ class TaggedItem(models.Model):
 
     @classmethod
     def get_common_tags(cls, entity_type, entity_ids):
-        from django.db.models import Count
         from django.apps import apps
+        from django.db.models import Count
+
         Tag = apps.get_model("tags", "Tag")
         return (
             Tag.objects.filter(
@@ -135,8 +137,9 @@ class TaggedItem(models.Model):
 
     @classmethod
     def get_tags_with_counts(cls, tenant, entity_type=None):
-        from django.db.models import Count
         from django.apps import apps
+        from django.db.models import Count
+
         Tag = apps.get_model("tags", "Tag")
         query = (
             Tag.objects.filter(tenant=tenant)

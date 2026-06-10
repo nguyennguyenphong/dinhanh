@@ -11,9 +11,9 @@ from datetime import timedelta
 
 import requests
 from django.db import models
-from django.utils import timezone
-from django.db.models import Count, Value, CharField, Avg
+from django.db.models import Avg, CharField, Count, Value
 from django.db.models.functions import Coalesce
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -149,9 +149,7 @@ class WebhookDelivery(models.Model):
 
         indexes = [
             # Index for finding deliveries by endpoint and status
-            models.Index(
-                fields=["endpoint", "status"], name="idx_wk_deliver_endpoint"
-            ),
+            models.Index(fields=["endpoint", "status"], name="idx_wk_deliver_endpoint"),
             # Index for time-based queries
             models.Index(fields=["-created_at"], name="idx_webhook_deliveries_created"),
             # Index for event type queries
@@ -567,13 +565,15 @@ class WebhookDelivery(models.Model):
         Get failed deliveries grouped by response code using Database Aggregation.
         """
         query = cls.objects.filter(status="FAILED")
-        
+
         if endpoint:
             query = query.filter(endpoint=endpoint)
 
         return (
             query.annotate(
-                reason=Coalesce("response_code", Value("TIMEOUT", output_field=CharField()))
+                reason=Coalesce(
+                    "response_code", Value("TIMEOUT", output_field=CharField())
+                )
             )
             .values("reason")
             .annotate(count=Count("reason"))

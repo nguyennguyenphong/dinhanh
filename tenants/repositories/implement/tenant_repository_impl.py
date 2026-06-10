@@ -2,6 +2,7 @@
 Django ORM concrete implementation of ITenantRepository.
 All DB queries live here; the rest of the app never touches ORM directly.
 """
+
 from __future__ import annotations
 
 import uuid
@@ -10,7 +11,9 @@ from typing import Any
 from django.db.models import Q
 
 from tenants.domain.entities.tenant_entity import TenantEntity
-from tenants.repositories.interfaces.tenant_repository_interface import ITenantRepository
+from tenants.repositories.interfaces.tenant_repository_interface import (
+    ITenantRepository,
+)
 
 
 def _model_to_entity(obj: Any) -> TenantEntity:
@@ -46,6 +49,7 @@ class TenantRepositoryImpl(ITenantRepository):
     def _qs(self):
         # Lazy import to avoid circular imports at module load time
         from tenants.models.tenants import Tenant
+
         return Tenant.objects
 
     # ------------------------------------------------------------------ #
@@ -93,17 +97,21 @@ class TenantRepositoryImpl(ITenantRepository):
         total = qs.count()
 
         allowed_orderings = {
-            "created_at", "-created_at",
-            "name", "-name",
-            "code", "-code",
-            "plan", "-plan",
+            "created_at",
+            "-created_at",
+            "name",
+            "-name",
+            "code",
+            "-code",
+            "plan",
+            "-plan",
         }
         if ordering:
             safe_ordering = [o for o in ordering if o in allowed_orderings]
             if safe_ordering:
                 qs = qs.order_by(*safe_ordering)
 
-        items = [_model_to_entity(obj) for obj in qs[offset: offset + limit]]
+        items = [_model_to_entity(obj) for obj in qs[offset : offset + limit]]
         return items, total
 
     def exists_by_code(self, code: str, exclude_id: int | None = None) -> bool:
@@ -165,9 +173,11 @@ class TenantRepositoryImpl(ITenantRepository):
 
     def delete(self, tenant_id: int) -> None:
         from tenants.models.tenants import Tenant
+
         Tenant.objects.filter(pk=tenant_id).delete()
 
     def deactivate(self, tenant_id: int) -> TenantEntity:
         from tenants.models.tenants import Tenant
+
         Tenant.objects.filter(pk=tenant_id).update(is_active=False)
         return self.get_by_id(tenant_id)  # type: ignore[return-value]

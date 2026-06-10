@@ -1,7 +1,8 @@
 from dataclasses import dataclass
-from typing import Any
-from decimal import Decimal
 from datetime import datetime
+from decimal import Decimal
+from typing import Any
+
 
 @dataclass
 class TenantUpdateDTO:

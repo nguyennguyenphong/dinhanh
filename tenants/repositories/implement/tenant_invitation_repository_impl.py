@@ -2,13 +2,16 @@
 Django ORM concrete implementations for:
   - TenantInvitation
 """
+
 from __future__ import annotations
 
 from typing import Any
 
-from tenants.repositories.interfaces.tenant_invitation_repository_interface import ITenantInvitationRepository
 from tenants.domain.entities.tenant_feature_flag_entity import TenantFeatureFlagEntity
 from tenants.domain.entities.tenant_invitation_entity import TenantInvitationEntity
+from tenants.repositories.interfaces.tenant_invitation_repository_interface import (
+    ITenantInvitationRepository,
+)
 
 
 def _inv_model_to_entity(obj: Any) -> TenantInvitationEntity:
@@ -30,9 +33,11 @@ class TenantInvitationRepositoryImpl(ITenantInvitationRepository):
     def get_by_token(self, token: str) -> TenantInvitationEntity | None:
         from tenants.models.tenent_invitation import TenantInvitation
 
-        obj = TenantInvitation.objects.filter(token=token).select_related(
-            "tenant"
-        ).first()
+        obj = (
+            TenantInvitation.objects.filter(token=token)
+            .select_related("tenant")
+            .first()
+        )
         return _inv_model_to_entity(obj) if obj else None
 
     def get_pending_by_email(
@@ -59,7 +64,7 @@ class TenantInvitationRepositoryImpl(ITenantInvitationRepository):
             qs = qs.filter(status=status)
 
         total = qs.count()
-        items = [_inv_model_to_entity(obj) for obj in qs[offset: offset + limit]]
+        items = [_inv_model_to_entity(obj) for obj in qs[offset : offset + limit]]
         return items, total
 
     def create(self, entity: TenantInvitationEntity) -> TenantInvitationEntity:

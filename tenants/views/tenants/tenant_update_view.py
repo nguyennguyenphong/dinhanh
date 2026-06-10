@@ -4,6 +4,7 @@ DRF API views for Tenant CRUD operations.
 Endpoint map (wired in urls/tenant_urls.py):
     PATCH  /tenants/<pk>/  — partial update
 """
+
 from __future__ import annotations
 
 from rest_framework.request import Request
@@ -18,9 +19,7 @@ from tenants.serializers import (
     TenantResponseSerializer,
     TenantUpdateSerializer,
 )
-
 from tenants.views.helpers.view_helpers import RequestContext, domain_error_response
-
 
 
 class TenantUpdateView(APIView):

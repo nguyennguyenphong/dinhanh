@@ -8,7 +8,6 @@ from .tenant_list_view import TenantListView
 from .tenant_soft_delete_view import TenantSoftDeleteView
 from .tenant_update_view import TenantUpdateView
 
-
 __all__ = [
     "TenantCreateView",
     "TenantDetailView",

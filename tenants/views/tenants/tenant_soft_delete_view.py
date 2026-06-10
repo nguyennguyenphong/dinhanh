@@ -4,6 +4,7 @@ DRF API views for Tenant CRUD operations.
 Endpoint map (wired in urls/tenant_urls.py):
     GET    /tenants/<pk>/           -> TenantDetailView
 """
+
 from __future__ import annotations
 
 from rest_framework import status
@@ -15,7 +16,6 @@ from tenants.exceptions.exception import TenantDomainError
 from tenants.policies import TenantPolicy
 from tenants.providers import TenantProvider
 from tenants.views.helpers.view_helpers import RequestContext, domain_error_response
-
 
 
 class TenantSoftDeleteView(APIView):

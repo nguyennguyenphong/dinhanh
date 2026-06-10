@@ -18,7 +18,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 
 # Allowed hosts
-ALLOWED_HOSTS = ["*"] # env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+ALLOWED_HOSTS = ["*"]  # env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 # Installed apps
 # https://docs.djangoproject.com/en/4.0/ref/applications/
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "import_export",
     "corsheaders",
     "django_components",
-    'compressor',
+    "compressor",
     "rest_framework",
     "rest_framework.authtoken",
     "drf_spectacular",
@@ -206,7 +206,7 @@ REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_RATES": {
         "anon": "100/hour",
         "user": "1000/hour",
-        'burst': '60/minute',
+        "burst": "60/minute",
     },
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }

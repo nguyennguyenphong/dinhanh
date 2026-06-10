@@ -4,6 +4,7 @@ DRF API views for:
   - TenantInvitation   (/tenants/<pk>/invitations/)
   - TenantAuditLog     (/tenants/<pk>/audit-logs/)
 """
+
 from __future__ import annotations
 
 from rest_framework import status
@@ -19,9 +20,7 @@ from tenants.serializers.tenant_feature_flags import (
     TenantFeatureFlagResponseSerializer,
     TenantFeatureFlagUpsertSerializer,
 )
-
 from tenants.views.helpers.view_helpers import RequestContext, domain_error_response
-
 
 # =========================================================================== #
 # Feature Flags                                                                #
@@ -71,4 +70,3 @@ class TenantFeatureFlagListView(APIView):
             TenantFeatureFlagResponseSerializer(vars(saved)).data,
             status=status.HTTP_201_CREATED,
         )
-

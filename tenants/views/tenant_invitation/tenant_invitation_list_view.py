@@ -4,6 +4,7 @@ DRF API views for:
   - TenantInvitation   (/tenants/<pk>/invitations/)
   - TenantAuditLog     (/tenants/<pk>/audit-logs/)
 """
+
 from __future__ import annotations
 
 from rest_framework import status
@@ -19,9 +20,11 @@ from tenants.serializers import (
     TenantInvitationCreateSerializer,
     TenantInvitationResponseSerializer,
 )
-
-from tenants.views.helpers.view_helpers import RequestContext, domain_error_response, paginated_response
-
+from tenants.views.helpers.view_helpers import (
+    RequestContext,
+    domain_error_response,
+    paginated_response,
+)
 
 
 class TenantInvitationListView(APIView):
@@ -87,4 +90,3 @@ class TenantInvitationListView(APIView):
             TenantInvitationResponseSerializer(vars(saved)).data,
             status=status.HTTP_201_CREATED,
         )
-

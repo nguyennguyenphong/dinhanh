@@ -1,15 +1,23 @@
 """
 Use-cases for TenantFeatureFlag operations.
 """
+
 from __future__ import annotations
 
-
-from tenants.application.dtos.tenant_feature_flags.upsert_tenant_feature_flag_dto import UpsertTenantFeatureFlagDTO
+from tenants.application.dtos.tenant_feature_flags.upsert_tenant_feature_flag_dto import (
+    UpsertTenantFeatureFlagDTO,
+)
 from tenants.domain.entities.tenant_feature_flag_entity import TenantFeatureFlagEntity
 from tenants.exceptions.exception import TenantNotFoundError
-from tenants.repositories.interfaces.tenant_repository_interface import ITenantRepository
-from tenants.repositories.interfaces.tenant_feature_flag_interface import ITenantFeatureFlagRepository
-from tenants.repositories.interfaces.tenant_audit_log_repository_interface import ITenantAuditLogRepository
+from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
+    ITenantAuditLogRepository,
+)
+from tenants.repositories.interfaces.tenant_feature_flag_interface import (
+    ITenantFeatureFlagRepository,
+)
+from tenants.repositories.interfaces.tenant_repository_interface import (
+    ITenantRepository,
+)
 
 
 class UpsertTenantFeatureFlagUseCase:

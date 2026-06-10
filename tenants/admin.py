@@ -2,17 +2,19 @@
 Django admin configuration for the Tenant bounded context.
 Provides full CRUD with search, filtering, and inline audit/flag display.
 """
+
 from __future__ import annotations
 
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
+
 from tenants.models import (
-        Tenant,
-        TenantAuditLog,
-        TenantFeatureFlag,
-        TenantInvitation,
-    )
+    Tenant,
+    TenantAuditLog,
+    TenantFeatureFlag,
+    TenantInvitation,
+)
 
 
 @admin.register(Tenant)
@@ -36,7 +38,14 @@ class TenantAdmin(admin.ModelAdmin):
         (
             _("Identity"),
             {
-                "fields": ("uuid", "code", "name", "domain", "logo_url", "primary_color"),
+                "fields": (
+                    "uuid",
+                    "code",
+                    "name",
+                    "domain",
+                    "logo_url",
+                    "primary_color",
+                ),
             },
         ),
         (

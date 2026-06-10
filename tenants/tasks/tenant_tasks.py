@@ -6,6 +6,7 @@ Tasks handle background work:
   - Expiring stale invitations
   - Deactivating expired trial/subscription tenants
 """
+
 from __future__ import annotations
 
 import logging
@@ -36,8 +37,8 @@ def send_invitation_email(
     Retries up to 3 times on failure with 60s back-off.
     """
     try:
-        from django.core.mail import send_mail
         from django.conf import settings
+        from django.core.mail import send_mail
 
         accept_url = f"{settings.FRONTEND_BASE_URL}/invitations/accept/?token={token}"
 
@@ -52,7 +53,9 @@ def send_invitation_email(
             recipient_list=[email],
             fail_silently=False,
         )
-        logger.info("Invitation email sent: invitation_id=%s email=%s", invitation_id, email)
+        logger.info(
+            "Invitation email sent: invitation_id=%s email=%s", invitation_id, email
+        )
     except Exception as exc:
         logger.error(
             "Failed to send invitation email: invitation_id=%s error=%s",
@@ -125,9 +128,10 @@ def notify_expiring_subscriptions(days_before: int = 7) -> dict:
     """
     Periodic task: notify tenants whose subscription expires within `days_before` days.
     """
-    from tenants.models.tenants import Tenant
-    from django.core.mail import send_mail
     from django.conf import settings
+    from django.core.mail import send_mail
+
+    from tenants.models.tenants import Tenant
 
     now = timezone.now()
     threshold = now + timedelta(days=days_before)

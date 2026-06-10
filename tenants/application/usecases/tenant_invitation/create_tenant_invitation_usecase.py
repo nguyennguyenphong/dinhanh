@@ -1,6 +1,7 @@
 """
 Use-cases for TenantInvitation operations.
 """
+
 from __future__ import annotations
 
 import secrets
@@ -8,13 +9,20 @@ from datetime import timedelta
 
 from django.utils import timezone
 
-from tenants.application.dtos.tenant_invitation.create_tenant_invitation_dto import CreateTenantInvitationDTO
+from tenants.application.dtos.tenant_invitation.create_tenant_invitation_dto import (
+    CreateTenantInvitationDTO,
+)
 from tenants.domain.entities.tenant_invitation_entity import TenantInvitationEntity
 from tenants.exceptions.exception import TenantNotFoundError
-from tenants.repositories.interfaces.tenant_audit_log_repository_interface import ITenantAuditLogRepository
-from tenants.repositories.interfaces.tenant_invitation_repository_interface import ITenantInvitationRepository
-from tenants.repositories.interfaces.tenant_repository_interface import ITenantRepository
-
+from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
+    ITenantAuditLogRepository,
+)
+from tenants.repositories.interfaces.tenant_invitation_repository_interface import (
+    ITenantInvitationRepository,
+)
+from tenants.repositories.interfaces.tenant_repository_interface import (
+    ITenantRepository,
+)
 
 
 class CreateInvitationUseCase:
@@ -41,9 +49,7 @@ class CreateInvitationUseCase:
             raise TenantNotFoundError(dto.tenant_id)
 
         # Invalidate existing pending invitation for same email
-        existing = self._invitation_repo.get_pending_by_email(
-            dto.tenant_id, dto.email
-        )
+        existing = self._invitation_repo.get_pending_by_email(dto.tenant_id, dto.email)
         if existing:
             self._invitation_repo.update_status(existing.id, "EXPIRED")  # type: ignore[arg-type]
 
@@ -68,7 +74,10 @@ class CreateInvitationUseCase:
             object_type="TenantInvitation",
             object_id=str(saved.id),
             object_repr=f"Invitation to {saved.email}",
-            new_values={"email": saved.email, "expires_at": saved.expires_at.isoformat()},
+            new_values={
+                "email": saved.email,
+                "expires_at": saved.expires_at.isoformat(),
+            },
             ip_address=ip_address,
             user_agent=user_agent,
         )

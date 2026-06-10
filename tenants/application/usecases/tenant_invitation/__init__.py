@@ -1,4 +1,4 @@
-# 
+#
 
 
 from .accept_tenant_invitation_usecase import AcceptInvitationUseCase

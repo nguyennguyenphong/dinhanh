@@ -2,9 +2,11 @@
 Abstract repository interfaces for the Tenant Audit Log bounded context.
 Concrete implementations live in repositories/implement/.
 """
+
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+
 
 class ITenantAuditLogRepository(ABC):
     """Contract for audit log persistence."""
@@ -28,8 +30,7 @@ class ITenantAuditLogRepository(ABC):
         user_agent: str | None = None,
         status: str = "SUCCESS",
         error_message: str | None = None,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     @abstractmethod
     def list_by_tenant(
@@ -40,5 +41,4 @@ class ITenantAuditLogRepository(ABC):
         module: str | None = None,
         limit: int = 50,
         offset: int = 0,
-    ) -> tuple[list[dict], int]:
-        ...
+    ) -> tuple[list[dict], int]: ...

@@ -281,8 +281,9 @@ class Station(models.Model):
         Example:
             routes = station.get_all_routes()
         """
-        from django.db.models import Q
         from django.apps import apps
+        from django.db.models import Q
+
         Route = apps.get_model("routes", "Route")
 
         return Route.objects.filter(
@@ -299,8 +300,9 @@ class Station(models.Model):
         Example:
             count = station.get_route_count()
         """
-        from django.db.models import Q
         from django.apps import apps
+        from django.db.models import Q
+
         Route = apps.get_model("routes", "Route")
         return Route.objects.filter(
             Q(origin=self) | Q(destination=self), is_active=True
@@ -320,8 +322,9 @@ class Station(models.Model):
         Example:
             schedules = station.get_schedules()
         """
-        from django.db.models import Q
         from django.apps import apps
+        from django.db.models import Q
+
         Schedule = apps.get_model("routes", "Schedule")
 
         return Schedule.objects.filter(
@@ -339,6 +342,7 @@ class Station(models.Model):
             departures = station.get_departures()
         """
         from django.apps import apps
+
         Schedule = apps.get_model("routes", "Schedule")
 
         return Schedule.objects.filter(route__origin=self, is_active=True).order_by(
@@ -356,6 +360,7 @@ class Station(models.Model):
             arrivals = station.get_arrivals()
         """
         from django.apps import apps
+
         Schedule = apps.get_model("routes", "Schedule")
 
         return Schedule.objects.filter(
@@ -382,11 +387,12 @@ class Station(models.Model):
             #     'arrivals': 25
             # }
         """
-        from django.db.models import Q
         from django.apps import apps
+        from django.db.models import Q
+
         Schedule = apps.get_model("routes", "Schedule")
         Route = apps.get_model("routes", "Route")
-        
+
         routes = Route.objects.filter(
             Q(origin=self) | Q(destination=self), is_active=True
         ).count()
@@ -518,6 +524,7 @@ class Station(models.Model):
 
         def get_distance(item):
             return item[1]
+
         # Sort by distance
         results.sort(key=get_distance)
         return results

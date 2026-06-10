@@ -2,9 +2,12 @@
 Django ORM concrete implementations for:
   - TenantAuditLog
 """
+
 from __future__ import annotations
 
-from tenants.repositories.interfaces.tenant_audit_log_repository_interface import ITenantAuditLogRepository
+from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
+    ITenantAuditLogRepository,
+)
 
 
 class TenantAuditLogRepositoryImpl(ITenantAuditLogRepository):
@@ -83,6 +86,6 @@ class TenantAuditLogRepositoryImpl(ITenantAuditLogRepository):
                 "status",
                 "error_message",
                 "created_at",
-            )[offset: offset + limit]
+            )[offset : offset + limit]
         )
         return records, total

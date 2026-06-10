@@ -1,6 +1,7 @@
 """
 Shared view helpers: pagination envelope, context extraction, error mapping.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -94,13 +95,21 @@ def domain_error_response(exc: TenantDomainError) -> Response:
             status.HTTP_402_PAYMENT_REQUIRED,
             "Subscription expired.",
         ),
-        TenantLimitExceededError: (status.HTTP_429_TOO_MANY_REQUESTS, "Limit exceeded."),
-        TenantFeatureFlagNotFoundError: (status.HTTP_404_NOT_FOUND, "Feature flag not found."),
+        TenantLimitExceededError: (
+            status.HTTP_429_TOO_MANY_REQUESTS,
+            "Limit exceeded.",
+        ),
+        TenantFeatureFlagNotFoundError: (
+            status.HTTP_404_NOT_FOUND,
+            "Feature flag not found.",
+        ),
         TenantInvitationExpiredError: (status.HTTP_410_GONE, "Invitation expired."),
         TenantInvitationAlreadyUsedError: (
             status.HTTP_409_CONFLICT,
             "Invitation already used.",
         ),
     }
-    http_status, default_msg = mapping.get(type(exc), (status.HTTP_400_BAD_REQUEST, str(exc)))
+    http_status, default_msg = mapping.get(
+        type(exc), (status.HTTP_400_BAD_REQUEST, str(exc))
+    )
     return Response({"detail": str(exc) or default_msg}, status=http_status)

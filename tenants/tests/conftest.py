@@ -1,13 +1,16 @@
 import uuid
 from decimal import Decimal
 from unittest.mock import MagicMock
+
 import pytest
+
 from tenants.domain.entities import TenantEntity
 
 
 @pytest.fixture
 def make_entity():
     """Factory fixture để tạo TenantEntity cho tests"""
+
     def _make(**kwargs):
         defaults = dict(
             id=1,
@@ -32,14 +35,17 @@ def make_entity():
         )
         defaults.update(kwargs)
         return TenantEntity(**defaults)
+
     return _make
 
 
 @pytest.fixture
 def mock_repos():
     """Factory fixture để tạo mock repositories"""
+
     def _mock():
         tenant_repo = MagicMock()
         audit_repo = MagicMock()
         return tenant_repo, audit_repo
+
     return _mock

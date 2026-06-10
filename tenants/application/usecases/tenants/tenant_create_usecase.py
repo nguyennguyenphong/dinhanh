@@ -3,20 +3,28 @@ Use-cases for Tenant CRUD operations.
 Each use-case class has a single public method and
 orchestrates domain logic + repositories + audit logging.
 """
+
 from __future__ import annotations
 
 import uuid
 
-from tenants.application.dtos.tenants.tenant_response_dto import TenantResponseDTO
 from tenants.application.dtos.tenants.tenant_create_dto import TenantCreateDTO
+from tenants.application.dtos.tenants.tenant_response_dto import TenantResponseDTO
+from tenants.application.usecases.tenants.tenant_usecase import (
+    _entity_to_audit_values,
+    _entity_to_response,
+)
 from tenants.domain.entities.tenant_entity import (
     TENANT_PLANS,
     TenantEntity,
 )
 from tenants.exceptions.exception import TenantAlreadyExistsError
-from tenants.repositories.interfaces.tenant_repository_interface import ITenantRepository
-from tenants.repositories.interfaces.tenant_audit_log_repository_interface import ITenantAuditLogRepository
-from tenants.application.usecases.tenants.tenant_usecase import _entity_to_response, _entity_to_audit_values
+from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
+    ITenantAuditLogRepository,
+)
+from tenants.repositories.interfaces.tenant_repository_interface import (
+    ITenantRepository,
+)
 
 
 class CreateTenantUseCase:
@@ -57,8 +65,12 @@ class CreateTenantUseCase:
             timezone=dto.timezone,
             primary_color=dto.primary_color,
             max_users=dto.max_users if plan_def is None else plan_def.max_users,
-            max_branches=dto.max_branches if plan_def is None else plan_def.max_branches,
-            max_vehicles=dto.max_vehicles if plan_def is None else plan_def.max_vehicles,
+            max_branches=(
+                dto.max_branches if plan_def is None else plan_def.max_branches
+            ),
+            max_vehicles=(
+                dto.max_vehicles if plan_def is None else plan_def.max_vehicles
+            ),
             subscription_started_at=dto.subscription_started_at,
             subscription_expires_at=dto.subscription_expires_at,
             settings=dto.settings,

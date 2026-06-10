@@ -2,6 +2,7 @@
 Abstract repository interfaces for the Tenant bounded context.
 Concrete implementations live in repositories/implement/.
 """
+
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
@@ -14,16 +15,13 @@ class ITenantRepository(ABC):
     """Contract for Tenant persistence operations."""
 
     @abstractmethod
-    def get_by_id(self, tenant_id: int) -> TenantEntity | None:
-        ...
+    def get_by_id(self, tenant_id: int) -> TenantEntity | None: ...
 
     @abstractmethod
-    def get_by_uuid(self, uuid: str) -> TenantEntity | None:
-        ...
+    def get_by_uuid(self, uuid: str) -> TenantEntity | None: ...
 
     @abstractmethod
-    def get_by_code(self, code: str) -> TenantEntity | None:
-        ...
+    def get_by_code(self, code: str) -> TenantEntity | None: ...
 
     @abstractmethod
     def list(
@@ -39,12 +37,10 @@ class ITenantRepository(ABC):
         ...
 
     @abstractmethod
-    def create(self, entity: TenantEntity) -> TenantEntity:
-        ...
+    def create(self, entity: TenantEntity) -> TenantEntity: ...
 
     @abstractmethod
-    def update(self, entity: TenantEntity) -> TenantEntity:
-        ...
+    def update(self, entity: TenantEntity) -> TenantEntity: ...
 
     @abstractmethod
     def delete(self, tenant_id: int) -> None:
@@ -52,9 +48,7 @@ class ITenantRepository(ABC):
         ...
 
     @abstractmethod
-    def deactivate(self, tenant_id: int) -> TenantEntity:
-        ...
+    def deactivate(self, tenant_id: int) -> TenantEntity: ...
 
     @abstractmethod
-    def exists_by_code(self, code: str, exclude_id: int | None = None) -> bool:
-        ...
+    def exists_by_code(self, code: str, exclude_id: int | None = None) -> bool: ...

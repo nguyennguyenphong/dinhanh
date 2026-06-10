@@ -1,13 +1,15 @@
-from django.db import models
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 
 def validate_percentage(value):
     if value < 0 or value > 100:
         raise ValidationError(
-            _('%(value)s không phải là phần trăm hợp lệ (0-100)'),
-            params={'value': value},
+            _("%(value)s không phải là phần trăm hợp lệ (0-100)"),
+            params={"value": value},
         )
+
 
 class TenantFeatureFlag(models.Model):
     """

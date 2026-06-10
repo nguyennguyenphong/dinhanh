@@ -196,8 +196,8 @@ class LoyaltyTransaction(models.Model):
         if is_creating:
             # Production Engine Security Block: Use PostgreSQL row-level locks (SELECT FOR UPDATE)
             # on the parent Customer model to prevent race condition corruption under massive concurrent traffic
-            from django.db import transaction
             from django.apps import apps
+            from django.db import transaction
 
             Customer = apps.get_model("customers_tickets", "Customer")
 

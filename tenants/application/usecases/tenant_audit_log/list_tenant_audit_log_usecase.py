@@ -1,12 +1,15 @@
 """
 Use-cases for TenantAuditLog operations.
 """
+
 from __future__ import annotations
 
-
-from tenants.application.dtos.tenant_audit_log.tenant_audit_query_dto import TenantAuditLogQueryDTO
-from tenants.repositories.interfaces.tenant_audit_log_repository_interface import ITenantAuditLogRepository
-
+from tenants.application.dtos.tenant_audit_log.tenant_audit_query_dto import (
+    TenantAuditLogQueryDTO,
+)
+from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
+    ITenantAuditLogRepository,
+)
 
 
 class ListAuditLogsUseCase:

@@ -1,13 +1,16 @@
 """
 Use-cases for TenantFeatureFlag operations.
 """
+
 from __future__ import annotations
 
-
 from tenants.exceptions.exception import TenantFeatureFlagNotFoundError
-from tenants.repositories.interfaces.tenant_audit_log_repository_interface import ITenantAuditLogRepository
-from tenants.repositories.interfaces.tenant_feature_flag_interface import ITenantFeatureFlagRepository
-
+from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
+    ITenantAuditLogRepository,
+)
+from tenants.repositories.interfaces.tenant_feature_flag_interface import (
+    ITenantFeatureFlagRepository,
+)
 
 
 class DeleteFeatureFlagUseCase:

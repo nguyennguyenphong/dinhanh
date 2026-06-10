@@ -208,7 +208,8 @@ class RouteStop(models.Model):
             matching_routes = RouteStop.get_routes_by_station_pair(10, 15)
         """
         from django.apps import apps
-        Route = apps.get_model('routes', 'Route')
+
+        Route = apps.get_model("routes", "Route")
         # Finds routes where origin stop exists and is ordered before destination stop
         return (
             Route.objects.filter(

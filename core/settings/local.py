@@ -1,5 +1,6 @@
-from .base import *
 import environ
+
+from .base import *
 
 env = environ.Env()
 
@@ -42,14 +43,14 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-# 
+#
 WHITENOISE_AUTOREFRESH = True
 WHITENOISE_USE_FINDERS = True
 
 
-# 
+#
 
-COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ROOT = BASE_DIR / "static"
 
 COMPRESS_ENABLED = True
 

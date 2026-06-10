@@ -5,6 +5,7 @@ Signals provide a safety-net audit layer at the ORM level.
 Primary audit logging happens in use-cases; signals catch any direct
 ORM operations that bypass the service layer (e.g. Django admin, shell).
 """
+
 from __future__ import annotations
 
 import logging
@@ -46,9 +47,16 @@ def tenant_post_save(sender, instance, created, **kwargs):
 
     if not created and old_state:
         tracked_fields = [
-            "name", "plan", "is_active", "currency",
-            "default_language", "timezone", "max_users",
-            "max_branches", "max_vehicles", "subscription_expires_at",
+            "name",
+            "plan",
+            "is_active",
+            "currency",
+            "default_language",
+            "timezone",
+            "max_users",
+            "max_branches",
+            "max_vehicles",
+            "subscription_expires_at",
         ]
         old_values = {f: str(getattr(old_state, f, None)) for f in tracked_fields}
         new_values = {f: str(getattr(instance, f, None)) for f in tracked_fields}
@@ -83,8 +91,7 @@ def tenant_post_save(sender, instance, created, **kwargs):
 def tenant_post_delete(sender, instance, **kwargs):
     """Log hard-delete events (these bypass use-case audit, so signals catch them)."""
     logger.warning(
-        "Tenant hard-deleted via ORM: pk=%s code=%s. "
-        "Audit log FK will be orphaned.",
+        "Tenant hard-deleted via ORM: pk=%s code=%s. " "Audit log FK will be orphaned.",
         instance.pk,
         instance.code,
     )

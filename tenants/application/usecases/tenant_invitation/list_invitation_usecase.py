@@ -1,11 +1,13 @@
 """
 Use-cases for TenantInvitation operations.
 """
+
 from __future__ import annotations
 
-
 from tenants.domain.entities.tenant_invitation_entity import TenantInvitationEntity
-from tenants.repositories.interfaces.tenant_invitation_repository_interface import ITenantInvitationRepository
+from tenants.repositories.interfaces.tenant_invitation_repository_interface import (
+    ITenantInvitationRepository,
+)
 
 
 class ListInvitationsUseCase:
