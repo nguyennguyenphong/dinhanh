@@ -1,10 +1,6 @@
 from django import forms
 
-from tenants.constants import (
-    SORT_CHOICES,
-    PLAN_CHOICES,
-    STATUS_CHOICES
-)
+from tenants.constants import PLAN_CHOICES, SORT_CHOICES, STATUS_CHOICES
 
 
 class TailwindFormMixin:
@@ -27,8 +23,8 @@ class TailwindFormMixin:
 
         placeholders = {
             "search_tenant": "Tìm kiếm tên tenant, code",
-            'plan': 'Tìm kiếm gói dịch vụ',
-            'status': 'Tìm kiếm trạng thái',
+            "plan": "Tìm kiếm gói dịch vụ",
+            "status": "Tìm kiếm trạng thái",
         }
 
         for field_name, field in self.fields.items():

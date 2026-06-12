@@ -15,18 +15,14 @@ class TenantCreateSerializer(serializers.Serializer):
         max_length=30,
         min_length=5,
         trim_whitespace=True,
-        error_messages={
-            "min_length": "Mã tenant phải có ít nhất 5 ký tự."
-        }
+        error_messages={"min_length": "Mã tenant phải có ít nhất 5 ký tự."},
     )
 
     name = serializers.CharField(
         max_length=255,
         min_length=5,
         trim_whitespace=True,
-        error_messages={
-            "min_length": "Tên tenant phải có ít nhất 5 ký tự."
-        }
+        error_messages={"min_length": "Tên tenant phải có ít nhất 5 ký tự."},
     )
 
     domain = serializers.CharField(
@@ -72,7 +68,7 @@ class TenantCreateSerializer(serializers.Serializer):
     def validate_code(self, value):
         if Tenant.objects.filter(code=value).exists():
             raise serializers.ValidationError("Mã tenant đã tồn tại.")
-        
+
         if not value:
             raise serializers.ValidationError("Mã tenant khóa.")
 

@@ -21,8 +21,6 @@ from tenants.utils.request_helpers import get_client_ip
 from tenants.views.forms import TenantCreateForm
 from tenants.views.helpers.view_helpers import RequestContext
 
-from tenants.utils.request_helpers import get_client_ip
-
 
 class TenantCreateView(LoginRequiredMixin, View):
     """
