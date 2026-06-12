@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "drf_spectacular",
+    'django_vite',
     # apps
     "accounts",
     "branches",
@@ -324,3 +326,14 @@ CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
 # Cookie configuration
 LANGUAGE_COOKIE_SECURE = True
 LANGUAGE_COOKIE_HTTPONLY = True
+
+# Django Vite
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": DEBUG, 
+        "dev_server_host": "localhost",
+        "dev_server_port": 5173,
+        "static_url_prefix": "" if DEBUG else "build/",
+        "manifest_path": os.path.join(BASE_DIR, "static", "build", ".vite", "manifest.json"),
+    }
+}

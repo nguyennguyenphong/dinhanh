@@ -1,8 +1,21 @@
 {
+  "static/src/css/input.css": {
+    "file": "assets/style-aZWWW1Qv.js",
+    "name": "style",
+    "src": "static/src/css/input.css",
+    "isEntry": true,
+    "css": [
+      "assets/style-BJBJYyJq.css"
+    ]
+  },
   "static/src/js/app.js": {
-    "file": "assets/app-CRKItUx4.js",
+    "file": "assets/app-OOSNlvPs.js",
     "name": "app",
     "src": "static/src/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "static/src/css/input.css",
+      "static/src/css/input.css"
+    ]
   }
 }

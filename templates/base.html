@@ -1,27 +1,44 @@
 {% load static %}
+{% load django_vite %}
 
 <!DOCTYPE html>
 <html lang="vi" class="min-h-screen">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'src/css/output.css' %}">
+    <style>
+        html { opacity: 0; transition: opacity 0.1s ease-in; }
+    </style>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
-    <script>
-        window.FloatingUIDOM = window.FloatingUIDOM || {};
-    </script>
+    {% vite_hmr_client %}
+    
+    {% vite_asset 'src/css/input.css' %}
+    
+    {% vite_asset 'src/js/app.js' %}
+
 </head>
+
 <body class="min-h-screen bg-white dark:bg-slate-900">
 
     {% block content %}
     {% endblock %}
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof initFlowbite === 'function') {
+                initFlowbite();
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener('load', function() {
+            document.documentElement.style.opacity = '1';
+        });
+    </script>
 </body>
+
 </html>
