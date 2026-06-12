@@ -65,3 +65,32 @@ TZ_HCM = "Asia/Ho_Chi_Minh"
 TZ_VIENTIANE = "Asia/Vientiane"
 TZ_PHNOM_PENH = "Asia/Phnom_Penh"
 TZ_BANGKOK = "Asia/Bangkok"
+
+# Sort
+SORT_CHOICES = [
+    ("", "Sắp xếp theo"),
+    ("az", "Tên: A → Z"),
+    ("za", "Tên: Z → A"),
+    ("latest", "Mới nhất"),
+    ("oldest", "Cũ nhất"),
+]
+
+# Plans
+PLAN_CHOICES = (
+    ("TRIAL", "Trial"),
+    ("STANDARD", "Standard"),
+    ("PROFESSIONAL", "Professional"),
+    ("ENTERPRISE", "Enterprise"),
+)
+
+# Status
+STATUS_CHOICES = (
+    ("True", "Kích hoạt"),
+    ("False", "Khóa"),
+)
+
+# Column
+COLUMN_CHOICES = [
+    ("code", "Code"),
+    ("name", "Tên Tenant"),
+]

@@ -21,6 +21,8 @@ from tenants.utils.request_helpers import get_client_ip
 from tenants.views.forms import TenantCreateForm
 from tenants.views.helpers.view_helpers import RequestContext
 
+from tenants.utils.request_helpers import get_client_ip
+
 
 class TenantCreateView(LoginRequiredMixin, View):
     """
@@ -35,7 +37,9 @@ class TenantCreateView(LoginRequiredMixin, View):
 
     def post(self, request):
         # 1. Extract data from request.POST (or use Django Forms for better validation)
-        form = TenantCreateForm(request.POST)
+        form = TenantCreateForm(request.POST, request.FILES)
+
+        print(request.FILES)
         if form.is_valid():
             serializer = TenantCreateSerializer(data=form.cleaned_data)
 

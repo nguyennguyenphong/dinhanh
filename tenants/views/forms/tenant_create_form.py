@@ -177,7 +177,7 @@ class TenantCreateForm(TailwindFormMixin, forms.ModelForm):
         logo_file = self.cleaned_data.get("logo_url")
         if logo_file:
             ext = logo_file.name.split(".")[-1]
-            unique_filename = f"tenants/logos/{uuid.uuid4()}.{ext}"
+            unique_filename = f"tenants/media/logo/{uuid.uuid4()}.{ext}"
             saved_path = default_storage.save(unique_filename, logo_file)
             instance.logo_url = default_storage.url(saved_path)
 
