@@ -19,6 +19,7 @@ from tenants.providers import TenantProvider
 from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
 from tenants.views.forms import TenantCreateForm
 from tenants.views.helpers.view_helpers import RequestContext
+from tenants.utils.request_helpers import get_client_ip
 
 
 class TenantCreateView(LoginRequiredMixin, View):
@@ -41,6 +42,9 @@ class TenantCreateView(LoginRequiredMixin, View):
             if serializer.is_valid():
                 ctx = RequestContext.from_request(request)
                 dto = TenantCreateDTO(**serializer.validated_data)
+
+                ip_address = get_client_ip(request)
+                user_agent = request.META.get('HTTP_USER_AGENT', '')
 
                 try:
                     TenantProvider.create_tenant().execute(

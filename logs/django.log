@@ -7823,3 +7823,78 @@ INFO 2026-06-12 16:38:53,032 log 3912 25808 "GET /tenants/list/ui/ HTTP/1.1" 200
 INFO 2026-06-12 16:39:14,392 log 3912 35544 "GET /tenants/list/ui/ HTTP/1.1" 200 103495
 INFO 2026-06-12 16:39:14,475 log 3912 22640 "GET /tenants/list/ui/ HTTP/1.1" 200 103495
 INFO 2026-06-12 16:39:16,479 log 3912 5892 "GET /tenants/list/ui/ HTTP/1.1" 200 103495
+INFO 2026-06-12 16:42:54,320 log 3912 30736 "GET /tenants/list/ui/?search_tenant=111&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 94423
+INFO 2026-06-12 16:43:10,013 log 3912 30736 "GET /tenants/list/ui/ HTTP/1.1" 200 103495
+INFO 2026-06-12 16:43:12,842 log 3912 28188 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 103507
+INFO 2026-06-12 16:43:18,824 log 3912 1608 "GET /tenants/create/ HTTP/1.1" 200 96393
+INFO 2026-06-12 16:43:31,685 log 3912 34392 "POST /tenants/create/ HTTP/1.1" 200 96820
+ERROR 2026-06-12 16:43:38,838 log 3912 35724 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 50, in post
+    ip_address=ip_address,
+               ^^^^^^^^^^
+NameError: name 'ip_address' is not defined
+ERROR 2026-06-12 16:43:38,841 log 3912 35724 "POST /tenants/create/ HTTP/1.1" 500 112431
+INFO 2026-06-12 16:44:23,344 autoreload 3912 20684 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:44:24,537 autoreload 23420 35828 Watching for file changes with StatReloader
+INFO 2026-06-12 16:44:30,681 autoreload 23420 35828 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:44:31,746 autoreload 29180 9648 Watching for file changes with StatReloader
+INFO 2026-06-12 16:44:34,419 autoreload 29180 9648 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:44:35,512 autoreload 9708 33052 Watching for file changes with StatReloader
+INFO 2026-06-12 16:44:41,553 autoreload 9708 33052 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:44:42,649 autoreload 25300 1784 Watching for file changes with StatReloader
+INFO 2026-06-12 16:44:49,906 autoreload 25300 1784 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:44:50,973 autoreload 11720 8884 Watching for file changes with StatReloader
+INFO 2026-06-12 16:44:55,361 autoreload 11720 8884 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:44:56,542 autoreload 25696 3688 Watching for file changes with StatReloader
+INFO 2026-06-12 16:45:02,031 autoreload 25696 3688 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:45:03,207 autoreload 33748 1928 Watching for file changes with StatReloader
+INFO 2026-06-12 16:45:05,851 autoreload 33748 1928 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:45:06,958 autoreload 31244 11036 Watching for file changes with StatReloader
+INFO 2026-06-12 16:45:13,553 autoreload 31244 11036 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:45:14,688 autoreload 32952 22456 Watching for file changes with StatReloader
+INFO 2026-06-12 16:45:18,475 autoreload 32952 22456 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:45:19,569 autoreload 34412 3152 Watching for file changes with StatReloader
+ERROR 2026-06-12 16:45:22,756 log 34412 15292 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 46, in post
+    ip_address = get_client_ip()
+TypeError: get_client_ip() missing 1 required positional argument: 'request'
+ERROR 2026-06-12 16:45:22,768 log 34412 15292 "POST /tenants/create/ HTTP/1.1" 500 112440
+INFO 2026-06-12 16:46:09,914 autoreload 34412 3152 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:46:11,061 autoreload 19704 30400 Watching for file changes with StatReloader
+INFO 2026-06-12 16:46:16,530 autoreload 19704 30400 D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py changed, reloading.
+INFO 2026-06-12 16:46:17,714 autoreload 2944 35388 Watching for file changes with StatReloader
+INFO 2026-06-12 16:46:19,550 log 2944 21636 "POST /tenants/create/ HTTP/1.1" 200 96820
+INFO 2026-06-12 16:46:27,419 log 2944 14300 "GET /tenants/list/ui/ HTTP/1.1" 200 103495
+INFO 2026-06-12 16:46:29,240 log 2944 21872 "GET /tenants/create/ HTTP/1.1" 200 96393
+INFO 2026-06-12 16:46:31,156 log 2944 21832 "GET /tenants/list/ui/ HTTP/1.1" 200 103495
+INFO 2026-06-12 16:46:32,586 log 2944 26728 "GET /tenants/create/ HTTP/1.1" 200 96393
+INFO 2026-06-12 16:46:41,727 log 2944 19664 "POST /tenants/create/ HTTP/1.1" 302 0
+INFO 2026-06-12 16:46:41,835 log 2944 19664 "GET /tenants/list/ui/ HTTP/1.1" 200 106510
+INFO 2026-06-12 16:46:53,032 log 2944 34124 "GET /tenants/list/ui/?search_tenant=&sort_by=&columns=code&columns=name&status=all&plan=all&created_at= HTTP/1.1" 200 106522
+INFO 2026-06-12 16:46:55,080 log 2944 33528 "GET /tenants/create/ HTTP/1.1" 200 96393
