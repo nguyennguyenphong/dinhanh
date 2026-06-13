@@ -1,8 +1,9 @@
+import uuid
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
 from django.shortcuts import redirect, render
 from django.views import View
-from django.http import Http404
-import uuid
 
 from tenants.exceptions.exception import TenantDomainError
 from tenants.providers import TenantProvider

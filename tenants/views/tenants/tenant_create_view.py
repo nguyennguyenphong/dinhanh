@@ -9,19 +9,20 @@ from __future__ import annotations
 
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ValidationError
 from django.shortcuts import redirect, render
 from django.views import View
-from django.core.exceptions import ValidationError
 
 from tenants.application.dtos import TenantCreateDTO
 from tenants.exceptions.exception import TenantDomainError
 from tenants.policies import TenantPolicy
 from tenants.providers import TenantProvider
 from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
+from tenants.services.media_service import FileStorageService
 from tenants.utils.request_helpers import get_client_ip
 from tenants.views.forms import TenantBaseForm
 from tenants.views.helpers.view_helpers import RequestContext
-from tenants.services.media_service import FileStorageService
+
 
 class TenantCreateView(LoginRequiredMixin, View):
     """
@@ -40,7 +41,7 @@ class TenantCreateView(LoginRequiredMixin, View):
         if form.is_valid():
             # 1. Extract cleaned data
             data = form.cleaned_data.copy()
-            
+
             # 2. Extract logo file
             logo_file = data.pop("logo_url", None)
 
@@ -88,7 +89,7 @@ class TenantCreateView(LoginRequiredMixin, View):
                     return redirect("tenant_list")
                 except TenantDomainError as exc:
                     form.add_error(None, str(exc))
-                    error_text = str(exc).replace('\n', ' ').strip()
+                    error_text = str(exc).replace("\n", " ").strip()
                     messages.error(request, error_text)
             else:
                 # Map serializer errors back to form

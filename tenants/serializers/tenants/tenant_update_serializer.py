@@ -1,13 +1,13 @@
-from rest_framework import serializers
-import re
 import json
+import re
 
-from tenants.models.tenants import Tenant
+from rest_framework import serializers
+
 from tenants.constants import (
     PLAN_LIMITS,
     PLAN_STANDARD,
 )
-
+from tenants.models.tenants import Tenant
 
 
 class TenantUpdateSerializer(serializers.Serializer):
@@ -15,18 +15,14 @@ class TenantUpdateSerializer(serializers.Serializer):
         max_length=30,
         min_length=5,
         trim_whitespace=True,
-        error_messages={
-            "min_length": "Mã tenant phải có ít nhất 5 ký tự."
-        }
+        error_messages={"min_length": "Mã tenant phải có ít nhất 5 ký tự."},
     )
 
     name = serializers.CharField(
         max_length=255,
         min_length=5,
         trim_whitespace=True,
-        error_messages={
-            "min_length": "Tên tenant phải có ít nhất 5 ký tự."
-        }
+        error_messages={"min_length": "Tên tenant phải có ít nhất 5 ký tự."},
     )
 
     domain = serializers.CharField(
@@ -34,8 +30,11 @@ class TenantUpdateSerializer(serializers.Serializer):
     )
 
     logo_url = serializers.CharField(
-        max_length=500, required=False, allow_null=True, allow_blank=True,
-        help_text="URL của logo sau khi upload"
+        max_length=500,
+        required=False,
+        allow_null=True,
+        allow_blank=True,
+        help_text="URL của logo sau khi upload",
     )
 
     primary_color = serializers.CharField(max_length=7, default="#3B82F6")
@@ -73,15 +72,15 @@ class TenantUpdateSerializer(serializers.Serializer):
     )
 
     def validate_code(self, value):
-        tenant_id = self.context.get('tenant_id')
+        tenant_id = self.context.get("tenant_id")
         queryset = Tenant.objects.filter(code=value)
-        
+
         if tenant_id:
             queryset = queryset.exclude(id=tenant_id)
-            
+
         if queryset.exists():
             raise serializers.ValidationError("Mã tenant đã tồn tại.")
-        
+
         if not value:
             raise serializers.ValidationError("Mã tenant không được để trống.")
 
