@@ -5,6 +5,9 @@
             {{ forloop.counter }}
         </td>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ tenant.uuid }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             {{ tenant.code }}
         </td>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
@@ -14,7 +17,13 @@
             {{ tenant.domain }}
         </td>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-            {{ tenant.logo }}
+            {% if tenant.logo_url %}
+                <img src="{{ tenant.logo_url }}" 
+                    alt="Logo của {{ tenant.name }}" 
+                    class="w-10 h-10 object-contain rounded-md border border-gray-200">
+            {% else %}
+                <span class="text-gray-400 italic">Không có logo</span>
+            {% endif %}
         </td>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             {{ tenant.primary_color }}
@@ -60,16 +69,16 @@
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             {{ tenant.updated_at|date:"H:i:s Y/m/d" }}
         </td>
-        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-            <a href="{% url 'tenant_detail' tenant.id %}"
+        <td class="px-6 py-3.5 flex gap-3 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            <a href="{% url 'tenant_detail' tenant.uuid %}"
                 class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
                 Chi tiết
             </a>
-            <a href="{% url 'tenant_detail' tenant.id %}"
+            <a href="{% url 'tenant_update' tenant.uuid %}"
                 class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
                 Chỉnh sửa
             </a>
-            <a href="{% url 'tenant_detail' tenant.id %}"
+            <a href="{% url 'tenant_delete' tenant.uuid %}"
                 class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100">
                 Xóa
             </a>

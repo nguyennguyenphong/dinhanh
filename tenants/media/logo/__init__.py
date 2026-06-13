@@ -1,0 +1,3 @@
+"""
+Tenant logo files storage
+"""

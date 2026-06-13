@@ -1,0 +1,20 @@
+<h2 id="accordion-open-heading-5">
+    <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+        data-accordion-target="#accordion-open-body-5" aria-expanded="true" aria-controls="accordion-open-body-5">
+        <span class="flex items-center">Cài đặt khác</span>
+        <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m5 15 7-7 7 7" />
+        </svg>
+    </button>
+</h2>
+<div id="accordion-open-body-5" class="hidden" aria-labelledby="accordion-open-heading-5">
+    <div class="p-4 md:p-5 border border-t-default border-b-0 border-x-0">
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Càu đặt khác</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.settings }}</span>
+        </div>
+    </div>
+</div>

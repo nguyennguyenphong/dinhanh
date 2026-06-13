@@ -24,3 +24,6 @@ dist/
 
 # No ignore __init__.py
 !**/migrations/__init__.py
+
+# Ignore log
+logs/django.log

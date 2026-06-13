@@ -5,6 +5,6 @@
     </a>
     <button type="submit"
         class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm  bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20">
-        Khởi tạo ngay
+        {% if object %} Lưu thay đổi {% else %} Khởi tạo ngay {% endif %}
     </button>
 </div>

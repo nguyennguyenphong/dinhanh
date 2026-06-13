@@ -32,6 +32,16 @@
             if (typeof initFlowbite === 'function') {
                 initFlowbite();
             }
+
+            {% if messages %}
+                {% for message in messages %}
+                    if (typeof window.showToast === 'function') {
+                        window.showToast("{{ message|escapejs }}", "{{ message.tags }}");
+                    } else {
+                        console.error("showToast chưa sẵn sàng!");
+                    }
+                {% endfor %}
+            {% endif %}
         });
     </script>
     <script>

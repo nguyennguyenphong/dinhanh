@@ -8,3 +8,7 @@ Alpine.plugin(persist)
 window.Alpine = Alpine
 
 Alpine.start()
+
+// Notyf
+import { showToast } from './components/notyf';
+window.showToast = showToast;

@@ -1,0 +1,70 @@
+<h2 id="accordion-open-heading-2">
+    <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body border border-x-0 border-b-default border-t-0 hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+        data-accordion-target="#accordion-open-body-2" aria-expanded="true" aria-controls="accordion-open-body-2">
+        <span class="flex items-center">Cấu hình tenant</span>
+        <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m5 15 7-7 7 7" />
+        </svg>
+    </button>
+</h2>
+<div id="accordion-open-body-2" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default"
+    aria-labelledby="accordion-open-heading-2">
+    <div class="p-4 md:p-5">
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Logo</span>
+            <span class="font-medium text-gray-900 dark:text-white">
+                <img src="{{ tenant.logo_url }}" alt="Logo của {{ tenant.name }}"
+                    class="w-30 h-30 object-contain rounded-md">
+            </span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Ngày bắt đầu</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.subscription_started_at
+                }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Ngày kết thúc</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.subscription_expires_at
+                }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Màu chủ đạo</span>
+            <div class="flex items-center gap-2">
+                <span class="w-5 h-5 rounded border border-gray-200"
+                    style="--bg-color: {{ tenant.primary_color }}; background-color: var(--bg-color);">
+                </span>
+                <code class="text-xs font-mono text-gray-700 dark:text-gray-300">{{ tenant.primary_color }}</code>
+            </div>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Trạng thái</span>
+            {% if tenant.is_active %}
+            <span
+                class="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-green-50 text-green-800 dark:bg-green-950 dark:text-green-300">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                </svg>
+                Hoạt động
+            </span>
+            {% else %}
+            <span
+                class="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-red-50 text-red-800 dark:bg-red-950 dark:text-red-300">
+                Ngừng hoạt động
+            </span>
+            {% endif %}
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Tiền tệ</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.currency }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Tỷ giá/tiền tệ</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.exchange_rate }}</span>
+        </div>
+    </div>
+</div>

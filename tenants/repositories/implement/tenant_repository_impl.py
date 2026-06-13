@@ -152,6 +152,7 @@ class TenantRepositoryImpl(ITenantRepository):
         from tenants.models.tenants import Tenant
 
         Tenant.objects.filter(pk=entity.id).update(
+            code=entity.code,
             name=entity.name,
             plan=entity.plan,
             is_active=entity.is_active,

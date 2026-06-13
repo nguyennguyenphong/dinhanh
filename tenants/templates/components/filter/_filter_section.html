@@ -1,9 +1,10 @@
+{% load static %}
+
 <div x-data="{ 
     showAdvancedFilters: $persist(false).as('advanced_filter_state') 
     }" x-init="
     if ('{{ request.GET.status }}' && '{{ request.GET.status }}' !== 'all' || '{{ request.GET.plan }}' && '{{ request.GET.plan }}' !== 'all' || '{{ request.GET.created_at }}') {
         showAdvancedFilters = true;
-    }
     }" class="border border-gray-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900 rounded-md space-y-4">
 
     <div class="flex items-center justify-between pb-3">

@@ -48,6 +48,8 @@ class UpdateTenantUseCase:
         old_values = _entity_to_audit_values(entity)
 
         # Merge only provided fields
+        if dto.code is not None:
+            entity.code = dto.code
         if dto.name is not None:
             entity.name = dto.name.strip()
         if dto.plan is not None:

@@ -1,7 +1,4 @@
-import uuid
-
 from django import forms
-from django.core.files.storage import default_storage
 
 from tenants.models.tenants import Tenant
 
@@ -116,14 +113,15 @@ class TailwindFormMixin:
                 )
 
 
-class TenantCreateForm(TailwindFormMixin, forms.ModelForm):
+class TenantBaseForm(TailwindFormMixin, forms.ModelForm):
     """
     Production Tenant generation form. Handles explicit calendar enforcement
     and handles file uploading logic gracefully.
     """
 
-    logo_url = forms.FileField(
-        required=False, help_text="Chọn tệp ảnh logo từ máy tính của bạn."
+    logo_url = forms.ImageField(
+        required=False, help_text="Chọn tệp ảnh logo từ máy tính của bạn.",
+        label="Tải ảnh logo lên"
     )
 
     class Meta:
@@ -145,7 +143,6 @@ class TenantCreateForm(TailwindFormMixin, forms.ModelForm):
             "max_branches",
             "max_vehicles",
             "settings",
-            "logo_url",
         ]
         widgets = {
             # Let template and mixin control specific responsive design attributes
@@ -165,22 +162,15 @@ class TenantCreateForm(TailwindFormMixin, forms.ModelForm):
         # 1. Call the parent class's init function to initialize the fields and apply Tailwind CSS first.
         super().__init__(*args, **kwargs)
 
+        if self.instance and self.instance.pk:
+            for field in ['subscription_started_at', 'subscription_expires_at']:
+                if self.instance.__dict__.get(field):
+                    self.fields[field].initial = self.instance.__dict__[field].strftime('%Y-%m-%dT%H:%M')
+
         # 2. Override the configuration so that the exchange_rate field is NOT required in the Django Form layer.
         if "exchange_rate" in self.fields:
             self.fields["exchange_rate"].required = False
 
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        if not instance.settings:
-            instance.settings = {}
-
-        logo_file = self.cleaned_data.get("logo_url")
-        if logo_file:
-            ext = logo_file.name.split(".")[-1]
-            unique_filename = f"tenants/media/logo/{uuid.uuid4()}.{ext}"
-            saved_path = default_storage.save(unique_filename, logo_file)
-            instance.logo_url = default_storage.url(saved_path)
-
-        if commit:
-            instance.save()
-        return instance
+        # Ensure logo_url is not required
+        if "logo_url" in self.fields:
+            self.fields["logo_url"].required = False

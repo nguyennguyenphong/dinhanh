@@ -22,6 +22,13 @@ from django.urls import include, path
 
 from dashboard.views import dashboard
 
+from django.shortcuts import render
+
+def error_404(request, exception):
+    return render(request, 'portals/404.html', status=404)
+
+handler404 = 'core.urls.error_404'
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
