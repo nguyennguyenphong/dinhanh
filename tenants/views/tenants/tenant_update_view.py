@@ -8,16 +8,16 @@ Endpoint map (wired in urls/tenant_urls.py):
 from __future__ import annotations
 
 import uuid
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
-from django.views import View
-from django.shortcuts import get_object_or_404
-from django.contrib import messages
 
-from tenants.policies import TenantPolicy
-from tenants.views.forms import TenantBaseForm
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views import View
+
 from tenants.models import Tenant
+from tenants.policies import TenantPolicy
 from tenants.services.tenant_action_service import TenantActionService
+from tenants.views.forms import TenantBaseForm
 
 
 class TenantUpdateView(LoginRequiredMixin, View):
@@ -28,11 +28,12 @@ class TenantUpdateView(LoginRequiredMixin, View):
 
     def get(self, request, pk: uuid.UUID):
         tenant = get_object_or_404(Tenant, uuid=pk)
-        return render(request, "pages/update.html", {
-            "form": TenantBaseForm(instance=tenant), 
-            "object": tenant
-        })
-    
+        return render(
+            request,
+            "pages/update.html",
+            {"form": TenantBaseForm(instance=tenant), "object": tenant},
+        )
+
     """
     Django does not support direct patching from HTML forms.
     We map POST to PATCH by calling the patch method.
@@ -49,6 +50,5 @@ class TenantUpdateView(LoginRequiredMixin, View):
             if TenantActionService.update_tenant(request, pk, form):
                 messages.success(request, "Cập nhật tenant thành công.")
                 return redirect("tenant_list")
-        
-        return render(request, "pages/update.html", {"form": form, "object": tenant})
 
+        return render(request, "pages/update.html", {"form": form, "object": tenant})

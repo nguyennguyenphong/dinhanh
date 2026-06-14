@@ -11,9 +11,9 @@ from PIL import Image
 class FileStorageService:
     ALLOWED_EXTENSIONS = {"jpg", "jpeg", "png", "gif", "webp"}
     MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
-    
+
     # Path: tenants/media/logo/
-    UPLOAD_DIR = 'logo'
+    UPLOAD_DIR = "logo"
 
     # Đường dẫn lưu file: tenants/media/logo/
     UPLOAD_DIR = "logo"
@@ -56,7 +56,7 @@ class FileStorageService:
         # URL sẽ là: /media/logo/uuid.ext
         file_url = default_storage.url(file_path)
         return file_url
-    
+
     @staticmethod
     def delete_logo(file_url: str):
         """
@@ -64,7 +64,7 @@ class FileStorageService:
         """
         if not file_url:
             return
-        
+
         try:
             path_to_delete = file_url.replace(settings.MEDIA_URL, "", 1)
             if default_storage.exists(path_to_delete):

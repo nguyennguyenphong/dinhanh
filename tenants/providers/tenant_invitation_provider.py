@@ -45,4 +45,3 @@ class TenantInvitationProvider:
     @classmethod
     def list_invitations(cls) -> ListInvitationsUseCase:
         return ListInvitationsUseCase(cls._invitation_repo())
-

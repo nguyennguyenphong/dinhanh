@@ -8,9 +8,10 @@ TenantProvider + use-cases directly; this layer is for inter-app use.
 
 from __future__ import annotations
 
+import uuid
 from decimal import Decimal
 from typing import Any
-import uuid
+
 from django.http import Http404
 
 from tenants.application.dtos import (
@@ -19,12 +20,10 @@ from tenants.application.dtos import (
     TenantResponseDTO,
     TenantUpdateDTO,
 )
-
 from tenants.providers import TenantProvider
 
 
 class TenantService:
-
 
     @staticmethod
     def create(
@@ -94,7 +93,7 @@ class TenantService:
     @staticmethod
     def deactivate(tenant_id: int, actor_id: int | None = None) -> TenantResponseDTO:
         return TenantProvider.deactivate_tenant().execute(tenant_id, actor_id=actor_id)
-    
+
     @staticmethod
     def get_by_uuid(pk: uuid.UUID) -> TenantResponseDTO:
         try:

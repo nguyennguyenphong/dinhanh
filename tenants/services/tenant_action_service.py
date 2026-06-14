@@ -1,19 +1,19 @@
-from django.core.exceptions import ValidationError
-from django.contrib import messages
 import uuid
+
+from django.contrib import messages
+from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 
-
-from tenants.application.dtos import TenantCreateDTO
+from tenants.application.dtos import TenantCreateDTO, TenantUpdateDTO
+from tenants.exceptions.exception import TenantDomainError
+from tenants.models import Tenant
+from tenants.providers import TenantProvider
+from tenants.serializers import TenantUpdateSerializer
 from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
 from tenants.services.media_service import FileStorageService
 from tenants.utils.request_helpers import get_client_ip
 from tenants.views.helpers.view_helpers import RequestContext
-from tenants.providers import TenantProvider
-from tenants.models import Tenant
-from tenants.application.dtos import TenantUpdateDTO
-from tenants.serializers import TenantUpdateSerializer
-from tenants.exceptions.exception import TenantDomainError
+
 
 class TenantActionService:
     @staticmethod
@@ -24,7 +24,7 @@ class TenantActionService:
         """
         data = form.cleaned_data.copy()
         logo_file = data.pop("logo_url", None)
-        
+
         # Validate with Serializer
         serializer = TenantCreateSerializer(data=data)
         if not serializer.is_valid():
@@ -38,7 +38,9 @@ class TenantActionService:
         # Handle File
         if logo_file:
             try:
-                validated_data["logo_url"] = FileStorageService.save_tenant_logo(logo_file)
+                validated_data["logo_url"] = FileStorageService.save_tenant_logo(
+                    logo_file
+                )
             except (ValidationError, Exception) as e:
                 form.add_error("logo_url", str(e))
                 messages.error(request, f"Lỗi tệp tin: {str(e)}")
@@ -48,7 +50,7 @@ class TenantActionService:
         try:
             ctx = RequestContext.from_request(request)
             dto = TenantCreateDTO(**validated_data)
-            
+
             TenantProvider.create_tenant().execute(
                 dto,
                 actor_id=ctx.actor_id,
@@ -59,7 +61,7 @@ class TenantActionService:
             return True
         except Exception as exc:
             form.add_error(None, str(exc))
-            messages.error(request, str(exc).replace('\n', ' ').strip())
+            messages.error(request, str(exc).replace("\n", " ").strip())
             return False
 
     @staticmethod
@@ -67,12 +69,12 @@ class TenantActionService:
         tenant_model = get_object_or_404(Tenant, uuid=pk)
         old_logo_url = tenant_model.logo_url
         data = form.cleaned_data.copy()
-        
+
         # 1. Xử lý ảnh mới
         logo_file = request.FILES.get("logo_url")
         has_new_logo = logo_file is not None
         new_logo_url = None
-        
+
         if has_new_logo:
             try:
                 new_logo_url = FileStorageService.save_tenant_logo(logo_file)
@@ -84,25 +86,33 @@ class TenantActionService:
             data["logo_url"] = old_logo_url
 
         # 2. Validate serializer
-        serializer = TenantUpdateSerializer(data=data, context={'tenant_id': tenant_model.id})
+        serializer = TenantUpdateSerializer(
+            data=data, context={"tenant_id": tenant_model.id}
+        )
         if not serializer.is_valid():
             for field, errors in serializer.errors.items():
                 form.add_error(field, errors)
             return False
 
         check_data = serializer.validated_data.copy()
-        check_data.pop('logo_url', None)
-        
-        model_data = {k: getattr(tenant_model, k) for k in check_data.keys() if hasattr(tenant_model, k)}
-        
+        check_data.pop("logo_url", None)
+
+        model_data = {
+            k: getattr(tenant_model, k)
+            for k in check_data.keys()
+            if hasattr(tenant_model, k)
+        }
+
         if not has_new_logo and check_data == model_data:
             messages.info(request, "Không có sự thay đổi dữ liệu.")
             return False
 
         try:
             ctx = RequestContext.from_request(request)
-            dto = TenantUpdateDTO(tenant_id=tenant_model.id, **serializer.validated_data)
-            
+            dto = TenantUpdateDTO(
+                tenant_id=tenant_model.id, **serializer.validated_data
+            )
+
             TenantProvider.update_tenant().execute(
                 dto,
                 actor_id=ctx.actor_id,
@@ -110,17 +120,17 @@ class TenantActionService:
                 ip_address=get_client_ip(request),
                 user_agent=request.META.get("HTTP_USER_AGENT", ""),
             )
-            
+
             if has_new_logo and old_logo_url:
                 FileStorageService.delete_logo(old_logo_url)
-                
+
             return True
         except TenantDomainError as exc:
             if new_logo_url:
                 FileStorageService.delete_logo(new_logo_url)
             form.add_error(None, str(exc))
             return False
-        
+
     @staticmethod
     def soft_delete_tenant(request, pk: uuid.UUID, form) -> bool:
         """
@@ -129,7 +139,7 @@ class TenantActionService:
         tenant = get_object_or_404(Tenant.all_objects, uuid=pk)
         try:
             ctx = RequestContext.from_request(request)
-            
+
             TenantProvider.deactivate_tenant().execute(
                 tenant.id,
                 actor_id=ctx.actor_id,
@@ -137,14 +147,14 @@ class TenantActionService:
                 ip_address=get_client_ip(request),
                 user_agent=request.META.get("HTTP_USER_AGENT", ""),
             )
-            
+
             return True
-            
+
         except TenantDomainError as exc:
             form.add_error(None, str(exc))
             messages.error(request, str(exc))
             return False
-            
+
         except Exception as exc:
             form.add_error(None, "Đã xảy ra lỗi không xác định khi xóa tenant.")
             messages.error(request, "Có lỗi trong quá trình thực hiện.")
@@ -170,7 +180,7 @@ class TenantActionService:
             form.add_error(None, str(exc))
             messages.error(request, str(exc))
             return False
-        
+
         except Exception as exc:
             form.add_error(None, "Đã xảy ra lỗi không xác định khi xóa tenant.")
             messages.error(request, f"Lỗi xóa vĩnh viễn: {str(exc)}")

@@ -28,7 +28,6 @@ class TenantFeatureFlagProvider:
     def _ff_repo() -> TenantFeatureFlagRepositoryImpl:
         return TenantFeatureFlagRepositoryImpl()
 
-    
     @classmethod
     def upsert_feature_flag(cls) -> UpsertTenantFeatureFlagUseCase:
         return UpsertTenantFeatureFlagUseCase(

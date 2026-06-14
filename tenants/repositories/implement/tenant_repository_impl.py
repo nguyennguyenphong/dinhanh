@@ -183,10 +183,10 @@ class TenantRepositoryImpl(ITenantRepository):
         from tenants.models.tenants import Tenant
 
         tenant = Tenant.all_objects.get(pk=tenant_id)
-        
+
         tenant.is_active = False
-        tenant.save(update_fields=['is_active'])
-        
-        tenant.delete() 
-        
+        tenant.save(update_fields=["is_active"])
+
+        tenant.delete()
+
         return _model_to_entity(tenant)

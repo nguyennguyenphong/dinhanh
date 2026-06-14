@@ -34,10 +34,11 @@ class TenantProvider:
     @staticmethod
     def _tenant_repo() -> TenantRepositoryImpl:
         return TenantRepositoryImpl()
-    
+
     @staticmethod
     def _audit_repo():
         from tenants.providers.tenant_audit_log_provider import TenantAuditLogProvider
+
         return TenantAuditLogProvider._audit_repo()
 
     # ------------------------------------------------------------------ #
@@ -67,4 +68,3 @@ class TenantProvider:
     @classmethod
     def hard_delete_tenant(cls) -> HardDeleteTenantUseCase:
         return HardDeleteTenantUseCase(cls._tenant_repo(), cls._audit_repo())
-

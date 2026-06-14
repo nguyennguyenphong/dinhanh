@@ -13,8 +13,9 @@ from django.shortcuts import redirect, render
 from django.views import View
 
 from tenants.policies import TenantPolicy
-from tenants.views.forms import TenantBaseForm
 from tenants.services.tenant_action_service import TenantActionService
+from tenants.views.forms import TenantBaseForm
+
 
 class TenantCreateView(LoginRequiredMixin, View):
     """
@@ -32,7 +33,7 @@ class TenantCreateView(LoginRequiredMixin, View):
 
         if form.is_valid():
             success = TenantActionService.create_tenant(request, form)
-            
+
             if success:
                 messages.success(request, "Tenant tạo thành công.")
                 return redirect("tenant_list")

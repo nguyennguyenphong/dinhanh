@@ -9,8 +9,7 @@ from django.core.validators import RegexValidator, URLValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SafeDeleteModel
-from safedelete.models import SOFT_DELETE_CASCADE
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 from tenants.constants import (
     PLAN_ENTERPRISE,
@@ -166,14 +165,14 @@ class Tenant(SafeDeleteModel):
 
         constraints = [
             models.UniqueConstraint(
-                fields=['code'], 
-                condition=models.Q(deleted__isnull=True), 
-                name='unique_active_tenant_code'
+                fields=["code"],
+                condition=models.Q(deleted__isnull=True),
+                name="unique_active_tenant_code",
             ),
             models.UniqueConstraint(
-                fields=['domain'], 
-                condition=models.Q(deleted__isnull=True), 
-                name='unique_active_tenant_domain'
+                fields=["domain"],
+                condition=models.Q(deleted__isnull=True),
+                name="unique_active_tenant_domain",
             ),
         ]
 
