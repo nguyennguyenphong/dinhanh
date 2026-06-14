@@ -37,6 +37,7 @@ class TenantUpdateView(LoginRequiredMixin, View):
     Django does not support direct patching from HTML forms.
     We map POST to PATCH by calling the patch method.
     """
+
     def post(self, request, pk: uuid.UUID):
         return self.patch(request, pk)
 
@@ -50,3 +51,4 @@ class TenantUpdateView(LoginRequiredMixin, View):
                 return redirect("tenant_list")
         
         return render(request, "pages/update.html", {"form": form, "object": tenant})
+

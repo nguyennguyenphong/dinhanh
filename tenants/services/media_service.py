@@ -1,18 +1,22 @@
-import uuid
 import os
+import uuid
 from pathlib import Path
-from PIL import Image
-from django.core.files.storage import default_storage
-from django.core.exceptions import ValidationError
+
 from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.core.files.storage import default_storage
+from PIL import Image
 
 
 class FileStorageService:
-    ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif', 'webp'}
+    ALLOWED_EXTENSIONS = {"jpg", "jpeg", "png", "gif", "webp"}
     MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
     
     # Path: tenants/media/logo/
     UPLOAD_DIR = 'logo'
+
+    # Đường dẫn lưu file: tenants/media/logo/
+    UPLOAD_DIR = "logo"
 
     @staticmethod
     def save_tenant_logo(file_obj) -> str:
@@ -29,8 +33,8 @@ class FileStorageService:
             )
 
         file_name = file_obj.name.lower()
-        ext = os.path.splitext(file_name)[1].lstrip('.')
-        
+        ext = os.path.splitext(file_name)[1].lstrip(".")
+
         if ext not in FileStorageService.ALLOWED_EXTENSIONS:
             raise ValidationError(
                 f"Định dạng tệp không được hỗ trợ. Chỉ chấp nhận: {', '.join(FileStorageService.ALLOWED_EXTENSIONS)}"
@@ -48,6 +52,8 @@ class FileStorageService:
 
         file_path = default_storage.save(unique_filename, file_obj)
 
+        # 7. Return URL
+        # URL sẽ là: /media/logo/uuid.ext
         file_url = default_storage.url(file_path)
         return file_url
     
@@ -79,14 +85,14 @@ class FileStorageService:
         """
         if not logo_url:
             return False
-        
+
         try:
             # Extract file path from URL
-            if logo_url.startswith('/media/'):
-                file_path = logo_url.replace('/media/', '')
+            if logo_url.startswith("/media/"):
+                file_path = logo_url.replace("/media/", "")
             else:
                 file_path = logo_url
-            
+
             default_storage.delete(file_path)
             return True
         except Exception as e:
@@ -98,11 +104,11 @@ class FileStorageService:
         """Get absolute file path from URL"""
         if not logo_url:
             return None
-        
-        if logo_url.startswith('/media/'):
-            file_path = logo_url.replace('/media/', '')
+
+        if logo_url.startswith("/media/"):
+            file_path = logo_url.replace("/media/", "")
         else:
             file_path = logo_url
-        
+
         full_path = Path(settings.MEDIA_ROOT) / file_path
         return full_path if full_path.exists() else None

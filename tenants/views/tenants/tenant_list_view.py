@@ -28,8 +28,6 @@ class TenantListView(LoginRequiredMixin, View):
             search_value = form.cleaned_data.get("search_tenant")
             plan_value = form.cleaned_data.get("plan")
             status_value = form.cleaned_data.get("status")
-            # sort_by_value = form.cleaned_data.get("sort_by")
-            # created_at_value = form.cleaned_data.get("created_at")
 
         is_active = None
         if status_value == "True":

@@ -30,8 +30,11 @@ class TenantCreateSerializer(serializers.Serializer):
     )
 
     logo_url = serializers.CharField(
-        max_length=500, required=False, allow_null=True, allow_blank=True,
-        help_text="URL của logo sau khi upload"
+        max_length=500,
+        required=False,
+        allow_null=True,
+        allow_blank=True,
+        help_text="URL của logo sau khi upload",
     )
 
     primary_color = serializers.CharField(max_length=7, default="#3B82F6")

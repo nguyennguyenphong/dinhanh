@@ -120,8 +120,9 @@ class TenantBaseForm(TailwindFormMixin, forms.ModelForm):
     """
 
     logo_url = forms.ImageField(
-        required=False, help_text="Chọn tệp ảnh logo từ máy tính của bạn.",
-        label="Tải ảnh logo lên"
+        required=False,
+        help_text="Chọn tệp ảnh logo từ máy tính của bạn.",
+        label="Tải ảnh logo lên",
     )
 
     class Meta:
@@ -163,9 +164,11 @@ class TenantBaseForm(TailwindFormMixin, forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         if self.instance and self.instance.pk:
-            for field in ['subscription_started_at', 'subscription_expires_at']:
+            for field in ["subscription_started_at", "subscription_expires_at"]:
                 if self.instance.__dict__.get(field):
-                    self.fields[field].initial = self.instance.__dict__[field].strftime('%Y-%m-%dT%H:%M')
+                    self.fields[field].initial = self.instance.__dict__[field].strftime(
+                        "%Y-%m-%dT%H:%M"
+                    )
 
         # 2. Override the configuration so that the exchange_rate field is NOT required in the Django Form layer.
         if "exchange_rate" in self.fields:
