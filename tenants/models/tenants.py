@@ -9,6 +9,8 @@ from django.core.validators import RegexValidator, URLValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SafeDeleteModel
+from safedelete.models import SOFT_DELETE_CASCADE
 
 from tenants.constants import (
     PLAN_ENTERPRISE,
@@ -18,11 +20,13 @@ from tenants.constants import (
 )
 
 
-class Tenant(models.Model):
+class Tenant(SafeDeleteModel):
     """
     Multi-tenant model for the Bus CMS system
     Each tenant is an independent bus company.
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     PLAN_CHOICES = (
         ("TRIAL", _("Trial")),
@@ -158,6 +162,19 @@ class Tenant(models.Model):
         indexes = [
             models.Index(fields=["code", "is_active"]),
             models.Index(fields=["plan", "is_active"]),
+        ]
+
+        constraints = [
+            models.UniqueConstraint(
+                fields=['code'], 
+                condition=models.Q(deleted__isnull=True), 
+                name='unique_active_tenant_code'
+            ),
+            models.UniqueConstraint(
+                fields=['domain'], 
+                condition=models.Q(deleted__isnull=True), 
+                name='unique_active_tenant_domain'
+            ),
         ]
 
     def __str__(self):

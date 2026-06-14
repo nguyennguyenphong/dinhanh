@@ -29,7 +29,7 @@
 /* Notyf Style v 1.0.0 */
 .notyf__message {
     font-size: 0.85rem !important;
-    line-height: 1.4; 
+    line-height: 1.4;
     white-space: normal;
     word-break: break-word;
     color: #ffffff !important;
@@ -39,4 +39,18 @@
     min-width: 300px;
     max-width: 450px;
     border-radius: 8px;
+}
+
+/* Backdrop CSS v 1.0.0 */
+.ui-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    transition: opacity 0.2s ease;
+}
+
+.ui-backdrop.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

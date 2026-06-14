@@ -11,7 +11,7 @@ class FileStorageService:
     ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif', 'webp'}
     MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
     
-    # Đường dẫn lưu file: tenants/media/logo/
+    # Path: tenants/media/logo/
     UPLOAD_DIR = 'logo'
 
     @staticmethod
@@ -20,17 +20,14 @@ class FileStorageService:
         Validate and save file to tenants/media/logo/ folder.
         Return file url: /media/logo/uuid.ext
         """
-        # 1. Validate file exists
         if not file_obj:
             raise ValidationError("Không có tệp nào được gửi.")
 
-        # 2. Validate file size
         if file_obj.size > FileStorageService.MAX_FILE_SIZE:
             raise ValidationError(
                 f"Kích thước tệp vượt quá {FileStorageService.MAX_FILE_SIZE / (1024*1024):.0f}MB."
             )
 
-        # 3. Validate file extension
         file_name = file_obj.name.lower()
         ext = os.path.splitext(file_name)[1].lstrip('.')
         
@@ -43,24 +40,31 @@ class FileStorageService:
         try:
             img = Image.open(file_obj)
             img.verify()
-            # Reset file pointer after verify
             file_obj.seek(0)
         except Exception as e:
             raise ValidationError("Tệp ảnh không hợp lệ hoặc bị hỏng.")
 
-        # 5. Generate unique filename
-        # Format: logo/uuid.ext
         unique_filename = f"{FileStorageService.UPLOAD_DIR}/{uuid.uuid4()}.{ext}"
 
-        # 6. Save file using Django storage
-        # File sẽ được lưu tại: MEDIA_ROOT/logo/uuid.ext
-        # Tức là: tenants/media/logo/uuid.ext
         file_path = default_storage.save(unique_filename, file_obj)
-        
-        # 7. Return URL
-        # URL sẽ là: /media/logo/uuid.ext
+
         file_url = default_storage.url(file_path)
         return file_url
+    
+    @staticmethod
+    def delete_logo(file_url: str):
+        """
+        Delete logo file by URL
+        """
+        if not file_url:
+            return
+        
+        try:
+            path_to_delete = file_url.replace(settings.MEDIA_URL, "", 1)
+            if default_storage.exists(path_to_delete):
+                default_storage.delete(path_to_delete)
+        except Exception as e:
+            print(f"Lỗi khi xóa logo cũ: {e}")
 
     @staticmethod
     def get_logo_dir() -> Path:

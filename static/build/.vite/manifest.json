@@ -1,15 +1,15 @@
 {
   "static/src/css/input.css": {
-    "file": "assets/style-B9SKwYDz.js",
+    "file": "assets/style-CId8bFL3.js",
     "name": "style",
     "src": "static/src/css/input.css",
     "isEntry": true,
     "css": [
-      "assets/style-BS8PEM1E.css"
+      "assets/style-BhKCCFff.css"
     ]
   },
   "static/src/js/app.js": {
-    "file": "assets/app-mM3RdI6P.js",
+    "file": "assets/app-CcahmGuE.js",
     "name": "app",
     "src": "static/src/js/app.js",
     "isEntry": true,

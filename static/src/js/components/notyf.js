@@ -10,20 +10,22 @@ const notyf = new Notyf({
         {
             type: 'success',
             background: '#32c832',
-            duration: 3000,
-            dismissible: true
+            icon: {
+                className: 'notyf__icon--success',
+                tagName: 'i'
+            }
         },
         {
             type: 'error',
             background: '#ff3333',
-            duration: 3000,
-            dismissible: true
+            icon: {
+                className: 'notyf__icon--error',
+                tagName: 'i'
+            }
         },
         {
             type: 'warning',
             background: '#ffc107',
-            duration: 3000,
-            dismissible: true,
             icon: {
                 className: 'notyf__icon--warning',
                 tagName: 'i'
@@ -32,11 +34,10 @@ const notyf = new Notyf({
         {
             type: 'info',
             background: '#17a2b8',
-            duration: 3000,
-            dismissible: true,
             icon: {
                 className: 'notyf__icon--info',
-                tagName: 'i'
+                tagName: 'i',
+                text: 'i'
             }
         }
     ]

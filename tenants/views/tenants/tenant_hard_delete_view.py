@@ -8,36 +8,36 @@ Endpoint map (wired in urls/tenant_urls.py):
 
 from __future__ import annotations
 
-from rest_framework import status
-from rest_framework.request import Request
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from django.views import View
+import uuid
+from django import forms
+from django.shortcuts import get_object_or_404
+from django.contrib import messages
 
-from tenants.exceptions.exception import TenantDomainError
 from tenants.policies import TenantPolicy
-from tenants.providers import TenantProvider
-from tenants.views.helpers.view_helpers import RequestContext, domain_error_response
+from tenants.models import Tenant
+from tenants.services import TenantActionService
 
 
-class TenantHardDeleteView(APIView):
+class TenantHardDeleteView(LoginRequiredMixin, View):
     """
     DELETE /tenants/<pk>/hard/  — permanent delete (superuser only)
     """
 
-    def delete(self, request: Request, pk: int) -> Response:
-        TenantPolicy.can_hard_delete(request)
+    """
+    Django does not support direct patching from HTML forms.
+    We map POST to DELETE by calling the patch method.
+    """
+    def post(self, request, pk: uuid.UUID):
+        return self.delete(request, pk)
 
-        ctx = RequestContext.from_request(request)
-
-        try:
-            TenantProvider.hard_delete_tenant().execute(
-                pk,
-                actor_id=ctx.actor_id,
-                actor_username=ctx.actor_username,
-                ip_address=ctx.ip_address,
-                user_agent=ctx.user_agent,
-            )
-        except TenantDomainError as exc:
-            return domain_error_response(exc)
-
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, pk: uuid.UUID):
+        tenant = get_object_or_404(Tenant.all_objects, uuid=pk)
+        form = forms.Form(request.POST)
+        
+        if TenantActionService.hard_delete_tenant(request, pk, form):
+            messages.success(request, f"Đã xóa vĩnh viễn tenant '{tenant.name}'.")
+            
+        return redirect("tenant_list")

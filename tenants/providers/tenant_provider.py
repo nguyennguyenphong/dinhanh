@@ -2,7 +2,7 @@
 Dependency injection provider for the Tenant bounded context.
 
 Usage:
-    from tenants.providers.tenant_provider import TenantProvider
+    from tenants.providers import TenantProvider
 
     use_case = TenantProvider.create_tenant_use_case()
     result = use_case.execute(dto, actor_id=request.user.pk, ...)
@@ -11,26 +11,14 @@ Usage:
 from __future__ import annotations
 
 from tenants.application.usecases import (
-    AcceptInvitationUseCase,
-    CreateInvitationUseCase,
     CreateTenantUseCase,
     DeactivateTenantUseCase,
-    DeleteFeatureFlagUseCase,
     GetTenantUseCase,
     HardDeleteTenantUseCase,
-    ListAuditLogsUseCase,
-    ListFeatureFlagsUseCase,
-    ListInvitationsUseCase,
     ListTenantsUseCase,
     UpdateTenantUseCase,
-    UpsertTenantFeatureFlagUseCase,
 )
-from tenants.repositories.implement import (
-    TenantAuditLogRepositoryImpl,
-    TenantFeatureFlagRepositoryImpl,
-    TenantInvitationRepositoryImpl,
-    TenantRepositoryImpl,
-)
+from tenants.repositories.implement import TenantRepositoryImpl
 
 
 class TenantProvider:
@@ -46,18 +34,11 @@ class TenantProvider:
     @staticmethod
     def _tenant_repo() -> TenantRepositoryImpl:
         return TenantRepositoryImpl()
-
+    
     @staticmethod
-    def _audit_repo() -> TenantAuditLogRepositoryImpl:
-        return TenantAuditLogRepositoryImpl()
-
-    @staticmethod
-    def _ff_repo() -> TenantFeatureFlagRepositoryImpl:
-        return TenantFeatureFlagRepositoryImpl()
-
-    @staticmethod
-    def _invitation_repo() -> TenantInvitationRepositoryImpl:
-        return TenantInvitationRepositoryImpl()
+    def _audit_repo():
+        from tenants.providers.tenant_audit_log_provider import TenantAuditLogProvider
+        return TenantAuditLogProvider._audit_repo()
 
     # ------------------------------------------------------------------ #
     # Use-case factories                                                   #
@@ -87,34 +68,3 @@ class TenantProvider:
     def hard_delete_tenant(cls) -> HardDeleteTenantUseCase:
         return HardDeleteTenantUseCase(cls._tenant_repo(), cls._audit_repo())
 
-    @classmethod
-    def upsert_feature_flag(cls) -> UpsertTenantFeatureFlagUseCase:
-        return UpsertTenantFeatureFlagUseCase(
-            cls._tenant_repo(), cls._ff_repo(), cls._audit_repo()
-        )
-
-    @classmethod
-    def delete_feature_flag(cls) -> DeleteFeatureFlagUseCase:
-        return DeleteFeatureFlagUseCase(cls._ff_repo(), cls._audit_repo())
-
-    @classmethod
-    def list_feature_flags(cls) -> ListFeatureFlagsUseCase:
-        return ListFeatureFlagsUseCase(cls._ff_repo())
-
-    @classmethod
-    def create_invitation(cls) -> CreateInvitationUseCase:
-        return CreateInvitationUseCase(
-            cls._tenant_repo(), cls._invitation_repo(), cls._audit_repo()
-        )
-
-    @classmethod
-    def accept_invitation(cls) -> AcceptInvitationUseCase:
-        return AcceptInvitationUseCase(cls._invitation_repo(), cls._audit_repo())
-
-    @classmethod
-    def list_invitations(cls) -> ListInvitationsUseCase:
-        return ListInvitationsUseCase(cls._invitation_repo())
-
-    @classmethod
-    def list_audit_logs(cls) -> ListAuditLogsUseCase:
-        return ListAuditLogsUseCase(cls._audit_repo())

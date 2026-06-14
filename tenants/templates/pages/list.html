@@ -33,6 +33,11 @@
             </div>
         </div>
     </div>
+
+    {% for tenant in tenants %}
+    {% include 'pages/delete.html' %}
+    {% endfor %}
+
 </div>
 
 {% endblock %}

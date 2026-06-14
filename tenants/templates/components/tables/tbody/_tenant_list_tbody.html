@@ -69,6 +69,13 @@
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             {{ tenant.updated_at|date:"H:i:s Y/m/d" }}
         </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {% if tenant.deleted %}
+                {{ tenant.deleted|date:"H:i:s Y/m/d" }}
+            {% else %}
+                None
+            {% endif %}
+        </td>
         <td class="px-6 py-3.5 flex gap-3 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             <a href="{% url 'tenant_detail' tenant.uuid %}"
                 class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
@@ -78,10 +85,10 @@
                 class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
                 Chỉnh sửa
             </a>
-            <a href="{% url 'tenant_delete' tenant.uuid %}"
+            <button data-modal-target="{{ tenant.uuid }}" data-modal-toggle="{{ tenant.uuid }}"
                 class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100">
                 Xóa
-            </a>
+            </button>
         </td>
     </tr>
     {% endfor %}

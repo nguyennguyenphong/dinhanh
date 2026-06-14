@@ -1,6 +1,6 @@
 <div class="space-y-6 p-6 rounded-md bg-white border border-gray-200 dark:bg-slate-900 dark:border-slate-800 mb-4">
     <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-2">
-        Configuration Settings
+        Cấu hình tenant
     </h3>
 
     {% if form.non_field_errors %}
@@ -11,13 +11,12 @@
 
     {% if object %}
     <div class="space-y-1">
-        <label for="logo_url_before" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+        <label for="{{ form.logo_url.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
             Ảnh trước đó sử dụng
         </label>
-        <img src="{{ tenant.get_logo_url }}" 
-                    alt="Logo của {{ tenant.name }}"
-                    id="logo_url_before"
-                    class="w-30 h-30 object-contain rounded-md border border-gray-200">
+        <img src="{{ object.logo_url }}" 
+                    alt="Logo của {{ object.name }}"
+                    class="w-30 h-30 object-contain rounded-md">
     </div>
     <div class="space-y-1">
         <label for="{{ form.logo_url.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">

@@ -20,12 +20,12 @@ urlpatterns = [
         name="tenant_update",
     ),
     # -------------------------------------------------------------------------
-    # 4. DELETE FUNCTION (Enforced via secure POST action forms)
+    # 4. SOFT DELETE FUNCTION (Enforced via secure POST action forms)
     # -------------------------------------------------------------------------
     path(
-        "delete/<uuid:pk>/",
+        "soft_delete/<uuid:pk>/",
         tenant_views.TenantSoftDeleteView.as_view(),
-        name="tenant_delete",
+        name="tenant_soft_delete",
     ),
     # -------------------------------------------------------------------------
     # 5. DETAIL FUNCTION (Handles both GET for UI prep and POST for processing)
@@ -34,5 +34,13 @@ urlpatterns = [
         "detail/<uuid:pk>/",
         tenant_views.TenantDetailView.as_view(),
         name="tenant_detail",
+    ),
+    # -------------------------------------------------------------------------
+    # 6. HARD DELETE FUNCTION (Enforced via secure POST action forms)
+    # -------------------------------------------------------------------------
+    path(
+        "hard_delete/<uuid:pk>/",
+        tenant_views.TenantHardDeleteView.as_view(),
+        name="tenant_hard_delete",
     ),
 ]

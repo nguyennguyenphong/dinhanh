@@ -175,10 +175,18 @@ class TenantRepositoryImpl(ITenantRepository):
     def delete(self, tenant_id: int) -> None:
         from tenants.models.tenants import Tenant
 
-        Tenant.objects.filter(pk=tenant_id).delete()
+        tenant = Tenant.all_objects.get(pk=tenant_id)
+
+        tenant.delete(force_policy=None)
 
     def deactivate(self, tenant_id: int) -> TenantEntity:
         from tenants.models.tenants import Tenant
 
-        Tenant.objects.filter(pk=tenant_id).update(is_active=False)
-        return self.get_by_id(tenant_id)  # type: ignore[return-value]
+        tenant = Tenant.all_objects.get(pk=tenant_id)
+        
+        tenant.is_active = False
+        tenant.save(update_fields=['is_active'])
+        
+        tenant.delete() 
+        
+        return _model_to_entity(tenant)

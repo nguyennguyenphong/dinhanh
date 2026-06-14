@@ -1,12 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from django.views import View
-from django.http import Http404
 import uuid
 
-from tenants.exceptions.exception import TenantDomainError
-from tenants.providers import TenantProvider
-from tenants.views.helpers.view_helpers import RequestContext
+from tenants.services import TenantService
 
 
 class TenantDetailView(LoginRequiredMixin, View):
@@ -15,13 +12,6 @@ class TenantDetailView(LoginRequiredMixin, View):
     """
 
     def get(self, request, pk: uuid.UUID):
-        try:
-            # Call provider to get tenant data
-            try:
-                tenant = TenantProvider.get_tenant().by_uuid(pk)
-            except Exception:
-                raise Http404("Tenant không tồn tại")
-        except TenantDomainError as e:
-            return render(request, "portals/404.html", {"error": str(e)})
+        tenant = TenantService.get_by_uuid(pk)
 
         return render(request, "pages/detail.html", {"tenant": tenant})

@@ -1,0 +1,1210 @@
+INFO 2026-06-14 18:40:25,279 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96316
+INFO 2026-06-14 18:40:37,240 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 95740
+INFO 2026-06-14 18:40:41,228 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 95773
+INFO 2026-06-14 18:40:43,224 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96399
+INFO 2026-06-14 18:40:46,247 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96431
+INFO 2026-06-14 18:40:47,285 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96399
+INFO 2026-06-14 18:40:49,484 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96427
+INFO 2026-06-14 18:41:02,327 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96656
+INFO 2026-06-14 18:41:08,226 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96664
+WARNING 2026-06-14 18:41:13,025 log 80818 6221197312 Forbidden (CSRF token missing.): /tenants/list/ui/
+WARNING 2026-06-14 18:41:13,028 log 80818 6221197312 "POST /tenants/list/ui/ HTTP/1.1" 403 2681
+INFO 2026-06-14 18:41:25,637 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96656
+INFO 2026-06-14 18:41:30,289 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96656
+INFO 2026-06-14 18:41:36,313 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96714
+INFO 2026-06-14 18:41:38,242 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96707
+INFO 2026-06-14 18:41:43,257 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96767
+INFO 2026-06-14 18:41:48,260 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97004
+INFO 2026-06-14 18:41:54,247 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96209
+INFO 2026-06-14 18:41:57,266 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97069
+INFO 2026-06-14 18:41:59,289 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97109
+INFO 2026-06-14 18:42:02,276 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96523
+INFO 2026-06-14 18:42:08,276 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96523
+INFO 2026-06-14 18:42:16,238 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97182
+INFO 2026-06-14 18:42:18,212 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97210
+INFO 2026-06-14 18:42:23,256 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96376
+INFO 2026-06-14 18:42:30,256 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97275
+INFO 2026-06-14 18:42:32,262 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97315
+INFO 2026-06-14 18:42:38,275 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97388
+INFO 2026-06-14 18:42:40,213 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97416
+INFO 2026-06-14 18:43:04,251 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96293
+INFO 2026-06-14 18:43:09,280 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97473
+INFO 2026-06-14 18:43:12,275 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97537
+INFO 2026-06-14 18:43:25,259 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97579
+INFO 2026-06-14 18:43:32,240 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97653
+INFO 2026-06-14 18:43:35,243 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97647
+INFO 2026-06-14 18:43:39,287 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97715
+INFO 2026-06-14 18:43:41,371 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97742
+INFO 2026-06-14 18:43:50,267 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97746
+INFO 2026-06-14 18:43:54,332 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97750
+INFO 2026-06-14 18:44:53,284 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97276
+INFO 2026-06-14 18:44:56,389 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97300
+INFO 2026-06-14 18:45:02,313 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97300
+INFO 2026-06-14 18:45:07,257 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97300
+INFO 2026-06-14 18:45:08,566 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97130
+INFO 2026-06-14 18:45:11,226 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97210
+INFO 2026-06-14 18:45:20,298 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96619
+INFO 2026-06-14 18:45:20,475 log 80818 6221197312 "GET /media/logo/a36cb584-ce2c-419f-831d-916abcfbe01d.jpg HTTP/1.1" 304 0
+INFO 2026-06-14 18:45:24,207 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 96699
+INFO 2026-06-14 18:46:05,332 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99348
+INFO 2026-06-14 18:46:09,254 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99029
+INFO 2026-06-14 18:46:18,249 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 98833
+INFO 2026-06-14 18:46:23,266 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99116
+INFO 2026-06-14 18:46:31,275 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99122
+INFO 2026-06-14 18:46:57,262 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99122
+INFO 2026-06-14 18:47:00,269 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99122
+INFO 2026-06-14 18:47:18,247 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99186
+INFO 2026-06-14 18:47:29,232 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99188
+INFO 2026-06-14 18:47:31,208 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99189
+INFO 2026-06-14 18:47:33,217 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99225
+INFO 2026-06-14 18:47:38,239 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99264
+INFO 2026-06-14 18:47:43,251 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99303
+INFO 2026-06-14 18:47:45,205 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99342
+INFO 2026-06-14 18:47:48,251 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99381
+INFO 2026-06-14 18:47:52,231 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99312
+INFO 2026-06-14 18:47:56,297 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99351
+INFO 2026-06-14 18:48:00,272 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99351
+INFO 2026-06-14 18:48:03,990 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99493
+INFO 2026-06-14 18:48:22,286 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99504
+WARNING 2026-06-14 18:48:26,049 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 18:48:26,053 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 18:48:35,810 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99504
+INFO 2026-06-14 18:49:25,566 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99496
+INFO 2026-06-14 18:49:33,316 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99496
+INFO 2026-06-14 18:50:09,269 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99721
+INFO 2026-06-14 18:50:28,650 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99721
+INFO 2026-06-14 18:50:45,272 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99020
+INFO 2026-06-14 18:50:46,620 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99018
+INFO 2026-06-14 18:51:05,334 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99023
+INFO 2026-06-14 18:51:27,263 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99023
+INFO 2026-06-14 18:51:31,282 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99023
+INFO 2026-06-14 18:51:32,386 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99041
+INFO 2026-06-14 18:51:39,314 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99012
+INFO 2026-06-14 18:51:45,255 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99012
+INFO 2026-06-14 18:51:58,258 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 98263
+INFO 2026-06-14 18:51:58,352 log 80818 6221197312 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-14 18:52:01,456 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 98290
+INFO 2026-06-14 18:52:03,243 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99092
+INFO 2026-06-14 18:52:05,296 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99095
+INFO 2026-06-14 18:52:07,783 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+WARNING 2026-06-14 18:52:16,663 log 80818 6221197312 Forbidden (CSRF token missing.): /tenants/list/ui/
+WARNING 2026-06-14 18:52:16,664 log 80818 6221197312 "POST /tenants/list/ui/ HTTP/1.1" 403 2681
+INFO 2026-06-14 18:52:20,061 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 18:52:23,071 log 80818 6221197312 "GET /tenants/detail/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 92713
+INFO 2026-06-14 18:52:27,119 log 80818 6221197312 "GET /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97156
+INFO 2026-06-14 18:52:28,795 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 18:54:43,952 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:21:57,467 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:21:57,605 log 80818 6221197312 "GET /media/logo/a36cb584-ce2c-419f-831d-916abcfbe01d.jpg HTTP/1.1" 304 0
+INFO 2026-06-14 19:22:42,367 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99124
+INFO 2026-06-14 19:22:49,440 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99110
+INFO 2026-06-14 19:22:59,261 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:24:41,633 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:24:41,925 log 80818 6221197312 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-14 19:24:43,655 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:24:45,384 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:24:47,278 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:26:27,328 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:26:40,289 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:26:51,215 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:26:59,265 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:27:08,266 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:27:36,223 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:27:46,332 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:27:49,238 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:28:40,274 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+INFO 2026-06-14 19:28:51,223 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97991
+INFO 2026-06-14 19:29:00,251 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97986
+INFO 2026-06-14 19:29:01,614 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 97985
+WARNING 2026-06-14 19:29:08,855 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:29:08,856 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:29:18,013 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+WARNING 2026-06-14 19:29:18,166 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:29:18,168 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:29:38,225 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+WARNING 2026-06-14 19:29:38,326 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:29:38,327 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+ERROR 2026-06-14 19:29:43,256 log 80818 6221197312 Internal Server Error: /tenants/list/ui/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/urls/base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'tenants'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_list_view.py", line 62, in get
+    return render(request, "pages/list.html", context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 249, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/urls/base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'tenants' is not a registered namespace
+ERROR 2026-06-14 19:29:43,262 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 500 263060
+WARNING 2026-06-14 19:29:43,355 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:29:43,355 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+ERROR 2026-06-14 19:29:50,271 log 80818 6221197312 Internal Server Error: /tenants/list/ui/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/urls/base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'tenants'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_list_view.py", line 62, in get
+    return render(request, "pages/list.html", context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 249, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/urls/base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'tenants' is not a registered namespace
+ERROR 2026-06-14 19:29:50,274 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 500 263191
+WARNING 2026-06-14 19:29:50,338 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:29:50,338 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:30:00,720 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99581
+WARNING 2026-06-14 19:30:00,847 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:30:00,847 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:30:25,269 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99573
+WARNING 2026-06-14 19:30:25,393 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:30:25,394 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:30:27,283 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99575
+WARNING 2026-06-14 19:30:27,394 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:30:27,395 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:30:30,254 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99574
+WARNING 2026-06-14 19:30:30,456 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:30:30,456 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:30:32,351 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99569
+WARNING 2026-06-14 19:30:32,494 log 80818 6221197312 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 19:30:32,494 log 80818 6221197312 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 19:30:43,967 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99569
+INFO 2026-06-14 19:30:46,923 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99569
+INFO 2026-06-14 19:30:47,130 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99569
+INFO 2026-06-14 19:30:47,227 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99569
+INFO 2026-06-14 19:31:40,276 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99115
+ERROR 2026-06-14 19:31:58,393 log 80818 6221197312 Internal Server Error: /tenants/list/ui/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/urls/base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'tenants'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_list_view.py", line 62, in get
+    return render(request, "pages/list.html", context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 249, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/urls/base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'tenants' is not a registered namespace
+ERROR 2026-06-14 19:31:58,399 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 500 263083
+INFO 2026-06-14 19:32:09,047 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:32:44,289 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:32:45,686 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:33:53,316 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:33:56,701 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:13,265 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:15,266 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:16,283 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:20,260 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:21,239 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:22,253 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:26,258 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:29,580 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:31,262 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:34,245 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:37,258 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:40,297 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:42,230 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:48,517 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:50,309 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:53,566 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:55,565 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:34:59,327 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:35:02,533 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99478
+INFO 2026-06-14 19:35:09,248 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:35:51,336 log 80818 6221197312 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:35:51,502 autoreload 80818 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:35:53,197 autoreload 22584 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:35:59,633 autoreload 22584 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:36:00,384 autoreload 22670 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:36:05,457 log 22670 6194147328 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:36:17,260 log 22670 6194147328 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:36:17,291 autoreload 22670 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:36:18,296 autoreload 22815 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:36:19,230 log 22815 6165131264 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:36:22,814 autoreload 22815 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:36:23,988 autoreload 22870 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:36:24,310 log 22870 6196424704 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:36:32,815 autoreload 22870 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:36:33,573 autoreload 22966 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:36:34,312 log 22966 6195245056 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:36:52,285 log 22966 6195245056 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:36:52,437 autoreload 22966 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:36:53,549 autoreload 23159 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:36:54,885 autoreload 23159 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:36:55,512 autoreload 23177 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:36:56,382 log 23177 6195523584 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:37:14,463 autoreload 23177 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:37:15,158 autoreload 23346 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:37:16,487 autoreload 23346 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:37:17,159 autoreload 23369 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:37:21,430 log 23369 6137245696 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:37:23,272 log 23369 6137245696 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:37:23,831 autoreload 23369 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:37:25,094 autoreload 23444 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:37:25,602 log 23444 6138327040 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:37:29,000 autoreload 23444 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:37:30,028 autoreload 23483 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:37:35,475 log 23483 6132183040 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:37:36,038 autoreload 23483 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:37:37,160 autoreload 23563 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:37:38,325 log 23563 6204092416 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:38:18,239 log 23563 6204092416 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 19:38:18,253 autoreload 23563 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:38:19,406 autoreload 23874 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:38:20,667 autoreload 23874 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:38:21,210 autoreload 23899 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:38:23,539 autoreload 23899 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:38:25,037 autoreload 23918 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 19:38:26,705 autoreload 23918 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 19:38:27,282 autoreload 23958 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:37:30,167 log 23958 6191591424 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:37:30,381 log 23958 6208417792 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-14 20:37:30,381 log 23958 6191591424 "GET /media/logo/a36cb584-ce2c-419f-831d-916abcfbe01d.jpg HTTP/1.1" 304 0
+INFO 2026-06-14 20:37:32,072 log 23958 6191591424 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:37:35,195 log 23958 6191591424 "GET /tenants/detail/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 92713
+INFO 2026-06-14 20:37:38,194 log 23958 6191591424 "GET /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97156
+INFO 2026-06-14 20:37:43,498 log 23958 6191591424 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:39:06,604 autoreload 23958 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:39:08,052 autoreload 26196 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:09,324 autoreload 26196 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:39:09,975 autoreload 26243 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:12,317 autoreload 26243 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:39:12,801 autoreload 26296 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:17,211 autoreload 26296 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:39:18,077 autoreload 26384 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:35,879 autoreload 26384 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:39:36,576 autoreload 26557 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:50,293 autoreload 26557 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:39:51,009 autoreload 26675 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:52,289 autoreload 26675 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:39:52,743 autoreload 26693 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:54,954 autoreload 26693 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:39:55,514 autoreload 26712 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:39:58,708 autoreload 26712 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:39:59,579 autoreload 26746 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:40:02,828 autoreload 26746 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:40:03,662 autoreload 26775 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:40:05,843 autoreload 26775 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:40:06,352 autoreload 26806 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:40:11,718 autoreload 26806 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:40:12,274 autoreload 26855 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:40:14,447 autoreload 26855 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:40:15,194 autoreload 26873 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:40:16,353 autoreload 26873 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:40:17,204 autoreload 26889 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:40:18,388 autoreload 26889 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:40:18,897 autoreload 26903 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:40:23,126 autoreload 26903 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:40:23,878 autoreload 26938 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:41:01,157 autoreload 26938 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:41:01,946 autoreload 27216 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:41:06,372 autoreload 27216 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:41:07,320 autoreload 27268 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:41:09,774 autoreload 27268 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:41:10,717 autoreload 27290 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:41:14,139 autoreload 27290 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:41:14,785 autoreload 27322 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:41:16,281 autoreload 27322 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:41:17,011 autoreload 27339 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:41:19,483 autoreload 27339 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:41:20,195 autoreload 27373 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:41:22,652 autoreload 27373 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:41:23,264 autoreload 27391 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:42:53,542 autoreload 27391 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:42:54,477 autoreload 28076 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:42:55,875 autoreload 28076 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 20:42:56,401 autoreload 28099 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:21,523 autoreload 28099 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:22,558 autoreload 28347 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:32,135 autoreload 28347 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:32,812 autoreload 28497 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:33,970 autoreload 28497 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:34,446 autoreload 28523 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:36,640 autoreload 28523 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:37,161 autoreload 28549 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:43,835 autoreload 28549 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:44,787 autoreload 28626 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:47,231 autoreload 28626 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:47,767 autoreload 28670 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:51,201 autoreload 28670 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:51,730 autoreload 28710 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:43:55,096 autoreload 28710 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:43:55,977 autoreload 28749 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:44:00,444 autoreload 28749 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:44:01,056 autoreload 28800 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:44:02,365 autoreload 28800 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:44:02,927 autoreload 28825 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:44:11,685 autoreload 28825 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:44:12,546 autoreload 28911 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:44:13,935 autoreload 28911 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:44:14,550 autoreload 28936 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:45:03,459 autoreload 28936 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:45:04,440 autoreload 29327 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:45:17,235 autoreload 29327 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:45:17,950 autoreload 29455 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:06,772 autoreload 29455 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:07,561 autoreload 29811 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:13,984 autoreload 29811 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:14,794 autoreload 29887 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:19,291 autoreload 29887 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:20,183 autoreload 29934 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:21,543 autoreload 29934 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:22,030 autoreload 29957 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:26,548 autoreload 29957 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:27,551 autoreload 30022 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:33,972 autoreload 30022 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:34,481 autoreload 30096 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:38,953 autoreload 30096 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:39,503 autoreload 30145 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:49,059 autoreload 30145 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:49,954 autoreload 30252 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:53,196 autoreload 30252 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:54,221 autoreload 30311 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:46:56,459 autoreload 30311 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:46:56,944 autoreload 30361 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:47:06,824 autoreload 30361 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:47:07,537 autoreload 30493 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:47:12,927 autoreload 30493 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:47:13,751 autoreload 30562 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:48:54,374 autoreload 30562 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:48:55,318 autoreload 31310 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:48:57,781 autoreload 31310 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:48:58,484 autoreload 31354 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:00,939 autoreload 31354 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:01,685 autoreload 31405 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:04,114 autoreload 31405 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:05,421 autoreload 31445 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:07,004 autoreload 31445 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:08,183 autoreload 31476 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:10,611 autoreload 31476 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:11,592 autoreload 31532 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:13,987 autoreload 31532 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:14,702 autoreload 31577 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:16,064 autoreload 31577 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:17,115 autoreload 31606 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:22,741 autoreload 31606 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:24,108 autoreload 31675 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:26,487 autoreload 31675 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:49:27,299 autoreload 31699 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:49:56,709 autoreload 31699 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:49:57,411 autoreload 31944 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:50:02,834 autoreload 31944 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:50:03,697 autoreload 32001 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:50:05,575 log 32001 6190133248 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:50:07,082 log 32001 6190133248 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:01,439 log 32001 6190133248 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:01,896 autoreload 32001 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:03,274 autoreload 32466 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:51:06,787 autoreload 32466 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:07,349 autoreload 32505 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:51:08,731 log 32505 6166441984 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:17,511 log 32505 6166441984 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:17,599 autoreload 32505 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:20,077 autoreload 32632 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:51:24,476 autoreload 32632 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:25,851 autoreload 32680 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:51:30,818 log 32680 6137196544 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:39,142 autoreload 32680 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:39,952 autoreload 32842 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:51:40,592 log 32842 6166573056 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:48,456 log 32842 6166573056 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:48,577 autoreload 32842 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:50,583 autoreload 32952 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:51:57,165 autoreload 32952 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:57,947 autoreload 33017 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:51:58,514 log 33017 6170406912 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:51:59,255 autoreload 33017 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:51:59,999 autoreload 33042 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:52:01,681 log 33042 6198407168 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:52:02,352 autoreload 33042 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:52:04,309 autoreload 33078 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:52:05,104 log 33078 6166622208 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:52:06,095 autoreload 33078 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:52:07,208 autoreload 33119 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:52:08,606 log 33119 6198145024 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:52:15,434 log 33119 6198145024 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:52:15,467 autoreload 33119 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:52:17,260 autoreload 33216 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:52:23,294 autoreload 33216 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:52:23,989 autoreload 33293 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:52:24,686 log 33293 6203109376 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:52:53,776 log 33293 6203109376 "GET /tenants/detail/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 92713
+INFO 2026-06-14 20:53:04,186 log 33293 6203109376 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:53:08,978 log 33293 6203109376 "GET /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97156
+INFO 2026-06-14 20:53:15,097 log 33293 6203109376 "POST /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97491
+INFO 2026-06-14 20:53:21,636 log 33293 6203109376 "POST /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97491
+INFO 2026-06-14 20:53:30,953 log 33293 6203109376 "POST /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97334
+INFO 2026-06-14 20:53:40,977 log 33293 6203109376 "POST /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97491
+INFO 2026-06-14 20:53:44,129 log 33293 6203109376 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:55:22,708 log 33293 6203109376 "GET /tenants/list/ui/ HTTP/1.1" 200 99477
+INFO 2026-06-14 20:55:22,721 autoreload 33293 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 20:55:24,640 autoreload 34734 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:55:31,144 autoreload 34734 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 20:55:31,894 autoreload 34793 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:55:52,037 autoreload 34793 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:55:52,711 autoreload 34976 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:55:54,988 autoreload 34976 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:55:55,740 autoreload 35000 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:56:00,489 autoreload 35000 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:56:00,964 autoreload 35052 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:56:03,437 autoreload 35052 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:56:03,929 autoreload 35073 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:56:12,476 autoreload 35073 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:56:12,945 autoreload 35160 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:56:18,305 autoreload 35160 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:56:19,293 autoreload 35213 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:56:21,729 autoreload 35213 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/urls/tenants/urls.py changed, reloading.
+INFO 2026-06-14 20:56:22,175 autoreload 35235 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 20:57:28,800 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 99235
+INFO 2026-06-14 20:59:55,177 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 98787
+INFO 2026-06-14 21:00:20,691 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 98795
+INFO 2026-06-14 21:00:24,497 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:00:37,678 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:00:37,948 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:00:38,158 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:00:48,674 log 35235 6221443072 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:00:48,708 log 35235 6221443072 "GET /tenants/list/ui/ HTTP/1.1" 200 99167
+INFO 2026-06-14 21:06:15,177 autoreload 35235 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:06:16,591 autoreload 39750 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:06:17,883 autoreload 39750 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:06:18,471 autoreload 39774 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:06:19,703 autoreload 39774 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:06:20,208 autoreload 39791 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:06:22,592 autoreload 39791 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:06:23,140 autoreload 39826 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:06:26,690 log 39826 6170914816 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:06:28,030 log 39826 6170914816 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:06:29,553 log 39826 6170914816 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:06:35,798 log 39826 6170914816 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:06:35,876 log 39826 6170914816 "GET /tenants/list/ui/ HTTP/1.1" 200 99167
+INFO 2026-06-14 21:09:41,738 autoreload 39826 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:09:42,790 autoreload 41227 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:09:56,575 autoreload 41227 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:09:57,255 autoreload 41383 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:09:58,405 autoreload 41383 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:09:58,841 autoreload 41412 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:11:03,501 log 41412 6167605248 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:11:04,535 log 41412 6167605248 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:11:09,567 log 41412 6167605248 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:11:09,596 log 41412 6167605248 "GET /tenants/list/ui/ HTTP/1.1" 200 90535
+INFO 2026-06-14 21:11:37,750 log 41412 6167605248 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:12:05,625 autoreload 41412 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:12:06,617 autoreload 42295 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:12:08,164 log 42295 6191280128 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:12:43,046 autoreload 42295 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 21:12:44,017 autoreload 42579 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:12:44,536 log 42579 6171488256 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:12:45,873 log 42579 6171488256 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:12:48,476 log 42579 6171488256 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:12:48,584 autoreload 42579 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 21:12:50,003 autoreload 42632 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:12:50,503 log 42632 6127087616 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:12:54,495 log 42632 6127087616 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:12:57,988 autoreload 42632 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 21:12:58,996 autoreload 42705 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:13:00,244 log 42705 6136213504 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:13:03,039 log 42705 6136213504 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:13:08,178 log 42705 6136213504 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:13:08,209 log 42705 6136213504 "GET /tenants/list/ui/ HTTP/1.1" 200 90535
+INFO 2026-06-14 21:13:25,384 log 42705 6136213504 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:14:06,991 autoreload 42705 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 21:14:07,928 autoreload 43243 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:14:08,577 log 43243 6205911040 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:14:08,740 log 43243 6205911040 "GET /media/logo/a36cb584-ce2c-419f-831d-916abcfbe01d.jpg HTTP/1.1" 304 0
+INFO 2026-06-14 21:14:15,721 log 43243 6205911040 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:14:15,774 log 43243 6205911040 "GET /tenants/list/ui/ HTTP/1.1" 200 90221
+INFO 2026-06-14 21:14:26,852 log 43243 6205911040 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:16:33,039 autoreload 43243 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 21:16:34,024 autoreload 44324 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:16:34,627 log 44324 6137589760 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:16:36,032 log 44324 6137589760 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:16:36,321 autoreload 44324 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 21:16:37,021 autoreload 44366 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:18:03,636 log 44366 6138474496 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:18:04,254 autoreload 44366 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 21:18:05,503 autoreload 45066 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:18:07,011 log 45066 6194851840 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:18:08,231 autoreload 45066 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 21:18:09,782 autoreload 45114 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:18:10,101 log 45114 6163869696 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:18:11,624 log 45114 6163869696 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:19:29,794 autoreload 45114 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 21:19:31,081 autoreload 45739 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:19:33,286 autoreload 45739 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 21:19:33,804 autoreload 45785 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:19:35,142 autoreload 45785 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 21:19:36,017 autoreload 45805 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:19:36,826 log 45805 6160445440 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:19:39,487 log 45805 6160445440 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:19:45,711 autoreload 45805 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_module_provider.py changed, reloading.
+INFO 2026-06-14 21:19:46,702 autoreload 45897 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:19:48,267 log 45897 6133673984 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:19:54,316 autoreload 45897 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_module_provider.py changed, reloading.
+INFO 2026-06-14 21:19:55,135 autoreload 45970 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:19:55,691 log 45970 6134575104 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:19:56,930 log 45970 6134575104 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:00,486 log 45970 6134575104 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:00,672 autoreload 45970 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_module_provider.py changed, reloading.
+INFO 2026-06-14 21:20:01,884 autoreload 46023 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:03,243 autoreload 46023 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_module_provider.py changed, reloading.
+INFO 2026-06-14 21:20:04,004 autoreload 46047 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:04,671 log 46047 6204354560 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:06,346 autoreload 46047 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_module_provider.py changed, reloading.
+INFO 2026-06-14 21:20:07,282 autoreload 46083 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:08,563 log 46083 6133575680 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:10,426 log 46083 6133575680 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:10,909 autoreload 46083 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_module_provider.py changed, reloading.
+INFO 2026-06-14 21:20:11,900 autoreload 46121 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:25,811 autoreload 46121 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_invitation_provider.py changed, reloading.
+INFO 2026-06-14 21:20:26,611 autoreload 46232 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:27,584 log 46232 6139031552 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:27,778 log 46232 6139031552 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-14 21:20:27,886 autoreload 46232 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_invitation_provider.py changed, reloading.
+INFO 2026-06-14 21:20:30,071 autoreload 46259 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:30,996 log 46259 6127874048 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:31,861 autoreload 46259 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_module_provider.py changed, reloading.
+INFO 2026-06-14 21:20:34,037 autoreload 46319 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:36,445 autoreload 46319 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_feature_flag_provider.py changed, reloading.
+INFO 2026-06-14 21:20:37,283 autoreload 46352 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:39,193 log 46352 6195621888 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:40,753 log 46352 6195621888 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:41,645 log 46352 6195621888 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:42,060 autoreload 46352 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_audit_log_provider.py changed, reloading.
+INFO 2026-06-14 21:20:43,699 autoreload 46405 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:20:44,602 log 46405 6132805632 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:49,125 log 46405 6132805632 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:50,900 log 46405 6132805632 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:51,217 log 46405 6132805632 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:51,333 log 46405 6132805632 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:20:53,162 log 46405 6132805632 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:35:53,182 autoreload 46405 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:35:55,060 autoreload 52545 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:35:55,733 log 52545 6170030080 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:36:02,602 log 52545 6170030080 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:36:02,622 autoreload 52545 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:36:03,651 autoreload 52735 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:36:19,572 log 52735 6132396032 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:36:19,696 autoreload 52735 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:36:21,648 autoreload 52883 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:36:26,112 autoreload 52883 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:36:27,122 autoreload 52951 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:37:04,069 autoreload 52951 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:37:05,243 autoreload 53310 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:37:42,829 autoreload 53310 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:37:43,650 autoreload 53598 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:37:45,835 autoreload 53598 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:37:46,490 autoreload 53659 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:38:06,546 autoreload 53659 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:38:07,532 autoreload 53843 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:38:13,119 log 53843 6193082368 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:38:14,710 log 53843 6193082368 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:38:15,862 log 53843 6193082368 "GET /tenants/list/ui/ HTTP/1.1" 200 98809
+INFO 2026-06-14 21:38:23,810 log 53843 6193082368 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:38:23,848 log 53843 6193082368 "GET /tenants/list/ui/ HTTP/1.1" 200 99150
+INFO 2026-06-14 21:40:12,879 log 53843 6193082368 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:40:18,226 log 53843 6193082368 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:40:18,262 log 53843 6193082368 "GET /tenants/list/ui/ HTTP/1.1" 200 99144
+INFO 2026-06-14 21:41:37,747 autoreload 53843 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 21:41:38,917 autoreload 55325 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:41:41,195 autoreload 55325 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 21:41:41,841 autoreload 55362 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:41:45,801 log 55362 6127431680 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:41:46,818 log 55362 6127431680 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:41:52,861 log 55362 6127431680 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:41:52,896 log 55362 6127431680 "GET /tenants/list/ui/ HTTP/1.1" 200 99144
+INFO 2026-06-14 21:42:36,068 autoreload 55362 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:42:37,189 autoreload 55775 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:42:38,495 autoreload 55775 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:42:39,163 autoreload 55814 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:42:40,469 autoreload 55814 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_soft_delete_view.py changed, reloading.
+INFO 2026-06-14 21:42:40,935 autoreload 55838 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:42:55,988 log 55838 6158217216 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:42:57,039 log 55838 6158217216 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:43:01,533 log 55838 6158217216 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:43:01,564 log 55838 6158217216 "GET /tenants/list/ui/ HTTP/1.1" 200 99144
+INFO 2026-06-14 21:45:00,343 autoreload 55838 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 21:45:01,403 autoreload 56863 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 21:45:07,095 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:45:12,623 log 56863 6164967424 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 21:45:12,668 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 99144
+INFO 2026-06-14 21:45:21,542 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:46:06,270 log 56863 6164967424 "GET /tenants/detail/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 92713
+INFO 2026-06-14 21:46:13,379 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:57:16,599 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 21:57:16,835 log 56863 6164967424 "GET /media/logo/a36cb584-ce2c-419f-831d-916abcfbe01d.jpg HTTP/1.1" 304 0
+INFO 2026-06-14 22:00:47,073 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:02:23,835 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:02:28,370 log 56863 6164967424 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:02:28,410 log 56863 6164967424 "GET /tenants/list/ui/ HTTP/1.1" 200 99144
+INFO 2026-06-14 22:03:27,758 autoreload 56863 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:03:29,737 autoreload 62602 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:03:31,943 autoreload 62602 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:03:32,550 autoreload 62637 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:03:34,763 autoreload 62637 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:03:35,609 autoreload 62658 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:03:37,786 autoreload 62658 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:03:38,962 autoreload 62685 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:03:40,534 autoreload 62685 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:03:41,053 autoreload 62707 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:03:45,335 log 62707 6197489664 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:03:46,726 log 62707 6197489664 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:03:50,388 log 62707 6197489664 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:03:50,439 log 62707 6197489664 "GET /tenants/list/ui/ HTTP/1.1" 200 99190
+INFO 2026-06-14 22:04:24,456 autoreload 62707 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:04:25,862 autoreload 63031 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:35:02,537 log 63031 6183120896 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:35:02,761 log 63031 6183120896 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-14 22:35:07,557 log 63031 6183120896 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:35:07,595 log 63031 6183120896 "GET /tenants/list/ui/ HTTP/1.1" 200 99144
+INFO 2026-06-14 22:35:49,900 log 63031 6183120896 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:35:50,530 autoreload 63031 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/__init__.py changed, reloading.
+INFO 2026-06-14 22:35:53,364 autoreload 70534 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:36:07,677 log 70534 6156693504 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:36:09,063 log 70534 6156693504 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:37:07,645 autoreload 70534 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:08,678 autoreload 71068 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:37:10,942 autoreload 71068 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:11,589 autoreload 71090 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:37:16,884 autoreload 71090 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:17,609 autoreload 71137 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:37:18,756 autoreload 71137 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:19,591 autoreload 71153 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:37:20,745 autoreload 71153 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:21,431 autoreload 71167 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:37:23,600 autoreload 71167 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:24,192 autoreload 71202 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:37:26,392 autoreload 71202 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:27,045 autoreload 71218 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:37:28,169 autoreload 71218 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:37:28,729 autoreload 71238 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:38:08,365 autoreload 71238 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:38:09,234 autoreload 71552 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:38:15,658 autoreload 71552 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:38:16,328 autoreload 71602 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:38:18,606 autoreload 71602 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:38:19,265 autoreload 71636 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:38:57,940 autoreload 71636 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:38:58,723 autoreload 71903 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:39:00,076 autoreload 71903 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:39:00,612 autoreload 71926 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:39:03,053 autoreload 71926 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/providers/tenant_provider.py changed, reloading.
+INFO 2026-06-14 22:39:04,483 autoreload 71956 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:39:22,789 log 71956 6166605824 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:39:24,015 log 71956 6166605824 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:39:28,234 log 71956 6166605824 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:39:28,266 log 71956 6166605824 "GET /tenants/list/ui/ HTTP/1.1" 200 90197
+INFO 2026-06-14 22:39:50,155 log 71956 6166605824 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:40:21,124 autoreload 71956 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:40:22,020 autoreload 72488 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:40:22,875 log 72488 6167932928 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:42:10,062 autoreload 72488 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:42:11,168 autoreload 73327 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:42:12,384 log 73327 6200979456 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:42:12,647 log 73327 6200979456 "GET /media/logo/a36cb584-ce2c-419f-831d-916abcfbe01d.jpg HTTP/1.1" 304 0
+INFO 2026-06-14 22:42:14,762 log 73327 6200979456 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:42:14,830 autoreload 73327 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:42:16,102 autoreload 73404 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:42:23,580 autoreload 73404 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:42:24,478 autoreload 73488 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:42:25,894 log 73488 6128414720 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:42:27,102 autoreload 73488 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:42:28,139 autoreload 73576 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:42:28,963 log 73576 6201798656 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:42:46,802 log 73576 6201798656 "POST /tenants/hard_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:42:46,848 log 73576 6201798656 "GET /tenants/list/ui/ HTTP/1.1" 200 99192
+INFO 2026-06-14 22:43:25,402 autoreload 73576 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:43:26,482 autoreload 74005 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:43:26,953 log 74005 6170996736 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:43:31,974 autoreload 74005 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:43:33,073 autoreload 74062 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:43:38,459 log 74062 6123630592 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:43:38,730 autoreload 74062 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:43:39,712 autoreload 74113 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:43:40,988 log 74113 6163640320 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:43:45,381 autoreload 74113 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:43:46,093 autoreload 74176 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:43:46,884 log 74176 6125481984 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:44:09,097 autoreload 74176 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:44:10,301 autoreload 74347 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:44:11,045 log 74347 6127071232 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:44:18,992 autoreload 74347 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:44:20,091 autoreload 74438 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:44:20,957 log 74438 6167982080 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:44:22,974 log 74438 6167982080 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:44:26,839 log 74438 6167982080 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:44:26,859 autoreload 74438 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/services/tenant_action_service.py changed, reloading.
+INFO 2026-06-14 22:44:28,639 autoreload 74510 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:44:43,009 autoreload 74510 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_hard_delete_view.py changed, reloading.
+INFO 2026-06-14 22:44:44,117 autoreload 74677 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:44:44,999 log 74677 6206205952 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:45:04,375 log 74677 6206205952 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:45:09,023 log 74677 6206205952 "POST /tenants/hard_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:45:09,062 log 74677 6206205952 "GET /tenants/list/ui/ HTTP/1.1" 200 90221
+INFO 2026-06-14 22:45:12,712 log 74677 6206205952 "GET /tenants/list/ui/ HTTP/1.1" 200 89875
+INFO 2026-06-14 22:47:42,753 autoreload 74677 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:47:44,197 autoreload 75947 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:48:11,458 autoreload 75947 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:48:12,806 autoreload 76173 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:48:45,989 log 76173 6162984960 "GET /tenants/list/ui/ HTTP/1.1" 200 89875
+INFO 2026-06-14 22:48:47,316 log 76173 6162984960 "GET /tenants/list/ui/ HTTP/1.1" 200 89875
+INFO 2026-06-14 22:49:27,574 log 76173 6162984960 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:49:28,100 autoreload 76173 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:49:29,579 autoreload 76737 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:49:41,320 autoreload 76737 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:49:42,276 autoreload 76841 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:49:46,003 autoreload 76841 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/repositories/implement/tenant_repository_impl.py changed, reloading.
+INFO 2026-06-14 22:49:46,753 autoreload 76896 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:49:48,250 log 76896 6192574464 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:49:49,573 log 76896 6192574464 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:49:53,069 log 76896 6192574464 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:49:56,770 log 76896 6192574464 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:50:08,652 log 76896 6192574464 "POST /tenants/hard_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:50:08,684 log 76896 6192574464 "GET /tenants/list/ui/ HTTP/1.1" 200 90221
+INFO 2026-06-14 22:51:55,708 autoreload 76896 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:51:56,773 autoreload 77808 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:52:05,335 autoreload 77808 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:52:06,027 autoreload 77891 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:52:08,307 autoreload 77891 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:52:08,968 autoreload 77913 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:52:12,320 autoreload 77913 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:52:12,950 autoreload 77951 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:52:19,374 autoreload 77951 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:52:20,386 autoreload 78019 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:52:29,655 autoreload 78019 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:52:30,666 autoreload 78107 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:52:31,828 autoreload 78107 8309071488 /Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/application/usecases/tenants/hard_delete_usecase.py changed, reloading.
+INFO 2026-06-14 22:52:32,299 autoreload 78137 8309071488 Watching for file changes with StatReloader
+INFO 2026-06-14 22:52:46,471 log 78137 6203142144 "GET /tenants/list/ui/ HTTP/1.1" 200 89875
+INFO 2026-06-14 22:52:47,769 log 78137 6203142144 "GET /tenants/list/ui/ HTTP/1.1" 200 89875
+INFO 2026-06-14 22:52:55,291 log 78137 6203142144 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 22:53:00,220 log 78137 6203142144 "POST /tenants/hard_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 22:53:00,252 log 78137 6203142144 "GET /tenants/list/ui/ HTTP/1.1" 200 90221
+INFO 2026-06-14 22:55:38,286 log 78137 6203142144 "GET /tenants/list/ui/ HTTP/1.1" 200 89875
+INFO 2026-06-14 22:55:48,032 log 78137 6203142144 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 23:04:18,670 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99048
+INFO 2026-06-14 23:04:21,743 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99088
+INFO 2026-06-14 23:04:23,522 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99088
+WARNING 2026-06-14 23:04:28,603 log 78137 6219968512 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 23:04:28,606 log 78137 6219968512 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 23:04:35,357 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99088
+WARNING 2026-06-14 23:04:35,499 log 78137 6219968512 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 23:04:35,501 log 78137 6219968512 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 23:04:38,397 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99088
+WARNING 2026-06-14 23:04:38,499 log 78137 6219968512 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 23:04:38,500 log 78137 6219968512 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 23:04:40,137 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99088
+WARNING 2026-06-14 23:04:40,230 log 78137 6219968512 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 23:04:40,231 log 78137 6219968512 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 23:06:30,190 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99088
+WARNING 2026-06-14 23:06:30,297 log 78137 6219968512 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-14 23:06:30,300 log 78137 6219968512 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-14 23:06:34,471 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99088
+INFO 2026-06-14 23:07:16,051 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 23:07:41,221 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98803
+INFO 2026-06-14 23:09:22,362 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98994
+INFO 2026-06-14 23:09:27,965 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98994
+INFO 2026-06-14 23:09:52,992 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98994
+INFO 2026-06-14 23:09:55,604 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98994
+INFO 2026-06-14 23:09:57,648 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98994
+INFO 2026-06-14 23:10:00,221 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98994
+INFO 2026-06-14 23:10:03,503 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98994
+INFO 2026-06-14 23:10:20,985 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98999
+INFO 2026-06-14 23:10:24,959 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98999
+INFO 2026-06-14 23:10:32,965 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98999
+INFO 2026-06-14 23:10:35,939 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98999
+INFO 2026-06-14 23:10:37,937 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98999
+INFO 2026-06-14 23:10:40,956 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98999
+INFO 2026-06-14 23:10:44,960 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98995
+INFO 2026-06-14 23:10:54,398 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 98995
+ERROR 2026-06-14 23:11:56,859 log 78137 6219968512 Internal Server Error: /tenants/list/ui/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_list_view.py", line 62, in get
+    return render(request, "pages/list.html", context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1150, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 815, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaultfilters.py", line 91, in json_script
+    return _json_script(value, element_id)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/utils/html.py", line 103, in json_script
+    json_str = json.dumps(value, cls=encoder or DjangoJSONEncoder).translate(
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/serializers/json.py", line 113, in default
+    return super().default(o)
+           ~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type FallbackStorage is not JSON serializable
+ERROR 2026-06-14 23:11:56,890 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 500 214570
+ERROR 2026-06-14 23:12:08,437 log 78137 6219968512 Internal Server Error: /tenants/list/ui/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/tenants/views/tenants/tenant_list_view.py", line 62, in get
+    return render(request, "pages/list.html", context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django_components/util/django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 1150, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/base.py", line 815, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/template/defaultfilters.py", line 91, in json_script
+    return _json_script(value, element_id)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/utils/html.py", line 103, in json_script
+    json_str = json.dumps(value, cls=encoder or DjangoJSONEncoder).translate(
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/serializers/json.py", line 113, in default
+    return super().default(o)
+           ~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type FallbackStorage is not JSON serializable
+ERROR 2026-06-14 23:12:08,443 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 500 214529
+INFO 2026-06-14 23:13:59,725 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99395
+INFO 2026-06-14 23:14:03,114 log 78137 6219968512 "GET /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97748
+INFO 2026-06-14 23:14:06,023 log 78137 6219968512 "POST /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97822
+INFO 2026-06-14 23:14:09,743 log 78137 6219968512 "POST /tenants/update/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 97822
+INFO 2026-06-14 23:14:15,870 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 99395
+INFO 2026-06-14 23:14:20,768 log 78137 6219968512 "POST /tenants/soft_delete/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 302 0
+INFO 2026-06-14 23:14:20,806 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 90528
+INFO 2026-06-14 23:14:23,728 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 90467
+INFO 2026-06-14 23:14:27,934 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 90523
+INFO 2026-06-14 23:14:29,949 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 90466

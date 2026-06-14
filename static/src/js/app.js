@@ -12,3 +12,11 @@ Alpine.start()
 // Notyf
 import { showToast } from './components/notyf';
 window.showToast = showToast;
+
+// Backdrop
+import initBackdrop from './components/backdrop';
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Backdrop
+    initBackdrop();
+});
