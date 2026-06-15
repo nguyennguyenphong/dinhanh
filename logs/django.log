@@ -3141,3 +3141,352 @@ INFO 2026-06-15 16:15:39,562 log 10408 31576 "GET /menus/menu_groups/list/ui/ HT
 INFO 2026-06-15 16:15:44,896 log 10408 31044 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
 INFO 2026-06-15 16:15:46,519 log 10408 11352 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
 INFO 2026-06-15 16:15:50,140 log 10408 34860 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+INFO 2026-06-15 21:55:27,650 autoreload 5251 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 21:55:38,343 log 5251 6167441408 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-15 21:55:39,037 log 5251 6167441408 "GET /static/icons/close.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,038 log 5251 6184267776 "GET /static/icons/dashboard.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,041 log 5251 6184267776 "GET /static/icons/ticket.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,045 log 5251 6184267776 "GET /static/icons/schedule.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,047 log 5251 6184267776 "GET /static/icons/contract.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,047 log 5251 6201094144 "GET /static/icons/refund.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,048 log 5251 6167441408 "GET /static/icons/chevron-down.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,049 log 5251 6184267776 "GET /static/icons/map-seat.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,049 log 5251 6201094144 "GET /static/icons/advance-mg-vehicle.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,050 log 5251 6167441408 "GET /static/icons/consignment.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,050 log 5251 6217920512 "GET /static/icons/vehicle.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,052 log 5251 6184267776 "GET /static/icons/route.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,053 log 5251 6167441408 "GET /static/icons/hr.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,053 log 5251 6217920512 "GET /static/icons/shift.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,053 log 5251 6201094144 "GET /static/icons/moderation.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,053 log 5251 6184267776 "GET /static/icons/vouncher.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,057 log 5251 6234746880 "GET /static/icons/cost.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,073 log 5251 6167441408 "GET /static/icons/bell.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,073 log 5251 6217920512 "GET /static/icons/chart.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,074 log 5251 6201094144 "GET /static/icons/after-sales.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,075 log 5251 6184267776 "GET /static/icons/kpi.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,075 log 5251 6234746880 "GET /static/icons/payment.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,077 log 5251 6201094144 "GET /static/icons/invoice.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,077 log 5251 6234746880 "GET /static/icons/branch.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,079 log 5251 6234746880 "GET /static/icons/unit.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,079 log 5251 6184267776 "GET /static/icons/asset.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,079 log 5251 6217920512 "GET /static/icons/account.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,081 log 5251 6184267776 "GET /static/icons/company.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,081 log 5251 6167441408 "GET /static/icons/log.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,082 log 5251 6201094144 "GET /static/icons/permission.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,082 log 5251 6184267776 "GET /static/icons/person.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,083 log 5251 6167441408 "GET /static/icons/login.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,089 log 5251 6167441408 "GET /static/icons/logout.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,090 log 5251 6184267776 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:39,091 log 5251 6217920512 "GET /static/icons/search.svg HTTP/1.1" 200 265
+INFO 2026-06-15 21:55:39,091 log 5251 6234746880 "GET /static/icons/menu.svg HTTP/1.1" 200 353
+INFO 2026-06-15 21:55:39,466 log 5251 6234746880 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+WARNING 2026-06-15 21:55:40,427 log 5251 6217920512 Not Found: /favicon.ico
+WARNING 2026-06-15 21:55:40,430 log 5251 6217920512 "GET /favicon.ico HTTP/1.1" 404 4153
+INFO 2026-06-15 21:55:53,769 log 5251 6217920512 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:55:53,849 log 5251 6217920512 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:55:53,849 log 5251 6184267776 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:07,786 log 5251 6217920512 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 21:56:07,899 log 5251 6167441408 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:07,899 log 5251 6217920512 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:09,893 log 5251 6167441408 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 21:56:09,894 basehttp 5251 6167441408 - Broken pipe from ('127.0.0.1', 50256)
+INFO 2026-06-15 21:56:09,916 log 5251 6201094144 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 21:56:12,177 log 5251 6167441408 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:27,822 basehttp 5251 6217920512 - Broken pipe from ('127.0.0.1', 50928)
+INFO 2026-06-15 21:56:27,823 basehttp 5251 6234746880 - Broken pipe from ('127.0.0.1', 50933)
+INFO 2026-06-15 21:56:27,823 basehttp 5251 6201094144 - Broken pipe from ('127.0.0.1', 50927)
+INFO 2026-06-15 21:56:27,823 log 5251 6268399616 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:27,923 log 5251 6268399616 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:27,923 log 5251 6184841216 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:31,799 basehttp 5251 6268399616 - Broken pipe from ('127.0.0.1', 50935)
+INFO 2026-06-15 21:56:31,840 log 5251 6167441408 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:33,821 log 5251 6218493952 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:36,002 log 5251 6184267776 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:39,814 log 5251 6201094144 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:39,915 log 5251 6217920512 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:39,916 log 5251 6201094144 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:44,114 log 5251 6217920512 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:47,846 log 5251 6184267776 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91487
+INFO 2026-06-15 21:56:50,481 autoreload 5251 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/views/forms/menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 21:56:51,551 autoreload 5974 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 21:56:52,827 autoreload 5974 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/views/forms/menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 21:56:53,504 autoreload 5994 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 21:56:54,967 log 5994 6131363840 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91485
+INFO 2026-06-15 21:56:55,330 log 5994 6148190208 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:55,330 log 5994 6131363840 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:56:56,192 log 5994 6148190208 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91485
+INFO 2026-06-15 21:56:58,778 log 5994 6131363840 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 21:57:02,894 log 5994 6148190208 "GET /tenants/list/ui/ HTTP/1.1" 200 93329
+INFO 2026-06-15 21:57:02,947 log 5994 6148190208 "GET /static/icons/sort.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:57:05,549 log 5994 6131363840 "GET /tenants/list/ui/?search_tenant=&sort_by=&status=True&plan=TRIAL HTTP/1.1" 200 93365
+INFO 2026-06-15 21:57:07,478 log 5994 6148190208 "GET /tenants/list/ui/ HTTP/1.1" 200 93329
+INFO 2026-06-15 21:57:08,927 log 5994 6131363840 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:08,963 log 5994 6165016576 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:57:08,963 log 5994 6131363840 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:57:23,049 log 5994 6165016576 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:23,260 log 5994 6165016576 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:57:23,261 log 5994 6148190208 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:57:24,749 log 5994 6165016576 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:27,886 log 5994 6131363840 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:28,662 log 5994 6165016576 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:31,672 log 5994 6131363840 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:34,158 log 5994 6165016576 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:35,839 log 5994 6181842944 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:37,422 log 5994 6148190208 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:39,835 log 5994 6165016576 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:39,926 log 5994 6165016576 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:57:39,926 log 5994 6181842944 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:57:40,795 log 5994 6181842944 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:40,796 basehttp 5994 6181842944 - Broken pipe from ('127.0.0.1', 52047)
+INFO 2026-06-15 21:57:40,798 log 5994 6131363840 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:41,541 log 5994 6148190208 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:57:42,907 log 5994 6131363840 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 21:58:14,306 log 5994 6148190208 "POST /tenants/create/ HTTP/1.1" 200 100360
+INFO 2026-06-15 21:58:14,519 log 5994 6148190208 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:58:14,521 log 5994 6165016576 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:58:19,706 log 5994 6148190208 "GET /tenants/list/ui/ HTTP/1.1" 200 93329
+INFO 2026-06-15 21:58:22,814 log 5994 6131363840 "GET /tenants/list/ui/ HTTP/1.1" 200 93329
+INFO 2026-06-15 21:58:53,397 log 5994 6148190208 "GET /tenants/list/ui/ HTTP/1.1" 200 102257
+INFO 2026-06-15 21:58:53,500 log 5994 6148190208 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:58:53,501 log 5994 6165016576 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 21:58:53,506 log 5994 6198669312 "GET /media/logo/a36cb584-ce2c-419f-831d-916abcfbe01d.jpg HTTP/1.1" 200 140211
+INFO 2026-06-15 21:59:03,115 log 5994 6165016576 "GET /tenants/detail/a984b197-f145-49fb-8bc9-d2b04e37aaa9/ HTTP/1.1" 200 96167
+INFO 2026-06-15 21:59:06,991 log 5994 6148190208 "GET /tenants/list/ui/ HTTP/1.1" 200 102257
+INFO 2026-06-15 21:59:11,247 log 5994 6131363840 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 21:59:13,612 log 5994 6148190208 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91540
+ERROR 2026-06-15 21:59:48,812 log 5994 6131363840 Internal Server Error: /menus/menu_groups/create/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column menu_groups.deleted does not exist
+LINE 1: ...'dashboard' AND "menu_groups"."tenant_id" = 1 AND "menu_grou...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/views/menu_groups/menu_group_create_view.py", line 33, in post
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/forms/forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/forms/forms.py", line 201, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/forms/forms.py", line 339, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/forms/models.py", line 513, in _post_clean
+    self.validate_constraints()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/forms/models.py", line 533, in validate_constraints
+    self.instance.validate_constraints(exclude=exclude)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/models/base.py", line 1655, in validate_constraints
+    constraint.validate(model_class, self, exclude=exclude, using=using)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/models/constraints.py", line 646, in validate
+    if queryset.exists():
+       ~~~~~~~~~~~~~~~^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1337, in exists
+    return self.query.has_results(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 686, in has_results
+    return compiler.has_results()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1592, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column menu_groups.deleted does not exist
+LINE 1: ...'dashboard' AND "menu_groups"."tenant_id" = 1 AND "menu_grou...
+                                                             ^
+
+ERROR 2026-06-15 21:59:48,820 log 5994 6131363840 "POST /menus/menu_groups/create/ HTTP/1.1" 500 188672
+INFO 2026-06-15 22:09:39,649 autoreload 14924 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:10:03,945 log 14924 6138998784 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-15 22:10:04,211 log 14924 6138998784 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:10:04,231 log 14924 6138998784 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:10:08,908 log 14924 6155825152 "GET /tenants/create/ HTTP/1.1" 302 0
+WARNING 2026-06-15 22:10:08,919 log 14924 6155825152 Not Found: /accounts/login/
+WARNING 2026-06-15 22:10:08,919 log 14924 6155825152 "GET /accounts/login/?next=/tenants/create/ HTTP/1.1" 404 4187
+INFO 2026-06-15 22:10:12,726 log 14924 6138998784 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-15 22:10:13,011 log 14924 6138998784 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-06-15 22:10:13,033 log 14924 6138998784 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4312
+INFO 2026-06-15 22:10:13,043 log 14924 6138998784 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2026-06-15 22:10:13,044 log 14924 6189477888 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-06-15 22:10:13,044 log 14924 6172651520 "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2026-06-15 22:10:13,162 log 14924 6172651520 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-06-15 22:10:13,163 log 14924 6189477888 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-06-15 22:10:13,165 log 14924 6138998784 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16273
+INFO 2026-06-15 22:10:13,166 log 14924 6189477888 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-06-15 22:10:17,469 log 14924 6138998784 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4481
+INFO 2026-06-15 22:11:04,959 log 14924 6172651520 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-06-15 22:11:04,982 log 14924 6172651520 "GET /admin/ HTTP/1.1" 200 10453
+INFO 2026-06-15 22:11:05,021 log 14924 6172651520 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-06-15 22:11:05,024 log 14924 6172651520 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-06-15 22:11:05,024 log 14924 6223130624 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-06-15 22:11:05,024 log 14924 6206304256 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-06-15 22:11:05,025 log 14924 6155825152 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-06-15 22:11:05,025 log 14924 6189477888 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-06-15 22:11:05,052 log 14924 6189477888 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-06-15 22:11:05,055 log 14924 6155825152 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+INFO 2026-06-15 22:11:05,055 log 14924 6189477888 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+INFO 2026-06-15 22:11:05,056 log 14924 6206304256 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+INFO 2026-06-15 22:11:07,904 log 14924 6155825152 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-15 22:11:11,173 log 14924 6189477888 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-15 22:12:15,889 log 14924 6223130624 "POST /tenants/create/ HTTP/1.1" 302 0
+INFO 2026-06-15 22:12:15,931 log 14924 6223130624 "GET /tenants/list/ui/ HTTP/1.1" 200 102311
+INFO 2026-06-15 22:12:16,042 log 14924 6172651520 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:12:16,044 log 14924 6223130624 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:12:16,045 log 14924 6138998784 "GET /media/logo/ab015f0d-1983-4315-b96e-4324c3300818.jpg HTTP/1.1" 200 140211
+INFO 2026-06-15 22:12:37,444 log 14924 6223130624 "GET /tenants/detail/72ea35cc-997d-4897-9c8e-323b6a9b3e41/ HTTP/1.1" 200 96126
+INFO 2026-06-15 22:12:37,573 log 14924 6223130624 "GET /media/logo/ab015f0d-1983-4315-b96e-4324c3300818.jpg HTTP/1.1" 304 0
+INFO 2026-06-15 22:13:11,381 log 14924 6172651520 "GET /tenants/list/ui/ HTTP/1.1" 200 102254
+INFO 2026-06-15 22:13:11,489 log 14924 6172651520 "GET /media/logo/ab015f0d-1983-4315-b96e-4324c3300818.jpg HTTP/1.1" 304 0
+INFO 2026-06-15 22:13:15,712 log 14924 6138998784 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91540
+ERROR 2026-06-15 22:13:33,915 log 14924 6155825152 Internal Server Error: /menus/menu_groups/create/
+Traceback (most recent call last):
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/views/menu_groups/menu_group_create_view.py", line 34, in post
+    success = MenuGroupService.create_menu_group(request, form)
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py", line 46, in create_menu_group
+    form.add_error(field, errors)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/nguyennguyenphong/Documents/code/project/dinhanh/venv/lib/python3.13/site-packages/django/forms/forms.py", line 301, in add_error
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: 'MenuGroupBaseForm' has no field named 'tenant_id'.
+ERROR 2026-06-15 22:13:33,920 log 14924 6155825152 "POST /menus/menu_groups/create/ HTTP/1.1" 500 116003
+INFO 2026-06-15 22:14:57,275 autoreload 14924 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:14:58,312 autoreload 19760 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:14:58,743 log 19760 6143406080 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92775
+INFO 2026-06-15 22:14:59,006 log 19760 6143406080 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:14:59,346 log 19760 6160232448 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:15:00,730 autoreload 19760 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:15:01,484 autoreload 19783 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:16:04,447 log 19783 6198734848 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92775
+INFO 2026-06-15 22:16:42,704 autoreload 19783 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:16:43,870 autoreload 20828 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:16:47,130 autoreload 20828 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:16:47,585 autoreload 20870 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:16:59,120 autoreload 20870 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:16:59,836 autoreload 21007 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:17:01,126 autoreload 21007 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:17:01,614 autoreload 21041 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:17:04,915 autoreload 21041 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:17:05,479 autoreload 21072 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:17:06,728 autoreload 21072 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:17:07,239 autoreload 21096 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:17:08,389 autoreload 21096 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:17:08,859 autoreload 21121 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:17:11,012 autoreload 21121 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:17:11,466 autoreload 21147 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:17:13,746 autoreload 21147 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/serializers/menu_groups/menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-15 22:17:14,288 autoreload 21184 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:17:17,409 log 21184 6191214592 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:17:17,614 log 21184 6191214592 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:17:17,614 log 21184 6208040960 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:17:30,959 log 21184 6191214592 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:17:41,340 log 21184 6208040960 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:18:21,293 log 21184 6190641152 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:18:24,627 log 21184 6224293888 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:18:28,821 log 21184 6207467520 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:19:12,751 log 21184 6224293888 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:20:09,883 log 21184 6207467520 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:20:09,889 autoreload 21184 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py changed, reloading.
+INFO 2026-06-15 22:20:11,380 autoreload 22625 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:20:16,358 log 22625 6175617024 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:20:16,417 log 22625 6192443392 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:20:16,418 log 22625 6175617024 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:20:23,426 log 22625 6192443392 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:20:36,705 autoreload 22625 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py changed, reloading.
+INFO 2026-06-15 22:20:37,941 autoreload 22821 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:20:44,353 autoreload 22821 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py changed, reloading.
+INFO 2026-06-15 22:20:45,152 autoreload 22904 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:20:46,294 autoreload 22904 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py changed, reloading.
+INFO 2026-06-15 22:20:46,774 autoreload 22926 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:20:49,620 log 22926 6164836352 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:20:50,732 log 22926 6181662720 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:15,423 log 22926 6198489088 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:16,422 log 22926 6181089280 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:31,932 log 22926 6164262912 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:35,017 log 22926 6197915648 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:41,297 log 22926 6164262912 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:43,352 log 22926 6197915648 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:45,494 log 22926 6181089280 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92564
+INFO 2026-06-15 22:21:50,707 autoreload 22926 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py changed, reloading.
+INFO 2026-06-15 22:21:51,633 autoreload 23421 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:22:04,400 autoreload 23421 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py changed, reloading.
+INFO 2026-06-15 22:22:05,207 autoreload 23533 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:22:12,535 log 23533 6181859328 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92666
+INFO 2026-06-15 22:22:22,340 log 23533 6165032960 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92666
+INFO 2026-06-15 22:22:32,688 autoreload 23533 8405065344 /Users/nguyennguyenphong/Documents/code/project/dinhanh/menus/services/menu_group_service.py changed, reloading.
+INFO 2026-06-15 22:22:33,465 autoreload 23764 8405065344 Watching for file changes with StatReloader
+INFO 2026-06-15 22:22:34,082 basehttp 23764 6186201088 - Broken pipe from ('127.0.0.1', 55116)
+INFO 2026-06-15 22:22:34,083 log 23764 6203027456 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92666
+INFO 2026-06-15 22:24:54,459 log 23764 6169374720 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92666
+INFO 2026-06-15 22:24:54,549 log 23764 6169374720 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:24:54,549 log 23764 6186201088 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:24:58,072 log 23764 6169374720 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 22:24:59,948 log 23764 6186201088 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91540
+INFO 2026-06-15 22:25:17,125 log 23764 6169374720 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91752
+INFO 2026-06-15 22:25:22,258 log 23764 6186201088 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91752
+INFO 2026-06-15 22:25:24,366 log 23764 6169374720 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 22:25:25,818 log 23764 6186201088 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91540
+INFO 2026-06-15 22:30:26,924 log 23764 6169374720 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91540
+INFO 2026-06-15 22:30:27,206 log 23764 6169374720 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 22:30:27,206 log 23764 6219853824 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 23:06:32,808 log 23764 6169374720 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91540
+INFO 2026-06-15 23:06:32,902 log 23764 6169374720 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 23:06:32,902 log 23764 6186201088 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 23:06:57,785 log 23764 6169374720 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92666

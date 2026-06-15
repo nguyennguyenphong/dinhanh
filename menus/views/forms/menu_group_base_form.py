@@ -20,7 +20,7 @@ class TailwindFormMixin:
         )
 
         placeholders = {
-            "code": "Ví dụ: TRANGCHU, DANGNHAP",
+            "code": "Ví dụ: dashboard, login",
             "label": "Tên nhóm menu",
         }
 

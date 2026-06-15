@@ -11,10 +11,10 @@ from rest_framework import serializers
 class MenuGroupCreateSerializer(serializers.Serializer):
     """Validates data when creating a new MenuGroup from a Form."""
 
-    tenant_id = serializers.IntegerField(
+    tenant = serializers.IntegerField(
         required=True,
         min_value=1,
-        error_messages={"min_value": "Invalid tenant_id. Must be a positive integer."},
+        error_messages={"min_value": "Invalid tenant. Must be a positive integer."},
     )
     code = serializers.CharField(
         required=True,
@@ -33,7 +33,7 @@ class MenuGroupCreateSerializer(serializers.Serializer):
         error_messages={"required": "Label is required."},
     )
     icon = serializers.CharField(
-        required=False, allow_null=True, allow_blank=True, default=None, max_length=255
+        required=False, allow_null=True, allow_blank=True, default=None, min_length=5
     )
     sort_order = serializers.IntegerField(required=False, default=0)
     is_active = serializers.BooleanField(required=False, default=True)
