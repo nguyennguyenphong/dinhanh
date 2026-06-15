@@ -10,7 +10,6 @@ from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 
-
 class Invoice(models.Model):
     """
     Invoice model representing the official legal electronic VAT invoice ledger (Hóa đơn điện tử GTGT).
