@@ -1887,3 +1887,1082 @@ INFO 2026-06-15 11:10:29,137 log 12140 27996 "GET /menus/list/ui/ HTTP/1.1" 200 
 INFO 2026-06-15 11:10:29,550 log 12140 29144 "GET /menus/list/ui/ HTTP/1.1" 200 89796
 INFO 2026-06-15 11:10:40,899 log 12140 16936 "GET /menus/list/ui/ HTTP/1.1" 200 89796
 INFO 2026-06-15 11:10:56,890 log 12140 33844 "GET /menus/list/ui/ HTTP/1.1" 200 89796
+INFO 2026-06-15 11:14:55,146 autoreload 12140 35756 D:\Private\Files\file\dinhanh\payments\models\invoices.py changed, reloading.
+INFO 2026-06-15 11:14:57,945 autoreload 29052 10664 Watching for file changes with StatReloader
+INFO 2026-06-15 11:32:40,833 autoreload 19300 2624 Watching for file changes with StatReloader
+INFO 2026-06-15 11:33:04,649 log 19300 13324 "GET / HTTP/1.1" 200 95055
+INFO 2026-06-15 11:33:04,747 log 19300 15900 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:33:04,747 log 19300 13324 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:33:04,749 log 19300 17212 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 11:33:15,822 log 19300 17212 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 11:33:28,387 log 19300 15900 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89808
+INFO 2026-06-15 11:33:48,153 log 19300 13324 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89809
+INFO 2026-06-15 11:33:48,844 log 19300 27368 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89809
+INFO 2026-06-15 11:33:51,160 log 19300 18644 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89814
+INFO 2026-06-15 11:33:54,917 log 19300 21484 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89820
+ERROR 2026-06-15 11:34:02,191 log 19300 29560 Internal Server Error: /menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 24, in get
+    return render(request, "pages/create.html")
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'menu_list' not found. 'menu_list' is not a valid view function or pattern name.
+ERROR 2026-06-15 11:34:02,200 log 19300 29560 "GET /menu_groups/create/ HTTP/1.1" 500 187886
+INFO 2026-06-15 11:34:09,315 log 19300 33020 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89820
+INFO 2026-06-15 11:34:11,094 log 19300 4276 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89820
+ERROR 2026-06-15 11:34:20,397 log 19300 15664 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\accounts\views\auth\login.py", line 7, in login
+    return render(request, "pages/login.html")
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\node.py", line 131, in wrapper_render
+    output = orig_render(self, context, *args, **kwargs_dict)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\component.py", line 3632, in render
+    component_cls: type[Component] = self.registry.get(self.name)
+                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\component_registry.py", line 507, in get
+    raise NotRegistered(f'The component "{name}" is not registered')
+django_components.component_registry.NotRegistered: The component "input" is not registered
+ERROR 2026-06-15 11:34:20,403 log 19300 15664 "GET /auth/login/ HTTP/1.1" 500 196427
+ERROR 2026-06-15 11:34:26,020 log 19300 15664 Internal Server Error: /auth/register/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\accounts\views\auth\register.py", line 20, in register
+    return render(request, "pages/register.html", context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\node.py", line 131, in wrapper_render
+    output = orig_render(self, context, *args, **kwargs_dict)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\component.py", line 3632, in render
+    component_cls: type[Component] = self.registry.get(self.name)
+                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\component_registry.py", line 507, in get
+    raise NotRegistered(f'The component "{name}" is not registered')
+django_components.component_registry.NotRegistered: The component "input" is not registered
+ERROR 2026-06-15 11:34:26,025 log 19300 15664 "GET /auth/register/ HTTP/1.1" 500 209538
+INFO 2026-06-15 11:36:41,002 log 19300 15664 "GET /tenants/list/ui/ HTTP/1.1" 200 89820
+ERROR 2026-06-15 11:36:49,547 log 19300 13472 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 29, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'menu_list' not found. 'menu_list' is not a valid view function or pattern name.
+ERROR 2026-06-15 11:36:49,552 log 19300 13472 "GET /tenants/create/ HTTP/1.1" 500 193164
+ERROR 2026-06-15 11:36:54,742 log 19300 28960 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 29, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'menu_list' not found. 'menu_list' is not a valid view function or pattern name.
+ERROR 2026-06-15 11:36:54,747 log 19300 28960 "GET /tenants/create/ HTTP/1.1" 500 193164
+INFO 2026-06-15 11:40:17,644 log 19300 13140 "GET / HTTP/1.1" 200 95067
+INFO 2026-06-15 11:40:17,694 log 19300 13140 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:40:21,945 log 19300 7304 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89820
+INFO 2026-06-15 11:41:07,245 log 19300 9344 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89826
+INFO 2026-06-15 11:41:23,140 log 19300 2868 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89813
+INFO 2026-06-15 11:43:38,083 log 19300 31544 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89803
+INFO 2026-06-15 11:43:38,166 log 19300 16164 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89803
+INFO 2026-06-15 11:43:38,204 log 19300 16164 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:44:06,261 log 19300 20640 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89808
+INFO 2026-06-15 11:44:07,704 log 19300 35260 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89809
+INFO 2026-06-15 11:44:11,160 log 19300 2060 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89815
+INFO 2026-06-15 11:44:11,169 log 19300 32044 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89815
+INFO 2026-06-15 11:44:21,157 log 19300 27368 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89819
+INFO 2026-06-15 11:44:32,165 log 19300 3320 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89823
+INFO 2026-06-15 11:44:32,877 log 19300 22384 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89823
+ERROR 2026-06-15 11:44:59,173 log 19300 21208 Internal Server Error: /menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 234, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: components/breadcrumb/_menu_list_breadcrumb.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 16, in get
+    return render(request, "pages/list.html")
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: components/breadcrumb/_menu_list_breadcrumb.html
+ERROR 2026-06-15 11:44:59,178 log 19300 21208 "GET /menu_groups/list/ui/ HTTP/1.1" 500 197942
+INFO 2026-06-15 11:44:59,219 log 19300 21208 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+ERROR 2026-06-15 11:45:00,164 log 19300 18804 Internal Server Error: /menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 234, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: components/breadcrumb/_menu_list_breadcrumb.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 16, in get
+    return render(request, "pages/list.html")
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: components/breadcrumb/_menu_list_breadcrumb.html
+ERROR 2026-06-15 11:45:00,171 log 19300 18804 "GET /menu_groups/list/ui/ HTTP/1.1" 500 197942
+INFO 2026-06-15 11:45:06,904 log 19300 26204 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89823
+INFO 2026-06-15 11:45:07,195 log 19300 26204 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 11:45:31,150 log 19300 16208 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89823
+INFO 2026-06-15 11:45:31,877 log 19300 11424 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89823
+INFO 2026-06-15 11:45:35,147 log 19300 34720 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89823
+INFO 2026-06-15 11:45:51,167 log 19300 19640 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89829
+INFO 2026-06-15 11:45:51,254 log 19300 27720 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89829
+INFO 2026-06-15 11:45:56,959 log 19300 6988 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89833
+INFO 2026-06-15 11:46:00,494 log 19300 25392 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:46:06,111 log 19300 26124 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:46:30,497 log 19300 32060 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:46:33,494 log 19300 12652 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:54:46,170 log 19300 24392 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:54:46,219 log 19300 24392 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:54:46,228 log 19300 24392 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:54:46,980 log 19300 572 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:54:52,634 log 19300 14508 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:55:01,151 log 19300 11176 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:55:01,764 log 19300 25752 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:55:02,932 log 19300 32072 "GET /menu_groups/list/ui/ HTTP/1.1" 200 89839
+INFO 2026-06-15 11:56:36,720 log 19300 19840 "GET / HTTP/1.1" 200 95067
+INFO 2026-06-15 11:56:37,238 log 19300 20980 "GET / HTTP/1.1" 200 95067
+INFO 2026-06-15 11:56:40,387 log 19300 26080 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88388
+ERROR 2026-06-15 11:57:03,636 log 19300 22668 Internal Server Error: /menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 24, in get
+    return render(request, "pages/create.html")
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'menu_list' not found. 'menu_list' is not a valid view function or pattern name.
+ERROR 2026-06-15 11:57:03,641 log 19300 22668 "GET /menu_groups/create/ HTTP/1.1" 500 187886
+INFO 2026-06-15 11:57:14,795 log 19300 5552 "GET /menu_groups/create/ HTTP/1.1" 200 83924
+INFO 2026-06-15 11:57:18,225 log 19300 28632 "GET /menu_groups/create/ HTTP/1.1" 200 83930
+INFO 2026-06-15 11:57:22,258 log 19300 7892 "GET /menu_groups/create/ HTTP/1.1" 200 83936
+INFO 2026-06-15 11:57:22,887 log 19300 29348 "GET /menu_groups/create/ HTTP/1.1" 200 83936
+INFO 2026-06-15 11:57:58,077 log 19300 14292 "GET /menu_groups/create/ HTTP/1.1" 200 83936
+INFO 2026-06-15 11:58:00,208 log 19300 9352 "GET /menu_groups/create/ HTTP/1.1" 200 83936
+INFO 2026-06-15 11:58:00,236 log 19300 9352 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 11:58:13,792 log 19300 19084 "GET /menu_groups/create/ HTTP/1.1" 200 83936
+INFO 2026-06-15 11:58:13,846 log 19300 19084 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 11:58:26,129 log 19300 23836 "GET /menu_groups/create/ HTTP/1.1" 200 86102
+INFO 2026-06-15 11:58:31,137 log 19300 7396 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 11:58:32,044 log 19300 4060 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 11:58:37,691 log 19300 13184 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88388
+INFO 2026-06-15 11:58:39,359 log 19300 26348 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 11:58:55,920 log 19300 30584 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 11:59:22,033 log 19300 16628 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 11:59:32,342 log 19300 29976 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:01:17,977 log 19300 6188 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:01:18,046 log 19300 6188 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 13:01:18,047 log 19300 9368 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 13:01:18,048 log 19300 32404 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 13:01:18,115 log 19300 32404 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 13:01:21,532 log 19300 9368 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:01:24,519 log 19300 6188 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88388
+INFO 2026-06-15 13:01:57,177 log 19300 32980 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88401
+INFO 2026-06-15 13:01:57,184 log 19300 31940 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88401
+INFO 2026-06-15 13:01:58,135 log 19300 23612 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88530
+INFO 2026-06-15 13:02:02,904 log 19300 7148 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:02:11,816 log 19300 28632 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:02:19,590 log 19300 29276 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:02:21,965 log 19300 9120 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:02:24,413 log 19300 18564 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:02:26,582 log 19300 30440 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:02:33,773 log 19300 30308 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:02:45,477 log 19300 26232 "GET /tenants/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:03:19,017 log 19300 15340 "GET /tenants/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:04:00,706 autoreload 33464 2728 Watching for file changes with StatReloader
+INFO 2026-06-15 13:04:54,952 log 33464 6876 "GET /tenants/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:04:57,527 log 33464 19348 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:05:01,241 log 33464 19284 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:13:33,939 autoreload 33464 2728 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py changed, reloading.
+INFO 2026-06-15 13:13:35,115 autoreload 26484 4724 Watching for file changes with StatReloader
+INFO 2026-06-15 13:13:39,046 autoreload 26484 4724 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py changed, reloading.
+INFO 2026-06-15 13:13:40,177 autoreload 33020 17252 Watching for file changes with StatReloader
+INFO 2026-06-15 13:13:42,985 autoreload 33020 17252 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py changed, reloading.
+INFO 2026-06-15 13:13:44,052 autoreload 28356 29272 Watching for file changes with StatReloader
+INFO 2026-06-15 13:13:46,449 log 28356 31680 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:13:47,140 log 28356 4360 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:13:51,062 autoreload 28356 29272 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py changed, reloading.
+INFO 2026-06-15 13:13:52,214 autoreload 22672 21628 Watching for file changes with StatReloader
+INFO 2026-06-15 13:14:09,101 autoreload 22672 21628 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py changed, reloading.
+INFO 2026-06-15 13:14:10,284 autoreload 29576 29968 Watching for file changes with StatReloader
+INFO 2026-06-15 13:14:11,139 log 29576 14572 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:14:22,129 log 29576 15476 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:14:22,550 autoreload 29576 29968 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py changed, reloading.
+INFO 2026-06-15 13:14:23,821 autoreload 30996 31564 Watching for file changes with StatReloader
+INFO 2026-06-15 13:14:37,256 log 30996 16276 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:17,221 log 30996 29732 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:18,035 log 30996 2140 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:24,027 log 30996 32616 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:24,231 log 30996 25528 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:27,118 log 30996 15904 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:27,500 log 30996 7892 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:49,138 log 30996 15532 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:49,174 log 30996 25296 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:53,123 log 30996 6132 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:15:53,773 log 30996 4720 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:16:01,670 log 30996 27868 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:16:11,904 log 30996 15320 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:16:18,741 log 30996 27468 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:16:33,594 log 30996 22296 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:16:48,151 log 30996 26264 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:16:48,183 log 30996 26264 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 13:17:02,139 log 30996 1324 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:17:02,186 log 30996 6480 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:17:25,890 log 30996 27120 "GET /menu_groups/create/ HTTP/1.1" 200 86097
+INFO 2026-06-15 13:17:49,836 log 30996 32228 "GET /menu_groups/create/ HTTP/1.1" 200 95332
+ERROR 2026-06-15 13:18:05,808 log 30996 23248 Internal Server Error: /menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 234, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: components/forms/menu_group_section.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 27, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: components/forms/menu_group_section.html
+ERROR 2026-06-15 13:18:05,814 log 30996 23248 "GET /menu_groups/create/ HTTP/1.1" 500 199412
+ERROR 2026-06-15 13:18:08,395 log 30996 6916 Internal Server Error: /menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 234, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: components/forms/_menu_group_section.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 27, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: components/forms/_menu_group_section.html
+ERROR 2026-06-15 13:18:08,400 log 30996 6916 "GET /menu_groups/create/ HTTP/1.1" 500 199434
+ERROR 2026-06-15 13:18:15,201 log 30996 33512 Internal Server Error: /menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 234, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: components/forms/_menu_group_section.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 27, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: components/forms/_menu_group_section.html
+ERROR 2026-06-15 13:18:15,206 log 30996 33512 "GET /menu_groups/create/ HTTP/1.1" 500 199565
+INFO 2026-06-15 13:18:43,562 log 30996 15276 "GET /menu_groups/create/ HTTP/1.1" 200 87265
+INFO 2026-06-15 13:19:05,146 log 30996 12292 "GET /menu_groups/create/ HTTP/1.1" 200 88456
+INFO 2026-06-15 13:19:05,226 log 30996 11688 "GET /menu_groups/create/ HTTP/1.1" 200 88456
+INFO 2026-06-15 13:19:05,265 log 30996 11688 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 13:19:59,838 log 30996 11500 "GET /menu_groups/create/ HTTP/1.1" 200 88768
+INFO 2026-06-15 13:20:02,173 log 30996 25204 "GET /menu_groups/create/ HTTP/1.1" 200 88704
+INFO 2026-06-15 13:20:02,188 log 30996 5376 "GET /menu_groups/create/ HTTP/1.1" 200 88704
+INFO 2026-06-15 13:20:10,283 log 30996 31336 "GET /menu_groups/create/ HTTP/1.1" 200 88721
+INFO 2026-06-15 13:20:10,298 log 30996 11824 "GET /menu_groups/create/ HTTP/1.1" 200 88721
+INFO 2026-06-15 13:20:11,409 log 30996 29024 "GET /menu_groups/create/ HTTP/1.1" 200 88730
+INFO 2026-06-15 13:20:13,145 log 30996 34888 "GET /menu_groups/create/ HTTP/1.1" 200 89087
+INFO 2026-06-15 13:20:13,605 log 30996 22832 "GET /menu_groups/create/ HTTP/1.1" 200 89087
+INFO 2026-06-15 13:20:14,240 log 30996 20612 "GET /menu_groups/create/ HTTP/1.1" 200 89087
+INFO 2026-06-15 13:20:14,756 log 30996 27336 "GET /menu_groups/create/ HTTP/1.1" 200 89087
+INFO 2026-06-15 13:20:22,726 log 30996 10416 "GET /menu_groups/create/ HTTP/1.1" 200 89468
+INFO 2026-06-15 13:20:23,865 log 30996 6408 "GET /menu_groups/create/ HTTP/1.1" 200 89468
+INFO 2026-06-15 13:20:26,194 log 30996 6580 "GET /menu_groups/create/ HTTP/1.1" 200 89482
+INFO 2026-06-15 13:20:26,212 log 30996 16048 "GET /menu_groups/create/ HTTP/1.1" 200 89482
+INFO 2026-06-15 13:20:31,814 log 30996 7224 "GET /menu_groups/create/ HTTP/1.1" 200 90051
+INFO 2026-06-15 13:20:37,524 log 30996 27872 "GET /menu_groups/create/ HTTP/1.1" 200 90034
+INFO 2026-06-15 13:20:45,129 log 30996 27576 "GET /menu_groups/create/ HTTP/1.1" 200 90034
+INFO 2026-06-15 13:20:47,133 log 30996 34196 "GET /menu_groups/create/ HTTP/1.1" 200 90034
+INFO 2026-06-15 13:20:47,764 log 30996 33536 "GET /menu_groups/create/ HTTP/1.1" 200 90034
+INFO 2026-06-15 13:20:52,129 log 30996 8556 "GET /menu_groups/create/ HTTP/1.1" 200 90035
+INFO 2026-06-15 13:20:54,145 log 30996 35644 "GET /menu_groups/create/ HTTP/1.1" 200 90036
+INFO 2026-06-15 13:20:54,645 log 30996 32112 "GET /menu_groups/create/ HTTP/1.1" 200 90036
+INFO 2026-06-15 13:21:02,144 log 30996 6300 "GET /menu_groups/create/ HTTP/1.1" 200 90590
+INFO 2026-06-15 13:21:02,670 log 30996 18664 "GET /menu_groups/create/ HTTP/1.1" 200 90590
+INFO 2026-06-15 13:21:08,135 log 30996 15844 "GET /menu_groups/create/ HTTP/1.1" 200 90602
+INFO 2026-06-15 13:21:10,134 log 30996 22476 "GET /menu_groups/create/ HTTP/1.1" 200 90601
+INFO 2026-06-15 13:21:10,693 log 30996 14660 "GET /menu_groups/create/ HTTP/1.1" 200 90601
+INFO 2026-06-15 13:21:12,968 log 30996 17920 "GET /menu_groups/create/ HTTP/1.1" 200 90601
+INFO 2026-06-15 13:21:14,163 log 30996 34956 "GET /menu_groups/create/ HTTP/1.1" 200 90601
+INFO 2026-06-15 13:21:14,175 log 30996 24196 "GET /menu_groups/create/ HTTP/1.1" 200 90601
+INFO 2026-06-15 13:21:23,148 log 30996 7828 "GET /menu_groups/create/ HTTP/1.1" 200 90604
+INFO 2026-06-15 13:21:23,229 log 30996 14056 "GET /menu_groups/create/ HTTP/1.1" 200 90604
+INFO 2026-06-15 13:22:13,131 log 30996 21808 "GET /menu_groups/create/ HTTP/1.1" 200 91520
+INFO 2026-06-15 13:22:13,183 log 30996 21808 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 13:22:13,443 log 30996 21808 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 13:22:22,276 log 30996 10080 "GET /menu_groups/create/ HTTP/1.1" 200 91520
+INFO 2026-06-15 13:22:23,124 log 30996 28704 "GET /menu_groups/create/ HTTP/1.1" 200 91520
+INFO 2026-06-15 13:22:23,689 log 30996 20848 "GET /menu_groups/create/ HTTP/1.1" 200 91520
+INFO 2026-06-15 13:22:25,964 log 30996 13636 "GET /menu_groups/create/ HTTP/1.1" 200 91528
+INFO 2026-06-15 13:22:41,653 log 30996 15012 "GET /menu_groups/create/ HTTP/1.1" 200 91528
+WARNING 2026-06-15 13:22:53,702 log 30996 10708 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-15 13:22:53,702 log 30996 10708 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4670
+INFO 2026-06-15 13:28:01,205 autoreload 30996 31564 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:28:02,358 autoreload 1408 3768 Watching for file changes with StatReloader
+INFO 2026-06-15 13:28:03,304 log 1408 20540 "GET /menu_groups/create/ HTTP/1.1" 200 91528
+INFO 2026-06-15 13:28:11,123 log 1408 1300 "GET /menu_groups/create/ HTTP/1.1" 200 91528
+INFO 2026-06-15 13:28:11,358 autoreload 1408 3768 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:28:12,446 autoreload 27832 8820 Watching for file changes with StatReloader
+INFO 2026-06-15 13:28:15,152 log 27832 9316 "GET /menu_groups/create/ HTTP/1.1" 200 91517
+INFO 2026-06-15 13:28:16,037 autoreload 27832 8820 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:28:17,137 autoreload 19756 16804 Watching for file changes with StatReloader
+INFO 2026-06-15 13:28:18,153 log 19756 3532 "GET /menu_groups/create/ HTTP/1.1" 200 91525
+INFO 2026-06-15 13:28:20,391 autoreload 19756 16804 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:28:21,502 autoreload 32296 15580 Watching for file changes with StatReloader
+INFO 2026-06-15 13:28:22,172 log 32296 15304 "GET /menu_groups/create/ HTTP/1.1" 200 91535
+INFO 2026-06-15 13:28:37,419 autoreload 32296 15580 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:28:38,605 autoreload 32248 25728 Watching for file changes with StatReloader
+INFO 2026-06-15 13:28:42,512 autoreload 32248 25728 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:28:43,576 autoreload 7680 30952 Watching for file changes with StatReloader
+INFO 2026-06-15 13:28:47,204 log 7680 6032 "GET /menu_groups/create/ HTTP/1.1" 200 91535
+INFO 2026-06-15 13:28:48,145 log 7680 4156 "GET /menu_groups/create/ HTTP/1.1" 200 91535
+INFO 2026-06-15 13:28:48,306 autoreload 7680 30952 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:28:49,541 autoreload 26644 20072 Watching for file changes with StatReloader
+INFO 2026-06-15 13:28:52,368 log 26644 30552 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:04,227 log 26644 3412 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:04,448 autoreload 26644 20072 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:29:05,551 autoreload 22360 17552 Watching for file changes with StatReloader
+INFO 2026-06-15 13:29:06,268 log 22360 32352 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:07,744 autoreload 22360 17552 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:29:08,912 autoreload 9708 18624 Watching for file changes with StatReloader
+INFO 2026-06-15 13:29:09,688 log 9708 8588 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:11,136 log 9708 14000 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:11,160 autoreload 9708 18624 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:29:12,346 autoreload 13736 19044 Watching for file changes with StatReloader
+INFO 2026-06-15 13:29:14,191 log 13736 32376 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:14,566 autoreload 13736 19044 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:29:15,719 autoreload 25296 20920 Watching for file changes with StatReloader
+INFO 2026-06-15 13:29:16,670 log 25296 24880 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:18,961 autoreload 25296 20920 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:29:20,104 autoreload 7000 27260 Watching for file changes with StatReloader
+INFO 2026-06-15 13:29:28,218 log 7000 32956 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:30,899 log 7000 30188 "GET /menu_groups/create/ HTTP/1.1" 200 91550
+INFO 2026-06-15 13:29:56,606 autoreload 7000 27260 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:29:57,700 autoreload 27148 20620 Watching for file changes with StatReloader
+INFO 2026-06-15 13:29:58,842 log 27148 21016 "GET /menu_groups/create/ HTTP/1.1" 200 91581
+INFO 2026-06-15 13:30:21,443 autoreload 27148 20620 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:30:22,606 autoreload 3928 25040 Watching for file changes with StatReloader
+INFO 2026-06-15 13:30:23,189 log 3928 20224 "GET /menu_groups/create/ HTTP/1.1" 200 91584
+INFO 2026-06-15 13:30:27,131 log 3928 19156 "GET /menu_groups/create/ HTTP/1.1" 200 91584
+INFO 2026-06-15 13:30:27,185 autoreload 3928 25040 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:30:28,451 autoreload 26092 10552 Watching for file changes with StatReloader
+INFO 2026-06-15 13:30:30,320 log 26092 17692 "GET /menu_groups/create/ HTTP/1.1" 200 91602
+INFO 2026-06-15 13:30:38,958 autoreload 26092 10552 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:30:40,121 autoreload 6344 5440 Watching for file changes with StatReloader
+INFO 2026-06-15 13:30:42,287 log 6344 30744 "GET /menu_groups/create/ HTTP/1.1" 200 91586
+INFO 2026-06-15 13:30:42,358 autoreload 6344 5440 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:30:43,515 autoreload 32036 24864 Watching for file changes with StatReloader
+INFO 2026-06-15 13:30:46,751 autoreload 32036 24864 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 13:30:47,848 autoreload 17232 16296 Watching for file changes with StatReloader
+INFO 2026-06-15 13:30:48,678 log 17232 29636 "GET /menu_groups/create/ HTTP/1.1" 200 91571
+INFO 2026-06-15 13:31:05,479 log 17232 2092 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:31:09,778 log 17232 32208 "GET /tenants/create/ HTTP/1.1" 200 89964
+INFO 2026-06-15 13:32:09,671 log 17232 26424 "GET /tenants/create/ HTTP/1.1" 200 89964
+INFO 2026-06-15 13:32:15,153 log 17232 26000 "GET /tenants/create/ HTTP/1.1" 200 100040
+INFO 2026-06-15 13:32:28,048 autoreload 17232 16296 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py changed, reloading.
+INFO 2026-06-15 13:32:29,173 autoreload 10216 6640 Watching for file changes with StatReloader
+INFO 2026-06-15 13:32:34,799 autoreload 10216 6640 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-15 13:32:35,921 autoreload 22988 29432 Watching for file changes with StatReloader
+INFO 2026-06-15 13:32:36,778 log 22988 9200 "GET /tenants/create/ HTTP/1.1" 200 100040
+INFO 2026-06-15 13:32:45,155 log 22988 34248 "GET /tenants/list/ui/ HTTP/1.1" 200 93333
+INFO 2026-06-15 13:32:50,701 log 22988 28180 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:32:52,912 log 22988 25300 "GET /menu_groups/create/ HTTP/1.1" 200 91571
+INFO 2026-06-15 13:33:24,127 log 22988 10396 "GET /menu_groups/create/ HTTP/1.1" 200 91577
+INFO 2026-06-15 13:33:25,195 log 22988 21972 "GET /menu_groups/create/ HTTP/1.1" 200 91577
+INFO 2026-06-15 13:41:25,854 log 22988 10720 "GET /tenants/list/ui/ HTTP/1.1" 200 93333
+INFO 2026-06-15 13:41:25,898 log 22988 10720 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 13:41:25,898 log 22988 1944 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 13:41:28,345 log 22988 1944 "GET /menu_groups/create/ HTTP/1.1" 200 91577
+INFO 2026-06-15 13:41:35,801 log 22988 10264 "GET /tenants/list/ui/ HTTP/1.1" 200 93333
+INFO 2026-06-15 13:42:58,280 log 22988 27188 "GET /tenants/create/ HTTP/1.1" 200 100040
+INFO 2026-06-15 13:43:51,401 log 22988 34936 "POST /tenants/create/ HTTP/1.1" 302 0
+INFO 2026-06-15 13:43:51,557 log 22988 34936 "GET /tenants/list/ui/ HTTP/1.1" 200 102172
+INFO 2026-06-15 13:44:04,351 log 22988 32760 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 96071
+WARNING 2026-06-15 13:44:04,396 log 22988 32760 Not Found: /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-15 13:44:04,398 log 22988 32760 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 6246
+INFO 2026-06-15 13:44:10,414 log 22988 34740 "GET /tenants/list/ui/ HTTP/1.1" 200 102115
+INFO 2026-06-15 13:44:15,118 log 22988 3744 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100479
+WARNING 2026-06-15 13:44:15,162 log 22988 3744 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-15 13:44:15,163 log 22988 3744 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 6246
+INFO 2026-06-15 13:44:23,083 log 22988 15336 "GET /tenants/list/ui/ HTTP/1.1" 200 102115
+INFO 2026-06-15 13:44:27,649 log 22988 29720 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:44:30,348 log 22988 2356 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:45:51,945 log 22988 21664 "GET /tenants/list/ui/ HTTP/1.1" 200 102115
+INFO 2026-06-15 13:45:51,985 log 22988 21664 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 13:45:52,032 log 22988 21664 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 13:46:28,386 log 22988 11912 "GET /tenants/list/ui/ HTTP/1.1" 200 102099
+INFO 2026-06-15 13:46:46,129 log 22988 18984 "GET /tenants/list/ui/ HTTP/1.1" 200 102099
+INFO 2026-06-15 13:47:03,045 log 22988 5020 "GET /tenants/create/ HTTP/1.1" 200 100040
+INFO 2026-06-15 13:47:05,471 log 22988 10748 "GET /tenants/list/ui/ HTTP/1.1" 200 102099
+INFO 2026-06-15 13:47:10,201 log 22988 9956 "GET /tenants/list/ui/ HTTP/1.1" 200 102099
+INFO 2026-06-15 13:49:44,575 log 22988 22440 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:05,144 log 22988 33404 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:08,848 log 22988 31836 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:20,150 log 22988 35300 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:20,221 log 22988 35384 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:25,244 log 22988 35148 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:25,929 log 22988 22284 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:30,525 log 22988 11100 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:52,141 log 22988 34060 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:52,272 log 22988 35024 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:53,289 log 22988 9688 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:55,136 log 22988 7220 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:50:55,710 log 22988 5476 "GET /menu_groups/create/ HTTP/1.1" 200 91631
+INFO 2026-06-15 13:51:05,840 log 22988 30292 "GET /menu_groups/create/ HTTP/1.1" 200 91641
+INFO 2026-06-15 13:51:08,197 log 22988 26164 "GET /menu_groups/create/ HTTP/1.1" 200 91669
+INFO 2026-06-15 13:51:08,204 log 22988 16836 "GET /menu_groups/create/ HTTP/1.1" 200 91669
+INFO 2026-06-15 13:51:09,350 log 22988 31316 "GET /menu_groups/create/ HTTP/1.1" 200 91641
+INFO 2026-06-15 13:51:17,279 log 22988 24956 "GET /menu_groups/create/ HTTP/1.1" 200 91641
+INFO 2026-06-15 13:51:28,720 log 22988 30140 "GET /menu_groups/create/ HTTP/1.1" 200 91641
+INFO 2026-06-15 13:51:30,990 log 22988 3056 "GET /menu_groups/create/ HTTP/1.1" 200 91641
+INFO 2026-06-15 13:51:32,152 log 22988 29212 "GET /menu_groups/create/ HTTP/1.1" 200 91641
+INFO 2026-06-15 13:51:41,164 log 22988 5976 "GET /menu_groups/create/ HTTP/1.1" 200 91533
+INFO 2026-06-15 13:51:41,263 log 22988 16452 "GET /menu_groups/create/ HTTP/1.1" 200 91533
+INFO 2026-06-15 13:51:43,678 log 22988 27368 "GET /menu_groups/create/ HTTP/1.1" 200 91523
+INFO 2026-06-15 13:51:48,152 log 22988 27152 "GET /menu_groups/create/ HTTP/1.1" 200 91511
+INFO 2026-06-15 13:51:56,549 log 22988 23816 "GET /menu_groups/list/ui/ HTTP/1.1" 200 88525
+INFO 2026-06-15 13:51:58,681 log 22988 31564 "GET /menu_groups/create/ HTTP/1.1" 200 91511
+WARNING 2026-06-15 13:52:05,350 log 22988 29612 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-15 13:52:05,350 log 22988 29612 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4670
+INFO 2026-06-15 15:15:14,544 autoreload 22988 29432 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
+INFO 2026-06-15 15:15:19,037 autoreload 28792 32624 Watching for file changes with StatReloader

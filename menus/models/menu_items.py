@@ -10,6 +10,8 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
+import uuid
+
 
 class MenuItem(SafeDeleteModel):
     """
@@ -110,6 +112,9 @@ class MenuItem(SafeDeleteModel):
             )
         ],
         help_text="Unique code for the menu item",
+    )
+    uuid = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True, db_index=True
     )
     label = models.CharField(
         max_length=150, help_text="Display label for the menu item"

@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views import View
 
 
-class MenuListView(LoginRequiredMixin, View):
+class MenuGroupListView(LoginRequiredMixin, View):
     """
     Handle the rendering of the menu list page.
     Follows MVT pattern:
@@ -13,4 +13,4 @@ class MenuListView(LoginRequiredMixin, View):
     """
 
     def get(self, request):
-        return render(request, "pages/list.html")
+        return render(request, "pages/menu_groups/list.html")

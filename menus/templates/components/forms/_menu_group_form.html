@@ -1,0 +1,12 @@
+{% if form.non_field_errors %}
+    <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+{% endif %}
+
+<form action="" method="POST" class="space-y-6" autocomplete="off">
+    {% csrf_token %}
+
+    <div class="mb-4">
+        {% include 'components/forms/menu_group_section/_basic_information.html' %}
+    </div>
+    {% include 'components/forms/menu_group_section/_button_action.html' %}
+</form>

@@ -8,6 +8,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
+import uuid
+
 
 class MenuGroup(SafeDeleteModel):
     """
@@ -64,6 +66,9 @@ class MenuGroup(SafeDeleteModel):
             )
         ],
         help_text='Unique code for the menu group (e.g., "operations", "hr")',
+    )
+    uuid = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True, db_index=True
     )
     label = models.CharField(
         max_length=100,

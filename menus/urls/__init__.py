@@ -1,3 +1,3 @@
-from .menus import urls
+from .menu_groups import urls
 
 urlpatterns = urls.urlpatterns

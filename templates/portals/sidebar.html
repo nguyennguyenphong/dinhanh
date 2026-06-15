@@ -854,8 +854,8 @@
                 <div id="menu-accordion">
                     <button type="button"
                         class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
-                        {% if request.resolver_match.url_name in 'menu_list,menu_create' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
-                        aria-expanded="{% if request.resolver_match.url_name in 'menu_list,menu_create' %}true{% else %}false{% endif %}"
+                        {% if request.resolver_match.url_name in 'menu_group_list,menu_group_create' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                        aria-expanded="{% if request.resolver_match.url_name in 'menu_group_list,menu_group_create' %}true{% else %}false{% endif %}"
                         aria-controls="menu-accordion-child"
                         data-accordion-target="#menu-accordion-child"> <div class="flex items-center gap-x-3.5">
                             <img src="{% static 'icons/menu.svg' %}" alt="menu" class="size-4.5">
@@ -863,36 +863,36 @@
                         </div>
 
                         <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" data-accordion-icon
-                            class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'menu_list,menu_create' %} rotate-180 {% endif %}">
+                            class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'menu_group_list,menu_group_create' %} rotate-180 {% endif %}">
                     </button>
                 </div>
 
                 <div id="menu-accordion-child" 
-                    class="w-full overflow-hidden {% if request.resolver_match.url_name in 'menu_list,menu_create' %} block {% else %} hidden {% endif %}"
+                    class="w-full overflow-hidden {% if request.resolver_match.url_name in 'menu_group_list,menu_group_create' %} block {% else %} hidden {% endif %}"
                     aria-labelledby="menu-accordion">
 
                     <ul class="pt-1.5 ps-7 space-y-1">
                         <li>
                             <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
-                                {% if request.resolver_match.url_name == 'menu_list' %}
+                                {% if request.resolver_match.url_name == 'menu_group_list' %}
                                     bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
                                 {% else %}
                                     text-gray-600 dark:text-slate-400
-                                {% endif %}" href="{% url 'menu_list' %}">
-                                <span class="size-1.5 {% if request.resolver_match.url_name == 'menu_list' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
-                                Danh sách menu
+                                {% endif %}" href="{% url 'menu_group_list' %}">
+                                <span class="size-1.5 {% if request.resolver_match.url_name == 'menu_group_list' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Danh sách nhóm menu
                             </a>
                         </li>
 
                         <li>
                             <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
-                            {% if request.resolver_match.url_name == 'menu_create' %}
+                            {% if request.resolver_match.url_name == 'menu_group_create' %}
                                 bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
                             {% else %}
                                 text-gray-600 dark:text-slate-400
-                            {% endif %}" href="{% url 'menu_create' %}">
-                                <span class="size-1.5 {% if request.resolver_match.url_name == 'menu_create' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
-                                Tạo menu
+                            {% endif %}" href="{% url 'menu_group_create' %}">
+                                <span class="size-1.5 {% if request.resolver_match.url_name == 'menu_group_create' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Tạo nhóm menu
                             </a>
                         </li>
                     </ul>
