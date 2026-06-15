@@ -26,6 +26,7 @@
 @import "flowbite/src/themes/mono";
 */
 
+
 /* Notyf Style v 1.0.0 */
 .notyf__message {
     font-size: 0.85rem !important;
@@ -53,4 +54,14 @@
 .ui-backdrop.hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+/* Spinner v 1.0.0 */
+#global-loader.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+#global-loader.active .loader-content {
+    transform: scale(1) !important;
 }

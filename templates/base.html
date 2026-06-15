@@ -26,6 +26,8 @@
 
 <body class="min-h-screen bg-white dark:bg-slate-900">
 
+    {% include 'components/ui/spinner.html' %}
+
     {% block content %}
     {% endblock %}
 
@@ -36,22 +38,6 @@
 
     <div class="ui-backdrop fixed inset-0 z-50 bg-black/50 hidden transition-opacity"></div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (typeof initFlowbite === 'function') {
-                initFlowbite();
-            }
-
-            const dataEl = document.getElementById('toast-data');
-            if (dataEl) {
-                const messages = JSON.parse(dataEl.dataset.messages.replace(/'/g, '"'));
-                messages.forEach(msg => {
-                    window.showToast(msg.text, msg.tags);
-                });
-            }
-        });
-    </script>
-
     <script>
         window.addEventListener('load', function() {
             document.documentElement.style.opacity = '1';

@@ -1208,3 +1208,682 @@ INFO 2026-06-14 23:14:20,806 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.
 INFO 2026-06-14 23:14:23,728 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 90467
 INFO 2026-06-14 23:14:27,934 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 90523
 INFO 2026-06-14 23:14:29,949 log 78137 6219968512 "GET /tenants/list/ui/ HTTP/1.1" 200 90466
+INFO 2026-06-15 09:40:09,320 autoreload 27720 21060 Watching for file changes with StatReloader
+INFO 2026-06-15 09:40:36,991 log 27720 17856 "GET / HTTP/1.1" 200 92216
+INFO 2026-06-15 09:40:37,017 log 27720 24224 "GET /static/icons/dashboard.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,018 log 27720 17856 "GET /static/icons/close.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,043 log 27720 24224 "GET /static/icons/ticket.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,045 log 27720 17856 "GET /static/icons/chevron-down.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,053 log 27720 17856 "GET /static/icons/schedule.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,618 log 27720 24224 "GET /static/icons/contract.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,620 log 27720 27360 "GET /static/icons/vehicle.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,622 log 27720 17856 "GET /static/icons/refund.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,625 log 27720 26136 "GET /static/icons/map-seat.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,625 log 27720 13736 "GET /static/icons/advance-mg-vehicle.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,626 log 27720 19760 "GET /static/icons/consignment.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,632 log 27720 27360 "GET /static/icons/hr.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,632 log 27720 17856 "GET /static/icons/route.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,633 log 27720 24224 "GET /static/icons/shift.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,636 log 27720 26136 "GET /static/icons/after-sales.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,636 log 27720 13736 "GET /static/icons/vouncher.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,637 log 27720 19760 "GET /static/icons/moderation.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,645 log 27720 17856 "GET /static/icons/bell.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,646 log 27720 27360 "GET /static/icons/kpi.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,646 log 27720 24224 "GET /static/icons/chart.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,650 log 27720 13736 "GET /static/icons/invoice.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,650 log 27720 19760 "GET /static/icons/cost.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,650 log 27720 26136 "GET /static/icons/payment.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,657 log 27720 24224 "GET /static/icons/branch.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,659 log 27720 17856 "GET /static/icons/unit.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,660 log 27720 27360 "GET /static/icons/asset.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,661 log 27720 26136 "GET /static/icons/account.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,662 log 27720 13736 "GET /static/icons/log.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,662 log 27720 19760 "GET /static/icons/permission.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,668 log 27720 17856 "GET /static/icons/person.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,669 log 27720 24224 "GET /static/icons/company.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,671 log 27720 26136 "GET /static/icons/logout.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,671 log 27720 13736 "GET /static/icons/login.svg HTTP/1.1" 304 0
+INFO 2026-06-15 09:40:37,717 log 27720 19760 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 200 623
+INFO 2026-06-15 09:40:37,763 log 27720 19760 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 200 2711
+WARNING 2026-06-15 09:40:37,875 log 27720 26136 Not Found: /favicon.ico
+WARNING 2026-06-15 09:40:37,877 log 27720 26136 "GET /favicon.ico HTTP/1.1" 404 4004
+INFO 2026-06-15 09:40:44,644 log 27720 26136 "GET /tenants/list/ui/ HTTP/1.1" 302 0
+WARNING 2026-06-15 09:40:44,656 log 27720 26136 Not Found: /accounts/login/
+WARNING 2026-06-15 09:40:44,656 log 27720 26136 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 404 4039
+INFO 2026-06-15 09:40:51,414 log 27720 13736 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-06-15 09:40:51,458 log 27720 13736 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4312
+INFO 2026-06-15 09:40:51,479 log 27720 24224 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2026-06-15 09:40:51,480 log 27720 17856 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-06-15 09:40:51,481 log 27720 27360 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-06-15 09:40:51,481 log 27720 13736 "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2026-06-15 09:40:51,482 log 27720 12476 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-06-15 09:40:51,483 log 27720 33300 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16273
+INFO 2026-06-15 09:40:51,497 log 27720 12476 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-06-15 09:40:57,181 log 27720 33300 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-06-15 09:40:57,222 log 27720 33300 "GET /admin/ HTTP/1.1" 200 10453
+INFO 2026-06-15 09:40:57,238 log 27720 33300 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-06-15 09:40:57,253 log 27720 33300 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+INFO 2026-06-15 09:40:57,253 log 27720 13736 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+INFO 2026-06-15 09:40:57,254 log 27720 17856 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+INFO 2026-06-15 09:40:58,994 log 27720 33300 "GET /admin/authtoken/tokenproxy/ HTTP/1.1" 200 12730
+INFO 2026-06-15 09:40:59,019 log 27720 33300 "GET /static/admin/css/changelists.css HTTP/1.1" 200 7498
+INFO 2026-06-15 09:40:59,020 log 27720 24224 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-06-15 09:40:59,021 log 27720 27360 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2026-06-15 09:40:59,022 log 27720 17444 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2026-06-15 09:40:59,022 log 27720 15960 "GET /static/admin/js/actions.js HTTP/1.1" 200 8077
+INFO 2026-06-15 09:40:59,026 log 27720 13736 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2026-06-15 09:40:59,032 log 27720 33300 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-06-15 09:40:59,034 log 27720 24224 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-06-15 09:40:59,041 log 27720 27360 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2026-06-15 09:40:59,046 log 27720 17444 "GET /static/admin/img/search.svg HTTP/1.1" 200 607
+INFO 2026-06-15 09:40:59,090 log 27720 13736 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-06-15 09:40:59,125 log 27720 27360 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+INFO 2026-06-15 09:41:03,603 log 27720 13736 "GET /admin/tenants/tenant/ HTTP/1.1" 200 13658
+INFO 2026-06-15 09:41:03,626 log 27720 13736 "GET /admin/jsi18n/ HTTP/1.1" 200 8816
+INFO 2026-06-15 09:41:05,707 log 27720 17444 "GET /admin/tenants/tenant/add/ HTTP/1.1" 200 31178
+INFO 2026-06-15 09:41:05,731 log 27720 17444 "GET /static/admin/css/forms.css HTTP/1.1" 200 8831
+INFO 2026-06-15 09:41:05,732 log 27720 33300 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9159
+INFO 2026-06-15 09:41:05,732 log 27720 10716 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2026-06-15 09:41:05,732 log 27720 24224 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19698
+INFO 2026-06-15 09:41:05,746 log 27720 10716 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+INFO 2026-06-15 09:41:05,758 log 27720 10716 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2026-06-15 09:41:05,782 log 27720 15960 "GET /admin/jsi18n/ HTTP/1.1" 200 8816
+INFO 2026-06-15 09:41:05,829 log 27720 15960 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1112
+INFO 2026-06-15 09:41:05,830 log 27720 10716 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 805
+INFO 2026-06-15 09:41:09,531 log 27720 15960 "POST /admin/tenants/tenant/add/ HTTP/1.1" 200 31555
+INFO 2026-06-15 09:41:09,557 log 27720 15960 "GET /admin/jsi18n/ HTTP/1.1" 200 8816
+INFO 2026-06-15 09:41:13,538 log 27720 10716 "POST /admin/tenants/tenant/add/ HTTP/1.1" 200 31555
+INFO 2026-06-15 09:41:13,563 log 27720 10716 "GET /admin/jsi18n/ HTTP/1.1" 200 8816
+INFO 2026-06-15 09:41:13,567 log 27720 33300 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:41:13,591 log 27720 33300 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:41:16,359 log 27720 10716 "GET / HTTP/1.1" 200 92216
+INFO 2026-06-15 09:41:22,163 log 27720 17444 "GET /tenants/list/ui/ HTTP/1.1" 200 90466
+INFO 2026-06-15 09:41:22,198 log 27720 17444 "GET /static/icons/sort.svg HTTP/1.1" 200 378
+INFO 2026-06-15 09:41:25,998 log 27720 35084 "GET /tenants/create/ HTTP/1.1" 200 97189
+INFO 2026-06-15 09:43:16,913 log 27720 4804 "GET /tenants/create/ HTTP/1.1" 200 98620
+INFO 2026-06-15 09:43:16,962 log 27720 4804 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:43:17,260 log 27720 4804 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:43:22,150 log 27720 29868 "GET /tenants/create/ HTTP/1.1" 200 98615
+INFO 2026-06-15 09:43:22,584 log 27720 15148 "GET /tenants/create/ HTTP/1.1" 200 98615
+INFO 2026-06-15 09:43:27,062 log 27720 23180 "GET /tenants/create/ HTTP/1.1" 200 98615
+INFO 2026-06-15 09:43:33,185 log 27720 27116 "GET /tenants/create/ HTTP/1.1" 200 98647
+INFO 2026-06-15 09:43:34,037 log 27720 21868 "GET /tenants/create/ HTTP/1.1" 200 98647
+INFO 2026-06-15 09:43:50,034 log 27720 12224 "GET /tenants/create/ HTTP/1.1" 200 100452
+INFO 2026-06-15 09:43:50,051 basehttp 27720 12224 - Broken pipe from ('127.0.0.1', 60517)
+INFO 2026-06-15 09:43:50,157 log 27720 26452 "GET /tenants/create/ HTTP/1.1" 200 100452
+INFO 2026-06-15 09:43:53,242 log 27720 3040 "GET /tenants/create/ HTTP/1.1" 200 100452
+INFO 2026-06-15 09:43:55,357 log 27720 22972 "GET /tenants/create/ HTTP/1.1" 200 100452
+INFO 2026-06-15 09:45:21,109 log 27720 28684 "GET /tenants/create/ HTTP/1.1" 200 100434
+INFO 2026-06-15 09:45:21,175 log 27720 15972 "GET /tenants/create/ HTTP/1.1" 200 100434
+INFO 2026-06-15 09:45:21,214 log 27720 15972 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:45:21,436 log 27720 15972 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:45:24,632 log 27720 33964 "GET /tenants/create/ HTTP/1.1" 200 100429
+INFO 2026-06-15 09:45:28,153 log 27720 34940 "GET /tenants/create/ HTTP/1.1" 200 100429
+INFO 2026-06-15 09:46:04,437 log 27720 13572 "GET /tenants/create/ HTTP/1.1" 200 100484
+INFO 2026-06-15 09:46:10,002 log 27720 5028 "GET /tenants/create/ HTTP/1.1" 200 100476
+INFO 2026-06-15 09:46:12,208 log 27720 6720 "GET /tenants/create/ HTTP/1.1" 200 100476
+ERROR 2026-06-15 09:47:13,147 log 27720 35636 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 29, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 135, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 132, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 110, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 79, in __init__
+    original_init(self, template_string, origin, name, *args, **kwargs)  # type: ignore[misc]
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 122, in _compile_nodelist
+    nodelist = parser.parse()
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 556, in parse
+    raise self.error(token, e)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 554, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 676, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 776, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '('assets/images/logo-svg.svg')' from 'asset('assets/images/logo-svg.svg')'
+ERROR 2026-06-15 09:47:13,156 log 27720 35636 "GET /tenants/create/ HTTP/1.1" 500 234826
+INFO 2026-06-15 09:47:13,194 log 27720 35636 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:47:13,218 log 27720 35636 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+ERROR 2026-06-15 09:47:13,791 log 27720 11844 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 29, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 135, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 132, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 110, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 79, in __init__
+    original_init(self, template_string, origin, name, *args, **kwargs)  # type: ignore[misc]
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 122, in _compile_nodelist
+    nodelist = parser.parse()
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 556, in parse
+    raise self.error(token, e)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 554, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 676, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 776, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '('assets/images/logo-svg.svg')' from 'asset('assets/images/logo-svg.svg')'
+ERROR 2026-06-15 09:47:13,797 log 27720 11844 "GET /tenants/create/ HTTP/1.1" 500 234826
+ERROR 2026-06-15 09:47:16,023 log 27720 25376 Internal Server Error: /tenants/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\tenants\views\tenants\tenant_create_view.py", line 29, in get
+    return render(request, "pages/create.html", {"form": form})
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 135, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 132, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 110, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 79, in __init__
+    original_init(self, template_string, origin, name, *args, **kwargs)  # type: ignore[misc]
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 122, in _compile_nodelist
+    nodelist = parser.parse()
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 556, in parse
+    raise self.error(token, e)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 554, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 676, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 776, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '('assets/images/logo-svg.svg')' from 'asset('assets/images/logo-svg.svg')'
+ERROR 2026-06-15 09:47:16,028 log 27720 25376 "GET /tenants/create/ HTTP/1.1" 500 234870
+INFO 2026-06-15 09:47:24,001 log 27720 18136 "GET /tenants/create/ HTTP/1.1" 200 99906
+INFO 2026-06-15 09:47:26,260 log 27720 12676 "GET /tenants/create/ HTTP/1.1" 200 99904
+INFO 2026-06-15 09:47:26,402 log 27720 12016 "GET /tenants/create/ HTTP/1.1" 200 99904
+INFO 2026-06-15 09:47:35,165 log 27720 29536 "GET /tenants/create/ HTTP/1.1" 200 99904
+INFO 2026-06-15 09:47:38,119 log 27720 7000 "GET /tenants/create/ HTTP/1.1" 200 99904
+INFO 2026-06-15 09:47:40,693 log 27720 18596 "GET /tenants/create/ HTTP/1.1" 200 99904
+INFO 2026-06-15 09:47:56,560 log 27720 3428 "GET /tenants/list/ui/ HTTP/1.1" 200 93181
+INFO 2026-06-15 09:49:23,153 log 27720 8392 "GET /tenants/list/ui/ HTTP/1.1" 200 93399
+INFO 2026-06-15 09:49:23,205 log 27720 8392 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:49:23,470 log 27720 8392 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:49:35,962 log 27720 25964 "GET /tenants/list/ui/ HTTP/1.1" 200 94961
+INFO 2026-06-15 09:49:39,172 log 27720 2968 "GET /tenants/list/ui/ HTTP/1.1" 200 94961
+INFO 2026-06-15 09:49:43,050 log 27720 32896 "GET /tenants/create/ HTTP/1.1" 200 101684
+INFO 2026-06-15 09:50:04,146 log 27720 25080 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:50:07,291 log 27720 5544 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:50:08,987 log 27720 2228 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:50:10,343 log 27720 12236 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:50:32,839 log 27720 29772 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:50:39,654 log 27720 16944 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:50:41,927 log 27720 28384 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:50:45,417 log 27720 7028 "GET /tenants/create/ HTTP/1.1" 200 101610
+INFO 2026-06-15 09:51:09,323 log 27720 27776 "GET /tenants/create/ HTTP/1.1" 200 111388
+INFO 2026-06-15 09:51:09,374 log 27720 27776 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:51:09,612 log 27720 27776 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:51:20,745 log 27720 28412 "GET /tenants/create/ HTTP/1.1" 200 101626
+INFO 2026-06-15 09:51:24,424 log 27720 15088 "GET /tenants/create/ HTTP/1.1" 200 101626
+INFO 2026-06-15 09:51:33,181 log 27720 29720 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:51:33,274 log 27720 20136 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:51:43,550 log 27720 33164 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:51:48,081 log 27720 10680 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:51:50,378 log 27720 16480 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:51:56,058 log 27720 24440 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:52:00,638 log 27720 20156 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:52:02,901 log 27720 25656 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:52:05,230 log 27720 2408 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:52:43,901 log 27720 29484 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:53:05,462 log 27720 14972 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:53:05,523 log 27720 14972 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:53:05,556 log 27720 14972 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:54:09,143 log 27720 26156 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:54:11,410 log 27720 12236 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:54:38,655 log 27720 27768 "GET /tenants/create/ HTTP/1.1" 200 101408
+INFO 2026-06-15 09:54:54,572 log 27720 30620 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:54:54,630 log 27720 30620 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:54:54,869 log 27720 30620 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:55:20,182 log 27720 35300 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:21,925 log 27720 28552 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:23,061 log 27720 6492 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:23,149 log 27720 30124 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:32,164 log 27720 24284 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:32,262 log 27720 25648 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:39,091 log 27720 31048 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:39,162 log 27720 18664 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:48,275 log 27720 32992 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:55:50,663 log 27720 15972 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:16,751 log 27720 10040 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:16,790 log 27720 10040 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:57:17,047 log 27720 10040 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:57:19,209 log 27720 23452 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:19,218 log 27720 26264 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:21,162 log 27720 27204 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:22,139 log 27720 10648 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:22,593 log 27720 27376 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:27,218 log 27720 21228 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:27,228 log 27720 12784 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:29,449 log 27720 24096 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:41,148 log 27720 27372 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:42,106 log 27720 1668 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:44,154 log 27720 28524 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:44,248 log 27720 6224 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:46,605 log 27720 26140 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:47,752 log 27720 23572 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:50,033 log 27720 22532 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:57:50,134 log 27720 22532 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:58:11,148 log 27720 25064 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:58:11,670 log 27720 5228 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:58:13,143 log 27720 33060 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:58:13,920 log 27720 21540 "GET /tenants/create/ HTTP/1.1" 200 98041
+INFO 2026-06-15 09:58:21,183 log 27720 27208 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:58:21,882 log 27720 23452 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:58:23,539 log 27720 31464 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:58:25,037 log 27720 17040 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:58:36,676 log 27720 10460 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:58:48,022 log 27720 24700 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:59:27,846 log 27720 19164 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:59:32,338 log 27720 4604 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:59:32,370 log 27720 4604 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:59:32,401 log 27720 4604 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 09:59:33,498 log 27720 34796 "GET /tenants/create/ HTTP/1.1" 200 97940
+INFO 2026-06-15 09:59:40,165 log 27720 17204 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 09:59:47,275 log 27720 15940 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 09:59:47,331 log 27720 13560 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 09:59:49,162 log 27720 27724 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 09:59:58,621 log 27720 5564 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 10:00:05,160 log 27720 17000 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 10:00:07,327 log 27720 32580 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 10:00:07,884 log 27720 14424 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 10:00:08,946 log 27720 18712 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 10:00:15,147 log 27720 28784 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 10:00:15,775 log 27720 15528 "GET /tenants/create/ HTTP/1.1" 200 97518
+INFO 2026-06-15 10:00:20,261 log 27720 3204 "GET /tenants/create/ HTTP/1.1" 200 97518
+WARNING 2026-06-15 10:00:32,693 log 27720 31568 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-15 10:00:32,694 log 27720 31568 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-15 10:00:36,241 log 27720 31568 "GET /tenants/create/ HTTP/1.1" 200 97518
+WARNING 2026-06-15 10:00:36,297 log 27720 31568 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-15 10:00:36,298 log 27720 31568 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-15 10:00:54,163 log 27720 28276 "GET /tenants/create/ HTTP/1.1" 200 97517
+INFO 2026-06-15 10:01:04,744 log 27720 26512 "GET /tenants/create/ HTTP/1.1" 200 97526
+INFO 2026-06-15 10:01:07,307 log 27720 16280 "GET /tenants/create/ HTTP/1.1" 200 97526
+INFO 2026-06-15 10:01:08,978 log 27720 33864 "GET /tenants/create/ HTTP/1.1" 200 97526
+INFO 2026-06-15 10:01:11,499 log 27720 13128 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:01:18,090 log 27720 24152 "GET / HTTP/1.1" 200 92562
+INFO 2026-06-15 10:01:19,950 log 27720 17212 "GET / HTTP/1.1" 200 92562
+INFO 2026-06-15 10:01:25,096 log 27720 12744 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:01:40,029 log 27720 18820 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:01:42,315 log 27720 9200 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:01:45,721 log 27720 5996 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:01:47,985 log 27720 3504 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:02:00,099 log 27720 8892 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:00,152 log 27720 8892 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:02:00,367 log 27720 8892 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:02:00,501 log 27720 15976 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:02,337 log 27720 29576 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:03,446 log 27720 5364 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:04,135 log 27720 6808 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:13,756 log 27720 1804 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:13,946 log 27720 31420 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:14,133 log 27720 18652 "GET / HTTP/1.1" 200 92464
+INFO 2026-06-15 10:02:14,263 log 27720 34368 "GET / HTTP/1.1" 200 92464
+WARNING 2026-06-15 10:02:16,115 log 27720 24060 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-15 10:02:16,115 log 27720 24060 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-15 10:02:24,554 log 27720 24060 "GET / HTTP/1.1" 200 92519
+INFO 2026-06-15 10:02:26,073 log 27720 4436 "GET / HTTP/1.1" 200 92574
+INFO 2026-06-15 10:02:26,824 log 27720 13092 "GET / HTTP/1.1" 200 92574
+INFO 2026-06-15 10:02:29,929 log 27720 5292 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:02:30,249 log 27720 18952 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:02:31,400 log 27720 11752 "GET / HTTP/1.1" 200 92553
+INFO 2026-06-15 10:02:41,096 log 27720 19540 "GET / HTTP/1.1" 200 92544
+INFO 2026-06-15 10:02:41,599 log 27720 25432 "GET / HTTP/1.1" 200 92544
+INFO 2026-06-15 10:02:46,123 log 27720 11780 "GET / HTTP/1.1" 200 92455
+INFO 2026-06-15 10:02:47,274 log 27720 31220 "GET / HTTP/1.1" 200 92455
+INFO 2026-06-15 10:02:49,160 log 27720 25504 "GET / HTTP/1.1" 200 92455
+INFO 2026-06-15 10:02:50,101 log 27720 30608 "GET / HTTP/1.1" 200 92455
+INFO 2026-06-15 10:02:55,074 log 27720 20708 "GET / HTTP/1.1" 200 92461
+INFO 2026-06-15 10:02:57,619 log 27720 2884 "GET / HTTP/1.1" 200 92544
+INFO 2026-06-15 10:03:02,180 log 27720 20256 "GET / HTTP/1.1" 200 92544
+INFO 2026-06-15 10:03:04,549 log 27720 25120 "GET / HTTP/1.1" 200 92544
+INFO 2026-06-15 10:06:25,095 log 27720 29892 "GET / HTTP/1.1" 200 92529
+INFO 2026-06-15 10:06:25,159 log 27720 29892 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:06:25,474 log 27720 29892 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:06:41,292 log 27720 24096 "GET / HTTP/1.1" 200 92529
+INFO 2026-06-15 10:06:44,677 log 27720 30440 "GET / HTTP/1.1" 200 92529
+INFO 2026-06-15 10:06:46,954 log 27720 9184 "GET / HTTP/1.1" 200 92529
+INFO 2026-06-15 10:07:02,928 log 27720 14692 "GET / HTTP/1.1" 200 92228
+INFO 2026-06-15 10:07:06,078 log 27720 27048 "GET / HTTP/1.1" 200 92237
+WARNING 2026-06-15 10:07:06,124 log 27720 27048 "GET /static/icons/s%E1%BA%BB%3Da.svg HTTP/1.1" 404 1870
+INFO 2026-06-15 10:07:10,079 log 27720 26096 "GET / HTTP/1.1" 200 92237
+WARNING 2026-06-15 10:07:10,114 log 27720 26096 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+INFO 2026-06-15 10:07:10,899 log 27720 25960 "GET / HTTP/1.1" 200 92237
+WARNING 2026-06-15 10:07:10,935 log 27720 25960 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+INFO 2026-06-15 10:07:13,078 log 27720 28492 "GET / HTTP/1.1" 200 92240
+WARNING 2026-06-15 10:07:13,129 log 27720 28492 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+INFO 2026-06-15 10:07:15,092 log 27720 31780 "GET / HTTP/1.1" 200 92238
+WARNING 2026-06-15 10:07:15,140 log 27720 31780 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+INFO 2026-06-15 10:07:15,515 log 27720 18060 "GET / HTTP/1.1" 200 92238
+WARNING 2026-06-15 10:07:15,553 log 27720 18060 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+INFO 2026-06-15 10:07:17,795 log 27720 30360 "GET / HTTP/1.1" 200 92238
+WARNING 2026-06-15 10:07:17,835 log 27720 30360 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+INFO 2026-06-15 10:07:19,137 log 27720 31136 "GET / HTTP/1.1" 200 92238
+WARNING 2026-06-15 10:07:19,167 log 27720 31136 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+WARNING 2026-06-15 10:07:21,544 log 27720 32968 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-15 10:07:21,545 log 27720 32968 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-15 10:07:24,213 log 27720 32968 "GET / HTTP/1.1" 200 92238
+WARNING 2026-06-15 10:07:24,252 log 27720 32968 "GET /static/icons/s%E1%BA%BBarch.svg HTTP/1.1" 404 1874
+WARNING 2026-06-15 10:07:24,270 log 27720 15112 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-15 10:07:24,271 log 27720 15112 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4115
+INFO 2026-06-15 10:07:39,088 log 27720 16224 "GET / HTTP/1.1" 200 92230
+INFO 2026-06-15 10:07:39,142 log 27720 16224 "GET /static/icons/search.svg HTTP/1.1" 200 270
+INFO 2026-06-15 10:07:39,579 log 27720 10456 "GET / HTTP/1.1" 200 92230
+INFO 2026-06-15 10:08:34,079 log 27720 29592 "GET / HTTP/1.1" 200 92230
+INFO 2026-06-15 10:08:34,110 log 27720 29592 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:08:35,190 log 27720 6796 "GET / HTTP/1.1" 200 92230
+INFO 2026-06-15 10:08:42,428 log 27720 27976 "GET / HTTP/1.1" 200 92230
+INFO 2026-06-15 10:11:20,079 log 27720 12820 "GET / HTTP/1.1" 200 90059
+INFO 2026-06-15 10:11:20,127 log 27720 12820 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:11:20,138 log 27720 12820 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:11:20,360 log 27720 12820 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:11:22,088 log 27720 24424 "GET / HTTP/1.1" 200 91910
+INFO 2026-06-15 10:11:22,541 log 27720 13324 "GET / HTTP/1.1" 200 91910
+INFO 2026-06-15 10:11:33,959 log 27720 14168 "GET / HTTP/1.1" 200 92422
+INFO 2026-06-15 10:14:04,082 log 27720 34452 "GET / HTTP/1.1" 200 92026
+INFO 2026-06-15 10:14:04,139 log 27720 34452 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:14:55,519 log 27720 14292 "GET / HTTP/1.1" 200 92097
+INFO 2026-06-15 10:14:55,568 log 27720 14292 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:15:00,073 log 27720 12676 "GET / HTTP/1.1" 200 92093
+INFO 2026-06-15 10:15:00,103 log 27720 23652 "GET / HTTP/1.1" 200 92093
+INFO 2026-06-15 10:15:00,137 log 27720 23652 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:15:00,335 log 27720 23652 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:15:28,539 log 27720 5616 "GET / HTTP/1.1" 200 92538
+INFO 2026-06-15 10:15:44,414 log 27720 29168 "GET / HTTP/1.1" 200 92144
+INFO 2026-06-15 10:15:44,460 log 27720 29168 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:16:35,539 log 27720 16040 "GET / HTTP/1.1" 200 92079
+INFO 2026-06-15 10:16:54,938 log 27720 15340 "GET / HTTP/1.1" 200 92523
+INFO 2026-06-15 10:16:54,980 log 27720 15340 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:17:38,040 log 27720 22360 "GET / HTTP/1.1" 200 92610
+INFO 2026-06-15 10:17:38,076 log 27720 31508 "GET / HTTP/1.1" 200 92610
+INFO 2026-06-15 10:17:41,084 log 27720 34560 "GET / HTTP/1.1" 200 92608
+INFO 2026-06-15 10:17:41,489 log 27720 33816 "GET / HTTP/1.1" 200 92608
+INFO 2026-06-15 10:17:43,774 log 27720 26000 "GET / HTTP/1.1" 200 92604
+INFO 2026-06-15 10:17:49,484 log 27720 25776 "GET / HTTP/1.1" 200 92648
+INFO 2026-06-15 10:17:51,712 log 27720 29080 "GET / HTTP/1.1" 200 92165
+INFO 2026-06-15 10:25:27,561 log 27720 27100 "GET /tenants/list/ui/ HTTP/1.1" 200 90415
+INFO 2026-06-15 10:25:27,611 log 27720 27100 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:25:27,616 log 27720 20656 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:25:27,657 log 27720 20656 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:25:47,102 log 27720 27100 "GET /tenants/list/ui/ HTTP/1.1" 200 90919
+INFO 2026-06-15 10:25:47,734 log 27720 4660 "GET /tenants/list/ui/ HTTP/1.1" 200 90919
+INFO 2026-06-15 10:26:04,152 log 27720 20524 "GET /tenants/list/ui/ HTTP/1.1" 200 90918
+INFO 2026-06-15 10:26:04,784 log 27720 24632 "GET /tenants/list/ui/ HTTP/1.1" 200 90918
+INFO 2026-06-15 10:26:10,184 log 27720 26212 "GET /tenants/list/ui/ HTTP/1.1" 200 90917
+INFO 2026-06-15 10:26:11,164 log 27720 34532 "GET /tenants/list/ui/ HTTP/1.1" 200 90915
+INFO 2026-06-15 10:26:11,634 log 27720 3000 "GET /tenants/list/ui/ HTTP/1.1" 200 90915
+INFO 2026-06-15 10:26:15,144 log 27720 20172 "GET /tenants/list/ui/ HTTP/1.1" 200 90914
+INFO 2026-06-15 10:26:16,243 log 27720 3280 "GET /tenants/list/ui/ HTTP/1.1" 200 90914
+INFO 2026-06-15 10:26:17,162 log 27720 15540 "GET /tenants/list/ui/ HTTP/1.1" 200 90913
+INFO 2026-06-15 10:26:30,175 log 27720 900 "GET /tenants/list/ui/ HTTP/1.1" 200 93372
+INFO 2026-06-15 10:26:31,124 log 27720 19992 "GET /tenants/list/ui/ HTTP/1.1" 200 93372
+INFO 2026-06-15 10:26:36,772 log 27720 33544 "GET /tenants/list/ui/ HTTP/1.1" 200 93370
+INFO 2026-06-15 10:26:42,477 log 27720 24128 "GET /tenants/list/ui/ HTTP/1.1" 200 93368
+INFO 2026-06-15 10:26:48,165 log 27720 18904 "GET /tenants/list/ui/ HTTP/1.1" 200 93366
+INFO 2026-06-15 10:26:48,383 log 27720 12032 "GET /tenants/list/ui/ HTTP/1.1" 200 93366
+INFO 2026-06-15 10:26:49,392 log 27720 16308 "GET /tenants/list/ui/ HTTP/1.1" 200 93364
+INFO 2026-06-15 10:26:52,827 log 27720 19516 "GET /tenants/list/ui/ HTTP/1.1" 200 93362
+INFO 2026-06-15 10:27:00,780 log 27720 9152 "GET /tenants/list/ui/ HTTP/1.1" 200 93360
+INFO 2026-06-15 10:27:01,999 log 27720 2060 "GET /tenants/list/ui/ HTTP/1.1" 200 93358
+INFO 2026-06-15 10:27:05,183 log 27720 7852 "GET /tenants/list/ui/ HTTP/1.1" 200 93356
+INFO 2026-06-15 10:27:06,272 log 27720 31436 "GET /tenants/list/ui/ HTTP/1.1" 200 93354
+INFO 2026-06-15 10:27:53,341 log 27720 20944 "GET /tenants/list/ui/ HTTP/1.1" 200 93354
+INFO 2026-06-15 10:27:53,373 log 27720 20944 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:27:56,888 log 27720 24872 "GET /tenants/list/ui/ HTTP/1.1" 200 93354
+INFO 2026-06-15 10:28:07,072 log 27720 9628 "GET /tenants/list/ui/ HTTP/1.1" 200 93351
+INFO 2026-06-15 10:28:07,176 log 27720 23768 "GET /tenants/list/ui/ HTTP/1.1" 200 93351
+INFO 2026-06-15 10:28:07,219 log 27720 23768 "GET /static/icons/menu.svg HTTP/1.1" 200 353
+INFO 2026-06-15 10:28:25,209 log 27720 32728 "GET /tenants/list/ui/ HTTP/1.1" 200 93348
+INFO 2026-06-15 10:28:25,237 log 27720 11332 "GET /tenants/list/ui/ HTTP/1.1" 200 93348
+INFO 2026-06-15 10:28:25,257 log 27720 32728 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:45:01,173 log 27720 2228 "GET /tenants/list/ui/ HTTP/1.1" 200 93348
+INFO 2026-06-15 10:45:01,396 log 27720 2228 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:45:01,480 log 27720 2228 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:45:01,488 log 27720 2228 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:45:01,508 log 27720 2228 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:45:14,147 log 27720 32444 "GET /tenants/list/ui/ HTTP/1.1" 200 93348
+INFO 2026-06-15 10:48:00,400 autoreload 27720 21060 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
+INFO 2026-06-15 10:48:01,844 autoreload 6880 5812 Watching for file changes with StatReloader
+INFO 2026-06-15 10:48:03,541 autoreload 6880 5812 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
+INFO 2026-06-15 10:48:04,631 autoreload 25336 10304 Watching for file changes with StatReloader
+INFO 2026-06-15 10:48:07,352 autoreload 25336 10304 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
+INFO 2026-06-15 10:48:08,485 autoreload 18584 35020 Watching for file changes with StatReloader
+INFO 2026-06-15 10:48:10,118 autoreload 18584 35020 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
+INFO 2026-06-15 10:48:11,185 autoreload 21120 28184 Watching for file changes with StatReloader
+INFO 2026-06-15 10:48:16,244 autoreload 21120 28184 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
+INFO 2026-06-15 10:48:17,471 autoreload 27184 15496 Watching for file changes with StatReloader
+INFO 2026-06-15 10:48:21,843 autoreload 27184 15496 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
+INFO 2026-06-15 10:48:22,992 autoreload 12432 27320 Watching for file changes with StatReloader
+INFO 2026-06-15 10:50:17,253 autoreload 16168 19792 Watching for file changes with StatReloader
+INFO 2026-06-15 10:50:23,267 log 16168 21236 "GET / HTTP/1.1" 200 95045
+INFO 2026-06-15 10:50:23,342 log 16168 21236 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:50:23,342 log 16168 6836 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:50:23,827 log 16168 6836 "GET / HTTP/1.1" 200 95045
+INFO 2026-06-15 10:50:30,595 log 16168 27220 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:00,142 log 16168 2036 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:00,833 log 16168 32416 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:06,865 log 16168 16096 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:08,015 log 16168 33236 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:10,149 log 16168 28484 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:12,631 log 16168 26016 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:15,146 log 16168 15480 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:51:16,185 log 16168 11688 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:56:47,138 log 16168 34188 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:56:47,185 log 16168 34188 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:56:47,193 log 16168 34188 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:56:47,203 log 16168 34188 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:56:47,481 log 16168 34188 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 10:56:48,032 log 16168 28500 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:56:51,141 log 16168 3552 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:57:10,750 log 16168 27952 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:57:14,147 log 16168 28732 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:57:14,347 log 16168 29428 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:57:18,815 log 16168 13608 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:57:23,137 log 16168 30308 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:59:12,259 autoreload 16168 19792 D:\Private\Files\file\dinhanh\menus\urls\menus\urls.py changed, reloading.
+INFO 2026-06-15 10:59:13,630 autoreload 23280 17504 Watching for file changes with StatReloader
+INFO 2026-06-15 10:59:19,913 autoreload 23280 17504 D:\Private\Files\file\dinhanh\menus\urls\menus\urls.py changed, reloading.
+INFO 2026-06-15 10:59:21,093 autoreload 29712 34176 Watching for file changes with StatReloader
+INFO 2026-06-15 10:59:26,108 autoreload 29712 34176 D:\Private\Files\file\dinhanh\menus\urls\menus\urls.py changed, reloading.
+INFO 2026-06-15 10:59:27,189 autoreload 1596 35704 Watching for file changes with StatReloader
+INFO 2026-06-15 10:59:31,051 autoreload 1596 35704 D:\Private\Files\file\dinhanh\menus\urls\menus\urls.py changed, reloading.
+INFO 2026-06-15 10:59:32,156 autoreload 18448 13208 Watching for file changes with StatReloader
+INFO 2026-06-15 10:59:37,152 autoreload 18448 13208 D:\Private\Files\file\dinhanh\menus\views\menus\__init__.py changed, reloading.
+INFO 2026-06-15 10:59:38,283 autoreload 14536 10664 Watching for file changes with StatReloader
+INFO 2026-06-15 10:59:42,127 autoreload 14536 10664 D:\Private\Files\file\dinhanh\menus\views\menus\__init__.py changed, reloading.
+INFO 2026-06-15 10:59:43,252 autoreload 19968 8708 Watching for file changes with StatReloader
+INFO 2026-06-15 10:59:47,611 autoreload 19968 8708 D:\Private\Files\file\dinhanh\menus\views\menus\__init__.py changed, reloading.
+INFO 2026-06-15 10:59:48,754 autoreload 12140 35756 Watching for file changes with StatReloader
+INFO 2026-06-15 10:59:55,541 log 12140 13420 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 10:59:55,900 log 12140 13420 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 10:59:56,241 log 12140 5648 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 11:00:06,188 log 12140 25636 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 11:00:08,137 log 12140 31572 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 11:00:09,015 log 12140 28292 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 11:00:11,165 log 12140 19912 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 11:00:13,268 log 12140 6888 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 11:00:13,742 log 12140 13212 "GET /menus/list/ui/ HTTP/1.1" 200 86627
+INFO 2026-06-15 11:00:14,140 log 12140 29612 "GET /menus/list/ui/ HTTP/1.1" 200 86625
+INFO 2026-06-15 11:00:14,882 log 12140 23836 "GET /menus/list/ui/ HTTP/1.1" 200 86625
+INFO 2026-06-15 11:00:16,012 log 12140 14760 "GET /menus/list/ui/ HTTP/1.1" 200 86625
+INFO 2026-06-15 11:00:22,276 log 12140 19876 "GET /menus/create/ HTTP/1.1" 200 83894
+INFO 2026-06-15 11:00:24,476 log 12140 32620 "GET /menus/list/ui/ HTTP/1.1" 200 86625
+INFO 2026-06-15 11:09:43,758 log 12140 35612 "GET /menus/create/ HTTP/1.1" 200 83894
+INFO 2026-06-15 11:09:43,807 log 12140 35612 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:09:43,807 log 12140 34412 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 11:09:43,816 log 12140 34492 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 11:09:43,863 log 12140 34492 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 11:09:47,119 log 12140 34412 "GET /menus/list/ui/ HTTP/1.1" 200 86625
+INFO 2026-06-15 11:10:28,103 log 12140 35612 "GET /menus/list/ui/ HTTP/1.1" 200 89797
+INFO 2026-06-15 11:10:29,137 log 12140 27996 "GET /menus/list/ui/ HTTP/1.1" 200 89796
+INFO 2026-06-15 11:10:29,550 log 12140 29144 "GET /menus/list/ui/ HTTP/1.1" 200 89796
+INFO 2026-06-15 11:10:40,899 log 12140 16936 "GET /menus/list/ui/ HTTP/1.1" 200 89796
+INFO 2026-06-15 11:10:56,890 log 12140 33844 "GET /menus/list/ui/ HTTP/1.1" 200 89796

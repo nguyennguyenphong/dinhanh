@@ -39,4 +39,6 @@ urlpatterns = [
     path("", include("accounts.urls")),
     # tenants
     path("tenants/", include("tenants.urls")),
+    # menus
+    path("menus/", include("menus.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

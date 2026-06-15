@@ -22,12 +22,7 @@
             <div class="relative group">
                 <div
                     class="absolute inset-y-0 inset-s-0 flex items-center ps-4 pointer-events-none text-gray-400 group-focus-within:text-blue-500 transition-colors">
-                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="m21 21-4.3-4.3" />
-                    </svg>
+                    <img src="{% static 'icons/search.svg' %}" alt="sẻarch" class="size-4">
                 </div>
                 <input type="search" id="search" name="search"
                     class="py-2 px-4 ps-11 w-full border-[1.5px] border-gray-200 rounded-md text-sm bg-gray-50/50 hover:border-blue-500 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
@@ -43,65 +38,70 @@
                 Hệ thống trực tuyến
             </div>
 
-            <div class="hs-dropdown relative inline-flex">
-                <button id="hs-dropdown-quick-create" type="button"
+            <div class="relative inline-flex">
+                <button id="dropdownQuickCreateButton" data-dropdown-toggle="dropdownQuickCreateMenu" type="button"
                     class="size-9.5 p-4 sm:w-auto sm:px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-md border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                    <svg class="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" />
-                    </svg>
                     <span class="hidden sm:block">Tạo nhanh</span>
                 </button>
 
-                <div class="hs-dropdown-menu transition-[opacity,margin] duration-300 hs-dropdown-open:opacity-100 opacity-0 hidden min-w-48 bg-white shadow-xl rounded-md p-2 mt-2 dark:bg-slate-800 dark:border-slate-700 border border-gray-100"
-                    aria-labelledby="hs-dropdown-quick-create">
-                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
-                        href="#">
-                        Đặt vé mới
-                    </a>
-                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
-                        href="#">
-                        Nhận gửi hàng hóa
-                    </a>
-                    <hr class="my-1 border-gray-100 dark:border-slate-700">
-                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
-                        href="#">
-                        Thêm khách hàng mới
-                    </a>
+                <div id="dropdownQuickCreateMenu"
+                    class="z-10 hidden min-w-48 bg-white shadow-xl rounded-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                    <ul class="p-2 text-sm font-medium text-gray-800 dark:text-slate-300"
+                        aria-labelledby="dropdownQuickCreateButton">
+                        <li>
+                            <a href="#"
+                                class="inline-flex items-center w-full py-2 px-3 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-md">
+                                Đặt vé mới
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="inline-flex items-center w-full py-2 px-3 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-md">
+                                Nhận gửi hàng hóa
+                            </a>
+                        </li>
+                        <hr class="my-1 border-gray-100 dark:border-slate-700">
+                        <li>
+                            <a href="#"
+                                class="inline-flex items-center w-full py-2 px-3 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-md">
+                                Thêm khách hàng mới
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="hs-dropdown relative inline-flex">
-                <button id="hs-dropdown-notifications" type="button"
-                    class="size-9.5 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none dark:bg-slate-900 dark:border-slate-700 dark:text-white group">
-                    <svg class="size-4.5 transition-transform group-hover:rotate-12" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-                        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-                    </svg>
-                    <span class="absolute top-1.5 inset-e-2 flex size-2">
+            <div class="relative inline-flex">
+                <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotificationMenu"
+                    data-dropdown-placement="bottom-start" type="button"
+                    class="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-md border border-gray-200 bg-white text-gray-800 shadow-xs hover:bg-gray-50 focus:outline-none dark:bg-slate-900 dark:border-slate-700 dark:text-white group relative">
+
+                    <img src="{% static 'icons/bell.svg' %}" alt="bell" class="w-5 h-5 transition-transform group-hover:rotate-12">
+
+                    <span class="absolute top-1.5 right-2 flex h-2 w-2">
                         <span
                             class="animate-ping absolute inline-flex h-full w-full rounded-md bg-red-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-md size-2 bg-red-500"></span>
+                        <span class="relative inline-flex rounded-md h-2 w-2 bg-red-500"></span>
                     </span>
                 </button>
 
-                <div class="hs-dropdown-menu transition-[opacity,margin] duration-300 hs-dropdown-open:opacity-100 opacity-0 hidden min-w-80 bg-white shadow-xl rounded-md p-2 mt-2 dark:bg-slate-800 dark:border-slate-700 border border-gray-100"
-                    aria-labelledby="hs-dropdown-notifications">
+                <div id="dropdownNotificationMenu"
+                    class="z-20 hidden min-w-96 md:w-105 bg-white shadow-xl rounded-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700"
+                    aria-labelledby="dropdownNotificationButton">
+
                     <div
                         class="px-4 py-2 border-b border-gray-100 dark:border-slate-700 flex justify-between items-center">
                         <span class="font-semibold text-gray-800 dark:text-slate-200">Thông báo mới</span>
                         <a class="text-xs text-blue-600 hover:underline" href="#">Xem hết</a>
                     </div>
-                    <div class="py-2 px-1 max-h-60 overflow-y-auto">
-                        <a class="flex gap-x-3 p-2 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700/50" href="#">
-                            <div class="size-2 bg-blue-600 rounded-md mt-2"></div>
+
+                    <div class="py-2 px-1 max-h-80 overflow-y-auto"> <a
+                            class="flex gap-x-3 p-3 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700/50" href="#">
+                            <div class="w-2 h-2 bg-blue-600 rounded-md mt-2 shrink-0"></div>
                             <div>
-                                <p class="text-sm text-gray-800 font-medium dark:text-slate-300">Chuyến xe DA-1024 vừa
-                                    xuất bến thành công.</p>
+                                <p class="text-sm text-gray-800 font-medium dark:text-slate-300">
+                                    Chuyến xe DA-1024 vừa xuất bến thành công.
+                                </p>
                                 <span class="text-xs text-gray-400">2 phút trước</span>
                             </div>
                         </a>
@@ -109,39 +109,53 @@
                 </div>
             </div>
 
-            <div class="hs-dropdown relative inline-flex">
-                <button id="hs-dropdown-account" type="button"
-                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-md text-gray-800 focus:outline-none"
-                    aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                    <img class="inline-block size-9.5 rounded-md ring-2 ring-transparent hover:ring-blue-500/50 transition-all object-cover shadow-inner"
+            <div class="relative inline-flex">
+                <button id="dropdownAccountButton" data-dropdown-toggle="dropdownAccountMenu"
+                    data-dropdown-placement="bottom-end" type="button"
+                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-md text-gray-800 focus:outline-none dark:text-white"
+                    aria-label="User dropdown">
+
+                    <img class="inline-block w-10 h-10 rounded-md ring-2 ring-transparent hover:ring-blue-500/50 transition-all object-cover shadow-inner"
                         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
                         alt="Avatar">
                 </button>
 
-                <div class="hs-dropdown-menu transition-[opacity,margin] duration-300 hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-xl rounded-md p-2 mt-2 border border-gray-100 dark:bg-slate-800 dark:border-slate-700"
-                    role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-account">
-                    <div class="py-3 px-5 -m-2 bg-gray-50 rounded-t-xl dark:bg-slate-700/50">
-                        <p class="text-sm text-gray-500 dark:text-slate-400">Tài khoản điều hành</p>
-                        <p class="text-sm font-semibold text-gray-800 dark:text-slate-200">Định Anh Admin</p>
+                <div id="dropdownAccountMenu"
+                    class="z-30 hidden min-w-60 bg-white shadow-xl rounded-md border border-gray-100 dark:bg-slate-800 dark:border-slate-700"
+                    role="menu" aria-orientation="vertical" aria-labelledby="dropdownAccountButton">
+
+                    <div
+                        class="py-3 px-5 bg-gray-50 rounded-t-md dark:bg-slate-700/50 border-b border-gray-100 dark:border-slate-700">
+                        <p class="text-xs font-medium text-gray-500 dark:text-slate-400">Tài khoản điều hành</p>
+                        <p class="text-sm font-semibold text-gray-800 dark:text-slate-200 mt-0.5">Định Anh Admin</p>
                     </div>
-                    <div class="mt-2 py-1.5 space-y-0.5">
-                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
-                            href="#">
-                            <img src="{% static 'icons/person.svg' %}" alt="person" class="size-4.5">
-                            Hồ sơ cá nhân
-                        </a>
-                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
-                            href="{% url 'login' %}">
-                            <img src="{% static 'icons/login.svg' %}" alt="login" class="size-4.5">
-                            Đăng nhập
-                        </a>
-                        <hr class="border-gray-100 dark:border-slate-700">
-                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950/30"
-                            href="{% url 'register' %}">
-                            <img src="{% static 'icons/logout.svg' %}" alt="logout" class="size-4.5">
-                            Đăng xuất hệ thống
-                        </a>
-                    </div>
+
+                    <ul class="p-2 space-y-0.5 text-sm" aria-labelledby="dropdownAccountButton">
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 rounded-md text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                                href="#">
+                                <img src="{% static 'icons/person.svg' %}" alt="person" class="w-5 h-5 shrink-0">
+                                Hồ sơ cá nhân
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 rounded-md text-gray-800 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                                href="{% url 'login' %}">
+                                <img src="{% static 'icons/login.svg' %}" alt="login" class="w-5 h-5 shrink-0">
+                                Đăng nhập
+                            </a>
+                        </li>
+
+                        <hr class="my-1 border-gray-100 dark:border-slate-700">
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 rounded-md text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950/30"
+                                href="{% url 'register' %}">
+                                <img src="{% static 'icons/logout.svg' %}" alt="logout" class="w-5 h-5 shrink-0">
+                                Đăng xuất hệ thống
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
