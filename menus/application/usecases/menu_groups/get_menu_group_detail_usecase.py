@@ -1,7 +1,9 @@
-from menus.exceptions import MenuGroupNotFoundError
 from menus.application.dtos.menu_groups import MenuGroupDetailDto
+from menus.application.usecases.menu_groups.helper_mapping_menu_group_usecase import (
+    _entity_to_detail,
+)
+from menus.exceptions import MenuGroupNotFoundError
 from menus.repositories.interfaces import IMenuGroupRepository
-from menus.application.usecases.menu_groups.helper_mapping_menu_group_usecase import _entity_to_detail
 
 
 class GetMenuGroupDetailUseCase:

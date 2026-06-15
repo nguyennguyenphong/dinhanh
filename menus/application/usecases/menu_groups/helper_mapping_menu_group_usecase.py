@@ -1,8 +1,8 @@
-from menus.domain.entities import MenuGroupEntity
 from menus.application.dtos.menu_groups import (
     MenuGroupDetailDto,
     MenuGroupResponseDto,
 )
+from menus.domain.entities import MenuGroupEntity
 
 
 def _entity_to_response(entity: MenuGroupEntity) -> MenuGroupResponseDto:

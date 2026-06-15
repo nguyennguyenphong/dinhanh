@@ -23,7 +23,7 @@ class MenuGroupEntity:
     is_active: bool
     created_at: datetime | None = None
     updated_at: datetime | None = None
-    
+
     # Optional: For advanced DDD to track side-effects (e.g., clearing tenant menu cache)
     domain_events: list[Any] = field(default_factory=list, init=False, repr=False)
 
@@ -34,10 +34,10 @@ class MenuGroupEntity:
         """
         if not self.code or not self.code.strip():
             raise ValueError("MenuGroup code cannot be empty.")
-            
+
         if not self.label or not self.label.strip():
             raise ValueError("MenuGroup label cannot be empty.")
-            
+
         if self.tenant <= 0:
             raise ValueError("Invalid tenant_id. Must be a positive integer.")
 
@@ -66,7 +66,7 @@ class MenuGroupEntity:
         """
         if not label or not label.strip():
             raise ValueError("Label cannot be empty.")
-            
+
         self.label = label.strip()
         self.icon = icon.strip() if icon else None
         self.sort_order = sort_order

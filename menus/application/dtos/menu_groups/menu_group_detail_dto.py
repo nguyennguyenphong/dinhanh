@@ -12,6 +12,7 @@ class MenuGroupDetailDto:
     Detailed data is used for the Details page or to fill in the Update form.
     The list of submenus (MenuItems) can be expanded later if needed.
     """
+
     id: int
     uuid: uuid.UUID
     tenant_id: int

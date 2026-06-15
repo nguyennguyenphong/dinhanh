@@ -1,7 +1,7 @@
 from .menu_group_exception import (
     MenuGroupAlreadyExistsError,
+    MenuGroupDomainError,
     MenuGroupNotFoundError,
-    MenuGroupDomainError
 )
 
 __all__ = [

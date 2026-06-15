@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from rest_framework import serializers
 
+
 class MenuGroupHardDeleteSerializer(serializers.Serializer):
     """Validates constraints prior to physically wiping a record permanently."""
 

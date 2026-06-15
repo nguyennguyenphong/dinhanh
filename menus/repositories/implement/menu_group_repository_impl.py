@@ -37,6 +37,7 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
     def _qs(self):
         """Lazy import to avoid circular imports at module load time."""
         from menus.models import MenuGroup
+
         return MenuGroup.objects
 
     # ------------------------------------------------------------------ #
@@ -109,7 +110,9 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
         items = [_model_to_entity(obj) for obj in qs[offset : offset + limit]]
         return items, total
 
-    def exists_by_code(self, tenant: int, code: str, exclude_id: int | None = None) -> bool:
+    def exists_by_code(
+        self, tenant: int, code: str, exclude_id: int | None = None
+    ) -> bool:
         qs = self._qs.filter(tenant_id=tenant, code=code.lower())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)

@@ -4,16 +4,13 @@ from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 
-from menus.application.dtos.menu_groups import (
-    MenuGroupCreateDto,
-    MenuGroupUpdateDto
-)
+from menus.application.dtos.menu_groups import MenuGroupCreateDto, MenuGroupUpdateDto
 from menus.exceptions import MenuGroupDomainError
 from menus.models import MenuGroup
 from menus.providers import MenuGroupProvider
 from menus.serializers.menu_groups import (
     MenuGroupCreateSerializer,
-    MenuGroupUpdateSerializer
+    MenuGroupUpdateSerializer,
 )
 from menus.utils.request_helpers import get_client_ip
 from menus.views.helpers.view_helpers import RequestContext
@@ -28,9 +25,7 @@ class MenuGroupService:
         """
         menu_group = get_object_or_404(MenuGroup.all_objects, uuid=pk)
         if menu_group:
-            MenuGroupProvider.get_menu_group_detail().execute(
-                menu_group.id
-            )
+            MenuGroupProvider.get_menu_group_detail().execute(menu_group.id)
 
             return True
         else:

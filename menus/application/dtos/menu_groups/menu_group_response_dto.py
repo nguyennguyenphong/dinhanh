@@ -12,6 +12,7 @@ class MenuGroupResponseDto:
     A basic DTO represents a clean MenuGroup Object.
     It is often used as a baseline or returned after successful write operations.
     """
+
     id: int
     uuid: uuid.UUID
     tenant_id: int

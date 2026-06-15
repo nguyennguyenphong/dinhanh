@@ -1,5 +1,5 @@
-from menus.exceptions import MenuGroupNotFoundError
 from menus.application.dtos.menu_groups import MenuGroupSoftDeleteDto
+from menus.exceptions import MenuGroupNotFoundError
 from menus.repositories.interfaces import IMenuGroupRepository
 
 

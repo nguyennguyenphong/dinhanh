@@ -58,7 +58,9 @@ class IMenuGroupRepository(ABC):
         ...
 
     @abstractmethod
-    def exists_by_code(self, tenant: int, code: str, exclude_id: int | None = None) -> bool:
+    def exists_by_code(
+        self, tenant: int, code: str, exclude_id: int | None = None
+    ) -> bool:
         """
         Validates uniqueness of a code within a tenant scope, excluding a specific ID during updates.
         """

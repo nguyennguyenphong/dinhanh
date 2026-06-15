@@ -12,9 +12,9 @@ class MenuGroupCreateSerializer(serializers.Serializer):
     """Validates data when creating a new MenuGroup from a Form."""
 
     tenant_id = serializers.IntegerField(
-        required=True, 
+        required=True,
         min_value=1,
-        error_messages={"min_value": "Invalid tenant_id. Must be a positive integer."}
+        error_messages={"min_value": "Invalid tenant_id. Must be a positive integer."},
     )
     code = serializers.CharField(
         required=True,
@@ -23,30 +23,20 @@ class MenuGroupCreateSerializer(serializers.Serializer):
         trim_whitespace=True,
         error_messages={
             "required": "Code is required.",
-            "min_length": "Code must be at least 5 characters long."
-        }
+            "min_length": "Code must be at least 5 characters long.",
+        },
     )
     label = serializers.CharField(
         required=True,
         max_length=255,
         trim_whitespace=True,
-        error_messages={"required": "Label is required."}
+        error_messages={"required": "Label is required."},
     )
     icon = serializers.CharField(
-        required=False, 
-        allow_null=True, 
-        allow_blank=True, 
-        default=None,
-        max_length=255
+        required=False, allow_null=True, allow_blank=True, default=None, max_length=255
     )
-    sort_order = serializers.IntegerField(
-        required=False, 
-        default=0
-    )
-    is_active = serializers.BooleanField(
-        required=False, 
-        default=True
-    )
+    sort_order = serializers.IntegerField(required=False, default=0)
+    is_active = serializers.BooleanField(required=False, default=True)
 
     def validate_code(self, value: str) -> str:
         """Custom clean rule to ensure code is strictly stored in lowercase format."""

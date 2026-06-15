@@ -12,6 +12,7 @@ class MenuGroupListDto:
     The list data has been hashed (pagination), the optimal structure for the Template
     to render the `{% for item in menu_groups %}` loops and the pagination navigation bar.
     """
+
     items: list[MenuGroupResponseDto]
     total_count: int
     limit: int

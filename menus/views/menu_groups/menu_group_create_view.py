@@ -12,8 +12,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.views import View
 
-from menus.views.forms import MenuGroupBaseForm
 from menus.services import MenuGroupService
+from menus.views.forms import MenuGroupBaseForm
 
 
 class MenuGroupCreateView(LoginRequiredMixin, View):
@@ -26,7 +26,7 @@ class MenuGroupCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = MenuGroupBaseForm()
         return render(request, "pages/menu_groups/create.html", {"form": form})
-    
+
     def post(self, request):
         form = MenuGroupBaseForm(request.POST)
 
@@ -38,4 +38,3 @@ class MenuGroupCreateView(LoginRequiredMixin, View):
                 return redirect("menu_group_list")
 
         return render(request, "pages/menu_groups/create.html", {"form": form})
-

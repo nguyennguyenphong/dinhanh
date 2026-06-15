@@ -1,18 +1,20 @@
 import uuid
 
-from menus.exceptions import MenuGroupAlreadyExistsError
-from menus.domain.entities import MenuGroupEntity
 from menus.application.dtos.menu_groups import (
     MenuGroupCreateDto,
     MenuGroupResponseDto,
 )
+from menus.application.usecases.menu_groups.helper_mapping_menu_group_usecase import (
+    _entity_to_response,
+)
+from menus.domain.entities import MenuGroupEntity
+from menus.exceptions import MenuGroupAlreadyExistsError
 from menus.repositories.interfaces import IMenuGroupRepository
-from menus.application.usecases.menu_groups.helper_mapping_menu_group_usecase import _entity_to_response
 
 
 class CreateMenuGroupUseCase:
     """Orchestrates the business process for creating a brand new MenuGroup."""
-    
+
     def __init__(self, menu_group_repo: IMenuGroupRepository):
         self._repo = menu_group_repo
 
@@ -20,7 +22,9 @@ class CreateMenuGroupUseCase:
         # Business rule: Code must be unique within the same tenant context
         normalized_code = dto.code.lower().strip()
         if self._repo.exists_by_code(tenant=dto.tenant, code=normalized_code):
-            raise MenuGroupAlreadyExistsError(tenant_id=dto.tenant, code=normalized_code)
+            raise MenuGroupAlreadyExistsError(
+                tenant_id=dto.tenant, code=normalized_code
+            )
 
         # Initialize the domain entity to automatically trigger self-invariants checking
         entity = MenuGroupEntity(

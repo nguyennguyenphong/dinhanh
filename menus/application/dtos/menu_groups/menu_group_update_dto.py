@@ -1,11 +1,11 @@
-from dataclasses import dataclass
-
 import uuid
+from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
 class MenuGroupUpdateDto:
     """Collect data from the MenuGroup editing form (using uuid or id as the identifier)."""
+
     id: int
     uuid: uuid.UUID
     code: str
