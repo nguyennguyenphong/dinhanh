@@ -6,9 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TripPrice(models.Model):
+class TripPrice(SafeDeleteModel):
     """
     TripPrice model managing the commercial ticketing fare tariff matrix per route and seat type.
 
@@ -36,6 +37,8 @@ class TripPrice(models.Model):
             is_active=True
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     SEAT_TYPE_CHOICES = (
         ("SEAT", _("Standard Sitting Seat")),

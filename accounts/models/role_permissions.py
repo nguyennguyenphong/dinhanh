@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class RolePermission(models.Model):
+class RolePermission(SafeDeleteModel):
     """
     Through model for Role-Permission many-to-many relationship
 
@@ -44,6 +45,8 @@ class RolePermission(models.Model):
         # Revoke permission from role (soft delete)
         role_perm.revoke()
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

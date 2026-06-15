@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class PaymentMethod(models.Model):
+class PaymentMethod(SafeDeleteModel):
     """
     PaymentMethod model configuring both offline checkout and digital payment gateway integration properties.
 
@@ -43,6 +44,8 @@ class PaymentMethod(models.Model):
             sort_order=2
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CODE_CHOICES = (
         ("CASH", _("Cash - Hard physical currency counters")),

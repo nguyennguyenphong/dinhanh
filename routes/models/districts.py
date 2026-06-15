@@ -1,9 +1,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class District(models.Model):
+class District(SafeDeleteModel):
     """
     District model for sub-provincial organization
 
@@ -27,6 +28,8 @@ class District(models.Model):
         # Get statistics
         stats = district.get_statistics()
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

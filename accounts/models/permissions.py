@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Permission(models.Model):
+class Permission(SafeDeleteModel):
     """
     Permission model for fine-grained access control in multi-tenant system
 
@@ -42,6 +43,8 @@ class Permission(models.Model):
         - approve: Approve/confirm actions
         - all: Full access to module
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     # Action choices with descriptions
     ACTION_CHOICES = (

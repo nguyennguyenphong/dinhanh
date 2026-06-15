@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TicketRefund(models.Model):
+class TicketRefund(SafeDeleteModel):
     """
     TicketRefund model acting as the commercial financial accounting ledger for passenger ticket voids.
 
@@ -44,6 +45,8 @@ class TicketRefund(models.Model):
             status='PENDING'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     REFUND_METHOD_CHOICES = (
         ("CASH", _("Cash - Handed directly at physical counter terminal drawers")),

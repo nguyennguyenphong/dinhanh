@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Station(models.Model):
+class Station(SafeDeleteModel):
     """
     Station model for transportation hubs
 
@@ -49,6 +50,8 @@ class Station(models.Model):
         # Get statistics
         stats = station.get_statistics()
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

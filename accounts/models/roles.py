@@ -7,9 +7,10 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Role(models.Model):
+class Role(SafeDeleteModel):
     """
     Role model for multi-tenant RBAC (Role-Based Access Control)
 
@@ -28,6 +29,8 @@ class Role(models.Model):
             is_system=True
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

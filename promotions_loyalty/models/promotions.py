@@ -10,9 +10,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Promotion(models.Model):
+class Promotion(SafeDeleteModel):
     """
     Promotion model acting as the central coupon engine rule-sheet for discounting passenger fares.
 
@@ -42,6 +43,8 @@ class Promotion(models.Model):
             is_active=True
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     DISCOUNT_TYPE_CHOICES = (
         (

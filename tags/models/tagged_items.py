@@ -1,11 +1,14 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TaggedItem(models.Model):
+class TaggedItem(SafeDeleteModel):
     """
     Through model for tagging entities
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 

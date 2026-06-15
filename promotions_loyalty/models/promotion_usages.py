@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class PromotionUsage(models.Model):
+class PromotionUsage(SafeDeleteModel):
     """
     PromotionUsage model acting as an immutable historical ledger tracking coupon consumption.
 
@@ -27,6 +28,8 @@ class PromotionUsage(models.Model):
             discount_applied=50000.00
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     # Using BigAutoField matches BIGSERIAL primary key target requirements
     id = models.BigAutoField(primary_key=True)

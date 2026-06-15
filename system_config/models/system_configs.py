@@ -12,9 +12,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class SystemConfig(models.Model):
+class SystemConfig(SafeDeleteModel):
     """
     System configuration model for managing application settings
 
@@ -28,6 +29,8 @@ class SystemConfig(models.Model):
     - Access control: Public/private configs
     - Read-only mode: Lock configs in production
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CATEGORY_CHOICES = (
         ("GENERAL", _("General - General application settings")),

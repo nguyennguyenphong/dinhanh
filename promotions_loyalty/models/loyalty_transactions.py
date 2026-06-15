@@ -6,9 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class LoyaltyTransaction(models.Model):
+class LoyaltyTransaction(SafeDeleteModel):
     """
     LoyaltyTransaction model acting as an immutable financial ledger tracking customer membership points.
 
@@ -34,6 +35,8 @@ class LoyaltyTransaction(models.Model):
             balance=1420       # New running balance snapshot
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     TYPE_CHOICES = (
         (

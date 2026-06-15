@@ -8,9 +8,10 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class MenuItem(models.Model):
+class MenuItem(SafeDeleteModel):
     """
     Enhanced menu item model with URL routing and badges
 
@@ -56,6 +57,8 @@ class MenuItem(models.Model):
             open_in_new_tab=False
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class VehicleMaintenance(models.Model):
+class VehicleMaintenance(SafeDeleteModel):
     """
     VehicleMaintenance model for logging mechanical service, repairs, and inspections.
 
@@ -44,6 +45,8 @@ class VehicleMaintenance(models.Model):
             status='PENDING'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     TYPE_CHOICES = (
         ("SCHEDULED", _("Scheduled - Preventive maintenance")),

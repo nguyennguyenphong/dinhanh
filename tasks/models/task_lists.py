@@ -6,9 +6,10 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TaskList(models.Model):
+class TaskList(SafeDeleteModel):
     """
     Task list model for organizing tasks
 
@@ -47,6 +48,8 @@ class TaskList(models.Model):
         # Get statistics
         stats = task_list.get_statistics()
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

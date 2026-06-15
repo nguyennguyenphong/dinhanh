@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Payment(models.Model):
+class Payment(SafeDeleteModel):
     """
     Payment model representing the core physical financial inflow ledger transaction.
 
@@ -39,6 +40,8 @@ class Payment(models.Model):
             transaction_ref='VNPAY-TX-7782109'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("PENDING", _("Pending - Invoice issued, awaiting execution gateway clearing")),

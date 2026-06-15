@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Asset(models.Model):
+class Asset(SafeDeleteModel):
     """
     Asset model governing the entire lifecycle, allocation, and depreciation balance sheet of corporate property.
 
@@ -41,6 +42,8 @@ class Asset(models.Model):
             status='IN_USE'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (

@@ -9,9 +9,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Customer(models.Model):
+class Customer(SafeDeleteModel):
     """
     Customer model managing passenger CRM profiles, loyalty matrices, and registration funnels.
 
@@ -45,6 +46,8 @@ class Customer(models.Model):
             source='ONLINE'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     TIER_CHOICES = (
         ("STANDARD", _("Standard - Entry baseline customer level")),

@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class GroupContract(models.Model):
+class GroupContract(SafeDeleteModel):
     """
     GroupContract model managing high-volume B2B charting contracts and corporate block bookings.
 
@@ -41,6 +42,8 @@ class GroupContract(models.Model):
             status='DRAFT'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("DRAFT", _("Draft - Negotiation planning phase, loose allocation hold")),

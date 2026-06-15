@@ -8,9 +8,10 @@ from datetime import datetime
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class ShiftType(models.Model):
+class ShiftType(SafeDeleteModel):
     """
     ShiftType model defining operational working hours configurations per tenant.
 
@@ -42,6 +43,8 @@ class ShiftType(models.Model):
             is_overnight=True
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 

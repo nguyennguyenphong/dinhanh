@@ -9,9 +9,10 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from pytz import common_timezones
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Branch(models.Model):
+class Branch(SafeDeleteModel):
     """
     Branch model for multi-tenant organization structure
 
@@ -49,6 +50,8 @@ class Branch(models.Model):
             }
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     # Timezone choices
     TIMEZONE_CHOICES = [(tz, tz) for tz in common_timezones]

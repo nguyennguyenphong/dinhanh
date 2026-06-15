@@ -9,9 +9,10 @@ from django.contrib.postgres.fields import (  # Production feature for PostgreSQ
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class VehicleCategory(models.Model):
+class VehicleCategory(SafeDeleteModel):
     """
     VehicleCategory model for grouping vehicles with shared specifications.
 
@@ -43,6 +44,8 @@ class VehicleCategory(models.Model):
         # Check if an amenity is available
         has_wifi = category.has_amenity('wifi')
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     VEHICLE_TYPE_CHOICES = (
         ("BUS", _("Bus - Standard Seating Bus")),

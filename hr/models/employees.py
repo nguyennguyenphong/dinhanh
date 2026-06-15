@@ -7,9 +7,10 @@ from django.core.validators import EmailValidator, RegexValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Employee(models.Model):
+class Employee(SafeDeleteModel):
     """
     Employee model managing full staff profiles, payroll details, and operations compliance.
 
@@ -49,6 +50,8 @@ class Employee(models.Model):
             emergency_contact={"name": "Mary Doe", "relation": "Spouse", "phone": "0900000000"}
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     GENDER_CHOICES = (
         ("MALE", _("Male")),

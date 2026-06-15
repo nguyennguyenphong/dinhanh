@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Schedule(models.Model):
+class Schedule(SafeDeleteModel):
     """
     Schedule model for route schedules
 
@@ -21,6 +22,8 @@ class Schedule(models.Model):
             capacity=50
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 

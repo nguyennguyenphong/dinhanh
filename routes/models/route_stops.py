@@ -5,9 +5,10 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class RouteStop(models.Model):
+class RouteStop(SafeDeleteModel):
     """
     RouteStop model for managing intermediate stations within a specific route
 
@@ -33,6 +34,8 @@ class RouteStop(models.Model):
         # Get all stops for a specific route ordered by sequence
         stops = RouteStop.get_ordered_stops_by_route(route_id=1)
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

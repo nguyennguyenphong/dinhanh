@@ -14,9 +14,10 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class APIToken(models.Model):
+class APIToken(SafeDeleteModel):
     """
     API token model for secure API access
 
@@ -75,6 +76,8 @@ class APIToken(models.Model):
         # Record usage
         token.record_usage(ip_address='192.168.1.1')
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     SCOPE_CHOICES = (
         ("bookings.read", _("Read bookings")),

@@ -5,9 +5,10 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class SeatMap(models.Model):
+class SeatMap(SafeDeleteModel):
     """
     SeatMap model for managing physical or logical grid layouts of vehicle categories.
 
@@ -46,6 +47,8 @@ class SeatMap(models.Model):
         # Validate if configuration is synchronized with the assigned total seats
         is_valid = seat_map.validate_seat_count()
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 

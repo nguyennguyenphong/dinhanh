@@ -13,9 +13,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator, URLValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class WebhookEndpoint(models.Model):
+class WebhookEndpoint(SafeDeleteModel):
     """
     Webhook endpoint model for event delivery
 
@@ -82,6 +83,8 @@ class WebhookEndpoint(models.Model):
         # Get delivery history
         deliveries = webhook.get_deliveries(limit=10)
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

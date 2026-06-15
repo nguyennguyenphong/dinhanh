@@ -5,9 +5,10 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TripTracking(models.Model):
+class TripTracking(SafeDeleteModel):
     """
     TripTracking model managing high-velocity GPS telemetry streams from active transit fleet assets.
 
@@ -29,6 +30,8 @@ class TripTracking(models.Model):
     - BREAKDOWN: Engine hazard, tire puncture, or mechanical failure requiring immediate road rescue
     - ARRIVAL: Destination terminal geofence reached, closing journey log
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     EVENT_TYPE_CHOICES = (
         ("LOCATION", _("Location - Periodic telematics telemetry ping")),

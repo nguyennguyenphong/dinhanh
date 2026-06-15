@@ -6,9 +6,10 @@
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Attendance(models.Model):
+class Attendance(SafeDeleteModel):
     """
     Attendance model for tracking employee daily clock-in/out times, locations, and statuses.
 
@@ -39,6 +40,8 @@ class Attendance(models.Model):
             status='PRESENT'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("PRESENT", _("Present - Full day completed")),

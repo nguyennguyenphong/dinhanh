@@ -7,9 +7,10 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Route(models.Model):
+class Route(SafeDeleteModel):
     """
     Route model for managing transportation paths between stations per tenant.
 
@@ -35,6 +36,8 @@ class Route(models.Model):
         # Get active routes for a tenant
         active_routes = Route.get_active_by_tenant(tenant_id=1)
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 

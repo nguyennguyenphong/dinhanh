@@ -6,9 +6,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Vehicle(models.Model):
+class Vehicle(SafeDeleteModel):
     """
     Vehicle model for managing individual assets within a fleet per tenant.
 
@@ -39,6 +40,8 @@ class Vehicle(models.Model):
         # Check if compliance documents are expiring
         is_expired = vehicle.has_expired_documents()
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("AVAILABLE", _("Available - Ready for service")),

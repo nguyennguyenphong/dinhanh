@@ -11,9 +11,10 @@ from django.contrib.postgres.fields import (  # Production feature required for 
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class NotificationTemplate(models.Model):
+class NotificationTemplate(SafeDeleteModel):
     """
     NotificationTemplate model acting as the central blueprint registry for omnichannel communications.
 
@@ -41,6 +42,8 @@ class NotificationTemplate(models.Model):
             variables=['ticket_code', 'customer_name', 'seat_number', 'trip_code']
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CHANNEL_CHOICES = (
         (

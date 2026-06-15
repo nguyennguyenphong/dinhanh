@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TicketBooking(models.Model):
+class TicketBooking(SafeDeleteModel):
     """
     TicketBooking model representing the transaction header ledger for passenger reservations.
 
@@ -47,6 +48,8 @@ class TicketBooking(models.Model):
             expires_at='2026-05-30T01:00:00+07:00'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CHANNEL_CHOICES = (
         ("COUNTER", _("Counter - Physical offline ticketing desk office")),

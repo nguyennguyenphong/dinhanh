@@ -5,9 +5,10 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Department(models.Model):
+class Department(SafeDeleteModel):
     """
     Department model for organizing corporate structure and staff segmentation per tenant.
 
@@ -25,6 +26,8 @@ class Department(models.Model):
             manager=manager_user_instance
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 

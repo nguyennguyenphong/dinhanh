@@ -6,9 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TripStaff(models.Model):
+class TripStaff(SafeDeleteModel):
     """
     TripStaff model managing the crew assignment and roster matrix for individual commercial journeys.
 
@@ -33,6 +34,8 @@ class TripStaff(models.Model):
             confirmed=False
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     ROLE_CHOICES = (
         ("DRIVER", _("Driver - Fleet steering operator")),

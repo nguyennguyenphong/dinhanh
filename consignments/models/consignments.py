@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Consignment(models.Model):
+class Consignment(SafeDeleteModel):
     """
     Consignment model managing the complete logistics lifecycle of long-distance parcel freight.
 
@@ -48,6 +49,8 @@ class Consignment(models.Model):
             status='RECEIVED'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (

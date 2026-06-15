@@ -6,9 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class ConsignmentEvent(models.Model):
+class ConsignmentEvent(SafeDeleteModel):
     """
     ConsignmentEvent model acting as an immutable historical black-box ledger tracking cargo lifecycles.
 
@@ -34,6 +35,8 @@ class ConsignmentEvent(models.Model):
             recorded_by=15
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     EVENT_TYPE_CHOICES = (
         (

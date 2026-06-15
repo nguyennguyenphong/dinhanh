@@ -6,9 +6,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Province(models.Model):
+class Province(SafeDeleteModel):
     """
     Province model for geographical organization
 
@@ -38,6 +39,8 @@ class Province(models.Model):
         # Get statistics
         stats = province.get_statistics()
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     REGION_CHOICES = (
         ("NORTH", _("North - Northern region")),

@@ -6,9 +6,10 @@
 from django.db import models
 from django.db.models import Count, Q
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class EntityTag(models.Model):
+class EntityTag(SafeDeleteModel):
     """
     Entity tag model for tagging any entity with audit trail
 
@@ -21,6 +22,8 @@ class EntityTag(models.Model):
     - Composite key: Unique constraint on tag+entity
     - Flexible entity: Support any entity type
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     # ========================================================================
     # RELATIONSHIPS

@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class AfterSales(models.Model):
+class AfterSales(SafeDeleteModel):
     """
     AfterSales model managing promotional reward rules triggered post-purchase to drive retention.
 
@@ -42,6 +43,8 @@ class AfterSales(models.Model):
             is_active=True
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     TYPE_CHOICES = (
         (

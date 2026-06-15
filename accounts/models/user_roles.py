@@ -8,9 +8,10 @@ from django.db import models
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class UserRole(models.Model):
+class UserRole(SafeDeleteModel):
     """
     Through model for User-Role many-to-many relationship
 
@@ -55,6 +56,8 @@ class UserRole(models.Model):
         # Get all users with specific role
         users = UserRole.get_users_with_role(role)
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

@@ -11,9 +11,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class MediaFile(models.Model):
+class MediaFile(SafeDeleteModel):
     """
     Media file model for managing uploaded files
 
@@ -88,6 +89,8 @@ class MediaFile(models.Model):
         ("documents", _("Documents - General documents")),
         ("custom", _("Custom - Custom entity types")),
     )
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 

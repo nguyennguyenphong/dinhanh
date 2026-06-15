@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class TicketExchange(models.Model):
+class TicketExchange(SafeDeleteModel):
     """
     TicketExchange model managing the operational lifecycle of passenger boarding pass mutations.
 
@@ -35,6 +36,8 @@ class TicketExchange(models.Model):
             status='PENDING'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (

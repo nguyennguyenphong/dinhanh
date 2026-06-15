@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class ConsignmentManifest(models.Model):
+class ConsignmentManifest(SafeDeleteModel):
     """
     ConsignmentManifest model representing the official consolidated cargo transit manifest document.
 
@@ -32,6 +33,8 @@ class ConsignmentManifest(models.Model):
             status='OPEN'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (

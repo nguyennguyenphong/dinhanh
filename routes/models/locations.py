@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Location(models.Model):
+class Location(SafeDeleteModel):
     """
     Location model for specific addresses
 
@@ -38,6 +39,8 @@ class Location(models.Model):
         # Get distance to another location
         distance = location.get_distance_to(other_location)
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     LOCATION_TYPE_CHOICES = (
         ("OFFICE", _("Office - Office location")),

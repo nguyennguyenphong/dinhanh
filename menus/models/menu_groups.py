@@ -6,9 +6,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class MenuGroup(models.Model):
+class MenuGroup(SafeDeleteModel):
     """
     Menu group model for organizing menu items
 
@@ -33,6 +34,8 @@ class MenuGroup(models.Model):
             sort_order=1
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

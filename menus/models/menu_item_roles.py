@@ -7,9 +7,10 @@ from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class MenuItemRole(models.Model):
+class MenuItemRole(SafeDeleteModel):
     """
     Through model for Menu Item-Role many-to-many relationship
 
@@ -43,6 +44,8 @@ class MenuItemRole(models.Model):
         # Check if item is visible to role
         is_visible = MenuItemRole.is_visible_to_role(item, role)
     """
+    _safedelete_policy = SOFT_DELETE_CASCADE
+
 
     menu_item = models.ForeignKey(
         "menus.MenuItem",

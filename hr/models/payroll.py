@@ -6,9 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Payroll(models.Model):
+class Payroll(SafeDeleteModel):
     """
     Payroll model acting as the official financial ledger for monthly employee compensation.
 
@@ -42,6 +43,8 @@ class Payroll(models.Model):
             bonus=1000000.00
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("DRAFT", _("Draft - Statement under review or recalculation")),

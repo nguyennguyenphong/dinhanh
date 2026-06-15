@@ -10,9 +10,10 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Tag(models.Model):
+class Tag(SafeDeleteModel):
     """
     Tag model for categorizing and organizing content
 
@@ -25,6 +26,8 @@ class Tag(models.Model):
     - Query support: Filter by tags
     - Auto-slugify: Automatic slug generation
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 

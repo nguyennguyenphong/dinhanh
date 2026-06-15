@@ -8,9 +8,10 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class CargoPriceTable(models.Model):
+class CargoPriceTable(SafeDeleteModel):
     """
     CargoPriceTable model acts as the core algorithmic pricing matrix rule-sheet for logistics operations.
 
@@ -46,6 +47,8 @@ class CargoPriceTable(models.Model):
             price_unit='PER_KG'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CARGO_TYPE_CHOICES = (
         ("NORMAL", _("Normal - Standard dry non-perishable general parcel boxes")),

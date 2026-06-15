@@ -6,9 +6,10 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Seat(models.Model):
+class Seat(SafeDeleteModel):
     """
     Seat model representing an individual physical seat unit mapped inside a SeatMap template.
 
@@ -38,6 +39,8 @@ class Seat(models.Model):
             position_y=45.00
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     SEAT_TYPE_CHOICES = (
         ("SEAT", _("Seat - Standard sitting chair")),

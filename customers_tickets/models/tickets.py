@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Ticket(models.Model):
+class Ticket(SafeDeleteModel):
     """
     Ticket model representing an individual passenger boarding pass item.
 
@@ -50,6 +51,8 @@ class Ticket(models.Model):
             status='ACTIVE'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     PASSENGER_TYPE_CHOICES = (
         ("ADULT", _("Adult - Standard age passenger pricing rate")),

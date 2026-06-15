@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class CodReconciliation(models.Model):
+class CodReconciliation(SafeDeleteModel):
     """
     CodReconciliation model tracking the accounting settlement cycle of Cash-on-Delivery (COD) funds.
 
@@ -32,6 +33,8 @@ class CodReconciliation(models.Model):
             status='PENDING'
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (

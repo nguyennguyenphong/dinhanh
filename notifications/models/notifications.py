@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class Notification(models.Model):
+class Notification(SafeDeleteModel):
     """
     Notification model tracking outbound communication execution logs and transactional states.
 
@@ -43,6 +44,8 @@ class Notification(models.Model):
             ref_id=5502
         )
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     RECIPIENT_TYPE_CHOICES = (
         (

@@ -12,9 +12,10 @@ from django.core.validators import MaxValueValidator, MinValueValidator, RegexVa
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 
-class FeatureFlag(models.Model):
+class FeatureFlag(SafeDeleteModel):
     """
     Feature flag model for controlling feature rollout and A/B testing
 
@@ -63,6 +64,8 @@ class FeatureFlag(models.Model):
         if FeatureFlag.is_enabled_for_user(flag, user):
             # Show feature
     """
+
+    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
