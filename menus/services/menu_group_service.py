@@ -40,7 +40,7 @@ class MenuGroupService:
         data = form.cleaned_data.copy()
 
         tenant_obj = data.get("tenant")
-        if tenant_obj and hasattr(tenant_obj, 'pk'):
+        if tenant_obj and hasattr(tenant_obj, "pk"):
             data["tenant"] = tenant_obj.pk
 
         # Validate with Serializer
