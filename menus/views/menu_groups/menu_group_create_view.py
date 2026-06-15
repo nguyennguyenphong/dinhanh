@@ -13,6 +13,7 @@ from django.shortcuts import redirect, render
 from django.views import View
 
 from menus.views.forms import MenuGroupBaseForm
+from menus.services import MenuGroupService
 
 
 class MenuGroupCreateView(LoginRequiredMixin, View):
@@ -24,5 +25,17 @@ class MenuGroupCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = MenuGroupBaseForm()
+        return render(request, "pages/menu_groups/create.html", {"form": form})
+    
+    def post(self, request):
+        form = MenuGroupBaseForm(request.POST)
+
+        if form.is_valid():
+            success = MenuGroupService.create_menu_group(request, form)
+
+            if success:
+                messages.success(request, "Nhóm menu tạo thành công.")
+                return redirect("menu_group_list")
+
         return render(request, "pages/menu_groups/create.html", {"form": form})
 

@@ -20,7 +20,7 @@ def _model_to_entity(obj: Any) -> MenuGroupEntity:
     return MenuGroupEntity(
         id=obj.pk,
         uuid=obj.uuid,
-        tenant_id=obj.tenant_id,
+        tenant=obj.tenant_id,
         code=obj.code,
         label=obj.label,
         icon=obj.icon,
@@ -55,8 +55,8 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
         obj = self._qs.filter(uuid=parsed).first()
         return _model_to_entity(obj) if obj else None
 
-    def get_by_code(self, tenant_id: int, code: str) -> MenuGroupEntity | None:
-        obj = self._qs.filter(tenant_id=tenant_id, code=code.lower()).first()
+    def get_by_code(self, tenant: int, code: str) -> MenuGroupEntity | None:
+        obj = self._qs.filter(tenant_id=tenant, code=code.lower()).first()
         return _model_to_entity(obj) if obj else None
 
     def list(
@@ -109,8 +109,8 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
         items = [_model_to_entity(obj) for obj in qs[offset : offset + limit]]
         return items, total
 
-    def exists_by_code(self, tenant_id: int, code: str, exclude_id: int | None = None) -> bool:
-        qs = self._qs.filter(tenant_id=tenant_id, code=code.lower())
+    def exists_by_code(self, tenant: int, code: str, exclude_id: int | None = None) -> bool:
+        qs = self._qs.filter(tenant_id=tenant, code=code.lower())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
@@ -124,7 +124,7 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
 
         obj = MenuGroup.objects.create(
             uuid=entity.uuid,
-            tenant_id=entity.tenant_id,
+            tenant_id=entity.tenant,
             code=entity.code.lower(),
             label=entity.label,
             icon=entity.icon,

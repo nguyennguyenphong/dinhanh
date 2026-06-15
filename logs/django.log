@@ -2966,3 +2966,178 @@ WARNING 2026-06-15 13:52:05,350 log 22988 29612 Not Found: /.well-known/appspeci
 WARNING 2026-06-15 13:52:05,350 log 22988 29612 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4670
 INFO 2026-06-15 15:15:14,544 autoreload 22988 29432 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
 INFO 2026-06-15 15:15:19,037 autoreload 28792 32624 Watching for file changes with StatReloader
+INFO 2026-06-15 15:56:09,545 autoreload 21656 10104 Watching for file changes with StatReloader
+INFO 2026-06-15 15:56:25,186 autoreload 21656 10104 D:\Private\Files\file\dinhanh\menus\views\__init__.py changed, reloading.
+INFO 2026-06-15 15:56:26,318 autoreload 33592 25432 Watching for file changes with StatReloader
+INFO 2026-06-15 15:56:37,090 log 33592 25192 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-15 15:56:37,174 log 33592 19288 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-15 15:56:37,243 log 33592 31396 "GET /static/icons/search.svg HTTP/1.1" 200 270
+INFO 2026-06-15 15:56:37,244 log 33592 25192 "GET /static/icons/menu.svg HTTP/1.1" 200 353
+INFO 2026-06-15 15:56:38,135 log 33592 31396 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-15 15:56:42,771 log 33592 25192 "GET /tenants/list/ui/ HTTP/1.1" 200 102111
+INFO 2026-06-15 15:56:48,175 log 33592 19288 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 96083
+WARNING 2026-06-15 15:56:48,228 log 33592 19288 Not Found: /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-15 15:56:48,229 log 33592 19288 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-15 15:56:50,192 log 33592 28776 "GET /tenants/list/ui/ HTTP/1.1" 200 102111
+INFO 2026-06-15 15:56:54,064 log 33592 22296 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 15:56:56,104 log 33592 4612 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+INFO 2026-06-15 15:57:44,811 log 33592 22112 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92514
+ERROR 2026-06-15 15:58:46,816 log 33592 30440 Internal Server Error: /menus/menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 34, in post
+    success = MenuGroupService.create_menu_group(request, form)
+  File "D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py", line 51, in create_menu_group
+    form.add_error(field, errors)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\forms\forms.py", line 301, in add_error
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: 'MenuGroupBaseForm' has no field named 'tenant_id'.
+ERROR 2026-06-15 15:58:46,820 log 33592 30440 "POST /menus/menu_groups/create/ HTTP/1.1" 500 119984
+INFO 2026-06-15 15:59:22,972 autoreload 33592 25432 D:\Private\Files\file\dinhanh\menus\views\forms\menu_group_base_form.py changed, reloading.
+INFO 2026-06-15 15:59:24,160 autoreload 20300 7636 Watching for file changes with StatReloader
+INFO 2026-06-15 16:01:33,867 autoreload 32600 34616 Watching for file changes with StatReloader
+INFO 2026-06-15 16:02:02,840 autoreload 32184 29076 Watching for file changes with StatReloader
+INFO 2026-06-15 16:02:08,212 log 32184 35640 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-15 16:02:08,287 log 32184 35640 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 16:02:08,291 log 32184 12680 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 16:02:08,783 log 32184 35640 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-15 16:02:43,267 log 32184 13880 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 16:02:46,917 log 32184 25200 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+ERROR 2026-06-15 16:03:37,669 log 32184 24716 Internal Server Error: /menus/menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 34, in post
+    success = MenuGroupService.create_menu_group(request, form)
+  File "D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py", line 51, in create_menu_group
+    form.add_error(field, errors)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\forms\forms.py", line 301, in add_error
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: 'MenuGroupBaseForm' has no field named 'tenant_id'.
+ERROR 2026-06-15 16:03:37,674 log 32184 24716 "POST /menus/menu_groups/create/ HTTP/1.1" 500 119984
+INFO 2026-06-15 16:04:07,093 autoreload 32184 29076 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\create_menu_group_usecase.py changed, reloading.
+INFO 2026-06-15 16:04:08,201 autoreload 23804 24332 Watching for file changes with StatReloader
+INFO 2026-06-15 16:04:21,677 autoreload 23804 24332 D:\Private\Files\file\dinhanh\menus\application\dtos\menu_groups\menu_group_create_dto.py changed, reloading.
+INFO 2026-06-15 16:04:22,855 autoreload 28820 33420 Watching for file changes with StatReloader
+INFO 2026-06-15 16:06:37,262 autoreload 28820 33420 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:06:38,566 autoreload 11516 16920 Watching for file changes with StatReloader
+INFO 2026-06-15 16:06:43,007 autoreload 11516 16920 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-15 16:06:44,151 autoreload 12032 4428 Watching for file changes with StatReloader
+INFO 2026-06-15 16:07:03,318 autoreload 12032 4428 D:\Private\Files\file\dinhanh\menus\repositories\interfaces\menu_group_repository_interface.py changed, reloading.
+INFO 2026-06-15 16:07:04,451 autoreload 11052 7416 Watching for file changes with StatReloader
+INFO 2026-06-15 16:07:06,615 autoreload 11052 7416 D:\Private\Files\file\dinhanh\menus\repositories\interfaces\menu_group_repository_interface.py changed, reloading.
+INFO 2026-06-15 16:07:07,721 autoreload 22360 3224 Watching for file changes with StatReloader
+INFO 2026-06-15 16:07:44,695 log 22360 15648 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+INFO 2026-06-15 16:07:44,733 log 22360 15648 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 16:07:44,734 log 22360 15176 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 16:07:46,259 log 22360 15648 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+INFO 2026-06-15 16:07:48,032 log 22360 12236 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+ERROR 2026-06-15 16:08:10,218 log 22360 27316 Internal Server Error: /menus/menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 34, in post
+    success = MenuGroupService.create_menu_group(request, form)
+  File "D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py", line 51, in create_menu_group
+    form.add_error(field, errors)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\forms\forms.py", line 301, in add_error
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: 'MenuGroupBaseForm' has no field named 'tenant_id'.
+ERROR 2026-06-15 16:08:10,221 log 22360 27316 "POST /menus/menu_groups/create/ HTTP/1.1" 500 119984
+INFO 2026-06-15 16:11:19,424 autoreload 22360 3224 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-15 16:11:20,546 autoreload 32140 21316 Watching for file changes with StatReloader
+INFO 2026-06-15 16:12:11,758 autoreload 32140 21316 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:12:13,052 autoreload 12428 7436 Watching for file changes with StatReloader
+INFO 2026-06-15 16:12:15,225 autoreload 12428 7436 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:12:16,455 autoreload 26444 21812 Watching for file changes with StatReloader
+INFO 2026-06-15 16:12:18,640 autoreload 26444 21812 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:12:19,764 autoreload 16944 22008 Watching for file changes with StatReloader
+INFO 2026-06-15 16:12:25,305 autoreload 16944 22008 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:12:26,434 autoreload 17572 30876 Watching for file changes with StatReloader
+INFO 2026-06-15 16:12:35,499 autoreload 17572 30876 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:12:36,611 autoreload 12080 31620 Watching for file changes with StatReloader
+INFO 2026-06-15 16:12:42,160 autoreload 12080 31620 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:12:43,303 autoreload 5396 19604 Watching for file changes with StatReloader
+INFO 2026-06-15 16:13:04,697 autoreload 5396 19604 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:13:05,884 autoreload 26492 9668 Watching for file changes with StatReloader
+INFO 2026-06-15 16:13:18,238 autoreload 26492 9668 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:13:19,411 autoreload 3880 14864 Watching for file changes with StatReloader
+INFO 2026-06-15 16:13:34,192 autoreload 3880 14864 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-15 16:13:35,366 autoreload 6188 15136 Watching for file changes with StatReloader
+INFO 2026-06-15 16:14:07,041 autoreload 6188 15136 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\create_menu_group_usecase.py changed, reloading.
+INFO 2026-06-15 16:14:08,192 autoreload 5708 22704 Watching for file changes with StatReloader
+INFO 2026-06-15 16:14:19,462 autoreload 5708 22704 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\create_menu_group_usecase.py changed, reloading.
+INFO 2026-06-15 16:14:20,619 autoreload 10408 30976 Watching for file changes with StatReloader
+INFO 2026-06-15 16:15:07,588 log 10408 24536 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+INFO 2026-06-15 16:15:07,623 log 10408 24536 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-15 16:15:07,623 log 10408 22436 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-15 16:15:09,235 log 10408 22436 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541
+ERROR 2026-06-15 16:15:30,729 log 10408 31680 Internal Server Error: /menus/menu_groups/create/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_create_view.py", line 34, in post
+    success = MenuGroupService.create_menu_group(request, form)
+  File "D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py", line 51, in create_menu_group
+    form.add_error(field, errors)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\forms\forms.py", line 301, in add_error
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: 'MenuGroupBaseForm' has no field named 'tenant_id'.
+ERROR 2026-06-15 16:15:30,733 log 10408 31680 "POST /menus/menu_groups/create/ HTTP/1.1" 500 119936
+INFO 2026-06-15 16:15:39,562 log 10408 31576 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 16:15:44,896 log 10408 31044 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 16:15:46,519 log 10408 11352 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-15 16:15:50,140 log 10408 34860 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91541

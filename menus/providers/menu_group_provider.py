@@ -41,31 +41,31 @@ class MenuGroupProvider:
     # ------------------------------------------------------------------ #
 
     @classmethod
-    def create_menu_group_use_case(cls) -> CreateMenuGroupUseCase:
+    def create_menu_group(cls) -> CreateMenuGroupUseCase:
         """Factory for generating a new MenuGroup creation flow instance."""
         return CreateMenuGroupUseCase(cls._menu_group_repo())
 
     @classmethod
-    def update_menu_group_use_case(cls) -> UpdateMenuGroupUseCase:
+    def update_menu_group(cls) -> UpdateMenuGroupUseCase:
         """Factory for generating an existing MenuGroup update flow instance."""
         return UpdateMenuGroupUseCase(cls._menu_group_repo())
 
     @classmethod
-    def get_menu_group_detail_use_case(cls) -> GetMenuGroupDetailUseCase:
+    def get_menu_group_detail(cls) -> GetMenuGroupDetailUseCase:
         """Factory for generating a specific MenuGroup detailed query flow instance."""
         return GetMenuGroupDetailUseCase(cls._menu_group_repo())
 
     @classmethod
-    def list_menu_groups_use_case(cls) -> ListMenuGroupsUseCase:
+    def list_menu_groups(cls) -> ListMenuGroupsUseCase:
         """Factory for generating a paginated listing and filtering search flow instance."""
         return ListMenuGroupsUseCase(cls._menu_group_repo())
 
     @classmethod
-    def soft_delete_menu_group_use_case(cls) -> SoftDeleteMenuGroupUseCase:
+    def soft_delete_menu_group(cls) -> SoftDeleteMenuGroupUseCase:
         """Factory for generating a safe records logical deletion flow instance."""
         return SoftDeleteMenuGroupUseCase(cls._menu_group_repo())
 
     @classmethod
-    def hard_delete_menu_group_use_case(cls) -> HardDeleteMenuGroupUseCase:
+    def hard_delete_menu_group(cls) -> HardDeleteMenuGroupUseCase:
         """Factory for permanently stripping data records out of physical tables."""
         return HardDeleteMenuGroupUseCase(cls._menu_group_repo())

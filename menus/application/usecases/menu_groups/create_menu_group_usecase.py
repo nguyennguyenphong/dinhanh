@@ -19,14 +19,14 @@ class CreateMenuGroupUseCase:
     def execute(self, dto: MenuGroupCreateDto) -> MenuGroupResponseDto:
         # Business rule: Code must be unique within the same tenant context
         normalized_code = dto.code.lower().strip()
-        if self._repo.exists_by_code(tenant_id=dto.tenant_id, code=normalized_code):
-            raise MenuGroupAlreadyExistsError(tenant_id=dto.tenant_id, code=normalized_code)
+        if self._repo.exists_by_code(tenant=dto.tenant, code=normalized_code):
+            raise MenuGroupAlreadyExistsError(tenant_id=dto.tenant, code=normalized_code)
 
         # Initialize the domain entity to automatically trigger self-invariants checking
         entity = MenuGroupEntity(
             id=None,
             uuid=uuid.uuid4(),
-            tenant_id=dto.tenant_id,
+            tenant=dto.tenant,
             code=normalized_code,
             label=dto.label.strip(),
             icon=dto.icon.strip() if dto.icon else None,
