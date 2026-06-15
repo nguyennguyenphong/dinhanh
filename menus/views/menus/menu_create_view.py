@@ -22,4 +22,3 @@ class MenuCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         return render(request, "pages/create.html")
-

@@ -11,5 +11,4 @@ urlpatterns = [
     # 2. CREATE FUNCTION (Split into UI Presentation and Data Persistence)
     # -------------------------------------------------------------------------
     path("create/", menu_views.MenuCreateView.as_view(), name="menu_create"),
-    
 ]
