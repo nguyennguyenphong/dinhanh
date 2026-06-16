@@ -1,5 +1,5 @@
 <tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
-    {% for menu_groups in menu_group %}
+    {% for menu_group in menu_groups %}
     <tr>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             {{ forloop.counter }}
@@ -8,10 +8,16 @@
             {{ menu_group.uuid }}
         </td>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.label }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             {{ menu_group.code }}
         </td>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-            {{ menu_group.label }}
+            {{ menu_group.icon|safe }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.sort_order }}
         </td>
         <td class="px-6 py-3.5 text-start">
             {% if menu_group.is_active %}
@@ -23,6 +29,9 @@
                 Ngừng kích hoạt
             </span>
             {% endif %}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.tenant_id }}
         </td>
         <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
             {{ menu_group.created_at|date:"H:i:s Y/m/d" }}
