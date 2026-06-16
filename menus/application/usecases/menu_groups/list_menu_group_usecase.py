@@ -6,10 +6,12 @@ orchestrates domain logic, repositories, and business rules validation.
 
 from __future__ import annotations
 
-from typing import Any
-
-from menus.application.dtos.menu_groups import MenuGroupListDto
+from menus.application.dtos.menu_groups import (
+    MenuGroupListQueryDto,
+    MenuGroupResponseDto
+)
 from menus.repositories.interfaces import IMenuGroupRepository
+from menus.application.usecases.menu_groups.helper_mapping_menu_group_usecase import _entity_to_response
 
 
 class ListMenuGroupsUseCase:
@@ -18,30 +20,20 @@ class ListMenuGroupsUseCase:
     def __init__(self, menu_group_repo: IMenuGroupRepository):
         self._repo = menu_group_repo
 
-    def execute(
-        self,
-        *,
-        tenant_id: int,
-        search: str | None = None,
-        filters: dict[str, Any] | None = None,
-        ordering: list[str] | None = None,
-        limit: int = 20,
-        offset: int = 0,
-        include_deleted: bool = False,
-    ) -> MenuGroupListDto:
-        entities, total_count = self._repo.list(
-            tenant_id=tenant_id,
-            filters=filters,
-            search=search,
-            ordering=ordering,
-            limit=limit,
-            offset=offset,
-            include_deleted=include_deleted,
+    def execute(self, query_dto: MenuGroupListQueryDto) -> tuple[list[MenuGroupResponseDto], int]:
+        
+        repo_filters = {}
+        if query_dto.is_active is not None:
+            repo_filters["is_active"] = query_dto.is_active
+
+        items, total = self._repo.list(
+            tenant_id=query_dto.tenant_id,
+            filters=repo_filters,
+            search=query_dto.search,
+            ordering=query_dto.ordering,
+            limit=query_dto.limit,
+            offset=query_dto.offset,
+            include_deleted=False,
         )
 
-        return MenuGroupListDto.from_entities(
-            entities=entities,
-            total_count=total_count,
-            limit=limit,
-            offset=offset,
-        )
+        return [_entity_to_response(e) for e in items], total

@@ -15,7 +15,7 @@ class MenuGroupEntity:
 
     id: int | None
     uuid: uuid.UUID
-    tenant: int
+    tenant_id: int
     code: str
     label: str
     icon: str | None
@@ -38,7 +38,7 @@ class MenuGroupEntity:
         if not self.label or not self.label.strip():
             raise ValueError("MenuGroup label cannot be empty.")
 
-        if self.tenant <= 0:
+        if self.tenant_id <= 0:
             raise ValueError("Invalid tenant_id. Must be a positive integer.")
 
     # ------------------------------------------------------------------

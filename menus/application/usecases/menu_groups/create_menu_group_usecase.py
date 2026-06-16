@@ -25,12 +25,16 @@ class CreateMenuGroupUseCase:
             raise MenuGroupAlreadyExistsError(
                 tenant_id=dto.tenant, code=normalized_code
             )
+        
+        if hasattr(self._repo, "exists_by_sort_order"):
+            if self._repo.exists_by_sort_order(tenant=dto.tenant, sort_order=dto.sort_order):
+                raise ValueError(f"Sort order {dto.sort_order} already exists for this tenant.")
 
         # Initialize the domain entity to automatically trigger self-invariants checking
         entity = MenuGroupEntity(
             id=None,
             uuid=uuid.uuid4(),
-            tenant=dto.tenant,
+            tenant_id=dto.tenant,
             code=normalized_code,
             label=dto.label.strip(),
             icon=dto.icon.strip() if dto.icon else None,

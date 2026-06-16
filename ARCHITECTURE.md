@@ -20,7 +20,7 @@ Instead of placing all logic directly inside Django Views or Models, responsibil
 # Directory Structure
 
 ```text
-tenants/
+menu_groups/
 
 ├── services/
 │
@@ -41,13 +41,18 @@ tenants/
 ├── signals/
 ├── urls/
 ├── views/
+│   ├── form/
+│   ├── menu_groups/
+│   └── helper/
 ├── tests/
 ├── templates/
 ├── commands/
 ├── providers/
 ├── serializers/
+├── utils/
 │
 ├── app.py
+├── constants.py
 └── admin.py
 ```
 

@@ -29,17 +29,15 @@
 
 /* Notyf Style v 1.0.0 */
 .notyf__message {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     line-height: 1.4;
-    white-space: normal;
-    word-break: break-word;
     color: #ffffff !important;
 }
 
 .notyf__toast {
-    min-width: 300px;
-    max-width: 450px;
-    border-radius: 8px;
+    min-width: max-content;
+    max-width: max-content;
+    border-radius: 6px !important;
 }
 
 /* Backdrop CSS v 1.0.0 */

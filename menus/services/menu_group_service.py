@@ -1,7 +1,6 @@
 import uuid
 
 from django.contrib import messages
-from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 
 from menus.application.dtos.menu_groups import MenuGroupCreateDto, MenuGroupUpdateDto
@@ -43,29 +42,27 @@ class MenuGroupService:
         if tenant_obj and hasattr(tenant_obj, "pk"):
             data["tenant"] = tenant_obj.pk
 
+        repo_instance = MenuGroupProvider._menu_group_repo()
+
         # Validate with Serializer
-        serializer = MenuGroupCreateSerializer(data=data)
+        serializer = MenuGroupCreateSerializer(data=data, context={"menu_group_repo": repo_instance})
 
         if not serializer.is_valid():
             for field, errors in serializer.errors.items():
-                form.add_error(field, errors)
-                messages.error(request, f"{field}: {errors[0]}")
+                clean_errors = [str(err) for err in errors]
+                
+                target_field = field if field in form.fields else None
+                form.add_error(target_field, clean_errors)
+                
+                messages.error(request, f"{field}: {clean_errors[0]}")
             return False
-
+        
         validated_data = serializer.validated_data
 
         # Execute UseCase
         try:
-            ctx = RequestContext.from_request(request)
             dto = MenuGroupCreateDto(**validated_data)
-
-            MenuGroupProvider.create_menu_group().execute(
-                dto,
-                actor_id=ctx.actor_id,
-                actor_username=ctx.actor_username,
-                ip_address=get_client_ip(request),
-                user_agent=request.META.get("HTTP_USER_AGENT", ""),
-            )
+            MenuGroupProvider.create_menu_group().execute(dto)
             return True
         except Exception as exc:
             form.add_error(None, str(exc))

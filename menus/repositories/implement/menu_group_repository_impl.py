@@ -20,7 +20,7 @@ def _model_to_entity(obj: Any) -> MenuGroupEntity:
     return MenuGroupEntity(
         id=obj.pk,
         uuid=obj.uuid,
-        tenant=obj.tenant_id,
+        tenant_id=obj.tenant_id,
         code=obj.code,
         label=obj.label,
         icon=obj.icon,
@@ -117,6 +117,12 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
+    
+    def exists_by_sort_order(self, tenant: int, sort_order: int, exclude_id: int | None = None) -> bool:
+        qs = self._qs.filter(tenant_id=tenant, sort_order=sort_order)
+        if exclude_id:
+            qs = qs.exclude(pk=exclude_id)
+        return qs.exists()
 
     # ------------------------------------------------------------------ #
     # Write operations                                                   #
@@ -127,7 +133,7 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
 
         obj = MenuGroup.objects.create(
             uuid=entity.uuid,
-            tenant_id=entity.tenant,
+            tenant_id=entity.tenant_id,
             code=entity.code.lower(),
             label=entity.label,
             icon=entity.icon,

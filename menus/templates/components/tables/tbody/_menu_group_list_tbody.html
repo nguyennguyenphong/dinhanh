@@ -1,3 +1,56 @@
 <tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
-    
+    {% for menu_groups in menu_group %}
+    <tr>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ forloop.counter }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.uuid }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.code }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.label }}
+        </td>
+        <td class="px-6 py-3.5 text-start">
+            {% if menu_group.is_active %}
+            <span class="text-xs font-medium text-green-600">
+                Kích hoạt
+            </span>
+            {% else %}
+            <span class="text-xs font-medium text-red-600">
+                Ngừng kích hoạt
+            </span>
+            {% endif %}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.created_at|date:"H:i:s Y/m/d" }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ menu_group.updated_at|date:"H:i:s Y/m/d" }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {% if menu_group.deleted %}
+                {{ menu_group.deleted|date:"H:i:s Y/m/d" }}
+            {% else %}
+                None
+            {% endif %}
+        </td>
+        <td class="px-6 py-3.5 flex gap-3 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            <a href=""
+                class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
+                Chi tiết
+            </a>
+            <a href=""
+                class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
+                Chỉnh sửa
+            </a>
+            <button data-modal-target="{{ menu_group.uuid }}" data-modal-toggle="{{ menu_group.uuid }}"
+                class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100">
+                Xóa
+            </button>
+        </td>
+    </tr>
+    {% endfor %}
 </tbody>

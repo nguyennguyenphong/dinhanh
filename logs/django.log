@@ -3490,3 +3490,1666 @@ INFO 2026-06-15 23:06:32,808 log 23764 6169374720 "GET /menus/menu_groups/create
 INFO 2026-06-15 23:06:32,902 log 23764 6169374720 "GET /static/icons/menu.svg HTTP/1.1" 304 0
 INFO 2026-06-15 23:06:32,902 log 23764 6186201088 "GET /static/icons/search.svg HTTP/1.1" 304 0
 INFO 2026-06-15 23:06:57,785 log 23764 6169374720 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92666
+INFO 2026-06-16 08:16:09,801 autoreload 12944 22068 Watching for file changes with StatReloader
+INFO 2026-06-16 08:16:46,211 log 12944 13096 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-16 08:16:46,293 log 12944 11768 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-16 08:16:46,294 log 12944 13096 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-16 08:16:46,295 log 12944 19884 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-16 08:16:47,445 log 12944 19884 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+WARNING 2026-06-16 08:16:47,609 log 12944 11768 Not Found: /favicon.ico
+WARNING 2026-06-16 08:16:47,609 log 12944 11768 "GET /favicon.ico HTTP/1.1" 404 4153
+INFO 2026-06-16 08:16:52,730 log 12944 11768 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:16:57,174 log 12944 13096 "GET /tenants/list/ui/ HTTP/1.1" 200 102111
+INFO 2026-06-16 08:16:57,262 log 12944 13096 "GET /static/icons/sort.svg HTTP/1.1" 200 378
+INFO 2026-06-16 08:17:00,227 log 12944 30824 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 96083
+WARNING 2026-06-16 08:17:00,273 log 12944 30824 Not Found: /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 08:17:00,274 log 12944 30824 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 08:17:08,116 log 12944 10720 "GET /tenants/list/ui/ HTTP/1.1" 200 102111
+INFO 2026-06-16 08:17:11,406 log 12944 35356 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100491
+WARNING 2026-06-16 08:17:11,457 log 12944 35356 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 08:17:11,458 log 12944 35356 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 08:17:24,443 log 12944 18212 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 302 0
+INFO 2026-06-16 08:17:24,577 log 12944 18212 "GET /tenants/list/ui/ HTTP/1.1" 200 102172
+INFO 2026-06-16 08:17:29,223 log 12944 22420 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 96080
+WARNING 2026-06-16 08:17:29,270 log 12944 22420 Not Found: /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 08:17:29,271 log 12944 22420 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 08:17:33,291 log 12944 19516 "GET /tenants/list/ui/ HTTP/1.1" 200 102108
+INFO 2026-06-16 08:17:35,441 log 12944 3608 "GET /tenants/create/ HTTP/1.1" 200 100052
+INFO 2026-06-16 08:17:39,495 log 12944 6288 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:17:41,765 log 12944 14960 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:20:58,047 log 12944 30596 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92665
+INFO 2026-06-16 08:22:13,646 log 12944 11172 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92665
+INFO 2026-06-16 08:22:13,753 autoreload 12944 22068 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 08:22:15,168 autoreload 5896 22500 Watching for file changes with StatReloader
+INFO 2026-06-16 08:22:20,129 log 5896 20044 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:22:21,421 log 5896 31360 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:22:37,943 log 5896 32868 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92669
+INFO 2026-06-16 08:22:56,986 autoreload 5896 22500 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 08:22:58,185 autoreload 16472 18880 Watching for file changes with StatReloader
+INFO 2026-06-16 08:22:59,195 log 16472 7392 "POST /menus/menu_groups/create/ HTTP/1.1" 200 93014
+INFO 2026-06-16 08:23:30,918 log 16472 28676 "POST /menus/menu_groups/create/ HTTP/1.1" 200 93014
+INFO 2026-06-16 08:23:47,080 autoreload 16472 18880 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 08:23:48,274 autoreload 19972 33024 Watching for file changes with StatReloader
+INFO 2026-06-16 08:23:49,310 log 19972 27816 "POST /menus/menu_groups/create/ HTTP/1.1" 200 93014
+INFO 2026-06-16 08:26:39,048 log 19972 9416 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92635
+INFO 2026-06-16 08:27:28,578 autoreload 19972 33024 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:27:29,915 autoreload 19916 29832 Watching for file changes with StatReloader
+INFO 2026-06-16 08:27:33,281 autoreload 19916 29832 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:27:34,423 autoreload 14636 13480 Watching for file changes with StatReloader
+INFO 2026-06-16 08:27:35,235 log 14636 24032 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92504
+INFO 2026-06-16 08:27:38,765 log 14636 12016 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92504
+INFO 2026-06-16 08:27:39,014 autoreload 14636 13480 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:27:40,193 autoreload 13884 18092 Watching for file changes with StatReloader
+INFO 2026-06-16 08:27:58,286 autoreload 13884 18092 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\create_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 08:27:59,555 autoreload 28228 34956 Watching for file changes with StatReloader
+INFO 2026-06-16 08:28:00,309 log 28228 34708 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92504
+INFO 2026-06-16 08:28:24,527 autoreload 28228 34956 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:28:25,742 autoreload 14472 10408 Watching for file changes with StatReloader
+INFO 2026-06-16 08:28:26,685 log 14472 17440 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92504
+INFO 2026-06-16 08:28:30,206 log 14472 22408 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92504
+INFO 2026-06-16 08:28:47,495 log 14472 24264 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:28:51,988 log 14472 25920 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:29:49,299 log 14472 13608 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92449
+INFO 2026-06-16 08:29:54,431 log 14472 8532 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:30:27,673 log 14472 11044 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:30:28,289 autoreload 14472 10408 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\create_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 08:30:29,546 autoreload 27976 33540 Watching for file changes with StatReloader
+INFO 2026-06-16 08:30:40,855 autoreload 27976 33540 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:30:41,992 autoreload 8520 30048 Watching for file changes with StatReloader
+INFO 2026-06-16 08:30:42,665 log 8520 12724 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:30:45,427 autoreload 8520 30048 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:30:46,635 autoreload 7392 17648 Watching for file changes with StatReloader
+INFO 2026-06-16 08:30:55,026 log 7392 14464 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:30:57,030 log 7392 22000 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:31:14,072 log 7392 31188 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91729
+INFO 2026-06-16 08:31:34,759 log 7392 6492 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91729
+INFO 2026-06-16 08:31:35,236 autoreload 7392 17648 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:31:36,593 autoreload 30236 14148 Watching for file changes with StatReloader
+INFO 2026-06-16 08:31:43,380 autoreload 30236 14148 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:31:44,658 autoreload 27036 30080 Watching for file changes with StatReloader
+INFO 2026-06-16 08:31:45,695 log 27036 11144 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91729
+INFO 2026-06-16 08:32:13,854 log 27036 8260 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91949
+INFO 2026-06-16 08:32:26,013 log 27036 25448 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:32:43,954 autoreload 27036 30080 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:32:45,271 autoreload 15400 15068 Watching for file changes with StatReloader
+INFO 2026-06-16 08:32:46,211 log 15400 11532 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:32:48,635 log 15400 7036 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:32:48,701 autoreload 15400 15068 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:32:50,024 autoreload 9928 10972 Watching for file changes with StatReloader
+INFO 2026-06-16 08:32:51,768 log 9928 35344 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:33:04,759 log 9928 31232 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91927
+INFO 2026-06-16 08:33:20,658 log 9928 14076 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91927
+INFO 2026-06-16 08:33:20,883 autoreload 9928 10972 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:33:22,208 autoreload 22460 15916 Watching for file changes with StatReloader
+INFO 2026-06-16 08:33:57,134 log 22460 10040 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:34:00,322 log 22460 13160 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:42:03,255 log 22460 27024 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:42:16,394 log 22460 33164 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91877
+INFO 2026-06-16 08:42:24,755 log 22460 14476 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:42:35,657 log 22460 29840 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:42:35,792 autoreload 22460 15916 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:42:38,958 autoreload 35252 22752 Watching for file changes with StatReloader
+INFO 2026-06-16 08:42:41,676 log 35252 1780 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:42:41,732 autoreload 35252 22752 D:\Private\Files\file\dinhanh\menus\domain\entities\menu_group_entity.py changed, reloading.
+INFO 2026-06-16 08:42:43,069 autoreload 16484 9364 Watching for file changes with StatReloader
+INFO 2026-06-16 08:42:47,609 log 16484 9404 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:42:55,839 log 16484 1296 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91956
+INFO 2026-06-16 08:43:08,808 log 16484 27880 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91956
+INFO 2026-06-16 08:43:31,644 log 16484 32504 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91956
+INFO 2026-06-16 08:43:31,794 autoreload 16484 9364 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\create_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 08:43:33,164 autoreload 20412 17384 Watching for file changes with StatReloader
+INFO 2026-06-16 08:43:37,197 log 20412 27368 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91862
+WARNING 2026-06-16 08:43:45,575 log 20412 7872 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-16 08:43:45,576 log 20412 7872 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4264
+INFO 2026-06-16 08:43:59,843 log 20412 7872 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:44:45,177 log 20412 5516 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:44:54,277 log 20412 31688 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91849
+INFO 2026-06-16 08:47:08,702 log 20412 32120 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:47:15,629 log 20412 21336 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:47:15,766 autoreload 20412 17384 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:47:17,053 autoreload 23632 33036 Watching for file changes with StatReloader
+INFO 2026-06-16 08:47:20,495 log 23632 32656 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:47:27,952 log 23632 28028 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91772
+INFO 2026-06-16 08:47:32,986 log 23632 3356 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91841
+INFO 2026-06-16 08:47:39,636 log 23632 21912 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:49:35,370 autoreload 23632 33036 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:49:36,606 autoreload 7372 13084 Watching for file changes with StatReloader
+INFO 2026-06-16 08:49:47,819 log 7372 28432 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 08:49:49,505 log 7372 34808 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:49:59,381 log 7372 30560 "POST /menus/menu_groups/create/ HTTP/1.1" 302 0
+INFO 2026-06-16 08:49:59,459 log 7372 30560 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88610
+INFO 2026-06-16 08:50:02,423 log 7372 29072 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:52:50,635 log 7372 14684 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:52:51,420 autoreload 7372 13084 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:52:52,747 autoreload 19880 10808 Watching for file changes with StatReloader
+INFO 2026-06-16 08:52:53,662 log 19880 6620 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:52:55,657 log 19880 14292 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:52:56,023 autoreload 19880 10808 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:52:57,247 autoreload 8960 13780 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:00,568 autoreload 8960 13780 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:01,762 autoreload 26604 29656 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:03,685 log 26604 20828 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:53:04,119 autoreload 26604 29656 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:05,287 autoreload 33540 18832 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:11,996 autoreload 33540 18832 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:13,287 autoreload 18016 20572 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:16,169 autoreload 18016 20572 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:17,313 autoreload 21076 31628 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:20,129 autoreload 21076 31628 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:21,266 autoreload 17904 11068 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:26,357 autoreload 17904 11068 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:27,492 autoreload 15328 30988 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:35,288 autoreload 15328 30988 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:36,526 autoreload 25352 14048 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:46,626 autoreload 25352 14048 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:47,763 autoreload 6900 24416 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:53,382 autoreload 6900 24416 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:54,519 autoreload 8856 5820 Watching for file changes with StatReloader
+INFO 2026-06-16 08:53:57,734 autoreload 8856 5820 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:53:59,001 autoreload 14076 19044 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:04,566 autoreload 14076 19044 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:54:05,739 autoreload 28156 24188 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:07,881 autoreload 28156 24188 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:54:09,085 autoreload 10396 25664 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:12,327 autoreload 10396 25664 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:54:13,518 autoreload 6980 19768 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:22,626 autoreload 6980 19768 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:54:23,837 autoreload 27336 21512 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:27,171 autoreload 27336 21512 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:54:28,336 autoreload 17068 30932 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:30,619 autoreload 17068 30932 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:54:31,823 autoreload 16528 13740 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:33,985 autoreload 16528 13740 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:54:35,185 autoreload 21716 23940 Watching for file changes with StatReloader
+INFO 2026-06-16 08:54:41,425 log 21716 18396 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:54:42,036 log 21716 3296 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:55:07,451 autoreload 21716 23940 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:55:08,794 autoreload 7156 15936 Watching for file changes with StatReloader
+INFO 2026-06-16 08:55:10,962 autoreload 7156 15936 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_group_repository_impl.py changed, reloading.
+INFO 2026-06-16 08:55:12,166 autoreload 32400 31548 Watching for file changes with StatReloader
+INFO 2026-06-16 08:55:13,192 log 32400 13512 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:55:54,647 log 32400 35048 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:55:55,297 autoreload 32400 31548 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\create_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 08:55:56,618 autoreload 32580 24852 Watching for file changes with StatReloader
+INFO 2026-06-16 08:59:36,678 log 32580 15136 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:59:37,216 autoreload 32580 24852 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:59:38,386 autoreload 8352 28036 Watching for file changes with StatReloader
+INFO 2026-06-16 08:59:50,667 log 8352 20284 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:59:51,210 autoreload 8352 28036 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:59:52,462 autoreload 816 2888 Watching for file changes with StatReloader
+INFO 2026-06-16 08:59:53,804 log 816 30012 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:59:54,658 log 816 28936 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 08:59:54,730 autoreload 816 2888 D:\Private\Files\file\dinhanh\menus\serializers\menu_groups\menu_group_create_serilaizer.py changed, reloading.
+INFO 2026-06-16 08:59:55,954 autoreload 2924 13596 Watching for file changes with StatReloader
+INFO 2026-06-16 09:00:30,776 log 2924 6288 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 09:00:31,544 autoreload 2924 13596 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:00:32,687 autoreload 19684 15084 Watching for file changes with StatReloader
+INFO 2026-06-16 09:00:38,347 autoreload 19684 15084 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:00:39,654 autoreload 1752 22168 Watching for file changes with StatReloader
+INFO 2026-06-16 09:00:40,695 log 1752 32328 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 09:00:48,645 log 1752 16432 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 09:00:48,746 autoreload 1752 22168 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:00:49,979 autoreload 17096 11764 Watching for file changes with StatReloader
+INFO 2026-06-16 09:00:59,938 log 17096 12492 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91974
+INFO 2026-06-16 09:01:10,097 log 17096 2580 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91784
+INFO 2026-06-16 09:01:24,117 log 17096 14316 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92306
+INFO 2026-06-16 09:01:35,734 log 17096 31960 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92306
+INFO 2026-06-16 09:01:47,270 log 17096 18080 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92324
+INFO 2026-06-16 09:01:52,755 log 17096 1876 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92324
+INFO 2026-06-16 09:02:01,652 log 17096 25820 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92324
+INFO 2026-06-16 09:02:05,675 log 17096 30852 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92324
+INFO 2026-06-16 09:03:26,861 autoreload 17096 11764 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:03:28,093 autoreload 18272 804 Watching for file changes with StatReloader
+INFO 2026-06-16 09:03:30,919 autoreload 18272 804 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:03:32,039 autoreload 11976 27548 Watching for file changes with StatReloader
+INFO 2026-06-16 09:03:36,432 autoreload 11976 27548 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:03:37,595 autoreload 2820 15332 Watching for file changes with StatReloader
+INFO 2026-06-16 09:03:39,810 autoreload 2820 15332 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:03:41,035 autoreload 23040 20208 Watching for file changes with StatReloader
+INFO 2026-06-16 09:03:48,822 autoreload 23040 20208 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:03:50,034 autoreload 33604 28776 Watching for file changes with StatReloader
+INFO 2026-06-16 09:03:54,554 log 33604 6888 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92324
+INFO 2026-06-16 09:03:55,094 log 33604 11896 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92324
+INFO 2026-06-16 09:03:58,483 log 33604 26296 "POST /menus/menu_groups/create/ HTTP/1.1" 200 92324
+INFO 2026-06-16 09:04:01,540 log 33604 5892 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 09:04:03,667 log 33604 26612 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 09:04:23,939 log 33604 33532 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91724
+INFO 2026-06-16 09:04:32,703 log 33604 4448 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91724
+INFO 2026-06-16 09:04:48,073 autoreload 33604 28776 D:\Private\Files\file\dinhanh\menus\services\menu_group_service.py changed, reloading.
+INFO 2026-06-16 09:04:49,273 autoreload 18644 26472 Watching for file changes with StatReloader
+INFO 2026-06-16 09:04:50,204 log 18644 28424 "POST /menus/menu_groups/create/ HTTP/1.1" 200 91724
+INFO 2026-06-16 09:04:53,802 log 18644 34324 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 09:23:54,652 log 18644 7920 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 09:23:54,756 autoreload 18644 26472 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:23:56,250 autoreload 9304 27068 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:26:03,667 log 9304 29480 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 17, in get
+    form = TenantFilterForm(request.GET or None)
+           ^^^^^^^^^^^^^^^^
+NameError: name 'TenantFilterForm' is not defined
+ERROR 2026-06-16 09:26:03,686 log 9304 29480 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 104899
+INFO 2026-06-16 09:27:35,512 autoreload 9304 27068 D:\Private\Files\file\dinhanh\menus\views\forms\__init__.py changed, reloading.
+INFO 2026-06-16 09:27:36,791 autoreload 34236 12628 Watching for file changes with StatReloader
+INFO 2026-06-16 09:27:38,454 autoreload 34236 12628 D:\Private\Files\file\dinhanh\menus\views\forms\__init__.py changed, reloading.
+INFO 2026-06-16 09:27:39,591 autoreload 13024 23620 Watching for file changes with StatReloader
+INFO 2026-06-16 09:27:42,862 autoreload 13024 23620 D:\Private\Files\file\dinhanh\menus\views\forms\__init__.py changed, reloading.
+INFO 2026-06-16 09:27:44,003 autoreload 15056 13700 Watching for file changes with StatReloader
+INFO 2026-06-16 09:27:48,399 autoreload 15056 13700 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:27:49,588 autoreload 25252 6044 Watching for file changes with StatReloader
+INFO 2026-06-16 09:27:54,029 autoreload 25252 6044 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:27:55,210 autoreload 9952 12372 Watching for file changes with StatReloader
+INFO 2026-06-16 09:28:00,301 autoreload 9952 12372 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:28:01,384 autoreload 18864 1192 Watching for file changes with StatReloader
+INFO 2026-06-16 09:28:11,423 autoreload 18864 1192 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:28:12,533 autoreload 12940 13016 Watching for file changes with StatReloader
+INFO 2026-06-16 09:28:19,253 autoreload 12940 13016 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:28:20,423 autoreload 22296 9708 Watching for file changes with StatReloader
+INFO 2026-06-16 09:28:41,906 autoreload 22296 9708 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:28:43,047 autoreload 34100 22428 Watching for file changes with StatReloader
+INFO 2026-06-16 09:28:50,911 autoreload 34100 22428 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:28:52,092 autoreload 9956 12524 Watching for file changes with StatReloader
+INFO 2026-06-16 09:28:55,365 autoreload 9956 12524 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:28:56,542 autoreload 10688 31616 Watching for file changes with StatReloader
+INFO 2026-06-16 09:28:59,313 autoreload 10688 31616 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:29:00,441 autoreload 18176 27840 Watching for file changes with StatReloader
+INFO 2026-06-16 09:29:02,592 autoreload 18176 27840 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:29:03,732 autoreload 4500 24144 Watching for file changes with StatReloader
+INFO 2026-06-16 09:29:09,278 autoreload 4500 24144 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:29:10,433 autoreload 14184 11940 Watching for file changes with StatReloader
+INFO 2026-06-16 09:29:13,787 autoreload 14184 11940 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:29:15,006 autoreload 14868 11524 Watching for file changes with StatReloader
+INFO 2026-06-16 09:29:17,771 autoreload 14868 11524 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:29:18,893 autoreload 22048 20596 Watching for file changes with StatReloader
+INFO 2026-06-16 09:29:46,146 autoreload 22048 20596 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:29:47,499 autoreload 31320 27048 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:08,266 autoreload 31320 27048 D:\Private\Files\file\dinhanh\menus\application\dtos\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 09:31:09,402 autoreload 20596 9512 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:13,314 autoreload 20596 9512 D:\Private\Files\file\dinhanh\menus\application\dtos\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 09:31:14,466 autoreload 25608 29660 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:16,680 autoreload 25608 29660 D:\Private\Files\file\dinhanh\menus\application\dtos\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 09:31:17,976 autoreload 28488 26736 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:24,733 autoreload 28488 26736 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:25,869 autoreload 30620 31668 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:29,150 autoreload 30620 31668 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:30,299 autoreload 2172 31592 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:33,135 autoreload 2172 31592 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:34,286 autoreload 11668 8400 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:36,007 autoreload 11668 8400 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:37,206 autoreload 33236 20780 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:40,189 autoreload 33236 20780 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:41,307 autoreload 31676 30936 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:43,029 autoreload 31676 30936 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:44,165 autoreload 11688 23752 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:47,412 autoreload 11688 23752 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:48,506 autoreload 23992 17456 Watching for file changes with StatReloader
+INFO 2026-06-16 09:31:57,434 autoreload 23992 17456 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:31:58,561 autoreload 34192 5064 Watching for file changes with StatReloader
+INFO 2026-06-16 09:32:07,548 autoreload 34192 5064 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:32:08,694 autoreload 26736 27876 Watching for file changes with StatReloader
+INFO 2026-06-16 09:32:10,390 autoreload 26736 27876 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:32:11,501 autoreload 21628 31668 Watching for file changes with StatReloader
+INFO 2026-06-16 09:32:19,342 autoreload 21628 31668 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:32:20,492 autoreload 15836 29196 Watching for file changes with StatReloader
+INFO 2026-06-16 09:32:35,145 autoreload 15836 29196 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:32:36,337 autoreload 31664 6196 Watching for file changes with StatReloader
+INFO 2026-06-16 09:32:45,973 autoreload 31664 6196 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:32:47,276 autoreload 18492 22480 Watching for file changes with StatReloader
+INFO 2026-06-16 09:32:55,183 autoreload 18492 22480 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:32:56,305 autoreload 16700 14812 Watching for file changes with StatReloader
+INFO 2026-06-16 09:33:09,834 autoreload 16700 14812 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:33:11,069 autoreload 29340 5036 Watching for file changes with StatReloader
+INFO 2026-06-16 09:33:16,680 autoreload 29340 5036 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:33:17,784 autoreload 22844 31548 Watching for file changes with StatReloader
+INFO 2026-06-16 09:33:50,675 autoreload 22844 31548 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:33:51,875 autoreload 22448 5884 Watching for file changes with StatReloader
+INFO 2026-06-16 09:33:54,028 autoreload 22448 5884 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:33:55,245 autoreload 4888 12532 Watching for file changes with StatReloader
+INFO 2026-06-16 09:33:57,359 autoreload 4888 12532 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:33:58,461 autoreload 13864 30488 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:35:50,002 log 13864 17096 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:35:50,012 log 13864 17096 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:35:50,111 log 13864 19544 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:35:50,114 log 13864 19544 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:35:53,082 log 13864 816 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:35:53,084 log 13864 816 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:36:01,129 log 13864 4264 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:36:01,131 log 13864 4264 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:36:04,558 log 13864 14444 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:36:04,560 log 13864 14444 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:36:09,114 log 13864 24500 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:36:09,116 log 13864 24500 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:36:11,491 log 13864 33668 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:36:11,494 log 13864 33668 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:36:17,206 log 13864 24320 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:36:17,208 log 13864 24320 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:36:19,517 log 13864 3008 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:36:19,519 log 13864 3008 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106531
+ERROR 2026-06-16 09:36:30,086 log 13864 4016 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:36:30,088 log 13864 4016 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106662
+ERROR 2026-06-16 09:46:52,278 log 13864 1752 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 47, in get
+    menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: ListMenuGroupsUseCase.execute() takes 1 positional argument but 2 were given
+ERROR 2026-06-16 09:46:52,280 log 13864 1752 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106662
+INFO 2026-06-16 09:49:13,252 autoreload 13864 30488 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:49:14,555 autoreload 18168 10244 Watching for file changes with StatReloader
+INFO 2026-06-16 09:49:17,882 autoreload 18168 10244 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:49:18,993 autoreload 34496 17796 Watching for file changes with StatReloader
+INFO 2026-06-16 09:49:29,178 autoreload 34496 17796 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:49:30,393 autoreload 32464 7904 Watching for file changes with StatReloader
+INFO 2026-06-16 09:49:38,233 autoreload 32464 7904 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:49:39,547 autoreload 19432 25148 Watching for file changes with StatReloader
+INFO 2026-06-16 09:50:03,452 autoreload 19432 25148 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:50:04,697 autoreload 28356 31380 Watching for file changes with StatReloader
+INFO 2026-06-16 09:50:13,651 autoreload 28356 31380 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:50:14,780 autoreload 10308 11496 Watching for file changes with StatReloader
+INFO 2026-06-16 09:50:20,421 autoreload 10308 11496 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:50:21,719 autoreload 16224 26112 Watching for file changes with StatReloader
+INFO 2026-06-16 09:50:45,523 autoreload 16224 26112 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:50:46,701 autoreload 15888 28184 Watching for file changes with StatReloader
+INFO 2026-06-16 09:50:48,889 autoreload 15888 28184 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:50:50,094 autoreload 14312 29352 Watching for file changes with StatReloader
+INFO 2026-06-16 09:50:52,233 autoreload 14312 29352 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:50:53,343 autoreload 6904 15604 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:50:56,434 log 6904 26400 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 38, in get
+    if sort_value:
+       ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'sort_value' where it is not associated with a value
+ERROR 2026-06-16 09:50:56,443 log 6904 26400 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105998
+INFO 2026-06-16 09:51:14,149 autoreload 6904 15604 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:51:15,337 autoreload 17584 28652 Watching for file changes with StatReloader
+INFO 2026-06-16 09:51:17,463 autoreload 17584 28652 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:51:18,592 autoreload 9704 30668 Watching for file changes with StatReloader
+INFO 2026-06-16 09:51:20,733 autoreload 9704 30668 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:51:21,870 autoreload 9304 30372 Watching for file changes with StatReloader
+INFO 2026-06-16 09:51:25,147 autoreload 9304 30372 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:51:26,386 autoreload 34856 25244 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:51:27,165 log 34856 31312 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 41, in get
+    current_tenant_id = request.user.tenant_id
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+AttributeError: 'User' object has no attribute 'tenant_id'
+ERROR 2026-06-16 09:51:27,175 log 34856 31312 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 109831
+INFO 2026-06-16 09:51:47,912 autoreload 34856 25244 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:51:49,164 autoreload 4964 5300 Watching for file changes with StatReloader
+INFO 2026-06-16 09:51:51,328 autoreload 4964 5300 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:51:52,465 autoreload 20396 13256 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:51:53,033 log 20396 25456 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 41, in get
+    current_tenant_id = request.tenant
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:51:53,044 log 20396 25456 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105807
+INFO 2026-06-16 09:52:12,902 autoreload 20396 13256 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:52:14,061 autoreload 34212 21424 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:52:22,529 log 34212 13580 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 41, in get
+    current_tenant_id = request.tenant
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:52:22,538 log 34212 13580 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105809
+ERROR 2026-06-16 09:52:23,616 log 34212 15808 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 41, in get
+    current_tenant_id = request.tenant
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:52:23,619 log 34212 15808 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105809
+INFO 2026-06-16 09:52:49,714 autoreload 34212 21424 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:52:50,937 autoreload 13504 26652 Watching for file changes with StatReloader
+INFO 2026-06-16 09:52:53,117 autoreload 13504 26652 D:\Private\Files\file\dinhanh\menus\application\dtos\menu_groups\menu_group_list_query_dto.py changed, reloading.
+INFO 2026-06-16 09:52:54,358 autoreload 23092 34832 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:52:55,704 log 23092 22668 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 41, in get
+    current_tenant_id = request.tenant
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:52:55,713 log 23092 22668 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105807
+ERROR 2026-06-16 09:52:56,758 log 23092 23636 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 41, in get
+    current_tenant_id = request.tenant
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:52:56,760 log 23092 23636 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105807
+INFO 2026-06-16 09:53:21,498 autoreload 23092 34832 D:\Private\Files\file\dinhanh\menus\application\dtos\menu_groups\menu_group_list_query_dto.py changed, reloading.
+INFO 2026-06-16 09:53:22,745 autoreload 6028 32928 Watching for file changes with StatReloader
+INFO 2026-06-16 09:53:24,863 autoreload 6028 32928 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:53:26,018 autoreload 24668 26488 Watching for file changes with StatReloader
+INFO 2026-06-16 09:53:29,381 autoreload 24668 26488 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:53:30,517 autoreload 13660 7224 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:53:33,532 log 13660 30512 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 38, in get
+    if sort_value:
+       ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'sort_value' where it is not associated with a value
+ERROR 2026-06-16 09:53:33,541 log 13660 30512 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105989
+ERROR 2026-06-16 09:53:34,857 log 13660 3900 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 38, in get
+    if sort_value:
+       ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'sort_value' where it is not associated with a value
+ERROR 2026-06-16 09:53:34,859 log 13660 3900 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 105989
+INFO 2026-06-16 09:54:10,724 autoreload 13660 7224 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:54:11,940 autoreload 13352 13104 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:54:19,292 log 13352 9544 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:54:19,302 log 13352 9544 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106128
+INFO 2026-06-16 09:55:12,656 autoreload 13352 13104 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 09:55:13,822 autoreload 8196 33220 Watching for file changes with StatReloader
+INFO 2026-06-16 09:55:42,061 autoreload 11660 25608 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:55:46,782 log 11660 24804 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:55:46,793 log 11660 24804 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+INFO 2026-06-16 09:58:06,918 autoreload 11660 25608 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:08,154 autoreload 10096 32948 Watching for file changes with StatReloader
+INFO 2026-06-16 09:58:21,770 autoreload 10096 32948 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:22,980 autoreload 34316 26236 Watching for file changes with StatReloader
+INFO 2026-06-16 09:58:31,983 autoreload 34316 26236 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:33,228 autoreload 4564 27928 Watching for file changes with StatReloader
+INFO 2026-06-16 09:58:35,458 autoreload 4564 27928 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:36,591 autoreload 19676 30712 Watching for file changes with StatReloader
+INFO 2026-06-16 09:58:39,915 autoreload 19676 30712 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:41,080 autoreload 35660 8008 Watching for file changes with StatReloader
+INFO 2026-06-16 09:58:43,292 autoreload 35660 8008 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:44,552 autoreload 21616 19888 Watching for file changes with StatReloader
+INFO 2026-06-16 09:58:46,754 autoreload 21616 19888 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:47,890 autoreload 15820 32400 Watching for file changes with StatReloader
+INFO 2026-06-16 09:58:58,024 autoreload 15820 32400 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 09:58:59,169 autoreload 572 29652 Watching for file changes with StatReloader
+ERROR 2026-06-16 09:59:21,566 log 572 31076 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:59:21,575 log 572 31076 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 09:59:22,595 log 572 24112 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 09:59:22,597 log 572 24112 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+INFO 2026-06-16 10:01:41,521 autoreload 572 29652 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:01:42,692 autoreload 4360 21132 Watching for file changes with StatReloader
+INFO 2026-06-16 10:02:53,320 autoreload 4360 21132 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:02:54,517 autoreload 12912 29344 Watching for file changes with StatReloader
+INFO 2026-06-16 10:02:58,497 autoreload 12912 29344 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:02:59,602 autoreload 19628 29320 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:05,816 autoreload 19628 29320 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:03:06,973 autoreload 5352 6856 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:10,310 autoreload 5352 6856 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:03:11,461 autoreload 28940 25388 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:13,619 autoreload 28940 25388 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:03:14,891 autoreload 22044 34276 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:17,047 autoreload 22044 34276 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:03:18,246 autoreload 27448 8552 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:20,503 autoreload 27448 8552 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:03:21,675 autoreload 29036 18012 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:23,873 autoreload 29036 18012 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:03:25,032 autoreload 11328 19348 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:30,069 autoreload 11328 19348 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:03:31,254 autoreload 28636 12088 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:36,896 autoreload 28636 12088 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:03:38,144 autoreload 30912 13596 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:42,082 autoreload 30912 13596 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:03:43,220 autoreload 19236 25180 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:53,908 autoreload 19236 25180 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:03:55,203 autoreload 3688 33056 Watching for file changes with StatReloader
+INFO 2026-06-16 10:03:58,084 autoreload 3688 33056 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:03:59,258 autoreload 25760 25592 Watching for file changes with StatReloader
+INFO 2026-06-16 10:04:20,222 autoreload 25760 25592 D:\Private\Files\file\dinhanh\tenants\application\usecases\tenants\list_tenant_usecase.py changed, reloading.
+INFO 2026-06-16 10:04:21,425 autoreload 24288 32264 Watching for file changes with StatReloader
+INFO 2026-06-16 10:04:23,033 autoreload 24288 32264 D:\Private\Files\file\dinhanh\tenants\application\usecases\tenants\list_tenant_usecase.py changed, reloading.
+INFO 2026-06-16 10:04:24,149 autoreload 15056 31176 Watching for file changes with StatReloader
+INFO 2026-06-16 10:04:39,562 autoreload 15056 31176 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:04:40,658 autoreload 22004 25712 Watching for file changes with StatReloader
+INFO 2026-06-16 10:04:43,536 autoreload 22004 25712 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:04:44,609 autoreload 14496 12968 Watching for file changes with StatReloader
+INFO 2026-06-16 10:04:47,404 autoreload 14496 12968 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\list_menu_group_usecase.py changed, reloading.
+INFO 2026-06-16 10:04:48,510 autoreload 30224 33848 Watching for file changes with StatReloader
+INFO 2026-06-16 10:05:02,027 autoreload 30224 33848 D:\Private\Files\file\dinhanh\menus\application\usecases\menu_groups\__init__.py changed, reloading.
+INFO 2026-06-16 10:05:03,200 autoreload 31580 25744 Watching for file changes with StatReloader
+ERROR 2026-06-16 10:05:06,913 log 31580 3540 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:06,922 log 31580 3540 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 10:05:07,752 log 31580 4660 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:07,754 log 31580 4660 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 10:05:08,045 log 31580 24572 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:08,048 log 31580 24572 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 10:05:08,241 log 31580 5544 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:08,244 log 31580 5544 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 10:05:08,422 log 31580 19888 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:08,425 log 31580 19888 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 10:05:08,593 log 31580 3676 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:08,595 log 31580 3676 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 10:05:08,766 log 31580 11540 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:08,769 log 31580 11540 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+ERROR 2026-06-16 10:05:09,049 log 31580 35828 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 42, in get
+    current_tenant_id = request.tenant.id
+                        ^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'tenant'
+ERROR 2026-06-16 10:05:09,051 log 31580 35828 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 106134
+INFO 2026-06-16 10:06:23,634 autoreload 31580 25744 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 10:06:24,811 autoreload 20076 16804 Watching for file changes with StatReloader
+ERROR 2026-06-16 10:06:35,212 log 20076 23360 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 64, in get
+    "menu_groups": result_dto.items,
+                   ^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'items'
+ERROR 2026-06-16 10:06:35,222 log 20076 23360 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 108796
+ERROR 2026-06-16 10:06:36,417 log 20076 3096 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 64, in get
+    "menu_groups": result_dto.items,
+                   ^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'items'
+ERROR 2026-06-16 10:06:36,420 log 20076 3096 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 108796
+INFO 2026-06-16 10:08:10,035 autoreload 20076 16804 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 10:08:11,179 autoreload 20900 11144 Watching for file changes with StatReloader
+INFO 2026-06-16 10:08:19,110 autoreload 20900 11144 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 10:08:20,282 autoreload 572 20916 Watching for file changes with StatReloader
+INFO 2026-06-16 10:08:22,426 autoreload 572 20916 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 10:08:23,588 autoreload 33292 23068 Watching for file changes with StatReloader
+INFO 2026-06-16 10:08:28,140 autoreload 33292 23068 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 10:08:29,238 autoreload 4168 31264 Watching for file changes with StatReloader
+ERROR 2026-06-16 10:08:31,914 log 4168 31904 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 70, in get
+    return render(request, "pages/menu_groups/list.html", context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 228, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 79, in __init__
+    original_init(self, template_string, origin, name, *args, **kwargs)  # type: ignore[misc]
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 122, in _compile_nodelist
+    nodelist = parser.parse()
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 894, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 590, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 657, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 2: 'for'. Looking for one of: empty, endfor.
+ERROR 2026-06-16 10:08:31,923 log 4168 31904 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 340804
+ERROR 2026-06-16 10:09:04,124 log 4168 14936 Internal Server Error: /menus/menu_groups/list/ui/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py", line 70, in get
+    return render(request, "pages/menu_groups/list.html", context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 200, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 228, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 186, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 79, in __init__
+    original_init(self, template_string, origin, name, *args, **kwargs)  # type: ignore[misc]
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 122, in _compile_nodelist
+    nodelist = parser.parse()
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 894, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 894, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 590, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 657, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 55: 'for'. Looking for one of: empty, endfor.
+ERROR 2026-06-16 10:09:04,133 log 4168 14936 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 500 357305
+INFO 2026-06-16 10:09:07,890 log 4168 10368 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:09:08,023 log 4168 10368 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-16 10:09:08,023 log 4168 32428 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-16 10:09:12,179 log 4168 10368 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:09:30,364 log 4168 26396 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91539
+INFO 2026-06-16 10:09:32,164 log 4168 13516 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:10:12,682 log 4168 6640 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:10:12,939 autoreload 4168 31264 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 10:10:14,298 autoreload 8504 1724 Watching for file changes with StatReloader
+INFO 2026-06-16 10:10:15,648 log 8504 27744 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:10:21,450 log 8504 30060 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:11:09,918 autoreload 8504 1724 D:\Private\Files\file\dinhanh\menus\views\menu_groups\menu_group_list_view.py changed, reloading.
+INFO 2026-06-16 10:11:11,251 autoreload 3528 15368 Watching for file changes with StatReloader
+INFO 2026-06-16 10:15:28,673 log 3528 9964 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:19:03,308 log 3528 23752 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88549
+INFO 2026-06-16 10:19:04,464 log 3528 21956 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-16 10:19:05,781 log 3528 6632 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-16 10:19:11,695 log 3528 4452 "GET / HTTP/1.1" 200 95079
+INFO 2026-06-16 10:19:58,043 log 3528 17812 "GET / HTTP/1.1" 200 95569
+INFO 2026-06-16 10:20:01,575 log 3528 22620 "GET / HTTP/1.1" 200 95485
+ERROR 2026-06-16 10:20:17,782 log 3528 18120 Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\dashboard\views.py", line 6, in dashboard
+    return render(request, "dashboard/dashboard.html")
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+ERROR 2026-06-16 10:20:17,792 log 3528 18120 "GET / HTTP/1.1" 500 206199
+INFO 2026-06-16 10:20:17,821 basehttp 3528 18120 - Broken pipe from ('127.0.0.1', 61185)
+ERROR 2026-06-16 10:20:17,960 log 3528 25244 Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\dashboard\views.py", line 6, in dashboard
+    return render(request, "dashboard/dashboard.html")
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 181, in _template_render
+    result: str = self._render(context, *args, **kwargs)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 66, in render
+    result = block.nodelist.render(context)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 260, in _include_render
+    return orig_include_render(self, context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\loader_tags.py", line 211, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django_components\util\django_monkeypatch.py", line 183, in _template_render
+    result = self._render(context, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+ERROR 2026-06-16 10:20:17,964 log 3528 25244 "GET / HTTP/1.1" 500 206199
+INFO 2026-06-16 10:20:19,498 log 3528 14772 "GET / HTTP/1.1" 200 95485
+INFO 2026-06-16 10:20:22,594 log 3528 11252 "GET / HTTP/1.1" 200 95516
+INFO 2026-06-16 10:20:22,945 log 3528 7328 "GET / HTTP/1.1" 200 95516
+INFO 2026-06-16 10:20:23,581 log 3528 28956 "GET / HTTP/1.1" 200 95516
+INFO 2026-06-16 10:20:24,110 log 3528 24096 "GET / HTTP/1.1" 200 95516
+INFO 2026-06-16 10:20:31,581 log 3528 26968 "GET / HTTP/1.1" 200 95519
+INFO 2026-06-16 10:20:32,096 log 3528 8412 "GET / HTTP/1.1" 200 95519
+INFO 2026-06-16 10:20:39,582 log 3528 580 "GET / HTTP/1.1" 200 95592
+INFO 2026-06-16 10:20:40,121 log 3528 11292 "GET / HTTP/1.1" 200 95592
+INFO 2026-06-16 10:20:43,582 log 3528 29288 "GET / HTTP/1.1" 200 95243
+INFO 2026-06-16 10:20:43,635 log 3528 23920 "GET / HTTP/1.1" 200 95243
+INFO 2026-06-16 10:20:55,127 log 3528 7872 "GET / HTTP/1.1" 200 95241
+INFO 2026-06-16 10:21:06,597 log 3528 30880 "GET / HTTP/1.1" 200 95141
+INFO 2026-06-16 10:21:06,647 log 3528 6964 "GET / HTTP/1.1" 200 95141
+INFO 2026-06-16 10:21:11,230 log 3528 10144 "GET /tenants/list/ui/ HTTP/1.1" 200 102128
+INFO 2026-06-16 10:21:11,266 log 3528 10144 "GET /static/icons/sort.svg HTTP/1.1" 304 0
+INFO 2026-06-16 10:21:42,794 log 3528 18756 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 10:21:45,000 log 3528 32892 "GET / HTTP/1.1" 200 95153
+INFO 2026-06-16 10:21:49,635 log 3528 9980 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 10:21:59,180 log 3528 3188 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 96112
+WARNING 2026-06-16 10:21:59,224 log 3528 3188 Not Found: /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:21:59,225 log 3528 3188 "GET /tenants/detail/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:22:04,736 log 3528 27980 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100520
+WARNING 2026-06-16 10:22:04,780 log 3528 27980 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:22:04,781 log 3528 27980 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:22:07,941 log 3528 17916 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:22:08,032 log 3528 17916 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:22:08,033 log 3528 17916 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:22:11,763 log 3528 14680 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 10:22:32,630 log 3528 1496 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 10:22:36,943 log 3528 26240 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100520
+WARNING 2026-06-16 10:22:36,978 log 3528 26240 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:22:36,979 log 3528 26240 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:22:41,596 log 3528 20208 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:22:41,694 log 3528 20208 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:22:41,695 log 3528 20208 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:22:54,538 log 3528 23276 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:22:54,650 log 3528 23276 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:22:54,651 log 3528 23276 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:01,387 log 3528 33048 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:01,438 log 3528 33048 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:01,439 log 3528 33048 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:04,920 log 3528 29416 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:04,976 log 3528 29416 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:04,977 log 3528 29416 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:18,689 log 3528 24724 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:18,732 log 3528 24724 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:18,733 log 3528 24724 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:30,093 log 3528 3668 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:30,147 log 3528 3668 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:30,148 log 3528 3668 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:33,543 log 3528 33116 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:33,593 log 3528 33116 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:33,594 log 3528 33116 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:37,013 log 3528 17052 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:37,065 log 3528 17052 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:37,066 log 3528 17052 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:40,382 log 3528 19692 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:40,431 log 3528 19692 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:40,432 log 3528 19692 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:48,432 log 3528 3200 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:48,476 log 3528 3200 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:48,477 log 3528 3200 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:50,835 log 3528 2040 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:50,880 log 3528 2040 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:50,881 log 3528 2040 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:55,359 log 3528 25656 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:55,400 log 3528 25656 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:55,401 log 3528 25656 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:23:57,643 log 3528 17388 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:23:57,682 log 3528 17388 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:23:57,683 log 3528 17388 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:24:09,046 log 3528 580 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:24:09,087 log 3528 580 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:24:09,088 log 3528 580 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:24:20,481 log 3528 6872 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:24:20,525 log 3528 6872 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:24:20,526 log 3528 6872 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:24:30,743 log 3528 30992 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:24:30,783 log 3528 30992 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:24:30,784 log 3528 30992 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:25:01,698 log 3528 28736 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:25:02,073 log 3528 28736 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:25:02,074 log 3528 28736 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:25:03,971 log 3528 24528 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:25:04,036 log 3528 24528 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:25:04,037 log 3528 24528 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:02,695 log 3528 31100 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:02,748 log 3528 31100 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:02,749 log 3528 31100 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:05,686 log 3528 25428 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:05,730 log 3528 25428 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:05,731 log 3528 25428 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:08,717 log 3528 10424 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:08,768 log 3528 10424 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:08,769 log 3528 10424 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:12,698 log 3528 11180 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:12,743 log 3528 11180 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:12,744 log 3528 11180 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:17,701 log 3528 3152 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:17,749 log 3528 3152 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:17,750 log 3528 3152 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:25,702 log 3528 9164 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:25,749 log 3528 9164 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:25,749 log 3528 9164 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:35,686 log 3528 9112 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:35,730 log 3528 9112 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:35,730 log 3528 9112 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:53,813 log 3528 17812 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:53,858 log 3528 17812 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:53,859 log 3528 17812 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:29:57,689 log 3528 9820 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:29:57,737 log 3528 9820 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:29:57,738 log 3528 9820 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:30:01,705 log 3528 11188 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:30:01,750 log 3528 11188 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:30:01,750 log 3528 11188 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:30:06,696 log 3528 29688 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:30:06,745 log 3528 29688 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:30:06,745 log 3528 29688 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:30:09,759 log 3528 34952 "POST /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100594
+WARNING 2026-06-16 10:30:09,809 log 3528 34952 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:30:09,809 log 3528 34952 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:31:38,256 log 3528 2548 "GET / HTTP/1.1" 200 95153
+INFO 2026-06-16 10:31:40,786 log 3528 19880 "GET / HTTP/1.1" 200 95153
+INFO 2026-06-16 10:31:42,271 log 3528 12196 "GET / HTTP/1.1" 200 95153
+INFO 2026-06-16 10:31:54,492 log 3528 29740 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88581
+INFO 2026-06-16 10:31:57,261 log 3528 25928 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91571
+INFO 2026-06-16 10:32:01,653 log 3528 30980 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 10:32:04,578 log 3528 35488 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/ HTTP/1.1" 200 100520
+WARNING 2026-06-16 10:32:04,614 log 3528 35488 Not Found: /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None
+WARNING 2026-06-16 10:32:04,615 log 3528 35488 "GET /tenants/update/93723d6e-2b0d-485a-953f-e368dd345961/None HTTP/1.1" 404 5840
+INFO 2026-06-16 10:32:12,971 log 3528 24772 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 10:33:24,192 autoreload 3528 15368 D:\Private\Files\file\dinhanh\menus\contants.py changed, reloading.
+INFO 2026-06-16 10:33:25,659 autoreload 19812 28600 Watching for file changes with StatReloader
+INFO 2026-06-16 10:33:26,728 log 19812 27528 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 10:33:26,779 log 19812 27528 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-16 10:33:26,995 log 19812 27528 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-16 10:57:14,633 autoreload 27300 2528 Watching for file changes with StatReloader
+INFO 2026-06-16 10:57:54,857 autoreload 26900 24784 Watching for file changes with StatReloader
+INFO 2026-06-16 10:58:57,292 autoreload 17692 5624 Watching for file changes with StatReloader
+INFO 2026-06-16 10:59:52,308 autoreload 17692 5624 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 10:59:53,533 autoreload 9124 11928 Watching for file changes with StatReloader
+INFO 2026-06-16 10:59:57,508 autoreload 9124 11928 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 10:59:58,770 autoreload 31784 24252 Watching for file changes with StatReloader
+INFO 2026-06-16 11:00:00,466 autoreload 31784 24252 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 11:00:01,656 autoreload 27152 10912 Watching for file changes with StatReloader
+INFO 2026-06-16 11:00:05,584 autoreload 27152 10912 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 11:00:06,804 autoreload 25420 29444 Watching for file changes with StatReloader
+INFO 2026-06-16 11:00:08,468 autoreload 25420 29444 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 11:00:09,816 autoreload 26292 32728 Watching for file changes with StatReloader
+INFO 2026-06-16 11:00:11,470 autoreload 26292 32728 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 11:00:12,654 autoreload 10388 22536 Watching for file changes with StatReloader
+INFO 2026-06-16 11:00:14,354 autoreload 10388 22536 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 11:00:15,518 autoreload 21672 26864 Watching for file changes with StatReloader
+INFO 2026-06-16 11:00:17,727 autoreload 21672 26864 D:\Private\Files\file\dinhanh\menus\repositories\implement\menu_item_repository_impl.py changed, reloading.
+INFO 2026-06-16 11:00:18,925 autoreload 31412 9924 Watching for file changes with StatReloader
+INFO 2026-06-16 11:00:33,376 log 31412 28948 "GET / HTTP/1.1" 200 95153
+INFO 2026-06-16 11:00:40,157 log 31412 26328 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 11:00:44,297 log 31412 5656 "GET /tenants/list/ui/?search_tenant=&sort_by=&status=True&plan=TRIAL HTTP/1.1" 200 93397
+INFO 2026-06-16 11:00:47,936 log 31412 33936 "GET /tenants/list/ui/ HTTP/1.1" 200 102140
+INFO 2026-06-16 11:00:53,438 log 31412 15028 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88581
+INFO 2026-06-16 11:00:56,483 log 31412 33072 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91571
+INFO 2026-06-16 11:01:03,265 log 31412 4660 "GET /menus/menu_groups/list/ui/ HTTP/1.1" 200 88581
+INFO 2026-06-16 11:01:09,293 log 31412 3500 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91571
+INFO 2026-06-16 11:01:28,014 log 31412 3500 "GET /menus/menu_groups/create/ HTTP/1.1" 200 91571
