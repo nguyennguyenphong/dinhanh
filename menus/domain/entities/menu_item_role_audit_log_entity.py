@@ -37,7 +37,7 @@ class MenuItemRoleAuditLogEntity:
         # 1. Base identity validation
         if self.tenant_id <= 0:
             raise ValueError("Invalid tenant_id. Must be a positive integer.")
-        
+
         if self.menu_item_id <= 0:
             raise ValueError("Invalid menu_item_id. Must be a positive integer.")
 
@@ -53,22 +53,38 @@ class MenuItemRoleAuditLogEntity:
         # 3. Business Invariant: Relationships validity
         if self.role_id is not None and self.role_id <= 0:
             raise ValueError("Invalid role_id. Must be a positive integer if provided.")
-            
+
         if self.actor_id is not None and self.actor_id <= 0:
-            raise ValueError("Invalid actor_id. Must be a positive integer if provided.")
+            raise ValueError(
+                "Invalid actor_id. Must be a positive integer if provided."
+            )
 
         # 4. Business Invariant: Single vs Batch operation rules
-        if self.action in [MenuItemRoleAuditAction.ASSIGN, MenuItemRoleAuditAction.REVOKE]:
+        if self.action in [
+            MenuItemRoleAuditAction.ASSIGN,
+            MenuItemRoleAuditAction.REVOKE,
+        ]:
             if self.role_id is None:
-                raise ValueError(f"Action '{self.action.value}' requires a specific 'role_id'.")
+                raise ValueError(
+                    f"Action '{self.action.value}' requires a specific 'role_id'."
+                )
             if self.affected_count != 1:
-                raise ValueError(f"Single action '{self.action.value}' must have affected_count equal to 1.")
+                raise ValueError(
+                    f"Single action '{self.action.value}' must have affected_count equal to 1."
+                )
 
-        if self.action in [MenuItemRoleAuditAction.BATCH_ASSIGN, MenuItemRoleAuditAction.BATCH_REVOKE]:
+        if self.action in [
+            MenuItemRoleAuditAction.BATCH_ASSIGN,
+            MenuItemRoleAuditAction.BATCH_REVOKE,
+        ]:
             if self.role_id is not None:
-                raise ValueError(f"Batch action '{self.action.value}' should not reference a single 'role_id'.")
+                raise ValueError(
+                    f"Batch action '{self.action.value}' should not reference a single 'role_id'."
+                )
             if self.affected_count <= 0:
-                raise ValueError(f"Batch action '{self.action.value}' must have affected_count greater than 0.")
+                raise ValueError(
+                    f"Batch action '{self.action.value}' must have affected_count greater than 0."
+                )
 
         # 5. Clean text inputs
         if self.actor_username:
@@ -142,17 +158,23 @@ class MenuItemRoleAuditLogEntity:
         """
         Check if the log entry belongs to a mass update.
         """
-        return self.action in [MenuItemRoleAuditAction.BATCH_ASSIGN, MenuItemRoleAuditAction.BATCH_REVOKE]
+        return self.action in [
+            MenuItemRoleAuditAction.BATCH_ASSIGN,
+            MenuItemRoleAuditAction.BATCH_REVOKE,
+        ]
 
     def is_assignment(self) -> bool:
         """
         Helper rule to check if permissions were granted.
         """
-        return self.action in [MenuItemRoleAuditAction.ASSIGN, MenuItemRoleAuditAction.BATCH_ASSIGN]
+        return self.action in [
+            MenuItemRoleAuditAction.ASSIGN,
+            MenuItemRoleAuditAction.BATCH_ASSIGN,
+        ]
 
     def requires_compliance_review(self) -> bool:
         """
-        An example of production-level compliance rule: 
+        An example of production-level compliance rule:
         Flag any batch revocation or non-reason changes for specific audits.
         """
         if self.is_batch_operation() and self.affected_count > 10:

@@ -45,7 +45,7 @@ class MenuItemEntity:
         # 1. Base Validations
         if self.tenant_id <= 0:
             raise ValueError("tenant_id must be a positive integer.")
-        
+
         if self.group_id is not None and self.group_id <= 0:
             raise ValueError("group_id must be a positive integer if provided.")
 
@@ -54,12 +54,14 @@ class MenuItemEntity:
 
         # 2. Code format validation (matches database RegexValidator)
         if not re.match(r"^[a-z0-9_]+$", self.code):
-            raise ValueError("Code must contain only lowercase letters, numbers, and underscores.")
+            raise ValueError(
+                "Code must contain only lowercase letters, numbers, and underscores."
+            )
 
         # 3. Hierarchy Guard
         if self.parent_id is not None and self.parent_id <= 0:
             raise ValueError("parent_id must be a positive integer if provided.")
-            
+
         if self.id is not None and self.parent_id == self.id:
             raise ValueError("Menu item cannot be its own parent.")
 
@@ -70,8 +72,10 @@ class MenuItemEntity:
         # Self-sanitization
         self.code = self.code.strip()
         self.label = self.label.strip()
-        if self.url_name: self.url_name = self.url_name.strip()
-        if self.url_path: self.url_path = self.url_path.strip()
+        if self.url_name:
+            self.url_name = self.url_name.strip()
+        if self.url_path:
+            self.url_path = self.url_path.strip()
 
     # ------------------------------------------------------------------
     # Business Rules & Behaviors (Write / Mutations)
@@ -82,7 +86,9 @@ class MenuItemEntity:
         Safely updates routing mechanism verifying the domain rules.
         """
         if not url_name and not url_path:
-            raise ValueError("Cannot clear routing. Either url_name or url_path must remain.")
+            raise ValueError(
+                "Cannot clear routing. Either url_name or url_path must remain."
+            )
         self.url_name = url_name
         self.url_path = url_path
 
@@ -124,9 +130,11 @@ class MenuItemEntity:
     # Business Queries (Read / Evaluations)
     # ------------------------------------------------------------------
 
-    def is_visible_to_user(self, user_is_superuser: bool, user_permissions: List[str]) -> bool:
+    def is_visible_to_user(
+        self, user_is_superuser: bool, user_permissions: List[str]
+    ) -> bool:
         """
-        Determines pure permission availability. 
+        Determines pure permission availability.
         Decoupled from Django's `user.has_permission` mechanics.
         """
         if not self.is_active or self.is_hidden:
@@ -140,7 +148,9 @@ class MenuItemEntity:
 
         return self.permission_code in user_permissions
 
-    def resolve_url_strategy(self, reversed_django_url: Optional[str] = None) -> Optional[str]:
+    def resolve_url_strategy(
+        self, reversed_django_url: Optional[str] = None
+    ) -> Optional[str]:
         """
         Execution of the specification logic. Since Domain can't access Django's `reverse()`,
         the resolved reverse URL is optionally passed from infrastructure layer.

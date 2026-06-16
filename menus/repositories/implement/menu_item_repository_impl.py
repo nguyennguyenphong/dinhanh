@@ -3,7 +3,9 @@ from typing import Optional
 from django.db import transaction
 
 from menus.domain.entities.menu_item_entity import MenuItemEntity
-from menus.repositories.interfaces.menu_item_repository_interface import IMenuItemRepository
+from menus.repositories.interfaces.menu_item_repository_interface import (
+    IMenuItemRepository,
+)
 
 
 class MenuItemRepositoryImpl(IMenuItemRepository):
@@ -50,10 +52,7 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
         )
 
     def get_children(self, parent_id: int):
-        return (
-            MenuItemEntity.objects.filter(parent_id=parent_id)
-            .order_by("sort_order")
-        )
+        return MenuItemEntity.objects.filter(parent_id=parent_id).order_by("sort_order")
 
     @transaction.atomic
     def create(self, **kwargs) -> MenuItemEntity:

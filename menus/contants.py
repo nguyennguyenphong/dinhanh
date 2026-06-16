@@ -22,6 +22,7 @@ Constants for the menu_groups application.
 # AUDIT ACTIONS
 # ============================================================================
 
+
 class MenuAuditAction:
     CREATE = "CREATE"
     UPDATE = "UPDATE"
@@ -54,6 +55,7 @@ class MenuItemRoleAuditAction:
 # CACHE KEYS
 # ============================================================================
 
+
 class CacheKey:
     MENU_ITEM_ROLES = "menu_item_{menu_item_id}_roles"
     ROLE_MENU_ITEMS = "role_{role_id}_menu_items"
@@ -61,14 +63,15 @@ class CacheKey:
     USER_MENU = "user_{user_id}_tenant_{tenant_id}_menu"
 
     # Cache TTLs (in seconds)
-    TTL_SHORT = 60 * 5        # 5 minutes
-    TTL_MEDIUM = 60 * 30      # 30 minutes
-    TTL_LONG = 60 * 60 * 2   # 2 hours
+    TTL_SHORT = 60 * 5  # 5 minutes
+    TTL_MEDIUM = 60 * 30  # 30 minutes
+    TTL_LONG = 60 * 60 * 2  # 2 hours
 
 
 # ============================================================================
 # PAGINATION
 # ============================================================================
+
 
 class Pagination:
     DEFAULT_PAGE_SIZE = 20
@@ -79,6 +82,7 @@ class Pagination:
 # MENU GROUP DEFAULTS
 # ============================================================================
 
+
 class MenuGroupDefaults:
     SORT_ORDER = 0
     IS_ACTIVE = True
@@ -87,6 +91,7 @@ class MenuGroupDefaults:
 # ============================================================================
 # MENU ITEM DEFAULTS
 # ============================================================================
+
 
 class MenuItemDefaults:
     SORT_ORDER = 0
@@ -100,6 +105,7 @@ class MenuItemDefaults:
 # VALIDATION
 # ============================================================================
 
+
 class Validation:
     CODE_PATTERN_GROUP = r"^[a-z0-9_]+$"
     CODE_PATTERN_ITEM = r"^[a-z0-9_]+$"
@@ -110,6 +116,7 @@ class Validation:
 # ============================================================================
 # MESSAGES
 # ============================================================================
+
 
 class Messages:
     MENU_GROUP_CREATED = "Menu group '{label}' created successfully."
@@ -124,7 +131,9 @@ class Messages:
     MENU_ITEM_NOT_FOUND = "Menu item not found."
     MENU_ITEM_CODE_EXISTS = "Menu item with this code already exists in the tenant."
     MENU_ITEM_CIRCULAR = "Circular menu hierarchy detected."
-    MENU_ITEM_MAX_DEPTH = f"Maximum menu hierarchy depth ({Validation.MAX_HIERARCHY_DEPTH}) exceeded."
+    MENU_ITEM_MAX_DEPTH = (
+        f"Maximum menu hierarchy depth ({Validation.MAX_HIERARCHY_DEPTH}) exceeded."
+    )
 
     ROLE_ASSIGNED = "Role assigned to menu item successfully."
     ROLE_REVOKED = "Role revoked from menu item successfully."

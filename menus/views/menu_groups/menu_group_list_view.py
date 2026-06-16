@@ -2,10 +2,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import View
 
-from menus.views.forms import MenuGroupFilterForm
 from menus.application.dtos import MenuGroupListQueryDto
-from menus.providers import MenuGroupProvider
 from menus.exceptions import MenuGroupDomainError
+from menus.providers import MenuGroupProvider
+from menus.views.forms import MenuGroupFilterForm
 
 
 class MenuGroupListView(LoginRequiredMixin, View):
@@ -58,7 +58,9 @@ class MenuGroupListView(LoginRequiredMixin, View):
         try:
             menu_groups, total = MenuGroupProvider.list_menu_groups().execute(query_dto)
         except MenuGroupDomainError as e:
-            return render(request, "pages/menu_groups/list.html", {"error": str(e), "form": form})
+            return render(
+                request, "pages/menu_groups/list.html", {"error": str(e), "form": form}
+            )
 
         context = {
             "menu_groups": menu_groups,
@@ -66,5 +68,5 @@ class MenuGroupListView(LoginRequiredMixin, View):
             "query": query_dto,
             "form": form,
         }
-        
+
         return render(request, "pages/menu_groups/list.html", context)

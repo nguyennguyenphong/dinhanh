@@ -117,8 +117,10 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
-    
-    def exists_by_sort_order(self, tenant: int, sort_order: int, exclude_id: int | None = None) -> bool:
+
+    def exists_by_sort_order(
+        self, tenant: int, sort_order: int, exclude_id: int | None = None
+    ) -> bool:
         qs = self._qs.filter(tenant_id=tenant, sort_order=sort_order)
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)

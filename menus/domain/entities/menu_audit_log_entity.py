@@ -39,15 +39,22 @@ class MenuAuditLogEntity:
             try:
                 self.action = MenuAuditAction(self.action)
             except ValueError:
-                raise ValueError(f"Invalid action '{self.action}'. Must be one of {[e.value for e in MenuAuditAction]}.")
+                raise ValueError(
+                    f"Invalid action '{self.action}'. Must be one of {[e.value for e in MenuAuditAction]}."
+                )
 
         # Invariant check for actor if provided
         if self.actor_id is not None and self.actor_id <= 0:
-            raise ValueError("Invalid actor_id. Must be a positive integer if provided.")
+            raise ValueError(
+                "Invalid actor_id. Must be a positive integer if provided."
+            )
 
-        # Business Rule: An audit log must have at least old_values or new_values 
+        # Business Rule: An audit log must have at least old_values or new_values
         # (Except for REORDER which might just log structural changes in values)
-        if self.action in [MenuAuditAction.CREATE, MenuAuditAction.UPDATE] and not self.new_values:
+        if (
+            self.action in [MenuAuditAction.CREATE, MenuAuditAction.UPDATE]
+            and not self.new_values
+        ):
             raise ValueError(f"Action '{self.action.value}' requires 'new_values'.")
 
     # ------------------------------------------------------------------
@@ -93,7 +100,7 @@ class MenuAuditLogEntity:
         """
         if not self.old_values or not self.new_values:
             return []
-        
+
         changed = []
         for key, val in self.new_values.items():
             if self.old_values.get(key) != val:

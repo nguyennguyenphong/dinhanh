@@ -45,18 +45,20 @@ class MenuGroupService:
         repo_instance = MenuGroupProvider._menu_group_repo()
 
         # Validate with Serializer
-        serializer = MenuGroupCreateSerializer(data=data, context={"menu_group_repo": repo_instance})
+        serializer = MenuGroupCreateSerializer(
+            data=data, context={"menu_group_repo": repo_instance}
+        )
 
         if not serializer.is_valid():
             for field, errors in serializer.errors.items():
                 clean_errors = [str(err) for err in errors]
-                
+
                 target_field = field if field in form.fields else None
                 form.add_error(target_field, clean_errors)
-                
+
                 messages.error(request, f"{field}: {clean_errors[0]}")
             return False
-        
+
         validated_data = serializer.validated_data
 
         # Execute UseCase

@@ -64,14 +64,16 @@ class MenuItemRoleEntity:
     def _record_cache_invalidation_event(self) -> None:
         """
         Produces structural domain event indications. Tightly decoupled from
-        Django's `django.core.cache`. The application service or repository will 
+        Django's `django.core.cache`. The application service or repository will
         listen to this and safely clear Redis/Memcached entries.
         """
         # Example tracking keys dictionary
-        self.domain_events.append({
-            "event_type": "MENU_ITEM_ROLE_CACHE_INVALIDATE",
-            "keys": [
-                f"menu_item_{self.menu_item_id}_roles",
-                f"role_{self.role_id}_menu_items"
-            ]
-        })
+        self.domain_events.append(
+            {
+                "event_type": "MENU_ITEM_ROLE_CACHE_INVALIDATE",
+                "keys": [
+                    f"menu_item_{self.menu_item_id}_roles",
+                    f"role_{self.role_id}_menu_items",
+                ],
+            }
+        )

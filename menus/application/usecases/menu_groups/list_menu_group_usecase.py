@@ -8,10 +8,12 @@ from __future__ import annotations
 
 from menus.application.dtos.menu_groups import (
     MenuGroupListQueryDto,
-    MenuGroupResponseDto
+    MenuGroupResponseDto,
+)
+from menus.application.usecases.menu_groups.helper_mapping_menu_group_usecase import (
+    _entity_to_response,
 )
 from menus.repositories.interfaces import IMenuGroupRepository
-from menus.application.usecases.menu_groups.helper_mapping_menu_group_usecase import _entity_to_response
 
 
 class ListMenuGroupsUseCase:
@@ -20,8 +22,10 @@ class ListMenuGroupsUseCase:
     def __init__(self, menu_group_repo: IMenuGroupRepository):
         self._repo = menu_group_repo
 
-    def execute(self, query_dto: MenuGroupListQueryDto) -> tuple[list[MenuGroupResponseDto], int]:
-        
+    def execute(
+        self, query_dto: MenuGroupListQueryDto
+    ) -> tuple[list[MenuGroupResponseDto], int]:
+
         repo_filters = {}
         if query_dto.is_active is not None:
             repo_filters["is_active"] = query_dto.is_active
