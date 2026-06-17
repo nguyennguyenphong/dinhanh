@@ -1,0 +1,35 @@
+<form method="POST" action="{% url 'login' %}" class="space-y-5">
+    {% csrf_token %}
+
+    <div class="space-y-1">
+        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.email.label }} <span class="text-red-500">*</span>
+        </label>
+        <div>
+            {{ form.email }}
+        </div>
+        {% if form.email.errors %}
+        <p class="text-red-500 text-xs mt-1">{{ form.email.errors.0 }}</p>
+        {% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.password.id_for_label }}"
+            class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.password.label }} <span class="text-red-500">*</span>
+        </label>
+        <div>
+            {{ form.password }}
+        </div>
+        {% if form.password.errors %}
+        <p class="text-red-500 text-xs mt-1">{{ form.password.errors.0 }}</p>
+        {% endif %}
+    </div>
+
+    <div class="flex justify-center w-full">
+        <button type="submit"
+            class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20">
+            Đăng nhập
+        </button>
+    </div>
+</form>

@@ -1,5 +1,4 @@
 {% load static %}
-{% load component_tags %}
 
 <div class="flex-1 flex flex-col items-center justify-center p-6 sm:p-10">
     <div class="w-full max-w-md">
@@ -24,44 +23,9 @@
             </div>
         </div>
         {% endif %}
-        <form method="POST" action="{% url 'login' %}" class="space-y-5">
-            {% csrf_token %}
+        
+        {% include 'components/forms/login/sections/_main_form_section.html' %}
 
-            {% component "input"
-            name="username"
-            label="Tên đăng nhập"
-            placeholder="Nhập tên đăng nhập"
-            required=True
-            autocomplete="username"
-            / %}
-
-            {% component "input"
-            name="password"
-            type="password"
-            label="Mật khẩu"
-            placeholder="Nhập mật khẩu"
-            required=True
-            autocomplete="password"
-            / %}
-
-            <div class="flex items-center justify-between">
-                {% component "checkbox"
-                name="remember"
-                label="Ghi nhớ đăng nhập"
-                / %}
-                <a href="{% url 'password_reset' %}" class="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 hover:underline">
-                    Quên mật khẩu?
-                </a>
-            </div>
-
-            {% component "button"
-            type="submit"
-            text="Đăng nhập hệ thống"
-            variant="primary"
-            size="md"
-            full_width=True
-            / %}
-        </form>
         <div class="mt-6 flex items-center gap-x-3">
             <div class="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
             <span class="text-xs text-gray-400">hoặc</span>
