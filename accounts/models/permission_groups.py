@@ -1,10 +1,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class PermissionGroup(SafeDeleteModel):
+class PermissionGroup(BaseModel):
     """
     Group related permissions together for easier management
 
@@ -21,8 +21,6 @@ class PermissionGroup(SafeDeleteModel):
             description='All permissions for ticket management'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
@@ -66,10 +64,6 @@ class PermissionGroup(SafeDeleteModel):
     is_active = models.BooleanField(
         default=True, db_index=True, help_text="Inactive groups cannot be assigned"
     )
-
-    # Timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "permission_groups"

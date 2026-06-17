@@ -6,10 +6,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Vehicle(SafeDeleteModel):
+class Vehicle(BaseModel):
     """
     Vehicle model for managing individual assets within a fleet per tenant.
 
@@ -40,8 +40,6 @@ class Vehicle(SafeDeleteModel):
         # Check if compliance documents are expiring
         is_expired = vehicle.has_expired_documents()
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("AVAILABLE", _("Available - Ready for service")),
@@ -174,20 +172,6 @@ class Vehicle(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Internal operational logs, repair flags, or general annotations",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when the vehicle asset profile was registered",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="Timestamp when the vehicle profile data was modified"
     )
 
     class Meta:

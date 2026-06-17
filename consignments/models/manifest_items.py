@@ -6,10 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class ManifestItem(SafeDeleteModel):
+class ManifestItem(BaseModel):
     """
     ManifestItem model acting as a strict high-performance relational bridge (Junction Table)
     mapping individual parcel consignments into master bulk trip manifests.

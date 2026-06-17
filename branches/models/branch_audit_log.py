@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class BranchAuditLog(models.Model):
+class BranchAuditLog(BaseModel):
     """
     Audit log for branch changes
 
@@ -77,12 +78,6 @@ class BranchAuditLog(models.Model):
     new_values = models.JSONField(null=True, blank=True, help_text="New values")
 
     reason = models.TextField(blank=True, null=True, help_text="Reason for the change")
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "branch_audit_logs"

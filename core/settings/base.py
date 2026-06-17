@@ -18,6 +18,9 @@ SECRET_KEY = env("SECRET_KEY")
 # Django settings
 DEBUG = env.bool("DEBUG", default=False)
 
+# Model
+AUTH_USER_MODEL = "accounts.UserAccount"
+
 # Allowed hosts
 ALLOWED_HOSTS = ["*"]  # env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
@@ -82,6 +85,9 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    # 
+    'core.middleware.CurrentUserMiddleware',
+    # 
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]

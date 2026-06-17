@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class PromotionUsage(SafeDeleteModel):
+class PromotionUsage(BaseModel):
     """
     PromotionUsage model acting as an immutable historical ledger tracking coupon consumption.
 

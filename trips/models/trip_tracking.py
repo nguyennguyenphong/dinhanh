@@ -5,10 +5,9 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
-
-class TripTracking(SafeDeleteModel):
+class TripTracking(BaseModel):
     """
     TripTracking model managing high-velocity GPS telemetry streams from active transit fleet assets.
 

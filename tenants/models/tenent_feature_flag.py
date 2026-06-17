@@ -2,6 +2,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
 def validate_percentage(value):
     if value < 0 or value > 100:
@@ -11,7 +12,7 @@ def validate_percentage(value):
         )
 
 
-class TenantFeatureFlag(models.Model):
+class TenantFeatureFlag(BaseModel):
     """
     Feature flags per tenant
     Bật/tắt tính năng cho từng tenant
@@ -32,9 +33,6 @@ class TenantFeatureFlag(models.Model):
         help_text="Phần trăm rollout (0-100)",
     )
     config = models.JSONField(default=dict, blank=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "tenant_feature_flags"

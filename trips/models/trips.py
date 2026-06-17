@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Trip(SafeDeleteModel):
+class Trip(BaseModel):
     """
     Trip model representing an active operational journey executed on a specific calendar timeline.
 
@@ -41,8 +41,6 @@ class Trip(SafeDeleteModel):
             status='SCHEDULED'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("SCHEDULED", _("Scheduled - Planned upcoming journey")),
@@ -186,20 +184,6 @@ class Trip(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Miscellaneous operational dispatcher logging data sheets, special alerts, or crew notes",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this live commercial journey entity sheet was registered",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when parameters inside this trip profile sheet were last modified",
     )
 
     class Meta:

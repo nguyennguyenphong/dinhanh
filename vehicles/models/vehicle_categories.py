@@ -9,10 +9,10 @@ from django.contrib.postgres.fields import (  # Production feature for PostgreSQ
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class VehicleCategory(SafeDeleteModel):
+class VehicleCategory(BaseModel):
     """
     VehicleCategory model for grouping vehicles with shared specifications.
 
@@ -44,8 +44,6 @@ class VehicleCategory(SafeDeleteModel):
         # Check if an amenity is available
         has_wifi = category.has_amenity('wifi')
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     VEHICLE_TYPE_CHOICES = (
         ("BUS", _("Bus - Standard Seating Bus")),
@@ -123,16 +121,6 @@ class VehicleCategory(SafeDeleteModel):
     is_active = models.BooleanField(
         default=True,
         help_text="Designates whether this category is active and can be assigned to new vehicles",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when the category was created",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="Timestamp when the category was last modified"
     )
 
     class Meta:

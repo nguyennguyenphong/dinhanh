@@ -6,10 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class TripStaff(SafeDeleteModel):
+class TripStaff(BaseModel):
     """
     TripStaff model managing the crew assignment and roster matrix for individual commercial journeys.
 

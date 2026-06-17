@@ -11,10 +11,10 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class TripSchedule(SafeDeleteModel):
+class TripSchedule(BaseModel):
     """
     TripSchedule model acting as the master blueprint configuration for recurring route timetables.
 
@@ -39,8 +39,6 @@ class TripSchedule(SafeDeleteModel):
             valid_to='2026-12-31'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 
@@ -127,20 +125,6 @@ class TripSchedule(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="The calendar closing date when this operational schedule ceases to be valid",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this timetable row master schema was registered",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when this timetable schema configurations were modified",
     )
 
     class Meta:

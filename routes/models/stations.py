@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Station(SafeDeleteModel):
+class Station(BaseModel):
     """
     Station model for transportation hubs
 
@@ -50,8 +50,6 @@ class Station(SafeDeleteModel):
         # Get statistics
         stats = station.get_statistics()
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
@@ -131,18 +129,6 @@ class Station(SafeDeleteModel):
 
     is_active = models.BooleanField(
         default=True, db_index=True, help_text="Station is active and operational"
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When station was created"
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When station was last updated"
     )
 
     class Meta:

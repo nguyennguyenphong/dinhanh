@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class APITokenAuditLog(models.Model):
+class APITokenAuditLog(BaseModel):
     """
     Audit log for API token access
 
@@ -69,12 +70,6 @@ class APITokenAuditLog(models.Model):
     user_agent = models.TextField(
         blank=True, null=True, help_text="User agent of request"
     )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "api_token_audit_logs"

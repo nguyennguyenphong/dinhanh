@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class AfterSales(SafeDeleteModel):
+class AfterSales(BaseModel):
     """
     AfterSales model managing promotional reward rules triggered post-purchase to drive retention.
 
@@ -43,8 +43,6 @@ class AfterSales(SafeDeleteModel):
             is_active=True
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     TYPE_CHOICES = (
         (
@@ -151,16 +149,6 @@ class AfterSales(SafeDeleteModel):
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
         help_text="Master state switch engine. Setting this False safely deactivates the automatic rule logic processing queues instantly",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core DDL layers
-        help_text="System record logging anchor tracking exactly when this rule layout row entered the main database",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,  # Matches default updated_at trigger requirements cleanly via application side hooks
-        help_text="Timestamp tracking exactly when parameter attributes inside this after-sales configuration node mutated",
     )
 
     class Meta:

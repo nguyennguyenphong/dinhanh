@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class TenantAuditLog(models.Model):
+
+class TenantAuditLog(BaseModel):
     """
     Audit log cho mỗi tenant
     Ghi lại tất cả thay đổi dữ liệu
@@ -44,8 +46,6 @@ class TenantAuditLog(models.Model):
         choices=[("SUCCESS", "Success"), ("FAILED", "Failed")],
     )
     error_message = models.TextField(null=True, blank=True)
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "tenant_audit_logs"

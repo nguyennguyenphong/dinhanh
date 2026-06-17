@@ -8,10 +8,10 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class CargoPriceTable(SafeDeleteModel):
+class CargoPriceTable(BaseModel):
     """
     CargoPriceTable model acts as the core algorithmic pricing matrix rule-sheet for logistics operations.
 
@@ -211,16 +211,6 @@ class CargoPriceTable(SafeDeleteModel):
         default=True,
         db_index=True,
         help_text="Active validation switch flag. Turning this off flags the matching arithmetic engine to skip evaluating this row entry",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this logistics tariff row rule was opened inside the core database layout",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when structural parameters inside this dynamic tariff node were last modified",
     )
 
     class Meta:

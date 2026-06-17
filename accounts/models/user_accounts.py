@@ -15,6 +15,7 @@ from django.core.validators import EmailValidator, RegexValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from core.models import BaseModel
 
 
 class UserAccountManager(BaseUserManager):
@@ -93,7 +94,7 @@ class UserAccountManager(BaseUserManager):
         return self.create_user(tenant, username, email, password, **extra_fields)
 
 
-class UserAccount(AbstractBaseUser):
+class UserAccount(AbstractBaseUser, BaseModel):
     """
     Custom user account model with multi-tenant support and security features
 
@@ -285,17 +286,6 @@ class UserAccount(AbstractBaseUser):
         default=dict,
         blank=True,
         help_text="User UI preferences (theme, language, etc.)",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When user account was created"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When user account was last updated"
     )
 
     # Set custom user manager

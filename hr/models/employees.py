@@ -7,10 +7,10 @@ from django.core.validators import EmailValidator, RegexValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Employee(SafeDeleteModel):
+class Employee(BaseModel):
     """
     Employee model managing full staff profiles, payroll details, and operations compliance.
 
@@ -51,7 +51,6 @@ class Employee(SafeDeleteModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     GENDER_CHOICES = (
         ("MALE", _("Male")),
@@ -274,20 +273,6 @@ class Employee(SafeDeleteModel):
     emergency_contact = models.JSONField(
         default=dict,
         help_text="Complex data object capturing name, kinship relation, phone node array for accidents",
-    )
-
-    # ========================================================================
-    # AUDIT LOGS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this personnel file was first created",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when this personnel profile was last modified",
     )
 
     class Meta:

@@ -13,10 +13,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator, URLValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class WebhookEndpoint(SafeDeleteModel):
+class WebhookEndpoint(BaseModel):
     """
     Webhook endpoint model for event delivery
 
@@ -83,8 +83,6 @@ class WebhookEndpoint(SafeDeleteModel):
         # Get delivery history
         deliveries = webhook.get_deliveries(limit=10)
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
@@ -178,17 +176,6 @@ class WebhookEndpoint(SafeDeleteModel):
         blank=True,
         related_name="webhooks_created",
         help_text="User who created this webhook",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When this webhook was created"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When this webhook was last updated"
     )
 
     class Meta:

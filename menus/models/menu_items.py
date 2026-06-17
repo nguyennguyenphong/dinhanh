@@ -10,12 +10,12 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 import uuid
 
 
-class MenuItem(SafeDeleteModel):
+class MenuItem(BaseModel):
     """
     Enhanced menu item model with URL routing and badges
 
@@ -61,8 +61,6 @@ class MenuItem(SafeDeleteModel):
             open_in_new_tab=False
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
@@ -203,17 +201,6 @@ class MenuItem(SafeDeleteModel):
     )
     is_hidden = models.BooleanField(
         default=False, help_text="Item is hidden from menu but route still works"
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When this menu item was created"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When this menu item was last updated"
     )
 
     class Meta:

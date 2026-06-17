@@ -8,10 +8,10 @@ from datetime import datetime
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class ShiftType(SafeDeleteModel):
+class ShiftType(BaseModel):
     """
     ShiftType model defining operational working hours configurations per tenant.
 
@@ -43,8 +43,6 @@ class ShiftType(SafeDeleteModel):
             is_overnight=True
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 
@@ -96,21 +94,6 @@ class ShiftType(SafeDeleteModel):
     is_overnight = models.BooleanField(
         default=False,
         help_text="Designates whether the shift boundary spans across midnight (e.g., 22:00 to 06:00 next day)",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when this shift configuration template was created",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when this shift configuration parameters were last modified",
     )
 
     class Meta:

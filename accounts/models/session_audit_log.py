@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class SessionAuditLog(models.Model):
+
+class SessionAuditLog(BaseModel):
     """
     Audit log for session events
 
@@ -74,12 +76,6 @@ class SessionAuditLog(models.Model):
     details = models.JSONField(
         default=dict, blank=True, help_text="Additional event details"
     )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "session_audit_logs"

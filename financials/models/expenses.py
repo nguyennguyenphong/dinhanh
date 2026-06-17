@@ -8,8 +8,9 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class Expense(models.Model):
+class Expense(BaseModel):
     """
     Expense model logging and auditing all corporate operational cash outlays.
 
@@ -206,16 +207,6 @@ class Expense(models.Model):
         null=True,
         blank=True,
         help_text="Timezone-aware timestamp logging exactly when an authorized executive approved or rejected this file",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,
-        help_text="System record logging anchor tracking exactly when this entry row was stashed in the main DB",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp tracking exactly when parameter attributes inside this financial voucher node mutated",
     )
 
     class Meta:

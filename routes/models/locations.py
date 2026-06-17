@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Location(SafeDeleteModel):
+class Location(BaseModel):
     """
     Location model for specific addresses
 
@@ -39,8 +39,6 @@ class Location(SafeDeleteModel):
         # Get distance to another location
         distance = location.get_distance_to(other_location)
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     LOCATION_TYPE_CHOICES = (
         ("OFFICE", _("Office - Office location")),
@@ -99,14 +97,6 @@ class Location(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Longitude coordinate",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When location was created"
     )
 
     class Meta:

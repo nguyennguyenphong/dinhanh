@@ -9,7 +9,7 @@ from django.core.validators import RegexValidator, URLValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 from tenants.constants import (
     PLAN_ENTERPRISE,
@@ -19,13 +19,11 @@ from tenants.constants import (
 )
 
 
-class Tenant(SafeDeleteModel):
+class Tenant(BaseModel):
     """
     Multi-tenant model for the Bus CMS system
     Each tenant is an independent bus company.
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     PLAN_CHOICES = (
         ("TRIAL", _("Trial")),
@@ -149,9 +147,6 @@ class Tenant(SafeDeleteModel):
     max_users = models.IntegerField(default=10, help_text="Số lượng user tối đa")
     max_branches = models.IntegerField(default=1, help_text="Số lượng chi nhánh tối đa")
     max_vehicles = models.IntegerField(default=50, help_text="Số lượng xe tối đa")
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "tenants"

@@ -6,8 +6,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class AuditLog(models.Model):
+
+class AuditLog(BaseModel):
     """
     Audit log model for tracking all system changes
 
@@ -189,16 +191,6 @@ class AuditLog(models.Model):
         blank=True,
         db_index=True,
         help_text="Correlation ID for tracking related operations",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="When this audit log was created",
     )
 
     class Meta:

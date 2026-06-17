@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class PaymentMethod(SafeDeleteModel):
+class PaymentMethod(BaseModel):
     """
     PaymentMethod model configuring both offline checkout and digital payment gateway integration properties.
 

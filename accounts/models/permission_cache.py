@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class PermissionCache(models.Model):
+
+class PermissionCache(BaseModel):
     """
     Cache layer for permission lookups to improve performance
 
@@ -29,10 +31,6 @@ class PermissionCache(models.Model):
 
     # Expiration
     expires_at = models.DateTimeField(help_text="When this cache entry expires")
-
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "permission_cache"

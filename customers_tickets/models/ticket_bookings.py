@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class TicketBooking(SafeDeleteModel):
+class TicketBooking(BaseModel):
     """
     TicketBooking model representing the transaction header ledger for passenger reservations.
 
@@ -48,8 +48,6 @@ class TicketBooking(SafeDeleteModel):
             expires_at='2026-05-30T01:00:00+07:00'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CHANNEL_CHOICES = (
         ("COUNTER", _("Counter - Physical offline ticketing desk office")),
@@ -201,17 +199,6 @@ class TicketBooking(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Timezone-aware ticket hold duration window boundary. If payment drops past this, hold voids automatically",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when this booking ledger paper row was first initialized inside the architecture",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when fields inside this transaction profile were last modified (Managed via trigger in DDL)",
     )
 
     class Meta:

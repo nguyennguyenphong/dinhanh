@@ -6,9 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from core.models import BaseModel
 
 
-class ExpenseCategory(models.Model):
+class ExpenseCategory(BaseModel):
     """
     ExpenseCategory model deploying a self-referential tree structure to classify corporate outlays.
 
@@ -80,15 +81,6 @@ class ExpenseCategory(models.Model):
     name = models.CharField(
         max_length=100,  # Matches VARCHAR(100) NOT NULL
         help_text="Human-readable balance sheet title label used across corporate ledger accounting dashboards",
-    )
-
-    # ========================================================================
-    # CHRONOLOGY MONITOR MARKS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() natively at database compiler layers
-        help_text="Timezone-aware record logging anchor tracking exactly when this financial category row was initialized",
     )
 
     class Meta:

@@ -7,8 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class ReportDefinition(models.Model):
+
+class ReportDefinition(BaseModel):
     """
     ReportDefinition model serving as the central engine schema configuration for dynamic BI reports.
 
@@ -159,16 +161,6 @@ class ReportDefinition(models.Model):
     is_public = models.BooleanField(
         default=False,  # Matches NOT NULL DEFAULT FALSE
         help_text="Determines visibility bounds. When TRUE, other global operators within this node can inspect layout metrics.",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compiler layers
-        help_text="Timezone-aware record logging anchor tracking exactly when this report definition row was initialized",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,  # Automatically triggers updated_at synchronization across application mutations
-        help_text="Timestamp tracking exactly when parameter attributes inside this analytics structure node mutated",
     )
 
     class Meta:

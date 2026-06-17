@@ -11,10 +11,10 @@ from django.contrib.postgres.fields import (  # Production feature required for 
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class NotificationTemplate(SafeDeleteModel):
+class NotificationTemplate(BaseModel):
     """
     NotificationTemplate model acting as the central blueprint registry for omnichannel communications.
 
@@ -42,8 +42,6 @@ class NotificationTemplate(SafeDeleteModel):
             variables=['ticket_code', 'customer_name', 'seat_number', 'trip_code']
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CHANNEL_CHOICES = (
         (
@@ -136,16 +134,6 @@ class NotificationTemplate(SafeDeleteModel):
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
         help_text="Master state switch engine. Disabling this instantly silences this notification pathway across workers",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compilation
-        help_text="System record logging anchor tracking exactly when this template row entered the core DB",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,  # Automatically handles updated_at synchronization across mutations
-        help_text="Timestamp tracking exactly when attributes inside this notification blueprint configuration node changed",
     )
 
     class Meta:

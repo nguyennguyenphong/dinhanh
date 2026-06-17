@@ -15,10 +15,10 @@ from django.db.models import Avg, CharField, Count, Value
 from django.db.models.functions import Coalesce
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class WebhookDelivery(SafeDeleteModel):
+class WebhookDelivery(BaseModel):
     """
     Enhanced webhook delivery model with comprehensive tracking
 
@@ -64,8 +64,6 @@ class WebhookDelivery(SafeDeleteModel):
         # Get analytics
         stats = WebhookDelivery.get_delivery_stats(webhook)
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("PENDING", _("Pending - Waiting to send")),
@@ -134,10 +132,6 @@ class WebhookDelivery(SafeDeleteModel):
 
     failed_at = models.DateTimeField(
         null=True, blank=True, help_text="When delivery failed"
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When delivery was created"
     )
 
     class Meta:

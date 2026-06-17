@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class SystemConfigAuditLog(models.Model):
+
+class SystemConfigAuditLog(BaseModel):
     ACTION_CHOICES = (
         ("CREATE", _("Create - Config created")),
         ("UPDATE", _("Update - Config modified")),
@@ -34,7 +36,6 @@ class SystemConfigAuditLog(models.Model):
     old_value = models.TextField(blank=True, null=True)
     new_value = models.TextField(blank=True, null=True)
     reason = models.TextField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "system_config_audit_logs"

@@ -6,10 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Payroll(SafeDeleteModel):
+class Payroll(BaseModel):
     """
     Payroll model acting as the official financial ledger for monthly employee compensation.
 
@@ -44,7 +44,6 @@ class Payroll(SafeDeleteModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("DRAFT", _("Draft - Statement under review or recalculation")),
@@ -189,16 +188,6 @@ class Payroll(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Internal auditing annotations explaining specific modifications, tax exceptions, or formulas",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this payroll statement row was originally generated",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when the compensation profile entries were last modified",
     )
 
     class Meta:

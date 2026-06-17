@@ -5,10 +5,10 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class SeatMap(SafeDeleteModel):
+class SeatMap(BaseModel):
     """
     SeatMap model for managing physical or logical grid layouts of vehicle categories.
 
@@ -47,9 +47,7 @@ class SeatMap(SafeDeleteModel):
         # Validate if configuration is synchronized with the assigned total seats
         is_valid = seat_map.validate_seat_count()
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
+    
     id = models.BigAutoField(primary_key=True)
 
     # ========================================================================
@@ -81,21 +79,6 @@ class SeatMap(SafeDeleteModel):
     layout_config = models.JSONField(
         default=dict,  # Standard factory for empty object initialization '{}'
         help_text="Complex data object matrix capturing row, col, type, floor and specific coordinate structures",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when the schematic layout structure template was registered",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when the schema configuration matrix was last modified",
     )
 
     class Meta:

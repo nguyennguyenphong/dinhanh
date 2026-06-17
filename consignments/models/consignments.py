@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Consignment(SafeDeleteModel):
+class Consignment(BaseModel):
     """
     Consignment model managing the complete logistics lifecycle of long-distance parcel freight.
 
@@ -50,7 +50,6 @@ class Consignment(SafeDeleteModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (
@@ -342,16 +341,6 @@ class Consignment(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Timezone-aware timestamp logging exactly when final client signed off the delivery certificate",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="System record logging anchor tracking exactly when this record line row entered the main database",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp tracking exactly when attributes inside this logistics row node were modified",
     )
 
     class Meta:

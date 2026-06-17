@@ -5,10 +5,10 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class AssetCategory(SafeDeleteModel):
+class AssetCategory(BaseModel):
     """
     AssetCategory model governing the primary taxonomy classification for fixed corporate assets.
 
@@ -24,8 +24,6 @@ class AssetCategory(SafeDeleteModel):
             name='Sleeper Passenger Buses (Heavy Fleet)'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
@@ -49,15 +47,6 @@ class AssetCategory(SafeDeleteModel):
     name = models.CharField(
         max_length=100,  # Matches VARCHAR(100) NOT NULL
         help_text="The unique descriptive name of the asset category group (e.g., Garage Repair Machinery, Office Electronics)",
-    )
-
-    # ========================================================================
-    # CHRONOLOGY WINDOWS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core DDL layers
-        help_text="Timezone-aware database anchor tracking exactly when this asset category configuration row was initialized",
     )
 
     class Meta:

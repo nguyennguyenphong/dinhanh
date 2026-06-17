@@ -6,10 +6,10 @@
 from django.db import models
 from django.db.models import Count, Q
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class EntityTag(SafeDeleteModel):
+class EntityTag(BaseModel):
     """
     Entity tag model for tagging any entity with audit trail
 

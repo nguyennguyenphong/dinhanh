@@ -6,10 +6,10 @@
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Attendance(SafeDeleteModel):
+class Attendance(BaseModel):
     """
     Attendance model for tracking employee daily clock-in/out times, locations, and statuses.
 
@@ -40,8 +40,6 @@ class Attendance(SafeDeleteModel):
             status='PRESENT'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("PRESENT", _("Present - Full day completed")),
@@ -143,15 +141,6 @@ class Attendance(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Annotations detailing late reasons, geo-location errors, or adjustments",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this attendance ledger line was opened in system",
     )
 
     class Meta:

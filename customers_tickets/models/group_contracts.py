@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class GroupContract(SafeDeleteModel):
+class GroupContract(BaseModel):
     """
     GroupContract model managing high-volume B2B charting contracts and corporate block bookings.
 
@@ -42,8 +42,6 @@ class GroupContract(SafeDeleteModel):
             status='DRAFT'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("DRAFT", _("Draft - Negotiation planning phase, loose allocation hold")),
@@ -191,20 +189,6 @@ class GroupContract(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Miscellaneous business negotiation notes, special pickup itineraries, or specific refund exemption logs",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this corporate charter contract was first registered inside the core DB",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when parameters inside this B2B ledger sheet were last modified",
     )
 
     class Meta:

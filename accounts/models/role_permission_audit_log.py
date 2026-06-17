@@ -104,8 +104,6 @@ class RolePermissionAuditLog(models.Model):
         null=True, blank=True, help_text="User agent of the actor"
     )
 
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
-
     class Meta:
         db_table = "role_permission_audit_logs"
         verbose_name = _("Role Permission Audit Log")

@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class TicketExchange(SafeDeleteModel):
+class TicketExchange(BaseModel):
     """
     TicketExchange model managing the operational lifecycle of passenger boarding pass mutations.
 
@@ -36,8 +36,6 @@ class TicketExchange(SafeDeleteModel):
             status='PENDING'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (
@@ -132,15 +130,6 @@ class TicketExchange(SafeDeleteModel):
         default="PENDING",
         db_index=True,
         help_text="The progression phase state tracking this swap log through verification and payment gates",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this operational modification log row was opened inside the database core",
     )
 
     class Meta:

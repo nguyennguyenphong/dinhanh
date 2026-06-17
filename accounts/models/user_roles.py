@@ -9,9 +9,10 @@ from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class UserRole(SafeDeleteModel):
+class UserRole(BaseModel):
     """
     Through model for User-Role many-to-many relationship
 

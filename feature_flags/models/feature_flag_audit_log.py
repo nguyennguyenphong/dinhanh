@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class FeatureFlagAuditLog(models.Model):
+
+class FeatureFlagAuditLog(BaseModel):
     """
     Audit log for feature flag changes
 
@@ -69,12 +71,6 @@ class FeatureFlagAuditLog(models.Model):
     new_values = models.JSONField(null=True, blank=True, help_text="New values")
 
     reason = models.TextField(blank=True, null=True, help_text="Reason for the change")
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "feature_flag_audit_logs"

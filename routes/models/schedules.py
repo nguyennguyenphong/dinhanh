@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Schedule(SafeDeleteModel):
+class Schedule(BaseModel):
     """
     Schedule model for route schedules
 
@@ -22,8 +22,6 @@ class Schedule(SafeDeleteModel):
             capacity=50
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 
@@ -59,14 +57,6 @@ class Schedule(SafeDeleteModel):
 
     is_active = models.BooleanField(
         default=True, db_index=True, help_text="Schedule is active"
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When schedule was created"
     )
 
     class Meta:

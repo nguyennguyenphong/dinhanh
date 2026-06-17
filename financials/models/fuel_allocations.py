@@ -8,8 +8,9 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class FuelAllocation(models.Model):
+class FuelAllocation(BaseModel):
     """
     FuelAllocation model tracking physical fuel injections, pricing, and consumption logs per fleet vehicle.
 
@@ -131,11 +132,6 @@ class FuelAllocation(models.Model):
     allocated_at = models.DateTimeField(
         default=models.functions.Now,
         help_text="Timezone-aware calendar timestamp tracking when the physical fuel was dispensed into the tank",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,
-        help_text="System log row registration initialization milestone timestamp",
     )
 
     class Meta:

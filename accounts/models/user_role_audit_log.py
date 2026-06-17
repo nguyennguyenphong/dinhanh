@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class UserRoleAuditLog(models.Model):
+
+class UserRoleAuditLog(BaseModel):
     """
     Audit log for user-role changes
 
@@ -109,8 +111,6 @@ class UserRoleAuditLog(models.Model):
     user_agent = models.TextField(
         null=True, blank=True, help_text="User agent of the actor"
     )
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "user_role_audit_logs"

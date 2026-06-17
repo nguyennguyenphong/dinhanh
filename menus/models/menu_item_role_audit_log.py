@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class MenuItemRoleAuditLog(models.Model):
+
+class MenuItemRoleAuditLog(BaseModel):
     """
     Audit log for menu item role assignments
 
@@ -85,12 +87,6 @@ class MenuItemRoleAuditLog(models.Model):
     )
 
     reason = models.TextField(blank=True, null=True, help_text="Reason for the change")
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "menu_item_role_audit_logs"

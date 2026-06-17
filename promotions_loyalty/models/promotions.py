@@ -10,10 +10,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Promotion(SafeDeleteModel):
+class Promotion(BaseModel):
     """
     Promotion model acting as the central coupon engine rule-sheet for discounting passenger fares.
 
@@ -43,8 +43,6 @@ class Promotion(SafeDeleteModel):
             is_active=True
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     DISCOUNT_TYPE_CHOICES = (
         (
@@ -209,16 +207,6 @@ class Promotion(SafeDeleteModel):
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
         help_text="Master administrative toggle switch. Setting this false instantly blocks all checkout applications regardless of chronology rules",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at db layer
-        help_text="System record logging anchor tracking exactly when this rule layout row entered the central database",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp tracking when parameters inside this promotional campaign node were last modified",
     )
 
     class Meta:

@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class RolePermission(SafeDeleteModel):
+class RolePermission(BaseModel):
     """
     Through model for Role-Permission many-to-many relationship
 

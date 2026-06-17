@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Notification(SafeDeleteModel):
+class Notification(BaseModel):
     """
     Notification model tracking outbound communication execution logs and transactional states.
 
@@ -44,8 +44,6 @@ class Notification(SafeDeleteModel):
             ref_id=5502
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     RECIPIENT_TYPE_CHOICES = (
         (
@@ -210,11 +208,6 @@ class Notification(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Timezone-aware timestamp logging exactly when the third-party communication channel confirmed delivery clearance",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at native execution compilation
-        help_text="Timezone-aware anchor tracking record entry. This is the structural PARTITION KEY routing rows to distinct physical storage sub-tables.",
     )
 
     class Meta:

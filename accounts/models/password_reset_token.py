@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class PasswordResetToken(models.Model):
+
+class PasswordResetToken(BaseModel):
     """
     Password reset token model
 
@@ -34,9 +36,6 @@ class PasswordResetToken(models.Model):
     used_at = models.DateTimeField(
         null=True, blank=True, help_text="When token was used"
     )
-
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = "password_reset_tokens"

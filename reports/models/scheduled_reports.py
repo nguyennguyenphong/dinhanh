@@ -7,8 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class ScheduledReport(models.Model):
+
+class ScheduledReport(BaseModel):
     """
     ScheduledReport model controlling automated cyclical execution routines for BI report blueprints.
 
@@ -158,11 +160,6 @@ class ScheduledReport(models.Model):
         default=True,  # Matches NOT NULL DEFAULT TRUE
         db_index=True,
         help_text="Master administrative toggle switch. Turning this off flags the worker pool daemon to ignore scheduling executions for this row.",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compilation levels
-        help_text="Timezone-aware log record tracking exactly when this schedule record entry was registered inside the database",
     )
 
     class Meta:

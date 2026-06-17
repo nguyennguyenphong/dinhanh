@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class VehicleMaintenance(SafeDeleteModel):
+class VehicleMaintenance(BaseModel):
     """
     VehicleMaintenance model for logging mechanical service, repairs, and inspections.
 
@@ -176,21 +176,6 @@ class VehicleMaintenance(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Calendar target date dead-line when the asset must return for the next cycle",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when this job log sheet was originally opened in system",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when the workflow profile entries were last modified",
     )
 
     class Meta:

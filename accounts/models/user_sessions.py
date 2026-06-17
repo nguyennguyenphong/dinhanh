@@ -13,8 +13,10 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class UserSession(models.Model):
+
+class UserSession(BaseModel):
     """
     User session model for tracking active sessions
 
@@ -152,14 +154,6 @@ class UserSession(models.Model):
         blank=True,
         null=True,
         help_text="Reason for revocation (logout, security, etc.)",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When this session was created"
     )
 
     class Meta:

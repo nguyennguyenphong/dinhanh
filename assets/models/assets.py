@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Asset(SafeDeleteModel):
+class Asset(BaseModel):
     """
     Asset model governing the entire lifecycle, allocation, and depreciation balance sheet of corporate property.
 
@@ -42,8 +42,6 @@ class Asset(SafeDeleteModel):
             status='IN_USE'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (
@@ -205,16 +203,6 @@ class Asset(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Granular physical damage tracking notes, audit log annotations, or liquidation justifications",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,
-        help_text="Timezone-aware log record tracking exactly when this asset index joined the database system",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp tracking exactly when parameter attributes inside this inventory node mutated",
     )
 
     class Meta:

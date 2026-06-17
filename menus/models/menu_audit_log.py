@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class MenuAuditLog(models.Model):
+
+class MenuAuditLog(BaseModel):
     """
     Audit log for menu changes
     """
@@ -35,8 +37,6 @@ class MenuAuditLog(models.Model):
 
     old_values = models.JSONField(null=True, blank=True)
     new_values = models.JSONField(null=True, blank=True)
-
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
         db_table = "menu_audit_logs"

@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Ticket(SafeDeleteModel):
+class Ticket(BaseModel):
     """
     Ticket model representing an individual passenger boarding pass item.
 
@@ -51,8 +51,6 @@ class Ticket(SafeDeleteModel):
             status='ACTIVE'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     PASSENGER_TYPE_CHOICES = (
         ("ADULT", _("Adult - Standard age passenger pricing rate")),
@@ -210,16 +208,6 @@ class Ticket(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Timezone-aware timestamp logging exactly when the customer successfully cleared bến bãi checkpoint gates",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this specific individual boarding line ticket seat node was generated",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when parameters inside this boarding pass item were last modified (Trigger handled in DDL)",
     )
 
     class Meta:

@@ -9,10 +9,10 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from pytz import common_timezones
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Branch(SafeDeleteModel):
+class Branch(BaseModel):
     """
     Branch model for multi-tenant organization structure
 
@@ -50,9 +50,7 @@ class Branch(SafeDeleteModel):
             }
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
+    
     # Timezone choices
     TIMEZONE_CHOICES = [(tz, tz) for tz in common_timezones]
 
@@ -164,17 +162,6 @@ class Branch(SafeDeleteModel):
 
     metadata = models.JSONField(
         default=dict, blank=True, help_text="Branch-specific metadata and settings"
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When this branch was created"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When this branch was last updated"
     )
 
     class Meta:

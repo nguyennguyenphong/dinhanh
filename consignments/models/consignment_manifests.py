@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class ConsignmentManifest(SafeDeleteModel):
+class ConsignmentManifest(BaseModel):
     """
     ConsignmentManifest model representing the official consolidated cargo transit manifest document.
 
@@ -33,8 +33,6 @@ class ConsignmentManifest(SafeDeleteModel):
             status='OPEN'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (
@@ -103,15 +101,6 @@ class ConsignmentManifest(SafeDeleteModel):
         default="OPEN",  # Matches NOT NULL DEFAULT 'OPEN'
         db_index=True,
         help_text="The operational validation phase tracking this aggregated shipment listing through transport loops",
-    )
-
-    # ========================================================================
-    # CHRONOLOGY WINDOWS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at compilation layers
-        help_text="Timezone-aware timestamp logging exactly when this manifest row layout was opened inside the database",
     )
 
     class Meta:

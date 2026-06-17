@@ -7,9 +7,10 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from core.models import BaseModel
 
 
-class CashierSession(models.Model):
+class CashierSession(BaseModel):
     """
     CashierSession model tracking the physical cash drawer life cycle at station ticket office nodes.
 
@@ -162,11 +163,6 @@ class CashierSession(models.Model):
         null=True,
         blank=True,
         help_text="Explanations regarding cash drawer discrepancies, bank run delays, or unexpected power losses",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="System record logging anchor tracking exactly when this session index row was generated",
     )
 
     class Meta:

@@ -10,10 +10,10 @@ from django.db import models
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Task(SafeDeleteModel):
+class Task(BaseModel):
     """
     Enhanced task model with comprehensive tracking
 
@@ -72,8 +72,6 @@ class Task(SafeDeleteModel):
         tasks = Task.get_user_tasks(user)
         overdue = Task.get_overdue_tasks()
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     PRIORITY_CHOICES = (
         ("LOW", _("Low - Can be done anytime")),
@@ -204,18 +202,6 @@ class Task(SafeDeleteModel):
         blank=True,
         db_index=True,
         help_text="ID of entity this task is linked to",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When task was created"
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When task was last updated"
     )
 
     class Meta:

@@ -2,8 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class TenantInvitation(models.Model):
+class TenantInvitation(BaseModel):
     """
     Undangan untuk user tham gia tenant
     """
@@ -26,8 +27,6 @@ class TenantInvitation(models.Model):
 
     expires_at = models.DateTimeField()
     accepted_at = models.DateTimeField(null=True, blank=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = "tenant_invitations"

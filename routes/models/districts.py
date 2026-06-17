@@ -1,10 +1,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class District(SafeDeleteModel):
+class District(BaseModel):
     """
     District model for sub-provincial organization
 

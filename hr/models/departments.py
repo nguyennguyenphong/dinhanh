@@ -5,10 +5,10 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Department(SafeDeleteModel):
+class Department(BaseModel):
     """
     Department model for organizing corporate structure and staff segmentation per tenant.
 
@@ -26,8 +26,6 @@ class Department(SafeDeleteModel):
             manager=manager_user_instance
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 
@@ -61,16 +59,6 @@ class Department(SafeDeleteModel):
     name = models.CharField(
         max_length=100,
         help_text="Official name of the department (e.g., Human Resources, Accounting)",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when this corporate department was registered",
     )
 
     class Meta:

@@ -12,10 +12,11 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+
+from core.models import BaseModel
 
 
-class SystemConfig(SafeDeleteModel):
+class SystemConfig(BaseModel):
     """
     System configuration model for managing application settings
 
@@ -29,8 +30,6 @@ class SystemConfig(SafeDeleteModel):
     - Access control: Public/private configs
     - Read-only mode: Lock configs in production
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     CATEGORY_CHOICES = (
         ("GENERAL", _("General - General application settings")),
@@ -160,17 +159,6 @@ class SystemConfig(SafeDeleteModel):
         blank=True,
         related_name="config_updates",
         help_text="User who last updated this config",
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When this config was created"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When this config was last updated"
     )
 
     class Meta:

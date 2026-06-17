@@ -8,10 +8,10 @@ from django.db import models
 from django.db.models import Prefetch, Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Comment(SafeDeleteModel):
+class Comment(BaseModel):
     """
     Comment model for entity discussions
 
@@ -72,7 +72,6 @@ class Comment(SafeDeleteModel):
         thread = comment.get_thread()
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 
@@ -151,14 +150,6 @@ class Comment(SafeDeleteModel):
 
     edited_at = models.DateTimeField(
         null=True, blank=True, help_text="When comment was last edited"
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When comment was created"
     )
 
     class Meta:

@@ -6,10 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class DispatchOrder(SafeDeleteModel):
+class DispatchOrder(BaseModel):
     """
     DispatchOrder model acting as the official operational clearance certificate for a commercial trip.
 
@@ -37,8 +37,6 @@ class DispatchOrder(SafeDeleteModel):
             status='PENDING'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         ("PENDING", _("Pending - Awaiting checklist validation and approval sign-off")),
@@ -104,15 +102,6 @@ class DispatchOrder(SafeDeleteModel):
         default="PENDING",
         db_index=True,
         help_text="The progression state tracking this dispatch order within the gate house terminal ecosystem",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this dispatch ledger paper line was first opened",
     )
 
     class Meta:

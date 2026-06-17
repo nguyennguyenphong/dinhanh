@@ -7,10 +7,10 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class Role(SafeDeleteModel):
+class Role(BaseModel):
     """
     Role model for multi-tenant RBAC (Role-Based Access Control)
 
@@ -29,8 +29,6 @@ class Role(SafeDeleteModel):
             is_system=True
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
@@ -72,10 +70,6 @@ class Role(SafeDeleteModel):
         db_index=True,
         help_text="Inactive roles cannot be assigned to users",
     )
-
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "roles"

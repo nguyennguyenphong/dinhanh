@@ -59,8 +59,6 @@ class PermissionAuditLog(models.Model):
     ip_address = models.GenericIPAddressField(null=True, blank=True)
     user_agent = models.TextField(null=True, blank=True)
 
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
-
     class Meta:
         db_table = "permission_audit_logs"
         verbose_name = _("Permission Audit Log")

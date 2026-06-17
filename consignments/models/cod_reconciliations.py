@@ -7,10 +7,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class CodReconciliation(SafeDeleteModel):
+class CodReconciliation(BaseModel):
     """
     CodReconciliation model tracking the accounting settlement cycle of Cash-on-Delivery (COD) funds.
 
@@ -33,8 +33,6 @@ class CodReconciliation(SafeDeleteModel):
             status='PENDING'
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     STATUS_CHOICES = (
         (
@@ -118,11 +116,6 @@ class CodReconciliation(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Timezone-aware timestamp logging exactly when the bank transfer API or cash desk pushed out the money",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,
-        help_text="System record logging anchor tracking exactly when this reconciliation row was opened inside the core DB",
     )
 
     class Meta:

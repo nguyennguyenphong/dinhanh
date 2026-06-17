@@ -8,12 +8,12 @@ import uuid
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 import uuid
 
 
-class MenuGroup(SafeDeleteModel):
+class MenuGroup(BaseModel):
     """
     Menu group model for organizing menu items
 
@@ -38,8 +38,6 @@ class MenuGroup(SafeDeleteModel):
             sort_order=1
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.AutoField(primary_key=True)
 
@@ -96,17 +94,6 @@ class MenuGroup(SafeDeleteModel):
 
     is_active = models.BooleanField(
         default=True, db_index=True, help_text="Menu group is active and visible"
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When this menu group was created"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When this menu group was last updated"
     )
 
     class Meta:

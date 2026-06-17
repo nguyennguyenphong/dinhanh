@@ -6,10 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class LoyaltyTransaction(SafeDeleteModel):
+class LoyaltyTransaction(BaseModel):
     """
     LoyaltyTransaction model acting as an immutable financial ledger tracking customer membership points.
 
@@ -35,8 +35,6 @@ class LoyaltyTransaction(SafeDeleteModel):
             balance=1420       # New running balance snapshot
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     TYPE_CHOICES = (
         (
@@ -115,11 +113,6 @@ class LoyaltyTransaction(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Detailed textual ledger notes specifying why this change triggered (e.g., Earned from Trip Hanoi-Haiphong)",
-    )
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at compilation layers
-        help_text="Timezone-aware timestamp logging exactly when this point entry row committed into storage blocks",
     )
 
     class Meta:

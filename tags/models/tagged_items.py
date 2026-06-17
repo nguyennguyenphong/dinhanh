@@ -1,14 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class TaggedItem(SafeDeleteModel):
+class TaggedItem(BaseModel):
     """
     Through model for tagging entities
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     id = models.BigAutoField(primary_key=True)
 
@@ -33,14 +31,6 @@ class TaggedItem(SafeDeleteModel):
     )
     entity_id = models.IntegerField(
         db_index=True, help_text="ID of entity being tagged"
-    )
-
-    # ========================================================================
-    # TIMESTAMPS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True, help_text="When this tag was applied"
     )
 
     class Meta:

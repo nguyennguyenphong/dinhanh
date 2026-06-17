@@ -6,10 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class TripPrice(SafeDeleteModel):
+class TripPrice(BaseModel):
     """
     TripPrice model managing the commercial ticketing fare tariff matrix per route and seat type.
 
@@ -37,8 +37,6 @@ class TripPrice(SafeDeleteModel):
             is_active=True
         )
     """
-
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     SEAT_TYPE_CHOICES = (
         ("SEAT", _("Standard Sitting Seat")),
@@ -113,20 +111,6 @@ class TripPrice(SafeDeleteModel):
         default=True,
         db_index=True,
         help_text="Designates whether this specific pricing line is actively considered by the ticketing engine",
-    )
-
-    # ========================================================================
-    # SYSTEM AUDITS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="Timestamp when this pricing matrix ledger rule was generated",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when parameters inside this pricing rule were modified",
     )
 
     class Meta:

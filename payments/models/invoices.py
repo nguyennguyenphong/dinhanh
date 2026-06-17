@@ -8,9 +8,10 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+from core.models import BaseModel
 
 
-class Invoice(models.Model):
+class Invoice(BaseModel):
     """
     Invoice model representing the official legal electronic VAT invoice ledger (Hóa đơn điện tử GTGT).
 
@@ -227,16 +228,6 @@ class Invoice(models.Model):
         null=True,
         blank=True,
         help_text="Timezone-aware timestamp logging exactly when digital certificates signed this document block out to government systems",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        help_text="System record logging anchor tracking exactly when this invoice layout was initialized inside the DB core",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when parameters inside this financial invoice sheet were last modified",
     )
 
     class Meta:

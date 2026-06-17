@@ -6,10 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from core.models import BaseModel
 
 
-class LeaveRequest(SafeDeleteModel):
+class LeaveRequest(BaseModel):
     """
     LeaveRequest model for managing employee time-off, sick leaves, and legal absences.
 
@@ -44,7 +44,6 @@ class LeaveRequest(SafeDeleteModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
 
     LEAVE_TYPE_CHOICES = (
         ("ANNUAL", _("Annual - Paid Vacation Time")),
@@ -132,17 +131,6 @@ class LeaveRequest(SafeDeleteModel):
         null=True,
         blank=True,
         help_text="Timezone-aware timestamp logging exactly when authorization occurred",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        db_index=True,
-        help_text="Timestamp when this application sheet was originally created",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        help_text="Timestamp when this application registry parameters were last modified",
     )
 
     class Meta:

@@ -6,9 +6,10 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from core.models import BaseModel
 
 
-class StorageUnit(models.Model):
+class StorageUnit(BaseModel):
     """
     StorageUnit model representing a physical inventory warehouse, depot, or stockroom location.
 
@@ -71,20 +72,6 @@ class StorageUnit(models.Model):
         null=True,
         blank=True,
         help_text="Granular physical details, operation hours, capacity restrictions, or logistical notes",
-    )
-
-    # ========================================================================
-    # CONTROL CHRONOLOGY WINDOWS
-    # ========================================================================
-
-    created_at = models.DateTimeField(
-        default=models.functions.Now,  # Matches NOT NULL DEFAULT NOW() at core database compiler layers
-        help_text="Timezone-aware log record tracking exactly when this storage site was added to the platform",
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,  # Automatically syncs database row mutation operations via application hooks
-        help_text="Timestamp tracking exactly when parameter attributes inside this storage configuration node changed",
     )
 
     class Meta:
