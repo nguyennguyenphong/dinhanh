@@ -16,6 +16,8 @@ from tenants.application.dtos import TenantCreateDTO
 from tenants.exceptions import TenantAlreadyExistsError
 from tenants.providers import TenantProvider
 
+from datetime import datetime, timedelta
+
 
 class Command(BaseCommand):
     help = "Seed a demo tenant for development/staging."
@@ -49,7 +51,14 @@ class Command(BaseCommand):
             default_language=options["language"],
             timezone="Asia/Ho_Chi_Minh",
             primary_color="#3B82F6",
+            domain="https://demo.company.com",
             is_active=True,
+            max_users=100,
+            max_branches=1,
+            max_vehicles=30,
+            subscription_expires_at=datetime.now() + timedelta(days=30),
+            subscription_started_at=datetime.now(),
+            settings={"foo": "bar"},
         )
 
         try:

@@ -9,7 +9,8 @@ from django.core.validators import RegexValidator, URLValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from core.models import BaseModel
+from django.conf import settings as django_settings
+from safedelete.models import SafeDeleteModel, SOFT_DELETE_CASCADE
 
 from tenants.constants import (
     PLAN_ENTERPRISE,
@@ -19,7 +20,7 @@ from tenants.constants import (
 )
 
 
-class Tenant(BaseModel):
+class Tenant(SafeDeleteModel):
     """
     Multi-tenant model for the Bus CMS system
     Each tenant is an independent bus company.
@@ -107,10 +108,9 @@ class Tenant(BaseModel):
         help_text="Đơn vị tiền tệ mặc định của nhà xe",
     )
     exchange_rate = models.DecimalField(
-        max_length=10,
         max_digits=12,
         decimal_places=4,
-        default=1.0000,
+        default=1,
         help_text="Tỉ giá quy đổi so với đồng tiền gốc của hệ thống (VD: Hệ thống dùng USD, tỉ giá VND là 25000.0000)",
     )
     default_language = models.CharField(
@@ -147,6 +147,9 @@ class Tenant(BaseModel):
     max_users = models.IntegerField(default=10, help_text="Số lượng user tối đa")
     max_branches = models.IntegerField(default=1, help_text="Số lượng chi nhánh tối đa")
     max_vehicles = models.IntegerField(default=50, help_text="Số lượng xe tối đa")
+
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
 
     class Meta:
         db_table = "tenants"

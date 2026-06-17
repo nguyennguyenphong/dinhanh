@@ -9,13 +9,15 @@ from io import BytesIO
 
 import pyotp
 import qrcode
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.core.exceptions import ValidationError
 from django.core.validators import EmailValidator, RegexValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from core.models import BaseModel
+
+
+from tenants.models import Tenant
 
 
 class UserAccountManager(BaseUserManager):
@@ -57,7 +59,10 @@ class UserAccountManager(BaseUserManager):
         email = self.normalize_email(email)
 
         # Check uniqueness per tenant
-        if UserAccount.objects.filter(tenant=tenant, username=username).exists():
+        if UserAccount.objects.filter(
+            tenant=tenant,
+            username=username
+        ).exists():
             raise ValueError(f'Username "{username}" already exists in this tenant')
         if UserAccount.objects.filter(tenant=tenant, email=email).exists():
             raise ValueError(f'Email "{email}" already exists in this tenant')
@@ -69,7 +74,7 @@ class UserAccountManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, tenant, username, email, password=None, **extra_fields):
+    def create_superuser(self, username, email, password=None, **extra_fields):
         """
         Create and save a superuser
 
@@ -83,18 +88,21 @@ class UserAccountManager(BaseUserManager):
         Returns:
             UserAccount instance
         """
+        tenant = Tenant.objects.get(pk=1)
+
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
 
-        if not extra_fields.get("is_staff"):
-            raise ValueError("Superuser must have is_staff=True")
-        if not extra_fields.get("is_superuser"):
-            raise ValueError("Superuser must have is_superuser=True")
+        return self.create_user(
+            tenant=tenant,
+            username=username,
+            email=email,
+            password=password,
+            **extra_fields,
+        )
 
-        return self.create_user(tenant, username, email, password, **extra_fields)
 
-
-class UserAccount(AbstractBaseUser, BaseModel):
+class UserAccount(AbstractBaseUser, PermissionsMixin):
     """
     Custom user account model with multi-tenant support and security features
 
@@ -161,6 +169,7 @@ class UserAccount(AbstractBaseUser, BaseModel):
 
     username = models.CharField(
         max_length=150,
+        unique=True,
         validators=[
             RegexValidator(
                 regex=r"^[a-zA-Z0-9._-]+$",
@@ -288,6 +297,9 @@ class UserAccount(AbstractBaseUser, BaseModel):
         help_text="User UI preferences (theme, language, etc.)",
     )
 
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
+
     # Set custom user manager
     objects = UserAccountManager()
 
@@ -344,15 +356,8 @@ class UserAccount(AbstractBaseUser, BaseModel):
         return f"{self.full_name} ({self.username}) - {self.tenant.code}"
 
     def save(self, *args, **kwargs):
-        """
-        Override save to enforce business rules
-        """
-        # Normalize email
-        self.email = self.normalize_email(self.email)
-
-        # Validate tenant consistency
-        if self.branch and self.branch.tenant_id != self.tenant_id:
-            raise ValidationError("Branch must belong to the same tenant")
+        if self.email:
+            self.email = BaseUserManager.normalize_email(self.email)
 
         super().save(*args, **kwargs)
 
