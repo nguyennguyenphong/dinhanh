@@ -1,0 +1,57 @@
+<h2 id="accordion-open-heading-1">
+    <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body rounded-t-base border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+        data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
+        <span class="flex items-center">Thông tin cơ bản</span>
+        <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m5 15 7-7 7 7" />
+        </svg>
+    </button>
+</h2>
+<div id="accordion-open-body-1" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default"
+    aria-labelledby="accordion-open-heading-1">
+    <div class="p-4 md:p-5">
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Tên nhóm menu</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ menu_group.label }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Mã code</span>
+            <code
+                class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded">{{ menu_group.code }}</code>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">UUID</span>
+            <span class="font-mono text-xs text-gray-400">{{ menu_group.uuid }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Icon</span>
+            <span class="font-mono text-xs text-gray-400">{{ menu_group.icon|safe }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Thứ tự sắp xếp</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ menu_group.sort_order }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Trạng thái</span>
+            {% if menu_group.is_active %}
+            <span
+                class="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-green-50 text-green-800 dark:bg-green-950 dark:text-green-300">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                </svg>
+                Hoạt động
+            </span>
+            {% else %}
+            <span
+                class="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-red-50 text-red-800 dark:bg-red-950 dark:text-red-300">
+                Ngừng hoạt động
+            </span>
+            {% endif %}
+        </div>
+    </div>
+</div>

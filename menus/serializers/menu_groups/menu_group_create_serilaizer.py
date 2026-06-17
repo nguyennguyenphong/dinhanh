@@ -16,7 +16,7 @@ class MenuGroupCreateSerializer(serializers.Serializer):
     tenant = serializers.IntegerField(
         required=True,
         min_value=1,
-        error_messages={"min_value": "Invalid tenant. Must be a positive integer."},
+        error_messages={"min_value": "Tenant không hợp lệ. Phải là một số nguyên dương."},
     )
     code = serializers.CharField(
         required=True,
@@ -24,15 +24,15 @@ class MenuGroupCreateSerializer(serializers.Serializer):
         max_length=50,
         trim_whitespace=True,
         error_messages={
-            "required": "Code is required.",
-            "min_length": "Code must be at least 5 characters long.",
+            "required": "Mã code là bắt buộc.",
+            "min_length": "Mã code phải có ít nhất 5 ký tự.",
         },
     )
     label = serializers.CharField(
         required=True,
         max_length=255,
         trim_whitespace=True,
-        error_messages={"required": "Label is required."},
+        error_messages={"required": "Nhãn (label) là bắt buộc."},
     )
     icon = serializers.CharField(
         required=False, allow_null=True, allow_blank=True, default=None, min_length=5
@@ -59,7 +59,7 @@ class MenuGroupCreateSerializer(serializers.Serializer):
             r"^<svg.*?>.*?</svg>$", cleaned_value, flags=re.DOTALL | re.IGNORECASE
         ):
             raise serializers.ValidationError(
-                "Icon format is invalid. It must be a valid SVG tag."
+                "Định dạng icon không hợp lệ. Phải là một thẻ SVG hợp lệ."
             )
 
         return cleaned_value
@@ -80,7 +80,7 @@ class MenuGroupCreateSerializer(serializers.Serializer):
             if repo.exists_by_code(tenant=tenant_id, code=code):
                 raise serializers.ValidationError(
                     {
-                        "code": f"Menu group code '{code}' already exists for this tenant."
+                        "code": f"Mã nhóm menu '{code}' đã tồn tại cho tenant này."
                     }
                 )
 
@@ -90,7 +90,7 @@ class MenuGroupCreateSerializer(serializers.Serializer):
             ):
                 raise serializers.ValidationError(
                     {
-                        "sort_order": f"Sort order {sort_order} is already taken within this tenant."
+                        "sort_order": f"Thứ tự sắp xếp {sort_order} đã được sử dụng trong tenant này."
                     }
                 )
 

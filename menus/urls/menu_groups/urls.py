@@ -19,4 +19,20 @@ urlpatterns = [
         menu_views.MenuGroupCreateView.as_view(),
         name="menu_group_create",
     ),
+    # -------------------------------------------------------------------------
+    # 3. UPDATE FUNCTION (Handles both GET for UI prep and POST for processing)
+    # -------------------------------------------------------------------------
+    path(
+        "menu_groups/update/<uuid:pk>/",
+        menu_views.MenuGroupUpdateView.as_view(),
+        name="menu_group_update",
+    ),
+    # -------------------------------------------------------------------------
+    # 4. DETAIL FUNCTION (Handles both GET for UI prep and POST for processing)
+    # -------------------------------------------------------------------------
+    path(
+        "menu_groups/detail/<uuid:pk>/",
+        menu_views.MenuGroupDetailView.as_view(),
+        name="menu_group_detail",
+    ),
 ]

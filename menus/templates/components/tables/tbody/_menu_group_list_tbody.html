@@ -47,11 +47,11 @@
             {% endif %}
         </td>
         <td class="px-6 py-3.5 flex gap-3 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
-            <a href=""
+            <a href="{% url 'menu_group_detail' menu_group.uuid %}"
                 class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
                 Chi tiết
             </a>
-            <a href=""
+            <a href="{% url 'menu_group_update' menu_group.uuid %}"
                 class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
                 Chỉnh sửa
             </a>

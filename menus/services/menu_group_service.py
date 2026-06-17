@@ -3,7 +3,13 @@ import uuid
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
-from menus.application.dtos.menu_groups import MenuGroupCreateDto, MenuGroupUpdateDto
+from django.http import Http404
+
+from menus.application.dtos.menu_groups import (
+    MenuGroupCreateDto,
+    MenuGroupUpdateDto,
+    MenuGroupResponseDto
+)
 from menus.exceptions import MenuGroupDomainError
 from menus.models import MenuGroup
 from menus.providers import MenuGroupProvider
@@ -159,3 +165,12 @@ class MenuGroupService:
             form.add_error(None, "Đã xảy ra lỗi không xác định khi xóa nhóm menu.")
             messages.error(request, f"Lỗi xóa vĩnh viễn: {str(exc)}")
             return False
+
+    @staticmethod
+    def get_by_uuid(pk: uuid.UUID) -> MenuGroupResponseDto:
+        menu_groups = get_object_or_404(MenuGroup.all_objects, uuid=pk)
+        menu_group_id = menu_groups.id
+        try:
+            return MenuGroupProvider.get_menu_group_detail().execute(menu_group_id)
+        except Exception:
+            raise Http404("Nhóm menu không tồn tại")

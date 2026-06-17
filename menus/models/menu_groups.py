@@ -122,7 +122,7 @@ class MenuGroup(SafeDeleteModel):
             models.UniqueConstraint(
                 fields=["tenant", "code"],
                 name="unique_tenant_menu_group_code",
-                violation_error_message="Menu group code must be unique within tenant",
+                violation_error_message="Mã nhóm menu đã tồn tại",
             ),
         ]
 
