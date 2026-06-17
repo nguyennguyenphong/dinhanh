@@ -10,6 +10,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
+import uuid
+
 
 class MenuGroup(SafeDeleteModel):
     """

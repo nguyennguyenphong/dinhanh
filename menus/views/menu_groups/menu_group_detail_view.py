@@ -15,4 +15,6 @@ class MenuGroupDetailView(LoginRequiredMixin, View):
     def get(self, request, pk: uuid.UUID):
         menu_group = MenuGroupService.get_by_uuid(pk)
 
-        return render(request, "pages/menu_groups/detail.html", {"menu_group": menu_group})
+        return render(
+            request, "pages/menu_groups/detail.html", {"menu_group": menu_group}
+        )

@@ -16,7 +16,9 @@ class MenuGroupCreateSerializer(serializers.Serializer):
     tenant = serializers.IntegerField(
         required=True,
         min_value=1,
-        error_messages={"min_value": "Tenant không hợp lệ. Phải là một số nguyên dương."},
+        error_messages={
+            "min_value": "Tenant không hợp lệ. Phải là một số nguyên dương."
+        },
     )
     code = serializers.CharField(
         required=True,
@@ -79,9 +81,7 @@ class MenuGroupCreateSerializer(serializers.Serializer):
         if tenant_id and code:
             if repo.exists_by_code(tenant=tenant_id, code=code):
                 raise serializers.ValidationError(
-                    {
-                        "code": f"Mã nhóm menu '{code}' đã tồn tại cho tenant này."
-                    }
+                    {"code": f"Mã nhóm menu '{code}' đã tồn tại cho tenant này."}
                 )
 
         if tenant_id and sort_order is not None:
