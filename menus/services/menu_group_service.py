@@ -1,14 +1,13 @@
 import uuid
 
 from django.contrib import messages
-from django.shortcuts import get_object_or_404
-
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 
 from menus.application.dtos.menu_groups import (
     MenuGroupCreateDto,
+    MenuGroupResponseDto,
     MenuGroupUpdateDto,
-    MenuGroupResponseDto
 )
 from menus.exceptions import MenuGroupDomainError
 from menus.models import MenuGroup

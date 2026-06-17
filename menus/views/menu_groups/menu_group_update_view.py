@@ -15,6 +15,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 
 from menus.models import MenuGroup
+
 # from menus.policies import TenantPolicy
 from menus.services.menu_group_service import MenuGroupService
 from menus.views.forms import MenuGroupBaseForm
@@ -38,4 +39,3 @@ class MenuGroupUpdateView(LoginRequiredMixin, View):
     Django does not support direct patching from HTML forms.
     We map POST to PATCH by calling the patch method.
     """
-
