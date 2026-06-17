@@ -9,13 +9,16 @@ from io import BytesIO
 
 import pyotp
 import qrcode
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    BaseUserManager,
+    PermissionsMixin,
+)
 from django.core.exceptions import ValidationError
 from django.core.validators import EmailValidator, RegexValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-
 
 from tenants.models import Tenant
 
@@ -59,10 +62,7 @@ class UserAccountManager(BaseUserManager):
         email = self.normalize_email(email)
 
         # Check uniqueness per tenant
-        if UserAccount.objects.filter(
-            tenant=tenant,
-            username=username
-        ).exists():
+        if UserAccount.objects.filter(tenant=tenant, username=username).exists():
             raise ValueError(f'Username "{username}" already exists in this tenant')
         if UserAccount.objects.filter(tenant=tenant, email=email).exists():
             raise ValueError(f'Email "{email}" already exists in this tenant')
@@ -297,7 +297,9 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
         help_text="User UI preferences (theme, language, etc.)",
     )
 
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name=_("Created at"))
+    created_at = models.DateTimeField(
+        auto_now_add=True, db_index=True, verbose_name=_("Created at")
+    )
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
 
     # Set custom user manager

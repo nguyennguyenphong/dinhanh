@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 from core.models import BaseModel
 
+
 def validate_percentage(value):
     if value < 0 or value > 100:
         raise ValidationError(

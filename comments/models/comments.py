@@ -8,6 +8,7 @@ from django.db import models
 from django.db.models import Prefetch, Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
 from core.models import BaseModel
 
 
@@ -71,7 +72,6 @@ class Comment(BaseModel):
         # Get thread
         thread = comment.get_thread()
     """
-
 
     id = models.BigAutoField(primary_key=True)
 

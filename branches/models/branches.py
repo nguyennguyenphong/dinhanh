@@ -9,6 +9,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from pytz import common_timezones
+
 from core.models import BaseModel
 
 
@@ -50,7 +51,7 @@ class Branch(BaseModel):
             }
         )
     """
-    
+
     # Timezone choices
     TIMEZONE_CHOICES = [(tz, tz) for tz in common_timezones]
 

@@ -8,9 +8,8 @@ import uuid
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from core.models import BaseModel
 
-import uuid
+from core.models import BaseModel
 
 
 class MenuGroup(BaseModel):

@@ -5,12 +5,12 @@
 
 import uuid
 
+from django.conf import settings as django_settings
 from django.core.validators import RegexValidator, URLValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from django.conf import settings as django_settings
-from safedelete.models import SafeDeleteModel, SOFT_DELETE_CASCADE
+from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
 
 from tenants.constants import (
     PLAN_ENTERPRISE,
@@ -148,7 +148,9 @@ class Tenant(SafeDeleteModel):
     max_branches = models.IntegerField(default=1, help_text="Số lượng chi nhánh tối đa")
     max_vehicles = models.IntegerField(default=50, help_text="Số lượng xe tối đa")
 
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name=_("Created at"))
+    created_at = models.DateTimeField(
+        auto_now_add=True, db_index=True, verbose_name=_("Created at")
+    )
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
 
     class Meta:

@@ -5,6 +5,7 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from core.models import BaseModel
 
 
@@ -47,7 +48,7 @@ class SeatMap(BaseModel):
         # Validate if configuration is synchronized with the assigned total seats
         is_valid = seat_map.validate_seat_count()
     """
-    
+
     id = models.BigAutoField(primary_key=True)
 
     # ========================================================================

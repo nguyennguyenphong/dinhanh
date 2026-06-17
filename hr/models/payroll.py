@@ -6,6 +6,7 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from core.models import BaseModel
 
 
@@ -43,7 +44,6 @@ class Payroll(BaseModel):
             bonus=1000000.00
         )
     """
-
 
     STATUS_CHOICES = (
         ("DRAFT", _("Draft - Statement under review or recalculation")),

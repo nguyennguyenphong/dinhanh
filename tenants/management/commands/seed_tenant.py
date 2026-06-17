@@ -8,6 +8,7 @@ Usage:
 
 from __future__ import annotations
 
+from datetime import datetime, timedelta
 from decimal import Decimal
 
 from django.core.management.base import BaseCommand, CommandError
@@ -15,8 +16,6 @@ from django.core.management.base import BaseCommand, CommandError
 from tenants.application.dtos import TenantCreateDTO
 from tenants.exceptions import TenantAlreadyExistsError
 from tenants.providers import TenantProvider
-
-from datetime import datetime, timedelta
 
 
 class Command(BaseCommand):

@@ -11,6 +11,7 @@ from django.contrib.postgres.fields import (  # Production feature required for 
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from core.models import BaseModel
 
 

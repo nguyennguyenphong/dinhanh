@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from core.models import BaseModel
 
+
 class BranchAuditLog(BaseModel):
     """
     Audit log for branch changes

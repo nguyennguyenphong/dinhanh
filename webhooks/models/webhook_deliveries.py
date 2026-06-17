@@ -15,6 +15,7 @@ from django.db.models import Avg, CharField, Count, Value
 from django.db.models.functions import Coalesce
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
 from core.models import BaseModel
 
 

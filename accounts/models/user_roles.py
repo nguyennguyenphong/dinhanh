@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+
 from core.models import BaseModel
 
 
@@ -57,8 +58,6 @@ class UserRole(BaseModel):
         # Get all users with specific role
         users = UserRole.get_users_with_role(role)
     """
-
-    
 
     id = models.AutoField(primary_key=True)
 

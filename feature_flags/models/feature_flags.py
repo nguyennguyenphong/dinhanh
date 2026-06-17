@@ -12,6 +12,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator, RegexVa
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
 from core.models import BaseModel
 
 
@@ -64,7 +65,6 @@ class FeatureFlag(BaseModel):
         if FeatureFlag.is_enabled_for_user(flag, user):
             # Show feature
     """
-
 
     id = models.AutoField(primary_key=True)
 
