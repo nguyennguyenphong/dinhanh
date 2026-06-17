@@ -35,8 +35,6 @@ class TripStaff(BaseModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     ROLE_CHOICES = (
         ("DRIVER", _("Driver - Fleet steering operator")),
         ("ASSISTANT", _("Assistant - Trip conductor crew")),

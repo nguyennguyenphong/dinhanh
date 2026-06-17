@@ -40,8 +40,6 @@ class Province(BaseModel):
         stats = province.get_statistics()
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     REGION_CHOICES = (
         ("NORTH", _("North - Northern region")),
         ("CENTRAL", _("Central - Central region")),

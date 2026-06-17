@@ -30,8 +30,6 @@ class TripTracking(BaseModel):
     - ARRIVAL: Destination terminal geofence reached, closing journey log
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     EVENT_TYPE_CHOICES = (
         ("LOCATION", _("Location - Periodic telematics telemetry ping")),
         ("STOP", _("Stop - Station or roadside stationary pause")),

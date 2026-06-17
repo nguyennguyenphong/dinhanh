@@ -44,8 +44,6 @@ class Permission(BaseModel):
         - all: Full access to module
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     # Action choices with descriptions
     ACTION_CHOICES = (
         ("view", _("View - Read/view access to resources")),

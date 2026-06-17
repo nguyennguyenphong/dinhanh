@@ -40,8 +40,6 @@ class Seat(BaseModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     SEAT_TYPE_CHOICES = (
         ("SEAT", _("Seat - Standard sitting chair")),
         ("BED", _("Bed - Sleeper berth cabin")),

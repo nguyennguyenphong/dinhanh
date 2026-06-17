@@ -46,8 +46,6 @@ class VehicleMaintenance(BaseModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     TYPE_CHOICES = (
         ("SCHEDULED", _("Scheduled - Preventive maintenance")),
         ("EMERGENCY", _("Emergency - Unplanned breakthrough repairs")),

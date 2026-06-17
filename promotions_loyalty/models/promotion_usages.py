@@ -29,7 +29,7 @@ class PromotionUsage(BaseModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
+    
 
     # Using BigAutoField matches BIGSERIAL primary key target requirements
     id = models.BigAutoField(primary_key=True)

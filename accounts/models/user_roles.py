@@ -58,7 +58,7 @@ class UserRole(BaseModel):
         users = UserRole.get_users_with_role(role)
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
+    
 
     id = models.AutoField(primary_key=True)
 

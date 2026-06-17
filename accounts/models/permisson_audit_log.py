@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import BaseModel
 
-class PermissionAuditLog(models.Model):
+class PermissionAuditLog(BaseModel):
     """
     Audit log for permission changes
 

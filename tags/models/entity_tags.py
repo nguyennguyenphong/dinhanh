@@ -23,8 +23,6 @@ class EntityTag(BaseModel):
     - Flexible entity: Support any entity type
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     # ========================================================================
     # RELATIONSHIPS
     # ========================================================================

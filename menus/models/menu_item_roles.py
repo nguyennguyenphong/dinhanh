@@ -45,8 +45,6 @@ class MenuItemRole(BaseModel):
         is_visible = MenuItemRole.is_visible_to_role(item, role)
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     menu_item = models.ForeignKey(
         "menus.MenuItem",
         on_delete=models.CASCADE,

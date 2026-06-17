@@ -29,8 +29,6 @@ class District(BaseModel):
         stats = district.get_statistics()
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     id = models.AutoField(primary_key=True)
 
     # ========================================================================

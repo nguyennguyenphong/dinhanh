@@ -45,8 +45,6 @@ class PaymentMethod(BaseModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     CODE_CHOICES = (
         ("CASH", _("Cash - Hard physical currency counters")),
         ("CARD", _("Card - Retail POS EMV terminal hardware readers")),

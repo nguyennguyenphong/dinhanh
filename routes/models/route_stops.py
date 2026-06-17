@@ -35,8 +35,6 @@ class RouteStop(BaseModel):
         stops = RouteStop.get_ordered_stops_by_route(route_id=1)
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     id = models.AutoField(primary_key=True)
 
     # ========================================================================

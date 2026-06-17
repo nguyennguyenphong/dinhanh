@@ -5,7 +5,7 @@ from safedelete.models import SafeDeleteModel, SOFT_DELETE_CASCADE
 from core.middleware import get_current_user 
 
 class BaseModel(SafeDeleteModel):
-    _safedelete_policy = SOFT_DELETE_CASCADE
+    
 
     created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name=_("Created at"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))

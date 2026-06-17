@@ -36,8 +36,6 @@ class ConsignmentEvent(BaseModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     EVENT_TYPE_CHOICES = (
         (
             "STATUS_CHANGE",

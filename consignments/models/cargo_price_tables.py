@@ -48,8 +48,6 @@ class CargoPriceTable(BaseModel):
         )
     """
 
-    _safedelete_policy = SOFT_DELETE_CASCADE
-
     CARGO_TYPE_CHOICES = (
         ("NORMAL", _("Normal - Standard dry non-perishable general parcel boxes")),
         (
