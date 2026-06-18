@@ -1,5 +1,7 @@
-<form method="POST" action="{% url 'login' %}" class="space-y-5">
+<form method="POST" action="." class="space-y-5">
     {% csrf_token %}
+
+    <input type="hidden" name="next" value="{{ next }}">
 
     <div class="space-y-1">
         <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">

@@ -53,25 +53,21 @@ class UserAccountManager(BaseUserManager):
         """
         if not tenant:
             raise ValueError("Tenant must be provided")
-        if not username:
-            raise ValueError("Username must be provided")
         if not email:
             raise ValueError("Email must be provided")
+        if not username:
+            raise ValueError("Username must be provided")
 
-        # Normalize email
         email = self.normalize_email(email)
 
-        # Check uniqueness per tenant
-        if UserAccount.objects.filter(tenant=tenant, username=username).exists():
-            raise ValueError(f'Username "{username}" already exists in this tenant')
         if UserAccount.objects.filter(tenant=tenant, email=email).exists():
             raise ValueError(f'Email "{email}" already exists in this tenant')
+        if UserAccount.objects.filter(tenant=tenant, username=username).exists():
+            raise ValueError(f'Username "{username}" already exists in this tenant')
 
-        # Create user
-        user = self.model(tenant=tenant, username=username, email=email, **extra_fields)
+        user = self.model(tenant=tenant, email=email, username=username, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
-
         return user
 
     def create_superuser(self, username, email, password=None, **extra_fields):
@@ -95,8 +91,8 @@ class UserAccountManager(BaseUserManager):
 
         return self.create_user(
             tenant=tenant,
-            username=username,
             email=email,
+            username=username,
             password=password,
             **extra_fields,
         )
@@ -169,7 +165,6 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     username = models.CharField(
         max_length=150,
-        unique=True,
         validators=[
             RegexValidator(
                 regex=r"^[a-zA-Z0-9._-]+$",
@@ -179,6 +174,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
         help_text="Unique username per tenant",
     )
     email = models.EmailField(
+        unique=True,
         max_length=254,
         validators=[EmailValidator()],
         help_text="Unique email per tenant",
@@ -306,8 +302,8 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     objects = UserAccountManager()
 
     # Required for AbstractBaseUser
-    USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["email", "full_name"]
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "full_name"]
 
     class Meta:
         db_table = "user_accounts"
@@ -355,7 +351,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         """String representation"""
-        return f"{self.full_name} ({self.username}) - {self.tenant.code}"
+        return f"{self.full_name} ({self.email}) - {self.tenant.code}"
 
     def save(self, *args, **kwargs):
         if self.email:

@@ -1,7 +1,5 @@
 from django import forms
 
-from accounts.models import UserAccount
-
 
 class TailwindFormMixin:
     """
@@ -36,10 +34,7 @@ class TailwindFormMixin:
             widget = field.widget
             current_placeholder = placeholders.get(field_name, "")
 
-            if isinstance(
-                widget,
-                (forms.EmailInput, forms.PasswordInput),
-            ):
+            if isinstance(widget, (forms.EmailInput, forms.PasswordInput, forms.TextInput)):
                 widget.attrs.update(
                     {
                         "class": tailwind_classes,
@@ -49,22 +44,18 @@ class TailwindFormMixin:
                 )
 
 
-class LoginBaseForm(TailwindFormMixin, forms.ModelForm):
+class LoginBaseForm(TailwindFormMixin, forms.Form):
     """
-    Production UserAccount generation form. Handles explicit calendar enforcement
-    and handles file uploading logic gracefully.
+    Production standard login form capturing raw customer interface strings.
+    Utilizes TailwindFormMixin to cleanly apply visual properties.
     """
-
-    class Meta:
-        model = UserAccount
-        fields = [
-            "email",
-            "password",
-        ]
-        widgets = {
-            "password": forms.PasswordInput(),
-        }
-
-    def __init__(self, *args, **kwargs):
-        # 1. Call the parent class's init function to initialize the fields and apply Tailwind CSS first.
-        super().__init__(*args, **kwargs)
+    email = forms.EmailField(
+        required=True,
+        widget=forms.EmailInput(),
+        error_messages={'required': 'Please enter your email address.'}
+    )
+    password = forms.CharField(
+        required=True,
+        widget=forms.PasswordInput(),
+        error_messages={'required': 'Please enter your password.'}
+    )

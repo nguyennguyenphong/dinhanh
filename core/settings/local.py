@@ -8,6 +8,8 @@ DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["*"]
 
+LOGIN_URL = 'http://127.0.0.1:8001/accounts/login/'
+
 INSTALLED_APPS += [
     "django_extensions",
     "django_browser_reload",

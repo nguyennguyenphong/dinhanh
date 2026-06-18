@@ -2969,3 +2969,224 @@ WARNING 2026-06-15 13:52:05,350 log 22988 29612 "GET /.well-known/appspecific/co
 INFO 2026-06-15 15:15:14,544 autoreload 22988 29432 D:\Private\Files\file\dinhanh\core\urls.py changed, reloading.
 INFO 2026-06-15 15:15:19,037 autoreload 28792 32624 Watching for file changes with StatReloader
 >>>>>>> Stashed changes
+INFO 2026-06-18 10:39:56,575 autoreload 13428 22988 Watching for file changes with StatReloader
+INFO 2026-06-18 10:49:19,629 log 13428 18812 "GET / HTTP/1.1" 200 95153
+INFO 2026-06-18 10:49:19,664 log 13428 18812 "GET /static/icons/close.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,665 log 13428 6340 "GET /static/icons/dashboard.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,697 log 13428 6340 "GET /static/icons/ticket.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,700 log 13428 18812 "GET /static/icons/chevron-down.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,733 log 13428 6340 "GET /static/icons/map-seat.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,733 log 13428 18812 "GET /static/icons/contract.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,748 log 13428 18140 "GET /static/icons/schedule.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,764 log 13428 22620 "GET /static/icons/refund.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,765 log 13428 10644 "GET /static/icons/vehicle.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,782 log 13428 22620 "GET /static/icons/consignment.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,783 log 13428 18140 "GET /static/icons/advance-mg-vehicle.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,783 log 13428 6340 "GET /static/icons/route.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,784 log 13428 18812 "GET /static/icons/hr.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,784 log 13428 10644 "GET /static/icons/moderation.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,786 log 13428 24192 "GET /static/icons/shift.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,798 log 13428 6340 "GET /static/icons/vouncher.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,798 log 13428 18812 "GET /static/icons/after-sales.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,798 log 13428 22620 "GET /static/icons/chart.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,799 log 13428 18140 "GET /static/icons/bell.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,802 log 13428 24192 "GET /static/icons/kpi.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,802 log 13428 10644 "GET /static/icons/cost.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,814 log 13428 22620 "GET /static/icons/branch.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,815 log 13428 6340 "GET /static/icons/asset.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,815 log 13428 18140 "GET /static/icons/payment.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,815 log 13428 18812 "GET /static/icons/invoice.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,816 log 13428 24192 "GET /static/icons/unit.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,816 log 13428 10644 "GET /static/icons/account.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,830 log 13428 6340 "GET /static/icons/company.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,830 log 13428 24192 "GET /static/icons/permission.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,831 log 13428 10644 "GET /static/icons/search.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,831 log 13428 18812 "GET /static/icons/log.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,831 log 13428 18140 "GET /static/icons/menu.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,833 log 13428 22620 "GET /static/icons/person.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,846 log 13428 6340 "GET /static/icons/login.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,847 log 13428 18812 "GET /static/icons/logout.svg HTTP/1.1" 304 0
+INFO 2026-06-18 10:49:19,909 log 13428 10644 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 200 623
+INFO 2026-06-18 10:49:22,013 log 13428 10644 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 200 2711
+WARNING 2026-06-18 10:49:22,149 log 13428 18812 Not Found: /favicon.ico
+WARNING 2026-06-18 10:49:22,150 log 13428 18812 "GET /favicon.ico HTTP/1.1" 404 4153
+INFO 2026-06-18 10:49:25,885 log 13428 18812 "GET /tenants/list/ui/ HTTP/1.1" 302 0
+WARNING 2026-06-18 10:49:25,906 log 13428 18812 Not Found: /accounts/login/
+WARNING 2026-06-18 10:49:25,907 log 13428 18812 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 404 4188
+WARNING 2026-06-18 10:49:46,544 log 13428 6340 Not Found: /accounts/login
+WARNING 2026-06-18 10:49:46,544 log 13428 6340 "GET /accounts/login HTTP/1.1" 404 4162
+INFO 2026-06-18 10:52:35,033 autoreload 13428 22988 D:\Private\Files\file\dinhanh\core\settings\local.py changed, reloading.
+INFO 2026-06-18 10:52:37,925 autoreload 3112 25700 Watching for file changes with StatReloader
+WARNING 2026-06-18 10:54:04,049 log 3112 21448 Not Found: /accounts/login
+WARNING 2026-06-18 10:54:04,049 log 3112 21448 "GET /accounts/login HTTP/1.1" 404 4162
+INFO 2026-06-18 10:58:52,391 autoreload 3112 25700 D:\Private\Files\file\dinhanh\accounts\urls\auth\urls.py changed, reloading.
+INFO 2026-06-18 10:58:55,437 autoreload 4184 4300 Watching for file changes with StatReloader
+WARNING 2026-06-18 10:59:11,428 log 4184 2064 Not Found: /accounts/login
+WARNING 2026-06-18 10:59:11,429 log 4184 2064 "GET /accounts/login HTTP/1.1" 404 4162
+INFO 2026-06-18 10:59:11,442 log 4184 2064 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-18 10:59:11,468 log 4184 2064 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+WARNING 2026-06-18 10:59:12,118 log 4184 23300 Not Found: /accounts/login
+WARNING 2026-06-18 10:59:12,118 log 4184 23300 "GET /accounts/login HTTP/1.1" 404 4162
+INFO 2026-06-18 10:59:19,322 log 4184 9224 "GET / HTTP/1.1" 200 95162
+INFO 2026-06-18 10:59:19,566 log 4184 8260 "GET / HTTP/1.1" 200 95162
+INFO 2026-06-18 10:59:21,558 log 4184 18912 "GET / HTTP/1.1" 200 95162
+INFO 2026-06-18 10:59:24,799 log 4184 5072 "GET /tenants/list/ui/ HTTP/1.1" 302 0
+WARNING 2026-06-18 10:59:24,810 log 4184 5072 Not Found: /accounts/login/
+WARNING 2026-06-18 10:59:24,811 log 4184 5072 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 404 4188
+INFO 2026-06-18 10:59:57,455 autoreload 4184 4300 D:\Private\Files\file\dinhanh\accounts\urls\auth\urls.py changed, reloading.
+INFO 2026-06-18 10:59:58,748 autoreload 2164 25948 Watching for file changes with StatReloader
+INFO 2026-06-18 11:00:01,002 autoreload 2164 25948 D:\Private\Files\file\dinhanh\accounts\urls\__init__.py changed, reloading.
+INFO 2026-06-18 11:00:02,230 autoreload 10540 20724 Watching for file changes with StatReloader
+INFO 2026-06-18 11:00:03,021 log 10540 1864 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 200 8652
+INFO 2026-06-18 11:00:03,456 log 10540 22360 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 200 8652
+INFO 2026-06-18 11:00:11,240 log 10540 15804 "GET /accounts/register/ HTTP/1.1" 200 10279
+INFO 2026-06-18 11:00:12,949 log 10540 12492 "GET /accounts/login/ HTTP/1.1" 200 8652
+INFO 2026-06-18 11:00:18,153 log 10540 20716 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 11:00:21,959 log 10540 4196 "GET /tenants/list/ui/ HTTP/1.1" 302 0
+INFO 2026-06-18 11:00:21,987 log 10540 4196 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 200 8652
+INFO 2026-06-18 11:49:33,520 autoreload 23452 23480 Watching for file changes with StatReloader
+INFO 2026-06-18 11:49:44,142 log 23452 17420 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 11:49:44,214 log 23452 17420 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-18 11:49:52,023 log 23452 17420 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-18 11:49:57,168 log 23452 26096 "GET /tenants/list/ui/ HTTP/1.1" 302 0
+INFO 2026-06-18 11:49:57,214 log 23452 26096 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 200 8615
+WARNING 2026-06-18 11:50:00,294 log 23452 13428 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-06-18 11:50:00,295 log 23452 13428 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4268
+INFO 2026-06-18 11:50:51,258 log 23452 13428 "POST /accounts/login/ HTTP/1.1" 200 8819
+INFO 2026-06-18 11:51:13,673 log 23452 3552 "POST /accounts/login/ HTTP/1.1" 200 8819
+INFO 2026-06-18 11:56:21,366 log 23452 16912 "POST /accounts/login/ HTTP/1.1" 200 8819
+INFO 2026-06-18 11:57:03,465 autoreload 23452 23480 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 11:57:04,805 autoreload 7056 25904 Watching for file changes with StatReloader
+INFO 2026-06-18 11:57:06,671 log 7056 19024 "POST /accounts/login/ HTTP/1.1" 200 8819
+INFO 2026-06-18 11:57:10,944 autoreload 7056 25904 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 11:57:12,104 autoreload 4320 17820 Watching for file changes with StatReloader
+INFO 2026-06-18 11:57:13,731 log 4320 5644 "POST /accounts/login/ HTTP/1.1" 200 8819
+INFO 2026-06-18 11:57:14,403 autoreload 4320 17820 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 11:57:15,725 autoreload 23052 22128 Watching for file changes with StatReloader
+INFO 2026-06-18 11:57:17,674 log 23052 22776 "POST /accounts/login/ HTTP/1.1" 200 8819
+INFO 2026-06-18 11:57:19,579 autoreload 23052 22128 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 11:57:20,895 autoreload 4976 26104 Watching for file changes with StatReloader
+INFO 2026-06-18 11:57:24,670 autoreload 4976 26104 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 11:57:25,902 autoreload 5628 17556 Watching for file changes with StatReloader
+INFO 2026-06-18 11:57:44,309 log 5628 18168 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 11:57:48,255 log 5628 21816 "GET /tenants/list/ui/ HTTP/1.1" 302 0
+INFO 2026-06-18 11:57:48,291 log 5628 21816 "GET /accounts/login/?next=/tenants/list/ui/ HTTP/1.1" 200 8615
+ERROR 2026-06-18 11:58:05,440 log 5628 23700 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\accounts\views\auth\login.py", line 35, in login
+    user_entity = LoginProvider.authenticate_user().execute(dto, request=request)
+  File "D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py", line 21, in execute
+    raise AuthenticationError("Invalid email or password.")
+accounts.exceptions.exception.AuthenticationError: Invalid email or password.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\Private\Files\file\dinhanh\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\Private\Files\file\dinhanh\accounts\views\auth\login.py", line 63, in login
+    messages.error(str(e))
+    ~~~~~~~~~~~~~~^^^^^^^^
+TypeError: error() missing 1 required positional argument: 'message'
+ERROR 2026-06-18 11:58:05,444 log 5628 23700 "POST /accounts/login/ HTTP/1.1" 500 116144
+INFO 2026-06-18 11:58:27,969 autoreload 5628 17556 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 11:58:29,243 autoreload 20764 8028 Watching for file changes with StatReloader
+INFO 2026-06-18 11:58:31,490 autoreload 20764 8028 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 11:58:32,680 autoreload 23040 22456 Watching for file changes with StatReloader
+INFO 2026-06-18 11:58:38,477 log 23040 25164 "POST /accounts/login/ HTTP/1.1" 200 9649
+INFO 2026-06-18 11:58:39,797 log 23040 11656 "POST /accounts/login/ HTTP/1.1" 200 9649
+INFO 2026-06-18 11:59:19,498 log 23040 2232 "POST /accounts/login/ HTTP/1.1" 200 9459
+INFO 2026-06-18 11:59:20,144 log 23040 6536 "POST /accounts/login/ HTTP/1.1" 200 9459
+INFO 2026-06-18 11:59:29,798 autoreload 23040 22456 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 11:59:31,025 autoreload 20604 23456 Watching for file changes with StatReloader
+INFO 2026-06-18 11:59:32,745 log 20604 3860 "POST /accounts/login/ HTTP/1.1" 200 9413
+INFO 2026-06-18 11:59:33,409 autoreload 20604 23456 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 11:59:34,809 autoreload 17928 17168 Watching for file changes with StatReloader
+INFO 2026-06-18 13:08:38,021 log 17928 27792 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-18 13:08:52,232 autoreload 17928 17168 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:08:55,588 autoreload 14888 9956 Watching for file changes with StatReloader
+INFO 2026-06-18 13:09:04,093 log 14888 24780 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:09:04,162 log 14888 24780 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-18 13:09:18,869 log 14888 27992 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:09:38,266 log 14888 17644 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:11:41,802 log 14888 29928 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:18:27,142 autoreload 14888 9956 D:\Private\Files\file\dinhanh\core\settings\base.py changed, reloading.
+INFO 2026-06-18 13:18:29,834 autoreload 8884 11856 Watching for file changes with StatReloader
+INFO 2026-06-18 13:18:35,992 log 8884 22988 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:18:44,352 log 8884 31164 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:20:06,293 autoreload 8884 11856 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:20:07,601 autoreload 30824 17540 Watching for file changes with StatReloader
+INFO 2026-06-18 13:20:09,199 log 30824 16912 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:20:11,050 autoreload 30824 17540 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:20:12,279 autoreload 18204 30412 Watching for file changes with StatReloader
+INFO 2026-06-18 13:20:14,151 log 18204 31436 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:20:14,671 autoreload 18204 30412 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:20:16,023 autoreload 29620 4336 Watching for file changes with StatReloader
+INFO 2026-06-18 13:20:32,139 log 29620 27656 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:20:32,482 autoreload 29620 4336 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:20:33,672 autoreload 7472 13116 Watching for file changes with StatReloader
+INFO 2026-06-18 13:20:38,669 autoreload 7472 13116 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:20:39,843 autoreload 22412 26696 Watching for file changes with StatReloader
+INFO 2026-06-18 13:21:00,398 autoreload 22412 26696 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:21:01,561 autoreload 21680 25396 Watching for file changes with StatReloader
+INFO 2026-06-18 13:21:31,240 autoreload 21680 25396 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:21:32,374 autoreload 23240 29472 Watching for file changes with StatReloader
+INFO 2026-06-18 13:21:43,219 log 23240 2232 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:21:45,481 log 23240 29928 "POST /accounts/login/ HTTP/1.1" 200 9465
+INFO 2026-06-18 13:22:39,824 autoreload 23240 29472 D:\Private\Files\file\dinhanh\accounts\application\usecases\login\login_usecase.py changed, reloading.
+INFO 2026-06-18 13:22:41,145 autoreload 7568 22868 Watching for file changes with StatReloader
+INFO 2026-06-18 13:27:02,800 log 7568 10824 "GET /accounts/register/ HTTP/1.1" 200 10279
+INFO 2026-06-18 13:30:07,162 log 7568 27332 "GET /accounts/register/ HTTP/1.1" 200 10279
+INFO 2026-06-18 13:30:07,214 log 7568 27332 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-18 13:30:07,423 autoreload 7568 22868 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:30:10,368 autoreload 27100 29380 Watching for file changes with StatReloader
+INFO 2026-06-18 13:30:13,877 autoreload 27100 29380 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:30:15,178 autoreload 25040 4104 Watching for file changes with StatReloader
+INFO 2026-06-18 13:46:48,952 autoreload 25040 4104 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:46:51,917 autoreload 3320 16084 Watching for file changes with StatReloader
+INFO 2026-06-18 13:46:54,335 autoreload 3320 16084 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:46:55,566 autoreload 24072 7072 Watching for file changes with StatReloader
+INFO 2026-06-18 13:47:12,597 autoreload 24072 7072 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:47:13,733 autoreload 31544 23668 Watching for file changes with StatReloader
+INFO 2026-06-18 13:47:24,974 autoreload 31544 23668 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:47:26,135 autoreload 29504 26076 Watching for file changes with StatReloader
+INFO 2026-06-18 13:47:35,092 autoreload 29504 26076 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:47:36,338 autoreload 29348 31448 Watching for file changes with StatReloader
+INFO 2026-06-18 13:48:00,106 autoreload 29348 31448 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:48:01,302 autoreload 14660 29108 Watching for file changes with StatReloader
+INFO 2026-06-18 13:48:43,446 autoreload 14660 29108 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:48:44,603 autoreload 4820 24848 Watching for file changes with StatReloader
+INFO 2026-06-18 13:50:41,583 autoreload 4820 24848 D:\Private\Files\file\dinhanh\accounts\models\user_accounts.py changed, reloading.
+INFO 2026-06-18 13:50:42,875 autoreload 29892 27412 Watching for file changes with StatReloader
+INFO 2026-06-18 13:50:51,167 log 29892 25576 "GET /accounts/register/ HTTP/1.1" 200 10279
+INFO 2026-06-18 13:50:52,525 log 29892 24892 "GET /accounts/register/ HTTP/1.1" 200 10279
+INFO 2026-06-18 13:50:52,992 log 29892 24892 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+INFO 2026-06-18 13:50:53,105 log 29892 18456 "GET /accounts/register/ HTTP/1.1" 200 10279
+INFO 2026-06-18 13:50:56,980 log 29892 19984 "GET /accounts/login/ HTTP/1.1" 200 8592
+INFO 2026-06-18 13:51:12,863 log 29892 10388 "POST /accounts/login/ HTTP/1.1" 302 0
+WARNING 2026-06-18 13:51:12,907 log 29892 10388 Not Found: /dashboard/
+WARNING 2026-06-18 13:51:12,908 log 29892 10388 "GET /dashboard/ HTTP/1.1" 404 4154
+INFO 2026-06-18 13:51:12,930 log 29892 10388 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+INFO 2026-06-18 13:51:37,329 autoreload 29892 27412 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 13:51:38,602 autoreload 25484 14628 Watching for file changes with StatReloader
+INFO 2026-06-18 13:51:39,364 log 25484 30924 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-06-18 13:51:39,431 log 25484 30924 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 13:51:39,779 log 25484 23636 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 13:52:35,345 log 25484 25704 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 13:52:35,963 autoreload 25484 14628 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 13:52:37,317 autoreload 30492 28888 Watching for file changes with StatReloader
+INFO 2026-06-18 13:52:59,233 log 30492 26244 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 13:52:59,724 autoreload 30492 28888 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 13:53:01,011 autoreload 8292 30404 Watching for file changes with StatReloader
+INFO 2026-06-18 13:53:02,238 log 8292 23392 "GET / HTTP/1.1" 200 95161
+INFO 2026-06-18 13:53:06,655 autoreload 8292 30404 D:\Private\Files\file\dinhanh\accounts\views\auth\login.py changed, reloading.
+INFO 2026-06-18 13:53:07,879 autoreload 16896 22924 Watching for file changes with StatReloader
+INFO 2026-06-18 13:53:08,749 log 16896 27588 "GET / HTTP/1.1" 200 95161
