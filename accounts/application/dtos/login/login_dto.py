@@ -6,5 +6,6 @@ class LoginDTO:
     """
     Immutable input payload containing strict authentication credentials.
     """
+
     email: str
     password: str

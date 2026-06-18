@@ -1,8 +1,9 @@
 # Path: accounts/repositories/implement/django_user_repository.py
 
 from typing import Optional
-from accounts.models import UserAccount
+
 from accounts.domain.entities.login_entity import LoginEntity
+from accounts.models import UserAccount
 from accounts.repositories.interfaces.login_repository_interface import ILoginRepository
 
 
@@ -20,7 +21,7 @@ class LoginRepositoryImpl(ILoginRepository):
                 email=user_model.email,
                 is_active=user_model.is_active,
                 is_staff=user_model.is_staff,
-                is_superuser=user_model.is_superuser
+                is_superuser=user_model.is_superuser,
             )
         except UserAccount.DoesNotExist:
             return None

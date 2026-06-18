@@ -2,6 +2,7 @@
 
 from abc import ABC, abstractmethod
 from typing import Optional
+
 from accounts.domain.entities.login_entity import LoginEntity
 
 

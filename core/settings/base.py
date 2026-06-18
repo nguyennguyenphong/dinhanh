@@ -346,8 +346,8 @@ DJANGO_VITE = {
     }
 }
 
-# 
+#
 AUTHENTICATION_BACKENDS = [
     # Default backend that allows authentication via USERNAME_FIELD (which we set to email)
-    'django.contrib.auth.backends.ModelBackend',
+    "django.contrib.auth.backends.ModelBackend",
 ]

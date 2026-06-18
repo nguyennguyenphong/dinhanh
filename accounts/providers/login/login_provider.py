@@ -1,6 +1,6 @@
+from accounts.application.usecases.login import LoginUseCase
 from accounts.repositories.implements.login_repository_impl import LoginRepositoryImpl
 from accounts.services.login import LoginService
-from accounts.application.usecases.login import LoginUseCase
 
 
 class LoginProvider:

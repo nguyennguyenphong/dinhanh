@@ -34,7 +34,9 @@ class TailwindFormMixin:
             widget = field.widget
             current_placeholder = placeholders.get(field_name, "")
 
-            if isinstance(widget, (forms.EmailInput, forms.PasswordInput, forms.TextInput)):
+            if isinstance(
+                widget, (forms.EmailInput, forms.PasswordInput, forms.TextInput)
+            ):
                 widget.attrs.update(
                     {
                         "class": tailwind_classes,
@@ -49,13 +51,14 @@ class LoginBaseForm(TailwindFormMixin, forms.Form):
     Production standard login form capturing raw customer interface strings.
     Utilizes TailwindFormMixin to cleanly apply visual properties.
     """
+
     email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(),
-        error_messages={'required': 'Please enter your email address.'}
+        error_messages={"required": "Please enter your email address."},
     )
     password = forms.CharField(
         required=True,
         widget=forms.PasswordInput(),
-        error_messages={'required': 'Please enter your password.'}
+        error_messages={"required": "Please enter your password."},
     )

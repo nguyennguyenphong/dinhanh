@@ -1,11 +1,13 @@
 from dataclasses import dataclass
 
+
 @dataclass(frozen=True)
 class LoginEntity:
     """
     Domain Entity representing the UserAccount.
     Pure Python object decoupled from Django's infrastructure.
     """
+
     id: int
     email: str
     is_active: bool
