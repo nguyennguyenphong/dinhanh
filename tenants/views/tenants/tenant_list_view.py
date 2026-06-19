@@ -1,14 +1,14 @@
+import json
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 from django.views import View
-import json
-from django.core.serializers.json import DjangoJSONEncoder
 
 from tenants.application.dtos import TenantListQueryDTO
 from tenants.exceptions.exception import TenantDomainError
 from tenants.providers import TenantProvider
 from tenants.views.forms import TenantFilterForm
-
 
 # class TenantListView(LoginRequiredMixin, View):
 #     """
@@ -53,6 +53,7 @@ from tenants.views.forms import TenantFilterForm
 #         except TenantDomainError as e:
 #             return render(request, "pages/list.html", {"error": str(e), "form": form})
 
+
 #         context = {
 #             "tenants": tenants,
 #             "total": total,
@@ -69,47 +70,63 @@ class TenantListView(LoginRequiredMixin, View):
         query_dto = TenantListQueryDTO(
             search=request.GET.get("search_tenant", ""),
             plan=request.GET.get("plan"),
-            is_active=None, # Tùy logic của bạn
-            limit=1000,     # Lấy số lượng lớn để đẩy về client
+            is_active=None,  # Tùy logic của bạn
+            limit=1000,  # Lấy số lượng lớn để đẩy về client
             offset=0,
         )
 
         try:
             tenants, total = TenantProvider.list_tenants().execute(query_dto)
         except TenantDomainError as e:
-            return render(request, "pages/tenants/list.html", {"error": str(e), "form": form})
+            return render(
+                request, "pages/tenants/list.html", {"error": str(e), "form": form}
+            )
 
         # 1. Chuyển đổi list object sang dạng List of Lists cho Grid.js
         tenants_data = []
         for idx, tenant in enumerate(tenants, start=1):
-            tenants_data.append([
-                idx,
-                str(tenant.uuid),
-                tenant.code,
-                tenant.name,
-                tenant.domain or "",
-                tenant.logo_url or "",
-                tenant.primary_color or "",
-                "Kích hoạt" if tenant.is_active else "Ngừng kích hoạt",
-                tenant.max_users,
-                tenant.max_branches,
-                tenant.max_vehicles,
-                tenant.plan or "",
-                tenant.timezone or "",
-                tenant.default_language or "",
-                tenant.currency or "",
-                tenant.exchange_rate,
-                tenant.created_at.strftime("%H:%M:%S %Y/%m/%d") if tenant.created_at else "",
-                tenant.updated_at.strftime("%H:%M:%S %Y/%m/%d") if tenant.updated_at else "",
-                tenant.deleted.strftime("%H:%M:%S %Y/%m/%d") if hasattr(tenant, 'deleted') and tenant.deleted else "None",
-                str(tenant.uuid) # Thao tác
-            ])
+            tenants_data.append(
+                [
+                    idx,
+                    str(tenant.uuid),
+                    tenant.code,
+                    tenant.name,
+                    tenant.domain or "",
+                    tenant.logo_url or "",
+                    tenant.primary_color or "",
+                    "Kích hoạt" if tenant.is_active else "Ngừng kích hoạt",
+                    tenant.max_users,
+                    tenant.max_branches,
+                    tenant.max_vehicles,
+                    tenant.plan or "",
+                    tenant.timezone or "",
+                    tenant.default_language or "",
+                    tenant.currency or "",
+                    tenant.exchange_rate,
+                    (
+                        tenant.created_at.strftime("%H:%M:%S %Y/%m/%d")
+                        if tenant.created_at
+                        else ""
+                    ),
+                    (
+                        tenant.updated_at.strftime("%H:%M:%S %Y/%m/%d")
+                        if tenant.updated_at
+                        else ""
+                    ),
+                    (
+                        tenant.deleted.strftime("%H:%M:%S %Y/%m/%d")
+                        if hasattr(tenant, "deleted") and tenant.deleted
+                        else "None"
+                    ),
+                    str(tenant.uuid),  # Thao tác
+                ]
+            )
 
         # 2. Convert mảng dữ liệu thành chuỗi JSON an toàn
         tenants_json = json.dumps(tenants_data, cls=DjangoJSONEncoder)
 
         context = {
-            "tenants_json": tenants_json, # Biến JSON tổng
+            "tenants_json": tenants_json,  # Biến JSON tổng
             "form": form,
         }
         return render(request, "pages/tenants/list.html", context)

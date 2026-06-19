@@ -51,4 +51,6 @@ class TenantUpdateView(LoginRequiredMixin, View):
                 messages.success(request, "Cập nhật tenant thành công.")
                 return redirect("tenant_list")
 
-        return render(request, "pages/tenants/update.html", {"form": form, "object": tenant})
+        return render(
+            request, "pages/tenants/update.html", {"form": form, "object": tenant}
+        )
