@@ -19,6 +19,8 @@ import initBackdrop from './components/backdrop';
 import { initSpinner } from './components/spinner';
 // Toast
 import { initToast } from './components/toast';
+// Gridjs
+import autoInitDjangoAgGrid from "./components/djangoAgGrid";
 
 document.addEventListener('DOMContentLoaded', () => {
     // Flowbite
@@ -29,4 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initSpinner();
     // Toast
     initToast();
+    //Gridjs
+    autoInitDjangoAgGrid();
 });

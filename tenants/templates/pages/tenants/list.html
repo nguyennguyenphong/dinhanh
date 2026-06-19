@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cấu hình tenant {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
+
+        {% include 'tenants/components/breadcrumb/_tenant_list_breadcrumb.html' %}
+
+        {% include 'tenants/components/page_header/_page_header.html' %}
+
+        {% include 'tenants/components/filter/_filter_section.html' %}
+
+        <div class="flex flex-col bg-white border border-gray-200 rounded-md shadow-xs overflow-hidden">
+            <div
+                class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Danh sách đơn vị thành viên</h3>
+                    <p class="text-sm text-gray-500 dark:text-slate-400">Quản lý định danh, trạng thái tài nguyên và môi
+                        trường phân tách.</p>
+                </div>
+            </div>
+
+            <div class="p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <input type="text" id="tenant-grid-search" placeholder="Tìm kiếm nhanh tenant..."
+                        class="bg-gray-50 border border-gray-300 text-gray-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+                </div>
+
+                <div id="tenant-ag-grid" class="django-ag-grid-container ag-theme-quartz" data-app="tenant"></div>
+            </div>
+
+            <script>
+                window.tenant = {
+                    columnJson: [
+                        { name: "#", width: "70" },
+                        { name: "ID", hidden: true },
+                        { name: "Code" },
+                        { name: "Tên tenant" },
+                        { name: "Domain" },
+                        { name: "Logo", type: "image" },
+                        { name: "Trạng thái", type: "status" },
+                        { name: "Kế hoạch" },
+                        { name: "Thời gian tạo" },
+                        { name: "Thao tác", type: "actions", width: "220" }
+                    ],
+                    dataJson: {{ tenants_json | safe }}
+                };
+            </script>
+
+        </div>
+    </div>
+
+    {% for tenant in tenants %}
+    {% include 'pages/tenants/delete.html' %}
+    {% endfor %}
+
+</div>
+
+{% endblock %}

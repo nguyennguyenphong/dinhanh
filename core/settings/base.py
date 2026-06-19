@@ -272,6 +272,10 @@ LOGGING = {
             "handlers": ["console", "file"],
             "level": "DEBUG",
         },
+        "menus": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
+        },
     },
 }
 

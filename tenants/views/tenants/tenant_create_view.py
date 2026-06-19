@@ -26,7 +26,7 @@ class TenantCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = TenantBaseForm()
-        return render(request, "pages/create.html", {"form": form})
+        return render(request, "pages/tenants/create.html", {"form": form})
 
     def post(self, request):
         form = TenantBaseForm(request.POST, request.FILES)
@@ -38,4 +38,4 @@ class TenantCreateView(LoginRequiredMixin, View):
                 messages.success(request, "Tenant tạo thành công.")
                 return redirect("tenant_list")
 
-        return render(request, "pages/create.html", {"form": form})
+        return render(request, "pages/tenants/create.html", {"form": form})

@@ -30,7 +30,7 @@ class TenantUpdateView(LoginRequiredMixin, View):
         tenant = get_object_or_404(Tenant, uuid=pk)
         return render(
             request,
-            "pages/update.html",
+            "pages/tenants/update.html",
             {"form": TenantBaseForm(instance=tenant), "object": tenant},
         )
 
@@ -51,4 +51,4 @@ class TenantUpdateView(LoginRequiredMixin, View):
                 messages.success(request, "Cập nhật tenant thành công.")
                 return redirect("tenant_list")
 
-        return render(request, "pages/update.html", {"form": form, "object": tenant})
+        return render(request, "pages/tenants/update.html", {"form": form, "object": tenant})

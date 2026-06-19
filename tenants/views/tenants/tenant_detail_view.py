@@ -15,4 +15,4 @@ class TenantDetailView(LoginRequiredMixin, View):
     def get(self, request, pk: uuid.UUID):
         tenant = TenantService.get_by_uuid(pk)
 
-        return render(request, "pages/detail.html", {"tenant": tenant})
+        return render(request, "pages/tenants/detail.html", {"tenant": tenant})

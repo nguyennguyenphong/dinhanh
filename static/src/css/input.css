@@ -65,3 +65,31 @@
 #global-loader.active .loader-content {
     transform: scale(1) !important;
 }
+
+.django-ag-grid-container {
+    width: 100%;
+    height: auto !important;
+}
+
+.ag-theme-alpine {
+    --ag-border-color: #e5e7eb;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.dark .ag-theme-alpine {
+    --ag-border-color: #334155;
+    --ag-background-color: #0f172a;
+    --ag-header-background-color: #1e293b;
+    --ag-foreground-color: #94a3b8;
+}
+
+.ag-cell {
+    white-space: nowrap !important;
+    display: flex;
+    align-items: center;
+}
+
+#tenant-grid-search {
+    border-radius: 6px !important;
+}

@@ -809,8 +809,8 @@
                 <div id="tenant-accordion">
                     <button type="button"
                         class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
-                        {% if request.resolver_match.url_name in 'tenant_list,tenant_create' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
-                        aria-expanded="{% if request.resolver_match.url_name in 'tenant_list,tenant_create' %}true{% else %}false{% endif %}"
+                        {% if request.resolver_match.url_name in 'tenant_list,tenant_create,tenant_detail' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                        aria-expanded="{% if request.resolver_match.url_name in 'tenant_list,tenant_create,tenant_detail' %}true{% else %}false{% endif %}"
                         aria-controls="tenant-accordion-child"
                         data-accordion-target="#tenant-accordion-child"> <div class="flex items-center gap-x-3.5">
                             <img src="{% static 'icons/company.svg' %}" alt="company" class="size-4.5">
@@ -818,12 +818,12 @@
                         </div>
 
                         <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" data-accordion-icon
-                            class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'tenant_list,tenant_create' %} rotate-180 {% endif %}">
+                            class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'tenant_list,tenant_create,tenant_detail' %} rotate-180 {% endif %}">
                     </button>
                 </div>
 
                 <div id="tenant-accordion-child" 
-                    class="w-full overflow-hidden {% if request.resolver_match.url_name in 'tenant_list,tenant_create' %} block {% else %} hidden {% endif %}"
+                    class="w-full overflow-hidden {% if request.resolver_match.url_name in 'tenant_list,tenant_create,tenant_detail' %} block {% else %} hidden {% endif %}"
                     aria-labelledby="tenant-accordion">
 
                     <ul class="pt-1.5 ps-7 space-y-1">
