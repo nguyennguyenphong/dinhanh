@@ -16,7 +16,7 @@ from django.views import View
 
 from tenants.models import Tenant
 from tenants.policies import TenantPolicy
-from tenants.services.tenant_action_service import TenantActionService
+from tenants.services import TenantService
 from tenants.views.forms import TenantBaseForm
 
 
@@ -47,7 +47,7 @@ class TenantUpdateView(LoginRequiredMixin, View):
         form = TenantBaseForm(request.POST, request.FILES, instance=tenant)
 
         if form.is_valid():
-            if TenantActionService.update_tenant(request, pk, form):
+            if TenantService.update_tenant(request, pk, form):
                 messages.success(request, "Cập nhật tenant thành công.")
                 return redirect("tenant_list")
 

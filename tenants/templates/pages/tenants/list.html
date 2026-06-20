@@ -10,11 +10,9 @@
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
     <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
-        {% include 'tenants/components/breadcrumb/_tenant_list_breadcrumb.html' %}
+        {% include 'components/breadcrumb/_tenant_list_breadcrumb.html' %}
 
-        {% include 'tenants/components/page_header/_page_header.html' %}
-
-        {% include 'tenants/components/filter/_filter_section.html' %}
+        {% include 'components/page_header/_tenant_list_page_header.html' %}
 
         <div class="flex flex-col bg-white border border-gray-200 rounded-md shadow-xs overflow-hidden">
             <div
@@ -32,34 +30,19 @@
                         class="bg-gray-50 border border-gray-300 text-gray-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:text-white">
                 </div>
 
-                <div id="tenant-ag-grid" class="django-ag-grid-container ag-theme-quartz" data-app="tenant"></div>
+                <div class="django-ag-grid-container" 
+                    id="{{ grid_id }}"
+                    data-endpoint="{{ api_url }}"
+                    data-columns="{{ columns_json }}"
+                    data-options="{{ options_json|default:'{}' }}"
+                    data-search-input="tenant-grid-search"
+                    style="height: 600px; width: 100%;">
+                </div>
             </div>
-
-            <script>
-                window.tenant = {
-                    columnJson: [
-                        { name: "#", width: "70" },
-                        { name: "ID", hidden: true },
-                        { name: "Code" },
-                        { name: "Tên tenant" },
-                        { name: "Domain" },
-                        { name: "Logo", type: "image" },
-                        { name: "Trạng thái", type: "status" },
-                        { name: "Kế hoạch" },
-                        { name: "Thời gian tạo" },
-                        { name: "Thao tác", type: "actions", width: "220" }
-                    ],
-                    dataJson: {{ tenants_json | safe }}
-                };
-            </script>
-
         </div>
     </div>
-
-    {% for tenant in tenants %}
-    {% include 'pages/tenants/delete.html' %}
-    {% endfor %}
-
 </div>
+
+{% include 'pages/tenants/delete.html' %}
 
 {% endblock %}

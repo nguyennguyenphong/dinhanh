@@ -10,7 +10,7 @@
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
     <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
-        {% include 'tenants/components/breadcrumb/_tenant_detail_breadcrumb.html' %}
+        {% include 'components/breadcrumb/_tenant_detail_breadcrumb.html' %}
 
         <div class="flex gap-3 flex-wrap">
             <a href="{% url 'tenant_list' %}"
@@ -25,7 +25,7 @@
 
         <div class="w-full bg-white">
             
-            {% include 'tenants/components/accordion/_tenant_detail_accordion.html' %}
+            {% include 'components/accordion/tenants/_tenant_detail_accordion.html' %}
 
         </div>
     </div>

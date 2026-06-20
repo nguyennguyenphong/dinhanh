@@ -18,7 +18,7 @@ from django.views import View
 
 from tenants.models import Tenant
 from tenants.policies import TenantPolicy
-from tenants.services import TenantActionService
+from tenants.services import TenantService
 
 
 class TenantHardDeleteView(LoginRequiredMixin, View):
@@ -38,7 +38,7 @@ class TenantHardDeleteView(LoginRequiredMixin, View):
         tenant = get_object_or_404(Tenant.all_objects, uuid=pk)
         form = forms.Form(request.POST)
 
-        if TenantActionService.hard_delete_tenant(request, pk, form):
+        if TenantService.hard_delete_tenant(request, pk, form):
             messages.success(request, f"Đã xóa vĩnh viễn tenant '{tenant.name}'.")
 
         return redirect("tenant_list")

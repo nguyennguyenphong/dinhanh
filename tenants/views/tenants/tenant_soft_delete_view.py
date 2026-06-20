@@ -12,12 +12,11 @@ import uuid
 from django import forms
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import redirect
 from django.views import View
 
-from tenants.models import Tenant
 from tenants.policies import TenantPolicy
-from tenants.services import TenantActionService
+from tenants.services import TenantService
 
 
 class TenantSoftDeleteView(LoginRequiredMixin, View):
@@ -32,7 +31,7 @@ class TenantSoftDeleteView(LoginRequiredMixin, View):
     def delete(self, request, pk: uuid.UUID):
         form = forms.Form(request.POST)
 
-        if TenantActionService.soft_delete_tenant(request, pk, form):
+        if TenantService.soft_delete_tenant(request, pk, form):
             messages.success(request, "Đã xóa tạm thời tenant.")
         else:
             pass
