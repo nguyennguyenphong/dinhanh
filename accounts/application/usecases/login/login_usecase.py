@@ -21,14 +21,16 @@ class LoginUseCase:
         self._auth_service = auth_service
 
     def execute(self, dto: LoginDTO, request=None) -> LoginEntity:
-        if not self._auth_service.verify_credentials(dto, request):
-            raise AuthenticationError("Sai email hoặc mật khẩu")
+        user = self._auth_service.verify_credentials(dto, request)
+
+        if not user:
+            raise AuthenticationError("Sai email hoặc mật khẩu.")
 
         user_entity = self._repository.get_by_email(dto.email)
         if not user_entity:
-            raise AuthenticationError("Account records matching credentials not found.")
+            raise AuthenticationError("Email hoặc mật khẩu không đúng")
 
         if not LoginPolicy.is_allowed_to_login(user_entity):
-            raise PermissionDeniedError("Your account has been deactivated.")
+            raise PermissionDeniedError("Tài khoản đã bị vô hiệu hóa")
 
         return user_entity

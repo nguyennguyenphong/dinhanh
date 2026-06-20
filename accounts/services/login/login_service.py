@@ -13,5 +13,4 @@ class LoginService:
         """
         Invokes native framework logic to test password validity against database hash.
         """
-        user = authenticate(request, username=dto.email, password=dto.password)
-        return user is not None
+        return authenticate(request, username=dto.email, password=dto.password)
