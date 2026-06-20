@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass(frozen=True)
 class SessionEntity:
     deleted: str
@@ -20,39 +21,37 @@ class SessionEntity:
     updated_by_id: int
     user_id: int
 
-# Business rules
+    # Business rules
 
     def is_revoked(self):
         return self.revoked_at
 
     def is_active(self):
         return not self.is_revoked()
-    
+
     def is_expired(self):
         return self.expires_at
-    
+
     def is_valid(self):
         return self.is_active() and not self.is_expired()
-    
+
     def is_invalid(self):
         return not self.is_valid()
-    
+
     def is_deleted(self):
         return self.deleted
-    
+
     def is_deleted_by_cascade(self):
         return self.deleted_by_cascade
-    
+
     def is_created(self):
         return self.created_at
-    
+
     def is_updated(self):
         return self.updated_at
-    
+
     def is_deleted(self):
         return self.deleted
-    
+
     def is_deleted_by_cascade(self):
         return self.deleted_by_cascade
-    
-    

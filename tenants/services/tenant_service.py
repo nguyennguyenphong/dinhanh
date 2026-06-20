@@ -9,13 +9,13 @@ TenantProvider + use-cases directly; this layer is for inter-app use.
 from __future__ import annotations
 
 import uuid
+
 from django.contrib import messages
 from django.core.exceptions import ValidationError
-from django.shortcuts import get_object_or_404
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 
-from tenants.application.dtos import TenantCreateDTO, TenantUpdateDTO
-from tenants.application.dtos import TenantResponseDTO
+from tenants.application.dtos import TenantCreateDTO, TenantResponseDTO, TenantUpdateDTO
 from tenants.exceptions.exception import TenantDomainError
 from tenants.models import Tenant
 from tenants.providers import TenantProvider

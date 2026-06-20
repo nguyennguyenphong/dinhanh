@@ -13,6 +13,8 @@ class TenantListQueryDTO:
     search: str | None = None
     plan: str | None = None
     is_active: bool | None = None
-    ordering: list[str] = field(default_factory=lambda: ["-created_at", "-updated_at", "-deleted_at"])
+    ordering: list[str] = field(
+        default_factory=lambda: ["-created_at", "-updated_at", "-deleted_at"]
+    )
     limit: int = 20
     offset: int = 0

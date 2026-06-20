@@ -7,7 +7,9 @@ urlpatterns = [
     # 1. LIST FUNCTION
     # -------------------------------------------------------------------------
     path("list/ui/", tenant_views.TenantListView.as_view(), name="tenant_list"),
-    path("api/v1/list/", tenant_views.TenantListApiView.as_view(), name="tenant_list_api"),
+    path(
+        "api/v1/list/", tenant_views.TenantListApiView.as_view(), name="tenant_list_api"
+    ),
     # -------------------------------------------------------------------------
     # 2. CREATE FUNCTION (Split into UI Presentation and Data Persistence)
     # -------------------------------------------------------------------------
