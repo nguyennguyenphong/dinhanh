@@ -119,9 +119,7 @@ class MenuItemBaseForm(TailwindFormMixin, forms.ModelForm):
             "is_active": forms.RadioSelect(
                 choices=[(True, "Kích hoạt"), (False, "Ngừng kích hoạt")]
             ),
-            "is_hidden": forms.RadioSelect(
-                choices=[(True, "Hiện"), (False, "Ẩn")]
-            ),
+            "is_hidden": forms.RadioSelect(choices=[(True, "Hiện"), (False, "Ẩn")]),
         }
 
     def __init__(self, *args, **kwargs):

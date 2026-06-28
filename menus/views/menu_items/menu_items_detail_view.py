@@ -12,6 +12,4 @@ class MenuItemDetailView(LoginRequiredMixin, View):
 
     def get(self, request):
 
-        return render(
-            request, "pages/menu_items/detail.html"
-        )
+        return render(request, "pages/menu_items/detail.html")

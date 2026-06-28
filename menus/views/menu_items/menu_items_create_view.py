@@ -25,4 +25,3 @@ class MenuItemCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = MenuGroupBaseForm()
         return render(request, "pages/menu_items/create.html", {"form": form})
-

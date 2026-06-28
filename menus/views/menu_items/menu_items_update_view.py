@@ -25,4 +25,3 @@ class MenuItemUpdateView(LoginRequiredMixin, View):
     def get(self, request):
         form = MenuGroupBaseForm()
         return render(request, "pages/menu_items/update.html", {"form": form})
-
