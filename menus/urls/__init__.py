@@ -1,3 +1,7 @@
-from .menu_groups import urls
+from .menu_groups.urls import urlpatterns as menu_group_patterns
+from .menu_items.urls import urlpatterns as menu_item_patterns
 
-urlpatterns = urls.urlpatterns
+urlpatterns = [
+    *menu_group_patterns,
+    *menu_item_patterns,
+]
