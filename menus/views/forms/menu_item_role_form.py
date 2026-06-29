@@ -56,7 +56,9 @@ class MenuItemRoleBaseForm(TailwindFormMixin, forms.ModelForm):
         if menu_item and role:
             if menu_item.tenant_id != role.tenant_id:
                 raise ValidationError(
-                    _("Mục menu và vai trò được chọn phải thuộc về cùng một doanh nghiệp (Tenant).")
+                    _(
+                        "Mục menu và vai trò được chọn phải thuộc về cùng một doanh nghiệp (Tenant)."
+                    )
                 )
-                
+
         return cleaned_data
