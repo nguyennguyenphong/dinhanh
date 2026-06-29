@@ -269,6 +269,7 @@
         "middleware.py",
         "models.py",
         "urls.py",
+        "views.py",
         "wsgi.py"
       ]
     },
@@ -458,10 +459,18 @@
             "_menu_item_create_breadcrumb.html",
             "_menu_item_detail_breadcrumb.html",
             "_menu_item_list_breadcrumb.html",
+            "_menu_item_role_create_breadcrumb.html",
+            "_menu_item_role_detail_breadcrumb.html",
+            "_menu_item_role_list_breadcrumb.html",
+            "_menu_item_role_update_breadcrumb.html",
             "_menu_item_update_breadcrumb.html"
           ],
           "forms": {
             "menu_group_section": [
+              "_basic_information.html",
+              "_button_action.html"
+            ],
+            "menu_item_role_section": [
               "_basic_information.html",
               "_button_action.html"
             ],
@@ -475,7 +484,8 @@
             ],
             "_files": [
               "_menu_group_form.html",
-              "_menu_item_form.html"
+              "_menu_item_form.html",
+              "_menu_item_role_form.html"
             ]
           },
           "page_header": [
@@ -486,6 +496,10 @@
             "_menu_item_create_page_header.html",
             "_menu_item_detail_page_header.html",
             "_menu_item_list_page_header.html",
+            "_menu_item_role_create_page_header.html",
+            "_menu_item_role_detail_page_header.html",
+            "_menu_item_role_list_page_header.html",
+            "_menu_item_role_update_page_header.html",
             "_menu_item_update_page_header.html"
           ],
           "tables": {
@@ -514,6 +528,13 @@
             "detail.html",
             "list.html",
             "update.html"
+          ],
+          "menu_item_roles": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
           ]
         }
       },
@@ -526,6 +547,9 @@
         ],
         "menu_items": [
           "urls.py"
+        ],
+        "menu_item_roles": [
+          "urls.py"
         ]
       },
       "utils": [
@@ -535,7 +559,8 @@
         "forms": [
           "menu_group_base_form.py",
           "menu_group_filter_form.py",
-          "menu_item_base_form.py"
+          "menu_item_base_form.py",
+          "menu_item_role_form.py"
         ],
         "helpers": [
           "view_helpers.py"
@@ -553,6 +578,13 @@
           "menu_items_detail_view.py",
           "menu_items_list_view.py",
           "menu_items_update_view.py"
+        ],
+        "menu_item_roles": [
+          "menu_item_role_create_view.py",
+          "menu_item_role_delete_view.py",
+          "menu_item_role_detail_view.py",
+          "menu_item_role_list_view.py",
+          "menu_item_role_update_view.py"
         ]
       },
       "_files": [
@@ -638,15 +670,11 @@
           "manifest.json"
         ],
         "assets": [
+          "app-ByeP_dze.js",
           "app-C5Nj1jXJ.css",
-          "app-Om9sfI7D.js",
-          "app-shY1Zmde.js",
-          "input-BI_2zJKa.js",
-          "input-C9EHpBZo.js",
-          "style-Bp1LZJTT.js",
-          "style-BZMU7ieL.css",
-          "style-C0CEN9yp.css",
-          "style-CAxBSTAx.js"
+          "input-C08Ua-qQ.js",
+          "style-CsSQL0Ca.js",
+          "style-v8ZWLDnM.css"
         ]
       },
       "src": {

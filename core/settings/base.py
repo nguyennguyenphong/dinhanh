@@ -22,7 +22,7 @@ DEBUG = env.bool("DEBUG", default=False)
 AUTH_USER_MODEL = "accounts.UserAccount"
 
 # Allowed hosts
-ALLOWED_HOSTS = ["*"]  # env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 # Installed apps
 # https://docs.djangoproject.com/en/4.0/ref/applications/
