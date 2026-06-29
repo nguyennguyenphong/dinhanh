@@ -33,6 +33,8 @@ urlpatterns = [
     path("tenants/", include("tenants.urls")),
     # menus
     path("menus/", include("menus.urls")),
+    # assets
+    path("", include("assets.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "core.views.page_not_found"

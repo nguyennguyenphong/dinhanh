@@ -667,34 +667,66 @@
                     </ul>
                 </div>
             </li>
+
             <li class="px-3 pt-5 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider dark:text-slate-500">
                 Tài sản</li>
-            <li id="accordion-assets-group" data-accordion="collapse">
-                <div id="assets-accordion">
+            <li id="accordion-asset-group" data-accordion="collapse">
+                <div id="asset-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
-                        aria-expanded="false" aria-controls="assets-accordion-child"
-                        data-accordion-target="#assets-accordion-child">
-                        <div class="flex items-center gap-x-3.5">
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        {% if request.resolver_match.url_name in 'asset_list,asset_create,asset_detail,asset_update' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                        aria-expanded="{% if request.resolver_match.url_name in 'asset_list,asset_create,asset_detail,asset_update' %}true{% else %}false{% endif %}"
+                        aria-controls="asset-accordion-child"
+                        data-accordion-target="#asset-accordion-child"> <div class="flex items-center gap-x-3.5">
                             <img src="{% static 'icons/asset.svg' %}" alt="asset" class="size-4.5">
                             <span> Quản lý tài sản </span>
                         </div>
+
                         <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" data-accordion-icon
-                            class="size-4.5 transition-transform">
+                            class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'asset_list,asset_create,asset_detail,asset_update' %} rotate-180 {% endif %}">
                     </button>
                 </div>
-                <div id="assets-accordion-child" class="w-full overflow-hidden hidden"
-                    aria-labelledby="assets-accordion">
+
+                <div id="asset-accordion-child" 
+                    class="w-full overflow-hidden {% if request.resolver_match.url_name in 'asset_list,asset_create,asset_detail,asset_update' %} block {% else %} hidden {% endif %}"
+                    aria-labelledby="asset-accordion">
+
                     <ul class="pt-1.5 ps-7 space-y-1">
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="#"><span class="size-1.5 bg-gray-400 rounded-md"></span> Danh sách tài sản</a>
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                                {% if request.resolver_match.url_name == 'asset_list' or request.resolver_match.url_name == 'asset_detail' or request.resolver_match.url_name == 'asset_update' %}
+                                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                                {% else %}
+                                    text-gray-600 dark:text-slate-400
+                                {% endif %}"
+                                href="{% url 'asset_list' %}">
+                                <span class="size-1.5
+                                    {% if request.resolver_match.url_name == 'asset_list' or request.resolver_match.url_name == 'asset_detail' or request.resolver_match.url_name == 'asset_update' %}
+                                        bg-blue-600
+                                    {% else %}
+                                        bg-gray-400
+                                    {% endif %}
+                                    rounded-md">
+                                </span>
+                                Danh sách tài sản
+                            </a>
                         </li>
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="#"><span class="size-1.5 bg-gray-400 rounded-md"></span> Thêm tài sản mới</a>
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                            {% if request.resolver_match.url_name == 'asset_create' %}
+                                bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                            {% else %}
+                                text-gray-600 dark:text-slate-400
+                            {% endif %}" href="{% url 'asset_create' %}">
+                                <span class="size-1.5 {% if request.resolver_match.url_name == 'asset_create' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Thêm tài sản
+                            </a>
                         </li>
                     </ul>
                 </div>
             </li>
+
             <li id="accordion-units-group" data-accordion="collapse">
                 <div id="units-accordion">
                     <button type="button"
