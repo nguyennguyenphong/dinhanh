@@ -6,7 +6,9 @@ env = environ.Env()
 
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["*"] #env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "127.0.0.1:8000"])
+ALLOWED_HOSTS = [
+    "*"
+]  # env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "127.0.0.1:8000"])
 
 LOGIN_URL = "http://127.0.0.1:8000/accounts/login/"
 

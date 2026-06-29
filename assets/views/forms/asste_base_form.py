@@ -1,5 +1,7 @@
 from django import forms
+
 from assets.models import Asset
+
 
 class TailwindFormMixin:
     """
@@ -19,28 +21,42 @@ class TailwindFormMixin:
         for field_name, field in self.fields.items():
             widget = field.widget
 
-            if isinstance(widget, (forms.TextInput, forms.NumberInput, forms.EmailInput, forms.PasswordInput, forms.DateInput)):
-                widget.attrs.update({
-                    "class": tailwind_classes,
-                })
+            if isinstance(
+                widget,
+                (
+                    forms.TextInput,
+                    forms.NumberInput,
+                    forms.EmailInput,
+                    forms.PasswordInput,
+                    forms.DateInput,
+                ),
+            ):
+                widget.attrs.update(
+                    {
+                        "class": tailwind_classes,
+                    }
+                )
 
             elif isinstance(widget, forms.Select):
-                widget.attrs.update({
-                    "class": tailwind_classes.replace("px-4", "px-3")
-                })
+                widget.attrs.update({"class": tailwind_classes.replace("px-4", "px-3")})
 
             elif isinstance(widget, forms.Textarea):
-                widget.attrs.update({
-                    "class": (
-                        f"{tailwind_classes} font-mono "
-                        "text-xs leading-6 resize-y min-h-[120px]"
-                    ),
-                })
-            
+                widget.attrs.update(
+                    {
+                        "class": (
+                            f"{tailwind_classes} font-mono "
+                            "text-xs leading-6 resize-y min-h-[120px]"
+                        ),
+                    }
+                )
+
             elif isinstance(widget, (forms.CheckboxInput, forms.RadioSelect)):
-                widget.attrs.update({
-                    "class": "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                })
+                widget.attrs.update(
+                    {
+                        "class": "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    }
+                )
+
 
 class AssetBaseForm(TailwindFormMixin, forms.ModelForm):
     class Meta:
@@ -70,7 +86,7 @@ class AssetBaseForm(TailwindFormMixin, forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         self.fields["tenant"].label = "Tenant"
         self.fields["category"].label = "Danh mục tài sản"
         self.fields["branch"].label = "Chi nhánh"
@@ -93,7 +109,7 @@ class AssetBaseForm(TailwindFormMixin, forms.ModelForm):
             "purchase_price": "0.00",
             "depreciation_rate": "15.00",
         }
-        
+
         for field_name, placeholder in placeholders.items():
             if field_name in self.fields:
                 self.fields[field_name].widget.attrs["placeholder"] = placeholder
