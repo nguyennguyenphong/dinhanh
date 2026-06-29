@@ -87,7 +87,7 @@ class TailwindFormMixin:
                         ),
                     }
                 )
-            
+
             elif isinstance(widget, forms.CheckboxInput):
                 checkbox_classes = (
                     "w-4 h-4 border border-default-medium rounded-xs "
@@ -126,7 +126,9 @@ class MenuItemBaseForm(TailwindFormMixin, forms.ModelForm):
                 choices=[(True, "Kích hoạt"), (False, "Ngừng kích hoạt")],
             ),
             "is_hidden": forms.RadioSelect(choices=[(True, "Hiện"), (False, "Ẩn")]),
-            "open_in_new_tab": forms.RadioSelect(choices=[(True, "Mở tab mới"), (False, "Không mở tab mới")]),
+            "open_in_new_tab": forms.RadioSelect(
+                choices=[(True, "Mở tab mới"), (False, "Không mở tab mới")]
+            ),
         }
 
     def __init__(self, *args, **kwargs):
