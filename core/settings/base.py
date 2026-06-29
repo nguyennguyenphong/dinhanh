@@ -27,6 +27,8 @@ ALLOWED_HOSTS = ["*"]  # env.list("ALLOWED_HOSTS", default=["localhost", "127.0.
 # Installed apps
 # https://docs.djangoproject.com/en/4.0/ref/applications/
 INSTALLED_APPS = [
+    # core app config
+    'core.apps.CoreConfig',
     # django
     "django.contrib.admin",
     "django.contrib.auth",

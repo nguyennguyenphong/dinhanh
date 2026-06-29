@@ -1,0 +1,24 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Định danh & Hiển thị
+    </h3>
+
+    <div class="space-y-1">
+        <label for="{{ form.label.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.label.label }} <span class="text-red-500">*</span></label>
+        {{ form.label }} 
+        {% if form.label.errors %}<p class="text-red-500 text-xs mt-1">{{ form.label.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.code.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.code.label }} <span class="text-red-500">*</span></label>
+        {{ form.code }} 
+        {% if form.code.errors %}<p class="text-red-500 text-xs mt-1">{{ form.code.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.icon.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.icon.label }} </label>
+        {{ form.icon }} 
+        {% if form.icon.errors %}<p class="text-red-500 text-xs mt-1">{{ form.icon.errors.0 }}</p>{% endif %}
+    </div>
+</div>

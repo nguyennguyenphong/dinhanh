@@ -12,7 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.views import View
 
-from menus.views.forms import MenuGroupBaseForm
+from menus.views.forms import MenuItemBaseForm
 
 
 class MenuItemCreateView(LoginRequiredMixin, View):
@@ -23,5 +23,5 @@ class MenuItemCreateView(LoginRequiredMixin, View):
     """
 
     def get(self, request):
-        form = MenuGroupBaseForm()
+        form = MenuItemBaseForm()
         return render(request, "pages/menu_items/create.html", {"form": form})

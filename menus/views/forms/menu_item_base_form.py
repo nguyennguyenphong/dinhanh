@@ -28,7 +28,7 @@ class TailwindFormMixin:
             "url_name": "Tên URL",
             "url_path": "Đường dẫn URL",
             "icon": "Icon đại diện (Định dạng svg)",
-            "badge_text": "Nhãn tạo (Số)",
+            "badge_text": "Nội dung nhãn thông báo",
             "badge_color": "Màu nhãn tạo",
             "permission_code": "Mã quyền",
             "sort_order": "Thứ tự sắp xếp",
@@ -46,7 +46,7 @@ class TailwindFormMixin:
             "url_name": "Tên URL",
             "url_path": "Đường dẫn URL",
             "icon": "Icon đại diện (Định dạng svg)",
-            "badge_text": "Nhãn tạo (Số)",
+            "badge_text": "Nội dung nhãn thông báo",
             "badge_color": "Màu nhãn tạo",
             "permission_code": "Mã quyền",
             "sort_order": "Thứ tự sắp xếp",
@@ -87,6 +87,13 @@ class TailwindFormMixin:
                         ),
                     }
                 )
+            
+            elif isinstance(widget, forms.CheckboxInput):
+                checkbox_classes = (
+                    "w-4 h-4 border border-default-medium rounded-xs "
+                    "bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
+                )
+                widget.attrs.update({"class": checkbox_classes})
 
 
 class MenuItemBaseForm(TailwindFormMixin, forms.ModelForm):
@@ -115,13 +122,12 @@ class MenuItemBaseForm(TailwindFormMixin, forms.ModelForm):
             "is_hidden",
         ]
         widgets = {
-            # Let template and mixin control specific responsive design attributes
             "is_active": forms.RadioSelect(
-                choices=[(True, "Kích hoạt"), (False, "Ngừng kích hoạt")]
+                choices=[(True, "Kích hoạt"), (False, "Ngừng kích hoạt")],
             ),
             "is_hidden": forms.RadioSelect(choices=[(True, "Hiện"), (False, "Ẩn")]),
+            "open_in_new_tab": forms.RadioSelect(choices=[(True, "Mở tab mới"), (False, "Không mở tab mới")]),
         }
 
     def __init__(self, *args, **kwargs):
-        # 1. Call the parent class's init function to initialize the fields and apply Tailwind CSS first.
         super().__init__(*args, **kwargs)

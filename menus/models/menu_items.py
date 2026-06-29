@@ -199,7 +199,7 @@ class MenuItem(BaseModel):
         default=True, db_index=True, help_text="Menu item is active and visible"
     )
     is_hidden = models.BooleanField(
-        default=False, help_text="Item is hidden from menu but route still works"
+        default=True, help_text="Item is hidden from menu but route still works"
     )
 
     class Meta:
