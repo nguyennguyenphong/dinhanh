@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Chi tiết tài sản {% endblock %}
+{% block title %} Chi tiết danh mục tài sản {% endblock %}
 
 {% block content %}
 {% include 'portals/sidebar.html' %}
@@ -10,16 +10,16 @@
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
     <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
-        {% include 'components/breadcrumb/_asset_detail_breadcrumb.html' %}
+        {% include 'components/breadcrumb/_asset_category_detail_breadcrumb.html' %}
 
-        {% include 'components/page_header/_asset_detail_page_header.html' %}
+        {% include 'components/page_header/_asset_category_detail_page_header.html' %}
 
         <div class="flex gap-3 flex-wrap">
-            <a href="{% url 'asset_list' %}"
+            <a href="{% url 'asset_category_list' %}"
                 class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
                 ← Danh sách
             </a>
-            <a href="{% url 'asset_update' %}"
+            <a href="{% url 'asset_category_update' %}"
                 class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all">
                 Chỉnh sửa
             </a>

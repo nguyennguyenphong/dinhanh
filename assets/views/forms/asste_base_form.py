@@ -18,8 +18,46 @@ class TailwindFormMixin:
             "dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm"
         )
 
+        labels = {
+            "tenant": "Tổ chức/Doanh nghiệp sở hữu",
+            "category": "Danh mục tài sản",
+            "code": "Mã tài sản (Asset Tag)",
+            "name": "Tên tài sản",
+            "serial_number": "Số sê-ri (Serial Number)",
+            "branch": "Chi nhánh/Cơ sở lưu trữ",
+            "assigned_to": "Nhân viên chịu trách nhiệm",
+            "purchase_date": "Ngày mua tài sản",
+            "purchase_price": "Nguyên giá (Giá trị mua gốc)",
+            "depreciation_rate": "Tỷ lệ khấu hao hàng năm (%)",
+            "current_value": "Giá trị còn lại hiện tại",
+            "warranty_expiry": "Ngày hết hạn bảo hành",
+            "status": "Trạng thái vận hành",
+            "notes": "Ghi chú tình trạng & Vận hành",
+        }
+
+        placeholders = {
+            "tenant": "Chọn mã doanh nghiệp sở hữu...",
+            "category": "Chọn nhóm danh mục tài sản (ví dụ: Thiết bị văn phòng, Máy móc...)...",
+            "code": "Ví dụ: FIX-EQUIP-2026-0092",
+            "name": "Ví dụ: Máy tính xách tay Dell XPS 13",
+            "serial_number": "Nhập số sê-ri khắc trên thân máy từ nhà sản xuất...",
+            "branch": "Chọn chi nhánh hoặc garage đang quản lý...",
+            "assigned_to": "Chọn nhân viên nhận bàn giao tài sản...",
+            "purchase_date": "Chọn ngày trên hóa đơn mua hàng...",
+            "purchase_price": "Nhập tổng số tiền mua gốc (VND)...",
+            "depreciation_rate": "Ví dụ: 12.50 (tương đương 12.5% mỗi năm)",
+            "current_value": "Hệ thống tự động tính toán (hoặc để trống nếu bằng nguyên giá)...",
+            "warranty_expiry": "Chọn ngày hết hạn bảo hành theo hãng...",
+            "status": "Chọn trạng thái hiện tại của tài sản...",
+            "notes": "Nhập vết hỏng hóc, lịch sử sửa chữa hoặc lý do thanh lý (nếu có)...",
+        }
+
         for field_name, field in self.fields.items():
+            if field_name in labels:
+                field.label = labels[field_name]
+
             widget = field.widget
+            current_placeholder = placeholders.get(field_name, "")
 
             if isinstance(
                 widget,
@@ -34,6 +72,7 @@ class TailwindFormMixin:
                 widget.attrs.update(
                     {
                         "class": tailwind_classes,
+                        "placeholder": current_placeholder,
                     }
                 )
 

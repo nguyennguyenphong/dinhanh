@@ -1,0 +1,24 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-15">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Trạng thái vòng đời & Vận hành
+    </h3>
+
+    <div class="space-y-1">
+        <label for="{{ form.status.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.status.label }} <span class="text-red-500">*</span>
+        </label>
+        <div>
+            {{ form.status }}
+        </div>
+        {% if form.status.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.status.errors.0 }}</p>
+        {% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.notes.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.notes.label }} <span class="text-red-500">*</span></label>
+        {{ form.notes }} 
+        {% if form.notes.errors %}<p class="text-red-500 text-xs mt-1">{{ form.notes.errors.0 }}</p>{% endif %}
+    </div>
+</div>

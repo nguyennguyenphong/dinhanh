@@ -1,0 +1,36 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Thông tin Tài chính & Khấu hao
+    </h3>
+
+    <div class="space-y-1">
+        <label for="{{ form.purchase_date.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.purchase_date.label }} <span class="text-red-500">*</span></label>
+        {{ form.purchase_date }} 
+        {% if form.purchase_date.errors %}<p class="text-red-500 text-xs mt-1">{{ form.purchase_date.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.purchase_price.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.purchase_price.label }} <span class="text-red-500">*</span></label>
+        {{ form.purchase_price }} 
+        {% if form.purchase_price.errors %}<p class="text-red-500 text-xs mt-1">{{ form.purchase_price.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.depreciation_rate.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.depreciation_rate.label }} <span class="text-red-500">*</span></label>
+        {{ form.depreciation_rate }} 
+        {% if form.depreciation_rate.errors %}<p class="text-red-500 text-xs mt-1">{{ form.depreciation_rate.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.current_value.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.current_value.label }} <span class="text-red-500">*</span></label>
+        {{ form.current_value }} 
+        {% if form.current_value.errors %}<p class="text-red-500 text-xs mt-1">{{ form.current_value.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.warranty_expiry.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.warranty_expiry.label }} <span class="text-red-500">*</span></label>
+        {{ form.warranty_expiry }} 
+        {% if form.warranty_expiry.errors %}<p class="text-red-500 text-xs mt-1">{{ form.warranty_expiry.errors.0 }}</p>{% endif %}
+    </div>
+</div>

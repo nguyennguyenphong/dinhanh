@@ -21,6 +21,9 @@ import { initSpinner } from './components/spinner';
 import { initToast } from './components/toast';
 // Gridjs
 import initAgGrid from "./components/aggrid";
+// 404 Error
+import init404Error from "./errors/404";
+window.init404Error = init404Error;
 
 document.addEventListener('DOMContentLoaded', () => {
     // Flowbite

@@ -1,27 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} 404 - No Found {% endblock %}
+{% block title %} 404 - Không tìm thấy trang {% endblock %}
 
 {% block content %}
-
-<div style="min-height:520px; display:flex; align-items:center; justify-content:center; padding:2rem 1rem;">
-    <div style="text-align:center; max-width:560px; width:100%;">
-
-        <div style="overflow:hidden; position:relative; height:200px; margin-bottom:1.5rem;">
-
-            <svg id="road-svg" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg"
-                style="width:100%;height:200px;">
-                <rect x="0" y="155" width="560" height="30" fill="#444441" rx="0" />
+<section class="bg-white dark:bg-gray-900 min-h-[80vh] flex flex-col justify-center py-8 mx-auto w-full">
+    
+    <div class="w-full overflow-hidden relative mb-8 bg-gray-50 dark:bg-gray-850 py-4 border-y border-gray-100 dark:border-gray-800">
+        <div x-data x-init="$nextTick(() => { if(window.init404Error) window.init404Error(); })" class="w-full">
+            <svg id="road-svg" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg" class="w-full h-40 md:h-52">
+                <rect x="0" y="155" width="1200" height="30" fill="#444441" rx="0" />
                 <line id="dash1" x1="0" y1="170" x2="80" y2="170" stroke="#FAC775" stroke-width="2.5"
                     stroke-dasharray="40 30" />
-                <line id="dash2" x1="0" y1="170" x2="560" y2="170" stroke="#FAC775" stroke-width="2.5"
+                <line id="dash2" x1="0" y1="170" x2="1200" y2="170" stroke="#FAC775" stroke-width="2.5"
                     stroke-dasharray="40 30" />
 
                 <g id="bus">
-                    <rect x="0" y="70" width="160" height="80" rx="10" fill="#378ADD" />
-                    <rect x="0" y="70" width="160" height="26" rx="8" fill="#185FA5" />
-                    <rect x="0" y="84" width="160" height="12" fill="#185FA5" />
+                    <rect x="0" y="70" width="160" height="80" rx="10" fill="#1A56DB" />
+                    <rect x="0" y="70" width="160" height="26" rx="8" fill="#1E429F" />
+                    <rect x="0" y="84" width="160" height="12" fill="#1E429F" />
                     <rect x="8" y="78" width="30" height="16" rx="2.5" fill="#B5D4F4" opacity="0.9" />
                     <rect x="44" y="78" width="30" height="16" rx="2.5" fill="#B5D4F4" opacity="0.9" />
                     <rect x="80" y="78" width="30" height="16" rx="2.5" fill="#B5D4F4" opacity="0.9" />
@@ -34,8 +32,8 @@
                     <rect x="44" y="120" width="30" height="14" rx="2.5" fill="#B5D4F4" opacity="0.35" />
                     <rect x="80" y="120" width="30" height="14" rx="2.5" fill="#B5D4F4" opacity="0.35" />
                     <rect x="116" y="120" width="30" height="14" rx="2.5" fill="#B5D4F4" opacity="0.35" />
-                    <rect x="-12" y="98" width="14" height="42" rx="5" fill="#185FA5" />
-                    <rect x="152" y="98" width="14" height="42" rx="5" fill="#185FA5" />
+                    <rect x="-12" y="98" width="14" height="42" rx="5" fill="#1E429F" />
+                    <rect x="152" y="98" width="14" height="42" rx="5" fill="#1E429F" />
                     <rect x="148" y="88" width="16" height="8" rx="2" fill="#FAC775" opacity="0.9" />
                     <circle id="wheel1" cx="30" cy="153" r="13" fill="#2C2C2A" />
                     <circle cx="30" cy="153" r="7" fill="#888780" />
@@ -48,128 +46,48 @@
                     <line id="spoke2a" x1="128" y1="140" x2="128" y2="166" stroke="#444441" stroke-width="1.5" />
                     <line id="spoke2b" x1="115" y1="153" x2="141" y2="153" stroke="#444441" stroke-width="1.5" />
                 </g>
+                <g id="question" opacity="0">
+                    <text id="question-text" x="580" y="50" font-family="sans-serif" font-size="35" fill="#EF4444"
+                        font-weight="bold">?</text>
+                </g>
             </svg>
         </div>
+    </div>
 
-        <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:0.75rem;">
-            <span style="font-size:52px; font-weight:500; color:var(--color-text-info); line-height:1;">4</span>
-            <svg style="width:44px;height:44px;color:var(--color-text-info);" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-            </svg>
-            <span style="font-size:52px; font-weight:500; color:var(--color-text-info); line-height:1;">4</span>
+    <div class="mx-auto w-full max-w-xl text-center px-4">
+        <div class="inline-flex items-center justify-center px-4 py-1.5 mb-4 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900/30 dark:text-blue-300 uppercase tracking-wider">
+            Lỗi Hệ Thống
         </div>
-
-        <p style="font-size:20px; font-weight:500; color:var(--color-text-primary); margin:0 0 0.5rem;">KHÔNG TIN THẤY THÔNG TIN</p>
-        <p style="font-size:14px; color:var(--color-text-secondary); margin:0 0 2rem; line-height:1.7;">
+        
+        <h1 class="mb-4 text-6xl md:text-7xl font-black tracking-tight bg-linear-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent dark:from-blue-500 dark:to-indigo-400">
+            404
+        </h1>
+        
+        <h2 class="mb-3 text-xl font-bold text-gray-900 md:text-2xl dark:text-white uppercase tracking-wide">
+            Không tìm thấy trang
+        </h2>
+        
+        <p class="mb-8 text-base font-normal text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
             Trang bạn tìm kiếm đã bị xóa, hoặc chưa bao giờ tồn tại.<br>Hãy quay về bến xuất phát nhé!
         </p>
 
-        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-            <a href="{% url 'dashboard' %}" class="rounded-md"
-                style="display:inline-flex; align-items:center; gap:6px; background:#378ADD; color:#fff; border:none; padding:10px 20px; font-size:14px; font-weight:500; text-decoration:none;">
-                <svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <button type="button" onclick="window.location.href=`{% url 'dashboard' %}`"
+                class="inline-flex items-center justify-center gap-x-2 py-2.5 px-5 w-full sm:w-auto border border-gray-300 dark:border-gray-700 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 focus:outline-none active:scale-[0.98]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
-                Về trang chủ
-            </a>
-            <button onclick="history.back()" class="rounded-md"
-                style="display:inline-flex; align-items:center; gap:6px; background:transparent; color:var(--color-text-primary); border:0.5px solid var(--color-border-secondary); padding:10px 20px; font-size:14px; font-weight:500; cursor:pointer;">
-                <svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                Quay về trang chủ
+            </button>
+
+            <button type="button" onclick="history.back()"
+                class="inline-flex items-center justify-center gap-x-2 py-2.5 px-5 w-full sm:w-auto border border-transparent rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-200 focus:outline-none active:scale-[0.98]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
-                Quay lại
+                Trở về trang trước đó
             </button>
         </div>
     </div>
-</div>
-
-<script>
-    const bus = document.getElementById('bus');
-    const question = document.getElementById('question');
-    const spoke1a = document.getElementById('spoke1a');
-    const spoke1b = document.getElementById('spoke1b');
-    const spoke2a = document.getElementById('spoke2a');
-    const spoke2b = document.getElementById('spoke2b');
-
-    let x = -180;
-    let angle = 0;
-    let phase = 'enter';
-    let pauseTimer = 0;
-    let questionOpacity = 0;
-    let questionDir = 1;
-    let frame = 0;
-    let bounceY = 0;
-
-    function rotateLine(el, cx, cy, deg) {
-        const rad = deg * Math.PI / 180;
-        const cos = Math.cos(rad), sin = Math.sin(rad);
-        if (el.tagName === 'line') {
-            const x1 = parseFloat(el.getAttribute('x1')) - cx;
-            const y1 = parseFloat(el.getAttribute('y1')) - cy;
-            const x2 = parseFloat(el.getAttribute('x2')) - cx;
-            const y2 = parseFloat(el.getAttribute('y2')) - cy;
-            el.setAttribute('x1', cx + x1 * cos - y1 * sin);
-            el.setAttribute('y1', cy + x1 * sin + y1 * cos);
-            el.setAttribute('x2', cx + x2 * cos - y2 * sin);
-            el.setAttribute('y2', cy + x2 * sin + y2 * cos);
-        }
-    }
-
-    function animate() {
-        frame++;
-
-        if (phase === 'enter') {
-            x += 2.2;
-            angle += 3;
-            bounceY = Math.sin(frame * 0.18) * 1.2;
-            if (x >= 200) { phase = 'pause'; pauseTimer = 0; }
-        } else if (phase === 'pause') {
-            pauseTimer++;
-            bounceY = 0;
-            questionOpacity = Math.min(1, questionOpacity + 0.04);
-            question.setAttribute('opacity', questionOpacity);
-            if (pauseTimer > 90) { phase = 'exit'; }
-        } else if (phase === 'exit') {
-            x += 2.8;
-            angle += 4;
-            bounceY = Math.sin(frame * 0.18) * 1.2;
-            questionOpacity = Math.max(0, questionOpacity - 0.05);
-            question.setAttribute('opacity', questionOpacity);
-            if (x > 600) { x = -180; phase = 'enter'; questionOpacity = 0; question.setAttribute('opacity', 0); }
-        }
-
-        bus.setAttribute('transform', `translate(${x}, ${bounceY})`);
-
-        const cx1 = 30, cy1 = 153, cx2 = 128, cy2 = 153;
-        const rad = angle * Math.PI / 180;
-        const cos = Math.cos(rad), sin = Math.sin(rad);
-
-        spoke1a.setAttribute('x1', cx1 + 13 * Math.cos(rad - Math.PI / 2));
-        spoke1a.setAttribute('y1', cy1 + 13 * Math.sin(rad - Math.PI / 2));
-        spoke1a.setAttribute('x2', cx1 - 13 * Math.cos(rad - Math.PI / 2));
-        spoke1a.setAttribute('y2', cy1 - 13 * Math.sin(rad - Math.PI / 2));
-        spoke1b.setAttribute('x1', cx1 + 13 * Math.cos(rad));
-        spoke1b.setAttribute('y1', cy1 + 13 * Math.sin(rad));
-        spoke1b.setAttribute('x2', cx1 - 13 * Math.cos(rad));
-        spoke1b.setAttribute('y2', cy1 - 13 * Math.sin(rad));
-
-        spoke2a.setAttribute('x1', cx2 + 13 * Math.cos(rad - Math.PI / 2));
-        spoke2a.setAttribute('y1', cy2 + 13 * Math.sin(rad - Math.PI / 2));
-        spoke2a.setAttribute('x2', cx2 - 13 * Math.cos(rad - Math.PI / 2));
-        spoke2a.setAttribute('y2', cy2 - 13 * Math.sin(rad - Math.PI / 2));
-        spoke2b.setAttribute('x1', cx2 + 13 * Math.cos(rad));
-        spoke2b.setAttribute('y1', cy2 + 13 * Math.sin(rad));
-        spoke2b.setAttribute('x2', cx2 - 13 * Math.cos(rad));
-        spoke2b.setAttribute('y2', cy2 - 13 * Math.sin(rad));
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-</script>
-
-
+</section>
 {% endblock %}
