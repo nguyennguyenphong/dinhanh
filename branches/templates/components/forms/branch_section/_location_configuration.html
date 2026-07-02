@@ -1,0 +1,30 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Vị trí & Cấu hình Hệ thống
+    </h3>
+
+    <div class="space-y-1">
+        <label for="{{ form.timezone.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.timezone.label }} <span class="text-red-500">*</span>
+        </label>
+        <div>
+            {{ form.timezone }}
+        </div>
+        {% if form.timezone.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.timezone.errors.0 }}</p>
+        {% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.latitude.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.latitude.label }} </label>
+        {{ form.latitude }} 
+        {% if form.latitude.errors %}<p class="text-red-500 text-xs mt-1">{{ form.latitude.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.longitude.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.longitude.label }} </label>
+        {{ form.longitude }} 
+        {% if form.longitude.errors %}<p class="text-red-500 text-xs mt-1">{{ form.longitude.errors.0 }}</p>{% endif %}
+    </div>
+</div>

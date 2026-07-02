@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cập nhật chi nhánh {{ branch.name }} {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+
+        {% include 'components/breadcrumb/_branch_update_breadcrumb.html' %}
+        
+        {% include 'components/page_header/_branch_update_page_header.html' %}
+
+        <div class="rounded-md">
+            
+            {% include 'components/forms/_branch_form.html' %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
