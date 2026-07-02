@@ -1,8 +1,10 @@
 from django import forms
+
 from branches.models import Branch
 
+
 class TailwindFormMixin:
-    
+
     placeholders = {}
     labels = {}
 
@@ -23,26 +25,37 @@ class TailwindFormMixin:
             placeholder = self.placeholders.get(field_name, "")
 
             # Color/Text/Number inputs
-            if isinstance(widget, (forms.TextInput, forms.NumberInput, forms.EmailInput)):
-                widget.attrs.update({
-                    "class": tailwind_classes,
-                    "placeholder": placeholder,
-                    "autocomplete": "off"
-                })
-            
+            if isinstance(
+                widget, (forms.TextInput, forms.NumberInput, forms.EmailInput)
+            ):
+                widget.attrs.update(
+                    {
+                        "class": tailwind_classes,
+                        "placeholder": placeholder,
+                        "autocomplete": "off",
+                    }
+                )
+
             # Select inputs
             elif isinstance(widget, forms.Select):
                 widget.attrs.update({"class": tailwind_classes.replace("px-4", "px-3")})
-            
+
             # Textarea
             elif isinstance(widget, forms.Textarea):
-                widget.attrs.update({
-                    "class": f"{tailwind_classes} font-mono text-xs leading-6 resize-y"
-                })
-            
+                widget.attrs.update(
+                    {
+                        "class": f"{tailwind_classes} font-mono text-xs leading-6 resize-y"
+                    }
+                )
+
             # Checkbox / Radio
             elif isinstance(widget, (forms.CheckboxInput, forms.RadioSelect)):
-                widget.attrs.update({"class": "w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"})
+                widget.attrs.update(
+                    {
+                        "class": "w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    }
+                )
+
 
 class BranchBaseForm(TailwindFormMixin, forms.ModelForm):
     """
@@ -52,9 +65,18 @@ class BranchBaseForm(TailwindFormMixin, forms.ModelForm):
     class Meta:
         model = Branch
         fields = [
-            "tenant", "code", "name", "address", "phone", 
-            "email", "manager", "latitude", "longitude", 
-            "timezone", "is_active", "metadata"
+            "tenant",
+            "code",
+            "name",
+            "address",
+            "phone",
+            "email",
+            "manager",
+            "latitude",
+            "longitude",
+            "timezone",
+            "is_active",
+            "metadata",
         ]
         widgets = {
             "is_active": forms.RadioSelect(
@@ -66,31 +88,35 @@ class BranchBaseForm(TailwindFormMixin, forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        self.placeholders.update({
-            "code": "Ví dụ: HCM",
-            "name": "Nhập tên chi nhánh",
-            "address": "Nhập địa chỉ chi nhánh",
-            "phone": "Nhập số điện thoại",
-            "email": "Nhập email liên hệ",
-            "latitude": "Ví dụ: 10.7765",
-            "longitude": "Ví dụ: 106.7009",
-        })
-        
-        self.labels.update({
-            "code": "Mã chi nhánh",
-            "name": "Tên chi nhánh",
-            "address": "Địa chỉ",
-            "phone": "Số điện thoại",
-            "email": "Email liên hệ",
-            "manager": "Người quản lý",
-            "latitude": "Vĩ độ",
-            "longitude": "Kinh độ",
-            "timezone": "Múi giờ",
-            "is_active": "Trạng thái",
-            "metadata": "Cấu hình Metadata (JSON)",
-        })
-        
+        self.placeholders.update(
+            {
+                "code": "Ví dụ: HCM",
+                "name": "Nhập tên chi nhánh",
+                "address": "Nhập địa chỉ chi nhánh",
+                "phone": "Nhập số điện thoại",
+                "email": "Nhập email liên hệ",
+                "latitude": "Ví dụ: 10.7765",
+                "longitude": "Ví dụ: 106.7009",
+            }
+        )
+
+        self.labels.update(
+            {
+                "code": "Mã chi nhánh",
+                "name": "Tên chi nhánh",
+                "address": "Địa chỉ",
+                "phone": "Số điện thoại",
+                "email": "Email liên hệ",
+                "manager": "Người quản lý",
+                "latitude": "Vĩ độ",
+                "longitude": "Kinh độ",
+                "timezone": "Múi giờ",
+                "is_active": "Trạng thái",
+                "metadata": "Cấu hình Metadata (JSON)",
+            }
+        )
+
         super().__init__(*args, **kwargs)
-        
-        if 'tenant' in self.fields:
-            self.fields['tenant'].widget.attrs.update({'readonly': 'readonly'})
+
+        if "tenant" in self.fields:
+            self.fields["tenant"].widget.attrs.update({"readonly": "readonly"})
