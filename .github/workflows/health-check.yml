@@ -2,7 +2,6 @@ name: Scheduled Health Check & Monitoring
 
 on:
   schedule:
-    # Every 6 hours at minute 0: 00:00, 06:00, 12:00, 18:00 UTC
     - cron: '0 */6 * * *'
   workflow_dispatch:
 
@@ -10,13 +9,9 @@ env:
   DEPLOYMENT_TIMEOUT: 5m
 
 jobs:
-  # ─────────────────────────────────────────────
-  # 1. Application Health Check
-  # ─────────────────────────────────────────────
   health-check:
     runs-on: ubuntu-latest
     name: Production Health Check
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,116 +29,69 @@ jobs:
 
       - name: Check deployment readiness
         run: |
-          echo " Checking deployment status..."
           kubectl get deployment dinhanh -n ${{ secrets.KUBE_NAMESPACE }} -o wide
-          
-          # The correct condition to check for a healthy rollout is 'Available'
           AVAILABLE=$(kubectl get deployment dinhanh \
             -n ${{ secrets.KUBE_NAMESPACE }} \
             -o jsonpath='{.status.conditions[?(@.type=="Available")].status}')
-          
           if [ "$AVAILABLE" != "True" ]; then
-            echo " Deployment is not available (Available=$AVAILABLE)"
             exit 1
           fi
-          
-          echo " Deployment is available and healthy"
 
       - name: Check pod status
         run: |
-          echo " Checking pod status..."
           kubectl get pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh -o wide
-          
           RUNNING=$(kubectl get pods \
             -n ${{ secrets.KUBE_NAMESPACE }} \
             -l app=dinhanh \
             --field-selector=status.phase=Running \
             --no-headers 2>/dev/null | wc -l)
-          
           if [ "$RUNNING" -lt 1 ]; then
-            echo " No running pods found for app=dinhanh"
             exit 1
           fi
-          
-          echo "Found $RUNNING running pod(s)"
 
       - name: Check pod resource usage
         run: |
-          echo "Pod resource usage:"
-          kubectl top pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh \
-            || echo "metrics-server not available — skipping resource check"
+          kubectl top pods -n ${{ secrets.KUBE_NAMESPACE }} -l app=dinhanh || true
 
       - name: Test application endpoints
         run: |
-          echo "Testing application endpoints..."
-          
-          kubectl port-forward service/dinhanh 8000:8000 \
-            -n ${{ secrets.KUBE_NAMESPACE }} &
+          kubectl port-forward service/dinhanh 8000:8000 -n ${{ secrets.KUBE_NAMESPACE }} &
           PORT_FORWARD_PID=$!
-          
-          # Retry loop — give the port-forward time to establish
+          HEALTH_OK=false
           for i in $(seq 1 6); do
             sleep 5
-            curl -sf http://localhost:8000/health/ > /dev/null && HEALTH_OK=true && break
-            echo "Attempt $i/6 waiting for /health/..."
-            HEALTH_OK=false
+            if curl -sf http://localhost:8000/health/ > /dev/null; then
+              HEALTH_OK=true
+              break
+            fi
           done
-          
           if [ "$HEALTH_OK" != "true" ]; then
-            echo "/health/ endpoint failed"
             kill $PORT_FORWARD_PID
             exit 1
           fi
-          echo "/health/ responding"
-          
-          # /api/ is non-blocking — warn only
-          curl -sf http://localhost:8000/api/ > /dev/null \
-            && echo "/api/ responding" \
-            || echo "/api/ returned non-200 (may be expected)"
-          
+          curl -sf http://localhost:8000/api/ > /dev/null || true
           kill $PORT_FORWARD_PID
 
       - name: Check recent error rate in logs
         run: |
-          echo "🔍 Scanning recent logs for errors..."
-          
           LATEST_POD=$(kubectl get pods \
             -n ${{ secrets.KUBE_NAMESPACE }} \
             -l app=dinhanh \
             --field-selector=status.phase=Running \
             -o jsonpath='{.items[0].metadata.name}' 2>/dev/null || echo "")
-          
-          if [ -z "$LATEST_POD" ]; then
-            echo "Could not find a running pod to check logs"
-            exit 0
-          fi
-          
-          echo "Checking logs from pod: $LATEST_POD"
-          
-          # Count ERROR-level lines in last 200 lines (case-insensitive)
-          ERROR_COUNT=$(kubectl logs $LATEST_POD \
-            -n ${{ secrets.KUBE_NAMESPACE }} \
-            --tail=200 \
-            | grep -iE "^\[?ERROR|CRITICAL" | wc -l)
-          
-          echo "Error lines found: $ERROR_COUNT"
-          
-          if [ "$ERROR_COUNT" -gt 20 ]; then
-            echo "High error count ($ERROR_COUNT). Showing last errors:"
-            kubectl logs $LATEST_POD -n ${{ secrets.KUBE_NAMESPACE }} --tail=200 \
-              | grep -iE "^\[?ERROR|CRITICAL" | tail -20
-            # Alert but don't fail — errors are reported via Slack
-          else
-            echo "Error rate normal ($ERROR_COUNT errors in last 200 lines)"
+          if [ -n "$LATEST_POD" ]; then
+            ERROR_COUNT=$(kubectl logs $LATEST_POD \
+              -n ${{ secrets.KUBE_NAMESPACE }} \
+              --tail=200 \
+              | grep -iE "^\[?ERROR|CRITICAL" | wc -l || echo "0")
+            if [ "$ERROR_COUNT" -gt 20 ]; then
+              kubectl logs $LATEST_POD -n ${{ secrets.KUBE_NAMESPACE }} --tail=200 | grep -iE "^\[?ERROR|CRITICAL" | tail -20
+            fi
           fi
 
-  # ─────────────────────────────────────────────
-  # 2. Database Connectivity Check
-  # ─────────────────────────────────────────────
   database-check:
     runs-on: ubuntu-latest
     name: Database Connectivity Check
-
     steps:
       - name: Configure Kubernetes access
         run: |
@@ -158,9 +106,7 @@ jobs:
 
       - name: Test database connectivity
         run: |
-          echo "Testing database connectivity..."
           DB_TEST_JOB="db-test-$(date +%s)"
-          
           kubectl run $DB_TEST_JOB \
             --image=postgres:16-alpine \
             --rm -i --restart=Never \
@@ -170,22 +116,13 @@ jobs:
               -h ${{ secrets.DB_HOST }} \
               -U ${{ secrets.DB_USER }} \
               -d ${{ secrets.DB_NAME }} \
-              -c "SELECT version();" 2>&1 || {
-            echo "Database connection failed"
-            exit 1
-          }
-          
-          echo "Database connection successful"
+              -c "SELECT version();" 2>&1
 
-  # ─────────────────────────────────────────────
-  # 3. Slack Alert on Failure
-  # ─────────────────────────────────────────────
   alert-on-failure:
     runs-on: ubuntu-latest
     name: Alert on Failure
     needs: [health-check, database-check]
     if: failure()
-
     steps:
       - name: Send failure alert to Slack
         if: ${{ secrets.SLACK_WEBHOOK_URL != '' }}
@@ -199,7 +136,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Production Health Check Failed*\n\n*Health Check:* ${{ needs.health-check.result }}\n*Database Check:* ${{ needs.database-check.result }}\n\nPlease investigate immediately.\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View workflow run>"
+                    "text": "🔴 *Production Health Check Failed*\n\n*Health Check:* ${{ needs.health-check.result }}\n*Database Check:* ${{ needs.database-check.result }}\n\nPlease investigate immediately.\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View workflow run>"
                   }
                 }
               ]
@@ -207,11 +144,9 @@ jobs:
 
       - name: Write failure summary
         run: |
-          echo "## Health Check Failure" >> $GITHUB_STEP_SUMMARY
+          echo "## 🔴 Health Check Failure" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Check | Result |" >> $GITHUB_STEP_SUMMARY
           echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| Application Health | ${{ needs.health-check.result }}  |" >> $GITHUB_STEP_SUMMARY
           echo "| Database Check     | ${{ needs.database-check.result }}|" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Slack alert sent (if webhook is configured)."

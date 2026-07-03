@@ -1,8 +1,5 @@
 name: Code Quality & Linting
 
-permissions:
-  contents: write
-
 on:
   push:
     branches:
@@ -15,17 +12,14 @@ on:
 
 env:
   PYTHON_VERSION: '3.12'
-  ALLOWED_HOSTS: 'localhost,127.0.0.1'
   NODE_VERSION: '20'
 
 jobs:
-  # ─────────────────────────────────────────────
-  # 1. Python Linting & Auto-Fix
-  # ─────────────────────────────────────────────
   python-lint:
     runs-on: ubuntu-latest
     name: Python Linting & Auto-Fix
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -41,33 +35,26 @@ jobs:
 
       - name: Install linting tools
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install black flake8 isort
 
       - name: Auto-fix formatting and imports
         run: |
-          echo "Đang tự động sửa định dạng code với Black..."
           black . --exclude "/(venv|\.venv|migrations|node_modules)/"
-          
-          echo "Đang tự động sắp xếp lại import với isort..."
-          isort . \
-            --skip venv \
-            --skip .venv \
-            --skip migrations \
-            --profile black
+          isort . --skip venv --skip .venv --skip migrations --profile black
 
       - name: Commit and Push auto-fixed changes
+        id: auto_commit
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
           if [ -n "$(git status --porcelain)" ]; then
-            echo "Phát hiện lỗi định dạng, đang tiến hành commit và push code đã sửa..."
             git add .
             git commit -m "style: auto-fixed code formatting and import sorting"
             git push origin HEAD:${{ github.head_ref || github.ref_name }}
+            echo "fixed=true" >> $GITHUB_OUTPUT
           else
-            echo "Chúc mừng! Code đã chuẩn định dạng, không cần sửa đổi gì."
+            echo "fixed=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Run Flake8 linting
@@ -79,16 +66,16 @@ jobs:
             --count \
             --statistics
 
-  # ─────────────────────────────────────────────
-  # 2. JavaScript / Node.js Linting
-  # ─────────────────────────────────────────────
   javascript-lint:
     runs-on: ubuntu-latest
     name: JavaScript Linting
-
+    needs: python-lint
+    if: always() && (needs.python-lint.result == 'success' || needs.python-lint.result == 'skipped')
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
@@ -97,34 +84,30 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --frozen-lockfile
+        run: npm ci
 
       - name: Run Prettier format check
         run: |
           if npm list prettier --depth=0 2>/dev/null | grep -q prettier; then
             npm run format:check
-          else
-            echo "Prettier not found in package.json — skipping format check"
           fi
 
       - name: Run ESLint
         run: |
           if npm list eslint --depth=0 2>/dev/null | grep -q eslint; then
             npm run lint
-          else
-            echo "ESLint not found in package.json — skipping lint check"
           fi
 
-  # ─────────────────────────────────────────────
-  # 3. Dependency Security Check
-  # ─────────────────────────────────────────────
   dependency-check:
     runs-on: ubuntu-latest
     name: Dependency Security Check
-
+    needs: python-lint
+    if: always() && (needs.python-lint.result == 'success' || needs.python-lint.result == 'skipped')
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
@@ -134,7 +117,7 @@ jobs:
 
       - name: Install pip-audit
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install pip-audit
 
       - name: Audit Python dependencies
@@ -147,18 +130,14 @@ jobs:
           cache: 'npm'
 
       - name: Install npm dependencies
-        run: npm ci --frozen-lockfile
+        run: npm ci
 
       - name: Audit npm dependencies
         run: npm audit --audit-level=moderate
 
-  # ─────────────────────────────────────────────
-  # 4. Django System Checks & Migration Integrity
-  # ─────────────────────────────────────────────
   django-checks:
     runs-on: ubuntu-latest
     name: Django System Checks
-
     services:
       postgres:
         image: postgres:16-alpine
@@ -173,21 +152,21 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
-
     env:
       DEBUG: 'False'
       SECRET_KEY: 'check-key-not-for-production'
       ALLOWED_HOSTS: 'localhost,127.0.0.1'
-      DB_ENGINE: django.db.backends.postgresql
-      DB_NAME: dinhanh_check
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_HOST: localhost
-      DB_PORT: '5432'
-
+      
+      DATABASE_NAME: dinhanh_check
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      DATABASE_PORT: '5432'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
@@ -197,8 +176,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run Django system checks
         run: python manage.py check
@@ -206,15 +185,11 @@ jobs:
       - name: Check for pending (uncommitted) migrations
         run: python manage.py makemigrations --check --dry-run
 
-  # ─────────────────────────────────────────────
-  # 5. Summary Gate
-  # ─────────────────────────────────────────────
   quality-check-summary:
     runs-on: ubuntu-latest
     name: Quality Checks Summary
     needs: [python-lint, javascript-lint, dependency-check, django-checks]
     if: always()
-
     steps:
       - name: Write summary
         run: |
