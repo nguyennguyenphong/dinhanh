@@ -1,5 +1,5 @@
 # Ignore all files in the migrate directory, except for the init file
-**/migrations/*
+!**/migrations/*
 !**/migrations/__init__.py
 # (If your init file has a different name, e.g., init.sql, change it to !migrate/init.sql)
 
@@ -18,9 +18,6 @@ node_modules/
 # Static and build directories
 staticfiles/
 dist/
-
-# Ignore all migration files
-**/migrations/*
 
 # No ignore __init__.py
 !**/migrations/__init__.py
