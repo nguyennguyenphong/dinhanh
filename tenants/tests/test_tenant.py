@@ -1,8 +1,6 @@
-import pytest
 
 from tenants.application.dtos import TenantCreateDTO
 from tenants.application.usecases import CreateTenantUseCase
-from tenants.exceptions import TenantAlreadyExistsError
 
 
 class TestCreateTenantUseCase:

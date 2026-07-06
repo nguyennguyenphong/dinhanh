@@ -7,7 +7,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from tenants.domain.entities.tenant_feature_flag_entity import TenantFeatureFlagEntity
 from tenants.domain.entities.tenant_invitation_entity import TenantInvitationEntity
 from tenants.repositories.interfaces.tenant_invitation_repository_interface import (
     ITenantInvitationRepository,

@@ -10,7 +10,6 @@ from typing import Any
 
 from tenants.application.dtos.tenants.tenant_response_dto import TenantResponseDTO
 from tenants.domain.entities.tenant_entity import (
-    TENANT_PLANS,
     TenantEntity,
 )
 

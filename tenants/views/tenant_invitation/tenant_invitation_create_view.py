@@ -23,7 +23,6 @@ from tenants.serializers import (
 from tenants.views.helpers.view_helpers import (
     RequestContext,
     domain_error_response,
-    paginated_response,
 )
 
 

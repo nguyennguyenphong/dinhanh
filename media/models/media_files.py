@@ -353,7 +353,7 @@ class MediaFile(BaseModel):
 
         elif self.storage == "s3":
             # Generate S3 URL
-            from django.conf import settings
+            pass
 
             return f"https://{self.bucket}.s3.amazonaws.com/{self.file_path}"
 

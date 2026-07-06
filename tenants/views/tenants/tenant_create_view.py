@@ -12,7 +12,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.views import View
 
-from tenants.policies import TenantPolicy
 from tenants.services import TenantService
 from tenants.views.forms import TenantBaseForm
 

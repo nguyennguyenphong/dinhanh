@@ -3,5 +3,10 @@
 # Example:
 # from notifications.models.notifications import Notification
 
-from .notification_templates import NotificationTemplate
-from .notifications import Notification
+from notifications.models.notifications import Notification
+from notifications.models.notification_templates import NotificationTemplate
+
+__all__ = [
+    "Notification",
+    "NotificationTemplate",
+]

@@ -348,6 +348,7 @@ class WebhookEndpoint(BaseModel):
     # ========================================================================
 
     def send_event(self, event_type, data, attempt=1):
+        from webhooks.models.webhook_deliveries import WebhookDelivery
         """
         Send webhook event
 
@@ -416,7 +417,6 @@ class WebhookEndpoint(BaseModel):
             #     'success_rate': 95.0
             # }
         """
-        from django.db.models import Count, Q
 
         total = self.deliveries.count()
         success = self.deliveries.filter(status="success").count()

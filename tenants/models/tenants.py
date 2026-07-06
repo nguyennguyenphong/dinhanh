@@ -5,18 +5,14 @@
 
 import uuid
 
-from django.conf import settings as django_settings
 from django.core.validators import RegexValidator, URLValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from safedelete.models import SafeDeleteModel
 
 from tenants.constants import (
-    PLAN_ENTERPRISE,
-    PLAN_PROFESSIONAL,
     PLAN_STANDARD,
-    PLAN_TRIAL,
 )
 
 

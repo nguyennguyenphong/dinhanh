@@ -19,8 +19,6 @@ class TailwindFormMixin:
             "dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm"
         )
 
-        checkbox_classes = "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
-
         placeholders = {
             "search_menu_group": "Tìm kiếm tên nhóm menu, mã nhóm menu",
             "status": "Tìm kiếm trạng thái",

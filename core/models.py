@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from safedelete.models import SOFT_DELETE_CASCADE, SafeDeleteModel
+from safedelete.models import SafeDeleteModel
 
 from core.middleware import get_current_user
 

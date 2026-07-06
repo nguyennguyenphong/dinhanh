@@ -1,6 +1,6 @@
 # call exception module
 
-from .exception import (
+from tenants.exceptions.exception import (
     TenantAlreadyExistsError,
     TenantDomainError,
     TenantFeatureFlagNotFoundError,

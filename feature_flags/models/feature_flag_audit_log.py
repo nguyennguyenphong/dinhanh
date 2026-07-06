@@ -80,7 +80,7 @@ class FeatureFlagAuditLog(BaseModel):
 
         indexes = [
             models.Index(
-                fields=["tenant", "created_at"], name="idx_feature_audit_tenant_created"
+                fields=["tenant", "created_at"], name="idx_ff_audit_tenant_created"
             ),
             models.Index(
                 fields=["flag", "created_at"], name="idx_feature_audit_flag_created"

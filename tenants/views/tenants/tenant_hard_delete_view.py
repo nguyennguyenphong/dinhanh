@@ -17,7 +17,6 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views import View
 
 from tenants.models import Tenant
-from tenants.policies import TenantPolicy
 from tenants.services import TenantService
 
 

@@ -45,7 +45,7 @@ class FileStorageService:
             img = Image.open(file_obj)
             img.verify()
             file_obj.seek(0)
-        except Exception as e:
+        except Exception:
             raise ValidationError("Tệp ảnh không hợp lệ hoặc bị hỏng.")
 
         unique_filename = f"{FileStorageService.UPLOAD_DIR}/{uuid.uuid4()}.{ext}"

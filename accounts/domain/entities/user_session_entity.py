@@ -49,9 +49,3 @@ class SessionEntity:
 
     def is_updated(self):
         return self.updated_at
-
-    def is_deleted(self):
-        return self.deleted
-
-    def is_deleted_by_cascade(self):
-        return self.deleted_by_cascade

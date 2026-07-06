@@ -3,4 +3,8 @@
 # Example:
 # from media.models.media_files import MediaFile
 
-from .media_files import MediaFile
+from media.models.media_files import MediaFile
+
+__all__ = [
+    "MediaFile",
+]

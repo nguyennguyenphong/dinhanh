@@ -15,12 +15,14 @@ class ITenantInvitationRepository(ABC):
     """Contract for invitation persistence."""
 
     @abstractmethod
-    def get_by_token(self, token: str) -> TenantInvitationEntity | None: ...
+    def get_by_token(self, token: str) -> TenantInvitationEntity | None:
+        pass
 
     @abstractmethod
     def get_pending_by_email(
         self, tenant_id: int, email: str
-    ) -> TenantInvitationEntity | None: ...
+    ) -> TenantInvitationEntity | None:
+        pass
 
     @abstractmethod
     def list_by_tenant(
@@ -29,10 +31,12 @@ class ITenantInvitationRepository(ABC):
         status: str | None = None,
         limit: int = 20,
         offset: int = 0,
-    ) -> tuple[list[TenantInvitationEntity], int]: ...
+    ) -> tuple[list[TenantInvitationEntity], int]:
+        pass
 
     @abstractmethod
-    def create(self, entity: TenantInvitationEntity) -> TenantInvitationEntity: ...
+    def create(self, entity: TenantInvitationEntity) -> TenantInvitationEntity:
+        pass
 
     @abstractmethod
     def update_status(
@@ -40,4 +44,5 @@ class ITenantInvitationRepository(ABC):
         invitation_id: int,
         status: str,
         accepted_at: Any = None,
-    ) -> TenantInvitationEntity: ...
+    ) -> TenantInvitationEntity:
+        pass

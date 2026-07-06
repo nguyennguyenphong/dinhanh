@@ -1,14 +1,4 @@
-# call tenant usecase
-
-from .tenant_audit_log import *
-from .tenant_feature_flags import *
-from .tenant_invitation import *
-from .tenants import *
-
-# call tenant invitation
-
-
-# call tenant feature flag
-
-
-# call tenant audit log
+from tenants.application.usecases.tenants import *
+from tenants.application.usecases.tenant_audit_log import *
+from tenants.application.usecases.tenant_feature_flags import *
+from tenants.application.usecases.tenant_invitation import *

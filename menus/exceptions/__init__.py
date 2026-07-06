@@ -1,4 +1,4 @@
-from .menu_group_exception import (
+from menus.exceptions.menu_group_exception import (
     MenuGroupAlreadyExistsError,
     MenuGroupDomainError,
     MenuGroupNotFoundError,

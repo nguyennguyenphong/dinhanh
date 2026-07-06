@@ -1,8 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand, CommandError
 
-from tenants.models import Tenant
-
 
 class Command(BaseCommand):
     help = "Create a superuser with tenant assignment"
@@ -15,13 +13,8 @@ class Command(BaseCommand):
         parser.add_argument("--full_name", required=True)
         parser.add_argument("--phone", required=False)
 
-    def handle(self, *args, **options):
+    def handle(self, **options):
         User = get_user_model()
-
-        try:
-            tenant = Tenant.objects.get(id=options["tenant"])
-        except Tenant.DoesNotExist:
-            raise CommandError(f"Tenant with ID {options['tenant']} does not exist.")
 
         try:
             User.objects.create_superuser(

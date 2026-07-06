@@ -162,6 +162,7 @@ jobs:
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       DATABASE_PORT: '5432'
+      PYTHONPATH: .
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

@@ -15,4 +15,3 @@ class ILoginRepository(ABC):
     @abstractmethod
     def get_by_email(self, email: str) -> Optional[LoginEntity]:
         """Retrieve a domain UserEntity by their unique email address."""
-        pass

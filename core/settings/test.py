@@ -2,7 +2,7 @@
 Test settings - optimized for unit tests
 """
 
-from .base import *
+from core.settings.base import *  # noqa: F403, F401
 
 # Use SQLite for faster tests
 DATABASES = {

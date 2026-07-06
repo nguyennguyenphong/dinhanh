@@ -3,5 +3,10 @@
 # Example:
 # from webhooks.models.webhooks import Webhook
 
-from .webhook_deliveries import WebhookDelivery
-from .webhook_endpoints import WebhookEndpoint
+from webhooks.models.webhook_deliveries import WebhookDelivery
+from webhooks.models.webhook_endpoints import WebhookEndpoint
+
+__all__ = [
+    "WebhookDelivery",
+    "WebhookEndpoint",
+]

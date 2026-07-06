@@ -133,7 +133,7 @@ class District(BaseModel):
         Example:
             stats = district.get_statistics()
         """
-        from .locations import Location
+        from routes.models.locations import Location
 
         wards = self.wards.count()
         locations = Location.objects.filter(ward__district=self).count()

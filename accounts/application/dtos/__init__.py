@@ -1,1 +1,1 @@
-from .login import *
+from accounts.application.dtos.login import *

@@ -89,17 +89,6 @@ class TenantCreateSerializer(serializers.Serializer):
 
         return value
 
-    def validate(self, attrs):
-        started_at = attrs.get("subscription_started_at")
-        ended_at = attrs.get("subscription_ended_at")
-
-        if started_at and ended_at and started_at >= ended_at:
-            raise serializers.ValidationError(
-                {"subscription_ended_at": "Ngày kết thúc phải lớn hơn ngày bắt đầu."}
-            )
-
-        return attrs
-
     def validate_primary_color(self, value):
         if not value:
             return value
@@ -132,14 +121,10 @@ class TenantCreateSerializer(serializers.Serializer):
                 )
         if not isinstance(value, dict):
             raise serializers.ValidationError("Dữ liệu phải là một JSON Object hợp lệ.")
-
         return value
-
-    # --- VALIDATE: A COMPREHENSIVE LINK OF REAL-WORLD LOGICAL CONNECTIONS ---
 
     def validate(self, attrs):
         chosen_plan = attrs.get("plan", self.fields["plan"].default)
-
         plan_config = PLAN_LIMITS.get(chosen_plan, PLAN_LIMITS[PLAN_STANDARD])
 
         for field in ["max_branches", "max_vehicles", "max_users"]:

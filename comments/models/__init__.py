@@ -3,4 +3,8 @@
 # Example:
 # from comments.models.comments import Comment
 
-from .comments import Comment
+from comments.models.comments import Comment
+
+__all__ = [
+    "Comment",
+]

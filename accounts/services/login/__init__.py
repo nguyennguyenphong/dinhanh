@@ -1,4 +1,4 @@
-from .login_service import LoginService
+from accounts.services.login.login_service import LoginService
 
 __all__ = [
     "LoginService",

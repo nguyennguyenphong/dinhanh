@@ -1,4 +1,4 @@
-from .login_repository_interface import ILoginRepository
+from accounts.repositories.interfaces.login_repository_interface import ILoginRepository
 
 __all__ = [
     "ILoginRepository",

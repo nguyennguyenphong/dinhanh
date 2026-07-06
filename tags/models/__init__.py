@@ -3,6 +3,12 @@
 # Example:
 # from tags.models.tags import Tag
 
-from .entity_tags import EntityTag
-from .tagged_items import TaggedItem
-from .tags import Tag
+from tags.models.entity_tags import EntityTag
+from tags.models.tagged_items import TaggedItem
+from tags.models.tags import Tag
+
+__all__ = [
+    "EntityTag",
+    "Tag",
+    "TaggedItem",
+]

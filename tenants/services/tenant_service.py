@@ -167,7 +167,7 @@ class TenantService:
             messages.error(request, str(exc))
             return False
 
-        except Exception as exc:
+        except Exception:
             form.add_error(None, "Đã xảy ra lỗi không xác định khi xóa tenant.")
             messages.error(request, "Có lỗi trong quá trình thực hiện.")
             return False

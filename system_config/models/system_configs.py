@@ -328,7 +328,7 @@ class SystemConfig(BaseModel):
             return None
 
     @classmethod
-    def get_value(cls, tenant, category, key, default=None, use_cache=True):
+    def get_value_by_key(cls, tenant, category, key, default=None, use_cache=True):
         config = cls.get_config(tenant, category, key)
         return config.get_value() or default if config else default
 

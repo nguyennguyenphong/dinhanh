@@ -30,7 +30,8 @@ class ITenantAuditLogRepository(ABC):
         user_agent: str | None = None,
         status: str = "SUCCESS",
         error_message: str | None = None,
-    ) -> None: ...
+    ) -> None:
+        pass
 
     @abstractmethod
     def list_by_tenant(
@@ -41,4 +42,5 @@ class ITenantAuditLogRepository(ABC):
         module: str | None = None,
         limit: int = 50,
         offset: int = 0,
-    ) -> tuple[list[dict], int]: ...
+    ) -> tuple[list[dict], int]:
+        pass

@@ -15,13 +15,16 @@ class ITenantRepository(ABC):
     """Contract for Tenant persistence operations."""
 
     @abstractmethod
-    def get_by_id(self, tenant_id: int) -> TenantEntity | None: ...
+    def get_by_id(self, tenant_id: int) -> TenantEntity | None:
+        pass
 
     @abstractmethod
-    def get_by_uuid(self, uuid: str) -> TenantEntity | None: ...
+    def get_by_uuid(self, uuid: str) -> TenantEntity | None:
+        pass
 
     @abstractmethod
-    def get_by_code(self, code: str) -> TenantEntity | None: ...
+    def get_by_code(self, code: str) -> TenantEntity | None:
+        pass
 
     @abstractmethod
     def list(
@@ -34,21 +37,23 @@ class ITenantRepository(ABC):
         offset: int = 0,
     ) -> tuple[list[TenantEntity], int]:
         """Returns (items, total_count)."""
-        ...
 
     @abstractmethod
-    def create(self, entity: TenantEntity) -> TenantEntity: ...
+    def create(self, entity: TenantEntity) -> TenantEntity:
+        pass
 
     @abstractmethod
-    def update(self, entity: TenantEntity) -> TenantEntity: ...
+    def update(self, entity: TenantEntity) -> TenantEntity:
+        pass
 
     @abstractmethod
     def delete(self, tenant_id: int) -> None:
         """Hard delete — use with care; prefer deactivate."""
-        ...
 
     @abstractmethod
-    def deactivate(self, tenant_id: int) -> TenantEntity: ...
+    def deactivate(self, tenant_id: int) -> TenantEntity:
+        pass
 
     @abstractmethod
-    def exists_by_code(self, code: str, exclude_id: int | None = None) -> bool: ...
+    def exists_by_code(self, code: str, exclude_id: int | None = None) -> bool:
+        pass

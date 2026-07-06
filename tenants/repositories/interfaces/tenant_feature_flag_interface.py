@@ -14,15 +14,17 @@ class ITenantFeatureFlagRepository(ABC):
     """Contract for feature flag persistence."""
 
     @abstractmethod
-    def get_by_code(
-        self, tenant_id: int, code: str
-    ) -> TenantFeatureFlagEntity | None: ...
+    def get_by_code(self, tenant_id: int, code: str) -> TenantFeatureFlagEntity | None:
+        pass
 
     @abstractmethod
-    def list_by_tenant(self, tenant_id: int) -> list[TenantFeatureFlagEntity]: ...
+    def list_by_tenant(self, tenant_id: int) -> list[TenantFeatureFlagEntity]:
+        pass
 
     @abstractmethod
-    def upsert(self, entity: TenantFeatureFlagEntity) -> TenantFeatureFlagEntity: ...
+    def upsert(self, entity: TenantFeatureFlagEntity) -> TenantFeatureFlagEntity:
+        pass
 
     @abstractmethod
-    def delete(self, tenant_id: int, code: str) -> None: ...
+    def delete(self, tenant_id: int, code: str) -> None:
+        pass

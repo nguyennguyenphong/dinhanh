@@ -1,7 +1,12 @@
 # Import models from module in this package
 # This is to avoid circular imports
 # Example:
-# reports.models.reports import Report
+# from reports.models.reports import Report
 
-from .reports import *
-from .scheduled_reports import *
+from reports.models.reports import ReportDefinition
+from reports.models.scheduled_reports import ScheduledReport
+
+__all__ = [
+    "ReportDefinition",
+    "ScheduledReport",
+]

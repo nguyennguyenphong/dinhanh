@@ -9,15 +9,13 @@ from __future__ import annotations
 
 import uuid
 
-from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, render
 from django.views import View
 
 from menus.models import MenuGroup
 
 # from menus.policies import TenantPolicy
-from menus.services.menu_group_service import MenuGroupService
 from menus.views.forms import MenuGroupBaseForm
 
 

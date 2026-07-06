@@ -1,4 +1,4 @@
 # call init tenant application module
 
-from .dtos import *
-from .usecases import *
+from tenants.application.dtos import *
+from tenants.application.usecases import *

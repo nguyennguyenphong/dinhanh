@@ -6,7 +6,6 @@
 import hashlib
 import hmac
 import json
-import time
 from datetime import timedelta
 
 import requests
@@ -177,8 +176,6 @@ class WebhookDelivery(BaseModel):
             success = delivery.send()
         """
         try:
-            start_time = time.time()
-
             # Prepare headers
             headers = {
                 "Content-Type": "application/json",
@@ -213,7 +210,7 @@ class WebhookDelivery(BaseModel):
             )
 
             # Record response
-            duration_ms = int((time.time() - start_time) * 1000)
+            # _duration_ms = int((time.time() - start_time) * 1000)
             self.response_code = response.status_code
             self.response_body = response.text[:1000]  # Limit response size
 
@@ -274,7 +271,7 @@ class WebhookDelivery(BaseModel):
         self.status = "RETRY"
 
         # Exponential backoff: 2^attempt minutes
-        retry_delay_minutes = 2**self.attempt
+        # _retry_delay_minutes = 2**self.attempt
         self.save()
 
     def retry(self):

@@ -16,11 +16,6 @@ class TailwindFormMixin:
             "dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 px-4 py-3 text-sm"
         )
 
-        placeholders = {
-            "menu_item": "Chọn mục menu áp dụng...",
-            "role": "Chọn vai trò được phép truy cập...",
-        }
-
         labels = {
             "menu_item": "Mục Menu (Menu Item)",
             "role": "Vai trò (Role)",

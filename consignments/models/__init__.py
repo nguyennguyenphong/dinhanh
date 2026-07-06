@@ -3,9 +3,18 @@
 # Example:
 # from consignments.models.consignments import Consignment
 
-from .cargo_price_tables import CargoPriceTable
-from .cod_reconciliations import CodReconciliation
-from .consignment_events import ConsignmentEvent
-from .consignment_manifests import ConsignmentManifest
-from .consignments import Consignment
-from .manifest_items import ManifestItem
+from consignments.models.consignments import Consignment
+from consignments.models.cargo_price_tables import CargoPriceTable
+from consignments.models.cod_reconciliations import CodReconciliation
+from consignments.models.consignment_events import ConsignmentEvent
+from consignments.models.consignment_manifests import ConsignmentManifest
+from consignments.models.manifest_items import ManifestItem
+
+__all__ = [
+    "CargoPriceTable",
+    "CodReconciliation",
+    "Consignment",
+    "ConsignmentEvent",
+    "ConsignmentManifest",
+    "ManifestItem",
+]

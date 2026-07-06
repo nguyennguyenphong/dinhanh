@@ -23,21 +23,18 @@ class IMenuGroupRepository(ABC):
         Fetches a MenuGroup by its database integer ID.
         Returns None if not found or soft-deleted.
         """
-        ...
 
     @abstractmethod
     def get_by_uuid(self, group_uuid: uuid.UUID) -> MenuGroupEntity | None:
         """
         Fetches a MenuGroup by its globally unique UUID.
         """
-        ...
 
     @abstractmethod
     def get_by_code(self, tenant_id: int, code: str) -> MenuGroupEntity | None:
         """
         Fetches a MenuGroup by its unique code within a specific tenant context.
         """
-        ...
 
     @abstractmethod
     def list(
@@ -55,7 +52,6 @@ class IMenuGroupRepository(ABC):
         Returns a paginated list of MenuGroupEntities and the total count.
         Allows toggling `include_deleted` to see soft-deleted items if needed (e.g., Trash bin UI).
         """
-        ...
 
     @abstractmethod
     def exists_by_code(
@@ -64,7 +60,6 @@ class IMenuGroupRepository(ABC):
         """
         Validates uniqueness of a code within a tenant scope, excluding a specific ID during updates.
         """
-        ...
 
     # ------------------------------------------------------------------
     # Write operations
@@ -75,14 +70,12 @@ class IMenuGroupRepository(ABC):
         """
         Persists a new MenuGroupEntity into the database.
         """
-        ...
 
     @abstractmethod
     def update(self, entity: MenuGroupEntity) -> MenuGroupEntity:
         """
         Updates an existing MenuGroupEntity in the database.
         """
-        ...
 
     @abstractmethod
     def soft_delete(self, entity: MenuGroupEntity) -> None:
@@ -90,7 +83,6 @@ class IMenuGroupRepository(ABC):
         Flags the entity as deleted in the persistence layer without removing rows.
         Integrates with Django's SafeDeleteModel system.
         """
-        ...
 
     @abstractmethod
     def hard_delete(self, entity: MenuGroupEntity) -> None:
@@ -98,4 +90,3 @@ class IMenuGroupRepository(ABC):
         CRITICAL: Permanently removes the record from the database.
         Use with extreme caution.
         """
-        ...
