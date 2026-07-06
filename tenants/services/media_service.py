@@ -29,7 +29,7 @@ class FileStorageService:
 
         if file_obj.size > FileStorageService.MAX_FILE_SIZE:
             raise ValidationError(
-                f"Kích thước tệp vượt quá {FileStorageService.MAX_FILE_SIZE / (1024*1024):.0f}MB."
+                f"Kích thước tệp vượt quá {FileStorageService.MAX_FILE_SIZE / (1024 * 1024):.0f}MB."
             )
 
         file_name = file_obj.name.lower()
