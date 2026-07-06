@@ -349,6 +349,7 @@ class WebhookEndpoint(BaseModel):
 
     def send_event(self, event_type, data, attempt=1):
         from webhooks.models.webhook_deliveries import WebhookDelivery
+
         """
         Send webhook event
 

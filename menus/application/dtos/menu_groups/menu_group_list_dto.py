@@ -3,7 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from menus.application.dtos.menu_groups.menu_group_response_dto import MenuGroupResponseDto
+from menus.application.dtos.menu_groups.menu_group_response_dto import (
+    MenuGroupResponseDto,
+)
 
 
 @dataclass(frozen=True)
