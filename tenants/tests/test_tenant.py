@@ -1,4 +1,3 @@
-
 from tenants.application.dtos import TenantCreateDTO
 from tenants.application.usecases import CreateTenantUseCase
 

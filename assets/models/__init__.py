@@ -3,8 +3,8 @@
 # Example:
 # from assets.models.assets import Asset
 
-from assets.models.assets import Asset
 from assets.models.asset_categories import AssetCategory
+from assets.models.assets import Asset
 from assets.models.storage_units import StorageUnit
 
 __all__ = [

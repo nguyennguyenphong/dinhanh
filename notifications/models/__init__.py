@@ -3,8 +3,8 @@
 # Example:
 # from notifications.models.notifications import Notification
 
-from notifications.models.notifications import Notification
 from notifications.models.notification_templates import NotificationTemplate
+from notifications.models.notifications import Notification
 
 __all__ = [
     "Notification",

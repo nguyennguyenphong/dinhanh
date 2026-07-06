@@ -3,8 +3,8 @@
 # Example:
 # from feature_flags.models.feature_flags import FeatureFlag
 
-from feature_flags.models.feature_flags import FeatureFlag
 from feature_flags.models.feature_flag_audit_log import FeatureFlagAuditLog
+from feature_flags.models.feature_flags import FeatureFlag
 
 __all__ = [
     "FeatureFlag",

@@ -304,6 +304,7 @@ class SystemConfigHistory(models.Model):
     @classmethod
     def get_most_changed_configs(cls, tenant, limit=10, days=30):
         from django.db.models import Count
+
         from system_config.models.system_configs import SystemConfig
 
         start_date = timezone.now() - timedelta(days=days)
