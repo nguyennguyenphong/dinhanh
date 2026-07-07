@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from rest_framework import serializers
 
-from menus.models.menu_items import MenuItem
 from menus.models.menu_groups import MenuGroup
+from menus.models.menu_items import MenuItem
 
 
 class MenuItemCreateSerializer(serializers.Serializer):

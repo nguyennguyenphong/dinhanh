@@ -40,8 +40,14 @@ class MenuItemListView(LoginRequiredMixin, View):
         else:
             current_tenant_id = 1
 
-        group_id = int(group_id_value) if group_id_value and group_id_value.isdigit() else None
-        parent_id = int(parent_id_value) if parent_id_value and parent_id_value.isdigit() else None
+        group_id = (
+            int(group_id_value) if group_id_value and group_id_value.isdigit() else None
+        )
+        parent_id = (
+            int(parent_id_value)
+            if parent_id_value and parent_id_value.isdigit()
+            else None
+        )
 
         query_dto = MenuItemListQueryDto(
             tenant_id=current_tenant_id,
@@ -57,9 +63,7 @@ class MenuItemListView(LoginRequiredMixin, View):
         try:
             menu_items, total = MenuItemProvider.list_menu_items().execute(query_dto)
         except MenuItemDomainError as e:
-            return render(
-                request, "pages/menu_items/list.html", {"error": str(e)}
-            )
+            return render(request, "pages/menu_items/list.html", {"error": str(e)})
 
         context = {
             "menu_items": menu_items,

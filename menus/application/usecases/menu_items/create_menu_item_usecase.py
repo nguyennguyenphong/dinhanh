@@ -24,9 +24,7 @@ class CreateMenuItemUseCase:
         # Check uniqueness of code within the tenant context
         normalized_code = dto.code.lower().strip()
         if self._repo.exists_with_code(tenant_id=dto.tenant, code=normalized_code):
-            raise MenuItemAlreadyExistsError(
-                tenant_id=dto.tenant, code=normalized_code
-            )
+            raise MenuItemAlreadyExistsError(tenant_id=dto.tenant, code=normalized_code)
 
         # Enforce hierarchy depth and circular guards if parent is specified
         if dto.parent_id is not None:
@@ -45,7 +43,9 @@ class CreateMenuItemUseCase:
             url_path=dto.url_path.strip() if dto.url_path else None,
             icon=dto.icon.strip() if dto.icon else None,
             badge=dto.badge.strip() if dto.badge else None,
-            permission_code=dto.permission_code.strip() if dto.permission_code else None,
+            permission_code=(
+                dto.permission_code.strip() if dto.permission_code else None
+            ),
             sort_order=dto.sort_order,
             open_in_new_tab=dto.open_in_new_tab,
             is_active=dto.is_active,

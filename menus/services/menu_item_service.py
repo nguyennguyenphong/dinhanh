@@ -1,15 +1,16 @@
 from __future__ import annotations
 
 import uuid
+
 from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
 from menus.application.dtos.menu_items import (
     MenuItemCreateDto,
+    MenuItemDeleteDto,
     MenuItemResponseDto,
     MenuItemUpdateDto,
-    MenuItemDeleteDto,
 )
 from menus.exceptions import MenuItemDomainError
 from menus.models.menu_items import MenuItem

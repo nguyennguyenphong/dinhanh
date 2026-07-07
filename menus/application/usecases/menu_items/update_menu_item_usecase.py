@@ -52,7 +52,9 @@ class UpdateMenuItemUseCase:
         entity.url_path = dto.url_path.strip() if dto.url_path else None
         entity.icon = dto.icon.strip() if dto.icon else None
         entity.badge = dto.badge.strip() if dto.badge else None
-        entity.permission_code = dto.permission_code.strip() if dto.permission_code else None
+        entity.permission_code = (
+            dto.permission_code.strip() if dto.permission_code else None
+        )
         entity.sort_order = dto.sort_order
         entity.open_in_new_tab = dto.open_in_new_tab
         entity.is_active = dto.is_active

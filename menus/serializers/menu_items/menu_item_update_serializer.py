@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import uuid
+
 from rest_framework import serializers
 
-from menus.models.menu_items import MenuItem
 from menus.models.menu_groups import MenuGroup
+from menus.models.menu_items import MenuItem
 
 
 class MenuItemUpdateSerializer(serializers.Serializer):
@@ -72,7 +73,9 @@ class MenuItemUpdateSerializer(serializers.Serializer):
         # 2. Check uniqueness of code
         repo = self.context.get("menu_item_repo")
         if repo and code:
-            if repo.exists_with_code(tenant_id=tenant_id, code=code, exclude_id=item_id):
+            if repo.exists_with_code(
+                tenant_id=tenant_id, code=code, exclude_id=item_id
+            ):
                 raise serializers.ValidationError(
                     {"code": f"Menu item code '{code}' already exists for this tenant."}
                 )

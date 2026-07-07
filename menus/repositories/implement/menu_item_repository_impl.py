@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from typing import Optional, Any
+from typing import Any, Optional
 
 from django.db import transaction
 from django.db.models import Q
@@ -43,6 +43,7 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
     @property
     def _qs(self):
         from menus.models.menu_items import MenuItem
+
         return MenuItem.objects
 
     def get_by_id(self, item_id: int) -> Optional[MenuItemEntity]:
@@ -131,7 +132,6 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
         items = [_model_to_entity(obj) for obj in qs[offset : offset + limit]]
         return items, total
 
-
     def get_for_group(self, group_id: int):
         qs = (
             self._qs.filter(group_id=group_id)
@@ -155,6 +155,7 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
     @transaction.atomic
     def create(self, **kwargs) -> MenuItemEntity:
         from menus.models.menu_items import MenuItem
+
         if "code" in kwargs:
             kwargs["code"] = kwargs["code"].lower()
         # Map entity attributes if passed from use-case
@@ -166,6 +167,7 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
     @transaction.atomic
     def update(self, item: MenuItemEntity, **kwargs) -> MenuItemEntity:
         from menus.models.menu_items import MenuItem
+
         if "code" in kwargs:
             kwargs["code"] = kwargs["code"].lower()
         if "badge" in kwargs:
@@ -177,6 +179,7 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
     @transaction.atomic
     def delete(self, item: MenuItemEntity) -> None:
         from menus.models.menu_items import MenuItem
+
         if not item.id:
             return
         obj = MenuItem.objects.filter(pk=item.id).first()
@@ -186,6 +189,7 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
     @transaction.atomic
     def hard_delete(self, item: MenuItemEntity) -> None:
         from menus.models.menu_items import MenuItem
+
         if not item.id:
             return
         obj = MenuItem.objects.all_with_deleted().filter(pk=item.id).first()
@@ -195,6 +199,7 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
     @transaction.atomic
     def bulk_reorder(self, tenant_id: int, order_data: list[dict]) -> None:
         from menus.models.menu_items import MenuItem
+
         ids = [entry["id"] for entry in order_data]
         items = {
             item.pk: item

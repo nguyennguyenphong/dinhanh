@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
@@ -38,7 +39,11 @@ class MenuItemUpdateView(LoginRequiredMixin, View):
             "is_hidden": menu_item.is_hidden,
         }
         form = MenuItemBaseForm(initial=initial_data)
-        return render(request, "pages/menu_items/update.html", {"form": form, "menu_item": menu_item})
+        return render(
+            request,
+            "pages/menu_items/update.html",
+            {"form": form, "menu_item": menu_item},
+        )
 
     def post(self, request, pk: uuid.UUID):
         menu_item = get_object_or_404(MenuItem, uuid=pk)
@@ -51,4 +56,8 @@ class MenuItemUpdateView(LoginRequiredMixin, View):
                 messages.success(request, "Menu item updated successfully.")
                 return redirect("menu_items_list")
 
-        return render(request, "pages/menu_items/update.html", {"form": form, "menu_item": menu_item})
+        return render(
+            request,
+            "pages/menu_items/update.html",
+            {"form": form, "menu_item": menu_item},
+        )
