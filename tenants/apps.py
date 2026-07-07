@@ -14,4 +14,4 @@ class TenantAppConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
 
     def ready(self):
-        pass
+        import tenants.signals.tenant_signals  # noqa

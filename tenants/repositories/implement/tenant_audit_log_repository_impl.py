@@ -31,7 +31,7 @@ class TenantAuditLogRepositoryImpl(ITenantAuditLogRepository):
         status: str = "SUCCESS",
         error_message: str | None = None,
     ) -> None:
-        from tenants.models.tenent_audit_log import TenantAuditLog
+        from tenants.models.tenant_audit_log import TenantAuditLog
 
         TenantAuditLog.objects.create(
             tenant_id=tenant_id,
@@ -60,7 +60,7 @@ class TenantAuditLogRepositoryImpl(ITenantAuditLogRepository):
         limit: int = 50,
         offset: int = 0,
     ) -> tuple[list[dict], int]:
-        from tenants.models.tenent_audit_log import TenantAuditLog
+        from tenants.models.tenant_audit_log import TenantAuditLog
 
         qs = TenantAuditLog.objects.filter(tenant_id=tenant_id)
         if action:

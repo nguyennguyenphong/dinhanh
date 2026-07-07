@@ -5,6 +5,7 @@ Pure Python dataclasses — no Django ORM dependency here.
 
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
 from decimal import Decimal

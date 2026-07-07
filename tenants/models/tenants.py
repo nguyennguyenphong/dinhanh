@@ -57,7 +57,6 @@ class Tenant(SafeDeleteModel):
     )
     code = models.CharField(
         max_length=30,
-        unique=True,
         db_index=True,
         validators=[
             RegexValidator(
@@ -72,7 +71,6 @@ class Tenant(SafeDeleteModel):
         max_length=255,
         null=True,
         blank=True,
-        unique=True,
         validators=[URLValidator()],
         help_text="Domain tùy chỉnh nếu là SaaS",
     )

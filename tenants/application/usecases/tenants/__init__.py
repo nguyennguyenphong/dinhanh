@@ -1,6 +1,6 @@
 # call tenant usecase
 
-from tenants.application.usecases.tenants.deactive_tenant_usecase import (
+from tenants.application.usecases.tenants.deactivate_tenant_usecase import (
     DeactivateTenantUseCase,
 )
 from tenants.application.usecases.tenants.get_tenant_usecase import GetTenantUseCase

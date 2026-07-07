@@ -30,7 +30,7 @@ def _inv_model_to_entity(obj: Any) -> TenantInvitationEntity:
 class TenantInvitationRepositoryImpl(ITenantInvitationRepository):
 
     def get_by_token(self, token: str) -> TenantInvitationEntity | None:
-        from tenants.models.tenent_invitation import TenantInvitation
+        from tenants.models.tenant_invitation import TenantInvitation
 
         obj = (
             TenantInvitation.objects.filter(token=token)
@@ -42,7 +42,7 @@ class TenantInvitationRepositoryImpl(ITenantInvitationRepository):
     def get_pending_by_email(
         self, tenant_id: int, email: str
     ) -> TenantInvitationEntity | None:
-        from tenants.models.tenent_invitation import TenantInvitation
+        from tenants.models.tenant_invitation import TenantInvitation
 
         obj = TenantInvitation.objects.filter(
             tenant_id=tenant_id, email=email, status="PENDING"
@@ -56,7 +56,7 @@ class TenantInvitationRepositoryImpl(ITenantInvitationRepository):
         limit: int = 20,
         offset: int = 0,
     ) -> tuple[list[TenantInvitationEntity], int]:
-        from tenants.models.tenent_invitation import TenantInvitation
+        from tenants.models.tenant_invitation import TenantInvitation
 
         qs = TenantInvitation.objects.filter(tenant_id=tenant_id)
         if status:
@@ -67,7 +67,7 @@ class TenantInvitationRepositoryImpl(ITenantInvitationRepository):
         return items, total
 
     def create(self, entity: TenantInvitationEntity) -> TenantInvitationEntity:
-        from tenants.models.tenent_invitation import TenantInvitation
+        from tenants.models.tenant_invitation import TenantInvitation
 
         obj = TenantInvitation.objects.create(
             tenant_id=entity.tenant_id,
@@ -85,7 +85,7 @@ class TenantInvitationRepositoryImpl(ITenantInvitationRepository):
         status: str,
         accepted_at: Any = None,
     ) -> TenantInvitationEntity:
-        from tenants.models.tenent_invitation import TenantInvitation
+        from tenants.models.tenant_invitation import TenantInvitation
 
         update_fields: dict[str, Any] = {"status": status}
         if accepted_at is not None:

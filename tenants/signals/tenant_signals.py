@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 # --------------------------------------------------------------------------- #
 
 
-@receiver(pre_save, sender="core.Tenant")
+@receiver(pre_save, sender="tenants.Tenant")
 def tenant_pre_save(sender, instance, **kwargs):
     """Capture old state before save so we can compute a diff."""
     if instance.pk:
@@ -33,10 +33,10 @@ def tenant_pre_save(sender, instance, **kwargs):
         instance._pre_save_state = None
 
 
-@receiver(post_save, sender="core.Tenant")
+@receiver(post_save, sender="tenants.Tenant")
 def tenant_post_save(sender, instance, created, **kwargs):
     """Write an ORM-level audit entry for Tenant saves not handled by use-cases."""
-    from tenants.models.tenent_audit_log import TenantAuditLog
+    from tenants.models.tenant_audit_log import TenantAuditLog
 
     action = "CREATE" if created else "UPDATE"
     old_state = getattr(instance, "_pre_save_state", None)
@@ -87,7 +87,7 @@ def tenant_post_save(sender, instance, created, **kwargs):
         )
 
 
-@receiver(post_delete, sender="core.Tenant")
+@receiver(post_delete, sender="tenants.Tenant")
 def tenant_post_delete(sender, instance, **kwargs):
     """Log hard-delete events (these bypass use-case audit, so signals catch them)."""
     logger.warning(
@@ -102,7 +102,7 @@ def tenant_post_delete(sender, instance, **kwargs):
 # --------------------------------------------------------------------------- #
 
 
-@receiver(post_save, sender="core.TenantInvitation")
+@receiver(post_save, sender="tenants.TenantInvitation")
 def invitation_status_changed(sender, instance, created, **kwargs):
     """Log invitation acceptance/expiry for observability."""
     if not created and instance.status in ("ACCEPTED", "EXPIRED", "REJECTED"):

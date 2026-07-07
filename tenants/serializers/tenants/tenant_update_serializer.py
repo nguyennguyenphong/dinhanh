@@ -61,7 +61,7 @@ class TenantUpdateSerializer(serializers.Serializer):
 
     subscription_started_at = serializers.DateTimeField(required=False, allow_null=True)
 
-    subscription_ended_at = serializers.DateTimeField(required=False, allow_null=True)
+    subscription_expires_at = serializers.DateTimeField(required=False, allow_null=True)
 
     max_users = serializers.IntegerField(required=False, allow_null=False, default=10)
 
@@ -153,11 +153,11 @@ class TenantUpdateSerializer(serializers.Serializer):
                     )
 
         started_at = attrs.get("subscription_started_at")
-        ended_at = attrs.get("subscription_ended_at")
+        expires_at = attrs.get("subscription_expires_at")
 
-        if started_at and ended_at and started_at >= ended_at:
+        if started_at and expires_at and started_at >= expires_at:
             raise serializers.ValidationError(
-                {"subscription_ended_at": "Ngày kết thúc phải lớn hơn ngày bắt đầu."}
+                {"subscription_expires_at": "Ngày kết thúc phải lớn hơn ngày bắt đầu."}
             )
 
         return attrs

@@ -31,13 +31,13 @@ def _ff_model_to_entity(obj: Any) -> TenantFeatureFlagEntity:
 class TenantFeatureFlagRepositoryImpl(ITenantFeatureFlagRepository):
 
     def get_by_code(self, tenant_id: int, code: str) -> TenantFeatureFlagEntity | None:
-        from tenants.models.tenent_feature_flag import TenantFeatureFlag
+        from tenants.models.tenant_feature_flag import TenantFeatureFlag
 
         obj = TenantFeatureFlag.objects.filter(tenant_id=tenant_id, code=code).first()
         return _ff_model_to_entity(obj) if obj else None
 
     def list_by_tenant(self, tenant_id: int) -> list[TenantFeatureFlagEntity]:
-        from tenants.models.tenent_feature_flag import TenantFeatureFlag
+        from tenants.models.tenant_feature_flag import TenantFeatureFlag
 
         return [
             _ff_model_to_entity(obj)
@@ -45,7 +45,7 @@ class TenantFeatureFlagRepositoryImpl(ITenantFeatureFlagRepository):
         ]
 
     def upsert(self, entity: TenantFeatureFlagEntity) -> TenantFeatureFlagEntity:
-        from tenants.models.tenent_feature_flag import TenantFeatureFlag
+        from tenants.models.tenant_feature_flag import TenantFeatureFlag
 
         obj, _ = TenantFeatureFlag.objects.update_or_create(
             tenant_id=entity.tenant_id,
@@ -61,6 +61,6 @@ class TenantFeatureFlagRepositoryImpl(ITenantFeatureFlagRepository):
         return _ff_model_to_entity(obj)
 
     def delete(self, tenant_id: int, code: str) -> None:
-        from tenants.models.tenent_feature_flag import TenantFeatureFlag
+        from tenants.models.tenant_feature_flag import TenantFeatureFlag
 
         TenantFeatureFlag.objects.filter(tenant_id=tenant_id, code=code).delete()

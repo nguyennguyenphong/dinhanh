@@ -21,7 +21,9 @@ class TenantAuditLog(BaseModel):
     id = models.BigAutoField(primary_key=True)
     tenant = models.ForeignKey(
         "tenants.Tenant",
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
         related_name="tenant_audit_logs",
         db_index=True,
     )

@@ -6,13 +6,14 @@ from __future__ import annotations
 
 from django.utils import timezone
 
-from tenants.application.dtos.tenant_invitation.accept_tenant_inviation_dto import (
+from tenants.application.dtos.tenant_invitation.accept_tenant_invitation_dto import (
     AcceptTenantInvitationDTO,
 )
 from tenants.domain.entities.tenant_invitation_entity import TenantInvitationEntity
 from tenants.exceptions.exception import (
     TenantInvitationAlreadyUsedError,
     TenantInvitationExpiredError,
+    TenantInvitationError,
 )
 from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
     ITenantAuditLogRepository,
@@ -40,7 +41,7 @@ class AcceptInvitationUseCase:
     ) -> TenantInvitationEntity:
         invitation = self._invitation_repo.get_by_token(dto.token)
         if not invitation:
-            raise TenantInvitationExpiredError(dto.token)
+            raise TenantInvitationError(f"Thư mời với mã '{dto.token}' không tồn tại.")
 
         now = timezone.now()
         if invitation.status != "PENDING":

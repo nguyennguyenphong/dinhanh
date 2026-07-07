@@ -1,9 +1,12 @@
+import os
 import time
 
 import redis
 from django.http import JsonResponse
 
-redis_client = redis.Redis(host="127.0.0.1", port=6379, db=1, decode_responses=True)
+# In production (e.g. K8s / docker-compose), REDIS_URL is provided dynamically.
+redis_url = os.environ.get("REDIS_URL", "redis://127.0.0.1:6379/1")
+redis_client = redis.Redis.from_url(redis_url, decode_responses=True)
 
 
 class TenantRateLimitMiddleware:

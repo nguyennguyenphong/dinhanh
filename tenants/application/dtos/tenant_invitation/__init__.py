@@ -1,6 +1,6 @@
 # call tenant invitation
 
-from tenants.application.dtos.tenant_invitation.accept_tenant_inviation_dto import (
+from tenants.application.dtos.tenant_invitation.accept_tenant_invitation_dto import (
     AcceptTenantInvitationDTO,
 )
 from tenants.application.dtos.tenant_invitation.create_tenant_invitation_dto import (
