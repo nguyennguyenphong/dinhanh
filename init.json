@@ -720,6 +720,8 @@
         "menu_group_provider.py"
       ],
       "tests": [
+        "test_menu_items.py",
+        "conftest.py",
         "tests.py"
       ],
       "utils": [
@@ -747,15 +749,15 @@
         "menu_item_exception.py"
       ],
       "serializers": {
+        "menu_items": [
+          "menu_item_create_serializer.py",
+          "menu_item_update_serializer.py"
+        ],
         "menu_groups": [
           "menu_group_update_serilaizer.py",
           "menu_group_hard_delete_serilaizer.py",
           "menu_group_soft_delete_serilaizer.py",
           "menu_group_create_serilaizer.py"
-        ],
-        "menu_items": [
-          "menu_item_create_serializer.py",
-          "menu_item_update_serializer.py"
         ]
       },
       "urls": {
@@ -870,6 +872,14 @@
       },
       "application": {
         "dtos": {
+          "menu_items": [
+            "menu_item_list_query_dto.py",
+            "menu_item_detail_dto.py",
+            "menu_item_create_dto.py",
+            "menu_item_delete_dto.py",
+            "menu_item_update_dto.py",
+            "menu_item_response_dto.py"
+          ],
           "menu_groups": [
             "menu_group_response_dto.py",
             "menu_group_soft_delete_dto.py",
@@ -879,17 +889,18 @@
             "menu_group_update_dto.py",
             "menu_group_create_dto.py",
             "menu_group_detail_dto.py"
-          ],
-          "menu_items": [
-            "menu_item_create_dto.py",
-            "menu_item_update_dto.py",
-            "menu_item_response_dto.py",
-            "menu_item_detail_dto.py",
-            "menu_item_list_query_dto.py",
-            "menu_item_delete_dto.py"
           ]
         },
         "usecases": {
+          "menu_items": [
+            "list_menu_item_usecase.py",
+            "hard_delete_menu_item_usecase.py",
+            "create_menu_item_usecase.py",
+            "get_menu_item_detail_usecase.py",
+            "update_menu_item_usecase.py",
+            "helper_mapping_menu_item_usecase.py",
+            "delete_menu_item_usecase.py"
+          ],
           "menu_groups": [
             "list_menu_group_usecase.py",
             "get_menu_group_detail_usecase.py",
@@ -898,15 +909,6 @@
             "helper_mapping_menu_group_usecase.py",
             "hard_delete_menu_group_usecase.py",
             "soft_delete_menu_group_usecase.py"
-          ],
-          "menu_items": [
-            "create_menu_item_usecase.py",
-            "update_menu_item_usecase.py",
-            "get_menu_item_detail_usecase.py",
-            "list_menu_item_usecase.py",
-            "delete_menu_item_usecase.py",
-            "hard_delete_menu_item_usecase.py",
-            "helper_mapping_menu_item_usecase.py"
           ]
         }
       },

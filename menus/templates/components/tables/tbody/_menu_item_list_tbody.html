@@ -1,0 +1,61 @@
+<tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
+    {% for item in menu_items %}
+    <tr>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ forloop.counter }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ item.uuid }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ item.code }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ item.label }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {% if item.url_path %}
+                {{ item.url_path }}
+            {% elif item.url_name %}
+                {{ item.url_name }} (Name)
+            {% else %}
+                -
+            {% endif %}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ item.group_id|default:"-" }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ item.parent_id|default:"-" }}
+        </td>
+        <td class="px-6 py-3.5 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            {{ item.sort_order }}
+        </td>
+        <td class="px-6 py-3.5 text-start">
+            {% if item.is_active %}
+            <span class="text-xs font-medium text-green-600">
+                Kích hoạt
+            </span>
+            {% else %}
+            <span class="text-xs font-medium text-red-600">
+                Ngừng kích hoạt
+            </span>
+            {% endif %}
+        </td>
+        <td class="px-6 py-3.5 flex gap-3 text-start text-xs text-gray-500 dark:text-slate-400 font-medium">
+            <a href="{% url 'menu_items_detail' item.uuid %}"
+                class="px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100">
+                Chi tiết
+            </a>
+            <a href="{% url 'menu_items_update' item.uuid %}"
+                class="px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-md hover:bg-amber-100">
+                Chỉnh sửa
+            </a>
+            <button data-modal-target="{{ item.uuid }}" data-modal-toggle="{{ item.uuid }}"
+                class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100">
+                Xóa
+            </button>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
