@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+
 from rest_framework import serializers
 
 from menus.models.menu_groups import MenuGroup

@@ -20,7 +20,9 @@ class MenuItemListView(LoginRequiredMixin, View):
 
     def get(self, request):
         grid_builder = DjangoGridBuilder(
-            grid_id="menu-item-grid", api_url=reverse("menu_items_list_api"), page_size=50
+            grid_id="menu-item-grid",
+            api_url=reverse("menu_items_list_api"),
+            page_size=50,
         )
 
         grid_builder.add_column(
@@ -29,7 +31,9 @@ class MenuItemListView(LoginRequiredMixin, View):
         grid_builder.add_column("label", "Nhãn (Label)", col_type="text", width=200)
         grid_builder.add_column("code", "Mã (Code)", col_type="text", width=180)
         grid_builder.add_column("url_path", "URL Path", col_type="text", width=220)
-        grid_builder.add_column("sort_order", "Thứ tự sắp xếp", col_type="number", width=130)
+        grid_builder.add_column(
+            "sort_order", "Thứ tự sắp xếp", col_type="number", width=130
+        )
         grid_builder.add_column("is_active", "Trạng thái", col_type="status", width=150)
         grid_builder.add_column(
             "actions",
@@ -104,9 +108,7 @@ class MenuItemListApiView(LoginRequiredMixin, View):
         try:
             menu_items, total = MenuItemProvider.list_menu_items().execute(query_dto)
         except MenuItemDomainError as e:
-            return render(
-                request, "pages/menu_items/list.html", {"error": str(e)}
-            )
+            return render(request, "pages/menu_items/list.html", {"error": str(e)})
 
         context = {
             "menu_items": menu_items,

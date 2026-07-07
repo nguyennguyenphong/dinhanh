@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
@@ -18,7 +19,11 @@ class MenuItemRoleUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk: uuid.UUID):
         menu_item_role = get_object_or_404(MenuItemRole, uuid=pk)
         form = MenuItemRoleBaseForm(instance=menu_item_role)
-        return render(request, "pages/menu_item_roles/update.html", {"form": form, "menu_item_role": menu_item_role})
+        return render(
+            request,
+            "pages/menu_item_roles/update.html",
+            {"form": form, "menu_item_role": menu_item_role},
+        )
 
     def post(self, request, pk: uuid.UUID):
         menu_item_role = get_object_or_404(MenuItemRole, uuid=pk)
@@ -29,4 +34,8 @@ class MenuItemRoleUpdateView(LoginRequiredMixin, View):
             messages.success(request, "Role assignment updated successfully.")
             return redirect("menu_item_role_list")
 
-        return render(request, "pages/menu_item_roles/update.html", {"form": form, "menu_item_role": menu_item_role})
+        return render(
+            request,
+            "pages/menu_item_roles/update.html",
+            {"form": form, "menu_item_role": menu_item_role},
+        )

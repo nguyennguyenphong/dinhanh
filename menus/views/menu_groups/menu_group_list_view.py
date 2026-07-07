@@ -20,7 +20,9 @@ class MenuGroupListView(LoginRequiredMixin, View):
 
     def get(self, request):
         grid_builder = DjangoGridBuilder(
-            grid_id="menu-group-grid", api_url=reverse("menu_group_list_api"), page_size=50
+            grid_id="menu-group-grid",
+            api_url=reverse("menu_group_list_api"),
+            page_size=50,
         )
 
         grid_builder.add_column(
@@ -28,7 +30,9 @@ class MenuGroupListView(LoginRequiredMixin, View):
         )
         grid_builder.add_column("label", "Tên nhóm menu", col_type="text", width=220)
         grid_builder.add_column("code", "Mã nhóm menu", col_type="text", width=180)
-        grid_builder.add_column("sort_order", "Thứ tự sắp xếp", col_type="number", width=130)
+        grid_builder.add_column(
+            "sort_order", "Thứ tự sắp xếp", col_type="number", width=130
+        )
         grid_builder.add_column("is_active", "Trạng thái", col_type="status", width=150)
         grid_builder.add_column(
             "actions",

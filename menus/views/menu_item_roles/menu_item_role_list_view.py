@@ -19,14 +19,20 @@ class MenuItemRoleListView(LoginRequiredMixin, View):
 
     def get(self, request):
         grid_builder = DjangoGridBuilder(
-            grid_id="menu-item-role-grid", api_url=reverse("menu_item_role_list_api"), page_size=50
+            grid_id="menu-item-role-grid",
+            api_url=reverse("menu_item_role_list_api"),
+            page_size=50,
         )
 
         grid_builder.add_column(
             "idx", "STT", col_type="number", width=70, sortable=False, filter=False
         )
-        grid_builder.add_column("menu_item_id", "ID Mục Menu (Menu Item ID)", col_type="number", width=220)
-        grid_builder.add_column("role_id", "ID Vai trò (Role ID)", col_type="number", width=220)
+        grid_builder.add_column(
+            "menu_item_id", "ID Mục Menu (Menu Item ID)", col_type="number", width=220
+        )
+        grid_builder.add_column(
+            "role_id", "ID Vai trò (Role ID)", col_type="number", width=220
+        )
         grid_builder.add_column(
             "actions",
             "Thao tác",
@@ -66,7 +72,9 @@ class MenuItemRoleListApiView(LoginRequiredMixin, View):
         )
 
         try:
-            items, total = MenuItemRoleProvider.list_menu_item_roles().execute(query_dto)
+            items, total = MenuItemRoleProvider.list_menu_item_roles().execute(
+                query_dto
+            )
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)
 

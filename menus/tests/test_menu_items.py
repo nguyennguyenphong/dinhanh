@@ -25,7 +25,7 @@ class TestMenuItemRepository:
     def test_create_and_get_by_id(self):
         tenant = Tenant.objects.create(code="TEST", name="Test Tenant")
         repo = MenuItemRepositoryImpl()
-        
+
         # Test creation
         item = repo.create(
             tenant_id=tenant.id,
@@ -110,7 +110,7 @@ class TestMenuItemUseCases:
             label="Circular",
             url_path="/circ",
         )
-        
+
         dto = MenuItemUpdateDto(
             id=item.id,
             uuid=item.uuid,

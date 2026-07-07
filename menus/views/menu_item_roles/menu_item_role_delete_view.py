@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import uuid
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.forms import Form
 from django.shortcuts import redirect
 from django.views import View
-from django.forms import Form
 
 from menus.services.menu_item_role_service import MenuItemRoleService
 

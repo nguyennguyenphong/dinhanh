@@ -2,9 +2,9 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from menus.models import (
+    MenuAuditLog,
     MenuGroup,
     MenuItem,
-    MenuAuditLog,
     MenuItemRole,
     MenuItemRoleAuditLog,
 )
@@ -13,7 +13,15 @@ from menus.models import (
 class MenuItemInline(admin.TabularInline):
     model = MenuItem
     extra = 0
-    fields = ("code", "label", "url_name", "url_path", "sort_order", "is_active", "is_hidden")
+    fields = (
+        "code",
+        "label",
+        "url_name",
+        "url_path",
+        "sort_order",
+        "is_active",
+        "is_hidden",
+    )
     readonly_fields = ("uuid", "created_at")
     show_change_link = True
     ordering = ("sort_order",)
@@ -171,7 +179,14 @@ class MenuAuditLogAdmin(admin.ModelAdmin):
     list_display = ("action", "tenant", "actor", "created_at")
     list_filter = ("action", "tenant")
     search_fields = ("actor__username", "tenant__code")
-    readonly_fields = ("tenant", "action", "actor", "old_values", "new_values", "created_at")
+    readonly_fields = (
+        "tenant",
+        "action",
+        "actor",
+        "old_values",
+        "new_values",
+        "created_at",
+    )
     ordering = ("-created_at",)
 
     def has_add_permission(self, request):
@@ -196,10 +211,22 @@ class MenuItemRoleAuditLogAdmin(admin.ModelAdmin):
         "created_at",
     )
     list_filter = ("action", "tenant")
-    search_fields = ("actor__username", "actor_username", "tenant__code", "menu_item__code")
+    search_fields = (
+        "actor__username",
+        "actor_username",
+        "tenant__code",
+        "menu_item__code",
+    )
     readonly_fields = (
-        "tenant", "menu_item", "role", "action", "actor", "actor_username",
-        "affected_count", "reason", "created_at",
+        "tenant",
+        "menu_item",
+        "role",
+        "action",
+        "actor",
+        "actor_username",
+        "affected_count",
+        "reason",
+        "created_at",
     )
     ordering = ("-created_at",)
 
