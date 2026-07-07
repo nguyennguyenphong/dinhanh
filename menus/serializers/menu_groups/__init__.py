@@ -10,10 +10,14 @@ from menus.serializers.menu_groups.menu_group_soft_delete_serilaizer import (
 from menus.serializers.menu_groups.menu_group_update_serilaizer import (
     MenuGroupUpdateSerializer,
 )
+from menus.serializers.menu_groups.menu_group_response_serializer import (
+    MenuGroupResponseSerializer,
+)
 
 __all__ = [
     "MenuGroupCreateSerializer",
     "MenuGroupHardDeleteSerializer",
     "MenuGroupUpdateSerializer",
     "MenuGroupSoftDeleteSerializer",
+    "MenuGroupResponseSerializer",
 ]

@@ -19,16 +19,31 @@
                 class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
                 ← Danh sách
             </a>
-            <a href="{% url 'menu_item_role_update' %}"
+            <a href="{% url 'menu_item_role_update' menu_item_role.uuid %}"
                 class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all">
                 Chỉnh sửa
             </a>
         </div>
 
-        <div class="w-full bg-white">
-            
-
-
+        <div class="w-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md p-6">
+            <div class="space-y-4">
+                <div class="flex items-center py-2.5 text-sm">
+                    <span class="w-48 text-gray-500 shrink-0">ID Mục Menu (Menu Item ID)</span>
+                    <span class="font-medium text-gray-900 dark:text-white">{{ menu_item_role.menu_item_id }}</span>
+                </div>
+                <div class="flex items-center py-2.5 text-sm">
+                    <span class="w-48 text-gray-500 shrink-0">ID Vai trò (Role ID)</span>
+                    <span class="font-medium text-gray-900 dark:text-white">{{ menu_item_role.role_id }}</span>
+                </div>
+                <div class="flex items-center py-2.5 text-sm">
+                    <span class="w-48 text-gray-500 shrink-0">UUID Phân quyền</span>
+                    <span class="font-mono text-xs text-gray-400">{{ menu_item_role.uuid }}</span>
+                </div>
+                <div class="flex items-center py-2.5 text-sm">
+                    <span class="w-48 text-gray-500 shrink-0">ID Doanh nghiệp (Tenant ID)</span>
+                    <span class="font-medium text-gray-900 dark:text-white">{{ menu_item_role.tenant_id }}</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

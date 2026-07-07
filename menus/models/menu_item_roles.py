@@ -3,6 +3,8 @@
 # Menu Item Roles Models with Role-Based Visibility
 # ============================================================================
 
+import uuid
+
 from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -46,6 +48,9 @@ class MenuItemRole(BaseModel):
         is_visible = MenuItemRole.is_visible_to_role(item, role)
     """
 
+    uuid = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True, db_index=True
+    )
     menu_item = models.ForeignKey(
         "menus.MenuItem",
         on_delete=models.CASCADE,

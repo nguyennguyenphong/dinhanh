@@ -12,9 +12,10 @@ class MenuItemRoleEntity:
     """
 
     id: Optional[int]
+    uuid: Optional[str]
     menu_item_id: int
     role_id: int
-    tenant_id: int  # Redundant but vital for multi-tenant boundary isolation validation
+    tenant_id: int
 
     # Advanced DDD: Track changes to clear internal or distributed caching mechanisms
     domain_events: List[Any] = field(default_factory=list, init=False, repr=False)
@@ -43,6 +44,7 @@ class MenuItemRoleEntity:
         """
         assignment = cls(
             id=None,
+            uuid=None,
             menu_item_id=menu_item_id,
             role_id=role_id,
             tenant_id=tenant_id,

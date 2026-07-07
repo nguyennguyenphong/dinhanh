@@ -717,11 +717,10 @@
     "menus": {
       "providers": [
         "menu_item_provider.py",
+        "menu_item_role_provider.py",
         "menu_group_provider.py"
       ],
       "tests": [
-        "test_menu_items.py",
-        "conftest.py",
         "tests.py"
       ],
       "utils": [
@@ -730,10 +729,12 @@
       "repositories": {
         "implement": [
           "menu_item_repository_impl.py",
+          "menu_item_role_repository_impl.py",
           "menu_group_repository_impl.py"
         ],
         "interfaces": [
           "menu_group_repository_interface.py",
+          "menu_item_role_repository_interface.py",
           "menu_item_repository_interface.py"
         ]
       },
@@ -749,15 +750,16 @@
         "menu_item_exception.py"
       ],
       "serializers": {
-        "menu_items": [
-          "menu_item_create_serializer.py",
-          "menu_item_update_serializer.py"
-        ],
         "menu_groups": [
           "menu_group_update_serilaizer.py",
+          "menu_group_response_serializer.py",
           "menu_group_hard_delete_serilaizer.py",
           "menu_group_soft_delete_serilaizer.py",
           "menu_group_create_serilaizer.py"
+        ],
+        "menu_items": [
+          "menu_item_create_serializer.py",
+          "menu_item_update_serializer.py"
         ]
       },
       "urls": {
@@ -775,13 +777,16 @@
         "components": {
           "tables": {
             "thead": [
+              "_menu_item_list_thead.html",
               "_menu_group_list_thead.html"
             ],
             "tbody": [
-              "_menu_group_list_tbody.html"
+              "_menu_group_list_tbody.html",
+              "_menu_item_list_tbody.html"
             ],
             "_files": [
-              "_menu_group_list_table.html"
+              "_menu_group_list_table.html",
+              "_menu_item_list_table.html"
             ]
           },
           "page_header": [
@@ -828,7 +833,8 @@
               "_tenant_parent.html"
             ],
             "_files": [
-              "_menu_group_detail_accordion.html"
+              "_menu_group_detail_accordion.html",
+              "_menu_item_detail_accordion.html"
             ]
           },
           "breadcrumb": [
@@ -889,6 +895,14 @@
             "menu_group_update_dto.py",
             "menu_group_create_dto.py",
             "menu_group_detail_dto.py"
+          ],
+          "menu_items": [
+            "menu_item_create_dto.py",
+            "menu_item_update_dto.py",
+            "menu_item_response_dto.py",
+            "menu_item_detail_dto.py",
+            "menu_item_list_query_dto.py",
+            "menu_item_delete_dto.py"
           ]
         },
         "usecases": {
@@ -909,6 +923,15 @@
             "helper_mapping_menu_group_usecase.py",
             "hard_delete_menu_group_usecase.py",
             "soft_delete_menu_group_usecase.py"
+          ],
+          "menu_items": [
+            "create_menu_item_usecase.py",
+            "update_menu_item_usecase.py",
+            "get_menu_item_detail_usecase.py",
+            "list_menu_item_usecase.py",
+            "delete_menu_item_usecase.py",
+            "hard_delete_menu_item_usecase.py",
+            "helper_mapping_menu_item_usecase.py"
           ]
         }
       },
@@ -955,7 +978,8 @@
       },
       "services": [
         "menu_item_service.py",
-        "menu_group_service.py"
+        "menu_group_service.py",
+        "menu_item_role_service.py"
       ],
       "_files": [
         "contants.py",

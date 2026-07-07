@@ -1,26 +1,32 @@
-"""
-DRF API views for Menu CRUD operations.
-
-Endpoint map (wired in urls/menu_urls.py):
-    POST   /menus/                -> MenuItemView
-"""
-
 from __future__ import annotations
 
+import uuid
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 
-from menus.views.forms import MenuGroupBaseForm
+from menus.models import MenuItemRole
+from menus.views.forms.menu_item_role_form import MenuItemRoleBaseForm
 
 
 class MenuItemRoleUpdateView(LoginRequiredMixin, View):
     """
-    Handle Menu creation:
-    1. GET: Render the creation form.
-    2. POST: Validate data, process file upload, execute UseCase, and redirect.
+    Handle MenuItemRole assignment update.
     """
 
-    def get(self, request):
-        form = MenuGroupBaseForm()
-        return render(request, "pages/menu_item_roles/update.html", {"form": form})
+    def get(self, request, pk: uuid.UUID):
+        menu_item_role = get_object_or_404(MenuItemRole, uuid=pk)
+        form = MenuItemRoleBaseForm(instance=menu_item_role)
+        return render(request, "pages/menu_item_roles/update.html", {"form": form, "menu_item_role": menu_item_role})
+
+    def post(self, request, pk: uuid.UUID):
+        menu_item_role = get_object_or_404(MenuItemRole, uuid=pk)
+        form = MenuItemRoleBaseForm(request.POST, instance=menu_item_role)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Role assignment updated successfully.")
+            return redirect("menu_item_role_list")
+
+        return render(request, "pages/menu_item_roles/update.html", {"form": form, "menu_item_role": menu_item_role})

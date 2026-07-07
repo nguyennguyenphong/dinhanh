@@ -1,75 +1,94 @@
 {% load static %}
 
 <div x-data="{ 
-    actionUrl: '', 
-    actionTitle: '',
-    confirmAction(url, title) { 
-        this.actionUrl = url; 
-        this.actionTitle = title;
-    } 
+    open: false, 
+    softDeleteUrl: '', 
+    hardDeleteUrl: '', 
+    groupName: '',
+    showConfirmModal: false,
+    confirmTitle: '',
+    confirmUrl: '',
+    init() {
+        window.addEventListener('open-delete-menu_groups-modal', (e) => {
+            const uuid = e.detail.uuid;
+            this.groupName = e.detail.name || 'Menu Group';
+            this.softDeleteUrl = `/menu_groups/soft_delete/${uuid}/`;
+            this.hardDeleteUrl = `/menu_groups/hard_delete/${uuid}/`;
+            this.open = true;
+        });
+    },
+    triggerConfirm(url, title) {
+        this.confirmUrl = url;
+        this.confirmTitle = title;
+        this.showConfirmModal = true;
+    }
 }">
+    <div x-show="open" 
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 overflow-y-auto"
+         style="display: none;"
+         @click.self="open = false">
+        <div class="relative w-full max-w-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md shadow-lg p-6">
+            <div class="flex items-center justify-between border-b border-gray-200 dark:border-slate-700 pb-4">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Xác nhận xóa nhóm menu</h3>
+                <button type="button" @click="open = false" class="text-gray-400 hover:text-gray-500 rounded-md">
+                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
 
-    <div id="{{ menu_group.uuid }}" tabindex="-1" aria-hidden="true"
-        class="ui-overlay hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-2xl max-h-full">
-            <div class="relative bg-neutral-primary-soft border border-default rounded-md shadow-sm p-4 md:p-6">
-                <div class="flex items-center justify-between border-b border-default pb-4 md:pb-5">
-                    <h3 class="text-lg font-medium text-heading">Xác nhận xóa menu_group</h3>
-                    <button type="button" class="text-body bg-transparent hover:bg-neutral-tertiary hover:text-heading rounded-md text-sm w-9 h-9 ms-auto inline-flex justify-center items-center" data-modal-hide="{{ menu_group.uuid }}">
-                        <img src="{% static 'icons/close.svg' %}" alt="close" class="size-4.5">
-                    </button>
-                </div>
+            <div class="space-y-6 py-6">
+                <p class="leading-relaxed text-gray-700 dark:text-slate-300 font-medium">
+                    Vui lòng chọn phương thức xóa cho nhóm menu: <strong class="text-gray-900 dark:text-white" x-text="groupName"></strong>
+                </p>
 
-                <div class="space-y-4 md:space-y-6 py-4 md:py-6">
-                    <p class="leading-relaxed text-body font-medium">Vui lòng chọn phương thức xóa cho menu_group: <strong>{{ menu_group.name }}</strong></p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border border-gray-200 dark:border-slate-700 rounded-md p-4">
+                        <p class="text-sm font-semibold text-gray-800 dark:text-slate-200">Xóa tạm thời (Soft Delete)</p>
+                        <p class="text-xs text-gray-500 dark:text-slate-400 mb-4">Dữ liệu vẫn được giữ nhưng sẽ bị ẩn đi.</p>
+                        <button type="button" 
+                                @click="triggerConfirm(softDeleteUrl, 'Xóa tạm thời')"
+                                class="w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-md text-sm px-4 py-2.5 cursor-pointer">
+                            Xác nhận Xóa Tạm thời
+                        </button>
+                    </div>
 
-                    <div class="space-y-3">
-                        <div class="border border-gray-200 rounded-md p-4">
-                            <p class="text-sm font-semibold text-heading">Xóa tạm thời (Soft Delete)</p>
-                            <p class="text-xs text-body mb-4">Dữ liệu vẫn được giữ nhưng sẽ bị ẩn đi.</p>
-                            <button type="button" 
-                                    @click="confirmAction('{% url 'menu_group_soft_delete' menu_group.uuid %}', 'Xóa tạm thời')"
-                                    data-modal-target="confirm-modal-{{ menu_group.uuid }}" data-modal-toggle="confirm-modal-{{ menu_group.uuid }}"
-                                    class="text-white bg-brand hover:bg-brand-strong font-medium rounded-md text-sm px-4 py-2.5">
-                                Xác nhận Xóa Tạm thời
-                            </button>
-                        </div>
-
-                        <div class="border border-gray-200 rounded-md p-4">
-                            <p class="text-sm font-semibold text-danger">Xóa vĩnh viễn (Hard Delete)</p>
-                            <p class="text-xs text-body mb-4">Dữ liệu sẽ bị xóa hoàn toàn khỏi hệ thống.</p>
-                            <button type="button" 
-                                    @click="confirmAction('{% url 'menu_group_hard_delete' menu_group.uuid %}', 'Xóa vĩnh viễn')"
-                                    data-modal-target="confirm-modal-{{ menu_group.uuid }}" data-modal-toggle="confirm-modal-{{ menu_group.uuid }}"
-                                    class="text-white bg-danger hover:bg-danger-strong font-medium rounded-md text-sm px-4 py-2.5">
-                                Xác nhận Xóa Vĩnh viễn
-                            </button>
-                        </div>
+                    <div class="border border-gray-200 dark:border-slate-700 rounded-md p-4">
+                        <p class="text-sm font-semibold text-red-600">Xóa vĩnh viễn (Hard Delete)</p>
+                        <p class="text-xs text-gray-500 dark:text-slate-400 mb-4">Dữ liệu sẽ bị xóa hoàn toàn khỏi hệ thống.</p>
+                        <button type="button" 
+                                @click="triggerConfirm(hardDeleteUrl, 'Xóa vĩnh viễn')"
+                                class="w-full text-white bg-red-600 hover:bg-red-700 font-medium rounded-md text-sm px-4 py-2.5 cursor-pointer">
+                            Xác nhận Xóa Vĩnh viễn
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="confirm-modal-{{ menu_group.uuid }}" aria-hidden="true"
-        class="ui-overlay hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-60 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-md max-h-full">
-            <div class="relative bg-neutral-primary-soft border border-default rounded-md shadow-sm p-4 md:p-6">
-                <div class="p-4 md:p-5 text-center">
-                    <h3 class="mb-6 text-lg font-medium text-heading" x-text="'Bạn có chắc chắn muốn ' + actionTitle + ' menu_group {{ menu_group.name }}?'"></h3>
-                    
-                    <div class="flex items-center space-x-4 justify-center">
-                        <form :action="actionUrl" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="text-white bg-danger hover:bg-danger-strong font-medium rounded-md text-sm px-5 py-2.5">
-                                Chắc chắn, xóa ngay
-                            </button>
-                        </form>
-                        
-                        <button data-modal-hide="confirm-modal-{{ menu_group.uuid }}" type="button" class="text-body bg-neutral-secondary-medium border border-gray-200 hover:bg-neutral-tertiary-medium font-medium rounded-md text-sm px-5 py-2.5">
-                            Hủy
+    <div x-show="showConfirmModal" 
+         class="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/50 overflow-y-auto"
+         style="display: none;"
+         @click.self="showConfirmModal = false">
+        <div class="relative w-full max-w-md bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md shadow-lg p-6">
+            <div class="text-center">
+                <h3 class="mb-6 text-lg font-medium text-gray-900 dark:text-white">
+                    Bạn có chắc chắn muốn <span class="font-bold text-red-600" x-text="confirmTitle"></span> nhóm menu <span class="font-bold" x-text="groupName"></span>?
+                </h3>
+                
+                <div class="flex items-center space-x-4 justify-center">
+                    <form :action="confirmUrl" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="text-white bg-red-600 hover:bg-red-700 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
+                            Chắc chắn, xóa ngay
                         </button>
-                    </div>
+                    </form>
+                    
+                    <button @click="showConfirmModal = false" type="button" 
+                            class="text-gray-700 dark:text-slate-300 bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
+                        Hủy
+                    </button>
                 </div>
             </div>
         </div>

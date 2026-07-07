@@ -19,7 +19,6 @@ from menus.serializers.menu_items import (
     MenuItemCreateSerializer,
     MenuItemUpdateSerializer,
 )
-from menus.utils.request_helpers import get_client_ip
 from menus.views.helpers.view_helpers import RequestContext
 
 
@@ -115,7 +114,7 @@ class MenuItemService:
             return False
 
         try:
-            ctx = RequestContext.from_request(request)
+            RequestContext.from_request(request)
             dto = MenuItemUpdateDto(**serializer.validated_data)
 
             MenuItemProvider.update_menu_item().execute(dto)
@@ -129,7 +128,7 @@ class MenuItemService:
         """Soft delete MenuItem using DeleteMenuItemUseCase."""
         menu_item = get_object_or_404(MenuItem.all_objects, uuid=pk)
         try:
-            ctx = RequestContext.from_request(request)
+            RequestContext.from_request(request)
             dto = MenuItemDeleteDto(
                 id=menu_item.id,
                 tenant_id=menu_item.tenant_id,
@@ -150,7 +149,7 @@ class MenuItemService:
         """Hard delete MenuItem using HardDeleteMenuItemUseCase."""
         menu_item = get_object_or_404(MenuItem.all_objects, uuid=pk)
         try:
-            ctx = RequestContext.from_request(request)
+            RequestContext.from_request(request)
             dto = MenuItemDeleteDto(
                 id=menu_item.id,
                 tenant_id=menu_item.tenant_id,

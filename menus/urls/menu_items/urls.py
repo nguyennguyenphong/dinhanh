@@ -11,6 +11,11 @@ urlpatterns = [
         menu_views.MenuItemListView.as_view(),
         name="menu_items_list",
     ),
+    path(
+        "menu_items/list/api/",
+        menu_views.MenuItemListApiView.as_view(),
+        name="menu_items_list_api",
+    ),
     # -------------------------------------------------------------------------
     # 2. CREATE FUNCTION (Split into UI Presentation and Data Persistence)
     # -------------------------------------------------------------------------
@@ -42,5 +47,21 @@ urlpatterns = [
         "menu_items/delete/<uuid:pk>/",
         menu_views.MenuItemDeleteView.as_view(),
         name="menu_items_delete",
+    ),
+    # -------------------------------------------------------------------------
+    # 6. SOFT DELETE FUNCTION
+    # -------------------------------------------------------------------------
+    path(
+        "menu_items/soft_delete/<uuid:pk>/",
+        menu_views.MenuItemSoftDeleteView.as_view(),
+        name="menu_item_soft_delete",
+    ),
+    # -------------------------------------------------------------------------
+    # 7. HARD DELETE FUNCTION
+    # -------------------------------------------------------------------------
+    path(
+        "menu_items/hard_delete/<uuid:pk>/",
+        menu_views.MenuItemHardDeleteView.as_view(),
+        name="menu_item_hard_delete",
     ),
 ]

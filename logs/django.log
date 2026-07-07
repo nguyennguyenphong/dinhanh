@@ -202,4 +202,3 @@ INFO 2026-07-07 19:45:54,187 log 34099 6167539712 "GET /admin/jsi18n/ HTTP/1.1" 
 INFO 2026-07-07 19:45:54,227 log 34099 6167539712 "GET /static/admin/img/icon-alert.svg HTTP/1.1" 200 684
 INFO 2026-07-07 19:45:57,835 log 34099 6167539712 "GET /admin/password_change/ HTTP/1.1" 200 10309
 INFO 2026-07-07 19:46:01,880 log 34099 6167539712 "GET /admin/authtoken/tokenproxy/ HTTP/1.1" 200 12139
-INFO 2026-07-07 20:21:59,628 autoreload 55484 8338988672 Watching for file changes with StatReloader
