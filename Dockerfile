@@ -1,4 +1,3 @@
-# Multi-stage build Dockerfile tối ưu cho Kubernetes
 # Stage 1: Frontend builder
 FROM node:20-alpine AS frontend-builder
 WORKDIR /app
@@ -38,11 +37,9 @@ ENV PATH="/opt/venv/bin:$PATH" \
     PYTHONDONTWRITEBYTECODE=1 \
     PORT=8000
 
-# Copy frontend assets
-COPY --from=frontend-builder /app/dist /app/dist
-
-# Copy application code
 COPY . .
+
+COPY --from=frontend-builder /app/static/build ./static/build
 
 # Create non-root user
 RUN useradd -m -u 1000 appuser && \
