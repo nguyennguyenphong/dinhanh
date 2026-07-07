@@ -12,8 +12,8 @@ from tenants.application.dtos.tenant_invitation.accept_tenant_invitation_dto imp
 from tenants.domain.entities.tenant_invitation_entity import TenantInvitationEntity
 from tenants.exceptions.exception import (
     TenantInvitationAlreadyUsedError,
-    TenantInvitationExpiredError,
     TenantInvitationError,
+    TenantInvitationExpiredError,
 )
 from tenants.repositories.interfaces.tenant_audit_log_repository_interface import (
     ITenantAuditLogRepository,

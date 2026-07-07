@@ -1,17 +1,16 @@
 from django.urls import include, path
+
 from tenants.views import (
+    TenantAuditLogListView,
     TenantInvitationAcceptView,
     TenantInvitationListView,
-    TenantAuditLogListView,
 )
 
 urlpatterns = [
     # 1. Tenant CRUD views (UI + API)
     path("", include("tenants.urls.tenants.urls")),
-
     # 2. Feature Flag views
     path("", include("tenants.urls.tenant_feature_flag.urls")),
-
     # 3. Invitation views
     path(
         "tenants/<int:pk>/invitations/",
@@ -23,7 +22,6 @@ urlpatterns = [
         TenantInvitationAcceptView.as_view(),
         name="tenant-invitation-accept",
     ),
-
     # 4. Audit Log views
     path(
         "tenants/<int:pk>/audit-logs/",

@@ -3,10 +3,10 @@
 # Example:
 # from tenants.models.tenants import Tenant
 
-from tenants.models.tenants import Tenant
 from tenants.models.tenant_audit_log import TenantAuditLog
 from tenants.models.tenant_feature_flag import TenantFeatureFlag
 from tenants.models.tenant_invitation import TenantInvitation
+from tenants.models.tenants import Tenant
 
 __all__ = [
     "Tenant",
