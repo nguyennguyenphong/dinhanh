@@ -154,12 +154,12 @@ If any check fails, a Slack alert is sent automatically (requires `SLACK_WEBHOOK
 | Component | Version |
 |-----------|---------|
 | Django | 6.0.5 |
-| Python | 3.12 (minimum required by Django 6) |
+| Python | 3.13 (minimum required by Django 6) |
 | PostgreSQL | 16 |
 | Node.js | 20 LTS |
 | kubectl | v1.29.0 |
 
-> Django 6.0 dropped support for Python 3.11 and below. Always use Python 3.12+.
+> Django 6.0 dropped support for Python 3.11 and below. Always use Python 3.13+.
 
 ---
 
