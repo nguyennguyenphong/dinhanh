@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Optional
+from typing import Optional, List
 
 from menus.domain.entities.menu_item_entity import MenuItemEntity
 
@@ -21,6 +21,22 @@ class IMenuItemRepository(ABC):
 
     @abstractmethod
     def get_all_for_tenant(self, tenant_id: int):
+        pass
+
+    @abstractmethod
+    def list(
+        self,
+        *,
+        tenant_id: int,
+        group_id: Optional[int] = None,
+        parent_id: Optional[int] = None,
+        filters: Optional[dict] = None,
+        search: Optional[str] = None,
+        ordering: Optional[list[str]] = None,
+        limit: int = 20,
+        offset: int = 0,
+        include_deleted: bool = False,
+    ) -> tuple[list[MenuItemEntity], int]:
         pass
 
     @abstractmethod
@@ -48,7 +64,7 @@ class IMenuItemRepository(ABC):
         pass
 
     @abstractmethod
-    def bulk_reorder(self, tenant_id: int, order_data: list[dict]) -> None:
+    def bulk_reorder(self, tenant_id: int, order_data: List[dict]) -> None:
         """
         Update sort_order for multiple items at once.
 

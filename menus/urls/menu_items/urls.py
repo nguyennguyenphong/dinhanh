@@ -35,4 +35,12 @@ urlpatterns = [
         menu_views.MenuItemDetailView.as_view(),
         name="menu_items_detail",
     ),
+    # -------------------------------------------------------------------------
+    # 5. DELETE FUNCTION (Soft delete)
+    # -------------------------------------------------------------------------
+    path(
+        "menu_items/delete/<uuid:pk>/",
+        menu_views.MenuItemDeleteView.as_view(),
+        name="menu_items_delete",
+    ),
 ]

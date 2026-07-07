@@ -93,9 +93,7 @@ class MenuGroupService:
 
         try:
             ctx = RequestContext.from_request(request)
-            dto = MenuGroupUpdateDto(
-                menu_group_model_id=menu_group_model.id, **serializer.validated_data
-            )
+            dto = MenuGroupUpdateDto(**serializer.validated_data)
 
             MenuGroupProvider.update_menu_group().execute(
                 dto,

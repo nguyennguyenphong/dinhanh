@@ -1,14 +1,12 @@
-from datetime import datetime, timedelta
-
 import pytest
+from datetime import timedelta
 from django.utils import timezone
-
 from tenants.application.dtos import TenantCreateDTO
 from tenants.application.usecases import CreateTenantUseCase
-from tenants.models.tenant_audit_log import TenantAuditLog
-from tenants.models.tenants import Tenant
 from tenants.serializers.tenants.tenant_create_serializer import TenantCreateSerializer
 from tenants.serializers.tenants.tenant_update_serializer import TenantUpdateSerializer
+from tenants.models.tenants import Tenant
+from tenants.models.tenant_audit_log import TenantAuditLog
 
 
 class TestCreateTenantUseCase:
@@ -81,10 +79,9 @@ class TestTenantSignals:
         tenant.name = "Updated Signal Test Company"
         tenant.save()
 
-        log_update = TenantAuditLog.objects.filter(
-            tenant=tenant, action="UPDATE"
-        ).first()
+        log_update = TenantAuditLog.objects.filter(tenant=tenant, action="UPDATE").first()
         assert log_update is not None
         assert log_update.changes is not None
         assert "name" in log_update.changes
         assert log_update.changes["name"]["new"] == "Updated Signal Test Company"
+
