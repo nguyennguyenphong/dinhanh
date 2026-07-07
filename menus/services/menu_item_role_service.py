@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import uuid
+
 from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
 from menus.application.dtos.menu_item_roles import (
     MenuItemRoleCreateDto,
-    MenuItemRoleResponseDto,
     MenuItemRoleDeleteDto,
+    MenuItemRoleResponseDto,
 )
 from menus.models.menu_item_roles import MenuItemRole
 from menus.providers.menu_item_role_provider import MenuItemRoleProvider
@@ -101,6 +102,8 @@ class MenuItemRoleService:
     def get_by_uuid(pk: uuid.UUID) -> MenuItemRoleResponseDto:
         menu_item_role = get_object_or_404(MenuItemRole, uuid=pk)
         try:
-            return MenuItemRoleProvider.get_menu_item_role_detail().execute(menu_item_role.id)
+            return MenuItemRoleProvider.get_menu_item_role_detail().execute(
+                menu_item_role.id
+            )
         except Exception:
             raise Http404("Menu item role assignment does not exist.")

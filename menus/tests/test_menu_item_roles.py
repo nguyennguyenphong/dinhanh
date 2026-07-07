@@ -1,16 +1,20 @@
 import pytest
 
-from tenants.models.tenants import Tenant
 from accounts.models.roles import Role
-from menus.models import MenuItem
-from menus.repositories.implement.menu_item_role_repository_impl import MenuItemRoleRepositoryImpl
 from menus.application.dtos.menu_item_roles import (
     MenuItemRoleCreateDto,
 )
 from menus.application.usecases.menu_item_roles import (
     CreateMenuItemRoleUseCase,
 )
-from menus.repositories.implement.menu_item_repository_impl import MenuItemRepositoryImpl
+from menus.models import MenuItem
+from menus.repositories.implement.menu_item_repository_impl import (
+    MenuItemRepositoryImpl,
+)
+from menus.repositories.implement.menu_item_role_repository_impl import (
+    MenuItemRoleRepositoryImpl,
+)
+from tenants.models.tenants import Tenant
 
 
 @pytest.mark.django_db
@@ -27,7 +31,7 @@ class TestMenuItemRoleRepository:
             tenant=tenant,
             name="Role 1",
             slug="role-1",
-        )        
+        )
         repo = MenuItemRoleRepositoryImpl()
         assignment = repo.create(menu_item=menu_item, role=role)
         assert assignment.id is not None
@@ -53,16 +57,16 @@ class TestMenuItemRoleUseCases:
             name="Role 2",
             slug="role-2",
         )
-        
+
         menu_item_role_repo = MenuItemRoleRepositoryImpl()
         menu_item_repo = MenuItemRepositoryImpl()
         usecase = CreateMenuItemRoleUseCase(menu_item_role_repo, menu_item_repo)
-        
+
         dto = MenuItemRoleCreateDto(
             menu_item_id=menu_item.id,
             role_id=role.id,
         )
-        
+
         res = usecase.execute(dto)
         assert res.menu_item_id == menu_item.id
         assert res.role_id == role.id
@@ -70,7 +74,7 @@ class TestMenuItemRoleUseCases:
     def test_create_menu_item_role_tenant_mismatch_fails(self):
         tenant1 = Tenant.objects.create(code="R3A", name="Tenant A")
         tenant2 = Tenant.objects.create(code="R3B", name="Tenant B")
-        
+
         menu_item = MenuItem.objects.create(
             tenant=tenant1,
             code="item3",
@@ -82,15 +86,15 @@ class TestMenuItemRoleUseCases:
             name="Role 3",
             slug="role-3",
         )
-        
+
         menu_item_role_repo = MenuItemRoleRepositoryImpl()
         menu_item_repo = MenuItemRepositoryImpl()
         usecase = CreateMenuItemRoleUseCase(menu_item_role_repo, menu_item_repo)
-        
+
         dto = MenuItemRoleCreateDto(
             menu_item_id=menu_item.id,
             role_id=role.id,
         )
-        
+
         with pytest.raises(ValueError, match="same tenant"):
             usecase.execute(dto)

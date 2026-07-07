@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Optional, List
+from typing import List, Optional
 
 from menus.domain.entities.menu_item_role_entity import MenuItemRoleEntity
 

@@ -2,16 +2,16 @@ from __future__ import annotations
 
 from menus.application.usecases.menu_item_roles import (
     CreateMenuItemRoleUseCase,
-    ListMenuItemRolesUseCase,
     DeleteMenuItemRoleUseCase,
-    HardDeleteMenuItemRoleUseCase,
     GetMenuItemRoleDetailUseCase,
-)
-from menus.repositories.implement.menu_item_role_repository_impl import (
-    MenuItemRoleRepositoryImpl,
+    HardDeleteMenuItemRoleUseCase,
+    ListMenuItemRolesUseCase,
 )
 from menus.repositories.implement.menu_item_repository_impl import (
     MenuItemRepositoryImpl,
+)
+from menus.repositories.implement.menu_item_role_repository_impl import (
+    MenuItemRoleRepositoryImpl,
 )
 
 
@@ -30,7 +30,9 @@ class MenuItemRoleProvider:
 
     @classmethod
     def create_menu_item_role(cls) -> CreateMenuItemRoleUseCase:
-        return CreateMenuItemRoleUseCase(cls._menu_item_role_repo(), cls._menu_item_repo())
+        return CreateMenuItemRoleUseCase(
+            cls._menu_item_role_repo(), cls._menu_item_repo()
+        )
 
     @classmethod
     def list_menu_item_roles(cls) -> ListMenuItemRolesUseCase:

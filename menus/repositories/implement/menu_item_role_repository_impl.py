@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from typing import Optional, List
-from menus.models.menu_item_roles import MenuItemRole
+from typing import List, Optional
+
 from menus.domain.entities.menu_item_role_entity import MenuItemRoleEntity
+from menus.models.menu_item_roles import MenuItemRole
 from menus.repositories.interfaces.menu_item_role_repository_interface import (
     IMenuItemRoleRepository,
 )

@@ -1,6 +1,8 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import Optional
+
 from menus.domain.entities.menu_item_role_entity import MenuItemRoleEntity
 
 

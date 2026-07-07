@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 from rest_framework import serializers
-from menus.models import MenuItem, MenuItemRole
+
 from accounts.models.roles import Role
+from menus.models import MenuItem, MenuItemRole
 
 
 class MenuItemRoleCreateSerializer(serializers.Serializer):
@@ -24,7 +25,9 @@ class MenuItemRoleCreateSerializer(serializers.Serializer):
         # 1. Check if menu item exists
         menu_item = MenuItem.objects.filter(pk=menu_item_id).first()
         if not menu_item:
-            raise serializers.ValidationError({"menu_item": "Menu item does not exist."})
+            raise serializers.ValidationError(
+                {"menu_item": "Menu item does not exist."}
+            )
 
         # 2. Check if role exists
         role = Role.objects.filter(pk=role_id).first()
@@ -38,7 +41,9 @@ class MenuItemRoleCreateSerializer(serializers.Serializer):
             )
 
         # 4. Check if already assigned
-        if MenuItemRole.objects.filter(menu_item_id=menu_item_id, role_id=role_id).exists():
+        if MenuItemRole.objects.filter(
+            menu_item_id=menu_item_id, role_id=role_id
+        ).exists():
             raise serializers.ValidationError(
                 "This role is already assigned to this menu item."
             )

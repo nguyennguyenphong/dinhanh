@@ -1,14 +1,14 @@
+from accounts.models.roles import Role  # for aggregate boundary check
 from menus.application.dtos.menu_item_roles import (
     MenuItemRoleCreateDto,
     MenuItemRoleResponseDto,
 )
-from menus.repositories.interfaces.menu_item_role_repository_interface import (
-    IMenuItemRoleRepository,
-)
 from menus.repositories.interfaces.menu_item_repository_interface import (
     IMenuItemRepository,
 )
-from accounts.models.roles import Role  # for aggregate boundary check
+from menus.repositories.interfaces.menu_item_role_repository_interface import (
+    IMenuItemRoleRepository,
+)
 
 
 class CreateMenuItemRoleUseCase:
