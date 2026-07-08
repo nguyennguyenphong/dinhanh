@@ -4,10 +4,10 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from core.utils.grid import DjangoGridBuilder
 from assets.providers.asset_provider import AssetProvider
 from assets.serializers.asset_list_query_serializer import AssetListQuerySerializer
 from assets.serializers.asset_response_serializer import AssetResponseSerializer
+from core.utils.grid import DjangoGridBuilder
 
 
 class AssetListView(LoginRequiredMixin, View):
@@ -24,9 +24,15 @@ class AssetListView(LoginRequiredMixin, View):
         grid_builder.add_column("name", "Tên tài sản", col_type="text", width=220)
         grid_builder.add_column("serial_number", "Số sê-ri", col_type="text", width=130)
         grid_builder.add_column("purchase_date", "Ngày mua", col_type="date", width=130)
-        grid_builder.add_column("purchase_price", "Nguyên giá", col_type="number", width=140)
-        grid_builder.add_column("depreciation_rate", "Tỷ lệ khấu hao (%)", col_type="number", width=140)
-        grid_builder.add_column("current_value", "Giá trị còn lại", col_type="number", width=140)
+        grid_builder.add_column(
+            "purchase_price", "Nguyên giá", col_type="number", width=140
+        )
+        grid_builder.add_column(
+            "depreciation_rate", "Tỷ lệ khấu hao (%)", col_type="number", width=140
+        )
+        grid_builder.add_column(
+            "current_value", "Giá trị còn lại", col_type="number", width=140
+        )
         grid_builder.add_column("status", "Trạng thái", col_type="status", width=130)
         grid_builder.add_column(
             "actions",
@@ -71,7 +77,9 @@ class AssetListApiView(LoginRequiredMixin, View):
             filters["branch_id"] = validated_data.get("branch_id")
 
         assets, total = AssetProvider.list_assets().execute(
-            tenant_id=request.user.tenant_id if hasattr(request.user, "tenant_id") else 1,
+            tenant_id=(
+                request.user.tenant_id if hasattr(request.user, "tenant_id") else 1
+            ),
             filters=filters,
             search=validated_data.get("search") or None,
             ordering=ordering,

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect

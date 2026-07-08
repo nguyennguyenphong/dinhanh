@@ -43,13 +43,27 @@ class AssetEntity:
             raise ValueError("Purchase price cannot be negative.")
         if self.current_value is not None and self.current_value < 0:
             raise ValueError("Current value cannot be negative.")
-        if self.depreciation_rate is not None and not (0 <= self.depreciation_rate <= 100):
+        if self.depreciation_rate is not None and not (
+            0 <= self.depreciation_rate <= 100
+        ):
             raise ValueError("Depreciation rate must be between 0 and 100.")
-        if self.status not in ["IN_USE", "MAINTENANCE", "DISPOSED", "LOST", "TRANSFERRED"]:
+        if self.status not in [
+            "IN_USE",
+            "MAINTENANCE",
+            "DISPOSED",
+            "LOST",
+            "TRANSFERRED",
+        ]:
             raise ValueError(f"Invalid asset status: {self.status}")
 
     def update_status(self, new_status: str, notes: str | None = None) -> None:
-        if new_status not in ["IN_USE", "MAINTENANCE", "DISPOSED", "LOST", "TRANSFERRED"]:
+        if new_status not in [
+            "IN_USE",
+            "MAINTENANCE",
+            "DISPOSED",
+            "LOST",
+            "TRANSFERRED",
+        ]:
             raise ValueError(f"Invalid status: {new_status}")
         self.status = new_status
         if notes:

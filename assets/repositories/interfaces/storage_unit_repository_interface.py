@@ -35,5 +35,7 @@ class IStorageUnitRepository(ABC):
         pass
 
     @abstractmethod
-    def exists_by_code(self, tenant_id: int, code: str, exclude_id: int | None = None) -> bool:
+    def exists_by_code(
+        self, tenant_id: int, code: str, exclude_id: int | None = None
+    ) -> bool:
         pass

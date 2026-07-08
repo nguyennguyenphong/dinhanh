@@ -14,10 +14,14 @@ class CreateAssetUseCase:
     def execute(self, dto: AssetCreateDto) -> AssetResponseDto:
         normalized_code = dto.code.strip().upper()
         if self._repo.exists_by_code(tenant_id=dto.tenant_id, code=normalized_code):
-            raise ValueError(f"Asset with code {normalized_code} already exists for this tenant.")
+            raise ValueError(
+                f"Asset with code {normalized_code} already exists for this tenant."
+            )
 
         # Business check: if current value is not set, set it equal to purchase price
-        curr_val = dto.current_value if dto.current_value is not None else dto.purchase_price
+        curr_val = (
+            dto.current_value if dto.current_value is not None else dto.purchase_price
+        )
 
         entity = AssetEntity(
             id=None,

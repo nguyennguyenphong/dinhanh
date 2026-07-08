@@ -8,8 +8,8 @@ from assets.views.asset_categories.asset_category_detail_view import (
     AssetCategoryDetailView,
 )
 from assets.views.asset_categories.asset_category_list_view import (
-    AssetCategoryListView,
     AssetCategoryListApiView,
+    AssetCategoryListView,
 )
 from assets.views.asset_categories.asset_category_update_view import (
     AssetCategoryUpdateView,

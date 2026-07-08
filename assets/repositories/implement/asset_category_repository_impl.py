@@ -23,6 +23,7 @@ class AssetCategoryRepositoryImpl(IAssetCategoryRepository):
     @property
     def _qs(self):
         from assets.models import AssetCategory
+
         return AssetCategory.objects
 
     def get_by_id(self, category_id: int) -> AssetCategoryEntity | None:
@@ -46,6 +47,7 @@ class AssetCategoryRepositoryImpl(IAssetCategoryRepository):
 
     def create(self, entity: AssetCategoryEntity) -> AssetCategoryEntity:
         from assets.models import AssetCategory
+
         obj = AssetCategory.objects.create(
             tenant_id=entity.tenant_id,
             name=entity.name,
@@ -63,7 +65,9 @@ class AssetCategoryRepositoryImpl(IAssetCategoryRepository):
     def delete(self, category_id: int) -> None:
         self._qs.filter(pk=category_id).delete()
 
-    def exists_by_name(self, tenant_id: int, name: str, exclude_id: int | None = None) -> bool:
+    def exists_by_name(
+        self, tenant_id: int, name: str, exclude_id: int | None = None
+    ) -> bool:
         qs = self._qs.filter(tenant_id=tenant_id, name__iexact=name.strip())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)

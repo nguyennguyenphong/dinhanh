@@ -51,7 +51,9 @@ class UpdateAssetCategoryUseCase:
             raise ValueError(f"AssetCategory with id {dto.id} not found.")
 
         normalized_name = dto.name.strip()
-        if self._repo.exists_by_name(tenant_id=entity.tenant_id, name=normalized_name, exclude_id=dto.id):
+        if self._repo.exists_by_name(
+            tenant_id=entity.tenant_id, name=normalized_name, exclude_id=dto.id
+        ):
             raise ValueError(f"Category with name '{normalized_name}' already exists.")
 
         entity.name = normalized_name

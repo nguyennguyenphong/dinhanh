@@ -32,7 +32,9 @@ class CreateStorageUnitUseCase:
     def execute(self, dto: StorageUnitCreateDto) -> StorageUnitResponseDto:
         normalized_code = dto.code.strip().upper()
         if self._repo.exists_by_code(tenant_id=dto.tenant_id, code=normalized_code):
-            raise ValueError(f"Storage unit with code '{normalized_code}' already exists.")
+            raise ValueError(
+                f"Storage unit with code '{normalized_code}' already exists."
+            )
 
         entity = StorageUnitEntity(
             id=None,
@@ -57,8 +59,12 @@ class UpdateStorageUnitUseCase:
             raise ValueError(f"StorageUnit with id {dto.id} not found.")
 
         normalized_code = dto.code.strip().upper()
-        if self._repo.exists_by_code(tenant_id=entity.tenant_id, code=normalized_code, exclude_id=dto.id):
-            raise ValueError(f"Storage unit with code '{normalized_code}' already exists.")
+        if self._repo.exists_by_code(
+            tenant_id=entity.tenant_id, code=normalized_code, exclude_id=dto.id
+        ):
+            raise ValueError(
+                f"Storage unit with code '{normalized_code}' already exists."
+            )
 
         entity.code = normalized_code
         entity.name = dto.name.strip()

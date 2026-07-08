@@ -2,14 +2,15 @@ from __future__ import annotations
 
 import uuid
 from decimal import Decimal
+
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
-from assets.application.dtos.assets.asset_dtos import AssetCreateDto, AssetUpdateDto
 from assets.application.dtos.asset_categories.asset_category_dtos import (
     AssetCategoryCreateDto,
     AssetCategoryUpdateDto,
 )
+from assets.application.dtos.assets.asset_dtos import AssetCreateDto, AssetUpdateDto
 from assets.application.dtos.storage_units.storage_unit_dtos import (
     StorageUnitCreateDto,
     StorageUnitUpdateDto,
@@ -32,18 +33,28 @@ class AssetService:
             tenant_id=data.get("tenant").id if data.get("tenant") else 1,
             category_id=data.get("category").id if data.get("category") else None,
             branch_id=data.get("branch").id if data.get("branch") else None,
-            assigned_to_id=data.get("assigned_to").id if data.get("assigned_to") else None,
+            assigned_to_id=(
+                data.get("assigned_to").id if data.get("assigned_to") else None
+            ),
             code=data.get("code"),
             name=data.get("name"),
             serial_number=data.get("serial_number"),
             purchase_date=data.get("purchase_date"),
-            purchase_price=Decimal(data.get("purchase_price")) if data.get("purchase_price") is not None else None,
+            purchase_price=(
+                Decimal(data.get("purchase_price"))
+                if data.get("purchase_price") is not None
+                else None
+            ),
             depreciation_rate=(
                 Decimal(data.get("depreciation_rate"))
                 if data.get("depreciation_rate") is not None
                 else None
             ),
-            current_value=Decimal(data.get("current_value")) if data.get("current_value") is not None else None,
+            current_value=(
+                Decimal(data.get("current_value"))
+                if data.get("current_value") is not None
+                else None
+            ),
             warranty_expiry=data.get("warranty_expiry"),
             status=data.get("status"),
             notes=data.get("notes"),
@@ -71,18 +82,28 @@ class AssetService:
             id=asset_model.id,
             category_id=data.get("category").id if data.get("category") else None,
             branch_id=data.get("branch").id if data.get("branch") else None,
-            assigned_to_id=data.get("assigned_to").id if data.get("assigned_to") else None,
+            assigned_to_id=(
+                data.get("assigned_to").id if data.get("assigned_to") else None
+            ),
             code=data.get("code"),
             name=data.get("name"),
             serial_number=data.get("serial_number"),
             purchase_date=data.get("purchase_date"),
-            purchase_price=Decimal(data.get("purchase_price")) if data.get("purchase_price") is not None else None,
+            purchase_price=(
+                Decimal(data.get("purchase_price"))
+                if data.get("purchase_price") is not None
+                else None
+            ),
             depreciation_rate=(
                 Decimal(data.get("depreciation_rate"))
                 if data.get("depreciation_rate") is not None
                 else None
             ),
-            current_value=Decimal(data.get("current_value")) if data.get("current_value") is not None else None,
+            current_value=(
+                Decimal(data.get("current_value"))
+                if data.get("current_value") is not None
+                else None
+            ),
             warranty_expiry=data.get("warranty_expiry"),
             status=data.get("status"),
             notes=data.get("notes"),

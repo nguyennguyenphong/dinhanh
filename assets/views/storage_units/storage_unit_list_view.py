@@ -4,12 +4,12 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from core.utils.grid import DjangoGridBuilder
 from assets.providers.asset_provider import AssetProvider
 from assets.serializers.storage_unit_serializer import (
     StorageUnitListQuerySerializer,
     StorageUnitSerializer,
 )
+from core.utils.grid import DjangoGridBuilder
 
 
 class StorageUnitListView(LoginRequiredMixin, View):
@@ -56,7 +56,9 @@ class StorageUnitListApiView(LoginRequiredMixin, View):
         validated_data = serializer.validated_data
 
         storage_units, total = AssetProvider.list_storage_units().execute(
-            tenant_id=request.user.tenant_id if hasattr(request.user, "tenant_id") else 1,
+            tenant_id=(
+                request.user.tenant_id if hasattr(request.user, "tenant_id") else 1
+            ),
             search=validated_data.get("search") or None,
             limit=validated_data.get("limit", 50),
             offset=validated_data.get("offset", 0),

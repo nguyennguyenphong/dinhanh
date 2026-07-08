@@ -8,8 +8,8 @@ from assets.views.storage_units.storage_unit_detail_view import (
     StorageUnitDetailView,
 )
 from assets.views.storage_units.storage_unit_list_view import (
-    StorageUnitListView,
     StorageUnitListApiView,
+    StorageUnitListView,
 )
 from assets.views.storage_units.storage_unit_update_view import (
     StorageUnitUpdateView,

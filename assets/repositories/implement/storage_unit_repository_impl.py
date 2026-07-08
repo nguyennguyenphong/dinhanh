@@ -26,6 +26,7 @@ class StorageUnitRepositoryImpl(IStorageUnitRepository):
     @property
     def _qs(self):
         from assets.models import StorageUnit
+
         return StorageUnit.objects
 
     def get_by_id(self, storage_unit_id: int) -> StorageUnitEntity | None:
@@ -49,6 +50,7 @@ class StorageUnitRepositoryImpl(IStorageUnitRepository):
 
     def create(self, entity: StorageUnitEntity) -> StorageUnitEntity:
         from assets.models import StorageUnit
+
         obj = StorageUnit.objects.create(
             tenant_id=entity.tenant_id,
             branch_id=entity.branch_id,
@@ -72,7 +74,9 @@ class StorageUnitRepositoryImpl(IStorageUnitRepository):
     def delete(self, storage_unit_id: int) -> None:
         self._qs.filter(pk=storage_unit_id).delete()
 
-    def exists_by_code(self, tenant_id: int, code: str, exclude_id: int | None = None) -> bool:
+    def exists_by_code(
+        self, tenant_id: int, code: str, exclude_id: int | None = None
+    ) -> bool:
         qs = self._qs.filter(tenant_id=tenant_id, code__iexact=code.strip())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)

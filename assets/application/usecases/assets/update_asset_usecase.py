@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from assets.application.dtos.assets.asset_dtos import AssetUpdateDto, AssetResponseDto
+from assets.application.dtos.assets.asset_dtos import AssetResponseDto, AssetUpdateDto
 from assets.application.usecases.assets.helper_mapping import entity_to_response
 from assets.repositories.interfaces.asset_repository_interface import IAssetRepository
 
@@ -16,8 +16,12 @@ class UpdateAssetUseCase:
             raise ValueError(f"Asset with id {dto.id} not found.")
 
         normalized_code = dto.code.strip().upper()
-        if self._repo.exists_by_code(tenant_id=entity.tenant_id, code=normalized_code, exclude_id=dto.id):
-            raise ValueError(f"Asset with code {normalized_code} already exists for this tenant.")
+        if self._repo.exists_by_code(
+            tenant_id=entity.tenant_id, code=normalized_code, exclude_id=dto.id
+        ):
+            raise ValueError(
+                f"Asset with code {normalized_code} already exists for this tenant."
+            )
 
         # Update properties
         entity.category_id = dto.category_id
@@ -29,7 +33,9 @@ class UpdateAssetUseCase:
         entity.purchase_date = dto.purchase_date
         entity.purchase_price = dto.purchase_price
         entity.depreciation_rate = dto.depreciation_rate
-        entity.current_value = dto.current_value if dto.current_value is not None else dto.purchase_price
+        entity.current_value = (
+            dto.current_value if dto.current_value is not None else dto.purchase_price
+        )
         entity.warranty_expiry = dto.warranty_expiry
         entity.status = dto.status
         entity.notes = dto.notes

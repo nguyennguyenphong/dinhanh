@@ -1,27 +1,33 @@
 from __future__ import annotations
 
-from assets.application.usecases.assets.create_asset_usecase import CreateAssetUseCase
-from assets.application.usecases.assets.delete_asset_usecase import DeleteAssetUseCase
-from assets.application.usecases.assets.get_asset_detail_usecase import GetAssetDetailUseCase
-from assets.application.usecases.assets.list_assets_usecase import ListAssetsUseCase
-from assets.application.usecases.assets.update_asset_usecase import UpdateAssetUseCase
 from assets.application.usecases.asset_categories.asset_category_usecases import (
     CreateAssetCategoryUseCase,
-    UpdateAssetCategoryUseCase,
     DeleteAssetCategoryUseCase,
     GetAssetCategoryDetailUseCase,
     ListAssetCategoriesUseCase,
+    UpdateAssetCategoryUseCase,
 )
+from assets.application.usecases.assets.create_asset_usecase import CreateAssetUseCase
+from assets.application.usecases.assets.delete_asset_usecase import DeleteAssetUseCase
+from assets.application.usecases.assets.get_asset_detail_usecase import (
+    GetAssetDetailUseCase,
+)
+from assets.application.usecases.assets.list_assets_usecase import ListAssetsUseCase
+from assets.application.usecases.assets.update_asset_usecase import UpdateAssetUseCase
 from assets.application.usecases.storage_units.storage_unit_usecases import (
     CreateStorageUnitUseCase,
-    UpdateStorageUnitUseCase,
     DeleteStorageUnitUseCase,
     GetStorageUnitDetailUseCase,
     ListStorageUnitsUseCase,
+    UpdateStorageUnitUseCase,
 )
-from assets.repositories.implement.asset_category_repository_impl import AssetCategoryRepositoryImpl
+from assets.repositories.implement.asset_category_repository_impl import (
+    AssetCategoryRepositoryImpl,
+)
 from assets.repositories.implement.asset_repository_impl import AssetRepositoryImpl
-from assets.repositories.implement.storage_unit_repository_impl import StorageUnitRepositoryImpl
+from assets.repositories.implement.storage_unit_repository_impl import (
+    StorageUnitRepositoryImpl,
+)
 
 
 class AssetProvider:

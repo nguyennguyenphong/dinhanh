@@ -30,7 +30,9 @@ class StorageUnitEntity:
         if self.tenant_id <= 0:
             raise ValueError("Invalid tenant_id. Must be a positive integer.")
 
-    def update_details(self, name: str, description: str | None, branch_id: int | None) -> None:
+    def update_details(
+        self, name: str, description: str | None, branch_id: int | None
+    ) -> None:
         if not name or not name.strip():
             raise ValueError("Name cannot be empty.")
         self.name = name.strip()

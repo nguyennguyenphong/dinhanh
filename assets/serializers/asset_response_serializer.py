@@ -11,9 +11,15 @@ class AssetResponseSerializer(serializers.Serializer):
     name = serializers.CharField()
     serial_number = serializers.CharField(allow_null=True)
     purchase_date = serializers.DateField(allow_null=True)
-    purchase_price = serializers.DecimalField(max_digits=15, decimal_places=2, allow_null=True)
-    depreciation_rate = serializers.DecimalField(max_digits=5, decimal_places=2, allow_null=True)
-    current_value = serializers.DecimalField(max_digits=15, decimal_places=2, allow_null=True)
+    purchase_price = serializers.DecimalField(
+        max_digits=15, decimal_places=2, allow_null=True
+    )
+    depreciation_rate = serializers.DecimalField(
+        max_digits=5, decimal_places=2, allow_null=True
+    )
+    current_value = serializers.DecimalField(
+        max_digits=15, decimal_places=2, allow_null=True
+    )
     warranty_expiry = serializers.DateField(allow_null=True)
     status = serializers.CharField()
     notes = serializers.CharField(allow_null=True)
