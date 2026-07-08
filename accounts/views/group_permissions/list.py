@@ -5,12 +5,12 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from core.utils.grid import DjangoGridBuilder
 from accounts.models import PermissionGroup
 from accounts.serializers.permission_group_serializer import (
     PermissionGroupListQuerySerializer,
     PermissionGroupSerializer,
 )
+from core.utils.grid import DjangoGridBuilder
 
 
 class PermissionGroupListView(LoginRequiredMixin, View):
@@ -28,7 +28,9 @@ class PermissionGroupListView(LoginRequiredMixin, View):
         grid_builder.add_column("code", "Mã nhóm quyền", col_type="text", width=160)
         grid_builder.add_column("name", "Tên nhóm quyền", col_type="text", width=220)
         grid_builder.add_column("description", "Mô tả", col_type="text", width=300)
-        grid_builder.add_column("is_active", "Trạng thái", col_type="boolean", width=120)
+        grid_builder.add_column(
+            "is_active", "Trạng thái", col_type="boolean", width=120
+        )
         grid_builder.add_column(
             "actions",
             "Thao tác",

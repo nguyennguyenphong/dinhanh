@@ -5,12 +5,12 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from core.utils.grid import DjangoGridBuilder
 from accounts.models import UserAccount
 from accounts.serializers.user_serializer import (
     UserListQuerySerializer,
     UserSerializer,
 )
+from core.utils.grid import DjangoGridBuilder
 
 
 class UserListView(LoginRequiredMixin, View):
@@ -29,7 +29,9 @@ class UserListView(LoginRequiredMixin, View):
         grid_builder.add_column("email", "Email", col_type="text", width=200)
         grid_builder.add_column("full_name", "Họ và tên", col_type="text", width=200)
         grid_builder.add_column("phone", "Số điện thoại", col_type="text", width=130)
-        grid_builder.add_column("is_active", "Trạng thái", col_type="boolean", width=120)
+        grid_builder.add_column(
+            "is_active", "Trạng thái", col_type="boolean", width=120
+        )
         grid_builder.add_column(
             "actions",
             "Thao tác",
@@ -66,7 +68,9 @@ class UserListApiView(LoginRequiredMixin, View):
 
         if search:
             queryset = queryset.filter(
-                Q(username__icontains=search) | Q(email__icontains=search) | Q(full_name__icontains=search)
+                Q(username__icontains=search)
+                | Q(email__icontains=search)
+                | Q(full_name__icontains=search)
             )
 
         total = queryset.count()

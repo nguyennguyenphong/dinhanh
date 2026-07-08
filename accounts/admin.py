@@ -3,18 +3,26 @@ from __future__ import annotations
 from django.contrib import admin
 
 from accounts.models import (
-    UserAccount,
-    Role,
     Permission,
     PermissionGroup,
+    Role,
     SessionAuditLog,
+    UserAccount,
     UserSession,
 )
 
 
 @admin.register(UserAccount)
 class UserAccountAdmin(admin.ModelAdmin):
-    list_display = ("username", "email", "full_name", "tenant", "branch", "is_active", "is_staff")
+    list_display = (
+        "username",
+        "email",
+        "full_name",
+        "tenant",
+        "branch",
+        "is_active",
+        "is_staff",
+    )
     list_filter = ("is_active", "is_staff", "tenant")
     search_fields = ("username", "email", "full_name", "tenant__name")
     readonly_fields = ("uuid", "last_login")
@@ -31,7 +39,15 @@ class RoleAdmin(admin.ModelAdmin):
 
 @admin.register(Permission)
 class PermissionAdmin(admin.ModelAdmin):
-    list_display = ("codename", "name", "module", "action", "tenant", "is_system", "is_active")
+    list_display = (
+        "codename",
+        "name",
+        "module",
+        "action",
+        "tenant",
+        "is_system",
+        "is_active",
+    )
     list_filter = ("module", "action", "is_system", "is_active", "tenant")
     search_fields = ("codename", "name", "module", "tenant__name")
     ordering = ("tenant", "codename")
@@ -47,7 +63,14 @@ class PermissionGroupAdmin(admin.ModelAdmin):
 
 @admin.register(UserSession)
 class UserSessionAdmin(admin.ModelAdmin):
-    list_display = ("user", "ip_address", "user_agent", "is_active", "created_at", "expires_at")
+    list_display = (
+        "user",
+        "ip_address",
+        "user_agent",
+        "is_active",
+        "created_at",
+        "expires_at",
+    )
     list_filter = ("is_active", "created_at")
     search_fields = ("user__email", "ip_address")
     ordering = ("-created_at",)

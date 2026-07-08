@@ -1,18 +1,18 @@
-from accounts.serializers.role_serializer import (
-    RoleSerializer,
-    RoleListQuerySerializer,
+from accounts.serializers.permission_group_serializer import (
+    PermissionGroupListQuerySerializer,
+    PermissionGroupSerializer,
 )
 from accounts.serializers.permission_serializer import (
-    PermissionSerializer,
     PermissionListQuerySerializer,
+    PermissionSerializer,
 )
-from accounts.serializers.permission_group_serializer import (
-    PermissionGroupSerializer,
-    PermissionGroupListQuerySerializer,
+from accounts.serializers.role_serializer import (
+    RoleListQuerySerializer,
+    RoleSerializer,
 )
 from accounts.serializers.user_serializer import (
-    UserSerializer,
     UserListQuerySerializer,
+    UserSerializer,
 )
 
 __all__ = [

@@ -5,12 +5,12 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from core.utils.grid import DjangoGridBuilder
 from accounts.models import Role
 from accounts.serializers.role_serializer import (
     RoleListQuerySerializer,
     RoleSerializer,
 )
+from core.utils.grid import DjangoGridBuilder
 
 
 class RoleListView(LoginRequiredMixin, View):
@@ -29,7 +29,9 @@ class RoleListView(LoginRequiredMixin, View):
         grid_builder.add_column("slug", "Mã vai trò (Slug)", col_type="text", width=150)
         grid_builder.add_column("description", "Mô tả", col_type="text", width=300)
         grid_builder.add_column("is_system", "Hệ thống", col_type="boolean", width=120)
-        grid_builder.add_column("is_active", "Trạng thái", col_type="boolean", width=120)
+        grid_builder.add_column(
+            "is_active", "Trạng thái", col_type="boolean", width=120
+        )
         grid_builder.add_column(
             "actions",
             "Thao tác",

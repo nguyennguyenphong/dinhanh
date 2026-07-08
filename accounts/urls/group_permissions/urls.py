@@ -28,7 +28,6 @@ urlpatterns = [
         group_permission_views.PermissionGroupDeleteView.as_view(),
         name="group_permission_delete",
     ),
-
     # Fallback/Backward compatibility names
     path(
         "list/",

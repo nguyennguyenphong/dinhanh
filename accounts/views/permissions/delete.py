@@ -16,7 +16,9 @@ class PermissionDeleteView(LoginRequiredMixin, View):
 
         try:
             permission.delete()
-            messages.success(request, f"Đã xóa quyền '{permission.codename}' thành công.")
+            messages.success(
+                request, f"Đã xóa quyền '{permission.codename}' thành công."
+            )
         except Exception as exc:
             messages.error(request, f"Lỗi xóa quyền: {str(exc)}")
 

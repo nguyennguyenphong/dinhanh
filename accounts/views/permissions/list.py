@@ -5,12 +5,12 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from core.utils.grid import DjangoGridBuilder
 from accounts.models import Permission
 from accounts.serializers.permission_serializer import (
     PermissionListQuerySerializer,
     PermissionSerializer,
 )
+from core.utils.grid import DjangoGridBuilder
 
 
 class PermissionListView(LoginRequiredMixin, View):
@@ -25,13 +25,19 @@ class PermissionListView(LoginRequiredMixin, View):
         grid_builder.add_column(
             "idx", "STT", col_type="number", width=70, sortable=False, filter=False
         )
-        grid_builder.add_column("codename", "Mã quyền (Codename)", col_type="text", width=180)
+        grid_builder.add_column(
+            "codename", "Mã quyền (Codename)", col_type="text", width=180
+        )
         grid_builder.add_column("name", "Tên quyền", col_type="text", width=220)
         grid_builder.add_column("module", "Module", col_type="text", width=130)
-        grid_builder.add_column("action", "Hành động (Action)", col_type="text", width=120)
+        grid_builder.add_column(
+            "action", "Hành động (Action)", col_type="text", width=120
+        )
         grid_builder.add_column("description", "Mô tả", col_type="text", width=280)
         grid_builder.add_column("is_system", "Hệ thống", col_type="boolean", width=120)
-        grid_builder.add_column("is_active", "Trạng thái", col_type="boolean", width=120)
+        grid_builder.add_column(
+            "is_active", "Trạng thái", col_type="boolean", width=120
+        )
         grid_builder.add_column(
             "actions",
             "Thao tác",
@@ -68,7 +74,9 @@ class PermissionListApiView(LoginRequiredMixin, View):
 
         if search:
             queryset = queryset.filter(
-                Q(codename__icontains=search) | Q(name__icontains=search) | Q(module__icontains=search)
+                Q(codename__icontains=search)
+                | Q(name__icontains=search)
+                | Q(module__icontains=search)
             )
 
         total = queryset.count()
