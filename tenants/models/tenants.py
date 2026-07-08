@@ -124,7 +124,7 @@ class Tenant(SafeDeleteModel):
         default=True, db_index=True, help_text="Tenant có hoạt động không"
     )
 
-    # Tenant settings - JSON lưu trữ cấu hình override
+    # Tenant settings - JSON storing override configurations
     settings = models.JSONField(
         default=dict, blank=True, help_text="Cấu hình override cấp tenant"
     )

@@ -66,7 +66,7 @@ def tenant_post_save(sender, instance, created, **kwargs):
             if old_values[k] != new_values[k]
         }
         if not changes:
-            # Nothing changed — skip writing a noisy audit entry
+            # Nothing changed - skip writing a noisy audit entry
             return
 
     try:

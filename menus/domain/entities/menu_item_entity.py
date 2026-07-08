@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, List, Optional
 
-from menus.contants import MenuItemDefaults
+from menus.constants import MenuItemDefaults
 
 
 @dataclass

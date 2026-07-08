@@ -988,8 +988,8 @@
         "menu_item_role_service.py"
       ],
       "_files": [
-        "contants.py",
         "validators.py",
+        "constants.py",
         "apps.py",
         "admin.py"
       ]

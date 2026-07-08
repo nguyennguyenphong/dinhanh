@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Dict
 
-from menus.contants import MenuAuditAction
+from menus.constants import MenuAuditAction
 
 
 @dataclass

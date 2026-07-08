@@ -15,9 +15,6 @@ class FileStorageService:
     # Path: tenants/media/logo/
     UPLOAD_DIR = "logo"
 
-    # Đường dẫn lưu file: tenants/media/logo/
-    UPLOAD_DIR = "logo"
-
     @staticmethod
     def save_tenant_logo(file_obj) -> str:
         """
@@ -53,7 +50,7 @@ class FileStorageService:
         file_path = default_storage.save(unique_filename, file_obj)
 
         # 7. Return URL
-        # URL sẽ là: /media/logo/uuid.ext
+        # URL will be: /media/logo/uuid.ext
         file_url = default_storage.url(file_path)
         return file_url
 

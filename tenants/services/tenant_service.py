@@ -82,7 +82,7 @@ class TenantService:
         old_logo_url = tenant_model.logo_url
         data = form.cleaned_data.copy()
 
-        # 1. Xử lý ảnh mới
+        # 1. Handle new logo image
         logo_file = request.FILES.get("logo_url")
         has_new_logo = logo_file is not None
         new_logo_url = None

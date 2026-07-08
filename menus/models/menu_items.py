@@ -497,7 +497,7 @@ class MenuItem(BaseModel):
             # Returns: {
             #     'id': 1,
             #     'code': 'ticket_list',
-            #     'label': 'Danh sách vé',
+            #     'label': 'Ticket List',
             #     'url': '/tickets/list',
             #     'icon': 'mdi-list',
             #     'badge': {'text': '5', 'color': '#EF4444'},

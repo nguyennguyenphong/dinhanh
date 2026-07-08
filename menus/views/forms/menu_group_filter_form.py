@@ -1,6 +1,6 @@
 from django import forms
 
-from menus.contants import SORT_CHOICES, STATUS_CHOICES
+from menus.constants import SORT_CHOICES, STATUS_CHOICES
 
 
 class TailwindFormMixin:
