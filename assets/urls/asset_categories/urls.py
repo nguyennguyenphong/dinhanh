@@ -11,6 +11,11 @@ urlpatterns = [
         asset_category_views.AssetCategoryListView.as_view(),
         name="asset_category_list",
     ),
+    path(
+        "asset_categories/list/api/",
+        asset_category_views.AssetCategoryListApiView.as_view(),
+        name="asset_category_list_api",
+    ),
     # -------------------------------------------------------------------------
     # 2. CREATE FUNCTION (Split into UI Presentation and Data Persistence)
     # -------------------------------------------------------------------------
@@ -34,5 +39,13 @@ urlpatterns = [
         "asset_categories/detail/<uuid:pk>/",
         asset_category_views.AssetCategoryDetailView.as_view(),
         name="asset_category_detail",
+    ),
+    # -------------------------------------------------------------------------
+    # 5. DELETE FUNCTION
+    # -------------------------------------------------------------------------
+    path(
+        "asset_categories/delete/<uuid:pk>/",
+        asset_category_views.AssetCategoryDeleteView.as_view(),
+        name="asset_category_delete",
     ),
 ]

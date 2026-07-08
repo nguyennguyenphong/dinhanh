@@ -1130,10 +1130,31 @@
       ]
     },
     "assets": {
+      "providers": [
+        "asset_provider.py"
+      ],
+      "repositories": {
+        "implement": [
+          "asset_repository_impl.py",
+          "storage_unit_repository_impl.py",
+          "asset_category_repository_impl.py"
+        ],
+        "interfaces": [
+          "storage_unit_repository_interface.py",
+          "asset_repository_interface.py",
+          "asset_category_repository_interface.py"
+        ]
+      },
       "models": [
         "storage_units.py",
         "assets.py",
         "asset_categories.py"
+      ],
+      "serializers": [
+        "asset_list_query_serializer.py",
+        "storage_unit_serializer.py",
+        "asset_category_serializer.py",
+        "asset_response_serializer.py"
       ],
       "urls": {
         "asset_categories": [
@@ -1171,6 +1192,9 @@
               "_basic_information.html",
               "_button_action.html"
             ],
+            "assets": [
+              "_form.html"
+            ],
             "_files": [
               "_asset_category_form.html",
               "_asset_form.html"
@@ -1204,6 +1228,35 @@
           ]
         }
       },
+      "application": {
+        "dtos": {
+          "asset_categories": [
+            "asset_category_dtos.py"
+          ],
+          "storage_units": [
+            "storage_unit_dtos.py"
+          ],
+          "assets": [
+            "asset_dtos.py"
+          ]
+        },
+        "usecases": {
+          "asset_categories": [
+            "asset_category_usecases.py"
+          ],
+          "storage_units": [
+            "storage_unit_usecases.py"
+          ],
+          "assets": [
+            "delete_asset_usecase.py",
+            "get_asset_detail_usecase.py",
+            "helper_mapping.py",
+            "list_assets_usecase.py",
+            "update_asset_usecase.py",
+            "create_asset_usecase.py"
+          ]
+        }
+      },
       "views": {
         "asset_categories": [
           "asset_category_detail_view.py",
@@ -1214,7 +1267,15 @@
         ],
         "forms": [
           "asset_category_base_form.py",
-          "asste_base_form.py"
+          "asset_base_form.py",
+          "storage_unit_base_form.py"
+        ],
+        "storage_units": [
+          "storage_unit_list_view.py",
+          "storage_unit_update_view.py",
+          "storage_unit_delete_view.py",
+          "storage_unit_detail_view.py",
+          "storage_unit_create_view.py"
         ],
         "assets": [
           "asset_update_view.py",
@@ -1224,6 +1285,16 @@
           "asset_create_view.py"
         ]
       },
+      "domain": {
+        "entities": [
+          "asset_category_entity.py",
+          "asset_entity.py",
+          "storage_unit_entity.py"
+        ]
+      },
+      "services": [
+        "asset_service.py"
+      ],
       "_files": [
         "apps.py",
         "admin.py",

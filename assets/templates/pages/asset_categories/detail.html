@@ -10,25 +10,36 @@
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
     <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
-        {% include 'components/breadcrumb/_asset_category_detail_breadcrumb.html' %}
+        {% include 'components/breadcrumb/_category_detail_breadcrumb.html' %}
 
-        {% include 'components/page_header/_asset_category_detail_page_header.html' %}
+        {% include 'components/page_header/_category_detail_page_header.html' %}
 
         <div class="flex gap-3 flex-wrap">
             <a href="{% url 'asset_category_list' %}"
                 class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
                 ← Danh sách
             </a>
-            <a href="{% url 'asset_category_update' %}"
+            <a href="{% url 'asset_category_update' object.uuid %}"
                 class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all">
                 Chỉnh sửa
             </a>
         </div>
 
-        <div class="w-full bg-white">
-            
+        <div class="w-full bg-white border border-gray-200 rounded-md shadow-xs p-6 dark:bg-slate-900 dark:border-slate-800 space-y-6">
+            <div class="border-b border-gray-200 dark:border-slate-800 pb-4">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Thông tin danh mục</h3>
+            </div>
 
-
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Mã hệ thống ID</label>
+                    <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ category.id }}</span>
+                </div>
+                <div>
+                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Tên danh mục</label>
+                    <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ category.name }}</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

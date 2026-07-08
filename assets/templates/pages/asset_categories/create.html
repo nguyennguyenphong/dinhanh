@@ -8,16 +8,14 @@
 {% include 'portals/navbar.html' %}
 
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
-    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+    <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
-        {% include 'components/breadcrumb/_asset_category_create_breadcrumb.html' %}
+        {% include 'components/breadcrumb/_category_create_breadcrumb.html' %}
         
-        {% include 'components/page_header/_asset_category_create_page_header.html' %}
+        {% include 'components/page_header/_category_create_page_header.html' %}
 
         <div class="rounded-md">
-            
-            {% include 'components/forms/_asset_category_form.html' %}
-
+            {% include 'components/forms/asset_categories/_form.html' %}
         </div>
     </div>
 </div>
