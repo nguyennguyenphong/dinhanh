@@ -1,0 +1,41 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4 dark:bg-slate-900 dark:border-slate-800">
+    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Thông tin nhận diện & Đơn vị quản lý
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.tenant.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.tenant.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.tenant }}
+            {% if form.tenant.errors %}<p class="text-red-500 text-xs mt-1">{{ form.tenant.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div class="space-y-1">
+            <label for="{{ form.branch.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.branch.label }}
+            </label>
+            {{ form.branch }}
+            {% if form.branch.errors %}<p class="text-red-500 text-xs mt-1">{{ form.branch.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.code.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.code.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.code }}
+            {% if form.code.errors %}<p class="text-red-500 text-xs mt-1">{{ form.code.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div class="space-y-1 sm:col-span-2">
+            <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.name.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.name }}
+            {% if form.name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+</div>

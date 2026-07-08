@@ -1170,16 +1170,27 @@
       "templates": {
         "components": {
           "page_header": [
+            "_storage_unit_create_page_header.html",
+            "_storage_unit_update_page_header.html",
             "_asset_category_detail_page_header.html",
             "_asset_detail_page_header.html",
+            "_category_list_page_header.html",
+            "_category_detail_page_header.html",
+            "_category_create_page_header.html",
             "_asset_category_create_page_header.html",
             "_asset_list_page_header.html",
             "_asset_create_page_header.html",
             "_asset_category_list_page_header.html",
+            "_storage_unit_detail_page_header.html",
+            "_category_update_page_header.html",
+            "_storage_unit_list_page_header.html",
             "_asset_category_update_page_header.html",
             "_asset_update_page_header.html"
           ],
           "forms": {
+            "asset_categories": [
+              "_form.html"
+            ],
             "asset_section": [
               "_custody_location_allocation.html",
               "_general_information_classification.html",
@@ -1192,6 +1203,9 @@
               "_basic_information.html",
               "_button_action.html"
             ],
+            "storage_units": [
+              "_form.html"
+            ],
             "assets": [
               "_form.html"
             ],
@@ -1201,18 +1215,33 @@
             ]
           },
           "breadcrumb": [
+            "_storage_unit_create_breadcrumb.html",
             "_asset_list_breadcrumb.html",
             "_asset_category_create_breadcrumb.html",
             "_asset_create_breadcrumb.html",
             "_asset_category_detail_breadcrumb.html",
+            "_storage_unit_detail_breadcrumb.html",
             "_asset_detail_breadcrumb.html",
             "_asset_update_breadcrumb.html",
             "_asset_category_update_breadcrumb.html",
-            "_asset_category_list_breadcrumb.html"
+            "_storage_unit_update_breadcrumb.html",
+            "_category_list_breadcrumb.html",
+            "_category_update_breadcrumb.html",
+            "_storage_unit_list_breadcrumb.html",
+            "_asset_category_list_breadcrumb.html",
+            "_category_create_breadcrumb.html",
+            "_category_detail_breadcrumb.html"
           ]
         },
         "pages": {
           "asset_categories": [
+            "update.html",
+            "list.html",
+            "create.html",
+            "detail.html",
+            "delete.html"
+          ],
+          "storage_units": [
             "update.html",
             "list.html",
             "create.html",
