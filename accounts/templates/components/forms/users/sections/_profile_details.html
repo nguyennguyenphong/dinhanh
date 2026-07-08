@@ -1,0 +1,31 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4 dark:bg-slate-900 dark:border-slate-800">
+    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Thông tin cá nhân & Liên hệ
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.full_name.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.full_name.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.full_name }}
+            {% if form.full_name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.full_name.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div class="space-y-1">
+            <label for="{{ form.phone.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.phone.label }}
+            </label>
+            {{ form.phone }}
+            {% if form.phone.errors %}<p class="text-red-500 text-xs mt-1">{{ form.phone.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.avatar.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            {{ form.avatar.label }}
+        </label>
+        {{ form.avatar }}
+        {% if form.avatar.errors %}<p class="text-red-500 text-xs mt-1">{{ form.avatar.errors.0 }}</p>{% endif %}
+    </div>
+</div>

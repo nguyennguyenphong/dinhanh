@@ -1,0 +1,17 @@
+{% if form.non_field_errors %}
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        {{ form.non_field_errors }}
+    </div>
+{% endif %}
+
+<form action="{% if object %}{% url 'user_update' object.id %}{% else %}{% url 'user_create' %}{% endif %}" method="POST" class="space-y-6" autocomplete="off">
+    {% csrf_token %}
+
+    <div class="mb-4">
+        {% include 'components/forms/users/sections/_basic_information.html' %}
+        {% include 'components/forms/users/sections/_profile_details.html' %}
+        {% include 'components/forms/users/sections/_user_config.html' %}
+    </div>
+
+    {% include 'components/forms/users/sections/_button_action.html' %}
+</form>

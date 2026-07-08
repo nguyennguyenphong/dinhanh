@@ -1,0 +1,49 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4 dark:bg-slate-900 dark:border-slate-800">
+    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Cấu hình Phân nhóm & Phụ thuộc
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.module.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.module.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.module }}
+            {% if form.module.errors %}<p class="text-red-500 text-xs mt-1">{{ form.module.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div class="space-y-1">
+            <label for="{{ form.action.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.action.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.action }}
+            {% if form.action.errors %}<p class="text-red-500 text-xs mt-1">{{ form.action.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.parent.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.parent.label }}
+            </label>
+            {{ form.parent }}
+            {% if form.parent.errors %}<p class="text-red-500 text-xs mt-1">{{ form.parent.errors.0 }}</p>{% endif %}
+        </div>
+
+        <div class="space-y-1">
+            <label for="{{ form.is_active.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {{ form.is_active.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.is_active }}
+            {% if form.is_active.errors %}<p class="text-red-500 text-xs mt-1">{{ form.is_active.errors.0 }}</p>{% endif %}
+        </div>
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.description.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            {{ form.description.label }}
+        </label>
+        {{ form.description }}
+        {% if form.description.errors %}<p class="text-red-500 text-xs mt-1">{{ form.description.errors.0 }}</p>{% endif %}
+    </div>
+</div>

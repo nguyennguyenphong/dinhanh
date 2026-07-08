@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load component_tags %}
 
 {% block title %} Danh sách vai trò {% endblock %}
 
@@ -9,52 +8,39 @@
 {% include 'portals/navbar.html' %}
 
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
-    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+    <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
-        <div class="border border-gray-200 p-4 bg-white rounded-md">
-            {% component "page_header" title="Danh sách vai trò" description="Quản lý tài nguyên vai trò hệ thống." %}
-                {% block actions %}
-                    <div class="flex gap-3">
-                        {% component "button" type="submit" text="Tạo vai trò" variant="primary" size="md" full_width=True %}
-                        {% endcomponent %}
-                    </div>
-                {% endblock %}
-            {% endcomponent %}
-        </div>
+        {% include 'components/breadcrumb/_role_list_breadcrumb.html' %}
+        
+        {% include 'components/page_header/_role_list_page_header.html' %}
 
         <div class="flex flex-col bg-white border border-gray-200 rounded-md shadow-xs overflow-hidden">
             <div class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Danh sách vai trò</h3>
-                    <p class="text-sm text-gray-500 dark:text-slate-400">Quản lý tài nguyên vai trò hệ thống.</p>
+                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Hệ thống vai trò người dùng</h3>
+                    <p class="text-sm text-gray-500 dark:text-slate-400">Danh sách các vai trò chức danh trong doanh nghiệp.</p>
                 </div>
             </div>
 
-            <div class="overflow-x-auto w-full">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-slate-800">
-                    <thead class="bg-gray-50/70 dark:bg-slate-800/50 whitespace-nowrap">
-                        <tr>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">ID</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Tên vai trò</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Slug</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Logo</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Mô tả</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Vai trò hệ thống</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Trạng thái</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Ngày tạo</th>
-                            <th scope="col" class="px-6 py-3.5 text-start text-xs font-bold uppercase text-gray-400 tracking-wider">Ngày cập nhật</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Tenant Code</th>
-                            <th scope="col" class="px-6 py-3.5 text-end text-xs font-bold uppercase text-gray-400 tracking-wider">Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200 dark:divide-slate-800 whitespace-nowrap">
-                        <tr>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <input type="text" id="role-grid-search" placeholder="Tìm nhanh vai trò..."
+                        class="bg-gray-50 border border-gray-300 text-gray-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+                </div>
+
+                <div class="django-ag-grid-container" 
+                    id="{{ grid_id }}"
+                    data-endpoint="{{ api_url }}"
+                    data-columns="{{ columns_json }}"
+                    data-options="{{ options_json|default:'{}' }}"
+                    data-search-input="role-grid-search"
+                    style="height: 500px; width: 100%;">
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+{% include 'pages/role_delete.html' %}
 
 {% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Chi tiết vai trò {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
+
+        <div class="flex gap-3 flex-wrap">
+            <a href="{% url 'role_list' %}"
+                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
+                ← Danh sách
+            </a>
+            <a href="{% url 'role_update' role.id %}"
+                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all">
+                Chỉnh sửa
+            </a>
+        </div>
+
+        <div class="w-full bg-white border border-gray-200 rounded-md shadow-xs p-6 dark:bg-slate-900 dark:border-slate-800 space-y-6">
+            <div class="border-b border-gray-200 dark:border-slate-800 pb-4">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Chi tiết vai trò: {{ role.name }}</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Mã vai trò (Slug)</label>
+                    <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ role.slug }}</span>
+                </div>
+                <div>
+                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Trạng thái hoạt động</label>
+                    {% if role.is_active %}
+                        <span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Đang hoạt động
+                        </span>
+                    {% else %}
+                        <span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            Ngừng hoạt động
+                        </span>
+                    {% endif %}
+                </div>
+                <div>
+                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Thuộc hệ thống mặc định</label>
+                    <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{% if role.is_system %}Có (System Role){% else %}Không (Custom Role){% endif %}</span>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-slate-800 pt-6">
+                <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Mô tả nhiệm vụ</label>
+                <p class="text-sm text-gray-700 dark:text-gray-300 mt-2 whitespace-pre-wrap">{{ role.description|default:"Không có mô tả chi tiết." }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

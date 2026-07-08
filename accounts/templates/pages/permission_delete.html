@@ -1,0 +1,43 @@
+<div x-data="{ 
+    open: false, 
+    deleteUrl: '', 
+    permName: '',
+    init() {
+        window.addEventListener('open-delete-permissions-modal', (e) => {
+            const id = e.detail.id;
+            this.permName = e.detail.name || 'Quyền';
+            this.deleteUrl = `/permissions/delete/${id}/`;
+            this.open = true;
+        });
+    }
+}">
+    <div x-show="open" 
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 overflow-y-auto"
+         style="display: none;"
+         @click.self="open = false">
+        <div class="relative w-full max-w-md bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md shadow-lg p-6">
+            <div class="text-center">
+                <svg class="mx-auto mb-4 text-red-600 w-12 h-12 dark:text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                </svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                    Bạn có chắc chắn muốn xóa vĩnh viễn quyền <strong class="text-gray-900 dark:text-white" x-text="permName"></strong>?
+                </h3>
+                
+                <div class="flex items-center space-x-4 justify-center">
+                    <form :action="deleteUrl" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="text-white bg-red-600 hover:bg-red-700 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
+                            Chắc chắn, xóa ngay
+                        </button>
+                    </form>
+                    
+                    <button @click="open = false" type="button" 
+                            class="text-gray-700 dark:text-slate-300 bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
+                        Hủy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
