@@ -6,7 +6,11 @@ from menus.views.menu_groups.menu_group_list_view import (
 )
 from menus.views.menu_groups.menu_group_update_view import MenuGroupUpdateView
 from menus.views.menu_items.menu_items_create_view import MenuItemCreateView
-from menus.views.menu_items.menu_items_delete_view import MenuItemDeleteView
+from menus.views.menu_items.menu_items_delete_view import (
+    MenuItemDeleteView,
+    MenuItemHardDeleteView,
+    MenuItemSoftDeleteView,
+)
 from menus.views.menu_items.menu_items_detail_view import MenuItemDetailView
 from menus.views.menu_items.menu_items_list_view import (
     MenuItemListApiView,
