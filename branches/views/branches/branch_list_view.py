@@ -4,12 +4,12 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from core.utils.grid import DjangoGridBuilder
 from branches.providers.branch_provider import BranchProvider
 from branches.serializers.branch_serializer import (
     BranchListQuerySerializer,
     BranchSerializer,
 )
+from core.utils.grid import DjangoGridBuilder
 
 
 class BranchListView(LoginRequiredMixin, View):
@@ -29,7 +29,9 @@ class BranchListView(LoginRequiredMixin, View):
         grid_builder.add_column("address", "Địa chỉ", col_type="text", width=280)
         grid_builder.add_column("phone", "Số điện thoại", col_type="text", width=130)
         grid_builder.add_column("email", "Email liên hệ", col_type="text", width=180)
-        grid_builder.add_column("is_active", "Trạng thái", col_type="boolean", width=120)
+        grid_builder.add_column(
+            "is_active", "Trạng thái", col_type="boolean", width=120
+        )
         grid_builder.add_column(
             "actions",
             "Thao tác",
@@ -59,7 +61,9 @@ class BranchListApiView(LoginRequiredMixin, View):
         validated_data = serializer.validated_data
 
         branches, total = BranchProvider.list_branches().execute(
-            tenant_id=request.user.tenant_id if hasattr(request.user, "tenant_id") else 1,
+            tenant_id=(
+                request.user.tenant_id if hasattr(request.user, "tenant_id") else 1
+            ),
             search=validated_data.get("search") or None,
             limit=validated_data.get("limit", 50),
             offset=validated_data.get("offset", 0),

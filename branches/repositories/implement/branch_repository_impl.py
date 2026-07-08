@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 from django.db.models import Q
+
 from branches.domain.entities.branch_entity import BranchEntity
 from branches.models import Branch
-from branches.repositories.interfaces.branch_repository_interface import IBranchRepository
+from branches.repositories.interfaces.branch_repository_interface import (
+    IBranchRepository,
+)
 
 
 class BranchRepositoryImpl(IBranchRepository):
@@ -75,8 +78,6 @@ class BranchRepositoryImpl(IBranchRepository):
             )
 
         total = queryset.count()
-        models_list = queryset.order_by("code")[
-            offset : offset + limit
-        ]
+        models_list = queryset.order_by("code")[offset : offset + limit]
         entities = [self._to_entity(m) for m in models_list]
         return entities, total

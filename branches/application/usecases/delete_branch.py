@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from branches.repositories.interfaces.branch_repository_interface import IBranchRepository
+from branches.repositories.interfaces.branch_repository_interface import (
+    IBranchRepository,
+)
 
 
 class DeleteBranchUseCase:

@@ -10,8 +10,12 @@ class BranchSerializer(serializers.Serializer):
     phone = serializers.CharField(allow_null=True)
     email = serializers.CharField(allow_null=True)
     manager_id = serializers.IntegerField(allow_null=True)
-    latitude = serializers.DecimalField(max_digits=10, decimal_places=7, allow_null=True)
-    longitude = serializers.DecimalField(max_digits=10, decimal_places=7, allow_null=True)
+    latitude = serializers.DecimalField(
+        max_digits=10, decimal_places=7, allow_null=True
+    )
+    longitude = serializers.DecimalField(
+        max_digits=10, decimal_places=7, allow_null=True
+    )
     timezone = serializers.CharField()
     is_active = serializers.BooleanField()
     metadata = serializers.JSONField(default=dict)

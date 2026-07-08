@@ -2,7 +2,9 @@ from __future__ import annotations
 
 from branches.application.dtos.branch_dtos import BranchUpdateDto
 from branches.domain.entities.branch_entity import BranchEntity
-from branches.repositories.interfaces.branch_repository_interface import IBranchRepository
+from branches.repositories.interfaces.branch_repository_interface import (
+    IBranchRepository,
+)
 
 
 class UpdateBranchUseCase:

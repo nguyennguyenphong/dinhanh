@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
@@ -37,7 +38,9 @@ class BranchService:
             latitude=data.get("latitude"),
             longitude=data.get("longitude"),
             timezone=data.get("timezone") or "Asia/Ho_Chi_Minh",
-            is_active=data.get("is_active") if data.get("is_active") is not None else True,
+            is_active=(
+                data.get("is_active") if data.get("is_active") is not None else True
+            ),
             metadata=metadata,
         )
 
@@ -77,7 +80,9 @@ class BranchService:
             latitude=data.get("latitude"),
             longitude=data.get("longitude"),
             timezone=data.get("timezone") or "Asia/Ho_Chi_Minh",
-            is_active=data.get("is_active") if data.get("is_active") is not None else True,
+            is_active=(
+                data.get("is_active") if data.get("is_active") is not None else True
+            ),
             metadata=metadata,
         )
 

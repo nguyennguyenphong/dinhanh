@@ -1,4 +1,7 @@
-from branches.serializers.branch_serializer import BranchSerializer, BranchListQuerySerializer
+from branches.serializers.branch_serializer import (
+    BranchListQuerySerializer,
+    BranchSerializer,
+)
 
 __all__ = [
     "BranchSerializer",
