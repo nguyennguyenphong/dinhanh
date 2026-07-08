@@ -1,0 +1,18 @@
+{% if form.non_field_errors %}
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        {{ form.non_field_errors }}
+    </div>
+{% endif %}
+
+<form action="{% if object %}{% url 'branch_update' object.id %}{% else %}{% url 'branch_create' %}{% endif %}" method="POST" class="space-y-6" autocomplete="off">
+    {% csrf_token %}
+
+    <div class="mb-4">
+        {% include 'components/forms/branches/sections/_identity_and_tenancy.html' %}
+        {% include 'components/forms/branches/sections/_contact_and_manager.html' %}
+        {% include 'components/forms/branches/sections/_location_and_timezone.html' %}
+        {% include 'components/forms/branches/sections/_metadata.html' %}
+    </div>
+
+    {% include 'components/forms/branches/sections/_button_action.html' %}
+</form>

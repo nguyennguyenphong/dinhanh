@@ -11,8 +11,13 @@ urlpatterns = [
         branches_views.BranchListView.as_view(),
         name="branch_list",
     ),
+    path(
+        "branches/list/api/",
+        branches_views.BranchListApiView.as_view(),
+        name="branch_list_api",
+    ),
     # -------------------------------------------------------------------------
-    # 2. CREATE FUNCTION (Split into UI Presentation and Data Persistence)
+    # 2. CREATE FUNCTION
     # -------------------------------------------------------------------------
     path(
         "branches/create/",
@@ -20,19 +25,27 @@ urlpatterns = [
         name="branch_create",
     ),
     # -------------------------------------------------------------------------
-    # 3. UPDATE FUNCTION (Handles both GET for UI prep and POST for processing)
+    # 3. UPDATE FUNCTION
     # -------------------------------------------------------------------------
     path(
-        "branches/update/<uuid:pk>/",
+        "branches/update/<int:pk>/",
         branches_views.BranchUpdateView.as_view(),
         name="branch_update",
     ),
     # -------------------------------------------------------------------------
-    # 4. DETAIL FUNCTION (Handles both GET for UI prep and POST for processing)
+    # 4. DETAIL FUNCTION
     # -------------------------------------------------------------------------
     path(
-        "branches/detail/<uuid:pk>/",
+        "branches/detail/<int:pk>/",
         branches_views.BranchDetailView.as_view(),
         name="branch_detail",
+    ),
+    # -------------------------------------------------------------------------
+    # 5. DELETE FUNCTION
+    # -------------------------------------------------------------------------
+    path(
+        "branches/delete/<int:pk>/",
+        branches_views.BranchDeleteView.as_view(),
+        name="branch_delete",
     ),
 ]

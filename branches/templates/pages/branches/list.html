@@ -11,26 +11,31 @@
     <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
         {% include 'components/breadcrumb/_branch_list_breadcrumb.html' %}
-
+        
         {% include 'components/page_header/_branch_list_page_header.html' %}
 
         <div class="flex flex-col bg-white border border-gray-200 rounded-md shadow-xs overflow-hidden">
-            <div
-                class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Danh sách đơn vị thành viên</h3>
-                    <p class="text-sm text-gray-500 dark:text-slate-400">Quản lý định danh, trạng thái tài nguyên và môi
-                        trường phân tách.</p>
+                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Hệ thống chi nhánh</h3>
+                    <p class="text-sm text-gray-500 dark:text-slate-400">Danh sách các cơ sở, văn phòng trực thuộc công ty.</p>
                 </div>
             </div>
 
             <div class="p-4 space-y-4">
                 <div class="flex items-center justify-between">
-                    <input type="text" id="branch-grid-search" placeholder="Tìm kiếm nhanh chi nhánh..."
+                    <input type="text" id="branch-grid-search" placeholder="Tìm nhanh chi nhánh..."
                         class="bg-gray-50 border border-gray-300 text-gray-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:text-white">
                 </div>
 
-                
+                <div class="django-ag-grid-container" 
+                    id="{{ grid_id }}"
+                    data-endpoint="{{ api_url }}"
+                    data-columns="{{ columns_json }}"
+                    data-options="{{ options_json|default:'{}' }}"
+                    data-search-input="branch-grid-search"
+                    style="height: 500px; width: 100%;">
+                </div>
             </div>
         </div>
     </div>

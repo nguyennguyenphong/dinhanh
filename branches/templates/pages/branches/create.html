@@ -1,23 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Tạo chi nhánh {% endblock %}
+{% block title %} Tạo chi nhánh mới {% endblock %}
 
 {% block content %}
 {% include 'portals/sidebar.html' %}
 {% include 'portals/navbar.html' %}
 
 <div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
-    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+    <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
         {% include 'components/breadcrumb/_branch_create_breadcrumb.html' %}
         
         {% include 'components/page_header/_branch_create_page_header.html' %}
 
         <div class="rounded-md">
-            
-            {% include 'components/forms/_branch_form.html' %}
-
+            {% include 'components/forms/branches/_form.html' %}
         </div>
     </div>
 </div>

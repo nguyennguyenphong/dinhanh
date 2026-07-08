@@ -1,89 +1,38 @@
 <div x-data="{ 
     open: false, 
-    softDeleteUrl: '', 
-    hardDeleteUrl: '', 
-    tenantName: '',
-    showConfirmModal: false,
-    confirmTitle: '',
-    confirmUrl: '',
+    deleteUrl: '', 
+    branchName: '',
     init() {
-        window.addEventListener('open-delete-tenants-modal', (e) => {
-            const uuid = e.detail.uuid;
-            this.tenantName = e.detail.name || 'Tenant';
-            this.softDeleteUrl = `/tenants/soft_delete/${uuid}/`;
-            this.hardDeleteUrl = `/tenants/hard_delete/${uuid}/`;
+        window.addEventListener('open-delete-branches-modal', (e) => {
+            const id = e.detail.id;
+            this.branchName = e.detail.name || 'Chi nhánh';
+            this.deleteUrl = `/branches/delete/${id}/`;
             this.open = true;
         });
-    },
-    triggerConfirm(url, title) {
-        this.confirmUrl = url;
-        this.confirmTitle = title;
-        this.showConfirmModal = true;
     }
 }">
     <div x-show="open" 
          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 overflow-y-auto"
          style="display: none;"
          @click.self="open = false">
-        <div class="relative w-full max-w-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md shadow-lg p-6">
-            <div class="flex items-center justify-between border-b border-gray-200 dark:border-slate-700 pb-4">
-                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Xác nhận xóa đơn vị thành viên</h3>
-                <button type="button" @click="open = false" class="text-gray-400 hover:text-gray-500 rounded-md">
-                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <div class="space-y-6 py-6">
-                <p class="leading-relaxed text-gray-700 dark:text-slate-300 font-medium">
-                    Vui lòng chọn phương thức xóa cho tenant: <strong class="text-gray-900 dark:text-white" x-text="tenantName"></strong>
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="border border-gray-200 dark:border-slate-700 rounded-md p-4">
-                        <p class="text-sm font-semibold text-gray-800 dark:text-slate-200">Xóa tạm thời (Soft Delete)</p>
-                        <p class="text-xs text-gray-500 dark:text-slate-400 mb-4">Dữ liệu vẫn được giữ nhưng sẽ bị ẩn đi.</p>
-                        <button type="button" 
-                                @click="triggerConfirm(softDeleteUrl, 'Xóa tạm thời')"
-                                class="w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-md text-sm px-4 py-2.5 cursor-pointer">
-                            Xác nhận Xóa Tạm thời
-                        </button>
-                    </div>
-
-                    <div class="border border-gray-200 dark:border-slate-700 rounded-md p-4">
-                        <p class="text-sm font-semibold text-red-600">Xóa vĩnh viễn (Hard Delete)</p>
-                        <p class="text-xs text-gray-500 dark:text-slate-400 mb-4">Dữ liệu sẽ bị xóa hoàn toàn khỏi hệ thống.</p>
-                        <button type="button" 
-                                @click="triggerConfirm(hardDeleteUrl, 'Xóa vĩnh viễn')"
-                                class="w-full text-white bg-red-600 hover:bg-red-700 font-medium rounded-md text-sm px-4 py-2.5 cursor-pointer">
-                            Xác nhận Xóa Vĩnh viễn
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div x-show="showConfirmModal" 
-         class="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/50 overflow-y-auto"
-         style="display: none;"
-         @click.self="showConfirmModal = false">
         <div class="relative w-full max-w-md bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md shadow-lg p-6">
             <div class="text-center">
-                <h3 class="mb-6 text-lg font-medium text-gray-900 dark:text-white">
-                    Bạn có chắc chắn muốn <span class="font-bold text-red-600" x-text="confirmTitle"></span> tenant <span class="font-bold" x-text="tenantName"></span>?
+                <svg class="mx-auto mb-4 text-red-600 w-12 h-12 dark:text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                </svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                    Bạn có chắc chắn muốn xóa vĩnh viễn chi nhánh <strong class="text-gray-900 dark:text-white" x-text="branchName"></strong>?
                 </h3>
                 
                 <div class="flex items-center space-x-4 justify-center">
-                    <form :action="confirmUrl" method="post">
+                    <form :action="deleteUrl" method="post">
                         {% csrf_token %}
                         <button type="submit" class="text-white bg-red-600 hover:bg-red-700 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
                             Chắc chắn, xóa ngay
                         </button>
                     </form>
                     
-                    <button @click="showConfirmModal = false" type="button" 
+                    <button @click="open = false" type="button" 
                             class="text-gray-700 dark:text-slate-300 bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
                         Hủy
                     </button>
