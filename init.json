@@ -1105,11 +1105,11 @@
           "manifest.json"
         ],
         "assets": [
-          "app-Bq1ie2KI.js",
+          "app-BeBHEbsp.js",
           "app-C5Nj1jXJ.css",
-          "input-P79Hp8n2.js",
-          "style-DzmXPpU-.js",
-          "style-y__octFP.css"
+          "input-BBk7lQry.js",
+          "style-B2vc3USE.css",
+          "style-CuRgyZan.js"
         ]
       },
       "src": {
@@ -1121,6 +1121,7 @@
           "components": [
             "aggrid.js",
             "backdrop.js",
+            "flatpickr.js",
             "grid.js",
             "notyf.js",
             "spinner.js",
@@ -1361,6 +1362,7 @@
           "accordion": {
             "tenants": {
               "accordion_items": [
+                "_audit_tracking.html",
                 "_basic_information.html",
                 "_limited_resources.html",
                 "_localization.html",
@@ -1446,8 +1448,7 @@
       ],
       "views": {
         "forms": [
-          "tenant_base_form.py",
-          "tenant_filter_form.py"
+          "tenant_base_form.py"
         ],
         "helpers": [
           "view_helpers.py"

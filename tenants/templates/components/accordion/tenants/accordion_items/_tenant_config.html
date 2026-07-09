@@ -26,13 +26,23 @@
         </div>
         <div class="flex items-center py-2.5 text-sm">
             <span class="w-36 text-gray-500 shrink-0">Ngày bắt đầu</span>
-            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.subscription_started_at
-                }}</span>
+            <span class="font-medium text-gray-900 dark:text-white">
+                {% if tenant.subscription_started_at %}
+                <span class="font-medium text-gray-900 dark:text-white">{{ tenant.subscription_started_at }}</span>
+                {% else %}
+                <span class="font-medium text-gray-900 dark:text-white">-</span>
+                {% endif %}
+            </span>
         </div>
         <div class="flex items-center py-2.5 text-sm">
             <span class="w-36 text-gray-500 shrink-0">Ngày kết thúc</span>
-            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.subscription_expires_at
-                }}</span>
+            <span class="font-medium text-gray-900 dark:text-white">
+                {% if tenant.subscription_expires_at %}
+                <span class="font-medium text-gray-900 dark:text-white">{{ tenant.subscription_expires_at }}</span>
+                {% else %}
+                <span class="font-medium text-gray-900 dark:text-white">-</span>
+                {% endif %}
+            </span>
         </div>
         <div class="flex items-center py-2.5 text-sm">
             <span class="w-36 text-gray-500 shrink-0">Màu chủ đạo</span>

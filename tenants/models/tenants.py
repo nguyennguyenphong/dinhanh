@@ -32,23 +32,15 @@ class Tenant(SafeDeleteModel):
     CURRENCY_CHOICES = (
         ("VND", _("Vietnam Dong (₫)")),
         ("USD", _("US Dollar ($)")),
-        ("EUR", _("Euro (€)")),
-        ("LAK", _("Lao Kip (₭)")),
-        ("KHR", _("Cambodian Riel (៛)")),
     )
 
     LANGUAGE_CHOICES = (
-        ("vi", _("Tiếng Việt")),
-        ("en", _("English")),
-        ("lo", _("Lao")),
-        ("km", _("Khmer")),
+        ("vi", _("Vietnamese/Tiếng Việt")),
+        ("en", _("English/Tiếng Anh")),
     )
 
     TIMEZONE_CHOICES = (
         ("Asia/Ho_Chi_Minh", _("Asia/Ho_Chi_Minh (GMT+7)")),
-        ("Asia/Vientiane", _("Asia/Vientiane (GMT+7)")),
-        ("Asia/Phnom_Penh", _("Asia/Phnom_Penh (GMT+7)")),
-        ("Asia/Bangkok", _("Asia/Bangkok (GMT+7)")),
     )
 
     id = models.AutoField(primary_key=True)

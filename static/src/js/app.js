@@ -24,6 +24,8 @@ import initAgGrid from "./components/aggrid";
 // 404 Error
 import init404Error from "./errors/404";
 window.init404Error = init404Error;
+// Flatpickr
+import initDatePicker from "./components/flatpickr";
 
 document.addEventListener('DOMContentLoaded', () => {
     // Flowbite
@@ -36,4 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initToast();
     //Gridjs
     initAgGrid();
+    // Flatpickr
+    initDatePicker();
 });

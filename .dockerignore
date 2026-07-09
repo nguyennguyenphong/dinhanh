@@ -1,10 +1,14 @@
-# Git files
+# ==============================================================================
+# GIT & SCM
+# ==============================================================================
 .git
 .gitignore
 .gitattributes
 
-# Python
-__pycache__
+# ==============================================================================
+# PYTHON & DJANGO CACHE / ARTIFACTS
+# ==============================================================================
+__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -15,63 +19,63 @@ build/
 *.egg
 .pytest_cache/
 .coverage
+htmlcov/
 .env
 .venv
 venv/
 ENV/
+_keys/
 
-# Django
+# ==============================================================================
+# DJANGO LOCAL STORAGE (Do not package dynamic/local data into image)
+# ==============================================================================
 *.log
 local_settings.py
-/staticfiles/
-/media/
 db.sqlite3
 *.pot
+# LƯU Ý: Chỉ chặn thư mục gốc /staticfiles/ sinh ra do collectstatic, 
+# KHÔNG CHẶN thư mục static/build/ frontend của bạn.
+/staticfiles/
+/media/
 
-# IDEs
+# ==============================================================================
+# DEV TOOLS & IDEs
+# ==============================================================================
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.DS_Store
+.project
+.pydevproject
 
-# Node
+# ==============================================================================
+# NODE / FRONTEND SOURCE CACHE (We only need static/build, not node source)
+# ==============================================================================
 node_modules/
 npm-debug.log
 yarn-error.log
 .npmrc
+.package-lock.json
 
-# Docker
-Dockerfile*
+# ==============================================================================
+# INFRASTRUCTURE & CI/CD (Keep Dockerfile open, ignore other infra configs)
+# ==============================================================================
 docker-compose*.yaml
-.dockerignore
-
-# Kubernetes
+docker-compose*.yml
 k8s/
 *.yaml
 *.yml
-K8S_DEPLOYMENT_GUIDE.md
-HELM_GUIDE.md
-k8s-deploy.sh
-k8s-update.sh
-
-# Documentation
-README.md
-docs/
 .github/
-
-# CI/CD
 .gitlab-ci.yml
-.github/workflows/
 Jenkinsfile
+*.sh
+*.md
 
-# OS
+# ==============================================================================
+# SYSTEM & OS FILES
+# ==============================================================================
 .DS_Store
 Thumbs.db
-
-# Misc
 *.bak
 *.backup
-.env*
-!.env.example

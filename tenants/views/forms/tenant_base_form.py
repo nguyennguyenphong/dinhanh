@@ -1,5 +1,4 @@
 from django import forms
-
 from tenants.models.tenants import Tenant
 
 
@@ -12,7 +11,6 @@ class TailwindFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Standard input class configuration
         tailwind_classes = (
             "w-full border-[1.5px] border-gray-200 rounded-md bg-white transition-all "
             "hover:border-blue-400 focus:border-blue-500 focus:ring-0 "
@@ -53,7 +51,6 @@ class TailwindFormMixin:
             widget = field.widget
             current_placeholder = placeholders.get(field_name, "")
 
-            # Check if it is a color input first to prevent text class overriding
             if (
                 isinstance(widget, forms.TextInput)
                 and widget.attrs.get("type") == "color"
@@ -61,6 +58,16 @@ class TailwindFormMixin:
                 widget.attrs.update(
                     {
                         "class": "h-10 w-12 p-0.5 block bg-transparent border border-gray-200 rounded-md cursor-pointer dark:border-slate-700"
+                    }
+                )
+
+            elif isinstance(widget, (forms.DateInput, forms.DateTimeInput)):
+                picker_type = "datetime-picker" if isinstance(widget, forms.DateTimeInput) else ""
+                widget.attrs.update(
+                    {
+                        "class": f"{tailwind_classes} flatpickr-input {picker_type}".strip(),
+                        "placeholder": current_placeholder,
+                        "autocomplete": "off",
                     }
                 )
 
@@ -73,13 +80,6 @@ class TailwindFormMixin:
                         "class": tailwind_classes,
                         "placeholder": current_placeholder,
                         "autocomplete": "off",
-                    }
-                )
-
-            elif isinstance(widget, (forms.DateInput, forms.DateTimeInput)):
-                widget.attrs.update(
-                    {
-                        "class": tailwind_classes,
                     }
                 )
 
@@ -146,34 +146,26 @@ class TenantBaseForm(TailwindFormMixin, forms.ModelForm):
             "settings",
         ]
         widgets = {
-            # Let template and mixin control specific responsive design attributes
             "primary_color": forms.TextInput(attrs={"type": "color"}),
             "is_active": forms.RadioSelect(
                 choices=[(True, "Kích hoạt"), (False, "Ngừng kích hoạt")]
             ),
-            "subscription_started_at": forms.DateTimeInput(
-                attrs={"type": "datetime-local", "onkeydown": "return false;"}
-            ),
-            "subscription_expires_at": forms.DateTimeInput(
-                attrs={"type": "datetime-local", "onkeydown": "return false;"}
-            ),
+            "subscription_started_at": forms.DateTimeInput(),
+            "subscription_expires_at": forms.DateTimeInput(),
         }
 
     def __init__(self, *args, **kwargs):
-        # 1. Call the parent class's init function to initialize the fields and apply Tailwind CSS first.
         super().__init__(*args, **kwargs)
 
         if self.instance and self.instance.pk:
             for field in ["subscription_started_at", "subscription_expires_at"]:
                 if self.instance.__dict__.get(field):
                     self.fields[field].initial = self.instance.__dict__[field].strftime(
-                        "%Y-%m-%dT%H:%M"
+                        "%Y-%m-%d %H:%M"
                     )
 
-        # 2. Override the configuration so that the exchange_rate field is NOT required in the Django Form layer.
         if "exchange_rate" in self.fields:
             self.fields["exchange_rate"].required = False
 
-        # Ensure logo_url is not required
         if "logo_url" in self.fields:
             self.fields["logo_url"].required = False

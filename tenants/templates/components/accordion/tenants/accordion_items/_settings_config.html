@@ -14,7 +14,13 @@
     <div class="p-4 md:p-5 border border-t-default border-b-0 border-x-0">
         <div class="flex items-center py-2.5 text-sm">
             <span class="w-36 text-gray-500 shrink-0">Càu đặt khác</span>
-            <span class="font-medium text-gray-900 dark:text-white">{{ tenant.settings }}</span>
+            <span class="font-medium text-gray-900 dark:text-white">
+                {% if tenant.settings %}
+                <span class="font-medium text-gray-900 dark:text-white">{{ tenant.settings }}</span>
+                {% else %}
+                <span class="font-medium text-gray-900 dark:text-white">-</span>
+                {% endif %}
+            </span>
         </div>
     </div>
 </div>
