@@ -19,11 +19,15 @@ class UserRepository(Protocol):
         """Retrieve UserEntity by its unique UUID."""
         pass
 
-    def exists_by_username(self, tenant_id: int, username: str, exclude_id: int | None = None) -> bool:
+    def exists_by_username(
+        self, tenant_id: int, username: str, exclude_id: int | None = None
+    ) -> bool:
         """Check if username exists in tenant, excluding specific ID if provided."""
         pass
 
-    def exists_by_email(self, tenant_id: int, email: str, exclude_id: int | None = None) -> bool:
+    def exists_by_email(
+        self, tenant_id: int, email: str, exclude_id: int | None = None
+    ) -> bool:
         """Check if email exists in tenant, excluding specific ID if provided."""
         pass
 

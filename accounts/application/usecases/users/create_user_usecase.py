@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+
 from django.contrib.auth.hashers import make_password
 
 from accounts.application.dtos.users.user_create_dto import UserCreateDto
@@ -19,7 +20,9 @@ class CreateUserUseCase:
         normalized_username = dto.username.strip().lower()
         normalized_email = dto.email.strip().lower()
 
-        if self._repo.exists_by_username(tenant_id=dto.tenant_id, username=normalized_username):
+        if self._repo.exists_by_username(
+            tenant_id=dto.tenant_id, username=normalized_username
+        ):
             raise ValueError("Tên đăng nhập đã tồn tại trong Tenant này.")
 
         if self._repo.exists_by_email(tenant_id=dto.tenant_id, email=normalized_email):

@@ -6,7 +6,10 @@ from django.shortcuts import get_object_or_404
 from accounts.application.dtos.roles import RoleCreateDto, RoleUpdateDto
 from accounts.models.roles import Role
 from accounts.providers.role_provider import RoleProvider
-from accounts.serializers.role_serializer import RoleCreateSerializer, RoleUpdateSerializer
+from accounts.serializers.role_serializer import (
+    RoleCreateSerializer,
+    RoleUpdateSerializer,
+)
 
 
 class RoleService:
@@ -15,7 +18,11 @@ class RoleService:
     def create_role(request, form) -> bool:
         """Validate input form data and execute creation UseCase."""
         form_data = {
-            "tenant": form.cleaned_data["tenant"].id if form.cleaned_data.get("tenant") else None,
+            "tenant": (
+                form.cleaned_data["tenant"].id
+                if form.cleaned_data.get("tenant")
+                else None
+            ),
             "name": form.cleaned_data.get("name"),
             "slug": form.cleaned_data.get("slug"),
             "description": form.cleaned_data.get("description"),

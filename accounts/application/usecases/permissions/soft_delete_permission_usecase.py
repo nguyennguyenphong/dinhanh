@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import uuid
 
-from accounts.repositories.interfaces.permission_repository_interface import PermissionRepository
+from accounts.repositories.interfaces.permission_repository_interface import (
+    PermissionRepository,
+)
 
 
 class SoftDeletePermissionUseCase:

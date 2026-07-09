@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import uuid
 
-from accounts.application.dtos.roles.role_update_dto import RoleUpdateDto
 from accounts.application.dtos.roles.role_response_dto import RoleResponseDto
+from accounts.application.dtos.roles.role_update_dto import RoleUpdateDto
 from accounts.repositories.interfaces.role_repository_interface import RoleRepository
 
 
@@ -19,7 +19,9 @@ class UpdateRoleUseCase:
             raise ValueError("Không tìm thấy vai trò.")
 
         target_slug = dto.slug.strip().lower()
-        if self._repo.exists_by_slug(tenant_id=entity.tenant_id, slug=target_slug, exclude_id=entity.id):
+        if self._repo.exists_by_slug(
+            tenant_id=entity.tenant_id, slug=target_slug, exclude_id=entity.id
+        ):
             raise ValueError("Mã slug cho vai trò này đã tồn tại trong Tenant.")
 
         entity.update_info(

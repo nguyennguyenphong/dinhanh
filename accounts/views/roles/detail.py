@@ -13,6 +13,7 @@ class RoleDetailView(LoginRequiredMixin, View):
         role = get_object_or_404(Role.all_objects, id=pk)
 
         from tenants.models import Tenant
+
         tenant = Tenant.objects.filter(pk=role.tenant_id).first()
         tenant_name = tenant.name if tenant else "-"
 

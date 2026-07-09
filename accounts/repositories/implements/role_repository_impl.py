@@ -27,6 +27,7 @@ class RoleRepositoryImpl(RoleRepository):
     @property
     def _model(self):
         from accounts.models.roles import Role
+
         return Role
 
     def save(self, entity: RoleEntity) -> RoleEntity:
@@ -57,8 +58,12 @@ class RoleRepositoryImpl(RoleRepository):
         obj = self._model.all_objects.filter(uuid=role_uuid).first()
         return _model_to_entity(obj) if obj else None
 
-    def exists_by_slug(self, tenant_id: int, slug: str, exclude_id: int | None = None) -> bool:
-        qs = self._model.all_objects.filter(tenant_id=tenant_id, slug=slug.strip().lower())
+    def exists_by_slug(
+        self, tenant_id: int, slug: str, exclude_id: int | None = None
+    ) -> bool:
+        qs = self._model.all_objects.filter(
+            tenant_id=tenant_id, slug=slug.strip().lower()
+        )
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
@@ -75,5 +80,6 @@ class RoleRepositoryImpl(RoleRepository):
         if not obj:
             return False
         from safedelete.models import HARD_DELETE
+
         obj.delete(force_policy=HARD_DELETE)
         return True

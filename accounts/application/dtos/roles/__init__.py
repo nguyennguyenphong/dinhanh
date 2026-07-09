@@ -1,6 +1,6 @@
 from accounts.application.dtos.roles.role_create_dto import RoleCreateDto
-from accounts.application.dtos.roles.role_update_dto import RoleUpdateDto
 from accounts.application.dtos.roles.role_response_dto import RoleResponseDto
+from accounts.application.dtos.roles.role_update_dto import RoleUpdateDto
 
 __all__ = [
     "RoleCreateDto",

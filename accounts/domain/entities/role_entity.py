@@ -37,7 +37,9 @@ class RoleEntity:
     def activate(self) -> None:
         self.is_active = True
 
-    def update_info(self, name: str, slug: str, description: str | None, is_active: bool) -> None:
+    def update_info(
+        self, name: str, slug: str, description: str | None, is_active: bool
+    ) -> None:
         self.name = name.strip()
         self.slug = slug.strip().lower()
         self.description = description.strip() if description else None

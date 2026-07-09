@@ -23,12 +23,16 @@ class RoleCreateSerializer(serializers.Serializer):
     tenant = serializers.IntegerField()
     name = serializers.CharField(max_length=100)
     slug = serializers.CharField(max_length=100, required=False, allow_blank=True)
-    description = serializers.CharField(max_length=1000, required=False, allow_null=True, allow_blank=True)
+    description = serializers.CharField(
+        max_length=1000, required=False, allow_null=True, allow_blank=True
+    )
     is_active = serializers.BooleanField(default=True)
 
 
 class RoleUpdateSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
     slug = serializers.CharField(max_length=100)
-    description = serializers.CharField(max_length=1000, required=False, allow_null=True, allow_blank=True)
+    description = serializers.CharField(
+        max_length=1000, required=False, allow_null=True, allow_blank=True
+    )
     is_active = serializers.BooleanField(default=True)

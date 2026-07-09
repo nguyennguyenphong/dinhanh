@@ -17,7 +17,9 @@ class RoleRepository(Protocol):
         """Retrieve RoleEntity by its unique UUID."""
         ...
 
-    def exists_by_slug(self, tenant_id: int, slug: str, exclude_id: int | None = None) -> bool:
+    def exists_by_slug(
+        self, tenant_id: int, slug: str, exclude_id: int | None = None
+    ) -> bool:
         """Check if slug exists in tenant, excluding specific ID if provided."""
         ...
 

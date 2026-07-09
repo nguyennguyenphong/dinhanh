@@ -6,7 +6,10 @@ from django.shortcuts import get_object_or_404
 from accounts.application.dtos.users import UserCreateDto, UserUpdateDto
 from accounts.models import UserAccount
 from accounts.providers.user_provider import UserProvider
-from accounts.serializers.user_serializer import UserCreateSerializer, UserUpdateSerializer
+from accounts.serializers.user_serializer import (
+    UserCreateSerializer,
+    UserUpdateSerializer,
+)
 
 
 class UserService:
@@ -15,7 +18,11 @@ class UserService:
     def create_user(request, form) -> bool:
         """Validate input form data and execute creation UseCase."""
         form_data = {
-            "tenant": form.cleaned_data["tenant"].id if form.cleaned_data.get("tenant") else None,
+            "tenant": (
+                form.cleaned_data["tenant"].id
+                if form.cleaned_data.get("tenant")
+                else None
+            ),
             "username": form.cleaned_data.get("username"),
             "email": form.cleaned_data.get("email"),
             "password": form.cleaned_data.get("password"),
@@ -82,6 +89,7 @@ class UserService:
             new_password = form.cleaned_data.get("password")
             if new_password and new_password.strip():
                 from django.contrib.auth.hashers import make_password
+
                 user_model.password = make_password(new_password)
                 user_model.save()
 
@@ -106,7 +114,9 @@ class UserService:
         try:
             success = UserProvider.soft_delete_user().execute(user_model.uuid)
             if success:
-                messages.success(request, "Vô hiệu hóa tài khoản người dùng thành công.")
+                messages.success(
+                    request, "Vô hiệu hóa tài khoản người dùng thành công."
+                )
             return success
         except Exception as exc:
             messages.error(request, f"Lỗi: {str(exc)}")
@@ -118,7 +128,9 @@ class UserService:
         try:
             success = UserProvider.hard_delete_user().execute(user_model.uuid)
             if success:
-                messages.success(request, "Xóa vĩnh viễn tài khoản người dùng thành công.")
+                messages.success(
+                    request, "Xóa vĩnh viễn tài khoản người dùng thành công."
+                )
             return success
         except Exception as exc:
             messages.error(request, f"Lỗi: {str(exc)}")

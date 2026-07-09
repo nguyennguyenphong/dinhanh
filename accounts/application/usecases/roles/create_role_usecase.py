@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+
 from django.utils.text import slugify
 
 from accounts.application.dtos.roles.role_create_dto import RoleCreateDto

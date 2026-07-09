@@ -4,7 +4,9 @@ import uuid
 from typing import Any
 
 from accounts.domain.entities.permission_entity import PermissionEntity
-from accounts.repositories.interfaces.permission_repository_interface import PermissionRepository
+from accounts.repositories.interfaces.permission_repository_interface import (
+    PermissionRepository,
+)
 
 
 def _model_to_entity(obj: Any) -> PermissionEntity:
@@ -29,6 +31,7 @@ class PermissionRepositoryImpl(PermissionRepository):
     @property
     def _model(self):
         from accounts.models.permissions import Permission
+
         return Permission
 
     def save(self, entity: PermissionEntity) -> PermissionEntity:
@@ -63,8 +66,12 @@ class PermissionRepositoryImpl(PermissionRepository):
         obj = self._model.all_objects.filter(uuid=permission_uuid).first()
         return _model_to_entity(obj) if obj else None
 
-    def exists_by_codename(self, tenant_id: int, codename: str, exclude_id: int | None = None) -> bool:
-        qs = self._model.all_objects.filter(tenant_id=tenant_id, codename=codename.strip().lower())
+    def exists_by_codename(
+        self, tenant_id: int, codename: str, exclude_id: int | None = None
+    ) -> bool:
+        qs = self._model.all_objects.filter(
+            tenant_id=tenant_id, codename=codename.strip().lower()
+        )
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
@@ -81,5 +88,6 @@ class PermissionRepositoryImpl(PermissionRepository):
         if not obj:
             return False
         from safedelete.models import HARD_DELETE
+
         obj.delete(force_policy=HARD_DELETE)
         return True

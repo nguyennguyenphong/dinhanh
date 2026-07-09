@@ -2,10 +2,16 @@ from __future__ import annotations
 
 import uuid
 
-from accounts.application.dtos.permissions.permission_create_dto import PermissionCreateDto
-from accounts.application.dtos.permissions.permission_response_dto import PermissionResponseDto
+from accounts.application.dtos.permissions.permission_create_dto import (
+    PermissionCreateDto,
+)
+from accounts.application.dtos.permissions.permission_response_dto import (
+    PermissionResponseDto,
+)
 from accounts.domain.entities.permission_entity import PermissionEntity
-from accounts.repositories.interfaces.permission_repository_interface import PermissionRepository
+from accounts.repositories.interfaces.permission_repository_interface import (
+    PermissionRepository,
+)
 
 
 class CreatePermissionUseCase:
@@ -17,7 +23,9 @@ class CreatePermissionUseCase:
     def execute(self, dto: PermissionCreateDto) -> PermissionResponseDto:
         target_codename = dto.codename.strip().lower()
 
-        if self._repo.exists_by_codename(tenant_id=dto.tenant_id, codename=target_codename):
+        if self._repo.exists_by_codename(
+            tenant_id=dto.tenant_id, codename=target_codename
+        ):
             raise ValueError("Mã codename cho quyền này đã tồn tại trong Tenant.")
 
         entity = PermissionEntity(

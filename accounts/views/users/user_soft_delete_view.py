@@ -20,7 +20,9 @@ class UserSoftDeleteView(LoginRequiredMixin, View):
     def delete(self, request, pk: int):
         user = get_object_or_404(UserAccount, id=pk)
         if user == request.user:
-            messages.error(request, "Không thể tự vô hiệu hóa tài khoản của chính mình.")
+            messages.error(
+                request, "Không thể tự vô hiệu hóa tài khoản của chính mình."
+            )
             return redirect("user_list")
 
         UserService.soft_delete_user(request, pk)

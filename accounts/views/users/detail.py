@@ -13,6 +13,7 @@ class UserDetailView(LoginRequiredMixin, View):
         user = get_object_or_404(UserAccount, id=pk)
 
         from tenants.models import Tenant
+
         tenant = Tenant.objects.filter(pk=user.tenant_id).first()
         tenant_name = tenant.name if tenant else "-"
 

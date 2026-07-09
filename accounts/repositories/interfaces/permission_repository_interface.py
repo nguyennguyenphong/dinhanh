@@ -17,7 +17,9 @@ class PermissionRepository(Protocol):
         """Retrieve PermissionEntity by its unique UUID."""
         ...
 
-    def exists_by_codename(self, tenant_id: int, codename: str, exclude_id: int | None = None) -> bool:
+    def exists_by_codename(
+        self, tenant_id: int, codename: str, exclude_id: int | None = None
+    ) -> bool:
         """Check if codename exists in tenant, excluding specific ID if provided."""
         ...
 

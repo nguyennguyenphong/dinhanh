@@ -29,6 +29,7 @@ class UserRepositoryImpl(UserRepository):
     @property
     def _qs(self):
         from accounts.models import UserAccount
+
         return UserAccount.objects
 
     def save(self, entity: UserEntity) -> UserEntity:
@@ -66,13 +67,17 @@ class UserRepositoryImpl(UserRepository):
         obj = self._qs.filter(uuid=user_uuid).first()
         return _model_to_entity(obj) if obj else None
 
-    def exists_by_username(self, tenant_id: int, username: str, exclude_id: int | None = None) -> bool:
+    def exists_by_username(
+        self, tenant_id: int, username: str, exclude_id: int | None = None
+    ) -> bool:
         qs = self._qs.filter(tenant_id=tenant_id, username=username.strip().lower())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
 
-    def exists_by_email(self, tenant_id: int, email: str, exclude_id: int | None = None) -> bool:
+    def exists_by_email(
+        self, tenant_id: int, email: str, exclude_id: int | None = None
+    ) -> bool:
         qs = self._qs.filter(tenant_id=tenant_id, email=email.strip().lower())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)

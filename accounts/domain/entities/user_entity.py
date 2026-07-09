@@ -42,7 +42,9 @@ class UserEntity:
     def activate(self) -> None:
         self.is_active = True
 
-    def update_info(self, full_name: str, phone: str | None, avatar: str | None) -> None:
+    def update_info(
+        self, full_name: str, phone: str | None, avatar: str | None
+    ) -> None:
         self.full_name = full_name.strip()
         self.phone = phone.strip() if phone else None
         self.avatar = avatar.strip() if avatar else None

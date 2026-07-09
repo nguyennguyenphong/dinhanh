@@ -28,13 +28,21 @@ class UserCreateSerializer(serializers.Serializer):
     email = serializers.EmailField(max_length=254)
     password = serializers.CharField(max_length=255)
     full_name = serializers.CharField(max_length=255)
-    phone = serializers.CharField(max_length=20, required=False, allow_null=True, allow_blank=True)
-    avatar = serializers.CharField(max_length=500, required=False, allow_null=True, allow_blank=True)
+    phone = serializers.CharField(
+        max_length=20, required=False, allow_null=True, allow_blank=True
+    )
+    avatar = serializers.CharField(
+        max_length=500, required=False, allow_null=True, allow_blank=True
+    )
     is_active = serializers.BooleanField(default=True)
 
 
 class UserUpdateSerializer(serializers.Serializer):
     full_name = serializers.CharField(max_length=255)
-    phone = serializers.CharField(max_length=20, required=False, allow_null=True, allow_blank=True)
-    avatar = serializers.CharField(max_length=500, required=False, allow_null=True, allow_blank=True)
+    phone = serializers.CharField(
+        max_length=20, required=False, allow_null=True, allow_blank=True
+    )
+    avatar = serializers.CharField(
+        max_length=500, required=False, allow_null=True, allow_blank=True
+    )
     is_active = serializers.BooleanField(default=True)
