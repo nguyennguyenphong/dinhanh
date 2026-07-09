@@ -9,11 +9,11 @@
     confirmTitle: '',
     confirmUrl: '',
     init() {
-        window.addEventListener('open-delete-menu_items-modal', (e) => {
+        window.addEventListener('open-delete-menus/menu_items-modal', (e) => {
             const uuid = e.detail.uuid;
-            this.itemName = e.detail.name || 'Menu Item';
-            this.softDeleteUrl = `/menu_items/soft_delete/${uuid}/`;
-            this.hardDeleteUrl = `/menu_items/hard_delete/${uuid}/`;
+            this.itemName = (e.detail.name && e.detail.name !== 'undefined') ? e.detail.name : 'Menu Item';
+            this.softDeleteUrl = `/menus/menu_items/soft_delete/${uuid}/`;
+            this.hardDeleteUrl = `/menus/menu_items/hard_delete/${uuid}/`;
             this.open = true;
         });
     },

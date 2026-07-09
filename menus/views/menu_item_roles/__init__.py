@@ -1,8 +1,10 @@
 from menus.views.menu_item_roles.menu_item_role_create_view import (
     MenuItemRoleCreateView,
 )
-from menus.views.menu_item_roles.menu_item_role_delete_view import (
+from menus.views.menu_item_roles.menu_item_role_hard_delete_view import (
     MenuItemRoleHardDeleteView,
+)
+from menus.views.menu_item_roles.menu_item_role_soft_delete_view import (
     MenuItemRoleSoftDeleteView,
 )
 from menus.views.menu_item_roles.menu_item_role_detail_view import (

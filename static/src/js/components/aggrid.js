@@ -28,7 +28,7 @@ const erpRenderers = {
         const app = params.app || 'tenants';
         const key = params.key || 'uuid';
         const val = params.data ? params.data[key] : null;
-        const name = params.data ? params.data.name : '';
+        const name = params.data ? (params.data.name || params.data.label || params.data.uuid || '') : '';
         if (!val) return '';
             
         return `

@@ -1,6 +1,8 @@
 from menus.views.menu_groups.menu_group_create_view import MenuGroupCreateView
-from menus.views.menu_groups.menu_group_delete_view import (
+from menus.views.menu_groups.menu_group_hard_delete_view import (
     MenuGroupHardDeleteView,
+)
+from menus.views.menu_groups.menu_group_soft_delete_view import (
     MenuGroupSoftDeleteView,
 )
 from menus.views.menu_groups.menu_group_detail_view import MenuGroupDetailView

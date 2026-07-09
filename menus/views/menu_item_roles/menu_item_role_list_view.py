@@ -40,7 +40,7 @@ class MenuItemRoleListView(LoginRequiredMixin, View):
             width=220,
             sortable=False,
             filter=False,
-            cell_renderer_params={"app": "menu_item_roles", "key": "uuid"},
+            cell_renderer_params={"app": "menus/menu_item_roles", "key": "uuid"},
         )
 
         context = {

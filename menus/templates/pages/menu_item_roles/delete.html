@@ -9,11 +9,11 @@
     confirmTitle: '',
     confirmUrl: '',
     init() {
-        window.addEventListener('open-delete-menu_item_roles-modal', (e) => {
+        window.addEventListener('open-delete-menus/menu_item_roles-modal', (e) => {
             const uuid = e.detail.uuid;
-            this.assignmentName = e.detail.name || 'Role Assignment';
-            this.softDeleteUrl = `/menu_item_roles/soft_delete/${uuid}/`;
-            this.hardDeleteUrl = `/menu_item_roles/hard_delete/${uuid}/`;
+            this.assignmentName = (e.detail.name && e.detail.name !== 'undefined') ? e.detail.name : 'Role Assignment';
+            this.softDeleteUrl = `/menus/menu_item_roles/soft_delete/${uuid}/`;
+            this.hardDeleteUrl = `/menus/menu_item_roles/hard_delete/${uuid}/`;
             this.open = true;
         });
     },

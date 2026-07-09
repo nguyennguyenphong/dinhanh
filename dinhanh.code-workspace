@@ -10,39 +10,57 @@
 			{
 				"id": "branchName",
 				"type": "promptString",
-				"description": "Nhập tên nhánh mới cần tạo (ví dụ: feature/login):"
+				"description": "Enter the name of the new branch to create (e.g., feature/login):"
 			},
 			{
 				"id": "prTitle",
 				"type": "promptString",
-				"description": "Nhập tiêu đề cho Pull Request:"
+				"description": "Enter the title for the Pull Request:"
 			}
 		],
 		"tasks": [
 			{
-				"label": "1. 🌿 Tạo nhánh mới (Git Branch)",
+				"label": "1. Create new branch (Git Branch)",
 				"type": "shell",
 				"command": "git checkout -b '${input:branchName}'",
 				"problemMatcher": []
 			},
 			{
-				"label": "2. 🚀 Tạo Pull Request (GitHub CLI)",
+				"label": "2. Create Pull Request (GitHub CLI)",
 				"type": "shell",
 				"command": "gh pr create --title '${input:prTitle}' --body ''",
 				"problemMatcher": []
 			},
 			{
-				"label": "3. ⚙️ Kích hoạt CI/CD (GitHub Action)",
+				"label": "3. Trigger CI/CD (GitHub Action)",
 				"type": "shell",
 				"command": "gh workflow run",
 				"problemMatcher": []
 			},
 			{
-				"label": "4. 🔍 Kiểm tra lỗi & Chạy Test",
+				"label": "4. Lint and Run Tests",
 				"type": "shell",
 				"command": "npm run lint && npm run test",
 				"problemMatcher": []
-			}
+			},
+			{
+				"label": "5. Run python check",
+				"type": "shell",
+				"command": "python manage.py check",
+				"problemMatcher": []
+			},
+			{
+				"label": "6. Check format code",
+				"type": "shell",
+				"command": "flake8 . ",
+				"problemMatcher": []
+			},
+			{
+				"label": "7. Migrate",
+				"type": "shell",
+				"command": "python manage.py makemigrations && python manage.py migrate",
+				"problemMatcher": []
+			},
 		]
 	},
 	"settings": {}
