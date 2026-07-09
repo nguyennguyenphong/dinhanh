@@ -30,9 +30,7 @@ class CreateMenuGroupUseCase:
             if self._repo.exists_by_sort_order(
                 tenant=dto.tenant, sort_order=dto.sort_order
             ):
-                raise ValueError(
-                    f"Thứ tự hiển thị {dto.sort_order} đã tồn tại."
-                )
+                raise ValueError(f"Thứ tự hiển thị {dto.sort_order} đã tồn tại.")
 
         # Initialize the domain entity to automatically trigger self-invariants checking
         entity = MenuGroupEntity(

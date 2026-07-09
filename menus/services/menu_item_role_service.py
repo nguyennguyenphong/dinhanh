@@ -64,9 +64,10 @@ class MenuItemRoleService:
             MenuItemRoleProvider.create_menu_item_role().execute(dto)
 
             # Log MenuItemRole assignment
+            from accounts.models import Role
             from menus.models.menu_item_role_audit_log import MenuItemRoleAuditLog
             from menus.models.menu_items import MenuItem
-            from accounts.models import Role
+
             menu_item = MenuItem.objects.get(pk=validated_data["menu_item"])
             role = Role.objects.get(pk=validated_data["role"])
             MenuItemRoleAuditLog.log_action(
@@ -75,7 +76,9 @@ class MenuItemRoleService:
                 role=role,
                 action="ASSIGN",
                 actor=request.user if request.user.is_authenticated else None,
-                actor_username=request.user.username if request.user.is_authenticated else None,
+                actor_username=(
+                    request.user.username if request.user.is_authenticated else None
+                ),
             )
             return True
         except Exception as exc:
@@ -95,13 +98,16 @@ class MenuItemRoleService:
 
             # Log MenuItemRole revocation
             from menus.models.menu_item_role_audit_log import MenuItemRoleAuditLog
+
             MenuItemRoleAuditLog.log_action(
                 tenant=menu_item_role.menu_item.tenant,
                 menu_item=menu_item_role.menu_item,
                 role=menu_item_role.role,
                 action="REVOKE",
                 actor=request.user if request.user.is_authenticated else None,
-                actor_username=request.user.username if request.user.is_authenticated else None,
+                actor_username=(
+                    request.user.username if request.user.is_authenticated else None
+                ),
             )
             return True
         except Exception as exc:
@@ -121,13 +127,16 @@ class MenuItemRoleService:
 
             # Log MenuItemRole revocation
             from menus.models.menu_item_role_audit_log import MenuItemRoleAuditLog
+
             MenuItemRoleAuditLog.log_action(
                 tenant=menu_item_role.menu_item.tenant,
                 menu_item=menu_item_role.menu_item,
                 role=menu_item_role.role,
                 action="REVOKE",
                 actor=request.user if request.user.is_authenticated else None,
-                actor_username=request.user.username if request.user.is_authenticated else None,
+                actor_username=(
+                    request.user.username if request.user.is_authenticated else None
+                ),
             )
             return True
         except Exception as exc:

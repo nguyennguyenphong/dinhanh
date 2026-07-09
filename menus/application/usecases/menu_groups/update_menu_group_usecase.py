@@ -37,9 +37,7 @@ class UpdateMenuGroupUseCase:
             if self._repo.exists_by_sort_order(
                 tenant=entity.tenant_id, sort_order=dto.sort_order, exclude_id=entity.id
             ):
-                raise ValueError(
-                    f"Thứ tự hiển thị {dto.sort_order} đã tồn tại."
-                )
+                raise ValueError(f"Thứ tự hiển thị {dto.sort_order} đã tồn tại.")
 
         # Delegate business logic updates to behaviors built directly inside the domain model
         entity.code = normalized_code

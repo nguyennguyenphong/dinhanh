@@ -71,6 +71,7 @@ class MenuGroupService:
 
             # Log MenuGroup creation
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=validated_data["tenant"],
                 action="CREATE",
@@ -81,7 +82,7 @@ class MenuGroupService:
                     "icon": validated_data.get("icon"),
                     "sort_order": validated_data.get("sort_order"),
                     "is_active": validated_data.get("is_active"),
-                }
+                },
             )
             return True
         except Exception as exc:
@@ -141,6 +142,7 @@ class MenuGroupService:
 
             # Log MenuGroup update
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=menu_group_model.tenant_id,
                 action="UPDATE",
@@ -152,7 +154,7 @@ class MenuGroupService:
                     "icon": serializer.validated_data.get("icon"),
                     "sort_order": serializer.validated_data.get("sort_order"),
                     "is_active": serializer.validated_data.get("is_active"),
-                }
+                },
             )
 
             return True
@@ -169,6 +171,7 @@ class MenuGroupService:
         menu_group = get_object_or_404(MenuGroup.all_objects, uuid=pk)
         try:
             from menus.application.dtos.menu_groups import MenuGroupSoftDeleteDto
+
             dto = MenuGroupSoftDeleteDto(
                 id=menu_group.id,
                 tenant_id=menu_group.tenant_id,
@@ -178,6 +181,7 @@ class MenuGroupService:
 
             # Log MenuGroup soft delete
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=menu_group.tenant_id,
                 action="DELETE",
@@ -186,7 +190,7 @@ class MenuGroupService:
                     "code": menu_group.code,
                     "label": menu_group.label,
                     "is_active": menu_group.is_active,
-                }
+                },
             )
             return True
 
@@ -208,6 +212,7 @@ class MenuGroupService:
         menu_group = get_object_or_404(MenuGroup.all_objects, uuid=pk)
         try:
             from menus.application.dtos.menu_groups import MenuGroupHardDeleteDto
+
             dto = MenuGroupHardDeleteDto(
                 id=menu_group.id,
                 tenant_id=menu_group.tenant_id,
@@ -216,6 +221,7 @@ class MenuGroupService:
 
             # Log MenuGroup hard delete
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=menu_group.tenant_id,
                 action="DELETE",
@@ -224,7 +230,7 @@ class MenuGroupService:
                     "code": menu_group.code,
                     "label": menu_group.label,
                     "is_active": menu_group.is_active,
-                }
+                },
             )
             return True
         except Exception as exc:

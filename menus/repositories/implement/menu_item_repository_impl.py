@@ -220,7 +220,10 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
         exclude_id: Optional[int] = None,
     ) -> bool:
         from menus.models.menu_items import MenuItem
-        qs = MenuItem.objects.all_with_deleted().filter(tenant_id=tenant_id, code=code.lower())
+
+        qs = MenuItem.objects.all_with_deleted().filter(
+            tenant_id=tenant_id, code=code.lower()
+        )
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
@@ -232,7 +235,10 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
         exclude_id: Optional[int] = None,
     ) -> bool:
         from menus.models.menu_items import MenuItem
-        qs = MenuItem.objects.all_with_deleted().filter(tenant_id=tenant_id, sort_order=sort_order)
+
+        qs = MenuItem.objects.all_with_deleted().filter(
+            tenant_id=tenant_id, sort_order=sort_order
+        )
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()

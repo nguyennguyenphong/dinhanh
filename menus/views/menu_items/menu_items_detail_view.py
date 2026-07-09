@@ -18,6 +18,7 @@ class MenuItemDetailView(LoginRequiredMixin, View):
         menu_item = get_object_or_404(MenuItem.all_objects, uuid=pk)
 
         from tenants.models import Tenant
+
         tenant = Tenant.objects.filter(pk=menu_item.tenant_id).first()
         tenant_name = tenant.name if tenant else "-"
 

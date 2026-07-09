@@ -60,6 +60,7 @@ class MenuItemCreateSerializer(serializers.Serializer):
         if not value:
             return None
         import re
+
         cleaned_value = value.strip()
         if not re.match(
             r"^<svg.*?>.*?</svg>$", cleaned_value, flags=re.DOTALL | re.IGNORECASE

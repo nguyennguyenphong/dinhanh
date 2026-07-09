@@ -75,7 +75,9 @@ class MenuItemService:
 
         # Check sort_order collision
         target_sort = validated_data.get("sort_order", 0)
-        if MenuItem.objects.filter(tenant_id=validated_data["tenant"], sort_order=target_sort).exists():
+        if MenuItem.objects.filter(
+            tenant_id=validated_data["tenant"], sort_order=target_sort
+        ).exists():
             err_msg = f"Thứ tự hiển thị {target_sort} đã tồn tại."
             form.add_error("sort_order", err_msg)
             messages.error(request, err_msg)
@@ -87,6 +89,7 @@ class MenuItemService:
 
             # Log MenuItem creation
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=validated_data["tenant"],
                 action="CREATE",
@@ -97,7 +100,7 @@ class MenuItemService:
                     "url_path": validated_data.get("url_path"),
                     "sort_order": validated_data.get("sort_order"),
                     "is_active": validated_data.get("is_active"),
-                }
+                },
             )
             return True
         except Exception as exc:
@@ -172,7 +175,9 @@ class MenuItemService:
 
         # Check sort_order collision
         target_sort = serializer.validated_data.get("sort_order", 0)
-        qs = MenuItem.objects.filter(tenant_id=menu_item_model.tenant_id, sort_order=target_sort)
+        qs = MenuItem.objects.filter(
+            tenant_id=menu_item_model.tenant_id, sort_order=target_sort
+        )
         if qs.exclude(pk=menu_item_model.pk).exists():
             err_msg = f"Thứ tự hiển thị {target_sort} đã tồn tại."
             form.add_error("sort_order", err_msg)
@@ -196,6 +201,7 @@ class MenuItemService:
 
             # Log MenuItem update
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=menu_item_model.tenant_id,
                 action="UPDATE",
@@ -207,7 +213,7 @@ class MenuItemService:
                     "url_path": serializer.validated_data.get("url_path"),
                     "sort_order": serializer.validated_data.get("sort_order"),
                     "is_active": serializer.validated_data.get("is_active"),
-                }
+                },
             )
             return True
         except (MenuItemDomainError, ValueError) as exc:
@@ -229,6 +235,7 @@ class MenuItemService:
 
             # Log MenuItem soft delete
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=menu_item.tenant_id,
                 action="DELETE",
@@ -237,7 +244,7 @@ class MenuItemService:
                     "code": menu_item.code,
                     "label": menu_item.label,
                     "is_active": menu_item.is_active,
-                }
+                },
             )
             return True
         except MenuItemDomainError as exc:
@@ -263,6 +270,7 @@ class MenuItemService:
 
             # Log MenuItem hard delete
             from menus.models.menu_audit_log import MenuAuditLog
+
             MenuAuditLog.objects.create(
                 tenant_id=menu_item.tenant_id,
                 action="DELETE",
@@ -271,7 +279,7 @@ class MenuItemService:
                     "code": menu_item.code,
                     "label": menu_item.label,
                     "is_active": menu_item.is_active,
-                }
+                },
             )
             return True
         except Exception as exc:

@@ -16,6 +16,7 @@ class MenuGroupDetailView(LoginRequiredMixin, View):
         menu_group = get_object_or_404(MenuGroup.all_objects, uuid=pk)
 
         from tenants.models import Tenant
+
         tenant = Tenant.objects.filter(pk=menu_group.tenant_id).first()
         tenant_name = tenant.name if tenant else "-"
 
