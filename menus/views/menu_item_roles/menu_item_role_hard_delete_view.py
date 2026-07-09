@@ -27,7 +27,6 @@ class MenuItemRoleHardDeleteView(LoginRequiredMixin, View):
         form = forms.Form(request.POST)
         if MenuItemRoleService.hard_delete_menu_item_role(request, pk, form):
             messages.success(
-                request,
-                f"Role assignment '{menu_item_role.uuid}' permanently deleted."
+                request, f"Role assignment '{menu_item_role.uuid}' permanently deleted."
             )
         return redirect("menu_item_role_list")

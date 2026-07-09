@@ -1,10 +1,10 @@
-from menus.views.menu_items.menu_items_create_view import MenuItemCreateView
 from menus.views.menu_items.menu_item_hard_delete_view import (
     MenuItemHardDeleteView,
 )
 from menus.views.menu_items.menu_item_soft_delete_view import (
     MenuItemSoftDeleteView,
 )
+from menus.views.menu_items.menu_items_create_view import MenuItemCreateView
 from menus.views.menu_items.menu_items_detail_view import MenuItemDetailView
 from menus.views.menu_items.menu_items_list_view import (
     MenuItemListApiView,

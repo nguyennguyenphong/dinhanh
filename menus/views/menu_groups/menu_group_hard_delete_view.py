@@ -27,7 +27,6 @@ class MenuGroupHardDeleteView(LoginRequiredMixin, View):
         form = forms.Form(request.POST)
         if MenuGroupService.hard_delete_menu_group(request, pk, form):
             messages.success(
-                request,
-                f"Menu group '{menu_group.label}' permanently deleted."
+                request, f"Menu group '{menu_group.label}' permanently deleted."
             )
         return redirect("menu_group_list")

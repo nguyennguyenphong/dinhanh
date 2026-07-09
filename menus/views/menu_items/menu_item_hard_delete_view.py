@@ -27,7 +27,6 @@ class MenuItemHardDeleteView(LoginRequiredMixin, View):
         form = forms.Form(request.POST)
         if MenuItemService.hard_delete_menu_item(request, pk, form):
             messages.success(
-                request,
-                f"Menu item '{menu_item.label}' permanently deleted."
+                request, f"Menu item '{menu_item.label}' permanently deleted."
             )
         return redirect("menu_items_list")
