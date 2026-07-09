@@ -1,18 +1,19 @@
 {% if form.non_field_errors %}
-    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-        {{ form.non_field_errors }}
-    </div>
+<div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+    {{ form.non_field_errors }}
+</div>
 {% endif %}
 
-<form action="{% if object %}{% url 'asset_update' object.uuid %}{% else %}{% url 'asset_create' %}{% endif %}" method="POST" class="space-y-6" autocomplete="off">
+<form action="{% if object %}{% url 'asset_update' object.uuid %}{% else %}{% url 'asset_create' %}{% endif %}"
+    method="POST" class="space-y-6" autocomplete="off">
     {% csrf_token %}
 
     <div class="mb-4">
-        {% include 'components/forms/assets/sections/_identity_and_tenancy.html' %}
-        {% include 'components/forms/assets/sections/_custody_and_logistics.html' %}
-        {% include 'components/forms/assets/sections/_financials_and_valuation.html' %}
-        {% include 'components/forms/assets/sections/_operational_state_details.html' %}
+        {% include 'components/forms/assets/sections/_general_information_classification.html' %}
+        {% include 'components/forms/assets/sections/_asset_identity_metadata.html' %}
+        {% include 'components/forms/assets/sections/_custody_location_allocation.html' %}
+        {% include 'components/forms/assets/sections/_financials_depreciation_ledger.html' %}
+        {% include 'components/forms/assets/sections/_lifecycle_status_operations.html' %}
     </div>
-
     {% include 'components/forms/assets/sections/_button_action.html' %}
 </form>

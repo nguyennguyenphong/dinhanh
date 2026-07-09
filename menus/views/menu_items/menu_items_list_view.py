@@ -42,7 +42,7 @@ class MenuItemListView(LoginRequiredMixin, View):
             width=220,
             sortable=False,
             filter=False,
-            cell_renderer_params={"app": "menu_items", "key": "uuid"},
+            cell_renderer_params={"app": "menus/menu_items", "key": "uuid"},
         )
 
         context = {
@@ -108,12 +108,6 @@ class MenuItemListApiView(LoginRequiredMixin, View):
         try:
             menu_items, total = MenuItemProvider.list_menu_items().execute(query_dto)
         except MenuItemDomainError as e:
-            return render(request, "pages/menu_items/list.html", {"error": str(e)})
-
-        context = {
-            "menu_items": menu_items,
-            "total": total,
-            "query": query_dto,
-        }
-
-        return render(request, "pages/menu_items/list.html", context)
+            return JsonResponse({"error": str(e)}, status=400)
+        serializer = MenuItemResponseSerializer(menu_items, many=True)
+        return JsonResponse({"results": serializer.data, "total": total})

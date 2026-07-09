@@ -41,7 +41,7 @@ class MenuGroupListView(LoginRequiredMixin, View):
             width=220,
             sortable=False,
             filter=False,
-            cell_renderer_params={"app": "menu_groups", "key": "uuid"},
+            cell_renderer_params={"app": "menus/menu_groups", "key": "uuid"},
         )
 
         context = {

@@ -369,10 +369,6 @@
             "_asset_detail_breadcrumb.html",
             "_asset_list_breadcrumb.html",
             "_asset_update_breadcrumb.html",
-            "_category_create_breadcrumb.html",
-            "_category_detail_breadcrumb.html",
-            "_category_list_breadcrumb.html",
-            "_category_update_breadcrumb.html",
             "_storage_unit_create_breadcrumb.html",
             "_storage_unit_detail_breadcrumb.html",
             "_storage_unit_list_breadcrumb.html",
@@ -381,31 +377,26 @@
           "forms": {
             "assets": {
               "sections": [
+                "_asset_identity_metadata.html",
                 "_button_action.html",
-                "_custody_and_logistics.html",
-                "_financials_and_valuation.html",
-                "_identity_and_tenancy.html",
-                "_operational_state_details.html"
+                "_custody_location_allocation.html",
+                "_financials_depreciation_ledger.html",
+                "_general_information_classification.html",
+                "_lifecycle_status_operations.html"
               ],
               "_files": [
                 "_form.html"
               ]
             },
-            "asset_categories": [
-              "_form.html"
-            ],
-            "asset_category_section": [
-              "_basic_information.html",
-              "_button_action.html"
-            ],
-            "asset_section": [
-              "_asset_identity_metadata.html",
-              "_button_action.html",
-              "_custody_location_allocation.html",
-              "_financials_depreciation_ledger.html",
-              "_general_information_classification.html",
-              "_lifecycle_status_operations.html"
-            ],
+            "asset_categories": {
+              "sections": [
+                "_basic_information.html",
+                "_button_action.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            },
             "storage_units": {
               "sections": [
                 "_button_action.html",
@@ -415,11 +406,7 @@
               "_files": [
                 "_form.html"
               ]
-            },
-            "_files": [
-              "_asset_category_form.html",
-              "_asset_form.html"
-            ]
+            }
           },
           "page_header": [
             "_asset_category_create_page_header.html",
@@ -430,10 +417,6 @@
             "_asset_detail_page_header.html",
             "_asset_list_page_header.html",
             "_asset_update_page_header.html",
-            "_category_create_page_header.html",
-            "_category_detail_page_header.html",
-            "_category_list_page_header.html",
-            "_category_update_page_header.html",
             "_storage_unit_create_page_header.html",
             "_storage_unit_detail_page_header.html",
             "_storage_unit_list_page_header.html",

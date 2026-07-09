@@ -16,18 +16,18 @@ class TailwindFormMixin:
 
         labels = {
             "tenant": "Tổ chức/Doanh nghiệp sở hữu",
-            "branch": "Chi nhánh/Cơ sở lưu trữ",
-            "code": "Mã kho bãi",
-            "name": "Tên kho bãi",
+            "branch": "Chi nhánh/Cơ sở",
+            "code": "Mã đơn vị",
+            "name": "Tên đơn vị",
             "description": "Mô tả chi tiết",
         }
 
         placeholders = {
             "tenant": "Chọn mã doanh nghiệp sở hữu...",
             "branch": "Chọn chi nhánh...",
-            "code": "Ví dụ: KHO_LOGISTICS_Q5",
-            "name": "Ví dụ: Kho chính Mộc Bài",
-            "description": "Nhập mô tả capacity hoặc ghi chú...",
+            "code": "Ví dụ: KG",
+            "name": "Ví dụ: Kilogram",
+            "description": "Nhập mô tả hoặc ghi chú...",
         }
 
         for field_name, field in self.fields.items():
@@ -60,10 +60,7 @@ class TailwindFormMixin:
             elif isinstance(widget, forms.Textarea):
                 widget.attrs.update(
                     {
-                        "class": (
-                            f"{tailwind_classes} font-mono "
-                            "text-xs leading-6 resize-y min-h-[120px]"
-                        ),
+                        "class": tailwind_classes,
                         "placeholder": current_placeholder,
                     }
                 )

@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="space-y-1">
             <label for="{{ form.code.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {{ form.code.label }} <span class="text-red-500">*</span>
@@ -30,7 +30,7 @@
             {% if form.code.errors %}<p class="text-red-500 text-xs mt-1">{{ form.code.errors.0 }}</p>{% endif %}
         </div>
 
-        <div class="space-y-1 sm:col-span-2">
+        <div class="space-y-1">
             <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {{ form.name.label }} <span class="text-red-500">*</span>
             </label>

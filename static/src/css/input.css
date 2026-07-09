@@ -89,6 +89,10 @@
     align-items: center;
 }
 
+#menu-item-grid-search {
+    border-radius: 5px !important;
+}
+
 #tenant-grid-search {
     border-radius: 6px !important;
 }
