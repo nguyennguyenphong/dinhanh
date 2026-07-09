@@ -1,8 +1,10 @@
-from django.contrib import messages
+from __future__ import annotations
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.views import View
 
+from accounts.services.user_service import UserService
 from accounts.views.forms.user_base_form import UserBaseForm
 
 
@@ -16,15 +18,8 @@ class UserCreateView(LoginRequiredMixin, View):
         form = UserBaseForm(request.POST)
 
         if form.is_valid():
-            try:
-                user = form.save(commit=False)
-                # Hash the password properly
-                user.set_password(form.cleaned_data["password"])
-                user.save()
-                messages.success(request, "Tạo tài khoản người dùng mới thành công.")
+            success = UserService.create_user(request, form)
+            if success:
                 return redirect("user_list")
-            except Exception as exc:
-                form.add_error(None, str(exc))
-                messages.error(request, f"Lỗi tạo người dùng: {str(exc)}")
 
         return render(request, "pages/user_create.html", {"form": form})

@@ -1,0 +1,148 @@
+<div id="accordion-open" data-accordion="open" class="rounded-md border border-default overflow-hidden">
+    <!-- Basic Info -->
+    <h2 id="accordion-open-heading-1">
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body rounded-t-base border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+            data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
+            <span class="flex items-center">Thông tin cơ bản</span>
+            <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m5 15 7-7 7 7" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-1" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default"
+        aria-labelledby="accordion-open-heading-1">
+        <div class="p-4 md:p-5">
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Họ và tên</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ user.full_name }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Tên đăng nhập</span>
+                <code class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded">{{ user.username }}</code>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">UUID</span>
+                <span class="font-mono text-xs text-gray-400">{{ user.uuid }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Email</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ user.email }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Số điện thoại</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ user.phone|default:"-" }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Chi nhánh</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ user.branch.name|default:"-" }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Trạng thái</span>
+                {% if user.is_active %}
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-green-50 text-green-800 dark:bg-green-950 dark:text-green-300">
+                    Hoạt động
+                </span>
+                {% else %}
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-red-50 text-red-800 dark:bg-red-950 dark:text-red-300">
+                    Ngừng hoạt động
+                </span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Tenant Accordion -->
+    <h2 id="accordion-open-heading-2">
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body rounded-t-base border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+            data-accordion-target="#accordion-open-body-2" aria-expanded="true" aria-controls="accordion-open-body-2">
+            <span class="flex items-center">Tenant</span>
+            <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m5 15 7-7 7 7" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-2" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default"
+        aria-labelledby="accordion-open-heading-2">
+        <div class="p-4 md:p-5">
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Tenant</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ tenant_name|default:"-" }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audit Accordion -->
+    <h2 id="accordion-open-heading-3">
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body rounded-t-base border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+            data-accordion-target="#accordion-open-body-3" aria-expanded="true" aria-controls="accordion-open-body-3">
+            <span class="flex items-center">Audit</span>
+            <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m5 15 7-7 7 7" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-3" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default"
+        aria-labelledby="accordion-open-heading-3">
+        <div class="p-4 md:p-5">
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Ngày tạo</span>
+                <span class="font-medium text-gray-900 dark:text-white">
+                    {% if user.created_at %}
+                        {{ user.created_at|date:"H:i:s Y/m/d" }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Ngày cập nhật</span>
+                <span class="font-medium text-gray-900 dark:text-white">
+                    {% if user.updated_at %}
+                        {{ user.updated_at|date:"H:i:s Y/m/d" }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Người tạo</span>
+                <span class="font-mono text-xs text-gray-400">
+                    {% if user.created_by %}
+                        {{ user.created_by.username }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Người cập nhật</span>
+                <span class="font-mono text-xs text-gray-400">
+                    {% if user.updated_by %}
+                        {{ user.updated_by.username }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Ngày xóa</span>
+                <span class="font-medium text-gray-900 dark:text-white">
+                    {% if user.deleted_at %}
+                        {{ user.deleted_at|date:"H:i:s Y/m/d" }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,5 +8,6 @@ urlpatterns = [
     path("create/", role_views.RoleCreateView.as_view(), name="role_create"),
     path("update/<int:pk>/", role_views.RoleUpdateView.as_view(), name="role_update"),
     path("detail/<int:pk>/", role_views.RoleDetailView.as_view(), name="role_detail"),
-    path("delete/<int:pk>/", role_views.RoleDeleteView.as_view(), name="role_delete"),
+    path("delete/<int:pk>/", role_views.RoleSoftDeleteView.as_view(), name="role_delete"),
+    path("hard-delete/<int:pk>/", role_views.RoleHardDeleteView.as_view(), name="role_hard_delete"),
 ]

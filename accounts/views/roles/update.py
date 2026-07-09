@@ -1,9 +1,11 @@
-from django.contrib import messages
+from __future__ import annotations
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 
 from accounts.models import Role
+from accounts.services.role_service import RoleService
 from accounts.views.forms.role_base_form import RoleBaseForm
 
 
@@ -14,22 +16,21 @@ class RoleUpdateView(LoginRequiredMixin, View):
         form = RoleBaseForm(instance=role)
         return render(
             request,
-            "pages/role_create.html",  # Re-use create template for edit
+            "pages/role_create.html",
             {"form": form, "object": role, "is_update": True},
         )
 
     def post(self, request, pk: int):
+        return self.patch(request, pk)
+
+    def patch(self, request, pk: int):
         role = get_object_or_404(Role, id=pk)
         form = RoleBaseForm(request.POST, instance=role)
 
         if form.is_valid():
-            try:
-                form.save()
-                messages.success(request, "Cập nhật vai trò thành công.")
+            success = RoleService.update_role(request, pk, form)
+            if success:
                 return redirect("role_list")
-            except Exception as exc:
-                form.add_error(None, str(exc))
-                messages.error(request, f"Lỗi cập nhật vai trò: {str(exc)}")
 
         return render(
             request,

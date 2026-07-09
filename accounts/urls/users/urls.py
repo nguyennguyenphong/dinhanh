@@ -8,5 +8,6 @@ urlpatterns = [
     path("create/", user_views.UserCreateView.as_view(), name="user_create"),
     path("update/<int:pk>/", user_views.UserUpdateView.as_view(), name="user_update"),
     path("detail/<int:pk>/", user_views.UserDetailView.as_view(), name="user_detail"),
-    path("delete/<int:pk>/", user_views.UserDeleteView.as_view(), name="user_delete"),
+    path("delete/<int:pk>/", user_views.UserSoftDeleteView.as_view(), name="user_delete"),
+    path("hard-delete/<int:pk>/", user_views.UserHardDeleteView.as_view(), name="user_hard_delete"),
 ]

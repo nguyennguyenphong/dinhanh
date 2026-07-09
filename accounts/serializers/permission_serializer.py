@@ -20,3 +20,22 @@ class PermissionListQuerySerializer(serializers.Serializer):
     search = serializers.CharField(required=False, allow_blank=True)
     limit = serializers.IntegerField(min_value=1, max_value=200, default=20)
     offset = serializers.IntegerField(min_value=0, default=0)
+
+
+class PermissionCreateSerializer(serializers.Serializer):
+    tenant = serializers.IntegerField()
+    name = serializers.CharField(max_length=255)
+    codename = serializers.CharField(max_length=100)
+    module = serializers.CharField(max_length=100)
+    action = serializers.CharField(max_length=50)
+    parent = serializers.IntegerField(required=False, allow_null=True)
+    is_active = serializers.BooleanField(default=True)
+
+
+class PermissionUpdateSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=255)
+    codename = serializers.CharField(max_length=100)
+    module = serializers.CharField(max_length=100)
+    action = serializers.CharField(max_length=50)
+    parent = serializers.IntegerField(required=False, allow_null=True)
+    is_active = serializers.BooleanField(default=True)

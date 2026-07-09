@@ -458,6 +458,11 @@
       "providers": {
         "login": [
           "login_provider.py"
+        ],
+        "_files": [
+          "permission_provider.py",
+          "user_provider.py",
+          "role_provider.py"
         ]
       },
       "management": {
@@ -467,10 +472,16 @@
       },
       "repositories": {
         "implements": [
-          "login_repository_impl.py"
+          "permission_repository_impl.py",
+          "login_repository_impl.py",
+          "role_repository_impl.py",
+          "user_repository_impl.py"
         ],
         "interfaces": [
-          "login_repository_interface.py"
+          "permission_repository_interface.py",
+          "login_repository_interface.py",
+          "role_repository_interface.py",
+          "user_repository_interface.py"
         ]
       },
       "models": [
@@ -594,6 +605,10 @@
               ]
             }
           },
+          "accordion": [
+            "_role_detail_accordion.html",
+            "_user_detail_accordion.html"
+          ],
           "roles": {
             "forms": [
               "_form.html"
@@ -654,11 +669,44 @@
       },
       "application": {
         "dtos": {
+          "roles": [
+            "role_create_dto.py",
+            "role_update_dto.py",
+            "role_response_dto.py"
+          ],
+          "permissions": [
+            "permission_create_dto.py",
+            "permission_update_dto.py",
+            "permission_response_dto.py"
+          ],
+          "users": [
+            "user_update_dto.py",
+            "user_create_dto.py",
+            "user_response_dto.py"
+          ],
           "login": [
             "login_dto.py"
           ]
         },
         "usecases": {
+          "roles": [
+            "soft_delete_role_usecase.py",
+            "create_role_usecase.py",
+            "hard_delete_role_usecase.py",
+            "update_role_usecase.py"
+          ],
+          "permissions": [
+            "update_permission_usecase.py",
+            "create_permission_usecase.py",
+            "hard_delete_permission_usecase.py",
+            "soft_delete_permission_usecase.py"
+          ],
+          "users": [
+            "soft_delete_user_usecase.py",
+            "update_user_usecase.py",
+            "hard_delete_user_usecase.py",
+            "create_user_usecase.py"
+          ],
           "login": [
             "login_usecase.py"
           ]
@@ -684,9 +732,11 @@
         "roles": [
           "update.py",
           "delete.py",
+          "role_hard_delete_view.py",
           "list.py",
           "create.py",
-          "detail.py"
+          "detail.py",
+          "role_soft_delete_view.py"
         ],
         "permissions": [
           "update.py",
@@ -703,20 +753,29 @@
         "users": [
           "update.py",
           "delete.py",
+          "user_hard_delete_view.py",
           "list.py",
           "create.py",
+          "user_soft_delete_view.py",
           "detail.py"
         ]
       },
       "domain": {
         "entities": [
+          "user_entity.py",
           "login_entity.py",
-          "user_session_entity.py"
+          "role_entity.py",
+          "user_session_entity.py",
+          "permission_entity.py"
         ]
       },
       "services": {
         "login": [
           "login_service.py"
+        ],
+        "_files": [
+          "user_service.py",
+          "role_service.py"
         ]
       },
       "_files": [
