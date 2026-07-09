@@ -82,6 +82,16 @@ Install frontend development dependencies:
 npm install
 ```
 
+For window
+```bash
+npm install --os=darwin --os=linux --os=win32 --cpu=x64 --cpu=arm64
+```
+
+For Mac OS
+```bash
+npm install --os=darwin --os=linux --os=win32 --cpu=x64 --cpu=arm64
+```
+
 This installs:
 - Vite (build tool)
 - Tailwind CSS
