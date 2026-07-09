@@ -1,4 +1,5 @@
 from django import forms
+
 from tenants.models.tenants import Tenant
 
 
@@ -62,7 +63,9 @@ class TailwindFormMixin:
                 )
 
             elif isinstance(widget, (forms.DateInput, forms.DateTimeInput)):
-                picker_type = "datetime-picker" if isinstance(widget, forms.DateTimeInput) else ""
+                picker_type = (
+                    "datetime-picker" if isinstance(widget, forms.DateTimeInput) else ""
+                )
                 widget.attrs.update(
                     {
                         "class": f"{tailwind_classes} flatpickr-input {picker_type}".strip(),

@@ -39,9 +39,7 @@ class Tenant(SafeDeleteModel):
         ("en", _("English/Tiếng Anh")),
     )
 
-    TIMEZONE_CHOICES = (
-        ("Asia/Ho_Chi_Minh", _("Asia/Ho_Chi_Minh (GMT+7)")),
-    )
+    TIMEZONE_CHOICES = (("Asia/Ho_Chi_Minh", _("Asia/Ho_Chi_Minh (GMT+7)")),)
 
     id = models.AutoField(primary_key=True)
     uuid = models.UUIDField(
