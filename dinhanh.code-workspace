@@ -1,0 +1,49 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"tasks": {
+		"version": "2.0.0",
+		"inputs": [
+			{
+				"id": "branchName",
+				"type": "promptString",
+				"description": "Nhập tên nhánh mới cần tạo (ví dụ: feature/login):"
+			},
+			{
+				"id": "prTitle",
+				"type": "promptString",
+				"description": "Nhập tiêu đề cho Pull Request:"
+			}
+		],
+		"tasks": [
+			{
+				"label": "1. 🌿 Tạo nhánh mới (Git Branch)",
+				"type": "shell",
+				"command": "git checkout -b '${input:branchName}'",
+				"problemMatcher": []
+			},
+			{
+				"label": "2. 🚀 Tạo Pull Request (GitHub CLI)",
+				"type": "shell",
+				"command": "gh pr create --title '${input:prTitle}' --body ''",
+				"problemMatcher": []
+			},
+			{
+				"label": "3. ⚙️ Kích hoạt CI/CD (GitHub Action)",
+				"type": "shell",
+				"command": "gh workflow run",
+				"problemMatcher": []
+			},
+			{
+				"label": "4. 🔍 Kiểm tra lỗi & Chạy Test",
+				"type": "shell",
+				"command": "npm run lint && npm run test",
+				"problemMatcher": []
+			}
+		]
+	},
+	"settings": {}
+}
