@@ -933,7 +933,8 @@
             "accordion_items": [
               "_basic_information.html",
               "_audit_tracking.html",
-              "_tenant_parent.html"
+              "_tenant_parent.html",
+              "_audit_tracking_template.html"
             ],
             "_files": [
               "_menu_group_detail_accordion.html",
@@ -1046,8 +1047,7 @@
         "forms": [
           "menu_item_base_form.py",
           "menu_item_role_form.py",
-          "menu_group_base_form.py",
-          "menu_group_filter_form.py"
+          "menu_group_base_form.py"
         ],
         "menu_groups": [
           "menu_group_create_view.py",

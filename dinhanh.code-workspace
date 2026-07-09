@@ -16,6 +16,11 @@
 				"id": "prTitle",
 				"type": "promptString",
 				"description": "Enter the title for the Pull Request:"
+			},
+			{
+				"id": "commitMessage",
+				"type": "promptString",
+				"description": "Enter the git commit message:"
 			}
 		],
 		"tasks": [
@@ -23,44 +28,146 @@
 				"label": "1. Create new branch (Git Branch)",
 				"type": "shell",
 				"command": "git checkout -b '${input:branchName}'",
-				"problemMatcher": []
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
 			},
 			{
 				"label": "2. Create Pull Request (GitHub CLI)",
 				"type": "shell",
 				"command": "gh pr create --title '${input:prTitle}' --body ''",
-				"problemMatcher": []
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
 			},
 			{
 				"label": "3. Trigger CI/CD (GitHub Action)",
 				"type": "shell",
 				"command": "gh workflow run",
-				"problemMatcher": []
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
 			},
 			{
-				"label": "4. Lint and Run Tests",
+				"label": "4. Lint and Run Tests (Frontend)",
 				"type": "shell",
 				"command": "npm run lint && npm run test",
-				"problemMatcher": []
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
 			},
 			{
-				"label": "5. Run python check",
+				"label": "5. Run Django Check",
 				"type": "shell",
-				"command": "python manage.py check",
-				"problemMatcher": []
+				"command": "./venv/bin/python manage.py check",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
 			},
 			{
-				"label": "6. Check format code",
+				"label": "6. Run Flake8 Code Quality Check",
 				"type": "shell",
-				"command": "flake8 . ",
-				"problemMatcher": []
+				"command": "./venv/bin/flake8 .",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
 			},
 			{
-				"label": "7. Migrate",
+				"label": "7. Run Database Migrations",
 				"type": "shell",
-				"command": "python manage.py makemigrations && python manage.py migrate",
-				"problemMatcher": []
+				"command": "./venv/bin/python manage.py makemigrations && ./venv/bin/python manage.py migrate",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
 			},
+			{
+				"label": "8. Build Production Assets (Vite)",
+				"type": "shell",
+				"command": "npm run build",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
+			},
+			{
+				"label": "9. Start Development Server (Django)",
+				"type": "shell",
+				"command": "./venv/bin/python manage.py runserver",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
+			},
+			{
+				"label": "10. Create Django Superuser",
+				"type": "shell",
+				"command": "./venv/bin/python manage.py createsuperuser",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
+			},
+			{
+				"label": "11. Clean Pycache & Temporary Files",
+				"type": "shell",
+				"command": "find . -name \"*.pyc\" -delete && find . -name \"__pycache__\" -delete",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
+			},
+			{
+				"label": "12. Git Commit, Push & Trigger CI/CD",
+				"type": "shell",
+				"command": "git add . && git commit -m '${input:commitMessage}' && git push origin HEAD && gh workflow run",
+				"problemMatcher": [],
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				}
+			}
 		]
 	},
 	"settings": {}

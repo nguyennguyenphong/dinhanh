@@ -23,7 +23,7 @@ class MenuGroupUpdateSerializer(serializers.Serializer):
         error_messages={"required": "Label is required."},
     )
     icon = serializers.CharField(
-        required=False, allow_null=True, allow_blank=True, default=None, max_length=255
+        required=False, allow_null=True, allow_blank=True, default=None
     )
     sort_order = serializers.IntegerField(required=False, default=0)
     is_active = serializers.BooleanField(required=False, default=True)
@@ -31,3 +31,16 @@ class MenuGroupUpdateSerializer(serializers.Serializer):
     def validate_code(self, value: str) -> str:
         """Custom clean rule to ensure updated code is always in lowercase."""
         return value.lower()
+
+    def validate_icon(self, value: str | None) -> str | None:
+        if not value:
+            return None
+        import re
+        cleaned_value = value.strip()
+        if not re.match(
+            r"^<svg.*?>.*?</svg>$", cleaned_value, flags=re.DOTALL | re.IGNORECASE
+        ):
+            raise serializers.ValidationError(
+                "Định dạng icon không hợp lệ. Phải là một thẻ SVG hợp lệ."
+            )
+        return cleaned_value

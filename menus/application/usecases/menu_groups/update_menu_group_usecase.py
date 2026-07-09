@@ -27,11 +27,19 @@ class UpdateMenuGroupUseCase:
         # Business rule: If changing code, the new code must not collide with other existing groups
         normalized_code = dto.code.lower().strip()
         if self._repo.exists_by_code(
-            tenant_id=entity.tenant_id, code=normalized_code, exclude_id=entity.id
+            tenant=entity.tenant_id, code=normalized_code, exclude_id=entity.id
         ):
             raise MenuGroupAlreadyExistsError(
                 tenant_id=entity.tenant_id, code=normalized_code
             )
+
+        if hasattr(self._repo, "exists_by_sort_order"):
+            if self._repo.exists_by_sort_order(
+                tenant=entity.tenant_id, sort_order=dto.sort_order, exclude_id=entity.id
+            ):
+                raise ValueError(
+                    f"Thứ tự hiển thị {dto.sort_order} đã tồn tại."
+                )
 
         # Delegate business logic updates to behaviors built directly inside the domain model
         entity.code = normalized_code

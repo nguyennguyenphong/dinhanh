@@ -3,10 +3,10 @@ from __future__ import annotations
 import uuid
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views import View
 
-from menus.services.menu_item_service import MenuItemService
+from menus.models import MenuItem
 
 
 class MenuItemDetailView(LoginRequiredMixin, View):
@@ -15,7 +15,14 @@ class MenuItemDetailView(LoginRequiredMixin, View):
     """
 
     def get(self, request, pk: uuid.UUID):
-        menu_item_dto = MenuItemService.get_by_uuid(pk)
+        menu_item = get_object_or_404(MenuItem.all_objects, uuid=pk)
+
+        from tenants.models import Tenant
+        tenant = Tenant.objects.filter(pk=menu_item.tenant_id).first()
+        tenant_name = tenant.name if tenant else "-"
+
         return render(
-            request, "pages/menu_items/detail.html", {"menu_item": menu_item_dto}
+            request,
+            "pages/menu_items/detail.html",
+            {"menu_item": menu_item, "tenant_name": tenant_name},
         )

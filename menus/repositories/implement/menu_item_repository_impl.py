@@ -219,7 +219,8 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
         code: str,
         exclude_id: Optional[int] = None,
     ) -> bool:
-        qs = self._qs.filter(tenant_id=tenant_id, code=code.lower())
+        from menus.models.menu_items import MenuItem
+        qs = MenuItem.objects.all_with_deleted().filter(tenant_id=tenant_id, code=code.lower())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
@@ -230,7 +231,8 @@ class MenuItemRepositoryImpl(IMenuItemRepository):
         sort_order: int,
         exclude_id: Optional[int] = None,
     ) -> bool:
-        qs = self._qs.filter(tenant_id=tenant_id, sort_order=sort_order)
+        from menus.models.menu_items import MenuItem
+        qs = MenuItem.objects.all_with_deleted().filter(tenant_id=tenant_id, sort_order=sort_order)
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()

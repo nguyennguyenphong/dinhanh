@@ -16,8 +16,6 @@ from menus.serializers.menu_groups import (
     MenuGroupCreateSerializer,
     MenuGroupUpdateSerializer,
 )
-from menus.utils.request_helpers import get_client_ip
-from menus.views.helpers.view_helpers import RequestContext
 
 
 class MenuGroupService:
@@ -70,6 +68,21 @@ class MenuGroupService:
         try:
             dto = MenuGroupCreateDto(**validated_data)
             MenuGroupProvider.create_menu_group().execute(dto)
+
+            # Log MenuGroup creation
+            from menus.models.menu_audit_log import MenuAuditLog
+            MenuAuditLog.objects.create(
+                tenant_id=validated_data["tenant"],
+                action="CREATE",
+                actor_id=request.user.id if request.user.is_authenticated else None,
+                new_values={
+                    "code": validated_data.get("code"),
+                    "label": validated_data.get("label"),
+                    "icon": validated_data.get("icon"),
+                    "sort_order": validated_data.get("sort_order"),
+                    "is_active": validated_data.get("is_active"),
+                }
+            )
             return True
         except Exception as exc:
             form.add_error(None, str(exc))
@@ -81,6 +94,8 @@ class MenuGroupService:
         menu_group_model = get_object_or_404(MenuGroup, uuid=pk)
 
         data = form.cleaned_data.copy()
+        data["id"] = menu_group_model.id
+        data["uuid"] = menu_group_model.uuid
 
         # 2. Validate serializer
         serializer = MenuGroupUpdateSerializer(
@@ -88,24 +103,62 @@ class MenuGroupService:
         )
         if not serializer.is_valid():
             for field, errors in serializer.errors.items():
-                form.add_error(field, errors)
+                target_field = field if field in form.fields else None
+                form.add_error(target_field, errors)
+            return False
+
+        check_data = {
+            "code": serializer.validated_data.get("code"),
+            "label": serializer.validated_data.get("label"),
+            "icon": serializer.validated_data.get("icon"),
+            "sort_order": serializer.validated_data.get("sort_order"),
+            "is_active": serializer.validated_data.get("is_active"),
+        }
+        model_data = {
+            "code": menu_group_model.code,
+            "label": menu_group_model.label,
+            "icon": menu_group_model.icon,
+            "sort_order": menu_group_model.sort_order,
+            "is_active": menu_group_model.is_active,
+        }
+        if check_data == model_data:
+            messages.info(request, "Dữ liệu không thay đổi.")
             return False
 
         try:
-            ctx = RequestContext.from_request(request)
             dto = MenuGroupUpdateDto(**serializer.validated_data)
 
-            MenuGroupProvider.update_menu_group().execute(
-                dto,
-                actor_id=ctx.actor_id,
-                actor_username=ctx.actor_username,
-                ip_address=get_client_ip(request),
-                user_agent=request.META.get("HTTP_USER_AGENT", ""),
+            # Capture old state before update
+            old_values = {
+                "code": menu_group_model.code,
+                "label": menu_group_model.label,
+                "icon": menu_group_model.icon,
+                "sort_order": menu_group_model.sort_order,
+                "is_active": menu_group_model.is_active,
+            }
+
+            MenuGroupProvider.update_menu_group().execute(dto)
+
+            # Log MenuGroup update
+            from menus.models.menu_audit_log import MenuAuditLog
+            MenuAuditLog.objects.create(
+                tenant_id=menu_group_model.tenant_id,
+                action="UPDATE",
+                actor_id=request.user.id if request.user.is_authenticated else None,
+                old_values=old_values,
+                new_values={
+                    "code": serializer.validated_data.get("code"),
+                    "label": serializer.validated_data.get("label"),
+                    "icon": serializer.validated_data.get("icon"),
+                    "sort_order": serializer.validated_data.get("sort_order"),
+                    "is_active": serializer.validated_data.get("is_active"),
+                }
             )
 
             return True
-        except MenuGroupDomainError as exc:
+        except (MenuGroupDomainError, ValueError) as exc:
             form.add_error(None, str(exc))
+            messages.error(request, str(exc))
             return False
 
     @staticmethod
@@ -115,16 +168,26 @@ class MenuGroupService:
         """
         menu_group = get_object_or_404(MenuGroup.all_objects, uuid=pk)
         try:
-            ctx = RequestContext.from_request(request)
-
-            MenuGroupProvider.soft_delete_menu_group().execute(
-                menu_group.id,
-                actor_id=ctx.actor_id,
-                actor_username=ctx.actor_username,
-                ip_address=get_client_ip(request),
-                user_agent=request.META.get("HTTP_USER_AGENT", ""),
+            from menus.application.dtos.menu_groups import MenuGroupSoftDeleteDto
+            dto = MenuGroupSoftDeleteDto(
+                id=menu_group.id,
+                tenant_id=menu_group.tenant_id,
             )
 
+            MenuGroupProvider.soft_delete_menu_group().execute(dto)
+
+            # Log MenuGroup soft delete
+            from menus.models.menu_audit_log import MenuAuditLog
+            MenuAuditLog.objects.create(
+                tenant_id=menu_group.tenant_id,
+                action="DELETE",
+                actor_id=request.user.id if request.user.is_authenticated else None,
+                old_values={
+                    "code": menu_group.code,
+                    "label": menu_group.label,
+                    "is_active": menu_group.is_active,
+                }
+            )
             return True
 
         except MenuGroupDomainError as exc:
@@ -144,13 +207,24 @@ class MenuGroupService:
         """
         menu_group = get_object_or_404(MenuGroup.all_objects, uuid=pk)
         try:
-            ctx = RequestContext.from_request(request)
-            MenuGroupProvider.hard_delete_menu_group().execute(
-                menu_group.id,
-                actor_id=ctx.actor_id,
-                actor_username=ctx.actor_username,
-                ip_address=get_client_ip(request),
-                user_agent=request.META.get("HTTP_USER_AGENT", ""),
+            from menus.application.dtos.menu_groups import MenuGroupHardDeleteDto
+            dto = MenuGroupHardDeleteDto(
+                id=menu_group.id,
+                tenant_id=menu_group.tenant_id,
+            )
+            MenuGroupProvider.hard_delete_menu_group().execute(dto)
+
+            # Log MenuGroup hard delete
+            from menus.models.menu_audit_log import MenuAuditLog
+            MenuAuditLog.objects.create(
+                tenant_id=menu_group.tenant_id,
+                action="DELETE",
+                actor_id=request.user.id if request.user.is_authenticated else None,
+                old_values={
+                    "code": menu_group.code,
+                    "label": menu_group.label,
+                    "is_active": menu_group.is_active,
+                }
             )
             return True
         except Exception as exc:

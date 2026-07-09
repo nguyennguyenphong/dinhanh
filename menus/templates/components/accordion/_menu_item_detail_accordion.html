@@ -19,6 +19,10 @@
                 <span class="font-medium text-gray-900 dark:text-white">{{ menu_item.label }}</span>
             </div>
             <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Tenant</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ tenant_name|default:"-" }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
                 <span class="w-36 text-gray-500 shrink-0">Mã code</span>
                 <code class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded">{{ menu_item.code }}</code>
             </div>
@@ -52,4 +56,6 @@
             </div>
         </div>
     </div>
+    
+    {% include 'components/accordion/accordion_items/_audit_tracking.html' %}
 </div>

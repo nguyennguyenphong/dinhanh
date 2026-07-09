@@ -15,7 +15,7 @@
     <div class="p-4 md:p-5">
         <div class="flex items-center py-2.5 text-sm">
             <span class="w-36 text-gray-500 shrink-0">Tenant</span>
-            <span class="font-medium text-gray-900 dark:text-white">{{ menu_group.tenant_id }}</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ tenant_name|default:"-" }}</span>
         </div>
     </div>
 </div>

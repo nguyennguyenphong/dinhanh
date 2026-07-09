@@ -56,6 +56,19 @@ class MenuItemCreateSerializer(serializers.Serializer):
         """Ensure code is strictly in lowercase format."""
         return value.lower()
 
+    def validate_icon(self, value: str | None) -> str | None:
+        if not value:
+            return None
+        import re
+        cleaned_value = value.strip()
+        if not re.match(
+            r"^<svg.*?>.*?</svg>$", cleaned_value, flags=re.DOTALL | re.IGNORECASE
+        ):
+            raise serializers.ValidationError(
+                "Định dạng icon không hợp lệ. Phải là một thẻ SVG hợp lệ."
+            )
+        return cleaned_value
+
     def validate(self, attrs: dict) -> dict:
         tenant_id = attrs.get("tenant")
         code = attrs.get("code")

@@ -113,7 +113,8 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
     def exists_by_code(
         self, tenant: int, code: str, exclude_id: int | None = None
     ) -> bool:
-        qs = self._qs.filter(tenant_id=tenant, code=code.lower())
+        from menus.models import MenuGroup
+        qs = MenuGroup.objects.all_with_deleted().filter(tenant_id=tenant, code=code.lower())
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
@@ -121,7 +122,8 @@ class MenuGroupRepositoryImpl(IMenuGroupRepository):
     def exists_by_sort_order(
         self, tenant: int, sort_order: int, exclude_id: int | None = None
     ) -> bool:
-        qs = self._qs.filter(tenant_id=tenant, sort_order=sort_order)
+        from menus.models import MenuGroup
+        qs = MenuGroup.objects.all_with_deleted().filter(tenant_id=tenant, sort_order=sort_order)
         if exclude_id:
             qs = qs.exclude(pk=exclude_id)
         return qs.exists()
