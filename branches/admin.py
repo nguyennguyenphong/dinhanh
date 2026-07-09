@@ -71,10 +71,10 @@ class BranchAuditLogAdmin(admin.ModelAdmin):
     list_display = (
         "branch",
         "action",
-        "user",
-        "timestamp",
+        "created_by",
+        "created_at",
     )
-    list_filter = ("action", "timestamp")
-    search_fields = ("branch__name", "user__email", "changes")
-    readonly_fields = ("branch", "action", "user", "changes", "timestamp")
-    ordering = ("-timestamp",)
+    list_filter = ("action", "created_at")
+    search_fields = ("branch__name", "user__email", "new_values")
+    readonly_fields = ("branch", "action", "created_by", "new_values", "created_at")
+    ordering = ("-created_at",)

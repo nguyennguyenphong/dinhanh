@@ -23,7 +23,7 @@ class UserAccountAdmin(admin.ModelAdmin):
         "is_active",
         "is_staff",
     )
-    list_filter = ("is_active", "is_staff", "tenant")
+    list_filter = ["is_active", "is_staff", "tenant"]
     search_fields = ("username", "email", "full_name", "tenant__name")
     readonly_fields = ("uuid", "last_login")
     ordering = ("tenant", "username")
@@ -32,7 +32,7 @@ class UserAccountAdmin(admin.ModelAdmin):
 @admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
     list_display = ("name", "slug", "tenant", "is_system", "is_active")
-    list_filter = ("is_system", "is_active", "tenant")
+    list_filter = ["is_system", "is_active", "tenant"]
     search_fields = ("name", "slug", "tenant__name")
     ordering = ("tenant", "name")
 
@@ -43,12 +43,11 @@ class PermissionAdmin(admin.ModelAdmin):
         "codename",
         "name",
         "module",
-        "action",
         "tenant",
         "is_system",
         "is_active",
     )
-    list_filter = ("module", "action", "is_system", "is_active", "tenant")
+    list_filter = ["module", "is_system", "is_active", "tenant"]
     search_fields = ("codename", "name", "module", "tenant__name")
     ordering = ("tenant", "codename")
 
@@ -56,7 +55,7 @@ class PermissionAdmin(admin.ModelAdmin):
 @admin.register(PermissionGroup)
 class PermissionGroupAdmin(admin.ModelAdmin):
     list_display = ("code", "name", "tenant", "is_active")
-    list_filter = ("is_active", "tenant")
+    list_filter = ["is_active", "tenant"]
     search_fields = ("code", "name", "tenant__name")
     ordering = ("tenant", "code")
 
@@ -67,18 +66,17 @@ class UserSessionAdmin(admin.ModelAdmin):
         "user",
         "ip_address",
         "user_agent",
-        "is_active",
         "created_at",
         "expires_at",
     )
-    list_filter = ("is_active", "created_at")
+    list_filter = ["created_at"]
     search_fields = ("user__email", "ip_address")
     ordering = ("-created_at",)
 
 
 @admin.register(SessionAuditLog)
 class SessionAuditLogAdmin(admin.ModelAdmin):
-    list_display = ("session", "action", "ip_address", "timestamp")
-    list_filter = ("action", "timestamp")
+    list_display = ("session", "ip_address", "created_at")
+    list_filter = ["created_at"]
     search_fields = ("session__user__email", "ip_address")
-    ordering = ("-timestamp",)
+    ordering = ("-created_at",)
