@@ -16,7 +16,7 @@ class RoleUpdateView(LoginRequiredMixin, View):
         form = RoleBaseForm(instance=role)
         return render(
             request,
-            "pages/role_create.html",
+            "pages/roles/create.html",
             {"form": form, "object": role, "is_update": True},
         )
 
@@ -34,6 +34,6 @@ class RoleUpdateView(LoginRequiredMixin, View):
 
         return render(
             request,
-            "pages/role_create.html",
+            "pages/roles/create.html",
             {"form": form, "object": role, "is_update": True},
         )

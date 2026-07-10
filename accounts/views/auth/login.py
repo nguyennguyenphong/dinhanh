@@ -68,4 +68,4 @@ def login(request):
         form = LoginBaseForm()
 
     context = {"form": form, "next": request.GET.get("next", "")}
-    return render(request, "pages/login.html", context)
+    return render(request, "pages/auth/login.html", context)

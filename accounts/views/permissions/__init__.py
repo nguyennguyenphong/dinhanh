@@ -1,7 +1,7 @@
-from accounts.views.permissions.create import PermissionCreateView
-from accounts.views.permissions.delete import PermissionDeleteView
-from accounts.views.permissions.list import PermissionListApiView, PermissionListView
-from accounts.views.permissions.update import PermissionUpdateView
+from accounts.views.permissions.permission_create_view import PermissionCreateView
+from accounts.views.permissions.permission_soft_delete_view import PermissionDeleteView
+from accounts.views.permissions.permission_list_view import PermissionListApiView, PermissionListView
+from accounts.views.permissions.permission_update_view import PermissionUpdateView
 
 __all__ = [
     "PermissionCreateView",

@@ -4,27 +4,27 @@ from accounts.views import permissions as permission_views
 
 urlpatterns = [
     path(
-        "list/ui/",
+        "permissions/list/ui/",
         permission_views.PermissionListView.as_view(),
         name="permission_list",
     ),
     path(
-        "list/api/",
+        "permissions/list/api/",
         permission_views.PermissionListApiView.as_view(),
         name="permission_list_api",
     ),
     path(
-        "create/",
+        "permissions/create/",
         permission_views.PermissionCreateView.as_view(),
         name="permission_create",
     ),
     path(
-        "update/<int:pk>/",
+        "permissions/update/<int:pk>/",
         permission_views.PermissionUpdateView.as_view(),
         name="permission_update",
     ),
     path(
-        "delete/<int:pk>/",
+        "permissions/delete/<int:pk>/",
         permission_views.PermissionDeleteView.as_view(),
         name="permission_delete",
     ),

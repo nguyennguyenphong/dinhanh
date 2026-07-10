@@ -6,4 +6,4 @@ from accounts.views.forms import RegisterBaseForm
 def register(request):
     form = RegisterBaseForm()
 
-    return render(request, "pages/register.html", {"form": form})
+    return render(request, "pages/auth/register.html", {"form": form})

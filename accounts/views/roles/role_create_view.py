@@ -12,7 +12,7 @@ class RoleCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = RoleBaseForm()
-        return render(request, "pages/role_create.html", {"form": form})
+        return render(request, "pages/roles/create.html", {"form": form})
 
     def post(self, request):
         form = RoleBaseForm(request.POST)
@@ -22,4 +22,4 @@ class RoleCreateView(LoginRequiredMixin, View):
             if success:
                 return redirect("role_list")
 
-        return render(request, "pages/role_create.html", {"form": form})
+        return render(request, "pages/roles/create.html", {"form": form})

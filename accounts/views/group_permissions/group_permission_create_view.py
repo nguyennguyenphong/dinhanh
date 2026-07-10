@@ -10,7 +10,7 @@ class PermissionGroupCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = PermissionGroupBaseForm()
-        return render(request, "pages/group_permission_create.html", {"form": form})
+        return render(request, "pages/group_permissions/create.html", {"form": form})
 
     def post(self, request):
         form = PermissionGroupBaseForm(request.POST)
@@ -24,4 +24,4 @@ class PermissionGroupCreateView(LoginRequiredMixin, View):
                 form.add_error(None, str(exc))
                 messages.error(request, f"Lỗi tạo nhóm quyền: {str(exc)}")
 
-        return render(request, "pages/group_permission_create.html", {"form": form})
+        return render(request, "pages/group_permissions/create.html", {"form": form})

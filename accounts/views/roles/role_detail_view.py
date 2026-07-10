@@ -19,6 +19,6 @@ class RoleDetailView(LoginRequiredMixin, View):
 
         return render(
             request,
-            "pages/role_detail.html",
+            "pages/roles/detail.html",
             {"role": role, "tenant_name": tenant_name},
         )

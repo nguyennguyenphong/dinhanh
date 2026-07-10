@@ -14,7 +14,7 @@ class PermissionUpdateView(LoginRequiredMixin, View):
         form = PermissionBaseForm(instance=permission)
         return render(
             request,
-            "pages/permission_create.html",
+            "pages/permissions/create.html",
             {"form": form, "object": permission, "is_update": True},
         )
 
@@ -33,6 +33,6 @@ class PermissionUpdateView(LoginRequiredMixin, View):
 
         return render(
             request,
-            "pages/permission_create.html",
+            "pages/permissions/create.html",
             {"form": form, "object": permission, "is_update": True},
         )

@@ -241,28 +241,38 @@
             "steps_verify.html"
           ]
         },
-        "pages": [
-          "group_permission_create.html",
-          "group_permission_delete.html",
-          "group_permission_list.html",
-          "login.html",
-          "password_reset.html",
-          "password_reset_complete.html",
-          "password_reset_confirm.html",
-          "permission_create.html",
-          "permission_delete.html",
-          "permission_list.html",
-          "register.html",
-          "role_create.html",
-          "role_delete.html",
-          "role_detail.html",
-          "role_list.html",
-          "user_create.html",
-          "user_delete.html",
-          "user_detail.html",
-          "user_list.html",
-          "verify_email.html"
-        ],
+        "pages": {
+          "auth": [
+            "login.html",
+            "password_reset.html",
+            "password_reset_complete.html",
+            "password_reset_confirm.html",
+            "register.html",
+            "verify_email.html"
+          ],
+          "group_permissions": [
+            "group_permission_create.html",
+            "group_permission_delete.html",
+            "group_permission_list.html"
+          ],
+          "permissions": [
+            "permission_create.html",
+            "permission_delete.html",
+            "permission_list.html"
+          ],
+          "roles": [
+            "role_create.html",
+            "role_delete.html",
+            "role_detail.html",
+            "role_list.html"
+          ],
+          "users": [
+            "user_create.html",
+            "user_delete.html",
+            "user_detail.html",
+            "user_list.html"
+          ]
+        },
         "_files": [
           ".DS_Store"
         ]
@@ -314,10 +324,10 @@
           "update.py"
         ],
         "roles": [
-          "create.py",
           "delete.py",
           "detail.py",
           "list.py",
+          "role_create_view.py",
           "role_hard_delete_view.py",
           "role_soft_delete_view.py",
           "update.py"

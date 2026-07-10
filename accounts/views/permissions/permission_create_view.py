@@ -10,7 +10,7 @@ class PermissionCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = PermissionBaseForm()
-        return render(request, "pages/permission_create.html", {"form": form})
+        return render(request, "pages/permissions/create.html", {"form": form})
 
     def post(self, request):
         form = PermissionBaseForm(request.POST)
@@ -24,4 +24,4 @@ class PermissionCreateView(LoginRequiredMixin, View):
                 form.add_error(None, str(exc))
                 messages.error(request, f"Lỗi tạo quyền: {str(exc)}")
 
-        return render(request, "pages/permission_create.html", {"form": form})
+        return render(request, "pages/permissions/reate.html", {"form": form})
