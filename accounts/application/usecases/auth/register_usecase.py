@@ -64,13 +64,16 @@ class RegisterUseCase:
         self._otp_repo.save(otp_entity)
 
         # Send email
+        from django.template.loader import render_to_string
         subject = "Xác nhận đăng ký tài khoản"
-        message = f"Mã xác thực đăng ký tài khoản của bạn là: {code}. Mã này có hiệu lực trong 10 phút."
+        html_message = render_to_string("email/inform/register_otp.html", {"code": code})
         from_email = "no-reply@dinhanh.com"
         recipient_list = [dto.email.strip().lower()]
 
         try:
-            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+            send_mail(
+                subject, html_message, from_email, recipient_list, fail_silently=True
+            )
         except Exception:
             # Silence email errors for robust offline testing/running
             pass

@@ -1207,7 +1207,9 @@
       "email": {
         "inform": [
           "_otp_sending.html",
-          "_success_login.html"
+          "password_reset_otp.html",
+          "_success_login.html",
+          "register_otp.html"
         ]
       },
       "_files": [

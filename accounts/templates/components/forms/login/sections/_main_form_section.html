@@ -28,6 +28,16 @@
         {% endif %}
     </div>
 
+    <div class="flex items-center justify-between text-sm">
+        <label class="flex items-center cursor-pointer select-none">
+            <input type="checkbox" name="remember_me" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500 mr-2">
+            <span class="text-gray-600 dark:text-slate-400">Ghi nhớ đăng nhập</span>
+        </label>
+        <a href="{% url 'password_reset' %}" class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 hover:underline">
+            Quên mật khẩu?
+        </a>
+    </div>
+
     <div class="flex justify-center w-full">
         <button type="submit"
             class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20">

@@ -41,12 +41,15 @@ class ForgotPasswordUseCase:
         self._otp_repo.save(otp_entity)
 
         # Send email
+        from django.template.loader import render_to_string
         subject = "Khôi phục mật khẩu tài khoản"
-        message = f"Mã xác thực khôi phục mật khẩu của bạn là: {code}. Mã này có hiệu lực trong 10 phút."
+        html_message = render_to_string("email/inform/password_reset_otp.html", {"code": code})
         from_email = "no-reply@dinhanh.com"
         recipient_list = [dto.email.strip().lower()]
 
         try:
-            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+            send_mail(
+                subject, html_message, from_email, recipient_list, fail_silently=True
+            )
         except Exception:
             pass

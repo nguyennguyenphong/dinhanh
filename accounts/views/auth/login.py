@@ -41,6 +41,13 @@ def login(request):
                 django_user = User.objects.get(pk=user_entity.id)
                 django_login(request, django_user)
 
+                # Set session expiry based on remember_me checkbox
+                remember_me = request.POST.get("remember_me")
+                if remember_me:
+                    request.session.set_expiry(1209600)  # 2 weeks in seconds
+                else:
+                    request.session.set_expiry(0)  # expires on browser close
+
                 # Priority: POST parameter -> GET query string fallback
                 redirect_to = request.POST.get("next", request.GET.get("next", ""))
 
