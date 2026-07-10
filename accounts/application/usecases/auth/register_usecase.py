@@ -65,8 +65,11 @@ class RegisterUseCase:
 
         # Send email
         from django.template.loader import render_to_string
+
         subject = "Xác nhận đăng ký tài khoản"
-        html_message = render_to_string("email/inform/register_otp.html", {"code": code})
+        html_message = render_to_string(
+            "email/inform/register_otp.html", {"code": code}
+        )
         from_email = "no-reply@dinhanh.com"
         recipient_list = [dto.email.strip().lower()]
 

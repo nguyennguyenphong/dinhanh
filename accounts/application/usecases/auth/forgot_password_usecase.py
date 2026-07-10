@@ -42,8 +42,11 @@ class ForgotPasswordUseCase:
 
         # Send email
         from django.template.loader import render_to_string
+
         subject = "Khôi phục mật khẩu tài khoản"
-        html_message = render_to_string("email/inform/password_reset_otp.html", {"code": code})
+        html_message = render_to_string(
+            "email/inform/password_reset_otp.html", {"code": code}
+        )
         from_email = "no-reply@dinhanh.com"
         recipient_list = [dto.email.strip().lower()]
 
