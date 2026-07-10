@@ -1,0 +1,14 @@
+{% include 'components/ui/_catch_error_form.html' %}
+
+<form action="" method="POST" class="space-y-6" autocomplete="off">
+    {% csrf_token %}
+
+    <div class="mb-4">
+        {% include 'components/forms/menu_items/sections/_identity_presentation.html' %}
+        {% include 'components/forms/menu_items/sections/_routing_navigation.html' %}
+        {% include 'components/forms/menu_items/sections/_hierarchy_ordering.html' %}
+        {% include 'components/forms/menu_items/sections/_context_permissions.html' %}
+        {% include 'components/forms/menu_items/sections/_status_badges.html' %}
+    </div>
+    {% include 'components/forms/menu_item_section/_button_action.html' %}
+</form>

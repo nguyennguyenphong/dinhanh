@@ -2,9 +2,9 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-5 dark:border-slate-800">
         <div>
             <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
-                Tạo tenant
+                Cập nhật tenant {{ object.name }}
             </h1>
-            <p class="text-sm text-gray-500 dark:text-slate-400">Tạo tenant hệ thống.</p>
+            <p class="text-sm text-gray-500 dark:text-slate-400">Cập nhật thông tin tenant {{ object.name }} với mã uuid {{ object.uuid }}.</p>
         </div>
         <div>
             <a href="{% url 'tenant_list' %}"

@@ -29,10 +29,10 @@ class AssetCategoryListView(LoginRequiredMixin, View):
             "actions",
             "Thao tác",
             col_type="actions",
-            width=180,
+            width=220,
             sortable=False,
             filter=False,
-            cell_renderer_params={"app": "asset_categories", "key": "uuid"},
+            cell_renderer_params={"app": "asset_categories", "key": "id"},
         )
 
         context = {

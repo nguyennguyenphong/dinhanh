@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Cập nhật nhóm menu {% endblock %}
+{% block title %} Cập nhật nhóm menu {{ object.label }} {% endblock %}
 
 {% block content %}
 {% include 'portals/sidebar.html' %}
@@ -15,7 +15,7 @@
         {% include 'components/page_header/_menu_group_update_page_header.html' %}
 
         <div class="rounded-md">
-            {% include 'components/forms/_menu_group_form.html' %}
+            {% include 'components/forms/menu_groups/_form.html' %}
         </div>
     </div>
 </div>
