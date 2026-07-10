@@ -13,7 +13,9 @@ urlpatterns = [
     path("accounts/register/", register, name="register"),
     path("accounts/password_reset/", password_reset, name="password_reset"),
     path(
-        "accounts/password_reset_confirm/", password_reset_confirm, name="password_reset_confirm"
+        "accounts/password_reset_confirm/",
+        password_reset_confirm,
+        name="password_reset_confirm",
     ),
     path("accounts/verify_email/", verify_email, name="verify_email"),
     path(
