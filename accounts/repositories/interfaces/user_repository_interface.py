@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from typing import Protocol
+from typing import Protocol, Any
 
 from accounts.domain.entities.user_entity import UserEntity
 
@@ -17,6 +17,10 @@ class UserRepository(Protocol):
 
     def find_by_uuid(self, user_uuid: uuid.UUID) -> UserEntity | None:
         """Retrieve UserEntity by its unique UUID."""
+        pass
+
+    def find_by_email(self, email: str) -> UserEntity | None:
+        """Retrieve UserEntity by email address."""
         pass
 
     def exists_by_username(
@@ -37,4 +41,17 @@ class UserRepository(Protocol):
 
     def hard_delete(self, user_uuid: uuid.UUID) -> bool:
         """Hard-delete a user from database."""
+        pass
+
+    def list(
+        self,
+        *,
+        tenant_id: int,
+        filters: dict[str, Any] | None = None,
+        search: str | None = None,
+        ordering: list[str] | None = None,
+        limit: int = 20,
+        offset: int = 0,
+    ) -> tuple[list[UserEntity], int]:
+        """List, filter, and page users in a tenant context."""
         pass

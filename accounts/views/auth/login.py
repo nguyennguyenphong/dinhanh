@@ -7,10 +7,10 @@ from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 
-from accounts.application.dtos.login import LoginDTO
+from accounts.application.dtos.auth.login_dto import LoginDTO
 from accounts.exceptions.exception import AccountDomainError
 from accounts.policies.login_policy import LoginPolicy
-from accounts.providers.login import LoginProvider
+from accounts.providers.auth.auth_provider import AuthProvider
 from accounts.views.forms.login_base_form import LoginBaseForm
 
 
@@ -33,7 +33,7 @@ def login(request):
                 password=form.cleaned_data.get("password"),
             )
             try:
-                user_entity = LoginProvider.authenticate_user().execute(
+                user_entity = AuthProvider.authenticate_user().execute(
                     dto, request=request
                 )
 

@@ -1,1 +1,1 @@
-from accounts.application.usecases.login import *
+from accounts.application.usecases.auth import *

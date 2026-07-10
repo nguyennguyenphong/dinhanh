@@ -1,10 +1,9 @@
 {% load static %}
-{% load component_tags %}
 
-<form method="POST" class="space-y-5" 
-      x-data="{ 
-        password: '', 
-        confirmPassword: '', 
+<form method="POST" action="{% url 'password_reset_confirm' %}?email={{ email }}" class="space-y-4"
+      x-data="{
+        password: '',
+        confirmPassword: '',
         showPassword: false,
         get metrics() {
             let score = 0;
@@ -21,8 +20,32 @@
       }">
     {% csrf_token %}
 
+    <div class="space-y-1">
+        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.email.label }}
+        </label>
+        <div>
+            {{ form.email }}
+        </div>
+        {% if form.email.errors %}
+        <p class="text-red-500 text-xs mt-1">{{ form.email.errors.0 }}</p>
+        {% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.code.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.code.label }} <span class="text-red-500">*</span>
+        </label>
+        <div>
+            {{ form.code }}
+        </div>
+        {% if form.code.errors %}
+        <p class="text-red-500 text-xs mt-1">{{ form.code.errors.0 }}</p>
+        {% endif %}
+    </div>
+
     <div class="space-y-1.5">
-        <label for="new_password1" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+        <label for="{{ form.new_password.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
             Mật khẩu mới <span class="text-red-500">*</span>
         </label>
         <div class="relative">
@@ -32,7 +55,7 @@
                     <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
             </div>
-            <input :type="showPassword ? 'text' : 'password'" id="new_password1" name="new_password1" required autocomplete="new-password" x-model="password"
+            <input :type="showPassword ? 'text' : 'password'" id="{{ form.new_password.id_for_label }}" name="new_password" required autocomplete="new-password" x-model="password"
                 class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-md text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
                 placeholder="••••••••">
             <button type="button" @click="showPassword = !showPassword"
@@ -58,10 +81,13 @@
         <p class="text-xs transition-colors duration-300" 
            :class="password ? (metrics.score == 1 ? 'text-red-500' : (metrics.score == 2 ? 'text-amber-500' : 'text-emerald-500')) : 'text-gray-400'"
            x-text="password ? (metrics.score == 1 ? 'Mật khẩu yếu' : (metrics.score == 2 ? 'Mật khẩu trung bình' : 'Mật khẩu mạnh đạt chuẩn')) : 'Tối thiểu 8 ký tự, gồm chữ hoa và số'"></p>
+        {% if form.new_password.errors %}
+        <p class="text-red-500 text-xs mt-1">{{ form.new_password.errors.0 }}</p>
+        {% endif %}
     </div>
 
     <div class="space-y-1.5">
-        <label for="new_password2" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+        <label for="{{ form.confirm_password.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
             Xác nhận mật khẩu mới <span class="text-red-500">*</span>
         </label>
         <div class="relative">
@@ -70,7 +96,7 @@
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
             </div>
-            <input type="password" id="new_password2" name="new_password2" required autocomplete="new-password" x-model="confirmPassword"
+            <input type="password" id="{{ form.confirm_password.id_for_label }}" name="confirm_password" required autocomplete="new-password" x-model="confirmPassword"
                 class="py-3 px-4 ps-11 pe-11 w-full border-[1.5px] border-gray-200 rounded-md text-sm bg-white hover:border-blue-400 focus:border-blue-500 focus:ring-0 focus:border-[1.5px] transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200"
                 placeholder="••••••••">
             <span class="absolute inset-y-0 inset-e-0 flex items-center pe-4" id="match-icon">
@@ -82,8 +108,8 @@
                 </svg>
             </span>
         </div>
-        {% if form.new_password2.errors %}
-        <p class="text-xs text-red-500 mt-1">{{ form.new_password2.errors.0 }}</p>
+        {% if form.confirm_password.errors %}
+        <p class="text-xs text-red-500 mt-1">{{ form.confirm_password.errors.0 }}</p>
         {% endif %}
     </div>
 
@@ -114,13 +140,8 @@
         </ul>
     </div>
 
-    <div :data-disabled="metrics.score < 3 || password !== confirmPassword">
-        {% component "button"
-            type="submit"
-            text="Xác nhận đặt lại mật khẩu"
-            variant="primary"
-            size="md"
-            full_width=True
-        / %}
-    </div>
+    <button type="submit" :disabled="metrics.score < 3 || password !== confirmPassword"
+        class="w-full inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed">
+        Xác nhận đặt lại mật khẩu
+    </button>
 </form>

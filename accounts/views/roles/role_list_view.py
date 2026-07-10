@@ -64,15 +64,18 @@ class RoleListApiView(LoginRequiredMixin, View):
         offset = validated_data.get("offset", 0)
 
         tenant_id = request.user.tenant_id if hasattr(request.user, "tenant_id") else 1
-        queryset = Role.objects.filter(tenant_id=tenant_id)
 
-        if search:
-            queryset = queryset.filter(
-                Q(name__icontains=search) | Q(slug__icontains=search)
-            )
+        from accounts.application.dtos.roles.role_list_query_dto import RoleListQueryDto
+        from accounts.providers.role_provider import RoleProvider
 
-        total = queryset.count()
-        roles = queryset.order_by("name")[offset : offset + limit]
+        query_dto = RoleListQueryDto(
+            tenant_id=tenant_id,
+            search=search,
+            limit=limit,
+            offset=offset,
+        )
 
-        data_serializer = RoleSerializer(roles, many=True)
+        roles_dtos, total = RoleProvider.list_roles().execute(query_dto)
+
+        data_serializer = RoleSerializer(roles_dtos, many=True)
         return JsonResponse({"results": data_serializer.data, "total": total})

@@ -23,7 +23,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "--code", default="DEMO COMPANY", help="Tenant code (uppercase)."
+            "--code", default="DEMO_COMPANY", help="Tenant code (uppercase)."
         )
         parser.add_argument("--name", default="Demo Bus Company", help="Tenant name.")
         parser.add_argument(

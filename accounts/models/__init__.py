@@ -4,6 +4,7 @@
 
 from accounts.models.audit_log_archive import AuditLogArchive
 from accounts.models.audit_logs import AuditLog
+from accounts.models.otp_code import OTPCode
 from accounts.models.password_reset_token import PasswordResetToken
 from accounts.models.permission_cache import PermissionCache
 from accounts.models.permission_groups import PermissionGroup
@@ -21,6 +22,7 @@ from accounts.models.user_sessions import UserSession
 __all__ = [
     "AuditLogArchive",
     "AuditLog",
+    "OTPCode",
     "PasswordResetToken",
     "PermissionCache",
     "PermissionGroup",

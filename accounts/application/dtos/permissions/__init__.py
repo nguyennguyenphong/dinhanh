@@ -7,9 +7,13 @@ from accounts.application.dtos.permissions.permission_response_dto import (
 from accounts.application.dtos.permissions.permission_update_dto import (
     PermissionUpdateDto,
 )
+from accounts.application.dtos.permissions.permission_list_query_dto import (
+    PermissionListQueryDto,
+)
 
 __all__ = [
     "PermissionCreateDto",
     "PermissionUpdateDto",
     "PermissionResponseDto",
+    "PermissionListQueryDto",
 ]

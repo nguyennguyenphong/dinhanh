@@ -8,7 +8,8 @@ from accounts.application.usecases.users.soft_delete_user_usecase import (
     SoftDeleteUserUseCase,
 )
 from accounts.application.usecases.users.update_user_usecase import UpdateUserUseCase
-from accounts.repositories.implements.user_repository_impl import UserRepositoryImpl
+from accounts.application.usecases.users.list_users_usecase import ListUsersUseCase
+from accounts.repositories.implement.user_repository_impl import UserRepositoryImpl
 
 
 class UserProvider:
@@ -35,3 +36,8 @@ class UserProvider:
     def hard_delete_user() -> HardDeleteUserUseCase:
         repo = UserRepositoryImpl()
         return HardDeleteUserUseCase(repository=repo)
+
+    @staticmethod
+    def list_users() -> ListUsersUseCase:
+        repo = UserRepositoryImpl()
+        return ListUsersUseCase(repository=repo)

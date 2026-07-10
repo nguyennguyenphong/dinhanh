@@ -1,4 +1,7 @@
-from accounts.repositories.interfaces.login_repository_interface import ILoginRepository
+from accounts.repositories.interfaces.auth_repository_interface import IAuthRepository
+from accounts.repositories.interfaces.otp_code_repository_interface import (
+    OTPCodeRepository,
+)
 from accounts.repositories.interfaces.permission_repository_interface import (
     PermissionRepository,
 )
@@ -6,7 +9,8 @@ from accounts.repositories.interfaces.role_repository_interface import RoleRepos
 from accounts.repositories.interfaces.user_repository_interface import UserRepository
 
 __all__ = [
-    "ILoginRepository",
+    "IAuthRepository",
+    "OTPCodeRepository",
     "UserRepository",
     "RoleRepository",
     "PermissionRepository",

@@ -10,10 +10,14 @@ from accounts.application.usecases.permissions.soft_delete_permission_usecase im
 from accounts.application.usecases.permissions.update_permission_usecase import (
     UpdatePermissionUseCase,
 )
+from accounts.application.usecases.permissions.list_permissions_usecase import (
+    ListPermissionsUseCase,
+)
 
 __all__ = [
     "CreatePermissionUseCase",
     "UpdatePermissionUseCase",
     "SoftDeletePermissionUseCase",
     "HardDeletePermissionUseCase",
+    "ListPermissionsUseCase",
 ]

@@ -8,7 +8,8 @@ from accounts.application.usecases.roles.soft_delete_role_usecase import (
     SoftDeleteRoleUseCase,
 )
 from accounts.application.usecases.roles.update_role_usecase import UpdateRoleUseCase
-from accounts.repositories.implements.role_repository_impl import RoleRepositoryImpl
+from accounts.application.usecases.roles.list_roles_usecase import ListRolesUseCase
+from accounts.repositories.implement.role_repository_impl import RoleRepositoryImpl
 
 
 class RoleProvider:
@@ -33,3 +34,8 @@ class RoleProvider:
     def hard_delete_role() -> HardDeleteRoleUseCase:
         repo = RoleRepositoryImpl()
         return HardDeleteRoleUseCase(repository=repo)
+
+    @staticmethod
+    def list_roles() -> ListRolesUseCase:
+        repo = RoleRepositoryImpl()
+        return ListRolesUseCase(repository=repo)

@@ -3,15 +3,15 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from accounts.domain.entities.login_entity import LoginEntity
+from accounts.domain.entities.auth_user_entity import AuthUserEntity
 
 
-class ILoginRepository(ABC):
+class IAuthRepository(ABC):
     """
     Interface for UserAccount data access operations.
     Enforces inversion of control between business logic and database.
     """
 
     @abstractmethod
-    def get_by_email(self, email: str) -> Optional[LoginEntity]:
-        """Retrieve a domain UserEntity by their unique email address."""
+    def get_by_email(self, email: str) -> Optional[AuthUserEntity]:
+        """Retrieve a domain AuthUserEntity by their unique email address."""

@@ -2,21 +2,21 @@
 
 from typing import Optional
 
-from accounts.domain.entities.login_entity import LoginEntity
+from accounts.domain.entities.auth_user_entity import AuthUserEntity
 from accounts.models import UserAccount
-from accounts.repositories.interfaces.login_repository_interface import ILoginRepository
+from accounts.repositories.interfaces.auth_repository_interface import IAuthRepository
 
 
-class LoginRepositoryImpl(ILoginRepository):
+class AuthRepositoryImpl(IAuthRepository):
     """
-    Implementation of IUserRepository interacting directly with Django ORM.
+    Implementation of IAuthRepository interacting directly with Django ORM.
     Translates UserAccount ORM model instances into clean Domain Entities.
     """
 
-    def get_by_email(self, email: str) -> Optional[LoginEntity]:
+    def get_by_email(self, email: str) -> Optional[AuthUserEntity]:
         try:
             user_model = UserAccount.objects.get(email=email)
-            return LoginEntity(
+            return AuthUserEntity(
                 id=user_model.id,
                 email=user_model.email,
                 is_active=user_model.is_active,

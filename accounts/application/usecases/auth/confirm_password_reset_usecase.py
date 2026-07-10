@@ -1,0 +1,43 @@
+from __future__ import annotations
+
+from django.contrib.auth.hashers import make_password
+
+from accounts.application.dtos.auth.auth_dto import ConfirmPasswordResetDto
+from accounts.domain.entities.user_entity import UserEntity
+from accounts.repositories.interfaces.otp_code_repository_interface import (
+    OTPCodeRepository,
+)
+from accounts.repositories.interfaces.user_repository_interface import UserRepository
+
+
+class ConfirmPasswordResetUseCase:
+
+    def __init__(
+        self, user_repo: UserRepository, otp_repo: OTPCodeRepository
+    ):
+        self._user_repo = user_repo
+        self._otp_repo = otp_repo
+
+    def execute(self, dto: ConfirmPasswordResetDto) -> UserEntity:
+        otp_entity = self._otp_repo.get_valid_otp(
+            email=dto.email.strip().lower(),
+            code=dto.code.strip(),
+            purpose="PASSWORD_RESET",
+        )
+
+        if not otp_entity:
+            raise ValueError("Mã xác thực không hợp lệ hoặc đã hết hạn.")
+
+        user_entity = self._user_repo.find_by_email(dto.email.strip().lower())
+        if not user_entity:
+            raise ValueError("Không tìm thấy thông tin tài khoản.")
+
+        # Update password
+        user_entity.hashed_password = make_password(dto.new_password)
+        saved_user = self._user_repo.save(user_entity)
+
+        # Mark OTP as used
+        otp_entity.mark_used()
+        self._otp_repo.save(otp_entity)
+
+        return saved_user

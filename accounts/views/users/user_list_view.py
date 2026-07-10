@@ -64,17 +64,18 @@ class UserListApiView(LoginRequiredMixin, View):
         offset = validated_data.get("offset", 0)
 
         tenant_id = request.user.tenant_id if hasattr(request.user, "tenant_id") else 1
-        queryset = UserAccount.objects.filter(tenant_id=tenant_id)
 
-        if search:
-            queryset = queryset.filter(
-                Q(username__icontains=search)
-                | Q(email__icontains=search)
-                | Q(full_name__icontains=search)
-            )
+        from accounts.application.dtos.users.user_list_query_dto import UserListQueryDto
+        from accounts.providers.user_provider import UserProvider
 
-        total = queryset.count()
-        users = queryset.order_by("-created_at")[offset : offset + limit]
+        query_dto = UserListQueryDto(
+            tenant_id=tenant_id,
+            search=search,
+            limit=limit,
+            offset=offset,
+        )
 
-        data_serializer = UserSerializer(users, many=True)
+        users_dtos, total = UserProvider.list_users().execute(query_dto)
+
+        data_serializer = UserSerializer(users_dtos, many=True)
         return JsonResponse({"results": data_serializer.data, "total": total})

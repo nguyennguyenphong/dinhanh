@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from typing import Protocol
+from typing import Protocol, Any
 
 from accounts.domain.entities.role_entity import RoleEntity
 
@@ -29,4 +29,17 @@ class RoleRepository(Protocol):
 
     def hard_delete(self, role_uuid: uuid.UUID) -> bool:
         """Hard-delete a role from database."""
+        ...
+
+    def list(
+        self,
+        *,
+        tenant_id: int,
+        filters: dict[str, Any] | None = None,
+        search: str | None = None,
+        ordering: list[str] | None = None,
+        limit: int = 20,
+        offset: int = 0,
+    ) -> tuple[list[RoleEntity], int]:
+        """List, filter, and page roles in a tenant context."""
         ...

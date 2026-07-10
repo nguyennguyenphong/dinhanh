@@ -12,7 +12,10 @@ from accounts.application.usecases.permissions.soft_delete_permission_usecase im
 from accounts.application.usecases.permissions.update_permission_usecase import (
     UpdatePermissionUseCase,
 )
-from accounts.repositories.implements.permission_repository_impl import (
+from accounts.application.usecases.permissions.list_permissions_usecase import (
+    ListPermissionsUseCase,
+)
+from accounts.repositories.implement.permission_repository_impl import (
     PermissionRepositoryImpl,
 )
 
@@ -39,3 +42,8 @@ class PermissionProvider:
     def hard_delete_permission() -> HardDeletePermissionUseCase:
         repo = PermissionRepositoryImpl()
         return HardDeletePermissionUseCase(repository=repo)
+
+    @staticmethod
+    def list_permissions() -> ListPermissionsUseCase:
+        repo = PermissionRepositoryImpl()
+        return ListPermissionsUseCase(repository=repo)

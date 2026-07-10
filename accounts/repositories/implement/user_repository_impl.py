@@ -67,6 +67,10 @@ class UserRepositoryImpl(UserRepository):
         obj = self._qs.filter(uuid=user_uuid).first()
         return _model_to_entity(obj) if obj else None
 
+    def find_by_email(self, email: str) -> UserEntity | None:
+        obj = self._qs.filter(email=email.strip().lower()).first()
+        return _model_to_entity(obj) if obj else None
+
     def exists_by_username(
         self, tenant_id: int, username: str, exclude_id: int | None = None
     ) -> bool:
@@ -97,3 +101,38 @@ class UserRepositoryImpl(UserRepository):
             return False
         obj.delete()
         return True
+
+    def list(
+        self,
+        *,
+        tenant_id: int,
+        filters: dict[str, Any] | None = None,
+        search: str | None = None,
+        ordering: list[str] | None = None,
+        limit: int = 20,
+        offset: int = 0,
+    ) -> tuple[list[UserEntity], int]:
+        from django.db.models import Q
+
+        qs = self._qs.filter(tenant_id=tenant_id)
+
+        if filters:
+            if filters.get("is_active") is not None:
+                qs = qs.filter(is_active=filters["is_active"])
+
+        if search:
+            qs = qs.filter(
+                Q(username__icontains=search)
+                | Q(email__icontains=search)
+                | Q(full_name__icontains=search)
+            )
+
+        total = qs.count()
+
+        if ordering:
+            qs = qs.order_by(*ordering)
+        else:
+            qs = qs.order_by("-created_at")
+
+        items = [_model_to_entity(obj) for obj in qs[offset : offset + limit]]
+        return items, total

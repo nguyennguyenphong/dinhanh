@@ -1,36 +1,20 @@
-{% load component_tags %}
-
 <form method="POST" action="{% url 'password_reset' %}" class="space-y-5">
     {% csrf_token %}
 
-    <div class="space-y-1.5">
-        {% component "input"
-        name="email"
-        label="Email"
-        placeholder="Nhập email"
-        required=True
-        autocomplete="email"
-        type="email"
-        / %}
-
+    <div class="space-y-1">
+        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+            {{ form.email.label }} <span class="text-red-500">*</span>
+        </label>
+        <div>
+            {{ form.email }}
+        </div>
         {% if form.email.errors %}
-        <p class="text-xs text-red-500 flex items-center gap-x-1 mt-1">
-            <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" x2="12" y1="8" y2="12" />
-                <line x1="12" x2="12.01" y1="16" y2="16" />
-            </svg>
-            {{ form.email.errors.0 }}
-        </p>
+        <p class="text-red-500 text-xs mt-1">{{ form.email.errors.0 }}</p>
         {% endif %}
     </div>
 
-    {% component "button"
-    type="submit"
-    text="Gửi link đặt lại mật khẩu"
-    variant="primary"
-    size="md"
-    full_width=True
-    / %}
+    <button type="submit"
+        class="w-full inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20">
+        Gửi mã OTP khôi phục mật khẩu
+    </button>
 </form>

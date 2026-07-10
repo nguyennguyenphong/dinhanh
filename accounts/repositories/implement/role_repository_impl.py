@@ -83,3 +83,38 @@ class RoleRepositoryImpl(RoleRepository):
 
         obj.delete(force_policy=HARD_DELETE)
         return True
+
+    def list(
+        self,
+        *,
+        tenant_id: int,
+        filters: dict[str, Any] | None = None,
+        search: str | None = None,
+        ordering: list[str] | None = None,
+        limit: int = 20,
+        offset: int = 0,
+    ) -> tuple[list[RoleEntity], int]:
+        from django.db.models import Q
+
+        qs = self._model.objects.filter(tenant_id=tenant_id)
+
+        if filters:
+            if filters.get("is_active") is not None:
+                qs = qs.filter(is_active=filters["is_active"])
+
+        if search:
+            qs = qs.filter(
+                Q(name__icontains=search)
+                | Q(slug__icontains=search)
+                | Q(description__icontains=search)
+            )
+
+        total = qs.count()
+
+        if ordering:
+            qs = qs.order_by(*ordering)
+        else:
+            qs = qs.order_by("-created_at")
+
+        items = [_model_to_entity(obj) for obj in qs[offset : offset + limit]]
+        return items, total

@@ -70,17 +70,20 @@ class PermissionListApiView(LoginRequiredMixin, View):
         offset = validated_data.get("offset", 0)
 
         tenant_id = request.user.tenant_id if hasattr(request.user, "tenant_id") else 1
-        queryset = Permission.objects.filter(tenant_id=tenant_id)
 
-        if search:
-            queryset = queryset.filter(
-                Q(codename__icontains=search)
-                | Q(name__icontains=search)
-                | Q(module__icontains=search)
-            )
+        from accounts.application.dtos.permissions.permission_list_query_dto import (
+            PermissionListQueryDto,
+        )
+        from accounts.providers.permission_provider import PermissionProvider
 
-        total = queryset.count()
-        permissions = queryset.order_by("codename")[offset : offset + limit]
+        query_dto = PermissionListQueryDto(
+            tenant_id=tenant_id,
+            search=search,
+            limit=limit,
+            offset=offset,
+        )
 
-        data_serializer = PermissionSerializer(permissions, many=True)
+        perms_dtos, total = PermissionProvider.list_permissions().execute(query_dto)
+
+        data_serializer = PermissionSerializer(perms_dtos, many=True)
         return JsonResponse({"results": data_serializer.data, "total": total})
