@@ -48,7 +48,7 @@ class TenantUpdateView(LoginRequiredMixin, View):
         if form.is_valid():
             if TenantService.update_tenant(request, pk, form):
                 messages.success(request, "Cập nhật tenant thành công.")
-                return redirect("tenant_list")
+                return redirect("tenant_update", pk=pk)
 
         return render(
             request, "pages/tenants/update.html", {"form": form, "object": tenant}

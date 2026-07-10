@@ -1,0 +1,33 @@
+{% if form.errors or form.non_field_errors %}
+<div class="p-4 mb-6 border-l-4 border-red-600 bg-red-50/50 dark:bg-gray-800 dark:border-red-500 rounded-r-lg"
+    role="alert">
+    <h3 class="text-red-800 dark:text-red-400 font-semibold text-sm mb-2.5">
+        Vui lòng kiểm tra và sửa lại các thông tin sau:
+    </h3>
+
+    <ul class="space-y-2 text-xs text-gray-700 dark:text-gray-300">
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <li
+            class="flex items-center text-red-600 dark:text-red-400 font-medium pl-3 position-relative before:content-['•'] before:text-red-500 before:mr-2">
+            {{ error }}
+        </li>
+        {% endfor %}
+        {% endif %}
+
+        {% for field in form %}
+        {% if field.errors %}
+        {% for error in field.errors %}
+        <li class="flex items-start pl-3">
+            <span class="text-red-400 mr-2 mt-0.5">•</span>
+            <div>
+                <span class="font-medium text-gray-900 dark:text-white mr-1">{{ field.label }}:</span>
+                <span class="text-red-600 dark:text-red-400 font-normal">{{ error }}</span>
+            </div>
+        </li>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
