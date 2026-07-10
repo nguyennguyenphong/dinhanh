@@ -1,13 +1,15 @@
 from accounts.application.usecases.auth import (
+    ConfirmPasswordResetUseCase,
+    ForgotPasswordUseCase,
     LoginUseCase,
     RegisterUseCase,
     VerifyEmailUseCase,
-    ForgotPasswordUseCase,
-    ConfirmPasswordResetUseCase,
 )
 from accounts.repositories.implement.auth_repository_impl import AuthRepositoryImpl
+from accounts.repositories.implement.otp_code_repository_impl import (
+    OTPCodeRepositoryImpl,
+)
 from accounts.repositories.implement.user_repository_impl import UserRepositoryImpl
-from accounts.repositories.implement.otp_code_repository_impl import OTPCodeRepositoryImpl
 from accounts.services.auth.auth_service import LoginService
 
 

@@ -19,14 +19,14 @@ from accounts.repositories.interfaces.user_repository_interface import UserRepos
 
 class RegisterUseCase:
 
-    def __init__(
-        self, user_repo: UserRepository, otp_repo: OTPCodeRepository
-    ):
+    def __init__(self, user_repo: UserRepository, otp_repo: OTPCodeRepository):
         self._user_repo = user_repo
         self._otp_repo = otp_repo
 
     def execute(self, dto: RegisterDto, tenant_id: int = 1) -> UserEntity:
-        if self._user_repo.exists_by_username(tenant_id=tenant_id, username=dto.username):
+        if self._user_repo.exists_by_username(
+            tenant_id=tenant_id, username=dto.username
+        ):
             raise ValueError("Tên đăng nhập đã tồn tại.")
 
         if self._user_repo.exists_by_email(tenant_id=tenant_id, email=dto.email):
@@ -70,9 +70,7 @@ class RegisterUseCase:
         recipient_list = [dto.email.strip().lower()]
 
         try:
-            send_mail(
-                subject, message, from_email, recipient_list, fail_silently=True
-            )
+            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
         except Exception:
             # Silence email errors for robust offline testing/running
             pass

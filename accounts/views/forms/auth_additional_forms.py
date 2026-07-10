@@ -13,7 +13,9 @@ class ForgotPasswordForm(TailwindFormMixin, forms.Form):
 class ConfirmPasswordResetForm(TailwindFormMixin, forms.Form):
     email = forms.EmailField(
         required=True,
-        widget=forms.EmailInput(attrs={"placeholder": "example@gmail.com", "readonly": "readonly"}),
+        widget=forms.EmailInput(
+            attrs={"placeholder": "example@gmail.com", "readonly": "readonly"}
+        ),
     )
     code = forms.CharField(
         max_length=6,
@@ -44,7 +46,9 @@ class ConfirmPasswordResetForm(TailwindFormMixin, forms.Form):
 class VerifyEmailForm(TailwindFormMixin, forms.Form):
     email = forms.EmailField(
         required=True,
-        widget=forms.EmailInput(attrs={"placeholder": "example@gmail.com", "readonly": "readonly"}),
+        widget=forms.EmailInput(
+            attrs={"placeholder": "example@gmail.com", "readonly": "readonly"}
+        ),
     )
     code = forms.CharField(
         max_length=6,

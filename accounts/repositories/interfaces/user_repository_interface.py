@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from typing import Protocol, Any
+from typing import Any, Protocol
 
 from accounts.domain.entities.user_entity import UserEntity
 

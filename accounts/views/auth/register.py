@@ -18,16 +18,16 @@ def register(request):
                     username=form.cleaned_data.get("username"),
                     email=form.cleaned_data.get("email"),
                     password=form.cleaned_data.get("password"),
-                    full_name=form.cleaned_data.get("username"),  # default full_name to username
+                    full_name=form.cleaned_data.get(
+                        "username"
+                    ),  # default full_name to username
                 )
                 AuthProvider.register_user().execute(dto)
                 messages.success(
                     request,
                     "Đăng ký tài khoản thành công! Vui lòng nhập mã xác thực OTP gửi đến email của bạn.",
                 )
-                return redirect(
-                    f"/accounts/verify_email/?email={dto.email}"
-                )
+                return redirect(f"/accounts/verify_email/?email={dto.email}")
             except ValueError as e:
                 form.add_error(None, str(e))
                 messages.error(request, str(e))

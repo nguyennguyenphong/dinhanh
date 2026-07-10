@@ -26,7 +26,9 @@ class LoginUseCase:
             raise AuthenticationError("Tài khoản không tồn tại trên hệ thống.")
 
         if not LoginPolicy.is_allowed_to_login(user_entity):
-            raise PermissionDeniedError("Tài khoản chưa được xác minh OTP hoặc đã bị vô hiệu hóa.")
+            raise PermissionDeniedError(
+                "Tài khoản chưa được xác minh OTP hoặc đã bị vô hiệu hóa."
+            )
 
         user = self._auth_service.verify_credentials(dto, request)
         if not user:

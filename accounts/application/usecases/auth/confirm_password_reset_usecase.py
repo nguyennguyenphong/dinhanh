@@ -12,9 +12,7 @@ from accounts.repositories.interfaces.user_repository_interface import UserRepos
 
 class ConfirmPasswordResetUseCase:
 
-    def __init__(
-        self, user_repo: UserRepository, otp_repo: OTPCodeRepository
-    ):
+    def __init__(self, user_repo: UserRepository, otp_repo: OTPCodeRepository):
         self._user_repo = user_repo
         self._otp_repo = otp_repo
 

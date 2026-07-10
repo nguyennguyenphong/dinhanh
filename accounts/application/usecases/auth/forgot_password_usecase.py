@@ -16,9 +16,7 @@ from accounts.repositories.interfaces.user_repository_interface import UserRepos
 
 class ForgotPasswordUseCase:
 
-    def __init__(
-        self, user_repo: UserRepository, otp_repo: OTPCodeRepository
-    ):
+    def __init__(self, user_repo: UserRepository, otp_repo: OTPCodeRepository):
         self._user_repo = user_repo
         self._otp_repo = otp_repo
 
@@ -49,8 +47,6 @@ class ForgotPasswordUseCase:
         recipient_list = [dto.email.strip().lower()]
 
         try:
-            send_mail(
-                subject, message, from_email, recipient_list, fail_silently=True
-            )
+            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
         except Exception:
             pass

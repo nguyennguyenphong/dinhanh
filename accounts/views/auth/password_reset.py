@@ -20,9 +20,7 @@ def password_reset(request):
                     request,
                     "Mã OTP khôi phục mật khẩu đã được gửi đến email của bạn.",
                 )
-                return redirect(
-                    f"/accounts/password_reset_confirm/?email={dto.email}"
-                )
+                return redirect(f"/accounts/password_reset_confirm/?email={dto.email}")
             except ValueError as e:
                 form.add_error(None, str(e))
                 messages.error(request, str(e))
