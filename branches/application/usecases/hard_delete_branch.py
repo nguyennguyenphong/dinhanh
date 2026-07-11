@@ -28,6 +28,7 @@ class HardDeleteBranchUseCase:
         # Let's make sure we log if it exists.
         # Let's check:
         from branches.models import Branch
+
         existing_model = Branch.all_objects.filter(id=branch_id).first()
         if not existing_model:
             raise ValueError(f"Branch with ID {branch_id} not found.")

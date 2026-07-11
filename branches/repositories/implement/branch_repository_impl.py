@@ -65,6 +65,7 @@ class BranchRepositoryImpl(IBranchRepository):
 
     def hard_delete(self, branch_id: int) -> None:
         from safedelete.models import HARD_DELETE
+
         model = Branch.all_objects.filter(id=branch_id).first()
         if model:
             model.delete(force_policy=HARD_DELETE)

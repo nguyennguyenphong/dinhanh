@@ -1,10 +1,12 @@
-import pytest
 from decimal import Decimal
-from tenants.models.tenants import Tenant
+
+import pytest
+
 from accounts.models.user_accounts import UserAccount
-from branches.models import Branch, BranchAuditLog
 from branches.application.dtos import BranchCreateDto, BranchUpdateDto
+from branches.models import Branch, BranchAuditLog
 from branches.providers.branch_provider import BranchProvider
+from tenants.models.tenants import Tenant
 
 
 @pytest.mark.django_db
@@ -46,7 +48,9 @@ class TestBranchUseCasesAndSignals:
         )
 
         use_case = BranchProvider.create_branch()
-        entity = use_case.execute(dto, actor_id=self.user.id, actor_username=self.user.username)
+        entity = use_case.execute(
+            dto, actor_id=self.user.id, actor_username=self.user.username
+        )
 
         assert entity.id is not None
         assert entity.code == "HN_OFFICE"
@@ -92,12 +96,16 @@ class TestBranchUseCasesAndSignals:
         )
 
         use_case = BranchProvider.update_branch()
-        entity = use_case.execute(dto, actor_id=self.user.id, actor_username=self.user.username)
+        entity = use_case.execute(
+            dto, actor_id=self.user.id, actor_username=self.user.username
+        )
 
         assert entity.name == "Saigon Depot Updated"
         assert entity.address == "456 Nguyen Hue (New)"
 
-        logs = BranchAuditLog.objects.filter(branch_id=branch_model.id, actor_id=self.user.id)
+        logs = BranchAuditLog.objects.filter(
+            branch_id=branch_model.id, actor_id=self.user.id
+        )
         assert logs.count() >= 1
         update_log = logs.first()
         assert update_log.action == "UPDATE"
@@ -121,7 +129,9 @@ class TestBranchUseCasesAndSignals:
 
         # 1. Test Soft Delete
         use_case = BranchProvider.soft_delete_branch()
-        use_case.execute(branch_model.id, actor_id=self.user.id, actor_username=self.user.username)
+        use_case.execute(
+            branch_model.id, actor_id=self.user.id, actor_username=self.user.username
+        )
 
         # In safedelete, objects are hidden from default manager but exist in all_objects
         assert not Branch.objects.filter(id=branch_model.id).exists()
@@ -135,7 +145,9 @@ class TestBranchUseCasesAndSignals:
 
         # 2. Test Hard Delete
         hard_use_case = BranchProvider.hard_delete_branch()
-        hard_use_case.execute(branch_model.id, actor_id=self.user.id, actor_username=self.user.username)
+        hard_use_case.execute(
+            branch_model.id, actor_id=self.user.id, actor_username=self.user.username
+        )
 
         # Verify completely gone from DB
         assert not Branch.all_objects.filter(id=branch_model.id).exists()

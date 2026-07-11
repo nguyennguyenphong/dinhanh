@@ -48,8 +48,12 @@ def branch_post_save(sender, instance, created, **kwargs):
         return str(val)
 
     if not created and old_state:
-        old_values = {f: serialize_val(getattr(old_state, f, None)) for f in tracked_fields}
-        new_values = {f: serialize_val(getattr(instance, f, None)) for f in tracked_fields}
+        old_values = {
+            f: serialize_val(getattr(old_state, f, None)) for f in tracked_fields
+        }
+        new_values = {
+            f: serialize_val(getattr(instance, f, None)) for f in tracked_fields
+        }
         changes = {
             k: {"old": old_values[k], "new": new_values[k]}
             for k in tracked_fields
@@ -58,7 +62,9 @@ def branch_post_save(sender, instance, created, **kwargs):
         if not changes:
             return
     else:
-        new_values = {f: serialize_val(getattr(instance, f, None)) for f in tracked_fields}
+        new_values = {
+            f: serialize_val(getattr(instance, f, None)) for f in tracked_fields
+        }
 
     try:
         BranchAuditLog.objects.create(

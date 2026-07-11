@@ -20,7 +20,9 @@ class BranchHardDeleteView(LoginRequiredMixin, View):
                 actor_id=request.user.id if request.user else None,
                 actor_username=request.user.username if request.user else None,
             )
-            messages.success(request, f"Đã xóa vĩnh viễn chi nhánh '{branch.name}' thành công.")
+            messages.success(
+                request, f"Đã xóa vĩnh viễn chi nhánh '{branch.name}' thành công."
+            )
         except Exception as exc:
             messages.error(request, f"Lỗi xóa vĩnh viễn chi nhánh: {str(exc)}")
 
