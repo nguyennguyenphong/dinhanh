@@ -128,6 +128,7 @@ class AssetRepositoryImpl(IAssetRepository):
 
     def hard_delete(self, asset_id: int) -> None:
         from safedelete.models import HARD_DELETE
+
         from assets.models import Asset
 
         model = Asset.all_objects.filter(pk=asset_id).first()

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from assets.repositories.interfaces.asset_category_repository_interface import IAssetCategoryRepository
+from assets.repositories.interfaces.asset_category_repository_interface import (
+    IAssetCategoryRepository,
+)
 
 
 class HardDeleteAssetCategoryUseCase:

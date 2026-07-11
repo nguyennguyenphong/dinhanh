@@ -67,6 +67,7 @@ class AssetCategoryRepositoryImpl(IAssetCategoryRepository):
 
     def hard_delete(self, category_id: int) -> None:
         from safedelete.models import HARD_DELETE
+
         from assets.models import AssetCategory
 
         model = AssetCategory.all_objects.filter(pk=category_id).first()

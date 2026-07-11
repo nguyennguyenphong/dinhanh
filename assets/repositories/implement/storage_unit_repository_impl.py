@@ -76,6 +76,7 @@ class StorageUnitRepositoryImpl(IStorageUnitRepository):
 
     def hard_delete(self, storage_unit_id: int) -> None:
         from safedelete.models import HARD_DELETE
+
         from assets.models import StorageUnit
 
         model = StorageUnit.all_objects.filter(pk=storage_unit_id).first()

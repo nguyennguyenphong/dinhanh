@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from assets.repositories.interfaces.storage_unit_repository_interface import IStorageUnitRepository
+from assets.repositories.interfaces.storage_unit_repository_interface import (
+    IStorageUnitRepository,
+)
 
 
 class HardDeleteStorageUnitUseCase:

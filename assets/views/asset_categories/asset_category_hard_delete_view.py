@@ -16,7 +16,8 @@ class AssetCategoryHardDeleteView(LoginRequiredMixin, View):
         try:
             AssetProvider.hard_delete_category().execute(category.id)
             messages.success(
-                request, f"Đã xóa vĩnh viễn danh mục tài sản '{category.name}' thành công."
+                request,
+                f"Đã xóa vĩnh viễn danh mục tài sản '{category.name}' thành công.",
             )
         except Exception as exc:
             messages.error(request, f"Lỗi xóa vĩnh viễn danh mục tài sản: {str(exc)}")

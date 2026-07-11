@@ -25,7 +25,6 @@ from tenants.services.media_service import FileStorageService
 from tenants.utils.request_helpers import get_client_ip
 
 
-
 class TenantService:
 
     @staticmethod
@@ -61,6 +60,7 @@ class TenantService:
         # Execute UseCase
         try:
             from tenants.views.helpers.view_helpers import RequestContext
+
             ctx = RequestContext.from_request(request)
             dto = TenantCreateDTO(**validated_data)
 
@@ -122,6 +122,7 @@ class TenantService:
 
         try:
             from tenants.views.helpers.view_helpers import RequestContext
+
             ctx = RequestContext.from_request(request)
             dto = TenantUpdateDTO(
                 tenant_id=tenant_model.id, **serializer.validated_data
@@ -153,6 +154,7 @@ class TenantService:
         tenant = get_object_or_404(Tenant.all_objects, uuid=pk)
         try:
             from tenants.views.helpers.view_helpers import RequestContext
+
             ctx = RequestContext.from_request(request)
 
             TenantProvider.deactivate_tenant().execute(
@@ -183,6 +185,7 @@ class TenantService:
         tenant = get_object_or_404(Tenant.all_objects, uuid=pk)
         try:
             from tenants.views.helpers.view_helpers import RequestContext
+
             ctx = RequestContext.from_request(request)
             TenantProvider.hard_delete_tenant().execute(
                 tenant.id,

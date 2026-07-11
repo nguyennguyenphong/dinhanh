@@ -21,7 +21,6 @@ from menus.serializers.menu_items import (
 )
 
 
-
 class MenuItemService:
     """Service layer coordinating requests/forms validation and UseCases execution for MenuItem."""
 
@@ -186,6 +185,7 @@ class MenuItemService:
 
         try:
             from menus.views.helpers.view_helpers import RequestContext
+
             RequestContext.from_request(request)
             dto = MenuItemUpdateDto(**serializer.validated_data)
 
@@ -228,6 +228,7 @@ class MenuItemService:
         menu_item = get_object_or_404(MenuItem.all_objects, uuid=pk)
         try:
             from menus.views.helpers.view_helpers import RequestContext
+
             RequestContext.from_request(request)
             dto = MenuItemDeleteDto(
                 id=menu_item.id,
@@ -264,6 +265,7 @@ class MenuItemService:
         menu_item = get_object_or_404(MenuItem.all_objects, uuid=pk)
         try:
             from menus.views.helpers.view_helpers import RequestContext
+
             RequestContext.from_request(request)
             dto = MenuItemDeleteDto(
                 id=menu_item.id,

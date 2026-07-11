@@ -15,7 +15,9 @@ class AssetHardDeleteView(LoginRequiredMixin, View):
         asset = get_object_or_404(Asset.all_objects, id=pk)
         try:
             AssetProvider.hard_delete_asset().execute(asset.id)
-            messages.success(request, f"Đã xóa vĩnh viễn tài sản '{asset.name}' thành công.")
+            messages.success(
+                request, f"Đã xóa vĩnh viễn tài sản '{asset.name}' thành công."
+            )
         except Exception as exc:
             messages.error(request, f"Lỗi xóa vĩnh viễn tài sản: {str(exc)}")
 
