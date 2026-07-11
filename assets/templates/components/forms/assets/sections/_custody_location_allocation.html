@@ -3,16 +3,17 @@
         class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
         Bàn giao & Vị trí sử dụng
     </h3>
+    <div class="flex flex-row gap-4">
+        <div class="space-y-1 flex-1">
+            <label for="{{ form.branch.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.branch.label }}</label>
+            {{ form.branch }} 
+            {% if form.branch.errors %}<p class="text-red-500 text-xs mt-1">{{ form.branch.errors.0 }}</p>{% endif %}
+        </div>
 
-    <div class="space-y-1">
-        <label for="{{ form.branch.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.branch.label }} <span class="text-red-500">*</span></label>
-        {{ form.branch }} 
-        {% if form.branch.errors %}<p class="text-red-500 text-xs mt-1">{{ form.branch.errors.0 }}</p>{% endif %}
-    </div>
-
-    <div class="space-y-1">
-        <label for="{{ form.assigned_to.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.assigned_to.label }} <span class="text-red-500">*</span></label>
-        {{ form.assigned_to }} 
-        {% if form.assigned_to.errors %}<p class="text-red-500 text-xs mt-1">{{ form.assigned_to.errors.0 }}</p>{% endif %}
+        <div class="space-y-1 flex-1">
+            <label for="{{ form.assigned_to.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.assigned_to.label }}</label>
+            {{ form.assigned_to }} 
+            {% if form.assigned_to.errors %}<p class="text-red-500 text-xs mt-1">{{ form.assigned_to.errors.0 }}</p>{% endif %}
+        </div>
     </div>
 </div>

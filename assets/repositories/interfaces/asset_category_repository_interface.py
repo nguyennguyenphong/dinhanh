@@ -35,6 +35,10 @@ class IAssetCategoryRepository(ABC):
         pass
 
     @abstractmethod
+    def hard_delete(self, category_id: int) -> None:
+        pass
+
+    @abstractmethod
     def exists_by_name(
         self, tenant_id: int, name: str, exclude_id: int | None = None
     ) -> bool:

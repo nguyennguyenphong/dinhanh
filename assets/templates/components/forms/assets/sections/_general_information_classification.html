@@ -4,27 +4,31 @@
         Thông tin chung & Phân loại
     </h3>
 
-    <div class="space-y-1">
-        <label for="{{ form.tenant.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
-            {{ form.tenant.label }} <span class="text-red-500">*</span>
-        </label>
-        <div>
-            {{ form.tenant }}
-        </div>
-        {% if form.tenant.errors %}
+    <div class="flex flex-row gap-4">
+        <div class="space-y-1 flex-1">
+            <label for="{{ form.tenant.id_for_label }}"
+                class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.tenant.label }} <span class="text-red-500">*</span>
+            </label>
+            <div>
+                {{ form.tenant }}
+            </div>
+            {% if form.tenant.errors %}
             <p class="text-red-500 text-xs mt-1">{{ form.tenant.errors.0 }}</p>
-        {% endif %}
-    </div>
-
-    <div class="space-y-1">
-        <label for="{{ form.category.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
-            {{ form.category.label }} <span class="text-red-500">*</span>
-        </label>
-        <div>
-            {{ form.category }}
+            {% endif %}
         </div>
-        {% if form.category.errors %}
+
+        <div class="space-y-1 flex-1">
+            <label for="{{ form.category.id_for_label }}"
+                class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                {{ form.category.label }}
+            </label>
+            <div>
+                {{ form.category }}
+            </div>
+            {% if form.category.errors %}
             <p class="text-red-500 text-xs mt-1">{{ form.category.errors.0 }}</p>
-        {% endif %}
+            {% endif %}
+        </div>
     </div>
 </div>

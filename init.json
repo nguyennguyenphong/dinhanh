@@ -813,11 +813,11 @@
     "static": {
       "build": {
         "assets": [
-          "app-CWmoMQ7w.js",
-          "input-JHBoz8l7.js",
-          "style-DMLyshId.css",
+          "style-uHa9BG7D.js",
           "app-C5Nj1jXJ.css",
-          "style-BEWx7jfA.js"
+          "input-EkpA1pKc.js",
+          "style-XuWkEtzY.css",
+          "app-Dg62hV3G.js"
         ],
         ".vite": [
           "manifest.json"
@@ -1275,14 +1275,6 @@
             "_branch_detail_page_header.html"
           ],
           "forms": {
-            "branch_section": [
-              "_contact_information.html",
-              "_identification.html",
-              "_advanced_metadata.html",
-              "_button_action.html",
-              "_location_configuration.html",
-              "_management_status.html"
-            ],
             "branches": {
               "sections": [
                 "_location_and_timezone.html",
@@ -1299,9 +1291,22 @@
               "_branch_form.html"
             ]
           },
-          "accordion": [
-            "_branch_detail_accordion.html"
-          ],
+          "accordion": {
+            "branches": {
+              "accordion_items": [
+                "_contact_management.html",
+                "_geography_timezone.html",
+                "_basic_information.html",
+                "_metadata_config.html"
+              ],
+              "_files": [
+                "_branch_detail_accordion.html"
+              ]
+            },
+            "_files": [
+              "_branch_detail_accordion.html"
+            ]
+          },
           "breadcrumb": [
             "_branch_list_breadcrumb.html",
             "_branch_detail_breadcrumb.html",
@@ -1358,8 +1363,7 @@
       ],
       "_files": [
         "apps.py",
-        "admin.py",
-        "tests.py"
+        "admin.py"
       ]
     },
     "webhooks": {
@@ -1478,6 +1482,24 @@
               ]
             }
           },
+          "accordion": {
+            "asset_categories": {
+              "accordion_items": [
+                "_basic_information.html"
+              ],
+              "_files": [
+                "_asset_category_detail_accordion.html"
+              ]
+            },
+            "storage_units": {
+              "accordion_items": [
+                "_basic_information.html"
+              ],
+              "_files": [
+                "_storage_unit_detail_accordion.html"
+              ]
+            }
+          },
           "breadcrumb": [
             "_storage_unit_create_breadcrumb.html",
             "_asset_list_breadcrumb.html",
@@ -1531,18 +1553,23 @@
         },
         "usecases": {
           "asset_categories": [
-            "asset_category_usecases.py"
+            "asset_category_usecases.py",
+            "soft_delete_asset_category.py",
+            "hard_delete_asset_category.py"
           ],
           "storage_units": [
+            "soft_delete_storage_unit.py",
+            "hard_delete_storage_unit.py",
             "storage_unit_usecases.py"
           ],
           "assets": [
-            "delete_asset_usecase.py",
             "get_asset_detail_usecase.py",
+            "hard_delete_asset.py",
             "helper_mapping.py",
             "list_assets_usecase.py",
             "update_asset_usecase.py",
-            "create_asset_usecase.py"
+            "create_asset_usecase.py",
+            "soft_delete_asset.py"
           ]
         }
       },
@@ -1550,9 +1577,10 @@
         "asset_categories": [
           "asset_category_detail_view.py",
           "asset_category_create_view.py",
+          "asset_category_soft_delete_view.py",
           "asset_category_list_view.py",
           "asset_category_update_view.py",
-          "asset_category_delete_view.py"
+          "asset_category_hard_delete_view.py"
         ],
         "forms": [
           "asset_category_base_form.py",
@@ -1561,14 +1589,16 @@
         ],
         "storage_units": [
           "storage_unit_list_view.py",
+          "storage_unit_soft_delete_view.py",
           "storage_unit_update_view.py",
-          "storage_unit_delete_view.py",
           "storage_unit_detail_view.py",
+          "storage_unit_hard_delete_view.py",
           "storage_unit_create_view.py"
         ],
         "assets": [
           "asset_update_view.py",
-          "asset_delete_view.py",
+          "asset_hard_delete_view.py",
+          "asset_soft_delete_view.py",
           "asset_list_view.py",
           "asset_detail_view.py",
           "asset_create_view.py"

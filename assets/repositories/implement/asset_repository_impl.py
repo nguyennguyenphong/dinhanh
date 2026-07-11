@@ -126,6 +126,14 @@ class AssetRepositoryImpl(IAssetRepository):
     def delete(self, asset_id: int) -> None:
         self._qs.filter(pk=asset_id).delete()
 
+    def hard_delete(self, asset_id: int) -> None:
+        from safedelete.models import HARD_DELETE
+        from assets.models import Asset
+
+        model = Asset.all_objects.filter(pk=asset_id).first()
+        if model:
+            model.delete(force_policy=HARD_DELETE)
+
     def exists_by_code(
         self, tenant_id: int, code: str, exclude_id: int | None = None
     ) -> bool:

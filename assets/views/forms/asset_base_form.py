@@ -59,14 +59,25 @@ class TailwindFormMixin:
             widget = field.widget
             current_placeholder = placeholders.get(field_name, "")
 
-            if isinstance(
+            if isinstance(widget, (forms.DateInput, forms.DateTimeInput)):
+                picker_type = (
+                    "datetime-picker" if isinstance(widget, forms.DateTimeInput) else ""
+                )
+                widget.attrs.update(
+                    {
+                        "class": f"{tailwind_classes} flatpickr-input {picker_type}".strip(),
+                        "placeholder": current_placeholder,
+                        "autocomplete": "off",
+                    }
+                )
+
+            elif isinstance(
                 widget,
                 (
                     forms.TextInput,
                     forms.NumberInput,
                     forms.EmailInput,
                     forms.PasswordInput,
-                    forms.DateInput,
                 ),
             ):
                 widget.attrs.update(
@@ -117,14 +128,21 @@ class AssetBaseForm(TailwindFormMixin, forms.ModelForm):
             "notes",
         ]
         widgets = {
-            "purchase_date": forms.DateInput(attrs={"type": "date"}),
-            "warranty_expiry": forms.DateInput(attrs={"type": "date"}),
+            "purchase_date": forms.DateInput(),
+            "warranty_expiry": forms.DateInput(),
             "notes": forms.Textarea(attrs={"rows": 4}),
             "status": forms.Select(),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        if self.instance and self.instance.pk:
+            for field in ["purchase_date", "warranty_expiry"]:
+                if self.instance.__dict__.get(field):
+                    self.fields[field].initial = self.instance.__dict__[field].strftime(
+                        "%Y-%m-%d"
+                    )
 
         self.fields["tenant"].label = "Tenant"
         self.fields["category"].label = "Danh mục tài sản"
@@ -141,7 +159,6 @@ class AssetBaseForm(TailwindFormMixin, forms.ModelForm):
         self.fields["status"].label = "Trạng thái"
         self.fields["notes"].label = "Ghi chú"
 
-        # Cập nhật thêm placeholder cho các trường cần thiết
         placeholders = {
             "code": "Ví dụ: ASSET-001",
             "name": "Nhập tên tài sản",

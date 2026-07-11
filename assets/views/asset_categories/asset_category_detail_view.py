@@ -12,8 +12,8 @@ from assets.providers.asset_provider import AssetProvider
 
 class AssetCategoryDetailView(LoginRequiredMixin, View):
 
-    def get(self, request, pk: uuid.UUID):
-        category = get_object_or_404(AssetCategory, uuid=pk)
+    def get(self, request, pk: int):
+        category = get_object_or_404(AssetCategory, id=pk)
         category_dto = AssetProvider.get_category().execute(category.id)
         return render(
             request,

@@ -3,7 +3,7 @@ from __future__ import annotations
 from assets.repositories.interfaces.asset_repository_interface import IAssetRepository
 
 
-class DeleteAssetUseCase:
+class SoftDeleteAssetUseCase:
 
     def __init__(self, repo: IAssetRepository):
         self._repo = repo

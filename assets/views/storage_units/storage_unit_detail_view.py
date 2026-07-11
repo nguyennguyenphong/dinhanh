@@ -12,8 +12,8 @@ from assets.providers.asset_provider import AssetProvider
 
 class StorageUnitDetailView(LoginRequiredMixin, View):
 
-    def get(self, request, pk: uuid.UUID):
-        storage_unit = get_object_or_404(StorageUnit, uuid=pk)
+    def get(self, request, pk: int):
+        storage_unit = get_object_or_404(StorageUnit, id=pk)
         storage_dto = AssetProvider.get_storage_unit().execute(storage_unit.id)
         return render(
             request,

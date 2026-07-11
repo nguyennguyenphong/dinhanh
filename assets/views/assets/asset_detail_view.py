@@ -15,9 +15,9 @@ class AssetDetailView(LoginRequiredMixin, View):
     Handle viewing an asset in MVT style.
     """
 
-    def get(self, request, pk: uuid.UUID):
-        asset = get_object_or_404(Asset, uuid=pk)
-        asset_dto = AssetProvider.get_asset().execute_by_uuid(str(pk))
+    def get(self, request, pk: int):
+        asset = get_object_or_404(Asset, id=pk)
+        asset_dto = AssetProvider.get_asset().execute(pk)
         return render(
             request,
             "pages/assets/detail.html",

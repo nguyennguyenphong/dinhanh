@@ -41,7 +41,7 @@ class AssetListView(LoginRequiredMixin, View):
             width=180,
             sortable=False,
             filter=False,
-            cell_renderer_params={"app": "assets", "key": "uuid"},
+            cell_renderer_params={"app": "assets", "key": "id"},
         )
 
         context = {

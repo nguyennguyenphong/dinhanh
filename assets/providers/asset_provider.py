@@ -2,13 +2,15 @@ from __future__ import annotations
 
 from assets.application.usecases.asset_categories.asset_category_usecases import (
     CreateAssetCategoryUseCase,
-    DeleteAssetCategoryUseCase,
     GetAssetCategoryDetailUseCase,
     ListAssetCategoriesUseCase,
     UpdateAssetCategoryUseCase,
 )
+from assets.application.usecases.asset_categories.soft_delete_asset_category import SoftDeleteAssetCategoryUseCase
+from assets.application.usecases.asset_categories.hard_delete_asset_category import HardDeleteAssetCategoryUseCase
 from assets.application.usecases.assets.create_asset_usecase import CreateAssetUseCase
-from assets.application.usecases.assets.delete_asset_usecase import DeleteAssetUseCase
+from assets.application.usecases.assets.soft_delete_asset import SoftDeleteAssetUseCase
+from assets.application.usecases.assets.hard_delete_asset import HardDeleteAssetUseCase
 from assets.application.usecases.assets.get_asset_detail_usecase import (
     GetAssetDetailUseCase,
 )
@@ -16,11 +18,12 @@ from assets.application.usecases.assets.list_assets_usecase import ListAssetsUse
 from assets.application.usecases.assets.update_asset_usecase import UpdateAssetUseCase
 from assets.application.usecases.storage_units.storage_unit_usecases import (
     CreateStorageUnitUseCase,
-    DeleteStorageUnitUseCase,
     GetStorageUnitDetailUseCase,
     ListStorageUnitsUseCase,
     UpdateStorageUnitUseCase,
 )
+from assets.application.usecases.storage_units.soft_delete_storage_unit import SoftDeleteStorageUnitUseCase
+from assets.application.usecases.storage_units.hard_delete_storage_unit import HardDeleteStorageUnitUseCase
 from assets.repositories.implement.asset_category_repository_impl import (
     AssetCategoryRepositoryImpl,
 )
@@ -53,8 +56,12 @@ class AssetProvider:
         return UpdateAssetUseCase(cls.asset_repo())
 
     @classmethod
-    def delete_asset(cls) -> DeleteAssetUseCase:
-        return DeleteAssetUseCase(cls.asset_repo())
+    def delete_asset(cls) -> SoftDeleteAssetUseCase:
+        return SoftDeleteAssetUseCase(cls.asset_repo())
+
+    @classmethod
+    def hard_delete_asset(cls) -> HardDeleteAssetUseCase:
+        return HardDeleteAssetUseCase(cls.asset_repo())
 
     @classmethod
     def get_asset(cls) -> GetAssetDetailUseCase:
@@ -74,8 +81,12 @@ class AssetProvider:
         return UpdateAssetCategoryUseCase(cls.category_repo())
 
     @classmethod
-    def delete_category(cls) -> DeleteAssetCategoryUseCase:
-        return DeleteAssetCategoryUseCase(cls.category_repo())
+    def delete_category(cls) -> SoftDeleteAssetCategoryUseCase:
+        return SoftDeleteAssetCategoryUseCase(cls.category_repo())
+
+    @classmethod
+    def hard_delete_category(cls) -> HardDeleteAssetCategoryUseCase:
+        return HardDeleteAssetCategoryUseCase(cls.category_repo())
 
     @classmethod
     def get_category(cls) -> GetAssetCategoryDetailUseCase:
@@ -95,8 +106,12 @@ class AssetProvider:
         return UpdateStorageUnitUseCase(cls.storage_unit_repo())
 
     @classmethod
-    def delete_storage_unit(cls) -> DeleteStorageUnitUseCase:
-        return DeleteStorageUnitUseCase(cls.storage_unit_repo())
+    def delete_storage_unit(cls) -> SoftDeleteStorageUnitUseCase:
+        return SoftDeleteStorageUnitUseCase(cls.storage_unit_repo())
+
+    @classmethod
+    def hard_delete_storage_unit(cls) -> HardDeleteStorageUnitUseCase:
+        return HardDeleteStorageUnitUseCase(cls.storage_unit_repo())
 
     @classmethod
     def get_storage_unit(cls) -> GetStorageUnitDetailUseCase:

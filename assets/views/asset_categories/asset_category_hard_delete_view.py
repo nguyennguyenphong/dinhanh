@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import uuid
-
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
@@ -11,16 +9,16 @@ from assets.models import AssetCategory
 from assets.providers.asset_provider import AssetProvider
 
 
-class AssetCategoryDeleteView(LoginRequiredMixin, View):
+class AssetCategoryHardDeleteView(LoginRequiredMixin, View):
 
-    def post(self, request, pk: uuid.UUID):
-        category = get_object_or_404(AssetCategory, uuid=pk)
+    def post(self, request, pk: int):
+        category = get_object_or_404(AssetCategory.all_objects, id=pk)
         try:
-            AssetProvider.delete_category().execute(category.id)
+            AssetProvider.hard_delete_category().execute(category.id)
             messages.success(
-                request, f"Đã xóa danh mục tài sản '{category.name}' thành công."
+                request, f"Đã xóa vĩnh viễn danh mục tài sản '{category.name}' thành công."
             )
         except Exception as exc:
-            messages.error(request, f"Lỗi xóa danh mục tài sản: {str(exc)}")
+            messages.error(request, f"Lỗi xóa vĩnh viễn danh mục tài sản: {str(exc)}")
 
         return redirect("asset_category_list")

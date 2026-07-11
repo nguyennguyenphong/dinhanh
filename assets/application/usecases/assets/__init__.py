@@ -1,5 +1,6 @@
 from assets.application.usecases.assets.create_asset_usecase import CreateAssetUseCase
-from assets.application.usecases.assets.delete_asset_usecase import DeleteAssetUseCase
+from assets.application.usecases.assets.soft_delete_asset import SoftDeleteAssetUseCase
+from assets.application.usecases.assets.hard_delete_asset import HardDeleteAssetUseCase
 from assets.application.usecases.assets.get_asset_detail_usecase import (
     GetAssetDetailUseCase,
 )
@@ -9,7 +10,8 @@ from assets.application.usecases.assets.update_asset_usecase import UpdateAssetU
 __all__ = [
     "CreateAssetUseCase",
     "UpdateAssetUseCase",
-    "DeleteAssetUseCase",
+    "SoftDeleteAssetUseCase",
+    "HardDeleteAssetUseCase",
     "GetAssetDetailUseCase",
     "ListAssetsUseCase",
 ]

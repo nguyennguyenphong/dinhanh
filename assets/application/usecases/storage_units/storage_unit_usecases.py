@@ -75,18 +75,6 @@ class UpdateStorageUnitUseCase:
         return entity_to_response(saved)
 
 
-class DeleteStorageUnitUseCase:
-
-    def __init__(self, repo: IStorageUnitRepository):
-        self._repo = repo
-
-    def execute(self, storage_unit_id: int) -> None:
-        entity = self._repo.get_by_id(storage_unit_id)
-        if not entity:
-            raise ValueError(f"StorageUnit with id {storage_unit_id} not found.")
-        self._repo.delete(storage_unit_id)
-
-
 class GetStorageUnitDetailUseCase:
 
     def __init__(self, repo: IStorageUnitRepository):

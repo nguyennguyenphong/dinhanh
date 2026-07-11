@@ -17,7 +17,7 @@
     </div>
 
     <div class="space-y-1">
-        <label for="{{ form.serial_number.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.serial_number.label }} <span class="text-red-500">*</span></label>
+        <label for="{{ form.serial_number.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.serial_number.label }}</label>
         {{ form.serial_number }} 
         {% if form.serial_number.errors %}<p class="text-red-500 text-xs mt-1">{{ form.serial_number.errors.0 }}</p>{% endif %}
     </div>

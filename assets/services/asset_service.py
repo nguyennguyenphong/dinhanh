@@ -70,11 +70,11 @@ class AssetService:
             return False
 
     @staticmethod
-    def update_asset(request, pk: uuid.UUID, form) -> bool:
+    def update_asset(request, pk: int, form) -> bool:
         """
         Processes form and calls UseCase. Adds errors to form if failed.
         """
-        asset_model = get_object_or_404(Asset, uuid=pk)
+        asset_model = get_object_or_404(Asset, id=pk)
         data = form.cleaned_data.copy()
 
         # Build Update DTO
@@ -135,8 +135,8 @@ class AssetService:
             return False
 
     @staticmethod
-    def update_category(request, pk: uuid.UUID, form) -> bool:
-        category_model = get_object_or_404(AssetCategory, uuid=pk)
+    def update_category(request, pk: int, form) -> bool:
+        category_model = get_object_or_404(AssetCategory, id=pk)
         data = form.cleaned_data.copy()
         dto = AssetCategoryUpdateDto(
             id=category_model.id,
@@ -163,16 +163,16 @@ class AssetService:
         )
         try:
             AssetProvider.create_storage_unit().execute(dto)
-            messages.success(request, "Tạo kho bãi mới thành công.")
+            messages.success(request, "Tạo đơn vị lưu trữ thành công.")
             return True
         except Exception as exc:
             form.add_error(None, str(exc))
-            messages.error(request, f"Lỗi tạo kho bãi: {str(exc)}")
+            messages.error(request, f"Lỗi tạo đơn vị lưu trữ: {str(exc)}")
             return False
 
     @staticmethod
-    def update_storage_unit(request, pk: uuid.UUID, form) -> bool:
-        storage_model = get_object_or_404(StorageUnit, uuid=pk)
+    def update_storage_unit(request, pk: int, form) -> bool:
+        storage_model = get_object_or_404(StorageUnit, id=pk)
         data = form.cleaned_data.copy()
         dto = StorageUnitUpdateDto(
             id=storage_model.id,

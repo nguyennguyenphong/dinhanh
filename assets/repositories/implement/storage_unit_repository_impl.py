@@ -74,6 +74,14 @@ class StorageUnitRepositoryImpl(IStorageUnitRepository):
     def delete(self, storage_unit_id: int) -> None:
         self._qs.filter(pk=storage_unit_id).delete()
 
+    def hard_delete(self, storage_unit_id: int) -> None:
+        from safedelete.models import HARD_DELETE
+        from assets.models import StorageUnit
+
+        model = StorageUnit.all_objects.filter(pk=storage_unit_id).first()
+        if model:
+            model.delete(force_policy=HARD_DELETE)
+
     def exists_by_code(
         self, tenant_id: int, code: str, exclude_id: int | None = None
     ) -> bool:

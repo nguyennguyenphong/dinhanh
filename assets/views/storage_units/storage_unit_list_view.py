@@ -34,7 +34,7 @@ class StorageUnitListView(LoginRequiredMixin, View):
             width=180,
             sortable=False,
             filter=False,
-            cell_renderer_params={"app": "storage_units", "key": "uuid"},
+            cell_renderer_params={"app": "storage_units", "key": "id"},
         )
 
         context = {

@@ -28,7 +28,7 @@ urlpatterns = [
     # 3. UPDATE FUNCTION
     # -------------------------------------------------------------------------
     path(
-        "storage_units/update/<uuid:pk>/",
+        "storage_units/update/<int:pk>/",
         storage_unit_views.StorageUnitUpdateView.as_view(),
         name="storage_unit_update",
     ),
@@ -36,7 +36,7 @@ urlpatterns = [
     # 4. DETAIL FUNCTION
     # -------------------------------------------------------------------------
     path(
-        "storage_units/detail/<uuid:pk>/",
+        "storage_units/detail/<int:pk>/",
         storage_unit_views.StorageUnitDetailView.as_view(),
         name="storage_unit_detail",
     ),
@@ -44,8 +44,13 @@ urlpatterns = [
     # 5. DELETE FUNCTION
     # -------------------------------------------------------------------------
     path(
-        "storage_units/delete/<uuid:pk>/",
-        storage_unit_views.StorageUnitDeleteView.as_view(),
-        name="storage_unit_delete",
+        "storage_units/soft_delete/<int:pk>/",
+        storage_unit_views.StorageUnitSoftDeleteView.as_view(),
+        name="storage_unit_soft_delete",
+    ),
+    path(
+        "storage_units/hard_delete/<int:pk>/",
+        storage_unit_views.StorageUnitHardDeleteView.as_view(),
+        name="storage_unit_hard_delete",
     ),
 ]

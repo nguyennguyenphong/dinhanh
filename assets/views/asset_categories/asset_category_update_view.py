@@ -14,8 +14,8 @@ from assets.views.forms.asset_category_base_form import AssetCategoryBaseForm
 
 class AssetCategoryUpdateView(LoginRequiredMixin, View):
 
-    def get(self, request, pk: uuid.UUID):
-        category = get_object_or_404(AssetCategory, uuid=pk)
+    def get(self, request, pk: int):
+        category = get_object_or_404(AssetCategory, id=pk)
         form = AssetCategoryBaseForm(instance=category)
         return render(
             request,
@@ -23,8 +23,8 @@ class AssetCategoryUpdateView(LoginRequiredMixin, View):
             {"form": form, "object": category},
         )
 
-    def post(self, request, pk: uuid.UUID):
-        category = get_object_or_404(AssetCategory, uuid=pk)
+    def post(self, request, pk: int):
+        category = get_object_or_404(AssetCategory, id=pk)
         form = AssetCategoryBaseForm(request.POST, instance=category)
 
         if form.is_valid():

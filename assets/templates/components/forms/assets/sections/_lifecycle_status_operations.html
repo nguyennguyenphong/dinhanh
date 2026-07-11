@@ -17,7 +17,7 @@
     </div>
 
     <div class="space-y-1">
-        <label for="{{ form.notes.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.notes.label }} <span class="text-red-500">*</span></label>
+        <label for="{{ form.notes.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.notes.label }}</label>
         {{ form.notes }} 
         {% if form.notes.errors %}<p class="text-red-500 text-xs mt-1">{{ form.notes.errors.0 }}</p>{% endif %}
     </div>

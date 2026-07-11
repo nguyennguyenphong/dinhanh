@@ -4,7 +4,7 @@
 </div>
 {% endif %}
 
-<form action="{% if object %}{% url 'asset_update' object.uuid %}{% else %}{% url 'asset_create' %}{% endif %}"
+<form action="{% if object %}{% url 'asset_update' object.id %}{% else %}{% url 'asset_create' %}{% endif %}"
     method="POST" class="space-y-6" autocomplete="off">
     {% csrf_token %}
 

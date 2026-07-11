@@ -28,7 +28,7 @@ urlpatterns = [
     # 3. UPDATE FUNCTION (Handles both GET for UI prep and POST for processing)
     # -------------------------------------------------------------------------
     path(
-        "asset_categories/update/<uuid:pk>/",
+        "asset_categories/update/<int:pk>/",
         asset_category_views.AssetCategoryUpdateView.as_view(),
         name="asset_category_update",
     ),
@@ -36,7 +36,7 @@ urlpatterns = [
     # 4. DETAIL FUNCTION (Handles both GET for UI prep and POST for processing)
     # -------------------------------------------------------------------------
     path(
-        "asset_categories/detail/<uuid:pk>/",
+        "asset_categories/detail/<int:pk>/",
         asset_category_views.AssetCategoryDetailView.as_view(),
         name="asset_category_detail",
     ),
@@ -44,8 +44,13 @@ urlpatterns = [
     # 5. DELETE FUNCTION
     # -------------------------------------------------------------------------
     path(
-        "asset_categories/delete/<uuid:pk>/",
-        asset_category_views.AssetCategoryDeleteView.as_view(),
-        name="asset_category_delete",
+        "asset_categories/soft_delete/<int:pk>/",
+        asset_category_views.AssetCategorySoftDeleteView.as_view(),
+        name="asset_category_soft_delete",
+    ),
+    path(
+        "asset_categories/hard_delete/<int:pk>/",
+        asset_category_views.AssetCategoryHardDeleteView.as_view(),
+        name="asset_category_hard_delete",
     ),
 ]

@@ -14,8 +14,8 @@ from assets.views.forms.storage_unit_base_form import StorageUnitBaseForm
 
 class StorageUnitUpdateView(LoginRequiredMixin, View):
 
-    def get(self, request, pk: uuid.UUID):
-        storage_unit = get_object_or_404(StorageUnit, uuid=pk)
+    def get(self, request, pk: int):
+        storage_unit = get_object_or_404(StorageUnit, id=pk)
         form = StorageUnitBaseForm(instance=storage_unit)
         return render(
             request,
@@ -23,8 +23,8 @@ class StorageUnitUpdateView(LoginRequiredMixin, View):
             {"form": form, "object": storage_unit},
         )
 
-    def post(self, request, pk: uuid.UUID):
-        storage_unit = get_object_or_404(StorageUnit, uuid=pk)
+    def post(self, request, pk: int):
+        storage_unit = get_object_or_404(StorageUnit, id=pk)
         form = StorageUnitBaseForm(request.POST, instance=storage_unit)
 
         if form.is_valid():

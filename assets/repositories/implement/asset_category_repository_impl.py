@@ -65,6 +65,14 @@ class AssetCategoryRepositoryImpl(IAssetCategoryRepository):
     def delete(self, category_id: int) -> None:
         self._qs.filter(pk=category_id).delete()
 
+    def hard_delete(self, category_id: int) -> None:
+        from safedelete.models import HARD_DELETE
+        from assets.models import AssetCategory
+
+        model = AssetCategory.all_objects.filter(pk=category_id).first()
+        if model:
+            model.delete(force_policy=HARD_DELETE)
+
     def exists_by_name(
         self, tenant_id: int, name: str, exclude_id: int | None = None
     ) -> bool:
