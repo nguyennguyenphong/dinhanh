@@ -20,6 +20,10 @@ class IBranchRepository(ABC):
         pass
 
     @abstractmethod
+    def hard_delete(self, branch_id: int) -> None:
+        pass
+
+    @abstractmethod
     def list(
         self,
         tenant_id: int,

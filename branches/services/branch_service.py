@@ -5,7 +5,7 @@ import json
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
-from branches.application.dtos.branch_dtos import BranchCreateDto, BranchUpdateDto
+from branches.application.dtos import BranchCreateDto, BranchUpdateDto
 from branches.models import Branch
 from branches.providers.branch_provider import BranchProvider
 
@@ -45,7 +45,11 @@ class BranchService:
         )
 
         try:
-            BranchProvider.create_branch().execute(dto)
+            BranchProvider.create_branch().execute(
+                dto,
+                actor_id=request.user.id if request.user else None,
+                actor_username=request.user.username if request.user else None,
+            )
             messages.success(request, "Tạo chi nhánh mới thành công.")
             return True
         except Exception as exc:
@@ -87,7 +91,11 @@ class BranchService:
         )
 
         try:
-            BranchProvider.update_branch().execute(dto)
+            BranchProvider.update_branch().execute(
+                dto,
+                actor_id=request.user.id if request.user else None,
+                actor_username=request.user.username if request.user else None,
+            )
             messages.success(request, "Cập nhật thông tin chi nhánh thành công.")
             return True
         except Exception as exc:

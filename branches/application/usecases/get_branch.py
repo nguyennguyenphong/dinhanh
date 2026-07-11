@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from branches.application.dtos.branch_dtos import BranchDetailDto
+from branches.application.dtos import BranchDetailDto
 from branches.repositories.interfaces.branch_repository_interface import (
     IBranchRepository,
 )

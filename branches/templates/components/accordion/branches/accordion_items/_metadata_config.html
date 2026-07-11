@@ -1,0 +1,18 @@
+<h2 id="accordion-open-heading-4">
+    <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+        data-accordion-target="#accordion-open-body-4" aria-expanded="false" aria-controls="accordion-open-body-4">
+        <span class="flex items-center">Cấu hình JSON Metadata</span>
+        <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m5 15 7-7 7 7" />
+        </svg>
+    </button>
+</h2>
+<div id="accordion-open-body-4" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default bg-white"
+    aria-labelledby="accordion-open-heading-4">
+    <div class="p-4 md:p-5">
+        <pre class="bg-gray-50 p-4 rounded-md text-xs font-mono text-gray-700 overflow-x-auto dark:bg-slate-800 dark:text-gray-300">{{ branch.metadata }}</pre>
+    </div>
+</div>

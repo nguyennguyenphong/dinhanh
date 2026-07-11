@@ -1,0 +1,13 @@
+<div id="accordion-open" data-accordion="open" class="rounded-md border border-default overflow-hidden">
+    
+    {% include 'components/accordion/branches/accordion_items/_basic_information.html' %}
+
+    {% include 'components/accordion/branches/accordion_items/_contact_management.html' %}
+
+    {% include 'components/accordion/branches/accordion_items/_geography_timezone.html' %}
+    
+    {% if branch.metadata %}
+    {% include 'components/accordion/branches/accordion_items/_metadata_config.html' %}
+    {% endif %}
+
+</div>

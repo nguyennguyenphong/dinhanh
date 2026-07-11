@@ -63,6 +63,12 @@ class BranchRepositoryImpl(IBranchRepository):
     def delete(self, branch_id: int) -> None:
         Branch.objects.filter(id=branch_id).delete()
 
+    def hard_delete(self, branch_id: int) -> None:
+        from safedelete.models import HARD_DELETE
+        model = Branch.all_objects.filter(id=branch_id).first()
+        if model:
+            model.delete(force_policy=HARD_DELETE)
+
     def list(
         self,
         tenant_id: int,

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Chi tiết chi nhánh {% endblock %}
+{% block title %} Chi tiết chi nhánh {{ object.name }} {% endblock %}
 
 {% block content %}
 {% include 'portals/sidebar.html' %}
@@ -16,97 +16,24 @@
 
         <div class="flex gap-3 flex-wrap">
             <a href="{% url 'branch_list' %}"
-                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
-                ← Danh sách
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                
+                Quay về trang danh sách
             </a>
             <a href="{% url 'branch_update' object.id %}"
-                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all">
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                </svg>
+                
                 Chỉnh sửa
             </a>
         </div>
 
-        <div class="w-full bg-white border border-gray-200 rounded-md shadow-xs p-6 dark:bg-slate-900 dark:border-slate-800 space-y-6">
-            <div class="border-b border-gray-200 dark:border-slate-800 pb-4">
-                <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Thông tin cơ bản</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Mã chi nhánh</label>
-                    <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.code }}</span>
-                </div>
-                <div>
-                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Tên chi nhánh</label>
-                    <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.name }}</span>
-                </div>
-                <div>
-                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Trạng thái</label>
-                    {% if branch.is_active %}
-                        <span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                            Đang hoạt động
-                        </span>
-                    {% else %}
-                        <span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                            Ngừng hoạt động
-                        </span>
-                    {% endif %}
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 dark:border-slate-800 pt-6">
-                <div class="border-b border-gray-200 dark:border-slate-800 pb-4">
-                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Liên hệ & Quản lý</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                    <div>
-                        <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Số điện thoại</label>
-                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.phone|default:"-" }}</span>
-                    </div>
-                    <div>
-                        <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Email liên hệ</label>
-                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.email|default:"-" }}</span>
-                    </div>
-                    <div>
-                        <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Quản lý ID</label>
-                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.manager_id|default:"-" }}</span>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Địa chỉ chi nhánh</label>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 mt-2 whitespace-pre-wrap">{{ branch.address|default:"-" }}</p>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 dark:border-slate-800 pt-6">
-                <div class="border-b border-gray-200 dark:border-slate-800 pb-4">
-                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Địa lý & Múi giờ</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                    <div>
-                        <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Vĩ độ (Latitude)</label>
-                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.latitude|default:"-" }}</span>
-                    </div>
-                    <div>
-                        <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Kinh độ (Longitude)</label>
-                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.longitude|default:"-" }}</span>
-                    </div>
-                    <div>
-                        <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Múi giờ vận hành</label>
-                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ branch.timezone }}</span>
-                    </div>
-                </div>
-            </div>
-
-            {% if branch.metadata %}
-                <div class="border-t border-gray-200 dark:border-slate-800 pt-6">
-                    <label class="text-xs font-semibold text-gray-400 dark:text-gray-500 block uppercase">Cấu hình JSON Metadata</label>
-                    <pre class="bg-gray-50 p-4 rounded-md text-xs font-mono text-gray-700 mt-2 overflow-x-auto dark:bg-slate-800 dark:text-gray-300">{{ branch.metadata }}</pre>
-                </div>
-            {% endif %}
-        </div>
+        {% include 'components/accordion/branches/_branch_detail_accordion.html' %}
     </div>
 </div>
 

@@ -70,10 +70,7 @@ class TailwindFormMixin:
             elif isinstance(widget, forms.Textarea):
                 widget.attrs.update(
                     {
-                        "class": (
-                            f"{tailwind_classes} font-mono "
-                            "text-xs leading-6 resize-y min-h-[100px]"
-                        ),
+                        "class": tailwind_classes,
                         "placeholder": current_placeholder,
                     }
                 )
@@ -107,15 +104,15 @@ class BranchBaseForm(TailwindFormMixin, forms.ModelForm):
             "tenant": forms.Select(),
             "code": forms.TextInput(),
             "name": forms.TextInput(),
-            "address": forms.Textarea(attrs={"rows": 2}),
+            "address": forms.Textarea(attrs={"rows": 4}),
             "phone": forms.TextInput(),
             "email": forms.EmailInput(),
             "manager": forms.Select(),
             "latitude": forms.NumberInput(),
             "longitude": forms.NumberInput(),
             "timezone": forms.Select(),
-            "is_active": forms.Select(
+            "is_active": forms.RadioSelect(
                 choices=[(True, "Đang hoạt động"), (False, "Ngừng hoạt động")]
             ),
-            "metadata": forms.Textarea(attrs={"rows": 3}),
+            "metadata": forms.Textarea(attrs={"rows": 5}),
         }

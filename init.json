@@ -1234,13 +1234,23 @@
     },
     "branches": {
       "providers": [
+        "branch_audit_log_provider.py",
         "branch_provider.py"
+      ],
+      "signals": [
+        "branch_signals.py"
+      ],
+      "tests": [
+        "conftest.py",
+        "test_branches.py"
       ],
       "repositories": {
         "implement": [
+          "branch_audit_log_repository_impl.py",
           "branch_repository_impl.py"
         ],
         "interfaces": [
+          "branch_audit_log_repository_interface.py",
           "branch_repository_interface.py"
         ]
       },
@@ -1312,13 +1322,16 @@
       },
       "application": {
         "dtos": [
-          "branch_dtos.py"
+          "branch_create_dto.py",
+          "branch_detail_dto.py",
+          "branch_update_dto.py"
         ],
         "usecases": [
-          "delete_branch.py",
+          "soft_delete_branch.py",
           "list_branches.py",
           "get_branch.py",
           "create_branch.py",
+          "hard_delete_branch.py",
           "update_branch.py"
         ]
       },
@@ -1330,8 +1343,9 @@
           "branch_detail_view.py",
           "branch_list_view.py",
           "branch_create_view.py",
+          "branch_soft_delete_view.py",
           "branch_update_view.py",
-          "branch_delete_view.py"
+          "branch_hard_delete_view.py"
         ]
       },
       "domain": {

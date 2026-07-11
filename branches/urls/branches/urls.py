@@ -44,8 +44,13 @@ urlpatterns = [
     # 5. DELETE FUNCTION
     # -------------------------------------------------------------------------
     path(
-        "branches/delete/<int:pk>/",
-        branches_views.BranchDeleteView.as_view(),
-        name="branch_delete",
+        "branches/soft_delete/<int:pk>/",
+        branches_views.BranchSoftDeleteView.as_view(),
+        name="branch_soft_delete",
+    ),
+    path(
+        "branches/hard_delete/<int:pk>/",
+        branches_views.BranchHardDeleteView.as_view(),
+        name="branch_hard_delete",
     ),
 ]
