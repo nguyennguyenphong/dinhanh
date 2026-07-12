@@ -813,11 +813,11 @@
     "static": {
       "build": {
         "assets": [
-          "style-uHa9BG7D.js",
+          "style-D_jwVstr.css",
           "app-C5Nj1jXJ.css",
-          "input-EkpA1pKc.js",
-          "style-XuWkEtzY.css",
-          "app-Dg62hV3G.js"
+          "style-CYFuq-3b.js",
+          "input-5BzVH88m.js",
+          "app-DavEPVAg.js"
         ],
         ".vite": [
           "manifest.json"
@@ -833,7 +833,6 @@
             "backdrop.js",
             "aggrid.js",
             "notyf.js",
-            "grid.js",
             "spinner.js",
             "flatpickr.js",
             "toast.js"
@@ -1497,6 +1496,18 @@
               ],
               "_files": [
                 "_storage_unit_detail_accordion.html"
+              ]
+            },
+            "assets": {
+              "accordion_items": [
+                "_custody_location_allocation.html",
+                "_general_information_classification.html",
+                "_financials_depreciation_ledger.html",
+                "_asset_identity_metadata.html",
+                "_lifecycle_status_operations.html"
+              ],
+              "_files": [
+                "_asset_detail_accordion.html"
               ]
             }
           },

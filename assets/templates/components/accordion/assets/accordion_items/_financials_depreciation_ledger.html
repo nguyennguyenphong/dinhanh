@@ -1,0 +1,37 @@
+<h2 id="accordion-open-heading-3">
+    <button type="button"
+        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body rounded-t-base border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3"
+        data-accordion-target="#accordion-open-body-3" aria-expanded="true" aria-controls="accordion-open-body-3">
+        <span class="flex items-center">Thông tin Tài chính & Khấu hao</span>
+        <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m5 15 7-7 7 7" />
+        </svg>
+    </button>
+</h2>
+<div id="accordion-open-body-3" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default"
+    aria-labelledby="accordion-open-heading-3">
+    <div class="p-4 md:p-5">
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Ngày mua</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ object.purchase_date }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Giá mua</span>
+            <span class="font-mono text-xs text-gray-400">{{ object.purchase_price }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Tỷ lệ khấu hao (%)</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ object.depreciation_rate }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Giá trị hiện tại</span>
+            <span class="font-mono text-xs text-gray-400">{{ object.current_value }}</span>
+        </div>
+        <div class="flex items-center py-2.5 text-sm">
+            <span class="w-36 text-gray-500 shrink-0">Ngày hết hạn bảo hành</span>
+            <span class="font-medium text-gray-900 dark:text-white">{{ object.warranty_expiry }}</span>
+        </div>
+    </div>
+</div>

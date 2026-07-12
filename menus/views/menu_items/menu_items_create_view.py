@@ -27,7 +27,7 @@ class MenuItemCreateView(LoginRequiredMixin, View):
             success = MenuItemService.create_menu_item(request, form)
 
             if success:
-                messages.success(request, "Menu item created successfully.")
+                messages.success(request, "Tạo menu con thành công.")
                 return redirect("menu_items_list")
 
         return render(request, "pages/menu_items/create.html", {"form": form})
