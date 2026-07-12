@@ -47,7 +47,7 @@ class PermissionGroupListView(LoginRequiredMixin, View):
             "columns_json": grid_builder.get_columns_json(),
             "options_json": grid_builder.get_options_json(),
         }
-        return render(request, "pages/group_permission_list.html", context)
+        return render(request, "pages/group_permissions/list.html", context)
 
 
 class PermissionGroupListApiView(LoginRequiredMixin, View):

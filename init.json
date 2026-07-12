@@ -1717,6 +1717,7 @@
       "Dockerfile",
       "dinhanh.code-workspace",
       ".gitkeep",
+      "package-lock 2.json",
       "db.sqlite3",
       "vite.config.js",
       ".dockerignore",
