@@ -35,7 +35,8 @@ class UserService:
                 if form.cleaned_data.get("branch")
                 else None
             ),
-            "must_change_password": form.cleaned_data.get("must_change_password") in [True, "True", 1],
+            "must_change_password": form.cleaned_data.get("must_change_password")
+            in [True, "True", 1],
             "password_expires_at": form.cleaned_data.get("password_expires_at"),
             "locked_until": form.cleaned_data.get("locked_until"),
         }
@@ -98,7 +99,8 @@ class UserService:
                 if form.cleaned_data.get("branch")
                 else None
             ),
-            "must_change_password": form.cleaned_data.get("must_change_password") in [True, "True", 1],
+            "must_change_password": form.cleaned_data.get("must_change_password")
+            in [True, "True", 1],
             "password_expires_at": form.cleaned_data.get("password_expires_at"),
             "locked_until": form.cleaned_data.get("locked_until"),
         }

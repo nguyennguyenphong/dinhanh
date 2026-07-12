@@ -1,8 +1,8 @@
 from accounts.views.forms.auth_additional_forms import (
     ConfirmPasswordResetForm,
     ForgotPasswordForm,
-    VerifyEmailForm,
     PasswordChangeForm,
+    VerifyEmailForm,
 )
 from accounts.views.forms.login_base_form import LoginBaseForm
 from accounts.views.forms.permission_base_form import PermissionBaseForm

@@ -118,7 +118,11 @@ class UserBaseForm(TailwindFormMixin, forms.ModelForm):
         if self.instance and self.instance.pk:
             self.fields["password"].required = False
             self.fields["password"].help_text = "Để trống nếu không muốn đổi mật khẩu."
-            date_fields = ["must_change_password", "password_expires_at", "locked_until"]
+            date_fields = [
+                "must_change_password",
+                "password_expires_at",
+                "locked_until",
+            ]
             for field in date_fields:
                 value = getattr(self.instance, field, None)
                 if value:
@@ -133,20 +137,28 @@ class UserBaseForm(TailwindFormMixin, forms.ModelForm):
             raise forms.ValidationError("Mật khẩu phải chứa ít nhất 8 ký tự.")
 
         import re
+
         if not re.search(r"[a-z]", password):
-            raise forms.ValidationError("Mật khẩu phải chứa ít nhất một chữ cái in thường.")
+            raise forms.ValidationError(
+                "Mật khẩu phải chứa ít nhất một chữ cái in thường."
+            )
         if not re.search(r"[A-Z]", password):
-            raise forms.ValidationError("Mật khẩu phải chứa ít nhất một chữ cái in hoa.")
+            raise forms.ValidationError(
+                "Mật khẩu phải chứa ít nhất một chữ cái in hoa."
+            )
         if not re.search(r"[0-9]", password):
             raise forms.ValidationError("Mật khẩu phải chứa ít nhất một chữ số.")
         if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
-            raise forms.ValidationError("Mật khẩu phải chứa ít nhất một ký tự đặc biệt.")
+            raise forms.ValidationError(
+                "Mật khẩu phải chứa ít nhất một ký tự đặc biệt."
+            )
         return password
 
     def clean_username(self):
         username = self.cleaned_data.get("username")
         if username:
             import re
+
             if not re.match(r"^[a-zA-Z0-9_]+$", username):
                 raise forms.ValidationError(
                     "Tên đăng nhập chỉ được bao gồm chữ cái, chữ số hoặc ký tự gạch dưới (_), không chứa dấu cách hoặc ký tự khác."
@@ -156,8 +168,9 @@ class UserBaseForm(TailwindFormMixin, forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get("email")
         if email:
-            from django.core.validators import validate_email
             from django.core.exceptions import ValidationError
+            from django.core.validators import validate_email
+
             try:
                 validate_email(email)
             except ValidationError:
@@ -168,14 +181,20 @@ class UserBaseForm(TailwindFormMixin, forms.ModelForm):
         date = self.cleaned_data.get("password_expires_at")
         if date:
             from django.utils import timezone
+
             if date <= timezone.now():
-                raise forms.ValidationError("Thời gian mật khẩu hết hạn phải lớn hơn thời gian hiện tại.")
+                raise forms.ValidationError(
+                    "Thời gian mật khẩu hết hạn phải lớn hơn thời gian hiện tại."
+                )
         return date
 
     def clean_locked_until(self):
         date = self.cleaned_data.get("locked_until")
         if date:
             from django.utils import timezone
+
             if date <= timezone.now():
-                raise forms.ValidationError("Thời gian khóa tài khoản phải lớn hơn thời gian hiện tại.")
+                raise forms.ValidationError(
+                    "Thời gian khóa tài khoản phải lớn hơn thời gian hiện tại."
+                )
         return date

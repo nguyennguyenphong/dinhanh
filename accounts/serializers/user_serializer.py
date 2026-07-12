@@ -24,6 +24,7 @@ class UserSerializer(serializers.Serializer):
         tenant_id = getattr(obj, "tenant_id", None)
         if tenant_id:
             from tenants.models import Tenant
+
             tenant = Tenant.objects.filter(pk=tenant_id).first()
             return tenant.name if tenant else "-"
         return "-"
@@ -32,6 +33,7 @@ class UserSerializer(serializers.Serializer):
         branch_id = getattr(obj, "branch_id", None)
         if branch_id:
             from branches.models import Branch
+
             branch = Branch.objects.filter(pk=branch_id).first()
             return branch.name if branch else "-"
         return "-"

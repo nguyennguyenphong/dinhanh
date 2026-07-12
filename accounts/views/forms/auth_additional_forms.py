@@ -87,12 +87,19 @@ class PasswordChangeForm(TailwindFormMixin, forms.Form):
                 raise forms.ValidationError("Mật khẩu phải chứa ít nhất 8 ký tự.")
 
             import re
+
             if not re.search(r"[a-z]", new_pass):
-                raise forms.ValidationError("Mật khẩu phải chứa ít nhất một chữ cái in thường.")
+                raise forms.ValidationError(
+                    "Mật khẩu phải chứa ít nhất một chữ cái in thường."
+                )
             if not re.search(r"[A-Z]", new_pass):
-                raise forms.ValidationError("Mật khẩu phải chứa ít nhất một chữ cái in hoa.")
+                raise forms.ValidationError(
+                    "Mật khẩu phải chứa ít nhất một chữ cái in hoa."
+                )
             if not re.search(r"[0-9]", new_pass):
                 raise forms.ValidationError("Mật khẩu phải chứa ít nhất một chữ số.")
             if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", new_pass):
-                raise forms.ValidationError("Mật khẩu phải chứa ít nhất một ký tự đặc biệt.")
+                raise forms.ValidationError(
+                    "Mật khẩu phải chứa ít nhất một ký tự đặc biệt."
+                )
         return cleaned_data
