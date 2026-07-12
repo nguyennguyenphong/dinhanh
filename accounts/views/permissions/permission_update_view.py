@@ -26,7 +26,7 @@ class PermissionUpdateView(LoginRequiredMixin, View):
             try:
                 form.save()
                 messages.success(request, "Cập nhật quyền thành công.")
-                return redirect("permission_list")
+                return redirect("permission_update", pk=permission.id)
             except Exception as exc:
                 form.add_error(None, str(exc))
                 messages.error(request, f"Lỗi cập nhật quyền: {str(exc)}")

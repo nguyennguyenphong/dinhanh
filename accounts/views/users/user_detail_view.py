@@ -19,6 +19,6 @@ class UserDetailView(LoginRequiredMixin, View):
 
         return render(
             request,
-            "pages/user_detail.html",
+            "pages/users/detail.html",
             {"user": user, "tenant_name": tenant_name},
         )

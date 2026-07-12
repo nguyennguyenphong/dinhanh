@@ -16,7 +16,7 @@ class UserUpdateView(LoginRequiredMixin, View):
         form = UserBaseForm(instance=user)
         return render(
             request,
-            "pages/user_create.html",
+            "pages/users/create.html",
             {"form": form, "object": user, "is_update": True},
         )
 
@@ -30,10 +30,10 @@ class UserUpdateView(LoginRequiredMixin, View):
         if form.is_valid():
             success = UserService.update_user(request, pk, form)
             if success:
-                return redirect("user_list")
+                return redirect("user_update", pk=user.id)
 
         return render(
             request,
-            "pages/user_create.html",
+            "pages/users/create.html",
             {"form": form, "object": user, "is_update": True},
         )

@@ -85,7 +85,7 @@ class UserBaseForm(TailwindFormMixin, forms.ModelForm):
             "phone": forms.TextInput(),
             "avatar": forms.TextInput(),
             "branch": forms.Select(),
-            "is_active": forms.Select(
+            "is_active": forms.RadioSelect(
                 choices=[(True, "Đang hoạt động"), (False, "Ngừng hoạt động")]
             ),
         }

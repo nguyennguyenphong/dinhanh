@@ -539,6 +539,7 @@
             "_role_list_page_header.html",
             "_user_list_page_header.html",
             "_group_permission_list_page_header.html",
+            "_user_detail_page_header.html",
             "_group_permission_create_page_header.html",
             "_role_create_page_header.html"
           ],
@@ -627,6 +628,7 @@
             "_role_create_breadcrumb.html",
             "_permission_create_breadcrumb.html",
             "_user_create_breadcrumb.html",
+            "_user_detail_breadcrumb.html",
             "_group_permission_create_breadcrumb.html"
           ],
           "password_reset_confirm": {
@@ -651,26 +653,28 @@
             "password_reset_complete.html"
           ],
           "roles": [
-            "role_delete.html",
-            "role_detail.html",
-            "role_create.html",
-            "role_list.html"
+            "list.html",
+            "create.html",
+            "detail.html",
+            "delete.html"
           ],
           "permissions": [
-            "permission_create.html",
-            "permission_list.html",
-            "permission_delete.html"
+            "list.html",
+            "create.html",
+            "detail.html",
+            "delete.html"
           ],
           "group_permissions": [
-            "group_permission_list.html",
-            "group_permission_create.html",
-            "group_permission_delete.html"
+            "list.html",
+            "create.html",
+            "detail.html",
+            "delete.html"
           ],
           "users": [
-            "user_delete.html",
-            "user_detail.html",
-            "user_create.html",
-            "user_list.html"
+            "list.html",
+            "create.html",
+            "detail.html",
+            "delete.html"
           ]
         },
         "_files": [

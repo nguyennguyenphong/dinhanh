@@ -48,7 +48,7 @@ class UserListView(LoginRequiredMixin, View):
             "columns_json": grid_builder.get_columns_json(),
             "options_json": grid_builder.get_options_json(),
         }
-        return render(request, "pages/user_list.html", context)
+        return render(request, "pages/users/list.html", context)
 
 
 class UserListApiView(LoginRequiredMixin, View):

@@ -12,7 +12,7 @@ class UserCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = UserBaseForm()
-        return render(request, "pages/user_create.html", {"form": form})
+        return render(request, "pages/users/create.html", {"form": form})
 
     def post(self, request):
         form = UserBaseForm(request.POST)
@@ -22,4 +22,4 @@ class UserCreateView(LoginRequiredMixin, View):
             if success:
                 return redirect("user_list")
 
-        return render(request, "pages/user_create.html", {"form": form})
+        return render(request, "pages/users/create.html", {"form": form})

@@ -1,4 +1,4 @@
-<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4 dark:bg-slate-900 dark:border-slate-800">
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-15 dark:bg-slate-900 dark:border-slate-800">
     <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
         Cấu hình Chi nhánh & Trạng thái hoạt động
     </h3>
@@ -13,11 +13,20 @@
         </div>
 
         <div class="space-y-1">
-            <label for="{{ form.is_active.id_for_label }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span class="block text-sm font-medium text-gray-700 dark:text-slate-300">
                 {{ form.is_active.label }} <span class="text-red-500">*</span>
-            </label>
-            {{ form.is_active }}
-            {% if form.is_active.errors %}<p class="text-red-500 text-xs mt-1">{{ form.is_active.errors.0 }}</p>{% endif %}
+            </span>
+            <div class="flex gap-4 mt-2">
+                {% for radio in form.is_active %}
+                    <label for="{{ radio.id_for_label }}" class="flex items-center gap-2 p-3 w-full border border-gray-200 rounded-md cursor-pointer hover:bg-gray-100 transition-colors dark:bg-slate-800 dark:border-slate-700">
+                        {{ radio.tag }}
+                        <span class="text-sm font-medium text-gray-700 dark:text-slate-200">{{ radio.choice_label }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+            {% if form.is_active.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.is_active.errors.0 }}</p>
+            {% endif %}
         </div>
     </div>
 </div>

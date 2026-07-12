@@ -30,7 +30,7 @@ class RoleUpdateView(LoginRequiredMixin, View):
         if form.is_valid():
             success = RoleService.update_role(request, pk, form)
             if success:
-                return redirect("role_list")
+                return redirect("role_update", pk=role.id)
 
         return render(
             request,
