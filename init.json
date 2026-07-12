@@ -586,6 +586,7 @@
             },
             "users": {
               "sections": [
+                "_account_config.html",
                 "_basic_information.html",
                 "_button_action.html",
                 "_profile_details.html",
@@ -650,7 +651,8 @@
             "password_reset.html",
             "login.html",
             "password_reset_confirm.html",
-            "password_reset_complete.html"
+            "password_reset_complete.html",
+            "password_change.html"
           ],
           "roles": [
             "list.html",
@@ -754,6 +756,7 @@
           "password_reset.py",
           "password_reset_confirm.py",
           "password_reset_complete.py",
+          "password_change.py",
           "login.py"
         ],
         "roles": [

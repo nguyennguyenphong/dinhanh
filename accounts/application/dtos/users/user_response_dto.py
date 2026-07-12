@@ -19,6 +19,10 @@ class UserResponseDto:
     is_active: bool
     created_at: datetime | None
     updated_at: datetime | None
+    branch_id: int | None = None
+    must_change_password: bool = False
+    password_expires_at: datetime | None = None
+    locked_until: datetime | None = None
 
     @classmethod
     def from_entity(cls, entity: Any) -> UserResponseDto:
@@ -34,4 +38,8 @@ class UserResponseDto:
             is_active=entity.is_active,
             created_at=entity.created_at,
             updated_at=entity.updated_at,
+            branch_id=entity.branch_id,
+            must_change_password=entity.must_change_password,
+            password_expires_at=entity.password_expires_at,
+            locked_until=entity.locked_until,
         )

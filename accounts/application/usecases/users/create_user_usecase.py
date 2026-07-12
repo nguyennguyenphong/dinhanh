@@ -41,6 +41,10 @@ class CreateUserUseCase:
             avatar=dto.avatar,
             is_active=dto.is_active,
             hashed_password=hashed,
+            branch_id=dto.branch_id,
+            must_change_password=dto.must_change_password,
+            password_expires_at=dto.password_expires_at,
+            locked_until=dto.locked_until,
         )
 
         saved = self._repo.save(entity)

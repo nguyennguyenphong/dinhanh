@@ -22,6 +22,13 @@ class UpdateUserUseCase:
             full_name=dto.full_name,
             phone=dto.phone,
             avatar=dto.avatar,
+            tenant_id=dto.tenant_id,
+            username=dto.username,
+            email=dto.email,
+            branch_id=dto.branch_id,
+            must_change_password=dto.must_change_password,
+            password_expires_at=dto.password_expires_at,
+            locked_until=dto.locked_until,
         )
 
         if dto.is_active:

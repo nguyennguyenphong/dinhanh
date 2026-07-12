@@ -40,6 +40,24 @@
                 <span class="font-medium text-gray-900 dark:text-white">{{ user.branch.name|default:"-" }}</span>
             </div>
             <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Yêu cầu đổi MK</span>
+                <span class="font-medium text-gray-900 dark:text-white">
+                    {% if user.must_change_password %}
+                    <span class="text-amber-600 dark:text-amber-400 font-semibold">Có</span>
+                    {% else %}
+                    Không
+                    {% endif %}
+                </span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Mật khẩu hết hạn</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ user.password_expires_at|date:"Y-m-d H:i"|default:"-" }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
+                <span class="w-36 text-gray-500 shrink-0">Khóa tài khoản đến</span>
+                <span class="font-medium text-gray-900 dark:text-white">{{ user.locked_until|date:"Y-m-d H:i"|default:"-" }}</span>
+            </div>
+            <div class="flex items-center py-2.5 text-sm">
                 <span class="w-36 text-gray-500 shrink-0">Trạng thái</span>
                 {% if user.is_active %}
                 <span class="inline-flex items-center gap-1 px-3 py-1 rounded-md text-xs font-medium bg-green-50 text-green-800 dark:bg-green-950 dark:text-green-300">

@@ -3,6 +3,7 @@ from django.urls import path
 
 from accounts.views.auth.login import login
 from accounts.views.auth.logout import logout
+from accounts.views.auth.password_change import PasswordChangeView
 from accounts.views.auth.password_reset import password_reset
 from accounts.views.auth.password_reset_complete import password_reset_complete
 from accounts.views.auth.password_reset_confirm import password_reset_confirm
@@ -13,6 +14,7 @@ urlpatterns = [
     path("accounts/login/", login, name="login"),
     path("accounts/logout/", logout, name="logout"),
     path("accounts/register/", register, name="register"),
+    path("accounts/password_change/", PasswordChangeView.as_view(), name="password_change"),
     path("accounts/password_reset/", password_reset, name="password_reset"),
     path(
         "accounts/password_reset_confirm/",

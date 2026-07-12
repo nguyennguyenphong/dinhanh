@@ -23,6 +23,10 @@ class UserEntity:
     avatar: str | None
     is_active: bool
     hashed_password: str
+    branch_id: int | None = None
+    must_change_password: bool = False
+    password_expires_at: datetime | None = None
+    locked_until: datetime | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
 
@@ -43,11 +47,31 @@ class UserEntity:
         self.is_active = True
 
     def update_info(
-        self, full_name: str, phone: str | None, avatar: str | None
+        self,
+        full_name: str,
+        phone: str | None,
+        avatar: str | None,
+        tenant_id: int | None = None,
+        username: str | None = None,
+        email: str | None = None,
+        branch_id: int | None = None,
+        must_change_password: bool = False,
+        password_expires_at: datetime | None = None,
+        locked_until: datetime | None = None,
     ) -> None:
         self.full_name = full_name.strip()
         self.phone = phone.strip() if phone else None
         self.avatar = avatar.strip() if avatar else None
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if username is not None:
+            self.username = username
+        if email is not None:
+            self.email = email
+        self.branch_id = branch_id
+        self.must_change_password = must_change_password
+        self.password_expires_at = password_expires_at
+        self.locked_until = locked_until
 
     def update_timestamp(self, now: datetime) -> None:
         self.updated_at = now

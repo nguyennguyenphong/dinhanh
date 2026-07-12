@@ -29,6 +29,17 @@ class UserListView(LoginRequiredMixin, View):
         grid_builder.add_column("email", "Email", col_type="text", width=200)
         grid_builder.add_column("full_name", "Họ và tên", col_type="text", width=200)
         grid_builder.add_column("phone", "Số điện thoại", col_type="text", width=130)
+        grid_builder.add_column("tenant_name", "Doanh nghiệp", col_type="text", width=180)
+        grid_builder.add_column("branch_name", "Chi nhánh", col_type="text", width=150)
+        grid_builder.add_column(
+            "must_change_password", "Yêu cầu đổi MK", col_type="boolean", width=140
+        )
+        grid_builder.add_column(
+            "password_expires_at", "Hết hạn mật khẩu", col_type="datetime", width=160
+        )
+        grid_builder.add_column(
+            "locked_until", "Khóa tài khoản đến", col_type="datetime", width=160
+        )
         grid_builder.add_column(
             "is_active", "Trạng thái", col_type="boolean", width=120
         )

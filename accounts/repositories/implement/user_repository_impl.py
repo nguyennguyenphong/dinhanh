@@ -19,6 +19,10 @@ def _model_to_entity(obj: Any) -> UserEntity:
         avatar=obj.avatar,
         is_active=obj.is_active,
         hashed_password=obj.password,
+        branch_id=obj.branch_id,
+        must_change_password=obj.must_change_password,
+        password_expires_at=obj.password_expires_at,
+        locked_until=obj.locked_until,
         created_at=obj.created_at,
         updated_at=obj.updated_at,
     )
@@ -39,6 +43,7 @@ class UserRepositoryImpl(UserRepository):
             obj = self._qs.filter(pk=entity.id).first()
             if not obj:
                 raise ValueError("User not found to update")
+            obj.tenant_id = entity.tenant_id
             obj.username = entity.username.strip().lower()
             obj.email = entity.email.strip().lower()
             obj.full_name = entity.full_name
@@ -46,6 +51,10 @@ class UserRepositoryImpl(UserRepository):
             obj.avatar = entity.avatar
             obj.is_active = entity.is_active
             obj.password = entity.hashed_password
+            obj.branch_id = entity.branch_id
+            obj.must_change_password = entity.must_change_password
+            obj.password_expires_at = entity.password_expires_at
+            obj.locked_until = entity.locked_until
             obj.save()
         else:
             obj = UserAccount(
@@ -58,6 +67,10 @@ class UserRepositoryImpl(UserRepository):
                 avatar=entity.avatar,
                 is_active=entity.is_active,
                 password=entity.hashed_password,
+                branch_id=entity.branch_id,
+                must_change_password=entity.must_change_password,
+                password_expires_at=entity.password_expires_at,
+                locked_until=entity.locked_until,
             )
             obj.save()
 

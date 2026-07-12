@@ -39,6 +39,8 @@ def login(request):
 
                 User = get_user_model()
                 django_user = User.objects.get(pk=user_entity.id)
+                if django_user.is_locked():
+                    raise AccountDomainError("Tài khoản của bạn hiện đang bị khóa.")
                 django_login(request, django_user)
 
                 # Set session expiry based on remember_me checkbox

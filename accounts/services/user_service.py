@@ -30,6 +30,14 @@ class UserService:
             "phone": form.cleaned_data.get("phone"),
             "avatar": form.cleaned_data.get("avatar"),
             "is_active": form.cleaned_data.get("is_active") in [True, "True", 1],
+            "branch": (
+                form.cleaned_data["branch"].id
+                if form.cleaned_data.get("branch")
+                else None
+            ),
+            "must_change_password": form.cleaned_data.get("must_change_password") in [True, "True", 1],
+            "password_expires_at": form.cleaned_data.get("password_expires_at"),
+            "locked_until": form.cleaned_data.get("locked_until"),
         }
 
         serializer = UserCreateSerializer(data=form_data)
@@ -51,6 +59,10 @@ class UserService:
                 phone=validated.get("phone"),
                 avatar=validated.get("avatar"),
                 is_active=validated["is_active"],
+                branch_id=validated.get("branch"),
+                must_change_password=validated.get("must_change_password", False),
+                password_expires_at=validated.get("password_expires_at"),
+                locked_until=validated.get("locked_until"),
             )
             UserProvider.create_user().execute(dto)
             messages.success(request, "Tạo tài khoản người dùng mới thành công.")
@@ -70,10 +82,25 @@ class UserService:
             return False
 
         form_data = {
+            "tenant": (
+                form.cleaned_data["tenant"].id
+                if form.cleaned_data.get("tenant")
+                else None
+            ),
+            "username": form.cleaned_data.get("username"),
+            "email": form.cleaned_data.get("email"),
             "full_name": form.cleaned_data.get("full_name"),
             "phone": form.cleaned_data.get("phone"),
             "avatar": form.cleaned_data.get("avatar"),
             "is_active": form.cleaned_data.get("is_active") in [True, "True", 1],
+            "branch": (
+                form.cleaned_data["branch"].id
+                if form.cleaned_data.get("branch")
+                else None
+            ),
+            "must_change_password": form.cleaned_data.get("must_change_password") in [True, "True", 1],
+            "password_expires_at": form.cleaned_data.get("password_expires_at"),
+            "locked_until": form.cleaned_data.get("locked_until"),
         }
 
         serializer = UserUpdateSerializer(data=form_data)
@@ -98,6 +125,13 @@ class UserService:
                 phone=validated.get("phone"),
                 avatar=validated.get("avatar"),
                 is_active=validated["is_active"],
+                tenant_id=validated.get("tenant"),
+                username=validated.get("username"),
+                email=validated.get("email"),
+                branch_id=validated.get("branch"),
+                must_change_password=validated.get("must_change_password", False),
+                password_expires_at=validated.get("password_expires_at"),
+                locked_until=validated.get("locked_until"),
             )
 
             UserProvider.update_user().execute(user_model.uuid, dto)
