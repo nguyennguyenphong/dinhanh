@@ -11,11 +11,7 @@ BRANCH_MOCK_DATA = [
         "longitude": 106.7009000,
         "timezone": "Asia/Ho_Chi_Minh",
         "is_active": True,
-        "metadata": {
-            "region": "South",
-            "capacity": 500,
-            "type": "Premium"
-        }
+        "metadata": {"region": "South", "capacity": 500, "type": "Premium"},
     },
     {
         "tenant_id": 1,
@@ -29,11 +25,7 @@ BRANCH_MOCK_DATA = [
         "longitude": 106.7218000,
         "timezone": "Asia/Ho_Chi_Minh",
         "is_active": True,
-        "metadata": {
-            "region": "South",
-            "capacity": 350,
-            "type": "Standard"
-        }
+        "metadata": {"region": "South", "capacity": 350, "type": "Standard"},
     },
     {
         "tenant_id": 1,
@@ -47,11 +39,7 @@ BRANCH_MOCK_DATA = [
         "longitude": 106.6662000,
         "timezone": "Asia/Ho_Chi_Minh",
         "is_active": True,
-        "metadata": {
-            "region": "South",
-            "square_meters": 2500,
-            "type": "Warehouse"
-        }
+        "metadata": {"region": "South", "square_meters": 2500, "type": "Warehouse"},
     },
     {
         "tenant_id": 2,
@@ -65,11 +53,7 @@ BRANCH_MOCK_DATA = [
         "longitude": 107.0726000,
         "timezone": "Asia/Ho_Chi_Minh",
         "is_active": True,
-        "metadata": {
-            "region": "South_Coast",
-            "capacity": 200,
-            "type": "Service"
-        }
+        "metadata": {"region": "South_Coast", "capacity": 200, "type": "Service"},
     },
     {
         "tenant_id": 2,
@@ -83,10 +67,6 @@ BRANCH_MOCK_DATA = [
         "longitude": 105.7861000,
         "timezone": "Asia/Ho_Chi_Minh",
         "is_active": False,
-        "metadata": {
-            "region": "Mekong_Delta",
-            "capacity": 100,
-            "type": "Office"
-        }
-    }
+        "metadata": {"region": "Mekong_Delta", "capacity": 100, "type": "Office"},
+    },
 ]

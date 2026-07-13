@@ -34,7 +34,10 @@ class UserListView(LoginRequiredMixin, View):
         )
         grid_builder.add_column("branch_name", "Chi nhánh", col_type="text", width=150)
         grid_builder.add_column(
-            "must_change_password", "Yêu cầu đổi mật khẩu", col_type="boolean", width=140
+            "must_change_password",
+            "Yêu cầu đổi mật khẩu",
+            col_type="boolean",
+            width=140,
         )
         grid_builder.add_column(
             "password_expires_at", "Hết hạn mật khẩu", col_type="datetime", width=160
