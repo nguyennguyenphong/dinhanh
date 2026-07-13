@@ -9,8 +9,25 @@ const erpRenderers = {
     },
     
     status: (params) => {
-        const isActive = params.value === "Kích hoạt" || params.value === true || String(params.value).toLowerCase() === "active" || params.value === "active" || String(params.value).toLowerCase() === "in_use";
-        const colorClass = isActive ? "text-green-600 bg-green-50 dark:bg-green-900/20 dark:text-green-400" : "text-red-600 bg-red-50 dark:bg-red-900/20 dark:text-red-400";
+        let isActive = false;
+
+        const val = typeof params.value === 'string' ? params.value.toLowerCase() : params.value;
+
+        switch (true) {
+            case val === "kích hoạt":
+            case val === true:
+            case val === "active":
+            case val === "in_use":
+                isActive = true;
+                break;
+            default:
+                isActive = false;
+        }
+
+        const colorClass = isActive 
+            ? "text-green-600 bg-green-50 dark:bg-green-900/20 dark:text-green-400" 
+            : "text-red-600 bg-red-50 dark:bg-red-900/20 dark:text-red-400";
+
         return `<div class="flex items-center h-full"><span class="px-2 py-1 text-xs font-medium rounded-full ${colorClass}">${isActive ? "Kích hoạt" : "Ngừng kích hoạt"}</span></div>`;
     },
     

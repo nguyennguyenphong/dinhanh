@@ -824,29 +824,60 @@
             <li id="accordion-accounts-group" data-accordion="collapse">
                 <div id="accounts-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
-                        aria-expanded="false" aria-controls="accounts-accordion-child"
-                        data-accordion-target="#accounts-accordion-child">
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        {% if request.resolver_match.url_name in 'user_list,user_create,user_detail,user_update' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                        aria-expanded="{% if request.resolver_match.url_name in 'user_list,user_create,user_detail,user_update' %}true{% else %}false{% endif %}"
+                        aria-controls="accounts-accordion-child" data-accordion-target="#accounts-accordion-child">
                         <div class="flex items-center gap-x-3.5">
                             <img src="{% static 'icons/account.svg' %}" alt="account" class="size-4.5">
                             <span> Quản lý tài khoản </span>
                         </div>
+
                         <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" data-accordion-icon
-                            class="size-4.5 transition-transform">
+                            class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'user_list,user_create,user_detail,user_update' %} rotate-180 {% endif %}">
                     </button>
                 </div>
-                <div id="accounts-accordion-child" class="w-full overflow-hidden hidden"
+
+                <div id="accounts-accordion-child"
+                    class="w-full overflow-hidden {% if request.resolver_match.url_name in 'user_list,user_create,user_detail,user_update' %} block {% else %} hidden {% endif %}"
                     aria-labelledby="accounts-accordion">
+
                     <ul class="pt-1.5 ps-7 space-y-1">
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="{% url 'user_list' %}"><span class="size-1.5 bg-gray-400 rounded-md"></span> Danh sách tài khoản</a>
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                                {% if request.resolver_match.url_name == 'user_list' or request.resolver_match.url_name == 'user_detail' or request.resolver_match.url_name == 'user_update' %}
+                                    bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                                {% else %}
+                                    text-gray-600 dark:text-slate-400
+                                {% endif %}" href="{% url 'user_list' %}">
+                                <span class="size-1.5
+                                    {% if request.resolver_match.url_name == 'user_list' or request.resolver_match.url_name == 'user_detail' or request.resolver_match.url_name == 'user_update' %}
+                                        bg-blue-600
+                                    {% else %}
+                                        bg-gray-400
+                                    {% endif %}
+                                    rounded-md">
+                                </span>
+                               Danh sách tài khoản
+                            </a>
                         </li>
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="{% url 'user_create' %}"><span class="size-1.5 bg-gray-400 rounded-md"></span> Thêm tài khoản mới</a>
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                            {% if request.resolver_match.url_name == 'user_create' %}
+                                bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                            {% else %}
+                                text-gray-600 dark:text-slate-400
+                            {% endif %}" href="{% url 'user_create' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'user_create' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Thêm tài khoản mới
+                            </a>
                         </li>
                     </ul>
                 </div>
             </li>
+
             <li id="accordion-permissions-group" data-accordion="collapse">
                 <div id="permissions-accordion">
                     <button type="button" class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 

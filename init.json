@@ -1,557 +1,186 @@
 {
   "dinhanh": {
-    "feature_flags": {
-      "models": [
-        "feature_flags.py",
-        "feature_flag_audit_log.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
+    ".github": {
+      "workflows": [
+        "ci-cd.yml",
+        "code-quality.yml",
+        "deploy-production.yml",
+        "health-check.yml"
       ]
     },
-    "comments": {
-      "models": [
-        "comments.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "db_versions": [
-      "dinhanh_db_v1.1_29052026.sql"
-    ],
-    "payments": {
-      "models": [
-        "payments.py",
-        "payment_methods.py",
-        "invoices.py",
-        "cashier_sessions.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "tasks": {
-      "models": [
-        "task_lists.py",
-        "tasks.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "api_tokens": {
-      "models": [
-        "api_token_audit_log.py",
-        "api_tokens.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "core": {
-      "settings": [
-        "local.py",
-        "test.py",
-        "base.py",
-        "production.py"
-      ],
-      "utils": [
-        "grid.py"
-      ],
-      "_files": [
-        ".DS_Store",
-        "models.py",
-        "asgi.py",
-        "apps.py",
-        "urls.py",
-        "middleware.py",
-        "views.py",
-        "wsgi.py"
-      ]
-    },
-    "financials": {
-      "models": [
-        "expenses.py",
-        "fuel_allocations.py",
-        "expense_categories.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    ".pytest_cache": {
-      "v": {
-        "cache": [
-          "nodeids",
-          "lastfailed"
-        ]
-      },
-      "_files": [
-        "CACHEDIR.TAG",
-        ".gitignore"
-      ]
-    },
-    "system_config": {
-      "models": [
-        "system_configs.py",
-        "system_config_audit_log.py",
-        "system_config_history.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "deploy": {
-      "k8s": [
-        "04-redis.yaml",
-        "02-secret.yaml",
-        "03-postgres.yaml",
-        "00-namespace.yaml",
-        "01-configmap.yaml",
-        "06-celery-worker.yaml",
-        "05-django-web.yaml",
-        "07-celery-beat.yaml",
-        "08-ingress.yaml",
-        "09-pdb.yaml"
-      ]
-    },
-    "consignments": {
-      "models": [
-        "cod_reconciliations.py",
-        "consignments.py",
-        "consignment_events.py",
-        "consignment_manifests.py",
-        "cargo_price_tables.py",
-        "manifest_items.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "tenants": {
-      "middleware": [
-        "rate_limit_middleware.py",
-        "tenant_middleware.py"
-      ],
-      "tasks": [
-        ".DS_Store",
-        "tenant_tasks.py"
-      ],
-      "providers": [
-        "tenant_invitation_provider.py",
-        "tenant_provider.py",
-        "tenant_audit_log_provider.py",
-        "tenant_feature_flag_provider.py"
-      ],
-      "signals": [
-        ".DS_Store",
-        "tenant_signals.py"
-      ],
-      "tests": [
-        "conftest.py",
-        "test_tenant.py"
-      ],
-      "management": {
-        "commands": [
-          "expire_invitations.py",
-          "seed_tenant.py"
-        ]
-      },
-      "utils": [
-        "request_helpers.py"
-      ],
-      "repositories": {
-        "implement": [
-          "tenant_feature_flag_repository_impl.py",
-          "tenant_audit_log_repository_impl.py",
-          "tenant_repository_impl.py",
-          "tenant_invitation_repository_impl.py"
-        ],
-        "interfaces": [
-          "tenant_repository_interface.py",
-          "tenant_audit_log_repository_interface.py",
-          "tenant_feature_flag_interface.py",
-          "tenant_invitation_repository_interface.py"
-        ],
-        "_files": [
-          ".DS_Store"
-        ]
-      },
-      "models": [
-        "tenant_invitation.py",
-        "tenant_audit_log.py",
-        "tenant_feature_flag.py",
-        "tenants.py"
-      ],
-      "exceptions": [
-        "exception.py"
-      ],
-      "policies": {
-        "tenants": [
-          "tenant_policy.py"
-        ],
-        "_files": [
-          ".DS_Store"
-        ]
-      },
-      "serializers": {
-        "tenant_invitation": [
-          "tenant_invitation_create_serializer.py",
-          "tenant_invitation_accept_serializer.py",
-          "tenant_invitation_response_serializer.py"
-        ],
-        "tenants": [
-          "tenant_update_serializer.py",
-          "tenant_response_serializer.py",
-          "tenant_list_query_serializer.py",
-          "tenant_create_serializer.py"
-        ],
-        "tenant_feature_flags": [
-          "tenant_feature_flag_response_serializer.py",
-          "tenant_feature_flag_upsert_serializer.py"
-        ],
-        "tenant_audit_log": [
-          "tenant_audit_log_query_serializer.py",
-          "tenant_audit_log_response_serializer.py"
-        ],
-        "_files": [
-          ".DS_Store"
-        ]
-      },
-      "urls": {
-        "tenant_feature_flag": [
-          "urls.py"
-        ],
-        "tenants": [
-          "urls.py"
-        ],
-        "_files": [
-          ".DS_Store"
-        ]
-      },
-      "templates": {
-        "components": {
-          "tables": {
-            "thead": [
-              "_tenant_list_thead.html"
-            ],
-            "tbody": [
-              "_tenant_list_tbody.html"
-            ],
-            "_files": [
-              "_tenant_list_table.html"
-            ]
-          },
-          "page_header": [
-            "_tenant_create_page_header.html",
-            "_tenant_update_page_header.html",
-            "_tenant_list_page_header.html"
-          ],
-          "forms": {
-            "tenants": {
-              "sections": [
-                "_settings_config.html",
-                "_basic_information.html",
-                "_button_action.html",
-                "_limited_resources.html",
-                "_tenant_config.html",
-                "_localization.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            }
-          },
-          "accordion": {
-            "tenants": {
-              "accordion_items": [
-                "_settings_config.html",
-                "_basic_information.html",
-                "_limited_resources.html",
-                "_tenant_config.html",
-                "_audit_tracking.html",
-                "_localization.html"
-              ],
-              "_files": [
-                "_tenant_detail_accordion.html"
-              ]
-            }
-          },
-          "breadcrumb": [
-            "_tenant_update_breadcrumb.html",
-            "_tenant_create_breadcrumb.html",
-            "_tenant_list_breadcrumb.html",
-            "_tenant_detail_breadcrumb.html"
-          ]
-        },
-        "pages": {
-          "tenants": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ]
-        },
-        "_files": [
-          ".DS_Store"
-        ]
-      },
+    "accounts": {
       "application": {
         "dtos": {
-          "tenant_invitation": [
-            "create_tenant_invitation_dto.py",
-            "accept_tenant_invitation_dto.py",
-            "accept_tenant_inviation_dto.py"
+          "auth": [
+            "auth_dto.py",
+            "login_dto.py"
           ],
-          "tenants": [
-            "tenant_response_dto.py",
-            "tenant_list_query_dto.py",
-            "tenant_update_dto.py",
-            "tenant_create_dto.py"
+          "permissions": [
+            "permission_create_dto.py",
+            "permission_list_query_dto.py",
+            "permission_response_dto.py",
+            "permission_update_dto.py"
           ],
-          "tenant_feature_flags": [
-            "upsert_tenant_feature_flag_dto.py"
+          "roles": [
+            "role_create_dto.py",
+            "role_list_query_dto.py",
+            "role_response_dto.py",
+            "role_update_dto.py"
           ],
-          "tenant_audit_log": [
-            "tenant_audit_query_dto.py"
-          ],
-          "_files": [
-            ".DS_Store"
+          "users": [
+            "user_create_dto.py",
+            "user_list_query_dto.py",
+            "user_response_dto.py",
+            "user_update_dto.py"
           ]
         },
         "usecases": {
-          "tenant_invitation": [
-            "accept_tenant_invitation_usecase.py",
-            "create_tenant_invitation_usecase.py",
-            "list_invitation_usecase.py"
+          "auth": [
+            "confirm_password_reset_usecase.py",
+            "forgot_password_usecase.py",
+            "login_usecase.py",
+            "register_usecase.py",
+            "verify_email_usecase.py"
           ],
-          "tenants": [
-            "deactivate_tenant_usecase.py",
-            "get_tenant_usecase.py",
-            "list_tenant_usecase.py",
-            "update_tenant_usecase.py",
-            "tenant_usecase.py",
-            "tenant_create_usecase.py",
-            "deactive_tenant_usecase.py",
-            "hard_delete_usecase.py"
+          "permissions": [
+            "create_permission_usecase.py",
+            "hard_delete_permission_usecase.py",
+            "list_permissions_usecase.py",
+            "soft_delete_permission_usecase.py",
+            "update_permission_usecase.py"
           ],
-          "tenant_feature_flags": [
-            "list_tenant_feature_flag_usecase.py",
-            "delete_tenant_feature_flag.py",
-            "upsert_tenant_feature_flag_usecase.py"
+          "roles": [
+            "create_role_usecase.py",
+            "hard_delete_role_usecase.py",
+            "list_roles_usecase.py",
+            "soft_delete_role_usecase.py",
+            "update_role_usecase.py"
           ],
-          "tenant_audit_log": [
-            "list_tenant_audit_log_usecase.py"
-          ],
-          "_files": [
-            ".DS_Store"
+          "users": [
+            "create_user_usecase.py",
+            "hard_delete_user_usecase.py",
+            "list_users_usecase.py",
+            "soft_delete_user_usecase.py",
+            "update_user_usecase.py"
           ]
-        },
-        "_files": [
-          ".DS_Store"
-        ]
-      },
-      "views": {
-        "forms": [
-          "tenant_base_form.py"
-        ],
-        "tenant_invitation": [
-          "tenant_invitation_accept_view.py",
-          "tenant_invitation_create_view.py",
-          "tenant_invitation_list_view.py"
-        ],
-        "tenant_feature_flag": [
-          "tenant_feature_flag_list_view.py",
-          "tenant_feature_flag_detail_view.py"
-        ],
-        "tenants": [
-          "tenant_soft_delete_view.py",
-          "tenant_update_view.py",
-          "tenant_detail_view.py",
-          "tenant_hard_delete_view.py",
-          "tenant_list_view.py",
-          "tenant_create_view.py"
-        ],
-        "tenant_audit_log": [
-          "tenant_audit_log_list_view.py"
-        ],
-        "helpers": [
-          "view_helpers.py"
-        ],
-        "_files": [
-          ".DS_Store"
-        ]
+        }
       },
       "domain": {
         "entities": [
-          "tenant_entity.py",
-          "tenant_invitation_entity.py",
-          "tenant_feature_flag_entity.py"
+          "auth_user_entity.py",
+          "otp_code_entity.py",
+          "permission_entity.py",
+          "role_entity.py",
+          "user_entity.py",
+          "user_session_entity.py"
         ]
       },
-      "services": [
-        "tenant_feature_flag_service.py",
-        ".DS_Store",
-        "tenant_service.py",
-        "media_service.py"
+      "exceptions": [
+        "exception.py"
       ],
-      "_files": [
-        ".DS_Store",
-        "validators.py",
-        "constants.py",
-        "apps.py",
-        "admin.py"
-      ]
-    },
-    "tags": {
+      "management": {
+        "commands": [
+          "create_tenant_admin.py"
+        ]
+      },
       "models": [
-        "tags.py",
-        "tagged_items.py",
-        "entity_tags.py"
+        "audit_logs.py",
+        "audit_log_archive.py",
+        "otp_code.py",
+        "password_reset_token.py",
+        "permissions.py",
+        "permission_cache.py",
+        "permission_groups.py",
+        "permisson_audit_log.py",
+        "roles.py",
+        "role_permissions.py",
+        "role_permission_audit_log.py",
+        "session_audit_log.py",
+        "user_accounts.py",
+        "user_roles.py",
+        "user_role_audit_log.py",
+        "user_sessions.py"
       ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "dashboard": [
-      "apps.py",
-      "admin.py",
-      "tests.py",
-      "views.py"
-    ],
-    "logs": [
-      "django.log"
-    ],
-    "accounts": {
+      "policies": [
+        "login_policy.py"
+      ],
       "providers": {
         "auth": [
           "auth_provider.py"
         ],
         "_files": [
           "permission_provider.py",
-          "user_provider.py",
-          "role_provider.py"
-        ]
-      },
-      "management": {
-        "commands": [
-          "create_tenant_admin.py"
+          "role_provider.py",
+          "user_provider.py"
         ]
       },
       "repositories": {
         "implement": [
-          "permission_repository_impl.py",
-          "otp_code_repository_impl.py",
-          "role_repository_impl.py",
           "auth_repository_impl.py",
+          "otp_code_repository_impl.py",
+          "permission_repository_impl.py",
+          "role_repository_impl.py",
           "user_repository_impl.py"
         ],
         "interfaces": [
+          "auth_repository_interface.py",
+          "otp_code_repository_interface.py",
           "permission_repository_interface.py",
           "role_repository_interface.py",
-          "otp_code_repository_interface.py",
-          "auth_repository_interface.py",
           "user_repository_interface.py"
         ]
       },
-      "models": [
-        "permission_groups.py",
-        "permisson_audit_log.py",
-        "otp_code.py",
-        "permission_cache.py",
-        "roles.py",
-        "role_permission_audit_log.py",
-        "audit_log_archive.py",
-        "session_audit_log.py",
-        "user_roles.py",
-        "user_accounts.py",
-        "password_reset_token.py",
-        "user_role_audit_log.py",
-        "user_sessions.py",
-        "role_permissions.py",
-        "permissions.py",
-        "audit_logs.py"
-      ],
-      "exceptions": [
-        "exception.py"
-      ],
-      "policies": [
-        "login_policy.py"
-      ],
       "serializers": [
         "permission_group_serializer.py",
-        "role_serializer.py",
         "permission_serializer.py",
+        "role_serializer.py",
         "user_serializer.py"
       ],
-      "urls": {
+      "services": {
         "auth": [
-          "urls.py"
+          "auth_service.py"
         ],
-        "roles": [
-          "urls.py"
-        ],
-        "permissions": [
-          "urls.py"
-        ],
-        "group_permissions": [
-          "urls.py"
-        ],
-        "users": [
-          "urls.py"
+        "_files": [
+          "role_service.py",
+          "user_service.py"
         ]
       },
       "templates": {
         "components": {
-          "page_header": [
-            "_user_create_page_header.html",
-            "_permission_create_page_header.html",
-            "_permission_list_page_header.html",
-            "_role_list_page_header.html",
-            "_user_list_page_header.html",
-            "_group_permission_list_page_header.html",
-            "_user_detail_page_header.html",
-            "_group_permission_create_page_header.html",
-            "_role_create_page_header.html"
+          "accordion": [
+            "_role_detail_accordion.html",
+            "_user_detail_accordion.html"
+          ],
+          "breadcrumb": [
+            "_group_permission_create_breadcrumb.html",
+            "_group_permission_list_breadcrumb.html",
+            "_permission_create_breadcrumb.html",
+            "_permission_list_breadcrumb.html",
+            "_role_create_breadcrumb.html",
+            "_role_list_breadcrumb.html",
+            "_user_create_breadcrumb.html",
+            "_user_detail_breadcrumb.html",
+            "_user_list_breadcrumb.html"
           ],
           "forms": {
-            "roles": {
+            "group_permissions": {
               "sections": [
                 "_basic_information.html",
                 "_button_action.html",
-                "_role_config.html"
+                "_group_config.html"
               ],
               "_files": [
                 "_form.html"
+              ]
+            },
+            "login": {
+              "sections": [
+                "_left_section.html",
+                "_main_form_section.html",
+                "_right_section.html"
+              ],
+              "_files": [
+                "_login_form.html"
               ]
             },
             "permissions": {
@@ -566,19 +195,19 @@
             },
             "register": {
               "sections": [
-                "_right_section.html",
+                "_left_section.html",
                 "_main_form_section.html",
-                "_left_section.html"
+                "_right_section.html"
               ],
               "_files": [
                 "_register_form.html"
               ]
             },
-            "group_permissions": {
+            "roles": {
               "sections": [
                 "_basic_information.html",
-                "_group_config.html",
-                "_button_action.html"
+                "_button_action.html",
+                "_role_config.html"
               ],
               "_files": [
                 "_form.html"
@@ -595,239 +224,1050 @@
               "_files": [
                 "_form.html"
               ]
-            },
-            "login": {
-              "sections": [
-                "_right_section.html",
-                "_main_form_section.html",
-                "_left_section.html"
-              ],
-              "_files": [
-                "_login_form.html"
-              ]
             }
           },
-          "accordion": [
-            "_role_detail_accordion.html",
-            "_user_detail_accordion.html"
+          "page_header": [
+            "_group_permission_create_page_header.html",
+            "_group_permission_list_page_header.html",
+            "_permission_create_page_header.html",
+            "_permission_list_page_header.html",
+            "_role_create_page_header.html",
+            "_role_list_page_header.html",
+            "_user_create_page_header.html",
+            "_user_detail_page_header.html",
+            "_user_list_page_header.html"
           ],
-          "roles": {
-            "forms": [
-              "_form.html"
-            ]
-          },
           "password_reset": {
             "form": [
               "main.html"
             ]
           },
-          "breadcrumb": [
-            "_permission_list_breadcrumb.html",
-            "_group_permission_list_breadcrumb.html",
-            "_role_list_breadcrumb.html",
-            "_user_list_breadcrumb.html",
-            "_role_create_breadcrumb.html",
-            "_permission_create_breadcrumb.html",
-            "_user_create_breadcrumb.html",
-            "_user_detail_breadcrumb.html",
-            "_group_permission_create_breadcrumb.html"
-          ],
           "password_reset_confirm": {
             "form": [
               "main.html"
             ]
           },
+          "roles": {
+            "forms": [
+              "_form.html"
+            ]
+          },
           "verify_email": [
-            "main_form.html",
-            "steps_verify.html",
+            "direction.html",
             "label_notice.html",
-            "direction.html"
+            "main_form.html",
+            "steps_verify.html"
           ]
         },
         "pages": {
           "auth": [
-            "verify_email.html",
-            "register.html",
-            "password_reset.html",
             "login.html",
-            "password_reset_confirm.html",
+            "password_change.html",
+            "password_reset.html",
             "password_reset_complete.html",
-            "password_change.html"
-          ],
-          "roles": [
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ],
-          "permissions": [
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
+            "password_reset_confirm.html",
+            "register.html",
+            "verify_email.html"
           ],
           "group_permissions": [
-            "list.html",
             "create.html",
+            "delete.html",
             "detail.html",
-            "delete.html"
+            "list.html"
+          ],
+          "permissions": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html"
+          ],
+          "roles": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html"
           ],
           "users": [
-            "list.html",
             "create.html",
+            "delete.html",
             "detail.html",
-            "delete.html"
+            "list.html"
           ]
         },
         "_files": [
           ".DS_Store"
         ]
       },
-      "application": {
-        "dtos": {
-          "auth": [
-            "login_dto.py",
-            "auth_dto.py"
-          ],
-          "roles": [
-            "role_create_dto.py",
-            "role_update_dto.py",
-            "role_response_dto.py",
-            "role_list_query_dto.py"
-          ],
-          "permissions": [
-            "permission_create_dto.py",
-            "permission_update_dto.py",
-            "permission_list_query_dto.py",
-            "permission_response_dto.py"
-          ],
-          "users": [
-            "user_update_dto.py",
-            "user_create_dto.py",
-            "user_response_dto.py",
-            "user_list_query_dto.py"
-          ]
-        },
-        "usecases": {
-          "auth": [
-            "register_usecase.py",
-            "forgot_password_usecase.py",
-            "verify_email_usecase.py",
-            "login_usecase.py",
-            "confirm_password_reset_usecase.py"
-          ],
-          "roles": [
-            "soft_delete_role_usecase.py",
-            "list_roles_usecase.py",
-            "create_role_usecase.py",
-            "hard_delete_role_usecase.py",
-            "update_role_usecase.py"
-          ],
-          "permissions": [
-            "update_permission_usecase.py",
-            "create_permission_usecase.py",
-            "list_permissions_usecase.py",
-            "hard_delete_permission_usecase.py",
-            "soft_delete_permission_usecase.py"
-          ],
-          "users": [
-            "list_users_usecase.py",
-            "soft_delete_user_usecase.py",
-            "update_user_usecase.py",
-            "hard_delete_user_usecase.py",
-            "create_user_usecase.py"
-          ]
-        }
-      },
-      "views": {
-        "forms": [
-          "permission_group_base_form.py",
-          "register_base_form.py",
-          "login_base_form.py",
-          "permission_base_form.py",
-          "auth_additional_forms.py",
-          "user_base_form.py",
-          "role_base_form.py"
-        ],
+      "urls": {
         "auth": [
-          "logout.py",
-          "register.py",
-          "verify_email.py",
-          "password_reset.py",
-          "password_reset_confirm.py",
-          "password_reset_complete.py",
-          "password_change.py",
-          "login.py"
-        ],
-        "roles": [
-          "role_hard_delete_view.py",
-          "role_update_view.py",
-          "role_list_view.py",
-          "role_create_view.py",
-          "role_soft_delete_view.py",
-          "role_detail_view.py"
-        ],
-        "permissions": [
-          "permission_update_view.py",
-          "permission_hard_delete_view.py",
-          "permission_soft_delete_view.py",
-          "permission_detail_view.py",
-          "permission_list_view.py",
-          "permission_create_view.py"
+          "urls.py"
         ],
         "group_permissions": [
-          "group_permission_update_view.py",
-          "group_permission_hard_delete_view.py",
-          "group_permission_create_view.py",
-          "group_permission_detail_view.py",
-          "group_permission_soft_delete_view.py",
-          "group_permission_list_view.py"
+          "urls.py"
+        ],
+        "permissions": [
+          "urls.py"
+        ],
+        "roles": [
+          "urls.py"
         ],
         "users": [
-          "user_hard_delete_view.py",
-          "user_update_view.py",
-          "user_list_view.py",
-          "user_detail_view.py",
-          "user_soft_delete_view.py",
-          "user_create_view.py"
+          "urls.py"
         ]
       },
-      "domain": {
-        "entities": [
-          "user_entity.py",
-          "auth_user_entity.py",
-          "role_entity.py",
-          "user_session_entity.py",
-          "permission_entity.py",
-          "otp_code_entity.py"
-        ]
-      },
-      "services": {
+      "views": {
         "auth": [
-          "auth_service.py"
+          "login.py",
+          "logout.py",
+          "password_change.py",
+          "password_reset.py",
+          "password_reset_complete.py",
+          "password_reset_confirm.py",
+          "register.py",
+          "verify_email.py"
         ],
-        "_files": [
-          "user_service.py",
-          "role_service.py"
+        "forms": [
+          "auth_additional_forms.py",
+          "login_base_form.py",
+          "permission_base_form.py",
+          "permission_group_base_form.py",
+          "register_base_form.py",
+          "role_base_form.py",
+          "user_base_form.py"
+        ],
+        "group_permissions": [
+          "group_permission_create_view.py",
+          "group_permission_detail_view.py",
+          "group_permission_hard_delete_view.py",
+          "group_permission_list_view.py",
+          "group_permission_soft_delete_view.py",
+          "group_permission_update_view.py"
+        ],
+        "permissions": [
+          "permission_create_view.py",
+          "permission_detail_view.py",
+          "permission_hard_delete_view.py",
+          "permission_list_view.py",
+          "permission_soft_delete_view.py",
+          "permission_update_view.py"
+        ],
+        "roles": [
+          "role_create_view.py",
+          "role_detail_view.py",
+          "role_hard_delete_view.py",
+          "role_list_view.py",
+          "role_soft_delete_view.py",
+          "role_update_view.py"
+        ],
+        "users": [
+          "user_create_view.py",
+          "user_detail_view.py",
+          "user_hard_delete_view.py",
+          "user_list_view.py",
+          "user_soft_delete_view.py",
+          "user_update_view.py"
         ]
       },
       "_files": [
         ".DS_Store",
+        "admin.py",
+        "apps.py"
+      ]
+    },
+    "api_tokens": {
+      "models": [
+        "api_tokens.py",
+        "api_token_audit_log.py"
+      ],
+      "_files": [
+        "admin.py",
         "apps.py",
-        "admin.py"
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "assets": {
+      "application": {
+        "dtos": {
+          "assets": [
+            "asset_dtos.py"
+          ],
+          "asset_categories": [
+            "asset_category_dtos.py"
+          ],
+          "storage_units": [
+            "storage_unit_dtos.py"
+          ]
+        },
+        "usecases": {
+          "assets": [
+            "create_asset_usecase.py",
+            "get_asset_detail_usecase.py",
+            "hard_delete_asset.py",
+            "helper_mapping.py",
+            "list_assets_usecase.py",
+            "soft_delete_asset.py",
+            "update_asset_usecase.py"
+          ],
+          "asset_categories": [
+            "asset_category_usecases.py",
+            "hard_delete_asset_category.py",
+            "soft_delete_asset_category.py"
+          ],
+          "storage_units": [
+            "hard_delete_storage_unit.py",
+            "soft_delete_storage_unit.py",
+            "storage_unit_usecases.py"
+          ]
+        }
+      },
+      "domain": {
+        "entities": [
+          "asset_category_entity.py",
+          "asset_entity.py",
+          "storage_unit_entity.py"
+        ]
+      },
+      "models": [
+        "assets.py",
+        "asset_categories.py",
+        "storage_units.py"
+      ],
+      "providers": [
+        "asset_provider.py"
+      ],
+      "repositories": {
+        "implement": [
+          "asset_category_repository_impl.py",
+          "asset_repository_impl.py",
+          "storage_unit_repository_impl.py"
+        ],
+        "interfaces": [
+          "asset_category_repository_interface.py",
+          "asset_repository_interface.py",
+          "storage_unit_repository_interface.py"
+        ]
+      },
+      "serializers": [
+        "asset_category_serializer.py",
+        "asset_list_query_serializer.py",
+        "asset_response_serializer.py",
+        "storage_unit_serializer.py"
+      ],
+      "services": [
+        "asset_service.py"
+      ],
+      "templates": {
+        "components": {
+          "accordion": {
+            "assets": {
+              "accordion_items": [
+                "_asset_identity_metadata.html",
+                "_custody_location_allocation.html",
+                "_financials_depreciation_ledger.html",
+                "_general_information_classification.html",
+                "_lifecycle_status_operations.html"
+              ],
+              "_files": [
+                "_asset_detail_accordion.html"
+              ]
+            },
+            "asset_categories": {
+              "accordion_items": [
+                "_basic_information.html"
+              ],
+              "_files": [
+                "_asset_category_detail_accordion.html"
+              ]
+            },
+            "storage_units": {
+              "accordion_items": [
+                "_basic_information.html"
+              ],
+              "_files": [
+                "_storage_unit_detail_accordion.html"
+              ]
+            }
+          },
+          "breadcrumb": [
+            "_asset_category_create_breadcrumb.html",
+            "_asset_category_detail_breadcrumb.html",
+            "_asset_category_list_breadcrumb.html",
+            "_asset_category_update_breadcrumb.html",
+            "_asset_create_breadcrumb.html",
+            "_asset_detail_breadcrumb.html",
+            "_asset_list_breadcrumb.html",
+            "_asset_update_breadcrumb.html",
+            "_storage_unit_create_breadcrumb.html",
+            "_storage_unit_detail_breadcrumb.html",
+            "_storage_unit_list_breadcrumb.html",
+            "_storage_unit_update_breadcrumb.html"
+          ],
+          "forms": {
+            "assets": {
+              "sections": [
+                "_asset_identity_metadata.html",
+                "_button_action.html",
+                "_custody_location_allocation.html",
+                "_financials_depreciation_ledger.html",
+                "_general_information_classification.html",
+                "_lifecycle_status_operations.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            },
+            "asset_categories": {
+              "sections": [
+                "_basic_information.html",
+                "_button_action.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            },
+            "storage_units": {
+              "sections": [
+                "_button_action.html",
+                "_storage_details.html",
+                "_storage_identity_and_tenancy.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            }
+          },
+          "page_header": [
+            "_asset_category_create_page_header.html",
+            "_asset_category_detail_page_header.html",
+            "_asset_category_list_page_header.html",
+            "_asset_category_update_page_header.html",
+            "_asset_create_page_header.html",
+            "_asset_detail_page_header.html",
+            "_asset_list_page_header.html",
+            "_asset_update_page_header.html",
+            "_storage_unit_create_page_header.html",
+            "_storage_unit_detail_page_header.html",
+            "_storage_unit_list_page_header.html",
+            "_storage_unit_update_page_header.html"
+          ]
+        },
+        "pages": {
+          "assets": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "asset_categories": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "storage_units": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ]
+        }
+      },
+      "urls": {
+        "assets": [
+          "urls.py"
+        ],
+        "asset_categories": [
+          "urls.py"
+        ],
+        "storage_units": [
+          "urls.py"
+        ]
+      },
+      "views": {
+        "assets": [
+          "asset_create_view.py",
+          "asset_detail_view.py",
+          "asset_hard_delete_view.py",
+          "asset_list_view.py",
+          "asset_soft_delete_view.py",
+          "asset_update_view.py"
+        ],
+        "asset_categories": [
+          "asset_category_create_view.py",
+          "asset_category_detail_view.py",
+          "asset_category_hard_delete_view.py",
+          "asset_category_list_view.py",
+          "asset_category_soft_delete_view.py",
+          "asset_category_update_view.py"
+        ],
+        "forms": [
+          "asset_base_form.py",
+          "asset_category_base_form.py",
+          "storage_unit_base_form.py"
+        ],
+        "storage_units": [
+          "storage_unit_create_view.py",
+          "storage_unit_detail_view.py",
+          "storage_unit_hard_delete_view.py",
+          "storage_unit_list_view.py",
+          "storage_unit_soft_delete_view.py",
+          "storage_unit_update_view.py"
+        ]
+      },
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "branches": {
+      "application": {
+        "dtos": [
+          "branch_create_dto.py",
+          "branch_detail_dto.py",
+          "branch_update_dto.py"
+        ],
+        "usecases": [
+          "create_branch.py",
+          "get_branch.py",
+          "hard_delete_branch.py",
+          "list_branches.py",
+          "soft_delete_branch.py",
+          "update_branch.py"
+        ]
+      },
+      "domain": {
+        "entities": [
+          "branch_entity.py"
+        ]
+      },
+      "models": [
+        "branches.py",
+        "branch_audit_log.py"
+      ],
+      "providers": [
+        "branch_audit_log_provider.py",
+        "branch_provider.py"
+      ],
+      "repositories": {
+        "implement": [
+          "branch_audit_log_repository_impl.py",
+          "branch_repository_impl.py"
+        ],
+        "interfaces": [
+          "branch_audit_log_repository_interface.py",
+          "branch_repository_interface.py"
+        ]
+      },
+      "serializers": [
+        "branch_serializer.py"
+      ],
+      "services": [
+        "branch_service.py"
+      ],
+      "signals": [
+        "branch_signals.py"
+      ],
+      "templates": {
+        "components": {
+          "accordion": {
+            "branches": {
+              "accordion_items": [
+                "_basic_information.html",
+                "_contact_management.html",
+                "_geography_timezone.html",
+                "_metadata_config.html"
+              ],
+              "_files": [
+                "_branch_detail_accordion.html"
+              ]
+            }
+          },
+          "breadcrumb": [
+            "_branch_create_breadcrumb.html",
+            "_branch_detail_breadcrumb.html",
+            "_branch_detail_breadcrumd.html",
+            "_branch_list_breadcrumb.html",
+            "_branch_update_breadcrumb.html"
+          ],
+          "forms": {
+            "branches": {
+              "sections": [
+                "_button_action.html",
+                "_contact_and_manager.html",
+                "_identity_and_tenancy.html",
+                "_location_and_timezone.html",
+                "_metadata.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            }
+          },
+          "page_header": [
+            "_branch_create_page_header.html",
+            "_branch_detail_page_header.html",
+            "_branch_list_page_header.html",
+            "_branch_update_page_header.html"
+          ]
+        },
+        "pages": {
+          "branches": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ]
+        }
+      },
+      "tests": [
+        "conftest.py",
+        "test_branches.py"
+      ],
+      "urls": {
+        "branches": [
+          "urls.py"
+        ]
+      },
+      "views": {
+        "branches": [
+          "branch_create_view.py",
+          "branch_detail_view.py",
+          "branch_hard_delete_view.py",
+          "branch_list_view.py",
+          "branch_soft_delete_view.py",
+          "branch_update_view.py"
+        ],
+        "forms": [
+          "branch_base_form.py"
+        ]
+      },
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "constants.py"
+      ]
+    },
+    "comments": {
+      "models": [
+        "comments.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "consignments": {
+      "models": [
+        "cargo_price_tables.py",
+        "cod_reconciliations.py",
+        "consignments.py",
+        "consignment_events.py",
+        "consignment_manifests.py",
+        "manifest_items.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "core": {
+      "settings": [
+        "base.py",
+        "local.py",
+        "production.py",
+        "test.py"
+      ],
+      "utils": [
+        "grid.py"
+      ],
+      "_files": [
+        ".DS_Store",
+        "apps.py",
+        "asgi.py",
+        "middleware.py",
+        "models.py",
+        "urls.py",
+        "views.py",
+        "wsgi.py"
+      ]
+    },
+    "customers_tickets": {
+      "models": [
+        "customers.py",
+        "group_contracts.py",
+        "tickets.py",
+        "ticket_bookings.py",
+        "ticket_exchanges.py",
+        "ticket_refunds.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "dashboard": [
+      "admin.py",
+      "apps.py",
+      "tests.py",
+      "views.py"
+    ],
+    "db_versions": [
+      "dinhanh_db_v1.1_29052026.sql"
+    ],
+    "deploy": {
+      "k8s": [
+        "00-namespace.yaml",
+        "01-configmap.yaml",
+        "02-secret.yaml",
+        "03-postgres.yaml",
+        "04-redis.yaml",
+        "05-django-web.yaml",
+        "06-celery-worker.yaml",
+        "07-celery-beat.yaml",
+        "08-ingress.yaml",
+        "09-pdb.yaml"
+      ]
+    },
+    "feature_flags": {
+      "models": [
+        "feature_flags.py",
+        "feature_flag_audit_log.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "financials": {
+      "models": [
+        "expenses.py",
+        "expense_categories.py",
+        "fuel_allocations.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "hr": {
+      "models": [
+        "attendances.py",
+        "departments.py",
+        "employees.py",
+        "leave_requests.py",
+        "payroll.py",
+        "shift_types.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "logs": [
+      "django.log"
+    ],
+    "media": {
+      "models": [
+        "media_files.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "menus": {
+      "application": {
+        "dtos": {
+          "menu_groups": [
+            "menu_group_create_dto.py",
+            "menu_group_detail_dto.py",
+            "menu_group_hard_delete_dto.py",
+            "menu_group_list_dto.py",
+            "menu_group_list_query_dto.py",
+            "menu_group_response_dto.py",
+            "menu_group_soft_delete_dto.py",
+            "menu_group_update_dto.py"
+          ],
+          "menu_items": [
+            "menu_item_create_dto.py",
+            "menu_item_delete_dto.py",
+            "menu_item_detail_dto.py",
+            "menu_item_list_query_dto.py",
+            "menu_item_response_dto.py",
+            "menu_item_update_dto.py"
+          ],
+          "menu_item_roles": [
+            "menu_item_role_create_dto.py",
+            "menu_item_role_delete_dto.py",
+            "menu_item_role_list_query_dto.py",
+            "menu_item_role_response_dto.py"
+          ]
+        },
+        "usecases": {
+          "menu_groups": [
+            "create_menu_group_usecase.py",
+            "get_menu_group_detail_usecase.py",
+            "hard_delete_menu_group_usecase.py",
+            "helper_mapping_menu_group_usecase.py",
+            "list_menu_group_usecase.py",
+            "soft_delete_menu_group_usecase.py",
+            "update_menu_group_usecase.py"
+          ],
+          "menu_items": [
+            "create_menu_item_usecase.py",
+            "delete_menu_item_usecase.py",
+            "get_menu_item_detail_usecase.py",
+            "hard_delete_menu_item_usecase.py",
+            "helper_mapping_menu_item_usecase.py",
+            "list_menu_item_usecase.py",
+            "update_menu_item_usecase.py"
+          ],
+          "menu_item_roles": [
+            "create_menu_item_role_usecase.py",
+            "delete_menu_item_role_usecase.py",
+            "get_menu_item_role_detail_usecase.py",
+            "hard_delete_menu_item_role_usecase.py",
+            "list_menu_item_roles_usecase.py"
+          ]
+        }
+      },
+      "domain": {
+        "entities": [
+          "menu_audit_log_entity.py",
+          "menu_group_entity.py",
+          "menu_item_entity.py",
+          "menu_item_role_audit_log_entity.py",
+          "menu_item_role_entity.py"
+        ]
+      },
+      "exceptions": [
+        "menu_group_exception.py",
+        "menu_item_exception.py"
+      ],
+      "models": [
+        "menu_audit_log.py",
+        "menu_groups.py",
+        "menu_items.py",
+        "menu_item_roles.py",
+        "menu_item_role_audit_log.py"
+      ],
+      "providers": [
+        "menu_group_provider.py",
+        "menu_item_provider.py",
+        "menu_item_role_provider.py"
+      ],
+      "repositories": {
+        "implement": [
+          "menu_group_repository_impl.py",
+          "menu_item_repository_impl.py",
+          "menu_item_role_repository_impl.py"
+        ],
+        "interfaces": [
+          "menu_group_repository_interface.py",
+          "menu_item_repository_interface.py",
+          "menu_item_role_repository_interface.py"
+        ]
+      },
+      "serializers": {
+        "menu_groups": [
+          "menu_group_create_serilaizer.py",
+          "menu_group_hard_delete_serilaizer.py",
+          "menu_group_response_serializer.py",
+          "menu_group_soft_delete_serilaizer.py",
+          "menu_group_update_serilaizer.py"
+        ],
+        "menu_items": [
+          "menu_item_create_serializer.py",
+          "menu_item_response_serializer.py",
+          "menu_item_update_serializer.py"
+        ],
+        "menu_item_roles": [
+          "menu_item_role_create_serializer.py",
+          "menu_item_role_response_serializer.py"
+        ]
+      },
+      "services": [
+        "menu_group_service.py",
+        "menu_item_role_service.py",
+        "menu_item_service.py"
+      ],
+      "templates": {
+        "components": {
+          "accordion": {
+            "accordion_items": [
+              "_audit_tracking.html",
+              "_audit_tracking_template.html",
+              "_basic_information.html",
+              "_tenant_parent.html"
+            ],
+            "_files": [
+              "_menu_group_detail_accordion.html",
+              "_menu_item_detail_accordion.html"
+            ]
+          },
+          "breadcrumb": [
+            "_menu_group_create_breadcrumb.html",
+            "_menu_group_detail_breadcrumb.html",
+            "_menu_group_list_breadcrumb.html",
+            "_menu_group_update_breadcrumb.html",
+            "_menu_item_create_breadcrumb.html",
+            "_menu_item_detail_breadcrumb.html",
+            "_menu_item_list_breadcrumb.html",
+            "_menu_item_role_create_breadcrumb.html",
+            "_menu_item_role_detail_breadcrumb.html",
+            "_menu_item_role_list_breadcrumb.html",
+            "_menu_item_role_update_breadcrumb.html",
+            "_menu_item_update_breadcrumb.html"
+          ],
+          "forms": {
+            "menu_groups": {
+              "sections": [
+                "_basic_information.html",
+                "_button_action.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            },
+            "menu_items": {
+              "sections": [
+                "_button_action.html",
+                "_context_permissions.html",
+                "_hierarchy_ordering.html",
+                "_identity_presentation.html",
+                "_routing_navigation.html",
+                "_status_badges.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            },
+            "menu_item_roles": {
+              "sections": [
+                "_basic_information.html",
+                "_button_action.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            }
+          },
+          "page_header": [
+            "_menu_group_create_page_header.html",
+            "_menu_group_detail_page_header.html",
+            "_menu_group_list_page_header.html",
+            "_menu_group_update_page_header.html",
+            "_menu_item_create_page_header.html",
+            "_menu_item_detail_page_header.html",
+            "_menu_item_list_page_header.html",
+            "_menu_item_role_create_page_header.html",
+            "_menu_item_role_detail_page_header.html",
+            "_menu_item_role_list_page_header.html",
+            "_menu_item_role_update_page_header.html",
+            "_menu_item_update_page_header.html"
+          ],
+          "tables": {
+            "tbody": [
+              "_menu_group_list_tbody.html",
+              "_menu_item_list_tbody.html"
+            ],
+            "thead": [
+              "_menu_group_list_thead.html",
+              "_menu_item_list_thead.html"
+            ],
+            "_files": [
+              "_menu_group_list_table.html",
+              "_menu_item_list_table.html"
+            ]
+          }
+        },
+        "pages": {
+          "menu_groups": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "menu_items": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "menu_item_roles": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ]
+        }
+      },
+      "tests": [
+        "conftest.py",
+        "tests.py",
+        "test_menu_items.py",
+        "test_menu_item_roles.py"
+      ],
+      "urls": {
+        "menu_groups": [
+          "urls.py"
+        ],
+        "menu_items": [
+          "urls.py"
+        ],
+        "menu_item_roles": [
+          "urls.py"
+        ]
+      },
+      "utils": [
+        "request_helpers.py"
+      ],
+      "views": {
+        "forms": [
+          "menu_group_base_form.py",
+          "menu_item_base_form.py",
+          "menu_item_role_form.py"
+        ],
+        "helpers": [
+          "view_helpers.py"
+        ],
+        "menu_groups": [
+          "menu_group_create_view.py",
+          "menu_group_detail_view.py",
+          "menu_group_hard_delete_view.py",
+          "menu_group_list_view.py",
+          "menu_group_soft_delete_view.py",
+          "menu_group_update_view.py"
+        ],
+        "menu_items": [
+          "menu_items_create_view.py",
+          "menu_items_detail_view.py",
+          "menu_items_list_view.py",
+          "menu_items_update_view.py",
+          "menu_item_hard_delete_view.py",
+          "menu_item_soft_delete_view.py"
+        ],
+        "menu_item_roles": [
+          "menu_item_role_create_view.py",
+          "menu_item_role_detail_view.py",
+          "menu_item_role_hard_delete_view.py",
+          "menu_item_role_list_view.py",
+          "menu_item_role_soft_delete_view.py",
+          "menu_item_role_update_view.py"
+        ]
+      },
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "constants.py",
+        "validators.py"
+      ]
+    },
+    "notifications": {
+      "models": [
+        "notifications.py",
+        "notification_templates.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "payments": {
+      "models": [
+        "cashier_sessions.py",
+        "invoices.py",
+        "payments.py",
+        "payment_methods.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "promotions_loyalty": {
+      "models": [
+        "after_sales.py",
+        "loyalty_transactions.py",
+        "promotions.py",
+        "promotion_usages.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "reports": {
+      "models": [
+        "reports.py",
+        "scheduled_reports.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
+      ]
+    },
+    "routes": {
+      "models": [
+        "districts.py",
+        "locations.py",
+        "provinces.py",
+        "routes.py",
+        "route_stops.py",
+        "schedules.py",
+        "stations.py",
+        "wards.py"
+      ],
+      "_files": [
+        "admin.py",
+        "apps.py",
+        "tests.py",
+        "views.py"
       ]
     },
     "static": {
       "build": {
-        "assets": [
-          "style-D_jwVstr.css",
-          "app-C5Nj1jXJ.css",
-          "style-CYFuq-3b.js",
-          "input-5BzVH88m.js",
-          "app-DavEPVAg.js"
-        ],
         ".vite": [
           "manifest.json"
+        ],
+        "assets": [
+          "app-C5Nj1jXJ.css",
+          "app-fcamHLGG.js",
+          "input-De7VnvHx.js",
+          "style-DQJ_ZWSJ.css",
+          "style-ExrieY5k.js"
         ]
       },
       "src": {
@@ -837,11 +1277,11 @@
         ],
         "js": {
           "components": [
-            "backdrop.js",
             "aggrid.js",
+            "backdrop.js",
+            "flatpickr.js",
             "notyf.js",
             "spinner.js",
-            "flatpickr.js",
             "toast.js"
           ],
           "errors": [
@@ -861,877 +1301,419 @@
         ".DS_Store"
       ]
     },
-    ".github": {
-      "workflows": [
-        "deploy-production.yml",
-        "ci-cd.yml",
-        "code-quality.yml",
-        "health-check.yml"
-      ]
-    },
-    "promotions_loyalty": {
+    "system_config": {
       "models": [
-        "promotions.py",
-        "loyalty_transactions.py",
-        "after_sales.py",
-        "promotion_usages.py"
+        "system_configs.py",
+        "system_config_audit_log.py",
+        "system_config_history.py"
       ],
       "_files": [
-        "apps.py",
         "admin.py",
+        "apps.py",
         "tests.py",
         "views.py"
       ]
     },
-    "hr": {
+    "tags": {
       "models": [
-        "attendances.py",
-        "payroll.py",
-        "shift_types.py",
-        "employees.py",
-        "leave_requests.py",
-        "departments.py"
+        "entity_tags.py",
+        "tagged_items.py",
+        "tags.py"
       ],
       "_files": [
-        "apps.py",
         "admin.py",
+        "apps.py",
         "tests.py",
         "views.py"
       ]
     },
-    "menus": {
-      "providers": [
-        "menu_item_provider.py",
-        "menu_item_role_provider.py",
-        "menu_group_provider.py"
-      ],
-      "tests": [
-        "test_menu_items.py",
-        "conftest.py",
-        "test_menu_item_roles.py",
-        "tests.py"
-      ],
-      "utils": [
-        "request_helpers.py"
-      ],
-      "repositories": {
-        "implement": [
-          "menu_item_repository_impl.py",
-          "menu_item_role_repository_impl.py",
-          "menu_group_repository_impl.py"
-        ],
-        "interfaces": [
-          "menu_group_repository_interface.py",
-          "menu_item_role_repository_interface.py",
-          "menu_item_repository_interface.py"
-        ]
-      },
+    "tasks": {
       "models": [
-        "menu_item_role_audit_log.py",
-        "menu_groups.py",
-        "menu_audit_log.py",
-        "menu_items.py",
-        "menu_item_roles.py"
-      ],
-      "exceptions": [
-        "menu_group_exception.py",
-        "menu_item_exception.py"
-      ],
-      "serializers": {
-        "menu_items": [
-          "menu_item_create_serializer.py",
-          "menu_item_response_serializer.py",
-          "menu_item_update_serializer.py"
-        ],
-        "menu_groups": [
-          "menu_group_update_serilaizer.py",
-          "menu_group_response_serializer.py",
-          "menu_group_hard_delete_serilaizer.py",
-          "menu_group_soft_delete_serilaizer.py",
-          "menu_group_create_serilaizer.py"
-        ],
-        "menu_item_roles": [
-          "menu_item_role_create_serializer.py",
-          "menu_item_role_response_serializer.py"
-        ]
-      },
-      "urls": {
-        "menu_items": [
-          "urls.py"
-        ],
-        "menu_groups": [
-          "urls.py"
-        ],
-        "menu_item_roles": [
-          "urls.py"
-        ]
-      },
-      "templates": {
-        "components": {
-          "tables": {
-            "thead": [
-              "_menu_item_list_thead.html",
-              "_menu_group_list_thead.html"
-            ],
-            "tbody": [
-              "_menu_group_list_tbody.html",
-              "_menu_item_list_tbody.html"
-            ],
-            "_files": [
-              "_menu_group_list_table.html",
-              "_menu_item_list_table.html"
-            ]
-          },
-          "page_header": [
-            "_menu_item_detail_page_header.html",
-            "_menu_item_list_page_header.html",
-            "_menu_item_role_update_page_header.html",
-            "_menu_group_update_page_header.html",
-            "_menu_item_role_list_page_header.html",
-            "_menu_group_list_page_header.html",
-            "_menu_item_role_create_page_header.html",
-            "_menu_group_create_page_header.html",
-            "_menu_item_role_detail_page_header.html",
-            "_menu_group_detail_page_header.html",
-            "_menu_item_update_page_header.html",
-            "_menu_item_create_page_header.html"
-          ],
-          "forms": {
-            "menu_items": {
-              "sections": [
-                "_hierarchy_ordering.html",
-                "_identity_presentation.html",
-                "_routing_navigation.html",
-                "_status_badges.html",
-                "_button_action.html",
-                "_context_permissions.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            },
-            "menu_groups": {
-              "sections": [
-                "_basic_information.html",
-                "_button_action.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            },
-            "menu_item_roles": {
-              "sections": [
-                "_basic_information.html",
-                "_button_action.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            }
-          },
-          "accordion": {
-            "accordion_items": [
-              "_basic_information.html",
-              "_audit_tracking.html",
-              "_tenant_parent.html",
-              "_audit_tracking_template.html"
-            ],
-            "_files": [
-              "_menu_group_detail_accordion.html",
-              "_menu_item_detail_accordion.html"
-            ]
-          },
-          "breadcrumb": [
-            "_menu_group_detail_breadcrumb.html",
-            "_menu_group_create_breadcrumb.html",
-            "_menu_group_update_breadcrumb.html",
-            "_menu_item_list_breadcrumb.html",
-            "_menu_item_role_detail_breadcrumb.html",
-            "_menu_item_role_create_breadcrumb.html",
-            "_menu_item_role_list_breadcrumb.html",
-            "_menu_item_update_breadcrumb.html",
-            "_menu_item_create_breadcrumb.html",
-            "_menu_group_list_breadcrumb.html",
-            "_menu_item_role_update_breadcrumb.html",
-            "_menu_item_detail_breadcrumb.html"
-          ]
-        },
-        "pages": {
-          "menu_items": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ],
-          "menu_groups": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ],
-          "menu_item_roles": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ]
-        }
-      },
-      "application": {
-        "dtos": {
-          "menu_items": [
-            "menu_item_list_query_dto.py",
-            "menu_item_detail_dto.py",
-            "menu_item_create_dto.py",
-            "menu_item_delete_dto.py",
-            "menu_item_update_dto.py",
-            "menu_item_response_dto.py"
-          ],
-          "menu_groups": [
-            "menu_group_response_dto.py",
-            "menu_group_soft_delete_dto.py",
-            "menu_group_list_query_dto.py",
-            "menu_group_hard_delete_dto.py",
-            "menu_group_list_dto.py",
-            "menu_group_update_dto.py",
-            "menu_group_create_dto.py",
-            "menu_group_detail_dto.py"
-          ],
-          "menu_item_roles": [
-            "menu_item_role_delete_dto.py",
-            "menu_item_role_create_dto.py",
-            "menu_item_role_response_dto.py",
-            "menu_item_role_list_query_dto.py"
-          ]
-        },
-        "usecases": {
-          "menu_items": [
-            "list_menu_item_usecase.py",
-            "hard_delete_menu_item_usecase.py",
-            "create_menu_item_usecase.py",
-            "get_menu_item_detail_usecase.py",
-            "update_menu_item_usecase.py",
-            "helper_mapping_menu_item_usecase.py",
-            "delete_menu_item_usecase.py"
-          ],
-          "menu_groups": [
-            "list_menu_group_usecase.py",
-            "get_menu_group_detail_usecase.py",
-            "update_menu_group_usecase.py",
-            "create_menu_group_usecase.py",
-            "helper_mapping_menu_group_usecase.py",
-            "hard_delete_menu_group_usecase.py",
-            "soft_delete_menu_group_usecase.py"
-          ],
-          "menu_item_roles": [
-            "create_menu_item_role_usecase.py",
-            "delete_menu_item_role_usecase.py",
-            "list_menu_item_roles_usecase.py",
-            "get_menu_item_role_detail_usecase.py",
-            "hard_delete_menu_item_role_usecase.py"
-          ]
-        }
-      },
-      "views": {
-        "menu_items": [
-          "menu_items_list_view.py",
-          "menu_items_update_view.py",
-          "menu_item_hard_delete_view.py",
-          "menu_items_create_view.py",
-          "menu_items_detail_view.py",
-          "menu_item_soft_delete_view.py"
-        ],
-        "forms": [
-          "menu_item_base_form.py",
-          "menu_item_role_form.py",
-          "menu_group_base_form.py"
-        ],
-        "menu_groups": [
-          "menu_group_create_view.py",
-          "menu_group_detail_view.py",
-          "menu_group_hard_delete_view.py",
-          "menu_group_list_view.py",
-          "menu_group_soft_delete_view.py",
-          "menu_group_update_view.py"
-        ],
-        "menu_item_roles": [
-          "menu_item_role_create_view.py",
-          "menu_item_role_soft_delete_view.py",
-          "menu_item_role_detail_view.py",
-          "menu_item_role_hard_delete_view.py",
-          "menu_item_role_list_view.py",
-          "menu_item_role_update_view.py"
-        ],
-        "helpers": [
-          "view_helpers.py"
-        ]
-      },
-      "domain": {
-        "entities": [
-          "menu_item_entity.py",
-          "menu_item_role_audit_log_entity.py",
-          "menu_audit_log_entity.py",
-          "menu_group_entity.py",
-          "menu_item_role_entity.py"
-        ]
-      },
-      "services": [
-        "menu_item_service.py",
-        "menu_group_service.py",
-        "menu_item_role_service.py"
+        "tasks.py",
+        "task_lists.py"
       ],
       "_files": [
-        "validators.py",
-        "constants.py",
+        "admin.py",
         "apps.py",
-        "admin.py"
+        "tests.py",
+        "views.py"
       ]
     },
     "templates": {
+      "components": {
+        "icons": [
+          "seat.html"
+        ],
+        "ui": [
+          "spinner.html",
+          "_catch_error_form.html"
+        ]
+      },
       "dashboard": [
         ".DS_Store",
         "dashboard.html"
       ],
-      "portals": [
-        "navbar.html",
-        "404.html",
-        "401.html",
-        "sidebar.html"
-      ],
-      "components": {
-        "ui": [
-          "spinner.html",
-          "_catch_error_form.html"
-        ],
-        "icons": [
-          "seat.html"
-        ]
-      },
       "email": {
         "inform": [
-          "_otp_sending.html",
           "password_reset_otp.html",
-          "_success_login.html",
-          "register_otp.html"
+          "register_otp.html",
+          "_otp_sending.html",
+          "_success_login.html"
         ]
       },
+      "portals": [
+        "401.html",
+        "404.html",
+        "navbar.html",
+        "sidebar.html"
+      ],
       "_files": [
         ".DS_Store",
         "base.html"
       ]
     },
-    "vehicles": {
-      "models": [
-        "seat_maps.py",
-        "vehicle_maintenance.py",
-        "seats.py",
-        "vehicles.py",
-        "vehicle_categories.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "branches": {
-      "providers": [
-        "branch_audit_log_provider.py",
-        "branch_provider.py"
-      ],
-      "signals": [
-        "branch_signals.py"
-      ],
-      "tests": [
-        "conftest.py",
-        "test_branches.py"
-      ],
-      "repositories": {
-        "implement": [
-          "branch_audit_log_repository_impl.py",
-          "branch_repository_impl.py"
-        ],
-        "interfaces": [
-          "branch_audit_log_repository_interface.py",
-          "branch_repository_interface.py"
-        ]
-      },
-      "models": [
-        "branches.py",
-        "branch_audit_log.py"
-      ],
-      "serializers": [
-        "branch_serializer.py"
-      ],
-      "urls": {
-        "branches": [
-          "urls.py"
-        ]
-      },
-      "templates": {
-        "components": {
-          "page_header": [
-            "_branch_create_page_header.html",
-            "_branch_update_page_header.html",
-            "_branch_list_page_header.html",
-            "_branch_detail_page_header.html"
+    "tenants": {
+      "application": {
+        "dtos": {
+          "tenants": [
+            "tenant_create_dto.py",
+            "tenant_list_query_dto.py",
+            "tenant_response_dto.py",
+            "tenant_update_dto.py"
           ],
-          "forms": {
-            "branches": {
-              "sections": [
-                "_location_and_timezone.html",
-                "_contact_and_manager.html",
-                "_button_action.html",
-                "_identity_and_tenancy.html",
-                "_metadata.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            },
-            "_files": [
-              "_branch_form.html"
-            ]
-          },
-          "accordion": {
-            "branches": {
-              "accordion_items": [
-                "_contact_management.html",
-                "_geography_timezone.html",
-                "_basic_information.html",
-                "_metadata_config.html"
-              ],
-              "_files": [
-                "_branch_detail_accordion.html"
-              ]
-            },
-            "_files": [
-              "_branch_detail_accordion.html"
-            ]
-          },
-          "breadcrumb": [
-            "_branch_list_breadcrumb.html",
-            "_branch_detail_breadcrumb.html",
-            "_branch_create_breadcrumb.html",
-            "_branch_update_breadcrumb.html",
-            "_branch_detail_breadcrumd.html"
+          "tenant_audit_log": [
+            "tenant_audit_query_dto.py"
+          ],
+          "tenant_feature_flags": [
+            "upsert_tenant_feature_flag_dto.py"
+          ],
+          "tenant_invitation": [
+            "accept_tenant_inviation_dto.py",
+            "accept_tenant_invitation_dto.py",
+            "create_tenant_invitation_dto.py"
+          ],
+          "_files": [
+            ".DS_Store"
           ]
         },
-        "pages": {
-          "branches": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
+        "usecases": {
+          "tenants": [
+            "deactivate_tenant_usecase.py",
+            "deactive_tenant_usecase.py",
+            "get_tenant_usecase.py",
+            "hard_delete_usecase.py",
+            "list_tenant_usecase.py",
+            "tenant_create_usecase.py",
+            "tenant_usecase.py",
+            "update_tenant_usecase.py"
+          ],
+          "tenant_audit_log": [
+            "list_tenant_audit_log_usecase.py"
+          ],
+          "tenant_feature_flags": [
+            "delete_tenant_feature_flag.py",
+            "list_tenant_feature_flag_usecase.py",
+            "upsert_tenant_feature_flag_usecase.py"
+          ],
+          "tenant_invitation": [
+            "accept_tenant_invitation_usecase.py",
+            "create_tenant_invitation_usecase.py",
+            "list_invitation_usecase.py"
+          ],
+          "_files": [
+            ".DS_Store"
           ]
-        }
-      },
-      "application": {
-        "dtos": [
-          "branch_create_dto.py",
-          "branch_detail_dto.py",
-          "branch_update_dto.py"
-        ],
-        "usecases": [
-          "soft_delete_branch.py",
-          "list_branches.py",
-          "get_branch.py",
-          "create_branch.py",
-          "hard_delete_branch.py",
-          "update_branch.py"
-        ]
-      },
-      "views": {
-        "forms": [
-          "branch_base_form.py"
-        ],
-        "branches": [
-          "branch_detail_view.py",
-          "branch_list_view.py",
-          "branch_create_view.py",
-          "branch_soft_delete_view.py",
-          "branch_update_view.py",
-          "branch_hard_delete_view.py"
+        },
+        "_files": [
+          ".DS_Store"
         ]
       },
       "domain": {
         "entities": [
-          "branch_entity.py"
+          "tenant_entity.py",
+          "tenant_feature_flag_entity.py",
+          "tenant_invitation_entity.py"
+        ]
+      },
+      "exceptions": [
+        "exception.py"
+      ],
+      "management": {
+        "commands": [
+          "expire_invitations.py",
+          "seed_tenant.py"
+        ]
+      },
+      "middleware": [
+        "rate_limit_middleware.py",
+        "tenant_middleware.py"
+      ],
+      "models": [
+        "tenants.py",
+        "tenant_audit_log.py",
+        "tenant_feature_flag.py",
+        "tenant_invitation.py"
+      ],
+      "policies": {
+        "tenants": [
+          "tenant_policy.py"
+        ],
+        "_files": [
+          ".DS_Store"
+        ]
+      },
+      "providers": [
+        "tenant_audit_log_provider.py",
+        "tenant_feature_flag_provider.py",
+        "tenant_invitation_provider.py",
+        "tenant_provider.py"
+      ],
+      "repositories": {
+        "implement": [
+          "tenant_audit_log_repository_impl.py",
+          "tenant_feature_flag_repository_impl.py",
+          "tenant_invitation_repository_impl.py",
+          "tenant_repository_impl.py"
+        ],
+        "interfaces": [
+          "tenant_audit_log_repository_interface.py",
+          "tenant_feature_flag_interface.py",
+          "tenant_invitation_repository_interface.py",
+          "tenant_repository_interface.py"
+        ],
+        "_files": [
+          ".DS_Store"
+        ]
+      },
+      "serializers": {
+        "tenants": [
+          "tenant_create_serializer.py",
+          "tenant_list_query_serializer.py",
+          "tenant_response_serializer.py",
+          "tenant_update_serializer.py"
+        ],
+        "tenant_audit_log": [
+          "tenant_audit_log_query_serializer.py",
+          "tenant_audit_log_response_serializer.py"
+        ],
+        "tenant_feature_flags": [
+          "tenant_feature_flag_response_serializer.py",
+          "tenant_feature_flag_upsert_serializer.py"
+        ],
+        "tenant_invitation": [
+          "tenant_invitation_accept_serializer.py",
+          "tenant_invitation_create_serializer.py",
+          "tenant_invitation_response_serializer.py"
+        ],
+        "_files": [
+          ".DS_Store"
         ]
       },
       "services": [
-        "branch_service.py"
+        ".DS_Store",
+        "media_service.py",
+        "tenant_feature_flag_service.py",
+        "tenant_service.py"
       ],
-      "_files": [
-        "apps.py",
-        "admin.py"
-      ]
-    },
-    "webhooks": {
-      "models": [
-        "webhook_endpoints.py",
-        "webhook_deliveries.py"
+      "signals": [
+        ".DS_Store",
+        "tenant_signals.py"
       ],
+      "tasks": [
+        ".DS_Store",
+        "tenant_tasks.py"
+      ],
+      "templates": {
+        "components": {
+          "accordion": {
+            "tenants": {
+              "accordion_items": [
+                "_audit_tracking.html",
+                "_basic_information.html",
+                "_limited_resources.html",
+                "_localization.html",
+                "_settings_config.html",
+                "_tenant_config.html"
+              ],
+              "_files": [
+                "_tenant_detail_accordion.html"
+              ]
+            }
+          },
+          "breadcrumb": [
+            "_tenant_create_breadcrumb.html",
+            "_tenant_detail_breadcrumb.html",
+            "_tenant_list_breadcrumb.html",
+            "_tenant_update_breadcrumb.html"
+          ],
+          "forms": {
+            "tenants": {
+              "sections": [
+                "_basic_information.html",
+                "_button_action.html",
+                "_limited_resources.html",
+                "_localization.html",
+                "_settings_config.html",
+                "_tenant_config.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            }
+          },
+          "page_header": [
+            "_tenant_create_page_header.html",
+            "_tenant_list_page_header.html",
+            "_tenant_update_page_header.html"
+          ],
+          "tables": {
+            "tbody": [
+              "_tenant_list_tbody.html"
+            ],
+            "thead": [
+              "_tenant_list_thead.html"
+            ],
+            "_files": [
+              "_tenant_list_table.html"
+            ]
+          }
+        },
+        "pages": {
+          "tenants": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ]
+        },
+        "_files": [
+          ".DS_Store"
+        ]
+      },
+      "tests": [
+        "conftest.py",
+        "test_tenant.py"
+      ],
+      "urls": {
+        "tenants": [
+          "urls.py"
+        ],
+        "tenant_feature_flag": [
+          "urls.py"
+        ],
+        "_files": [
+          ".DS_Store"
+        ]
+      },
+      "utils": [
+        "request_helpers.py"
+      ],
+      "views": {
+        "forms": [
+          "tenant_base_form.py"
+        ],
+        "helpers": [
+          "view_helpers.py"
+        ],
+        "tenants": [
+          "tenant_create_view.py",
+          "tenant_detail_view.py",
+          "tenant_hard_delete_view.py",
+          "tenant_list_view.py",
+          "tenant_soft_delete_view.py",
+          "tenant_update_view.py"
+        ],
+        "tenant_audit_log": [
+          "tenant_audit_log_list_view.py"
+        ],
+        "tenant_feature_flag": [
+          "tenant_feature_flag_detail_view.py",
+          "tenant_feature_flag_list_view.py"
+        ],
+        "tenant_invitation": [
+          "tenant_invitation_accept_view.py",
+          "tenant_invitation_create_view.py",
+          "tenant_invitation_list_view.py"
+        ],
+        "_files": [
+          ".DS_Store"
+        ]
+      },
       "_files": [
-        "apps.py",
+        ".DS_Store",
         "admin.py",
-        "tests.py",
-        "views.py"
+        "apps.py",
+        "constants.py",
+        "validators.py"
       ]
     },
     "trips": {
       "models": [
         "dispatch_orders.py",
-        "trip_tracking.py",
-        "trip_staff.py",
-        "trip_schedules.py",
+        "trips.py",
         "trip_prices.py",
-        "trips.py"
+        "trip_schedules.py",
+        "trip_staff.py",
+        "trip_tracking.py"
       ],
       "_files": [
-        "apps.py",
         "admin.py",
+        "apps.py",
         "tests.py",
         "views.py"
       ]
     },
-    "assets": {
-      "providers": [
-        "asset_provider.py"
-      ],
-      "repositories": {
-        "implement": [
-          "asset_repository_impl.py",
-          "storage_unit_repository_impl.py",
-          "asset_category_repository_impl.py"
-        ],
-        "interfaces": [
-          "storage_unit_repository_interface.py",
-          "asset_repository_interface.py",
-          "asset_category_repository_interface.py"
-        ]
-      },
+    "vehicles": {
       "models": [
-        "storage_units.py",
-        "assets.py",
-        "asset_categories.py"
-      ],
-      "serializers": [
-        "asset_list_query_serializer.py",
-        "storage_unit_serializer.py",
-        "asset_category_serializer.py",
-        "asset_response_serializer.py"
-      ],
-      "urls": {
-        "asset_categories": [
-          "urls.py"
-        ],
-        "storage_units": [
-          "urls.py"
-        ],
-        "assets": [
-          "urls.py"
-        ]
-      },
-      "templates": {
-        "components": {
-          "page_header": [
-            "_storage_unit_create_page_header.html",
-            "_storage_unit_update_page_header.html",
-            "_asset_category_detail_page_header.html",
-            "_asset_detail_page_header.html",
-            "_asset_category_create_page_header.html",
-            "_asset_list_page_header.html",
-            "_asset_create_page_header.html",
-            "_asset_category_list_page_header.html",
-            "_storage_unit_detail_page_header.html",
-            "_storage_unit_list_page_header.html",
-            "_asset_category_update_page_header.html",
-            "_asset_update_page_header.html"
-          ],
-          "forms": {
-            "asset_categories": {
-              "sections": [
-                "_basic_information.html",
-                "_button_action.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            },
-            "storage_units": {
-              "sections": [
-                "_storage_details.html",
-                "_button_action.html",
-                "_storage_identity_and_tenancy.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            },
-            "assets": {
-              "sections": [
-                "_custody_location_allocation.html",
-                "_general_information_classification.html",
-                "_financials_depreciation_ledger.html",
-                "_button_action.html",
-                "_asset_identity_metadata.html",
-                "_lifecycle_status_operations.html"
-              ],
-              "_files": [
-                "_form.html"
-              ]
-            }
-          },
-          "accordion": {
-            "asset_categories": {
-              "accordion_items": [
-                "_basic_information.html"
-              ],
-              "_files": [
-                "_asset_category_detail_accordion.html"
-              ]
-            },
-            "storage_units": {
-              "accordion_items": [
-                "_basic_information.html"
-              ],
-              "_files": [
-                "_storage_unit_detail_accordion.html"
-              ]
-            },
-            "assets": {
-              "accordion_items": [
-                "_custody_location_allocation.html",
-                "_general_information_classification.html",
-                "_financials_depreciation_ledger.html",
-                "_asset_identity_metadata.html",
-                "_lifecycle_status_operations.html"
-              ],
-              "_files": [
-                "_asset_detail_accordion.html"
-              ]
-            }
-          },
-          "breadcrumb": [
-            "_storage_unit_create_breadcrumb.html",
-            "_asset_list_breadcrumb.html",
-            "_asset_category_create_breadcrumb.html",
-            "_asset_create_breadcrumb.html",
-            "_asset_category_detail_breadcrumb.html",
-            "_storage_unit_detail_breadcrumb.html",
-            "_asset_detail_breadcrumb.html",
-            "_asset_update_breadcrumb.html",
-            "_asset_category_update_breadcrumb.html",
-            "_storage_unit_update_breadcrumb.html",
-            "_storage_unit_list_breadcrumb.html",
-            "_asset_category_list_breadcrumb.html"
-          ]
-        },
-        "pages": {
-          "asset_categories": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ],
-          "storage_units": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ],
-          "assets": [
-            "update.html",
-            "list.html",
-            "create.html",
-            "detail.html",
-            "delete.html"
-          ]
-        }
-      },
-      "application": {
-        "dtos": {
-          "asset_categories": [
-            "asset_category_dtos.py"
-          ],
-          "storage_units": [
-            "storage_unit_dtos.py"
-          ],
-          "assets": [
-            "asset_dtos.py"
-          ]
-        },
-        "usecases": {
-          "asset_categories": [
-            "asset_category_usecases.py",
-            "soft_delete_asset_category.py",
-            "hard_delete_asset_category.py"
-          ],
-          "storage_units": [
-            "soft_delete_storage_unit.py",
-            "hard_delete_storage_unit.py",
-            "storage_unit_usecases.py"
-          ],
-          "assets": [
-            "get_asset_detail_usecase.py",
-            "hard_delete_asset.py",
-            "helper_mapping.py",
-            "list_assets_usecase.py",
-            "update_asset_usecase.py",
-            "create_asset_usecase.py",
-            "soft_delete_asset.py"
-          ]
-        }
-      },
-      "views": {
-        "asset_categories": [
-          "asset_category_detail_view.py",
-          "asset_category_create_view.py",
-          "asset_category_soft_delete_view.py",
-          "asset_category_list_view.py",
-          "asset_category_update_view.py",
-          "asset_category_hard_delete_view.py"
-        ],
-        "forms": [
-          "asset_category_base_form.py",
-          "asset_base_form.py",
-          "storage_unit_base_form.py"
-        ],
-        "storage_units": [
-          "storage_unit_list_view.py",
-          "storage_unit_soft_delete_view.py",
-          "storage_unit_update_view.py",
-          "storage_unit_detail_view.py",
-          "storage_unit_hard_delete_view.py",
-          "storage_unit_create_view.py"
-        ],
-        "assets": [
-          "asset_update_view.py",
-          "asset_hard_delete_view.py",
-          "asset_soft_delete_view.py",
-          "asset_list_view.py",
-          "asset_detail_view.py",
-          "asset_create_view.py"
-        ]
-      },
-      "domain": {
-        "entities": [
-          "asset_category_entity.py",
-          "asset_entity.py",
-          "storage_unit_entity.py"
-        ]
-      },
-      "services": [
-        "asset_service.py"
+        "seats.py",
+        "seat_maps.py",
+        "vehicles.py",
+        "vehicle_categories.py",
+        "vehicle_maintenance.py"
       ],
       "_files": [
-        "apps.py",
         "admin.py",
+        "apps.py",
         "tests.py",
         "views.py"
       ]
     },
-    "customers_tickets": {
+    "webhooks": {
       "models": [
-        "ticket_exchanges.py",
-        "tickets.py",
-        "group_contracts.py",
-        "ticket_refunds.py",
-        "ticket_bookings.py",
-        "customers.py"
+        "webhook_deliveries.py",
+        "webhook_endpoints.py"
       ],
       "_files": [
-        "apps.py",
         "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "routes": {
-      "models": [
-        "provinces.py",
-        "wards.py",
-        "route_stops.py",
-        "districts.py",
-        "stations.py",
-        "locations.py",
-        "schedules.py",
-        "routes.py"
-      ],
-      "_files": [
         "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "notifications": {
-      "models": [
-        "notification_templates.py",
-        "notifications.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "reports": {
-      "models": [
-        "scheduled_reports.py",
-        "reports.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
-        "tests.py",
-        "views.py"
-      ]
-    },
-    "media": {
-      "models": [
-        "media_files.py"
-      ],
-      "_files": [
-        "apps.py",
-        "admin.py",
         "tests.py",
         "views.py"
       ]
     },
     "_files": [
-      "docker-compose.yaml",
-      ".env.local.example",
-      "tailwind.config.js",
-      ".DS_Store",
-      "pytest.ini",
-      "Dockerfile",
-      "dinhanh.code-workspace",
-      ".gitkeep",
-      "package-lock 2.json",
-      "db.sqlite3",
-      "vite.config.js",
       ".dockerignore",
+      ".DS_Store",
+      ".env",
+      ".env.local.example",
+      ".env.prod.example",
       ".gitignore",
+      ".gitkeep",
+      "db.sqlite3",
+      "dinhanh.code-workspace",
+      "docker-compose.yaml",
+      "Dockerfile",
+      "init.json",
+      "k8s-deploy.sh",
+      "k8s-migrate-db.sh",
+      "k8s-update.sh",
+      "manage.py",
       "package-lock.json",
       "package.json",
-      ".env.prod.example",
-      ".env",
-      "k8s-migrate-db.sh",
+      "pytest.ini",
       "setup.cfg",
-      "manage.py",
-      "k8s-deploy.sh",
-      "init.json",
-      "k8s-update.sh"
+      "tailwind.config.js",
+      "vite.config.js"
     ]
   }
 }

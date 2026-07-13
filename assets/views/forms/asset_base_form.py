@@ -93,10 +93,7 @@ class TailwindFormMixin:
             elif isinstance(widget, forms.Textarea):
                 widget.attrs.update(
                     {
-                        "class": (
-                            f"{tailwind_classes} font-mono "
-                            "text-xs leading-6 resize-y min-h-[120px]"
-                        ),
+                        "class": tailwind_classes,
                     }
                 )
 

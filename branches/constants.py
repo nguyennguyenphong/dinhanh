@@ -1,0 +1,92 @@
+BRANCH_MOCK_DATA = [
+    {
+        "tenant_id": 1,
+        "code": "HCM_Q1",
+        "name": "Chi nhánh Quận 1 - Hồ Chí Minh",
+        "address": "123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM",
+        "phone": "+84283334444",
+        "email": "hcm.q1@tenant1.com",
+        "manager_id": 101,
+        "latitude": 10.7769000,
+        "longitude": 106.7009000,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "is_active": True,
+        "metadata": {
+            "region": "South",
+            "capacity": 500,
+            "type": "Premium"
+        }
+    },
+    {
+        "tenant_id": 1,
+        "code": "HCM_Q7",
+        "name": "Chi nhánh Quận 7 - Hồ Chí Minh",
+        "address": "105 Tôn Dật Tiên, Phường Tân Phong, Quận 7, TP.HCM",
+        "phone": "+84283335555",
+        "email": "hcm.q7@tenant1.com",
+        "manager_id": 102,
+        "latitude": 10.7294000,
+        "longitude": 106.7218000,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "is_active": True,
+        "metadata": {
+            "region": "South",
+            "capacity": 350,
+            "type": "Standard"
+        }
+    },
+    {
+        "tenant_id": 1,
+        "code": "BD_01",
+        "name": "Tổng kho Thuận An - Bình Dương",
+        "address": "A1-B2 Đại lộ Bình Dương, Phường Thuận Giao, Thuận An, Bình Dương",
+        "phone": "+84274336666",
+        "email": "bd.depot@tenant1.com",
+        "manager_id": 103,
+        "latitude": 10.9324000,
+        "longitude": 106.6662000,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "is_active": True,
+        "metadata": {
+            "region": "South",
+            "square_meters": 2500,
+            "type": "Warehouse"
+        }
+    },
+    {
+        "tenant_id": 2,
+        "code": "VT_01",
+        "name": "Trung tâm Dịch vụ Vũng Tàu",
+        "address": "36 Ba Cu, Phường 1, Thành phố Vũng Tàu, Bà Rịa - Vũng Tàu",
+        "phone": "+84254337777",
+        "email": "vt.center@tenant2.com",
+        "manager_id": 201,
+        "latitude": 10.3460000,
+        "longitude": 107.0726000,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "is_active": True,
+        "metadata": {
+            "region": "South_Coast",
+            "capacity": 200,
+            "type": "Service"
+        }
+    },
+    {
+        "tenant_id": 2,
+        "code": "CT_01",
+        "name": "Văn phòng Đại diện Cần Thơ",
+        "address": "45 Ninh Kiều, Phường Tân An, Quận Ninh Kiều, Cần Thơ",
+        "phone": "+84292338888",
+        "email": "ct.office@tenant2.com",
+        "manager_id": 202,
+        "latitude": 10.0342000,
+        "longitude": 105.7861000,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "is_active": False,
+        "metadata": {
+            "region": "Mekong_Delta",
+            "capacity": 100,
+            "type": "Office"
+        }
+    }
+]
