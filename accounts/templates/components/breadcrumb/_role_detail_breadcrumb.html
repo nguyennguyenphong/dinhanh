@@ -16,9 +16,9 @@
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-                <a href="{% url 'permission_list' %}"
+                <a href="{% url 'role_list' %}"
                     class="text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white transition-colors max-w-30 sm:max-w-none truncate">
-                    Quyền hạn
+                    Vai trò
                 </a>
             </div>
         </li>
@@ -29,7 +29,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
                 <span class="text-gray-400 dark:text-gray-500 max-w-37.5 sm:max-w-none truncate select-none">
-                    Tạo mới
+                    Chi tiết vai trò: {{ object.name }}
                 </span>
             </div>
         </li>

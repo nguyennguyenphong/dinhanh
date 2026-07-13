@@ -1,8 +1,4 @@
-{% if form.non_field_errors %}
-    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-        {{ form.non_field_errors }}
-    </div>
-{% endif %}
+{% include 'components/ui/_catch_error_form.html' %}
 
 <form action="{% if object %}{% url 'role_update' object.id %}{% else %}{% url 'role_create' %}{% endif %}" method="POST" class="space-y-6" autocomplete="off">
     {% csrf_token %}

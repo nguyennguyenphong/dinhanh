@@ -163,6 +163,44 @@
             "_user_list_breadcrumb.html"
           ],
           "forms": {
+            "auth": {
+              "login": {
+                "sections": [
+                  "_left_section.html",
+                  "_main_form_section.html",
+                  "_right_section.html"
+                ],
+                "_files": [
+                  "_login_form.html"
+                ]
+              },
+              "password_reset": {
+                "form": [
+                  "main.html"
+                ]
+              },
+              "password_reset_confirm": {
+                "form": [
+                  "main.html"
+                ]
+              },
+              "register": {
+                "sections": [
+                  "_left_section.html",
+                  "_main_form_section.html",
+                  "_right_section.html"
+                ],
+                "_files": [
+                  "_register_form.html"
+                ]
+              },
+              "verify_email": [
+                "direction.html",
+                "label_notice.html",
+                "main_form.html",
+                "steps_verify.html"
+              ]
+            },
             "group_permissions": {
               "sections": [
                 "_basic_information.html",
@@ -173,16 +211,6 @@
                 "_form.html"
               ]
             },
-            "login": {
-              "sections": [
-                "_left_section.html",
-                "_main_form_section.html",
-                "_right_section.html"
-              ],
-              "_files": [
-                "_login_form.html"
-              ]
-            },
             "permissions": {
               "sections": [
                 "_basic_information.html",
@@ -191,16 +219,6 @@
               ],
               "_files": [
                 "_form.html"
-              ]
-            },
-            "register": {
-              "sections": [
-                "_left_section.html",
-                "_main_form_section.html",
-                "_right_section.html"
-              ],
-              "_files": [
-                "_register_form.html"
               ]
             },
             "roles": {
@@ -237,27 +255,11 @@
             "_user_detail_page_header.html",
             "_user_list_page_header.html"
           ],
-          "password_reset": {
-            "form": [
-              "main.html"
-            ]
-          },
-          "password_reset_confirm": {
-            "form": [
-              "main.html"
-            ]
-          },
           "roles": {
             "forms": [
               "_form.html"
             ]
-          },
-          "verify_email": [
-            "direction.html",
-            "label_notice.html",
-            "main_form.html",
-            "steps_verify.html"
-          ]
+          }
         },
         "pages": {
           "auth": [
@@ -285,7 +287,8 @@
             "create.html",
             "delete.html",
             "detail.html",
-            "list.html"
+            "list.html",
+            "update.html"
           ],
           "users": [
             "create.html",
@@ -1549,6 +1552,7 @@
           "forms": {
             "tenants": {
               "sections": [
+                "_audit_tracking.html",
                 "_basic_information.html",
                 "_button_action.html",
                 "_limited_resources.html",
@@ -1563,6 +1567,7 @@
           },
           "page_header": [
             "_tenant_create_page_header.html",
+            "_tenant_detail_page_header.html",
             "_tenant_list_page_header.html",
             "_tenant_update_page_header.html"
           ],

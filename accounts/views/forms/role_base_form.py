@@ -17,7 +17,7 @@ class TailwindFormMixin:
         labels = {
             "tenant": "Doanh nghiệp",
             "name": "Tên vai trò",
-            "slug": "Mã vai trò (Slug)",
+            "slug": "Mã vai trò",
             "description": "Mô tả vai trò",
             "is_active": "Trạng thái",
         }
@@ -56,10 +56,7 @@ class TailwindFormMixin:
             elif isinstance(widget, forms.Textarea):
                 widget.attrs.update(
                     {
-                        "class": (
-                            f"{tailwind_classes} font-mono "
-                            "text-xs leading-6 resize-y min-h-[100px]"
-                        ),
+                        "class": tailwind_classes,
                         "placeholder": current_placeholder,
                     }
                 )
@@ -79,7 +76,7 @@ class RoleBaseForm(TailwindFormMixin, forms.ModelForm):
             "tenant": forms.Select(),
             "name": forms.TextInput(),
             "slug": forms.TextInput(),
-            "description": forms.Textarea(attrs={"rows": 3}),
+            "description": forms.Textarea(attrs={"rows": 5}),
             "is_active": forms.Select(
                 choices=[(True, "Đang hoạt động"), (False, "Ngừng hoạt động")]
             ),

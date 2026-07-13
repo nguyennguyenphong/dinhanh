@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+import uuid
 
 from core.models import BaseModel
 
@@ -57,6 +58,14 @@ class Permission(BaseModel):
     )
 
     id = models.AutoField(primary_key=True)
+
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+        db_index=True,
+        help_text="Unique identifier for external API calls",
+    )
 
     # ========================================================================
     # MULTI-TENANT RELATIONSHIP

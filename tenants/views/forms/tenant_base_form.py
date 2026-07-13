@@ -43,6 +43,9 @@ class TailwindFormMixin:
             "settings": "Cài đặt khác",
             "subscription_started_at": "Ngày bắt đầu",
             "subscription_expires_at": "Ngày kết thúc",
+            "created_at": "Ngày tạo",
+            "updated_at": "Ngày cập nhật",
+            "deleted_at": "Ngày xóa",
         }
 
         for field_name, field in self.fields.items():
@@ -127,6 +130,15 @@ class TenantBaseForm(TailwindFormMixin, forms.ModelForm):
         help_text="Chọn tệp ảnh logo từ máy tính của bạn.",
         label="Tải ảnh logo lên",
     )
+    created_at = forms.DateTimeField(
+        required=False, disabled=True, widget=forms.DateTimeInput()
+    )
+    updated_at = forms.DateTimeField(
+        required=False, disabled=True, widget=forms.DateTimeInput()
+    )
+    deleted_at = forms.DateTimeField(
+        required=False, disabled=True, widget=forms.DateTimeInput()
+    )
 
     class Meta:
         model = Tenant
@@ -164,7 +176,14 @@ class TenantBaseForm(TailwindFormMixin, forms.ModelForm):
             for field in ["subscription_started_at", "subscription_expires_at"]:
                 if self.instance.__dict__.get(field):
                     self.fields[field].initial = self.instance.__dict__[field].strftime(
-                        "%Y-%m-%d %H:%M"
+                        "%Y-%m-%d %H:%M:%S"
+                    )
+
+            for readonly_field in ["created_at", "updated_at", "deleted_at"]:
+                val = getattr(self.instance, readonly_field, None)
+                if val:
+                    self.fields[readonly_field].initial = val.strftime(
+                        "%Y-%m-%d %H:%M:%S"
                     )
 
         if "exchange_rate" in self.fields:

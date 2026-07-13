@@ -26,7 +26,7 @@ class RoleListView(LoginRequiredMixin, View):
             "idx", "STT", col_type="number", width=70, sortable=False, filter=False
         )
         grid_builder.add_column("name", "Tên vai trò", col_type="text", width=200)
-        grid_builder.add_column("slug", "Mã vai trò (Slug)", col_type="text", width=150)
+        grid_builder.add_column("slug", "Mã vai trò", col_type="text", width=150)
         grid_builder.add_column("description", "Mô tả", col_type="text", width=300)
         grid_builder.add_column("is_system", "Hệ thống", col_type="boolean", width=120)
         grid_builder.add_column(
