@@ -3,11 +3,12 @@
 # Permission Models with Multi-Tenant Support
 # ============================================================================
 
+import uuid
+
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-import uuid
 
 from core.models import BaseModel
 
