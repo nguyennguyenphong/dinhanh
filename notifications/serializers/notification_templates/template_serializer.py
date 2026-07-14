@@ -30,22 +30,28 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
 
         # Exclude current instance in unique check if updating
         exclude_id = self.instance.id if self.instance else None
-        
+
         # We can call repositories or use django query directly for the validation:
         from notifications.providers.notification_provider import NotificationProvider
-        
-        if NotificationProvider.get_template()._template_repo().exists_by_code_channel(
-            tenant_id=tenant_id,
-            code=code,
-            channel=channel,
-            exclude_id=exclude_id
+
+        if (
+            NotificationProvider.get_template()
+            ._template_repo()
+            .exists_by_code_channel(
+                tenant_id=tenant_id, code=code, channel=channel, exclude_id=exclude_id
+            )
         ):
             raise serializers.ValidationError(
-                {"code": f"Template with code '{code}' and channel '{channel}' already exists for this tenant."}
+                {
+                    "code": f"Template with code '{code}' and channel '{channel}' already exists for this tenant."
+                }
             )
 
         # Validate entity business logic
-        from notifications.domain.entities.notification_template_entity import NotificationTemplateEntity
+        from notifications.domain.entities.notification_template_entity import (
+            NotificationTemplateEntity,
+        )
+
         entity = NotificationTemplateEntity(
             id=exclude_id,
             tenant_id=tenant_id,
@@ -65,9 +71,11 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
+        from notifications.application.dtos.notification_templates.template_create_dto import (
+            NotificationTemplateCreateDTO,
+        )
         from notifications.providers.notification_provider import NotificationProvider
-        from notifications.application.dtos.notification_templates.template_create_dto import NotificationTemplateCreateDTO
-        
+
         dto = NotificationTemplateCreateDTO(
             tenant_id=validated_data["tenant_id"],
             code=validated_data["code"],
@@ -78,14 +86,16 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
             variables=validated_data.get("variables") or [],
             is_active=validated_data.get("is_active", True),
         )
-        
+
         response = NotificationProvider.create_template().execute(dto)
         return NotificationTemplate.objects.get(pk=response.id)
 
     def update(self, instance, validated_data):
+        from notifications.application.dtos.notification_templates.template_update_dto import (
+            NotificationTemplateUpdateDTO,
+        )
         from notifications.providers.notification_provider import NotificationProvider
-        from notifications.application.dtos.notification_templates.template_update_dto import NotificationTemplateUpdateDTO
-        
+
         # Merge old values if not provided (for partial updates)
         dto = NotificationTemplateUpdateDTO(
             id=instance.id,
@@ -98,6 +108,6 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
             variables=validated_data.get("variables", instance.variables) or [],
             is_active=validated_data.get("is_active", instance.is_active),
         )
-        
+
         response = NotificationProvider.update_template().execute(dto)
         return NotificationTemplate.objects.get(pk=response.id)

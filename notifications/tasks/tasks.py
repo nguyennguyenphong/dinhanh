@@ -20,13 +20,19 @@ def send_notification_async(self, notification_id: int) -> bool:
     """
     try:
         from notifications.services.notification_service import NotificationService
-        
+
         success = NotificationService.dispatch_now(notification_id)
         if not success:
-            logger.warning("Notification #%d dispatch returned failure.", notification_id)
+            logger.warning(
+                "Notification #%d dispatch returned failure.", notification_id
+            )
         return success
     except Exception as exc:
-        logger.error("Failed to run send_notification_async task: notification_id=%s, error=%s", notification_id, exc)
+        logger.error(
+            "Failed to run send_notification_async task: notification_id=%s, error=%s",
+            notification_id,
+            exc,
+        )
         raise self.retry(exc=exc, countdown=60)
 
 
@@ -39,8 +45,12 @@ def process_pending_notifications_cron() -> dict:
     from notifications.providers.notification_provider import NotificationProvider
     from notifications.services.notification_service import NotificationService
 
-    pending = NotificationProvider.get_notification()._notification_repo().get_pending_notifications(limit=100)
-    
+    pending = (
+        NotificationProvider.get_notification()
+        ._notification_repo()
+        .get_pending_notifications(limit=100)
+    )
+
     processed_count = 0
     success_count = 0
     for entity in pending:
@@ -50,7 +60,11 @@ def process_pending_notifications_cron() -> dict:
             if success:
                 success_count += 1
         except Exception as exc:
-            logger.error("Error processing pending notification #%s: %s", entity.id, exc)
+            logger.error(
+                "Error processing pending notification #%s: %s", entity.id, exc
+            )
 
-    logger.info("Sweeper completed: processed %d, succeeded %d", processed_count, success_count)
+    logger.info(
+        "Sweeper completed: processed %d, succeeded %d", processed_count, success_count
+    )
     return {"processed": processed_count, "success": success_count}

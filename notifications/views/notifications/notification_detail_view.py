@@ -17,7 +17,9 @@ class NotificationDetailView(LoginRequiredMixin, View):
 
     def get(self, request, pk):
         notification = get_object_or_404(Notification, pk=pk)
-        return render(request, "pages/notifications/detail.html", {"object": notification})
+        return render(
+            request, "pages/notifications/detail.html", {"object": notification}
+        )
 
 
 class NotificationDetailApiView(APIView):

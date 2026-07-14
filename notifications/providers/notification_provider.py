@@ -3,13 +3,13 @@ from __future__ import annotations
 from notifications.application.usecases import (
     DeleteNotificationTemplateUseCase,
     GetNotificationTemplateUseCase,
+    GetNotificationUseCase,
     ListNotificationTemplateUseCase,
     ListNotificationUseCase,
     NotificationCreateUseCase,
     NotificationTemplateCreateUseCase,
     NotificationTemplateUpdateUseCase,
     UpdateNotificationStatusUseCase,
-    GetNotificationUseCase,
 )
 from notifications.repositories import (
     NotificationRepositoryImpl,

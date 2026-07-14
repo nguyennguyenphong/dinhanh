@@ -72,7 +72,14 @@ class NotificationTemplateRepositoryImpl(INotificationTemplateRepository):
 
         total = qs.count()
 
-        allowed_orderings = {"code", "-code", "channel", "-channel", "created_at", "-created_at"}
+        allowed_orderings = {
+            "code",
+            "-code",
+            "channel",
+            "-channel",
+            "created_at",
+            "-created_at",
+        }
         if ordering:
             safe_ordering = [o for o in ordering if o in allowed_orderings]
             if safe_ordering:
@@ -81,9 +88,7 @@ class NotificationTemplateRepositoryImpl(INotificationTemplateRepository):
         items = [_model_to_entity(obj) for obj in qs[offset : offset + limit]]
         return items, total
 
-    def create(
-        self, entity: NotificationTemplateEntity
-    ) -> NotificationTemplateEntity:
+    def create(self, entity: NotificationTemplateEntity) -> NotificationTemplateEntity:
         from notifications.models.notification_templates import NotificationTemplate
 
         obj = NotificationTemplate.objects.create(
@@ -98,9 +103,7 @@ class NotificationTemplateRepositoryImpl(INotificationTemplateRepository):
         )
         return _model_to_entity(obj)
 
-    def update(
-        self, entity: NotificationTemplateEntity
-    ) -> NotificationTemplateEntity:
+    def update(self, entity: NotificationTemplateEntity) -> NotificationTemplateEntity:
         from notifications.models.notification_templates import NotificationTemplate
 
         NotificationTemplate.objects.filter(pk=entity.id).update(

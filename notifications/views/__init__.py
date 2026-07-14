@@ -11,9 +11,9 @@ from notifications.views.notification_templates import (
 )
 from notifications.views.notifications import (
     NotificationCreateApiView,
-    NotificationDispatchNowApiView,
     NotificationDetailApiView,
     NotificationDetailView,
+    NotificationDispatchNowApiView,
     NotificationListApiView,
     NotificationListView,
     NotificationTriggerTemplatedApiView,

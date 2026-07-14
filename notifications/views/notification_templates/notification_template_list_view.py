@@ -27,12 +27,16 @@ class NotificationTemplateListView(LoginRequiredMixin, View):
             api_url=reverse("notification_template_list_api"),
             page_size=20,
         )
-        grid_builder.add_column("idx", "STT", col_type="number", width=70, sortable=False, filter=False)
+        grid_builder.add_column(
+            "idx", "STT", col_type="number", width=70, sortable=False, filter=False
+        )
         grid_builder.add_column("code", "Mã", col_type="text", width=150)
         grid_builder.add_column("name", "Tên mẫu", col_type="text", width=250)
         grid_builder.add_column("channel", "Kênh gửi", col_type="text", width=120)
         grid_builder.add_column("is_active", "Trạng thái", col_type="status", width=150)
-        grid_builder.add_column("created_at", "Ngày tạo", col_type="datetime", width=180)
+        grid_builder.add_column(
+            "created_at", "Ngày tạo", col_type="datetime", width=180
+        )
 
         context = {
             "grid_id": grid_builder.grid_id,
@@ -78,5 +82,7 @@ class NotificationTemplateListApiView(APIView):
             offset=dto.offset,
         )
 
-        response_serializer = NotificationTemplateResponseSerializer(templates, many=True)
+        response_serializer = NotificationTemplateResponseSerializer(
+            templates, many=True
+        )
         return JsonResponse({"results": response_serializer.data, "total": total})

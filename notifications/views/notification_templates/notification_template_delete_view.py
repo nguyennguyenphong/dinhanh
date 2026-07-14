@@ -12,7 +12,9 @@ class NotificationTemplateDeleteApiView(APIView):
     def delete(self, request, pk):
         try:
             NotificationProvider.delete_template().execute(pk)
-            return JsonResponse({"message": "Template deleted successfully."}, status=200)
+            return JsonResponse(
+                {"message": "Template deleted successfully."}, status=200
+            )
         except NotificationTemplateNotFoundError as e:
             return JsonResponse({"error": str(e)}, status=404)
         except Exception as e:

@@ -27,14 +27,20 @@ class NotificationListView(LoginRequiredMixin, View):
             api_url=reverse("notification_log_list_api"),
             page_size=20,
         )
-        grid_builder.add_column("idx", "STT", col_type="number", width=70, sortable=False, filter=False)
+        grid_builder.add_column(
+            "idx", "STT", col_type="number", width=70, sortable=False, filter=False
+        )
         grid_builder.add_column("id", "ID", col_type="number", width=80)
-        grid_builder.add_column("recipient_type", "Loại người nhận", col_type="text", width=150)
+        grid_builder.add_column(
+            "recipient_type", "Loại người nhận", col_type="text", width=150
+        )
         grid_builder.add_column("recipient_phone", "SĐT", col_type="text", width=130)
         grid_builder.add_column("recipient_email", "Email", col_type="text", width=180)
         grid_builder.add_column("channel", "Kênh gửi", col_type="text", width=120)
         grid_builder.add_column("status", "Trạng thái", col_type="status", width=130)
-        grid_builder.add_column("created_at", "Ngày gửi", col_type="datetime", width=180)
+        grid_builder.add_column(
+            "created_at", "Ngày gửi", col_type="datetime", width=180
+        )
 
         context = {
             "grid_id": grid_builder.grid_id,

@@ -45,6 +45,7 @@ class NotificationCreateUseCase:
 
             def trigger_async_dispatch(notification_id: int = saved.id):  # type: ignore
                 from notifications.tasks.tasks import send_notification_async
+
                 send_notification_async.delay(notification_id)
 
             transaction.on_commit(trigger_async_dispatch)

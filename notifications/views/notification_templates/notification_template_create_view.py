@@ -17,14 +17,18 @@ from notifications.serializers.notification_templates.notification_template_crea
 from notifications.serializers.notification_templates.notification_template_response_serializer import (
     NotificationTemplateResponseSerializer,
 )
-from notifications.views.forms.notification_template_form import NotificationTemplateForm
+from notifications.views.forms.notification_template_form import (
+    NotificationTemplateForm,
+)
 
 
 class NotificationTemplateCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = NotificationTemplateForm()
-        return render(request, "pages/notification_templates/create.html", {"form": form})
+        return render(
+            request, "pages/notification_templates/create.html", {"form": form}
+        )
 
     def post(self, request):
         form = NotificationTemplateForm(request.POST)
@@ -46,7 +50,9 @@ class NotificationTemplateCreateView(LoginRequiredMixin, View):
                 return redirect("notification_template_list")
             except Exception as e:
                 form.add_error(None, str(e))
-        return render(request, "pages/notification_templates/create.html", {"form": form})
+        return render(
+            request, "pages/notification_templates/create.html", {"form": form}
+        )
 
 
 class NotificationTemplateCreateApiView(APIView):

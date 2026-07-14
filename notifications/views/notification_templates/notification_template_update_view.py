@@ -9,7 +9,10 @@ from rest_framework.views import APIView
 from notifications.application.dtos.notification_templates.notification_template_update_dto import (
     NotificationTemplateUpdateDTO,
 )
-from notifications.exceptions.exceptions import NotificationDomainError, NotificationTemplateNotFoundError
+from notifications.exceptions.exceptions import (
+    NotificationDomainError,
+    NotificationTemplateNotFoundError,
+)
 from notifications.models.notification_templates import NotificationTemplate
 from notifications.providers.notification_provider import NotificationProvider
 from notifications.serializers.notification_templates.notification_template_response_serializer import (
@@ -18,7 +21,9 @@ from notifications.serializers.notification_templates.notification_template_resp
 from notifications.serializers.notification_templates.notification_template_update_serializer import (
     NotificationTemplateUpdateSerializer,
 )
-from notifications.views.forms.notification_template_form import NotificationTemplateForm
+from notifications.views.forms.notification_template_form import (
+    NotificationTemplateForm,
+)
 
 
 class NotificationTemplateUpdateView(LoginRequiredMixin, View):
@@ -26,7 +31,11 @@ class NotificationTemplateUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
         template = get_object_or_404(NotificationTemplate, pk=pk)
         form = NotificationTemplateForm(instance=template)
-        return render(request, "pages/notification_templates/update.html", {"form": form, "object": template})
+        return render(
+            request,
+            "pages/notification_templates/update.html",
+            {"form": form, "object": template},
+        )
 
     def post(self, request, pk):
         template = get_object_or_404(NotificationTemplate, pk=pk)
@@ -50,7 +59,11 @@ class NotificationTemplateUpdateView(LoginRequiredMixin, View):
                 return redirect("notification_template_list")
             except Exception as e:
                 form.add_error(None, str(e))
-        return render(request, "pages/notification_templates/update.html", {"form": form, "object": template})
+        return render(
+            request,
+            "pages/notification_templates/update.html",
+            {"form": form, "object": template},
+        )
 
 
 class NotificationTemplateUpdateApiView(APIView):

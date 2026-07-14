@@ -34,15 +34,11 @@ class INotificationTemplateRepository(ABC):
         pass
 
     @abstractmethod
-    def create(
-        self, entity: NotificationTemplateEntity
-    ) -> NotificationTemplateEntity:
+    def create(self, entity: NotificationTemplateEntity) -> NotificationTemplateEntity:
         pass
 
     @abstractmethod
-    def update(
-        self, entity: NotificationTemplateEntity
-    ) -> NotificationTemplateEntity:
+    def update(self, entity: NotificationTemplateEntity) -> NotificationTemplateEntity:
         pass
 
     @abstractmethod

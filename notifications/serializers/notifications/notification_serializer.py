@@ -39,7 +39,7 @@ class NotificationSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         # Validate entity business logic before creating a notification record
         from notifications.domain.entities.notification_entity import NotificationEntity
-        
+
         entity = NotificationEntity(
             id=None,
             tenant_id=attrs.get("tenant_id", 1),
@@ -54,7 +54,7 @@ class NotificationSerializer(serializers.ModelSerializer):
             ref_type=attrs.get("ref_type"),
             ref_id=attrs.get("ref_id"),
         )
-        
+
         try:
             entity.validate()
         except ValueError as e:
@@ -63,9 +63,11 @@ class NotificationSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
+        from notifications.application.dtos.notifications.notification_create_dto import (
+            NotificationCreateDTO,
+        )
         from notifications.providers.notification_provider import NotificationProvider
-        from notifications.application.dtos.notifications.notification_create_dto import NotificationCreateDTO
-        
+
         dto = NotificationCreateDTO(
             tenant_id=validated_data["tenant_id"],
             template_id=validated_data.get("template_id"),
@@ -79,6 +81,6 @@ class NotificationSerializer(serializers.ModelSerializer):
             ref_type=validated_data.get("ref_type"),
             ref_id=validated_data.get("ref_id"),
         )
-        
+
         response = NotificationProvider.create_notification().execute(dto)
         return Notification.objects.get(pk=response.id)

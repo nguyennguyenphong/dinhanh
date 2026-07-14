@@ -23,7 +23,9 @@ class CreateNotificationTemplateUseCase:
     def __init__(self, template_repo: INotificationTemplateRepository):
         self._template_repo = template_repo
 
-    def execute(self, dto: NotificationTemplateCreateDTO) -> NotificationTemplateResponseDTO:
+    def execute(
+        self, dto: NotificationTemplateCreateDTO
+    ) -> NotificationTemplateResponseDTO:
         tenant_id = dto.tenant_id
         code = dto.code.upper().strip()
         channel = dto.channel

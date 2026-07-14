@@ -6,7 +6,10 @@ from rest_framework.views import APIView
 from notifications.application.dtos.notifications.notification_create_dto import (
     NotificationCreateDTO,
 )
-from notifications.exceptions.exceptions import NotificationDomainError, NotificationTemplateNotFoundError
+from notifications.exceptions.exceptions import (
+    NotificationDomainError,
+    NotificationTemplateNotFoundError,
+)
 from notifications.providers.notification_provider import NotificationProvider
 from notifications.serializers.notifications.notification_create_serializer import (
     NotificationCreateSerializer,
@@ -53,10 +56,18 @@ class NotificationTriggerTemplatedApiView(APIView):
 
     def post(self, request):
         data = request.data
-        required_fields = ["tenant_id", "template_code", "channel", "recipient_type", "context"]
+        required_fields = [
+            "tenant_id",
+            "template_code",
+            "channel",
+            "recipient_type",
+            "context",
+        ]
         for field in required_fields:
             if field not in data:
-                return JsonResponse({"error": f"Field '{field}' is required."}, status=400)
+                return JsonResponse(
+                    {"error": f"Field '{field}' is required."}, status=400
+                )
 
         try:
             notification_id = NotificationService.render_and_send(
@@ -102,4 +113,6 @@ class NotificationDispatchNowApiView(APIView):
                 )
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=404)
+
+
 Answer = None

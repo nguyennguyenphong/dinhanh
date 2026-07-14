@@ -8,9 +8,13 @@ class NotificationTemplateUpdateSerializer(serializers.Serializer):
     code = serializers.CharField(max_length=50)
     name = serializers.CharField(max_length=255)
     channel = serializers.ChoiceField(choices=NotificationTemplate.CHANNEL_CHOICES)
-    subject = serializers.CharField(max_length=500, required=False, allow_null=True, allow_blank=True)
+    subject = serializers.CharField(
+        max_length=500, required=False, allow_null=True, allow_blank=True
+    )
     body = serializers.CharField()
-    variables = serializers.ListField(child=serializers.CharField(), required=False, default=list)
+    variables = serializers.ListField(
+        child=serializers.CharField(), required=False, default=list
+    )
     is_active = serializers.BooleanField(default=True)
 
     def validate_code(self, value):
@@ -23,15 +27,25 @@ class NotificationTemplateUpdateSerializer(serializers.Serializer):
         template_id = self.context.get("template_id")
 
         from notifications.providers.notification_provider import NotificationProvider
-        if NotificationProvider.get_template()._template_repo().exists_by_code_channel(
-            tenant_id=tenant_id, code=code, channel=channel, exclude_id=template_id
+
+        if (
+            NotificationProvider.get_template()
+            ._template_repo()
+            .exists_by_code_channel(
+                tenant_id=tenant_id, code=code, channel=channel, exclude_id=template_id
+            )
         ):
             raise serializers.ValidationError(
-                {"code": f"Template with code '{code}' and channel '{channel}' already exists for this tenant."}
+                {
+                    "code": f"Template with code '{code}' and channel '{channel}' already exists for this tenant."
+                }
             )
 
         # Domain level validations
-        from notifications.domain.entities.notification_template_entity import NotificationTemplateEntity
+        from notifications.domain.entities.notification_template_entity import (
+            NotificationTemplateEntity,
+        )
+
         entity = NotificationTemplateEntity(
             id=template_id,
             tenant_id=tenant_id,

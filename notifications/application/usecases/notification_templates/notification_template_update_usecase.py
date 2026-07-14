@@ -26,7 +26,9 @@ class NotificationTemplateUpdateUseCase:
     def __init__(self, template_repo: INotificationTemplateRepository):
         self._template_repo = template_repo
 
-    def execute(self, dto: NotificationTemplateUpdateDTO) -> NotificationTemplateResponseDTO:
+    def execute(
+        self, dto: NotificationTemplateUpdateDTO
+    ) -> NotificationTemplateResponseDTO:
         existing = self._template_repo.get_by_id(dto.id)
         if not existing:
             raise NotificationTemplateNotFoundError(dto.id)
@@ -35,7 +37,9 @@ class NotificationTemplateUpdateUseCase:
         if self._template_repo.exists_by_code_channel(
             dto.tenant_id, code, dto.channel, exclude_id=dto.id
         ):
-            raise NotificationTemplateAlreadyExistsError(dto.tenant_id, code, dto.channel)
+            raise NotificationTemplateAlreadyExistsError(
+                dto.tenant_id, code, dto.channel
+            )
 
         entity = NotificationTemplateEntity(
             id=dto.id,

@@ -21,7 +21,9 @@ class UpdateNotificationStatusUseCase:
     def __init__(self, notification_repo: INotificationRepository):
         self._notification_repo = notification_repo
 
-    def mark_sent(self, notification_id: int, sent_at: datetime | None = None) -> NotificationResponseDTO:
+    def mark_sent(
+        self, notification_id: int, sent_at: datetime | None = None
+    ) -> NotificationResponseDTO:
         entity = self._notification_repo.get_by_id(notification_id)
         if not entity:
             raise NotificationNotFoundError(notification_id)
@@ -31,7 +33,9 @@ class UpdateNotificationStatusUseCase:
         updated = self._notification_repo.update(entity)
         return notification_entity_to_response(updated)
 
-    def mark_failed(self, notification_id: int, error_msg: str) -> NotificationResponseDTO:
+    def mark_failed(
+        self, notification_id: int, error_msg: str
+    ) -> NotificationResponseDTO:
         entity = self._notification_repo.get_by_id(notification_id)
         if not entity:
             raise NotificationNotFoundError(notification_id)

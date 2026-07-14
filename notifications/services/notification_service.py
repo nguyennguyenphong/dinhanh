@@ -40,9 +40,12 @@ class NotificationService:
         )
 
         # Render template
-        subject, body = NotificationProvider.get_template()._template_repo().get_by_id(
-            template.id
-        ).render(context)  # type: ignore
+        subject, body = (
+            NotificationProvider.get_template()
+            ._template_repo()
+            .get_by_id(template.id)
+            .render(context)
+        )  # type: ignore
 
         # Stage Notification DTO
         dto = NotificationCreateDTO(
@@ -110,7 +113,9 @@ class NotificationService:
                 raise ValueError(f"Unsupported channel: {channel}")
 
         except Exception as e:
-            logger.exception("Error during dispatching notification #%d", notification_id)
+            logger.exception(
+                "Error during dispatching notification #%d", notification_id
+            )
             success = False
             error_msg = str(e)
 
@@ -126,7 +131,9 @@ class NotificationService:
             return False
 
     @staticmethod
-    def _send_email(recipient: str | None, subject: str | None, body: str) -> tuple[bool, str | None]:
+    def _send_email(
+        recipient: str | None, subject: str | None, body: str
+    ) -> tuple[bool, str | None]:
         if not recipient:
             return False, "Missing recipient email"
         # Integration placeholder (e.g. django.core.mail or SendGrid API wrapper)
@@ -154,7 +161,13 @@ class NotificationService:
         recipient_id: int | None, recipient_type: str, subject: str | None, body: str
     ) -> tuple[bool, str | None]:
         # Integration placeholder (e.g. Firebase Cloud Messaging / Expo)
-        logger.info("Sending FCM Push notification to %s #%s: %s | %s", recipient_type, recipient_id, subject, body)
+        logger.info(
+            "Sending FCM Push notification to %s #%s: %s | %s",
+            recipient_type,
+            recipient_id,
+            subject,
+            body,
+        )
         return True, None
 
     @staticmethod
@@ -162,5 +175,11 @@ class NotificationService:
         recipient_id: int | None, recipient_type: str, subject: str | None, body: str
     ) -> tuple[bool, str | None]:
         # Logged internally in dashboard/bell systems
-        logger.info("Sending In-app notification to %s #%s: %s | %s", recipient_type, recipient_id, subject, body)
+        logger.info(
+            "Sending In-app notification to %s #%s: %s | %s",
+            recipient_type,
+            recipient_id,
+            subject,
+            body,
+        )
         return True, None
