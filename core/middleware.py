@@ -1,8 +1,8 @@
 import threading
 
-from django.utils.deprecation import MiddlewareMixin
-from django.urls import reverse
 from django.shortcuts import redirect
+from django.urls import reverse
+from django.utils.deprecation import MiddlewareMixin
 
 # The variable stores the user information for each individual request (thread-safe).
 _thread_local = threading.local()
