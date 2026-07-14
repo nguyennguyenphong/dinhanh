@@ -14,9 +14,9 @@
     </style>
 
     {% vite_hmr_client %}
-    
+
     {% vite_asset 'static/src/css/input.css' %}
-    
+
     {% vite_asset 'static/src/js/app.js' %}
 
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
@@ -27,15 +27,15 @@
 
 </head>
 
-<body class="min-h-screen bg-white dark:bg-slate-900">
+<body class="min-h-screen bg-white dark:bg-slate-900" data-timeout-url="{% url 'login' %}">
 
     {% include 'components/ui/spinner.html' %}
 
     {% block content %}
     {% endblock %}
 
-    <div id="toast-data" 
-        style="display:none;" 
+    <div id="toast-data"
+        style="display:none;"
         data-messages="[{% for msg in messages %}{'text': '{{ msg|escapejs }}', 'tags': '{{ msg.tags }}'}{% if not forloop.last %},{% endif %}{% endfor %}]">
     </div>
 
@@ -46,6 +46,7 @@
             document.documentElement.style.opacity = '1';
         });
     </script>
+    <script src="{% static 'src/js/utils/session_timeout.js' %}"></script>
 </body>
 
 </html>

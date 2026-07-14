@@ -1,6 +1,8 @@
 import threading
 
 from django.utils.deprecation import MiddlewareMixin
+from django.urls import reverse
+from django.shortcuts import redirect
 
 # The variable stores the user information for each individual request (thread-safe).
 _thread_local = threading.local()
@@ -71,3 +73,19 @@ class UserSecurityMiddleware(MiddlewareMixin):
             return redirect("password_change")
 
         return None
+
+
+class SessionTimeoutMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        if not request.user.is_authenticated:
+            path_to_logic = reverse("login")
+            if request.path != path_to_logic and not request.path.startswith(
+                "/static/"
+            ):
+                return redirect(path_to_logic)
+
+        response = self.get_response(request)
+        return response

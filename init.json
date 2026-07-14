@@ -786,11 +786,21 @@
       "models": [
         "comments.py"
       ],
+      "templates": {
+        "pages": {
+          "comments": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ]
+        }
+      },
       "_files": [
         "admin.py",
         "apps.py",
-        "tests.py",
-        "views.py"
+        "tests.py"
       ]
     },
     "consignments": {
@@ -839,11 +849,76 @@
         "ticket_exchanges.py",
         "ticket_refunds.py"
       ],
+      "templates": {
+        "pages": {
+          "customers": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "group_contracts": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "tickets": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "ticket_bookings": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "ticket_exchanges": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ],
+          "ticket_refunds": [
+            "create.html",
+            "delete.html",
+            "detail.html",
+            "list.html",
+            "update.html"
+          ]
+        }
+      },
+      "urls": {
+        "customers": [
+          "urls.py"
+        ],
+        "group_contracts": [
+          "urls.py"
+        ],
+        "tickets": [
+          "urls.py"
+        ],
+        "ticket_bookings": [
+          "urls.py"
+        ],
+        "ticket_exchanges": [
+          "urls.py"
+        ],
+        "ticket_refunds": [
+          "urls.py"
+        ]
+      },
       "_files": [
         "admin.py",
         "apps.py",
-        "tests.py",
-        "views.py"
+        "tests.py"
       ]
     },
     "dashboard": [
@@ -1314,6 +1389,9 @@
           ],
           "errors": [
             "404.js"
+          ],
+          "utils": [
+            "session_timeout.js"
           ],
           "_files": [
             "app.js"

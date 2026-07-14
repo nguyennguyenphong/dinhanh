@@ -84,12 +84,12 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     #
     "core.middleware.CurrentUserMiddleware",
-    #
-    "django.contrib.messages.middleware.MessageMiddleware",
+    "core.middleware.SessionTimeoutMiddleware",
     "core.middleware.UserSecurityMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 # Root url
@@ -328,7 +328,8 @@ CELERY_TASK_DEFAULT_RETRY_DELAY = 60  # 1 minute
 # https://docs.djangoproject.com/en/4.0/ref/settings/#session-cookie-secure
 # Session configuration
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
-SESSION_COOKIE_AGE = 1209600  # 2 weeks
+SESSION_COOKIE_AGE = 900  # 15 minutes
+SESSION_SAVE_EVERY_REQUEST = True
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = "Lax"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
