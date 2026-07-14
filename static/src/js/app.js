@@ -26,6 +26,8 @@ import init404Error from "./errors/404";
 window.init404Error = init404Error;
 // Flatpickr
 import initDatePicker from "./components/flatpickr";
+// Sesstion Timeout
+import "./utils/session_timeout";
 
 document.addEventListener('DOMContentLoaded', () => {
     // Flowbite
