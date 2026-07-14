@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Chi Tiết Nhật Ký Thông Báo {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+        <h1 class="text-2xl font-bold dark:text-gray-100">Chi Tiết Nhật Ký Thông Báo</h1>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-md shadow-sm space-y-4">
+            <p><strong class="dark:text-gray-200">ID:</strong> <span class="dark:text-gray-300">#{{ object.id }}</span></p>
+            <p><strong class="dark:text-gray-200">Người nhận:</strong> <span class="dark:text-gray-300">{{ object.recipient_type }} (ID: {{ object.recipient_id }})</span></p>
+            {% if object.recipient_phone %}
+            <p><strong class="dark:text-gray-200">SĐT nhận:</strong> <span class="dark:text-gray-300">{{ object.recipient_phone }}</span></p>
+            {% endif %}
+            {% if object.recipient_email %}
+            <p><strong class="dark:text-gray-200">Email nhận:</strong> <span class="dark:text-gray-300">{{ object.recipient_email }}</span></p>
+            {% endif %}
+            <p><strong class="dark:text-gray-200">Trạng thái:</strong> <span class="dark:text-gray-300">{{ object.status }}</span></p>
+            <p><strong class="dark:text-gray-200">Nội dung gửi:</strong></p>
+            <pre class="bg-gray-100 dark:bg-slate-700 p-4 rounded-md dark:text-gray-200 font-mono text-sm whitespace-pre-wrap">{{ object.body }}</pre>
+            {% if object.error_msg %}
+            <p><strong class="text-red-500">Lỗi:</strong></p>
+            <pre class="bg-red-50 dark:bg-red-950 p-4 rounded-md text-red-700 dark:text-red-300 font-mono text-xs whitespace-pre-wrap">{{ object.error_msg }}</pre>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

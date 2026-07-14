@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cập nhật mẫu thông báo {% endblock %}
+
+{% block blockcontent %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn mb-20">
+
+        {% include 'components/breadcrumb/_notification_template_update_breadcrumb.html' %}
+        
+        {% include 'components/page_header/_notification_template_update_page_header.html' %}
+
+        <div class="rounded-md">
+            {% include 'components/forms/notification_templates/_form.html' %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

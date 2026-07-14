@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Chi tiết mẫu thông báo {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+
+        {% include 'components/breadcrumb/_notification_template_detail_breadcrumb.html' %}
+        
+        {% include 'components/page_header/_notification_template_detail_page_header.html' %}
+
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-md border border-gray-200 dark:border-slate-700 shadow-sm space-y-4">
+            <p><strong class="dark:text-gray-200">Mã mẫu:</strong> <span class="dark:text-gray-300">{{ object.code }}</span></p>
+            <p><strong class="dark:text-gray-200">Tên:</strong> <span class="dark:text-gray-300">{{ object.name }}</span></p>
+            <p><strong class="dark:text-gray-200">Kênh gửi:</strong> <span class="dark:text-gray-300">{{ object.channel }}</span></p>
+            {% if object.subject %}
+            <p><strong class="dark:text-gray-200">Tiêu đề:</strong> <span class="dark:text-gray-300">{{ object.subject }}</span></p>
+            {% endif %}
+            <p><strong class="dark:text-gray-200">Nội dung:</strong></p>
+            <pre class="bg-gray-100 dark:bg-slate-700 p-4 rounded-md dark:text-gray-200 font-mono text-sm whitespace-pre-wrap">{{ object.body }}</pre>
+        </div>
+    </div>
+</div>
+{% endblock %}

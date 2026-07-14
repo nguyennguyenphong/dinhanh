@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Danh sách mẫu thông báo {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
+
+        {% include 'components/breadcrumb/_notification_template_list_breadcrumb.html' %}
+
+        {% include 'components/page_header/_notification_template_list_page_header.html' %}
+
+        <div class="flex flex-col bg-white border border-gray-200 rounded-md shadow-xs overflow-hidden dark:bg-slate-800 dark:border-slate-700">
+            <div class="px-6 py-5 border-b border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 dark:text-slate-200">Danh sách mẫu thông báo</h3>
+                    <p class="text-sm text-gray-500 dark:text-slate-400">Danh sách các mẫu tin nhắn, email được kích hoạt trong hệ thống.</p>
+                </div>
+            </div>
+
+            <div class="p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <input type="text" id="template-grid-search" type="search" placeholder="Tìm kiếm nhanh mẫu..."
+                        class="bg-gray-50 border border-gray-300 text-gray-950 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+                </div>
+
+                <div class="django-ag-grid-container" 
+                    id="{{ grid_id }}"
+                    data-endpoint="{{ api_url }}"
+                    data-columns="{{ columns_json }}"
+                    data-options="{{ options_json|default:'{}' }}"
+                    data-search-input="template-grid-search"
+                    style="height: 600px; width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'pages/notification_templates/delete.html' %}
+
+{% endblock %}

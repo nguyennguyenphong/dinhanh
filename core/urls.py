@@ -33,6 +33,8 @@ urlpatterns = [
     path("tenants/", include("tenants.urls")),
     # menus
     path("menus/", include("menus.urls")),
+    # notifications
+    path("notifications/", include("notifications.urls")),
     # assets
     path("", include("assets.urls")),
     # branches

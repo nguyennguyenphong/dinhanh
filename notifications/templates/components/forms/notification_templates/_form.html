@@ -1,0 +1,10 @@
+{% include 'components/ui/_catch_error_form.html' %}
+
+<form action="{% if object %}{% url 'notification_template_update' object.id %}{% else %}{% url 'notification_template_create' %}{% endif %}" method="POST" class="space-y-6" autocomplete="off">
+    {% csrf_token %}
+
+    <div class="mb-4">
+        {% include 'components/forms/notification_templates/sections/_basic_information.html' %}
+    </div>
+    {% include 'components/forms/notification_templates/sections/_button_action.html' %}
+</form>

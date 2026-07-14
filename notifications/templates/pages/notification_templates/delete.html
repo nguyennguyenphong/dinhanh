@@ -1,0 +1,38 @@
+<div x-data="{ 
+    open: false, 
+    deleteUrl: '', 
+    templateName: '',
+    init() {
+        window.addEventListener('open-delete-notification-templates-modal', (e) => {
+            const id = e.detail.id;
+            this.templateName = e.detail.name || 'Mẫu thông báo';
+            this.deleteUrl = `/notifications/templates/delete/${id}/`;
+            this.open = true;
+        });
+    }
+}">
+    <div x-show="open" 
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 overflow-y-auto"
+         style="display: none;"
+         @click.self="open = false">
+        <div class="relative w-full max-w-md bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md shadow-lg p-6 text-center">
+            <h3 class="mb-6 text-lg font-medium text-gray-900 dark:text-white">
+                Bạn có chắc chắn muốn xóa mẫu thông báo <span class="font-bold" x-text="templateName"></span>?
+            </h3>
+            
+            <div class="flex items-center space-x-4 justify-center">
+                <form :action="deleteUrl" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="text-white bg-red-600 hover:bg-red-700 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
+                        Chắc chắn, xóa ngay
+                    </button>
+                </form>
+                
+                <button @click="open = false" type="button" 
+                        class="text-gray-700 dark:text-slate-300 bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 font-medium rounded-md text-sm px-5 py-2.5 cursor-pointer">
+                    Hủy
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

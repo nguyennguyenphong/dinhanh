@@ -1,0 +1,20 @@
+<div class="border border-gray-200 p-4 bg-white rounded-md dark:bg-slate-800 dark:border-slate-700">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-5 dark:border-slate-800">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
+                Mẫu thông báo: {{ object.name }}
+            </h1>
+            <p class="text-sm text-gray-500 dark:text-slate-400">Chi tiết thông tin cấu hình mẫu thông báo.</p>
+        </div>
+        <div class="flex gap-2">
+            <a href="{% url 'notification_template_update' object.id %}"
+            class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md transition-all duration-200 focus:outline-none active:scale-[0.98] py-2.5 px-4 text-sm bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/20">
+                Chỉnh sửa
+            </a>
+            <a href="{% url 'notification_template_list' %}"
+            class="inline-flex items-center justify-center gap-x-2 font-semibold rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-300 py-2.5 px-4 text-sm transition-all">
+                Quay lại danh sách
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Nhật Ký Gửi Thông Báo {% endblock %}
+
+{% block content %}
+{% include 'portals/sidebar.html' %}
+{% include 'portals/navbar.html' %}
+
+<div class="w-full lg:ps-68 bg-gray-50 dark:bg-slate-900 min-h-[calc(100vh-70px)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 animate-fadeIn">
+        <h1 class="text-2xl font-bold dark:text-gray-100">Nhật Ký Gửi Thông Báo</h1>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-md shadow-sm">
+            <div id="notification-log-grid"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
