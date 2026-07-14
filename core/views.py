@@ -1,5 +1,6 @@
-from django.shortcuts import render
 import traceback
+
+from django.shortcuts import render
 
 
 # Handle return 404 error when users do not find destination page
