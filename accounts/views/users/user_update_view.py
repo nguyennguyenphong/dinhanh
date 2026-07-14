@@ -16,7 +16,7 @@ class UserUpdateView(LoginRequiredMixin, View):
         form = UserBaseForm(instance=user)
         return render(
             request,
-            "pages/users/create.html",
+            "pages/users/update.html",
             {"form": form, "object": user, "is_update": True},
         )
 
@@ -34,6 +34,6 @@ class UserUpdateView(LoginRequiredMixin, View):
 
         return render(
             request,
-            "pages/users/create.html",
+            "pages/users/update.html",
             {"form": form, "object": user, "is_update": True},
         )

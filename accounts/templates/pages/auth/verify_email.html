@@ -15,7 +15,7 @@
                         <div class="size-16 bg-blue-100 rounded-md flex items-center justify-center dark:bg-blue-950/30">
                             <img src="{% static 'icons/mail.svg' %}" alt="mail" class="size-8 text-blue-600 dark:text-blue-400">
                         </div>
-                        
+
                         <span class="absolute -top-1 -right-1 flex size-4">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-md bg-blue-400 opacity-60"></span>
                             <span class="relative inline-flex rounded-md size-4 bg-blue-500 items-center justify-center">
@@ -33,19 +33,19 @@
                     </div>
                 </div>
 
-                {% include 'components/verify_email/steps_verify.html' %}
-                
+                {% include 'components/forms/auth/verify_email/sections/_steps_verify.html' %}
+
                 <div class="flex items-center gap-x-3 mb-5">
                     <div class="flex-1 h-px bg-gray-100 dark:bg-slate-700"></div>
                     <span class="text-xs text-gray-400">Không nhận được email?</span>
                     <div class="flex-1 h-px bg-gray-100 dark:bg-slate-700"></div>
                 </div>
 
-                {% include 'components/verify_email/main_form.html' %}
+                {% include 'components/forms/auth/verify_email/_form.html' %}
 
-                {% include 'components/verify_email/label_notice.html' %}
+                {% include 'components/forms/auth/verify_email/sections/_label_notice.html' %}
 
-                {% include 'components/verify_email/direction.html' %}
+                {% include 'components/forms/auth/verify_email/sections/_direction.html' %}
             </div>
         </div>
     </div>

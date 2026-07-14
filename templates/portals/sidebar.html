@@ -1,4 +1,5 @@
 {% load static %}
+
 <div id="application-sidebar"
     class="fixed top-0 left-0 z-40 w-68 h-screen pt-5 pb-10 overflow-y-auto transition-transform -translate-x-full bg-white border-e border-gray-200 lg:translate-x-0 dark:bg-slate-900 dark:border-slate-800 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500"
     tabindex="-1" aria-labelledby="application-sidebar-label">
@@ -643,7 +644,7 @@
             <li id="accordion-branch-group" data-accordion="collapse">
                 <div id="branch-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
                         {% if 'branch_' in request.resolver_match.url_name %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                         aria-expanded="{% if 'branch_' in request.resolver_match.url_name %}true{% else %}false{% endif %}"
                         aria-controls="branch-accordion-child" data-accordion-target="#branch-accordion-child">
@@ -696,7 +697,7 @@
             <li id="accordion-asset-group" data-accordion="collapse">
                 <div id="asset-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
                         {% if 'asset_' in request.resolver_match.url_name %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                         aria-expanded="{% if 'asset_' in request.resolver_match.url_name %}true{% else %}false{% endif %}"
                         aria-controls="asset-accordion-child" data-accordion-target="#asset-accordion-child">
@@ -772,7 +773,7 @@
             <li id="accordion-units-group" data-accordion="collapse">
                 <div id="units-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
             {% if request.resolver_match.url_name in 'storage_unit_list,storage_unit_create' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                         aria-expanded="{% if request.resolver_match.url_name in 'storage_unit_list,storage_unit_create' %}true{% else %}false{% endif %}"
                         aria-controls="units-accordion-child" data-accordion-target="#units-accordion-child">
@@ -824,7 +825,7 @@
             <li id="accordion-accounts-group" data-accordion="collapse">
                 <div id="accounts-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
                         {% if request.resolver_match.url_name in 'user_list,user_create,user_detail,user_update' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                         aria-expanded="{% if request.resolver_match.url_name in 'user_list,user_create,user_detail,user_update' %}true{% else %}false{% endif %}"
                         aria-controls="accounts-accordion-child" data-accordion-target="#accounts-accordion-child">
@@ -880,7 +881,7 @@
 
             <li id="accordion-permissions-group" data-accordion="collapse">
                 <div id="permissions-accordion">
-                    <button type="button" class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                    <button type="button" class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
                         {% if request.resolver_match.url_name in 'role_list,role_create,permission_list,permission_create,group_permissions_create,group_permissions_list' %}
                         text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                         aria-expanded="{% if request.resolver_match.url_name in 'role_list,role_create,permission_list,permission_create,group_permissions_create,group_permissions_list' %}true{% else %}false{% endif %}"
@@ -1010,7 +1011,7 @@
             <li id="accordion-tenant-group" data-accordion="collapse">
                 <div id="tenant-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
                         {% if request.resolver_match.url_name in 'tenant_list,tenant_create,tenant_detail,tenant_update' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                         aria-expanded="{% if request.resolver_match.url_name in 'tenant_list,tenant_create,tenant_detail,tenant_update' %}true{% else %}false{% endif %}"
                         aria-controls="tenant-accordion-child" data-accordion-target="#tenant-accordion-child">
@@ -1067,7 +1068,7 @@
             <li id="accordion-menu-group" data-accordion="collapse">
                 <div id="menu-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
                         {% if 'menu' in request.resolver_match.url_name %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
                         aria-expanded="{% if 'menu' in request.resolver_match.url_name %}true{% else %}false{% endif %}"
                         aria-controls="menu-accordion-child" data-accordion-target="#menu-accordion-child">

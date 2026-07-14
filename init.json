@@ -153,35 +153,47 @@
           ],
           "breadcrumb": [
             "_group_permission_create_breadcrumb.html",
+            "_group_permission_detail_breadcrumb.html",
             "_group_permission_list_breadcrumb.html",
+            "_group_permission_update_breadcrumb.html",
             "_permission_create_breadcrumb.html",
+            "_permission_detail_breadcrumb.html",
             "_permission_list_breadcrumb.html",
+            "_permission_update_breadcrumb.html",
             "_role_create_breadcrumb.html",
+            "_role_detail_breadcrumb.html",
             "_role_list_breadcrumb.html",
+            "_role_update_breadcrumb.html",
             "_user_create_breadcrumb.html",
             "_user_detail_breadcrumb.html",
-            "_user_list_breadcrumb.html"
+            "_user_list_breadcrumb.html",
+            "_user_update_breadcrumb.html"
           ],
           "forms": {
             "auth": {
               "login": {
                 "sections": [
+                  "_form.html",
                   "_left_section.html",
-                  "_main_form_section.html",
                   "_right_section.html"
                 ],
                 "_files": [
-                  "_login_form.html"
+                  "_form.html"
                 ]
               },
-              "password_reset": {
-                "form": [
-                  "main.html"
-                ]
-              },
+              "password_change": [
+                "_form.html"
+              ],
+              "password_reset": [
+                "_form.html"
+              ],
               "password_reset_confirm": {
-                "form": [
-                  "main.html"
+                "sections": [
+                  "_auth_credentials.html",
+                  "_password_setup.html"
+                ],
+                "_files": [
+                  "_form.html"
                 ]
               },
               "register": {
@@ -191,15 +203,19 @@
                   "_right_section.html"
                 ],
                 "_files": [
-                  "_register_form.html"
+                  "_form.html"
                 ]
               },
-              "verify_email": [
-                "direction.html",
-                "label_notice.html",
-                "main_form.html",
-                "steps_verify.html"
-              ]
+              "verify_email": {
+                "sections": [
+                  "_direction.html",
+                  "_label_notice.html",
+                  "_steps_verify.html"
+                ],
+                "_files": [
+                  "_form.html"
+                ]
+              }
             },
             "group_permissions": {
               "sections": [
@@ -234,6 +250,7 @@
             "users": {
               "sections": [
                 "_account_config.html",
+                "_audit_tracking.html",
                 "_basic_information.html",
                 "_button_action.html",
                 "_profile_details.html",
@@ -246,14 +263,21 @@
           },
           "page_header": [
             "_group_permission_create_page_header.html",
+            "_group_permission_detail_page_header.html",
             "_group_permission_list_page_header.html",
+            "_group_permission_update_page_header.html",
             "_permission_create_page_header.html",
+            "_permission_detail_page_header.html",
             "_permission_list_page_header.html",
+            "_permission_update_page_header.html",
             "_role_create_page_header.html",
+            "_role_detail_page_header.html",
             "_role_list_page_header.html",
+            "_role_update_page_header.html",
             "_user_create_page_header.html",
             "_user_detail_page_header.html",
-            "_user_list_page_header.html"
+            "_user_list_page_header.html",
+            "_user_update_page_header.html"
           ],
           "roles": {
             "forms": [
@@ -294,7 +318,8 @@
             "create.html",
             "delete.html",
             "detail.html",
-            "list.html"
+            "list.html",
+            "update.html"
           ]
         },
         "_files": [
@@ -1266,11 +1291,11 @@
           "manifest.json"
         ],
         "assets": [
+          "app-BXrOAbdn.js",
           "app-C5Nj1jXJ.css",
-          "app-fcamHLGG.js",
-          "input-De7VnvHx.js",
-          "style-DQJ_ZWSJ.css",
-          "style-ExrieY5k.js"
+          "input-DG_8JEiU.js",
+          "style-4LPd-wib.css",
+          "style-DkiKFpCa.js"
         ]
       },
       "src": {
@@ -1367,6 +1392,7 @@
       "portals": [
         "401.html",
         "404.html",
+        "500.html",
         "navbar.html",
         "sidebar.html"
       ],

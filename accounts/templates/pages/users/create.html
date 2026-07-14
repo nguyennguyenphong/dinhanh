@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} {% if object %}Cập nhật{% else %}Tạo{% endif %} tài khoản người dùng {% endblock %}
+{% block title %} Tạo tài khoản người dùng {% endblock %}
 
 {% block content %}
 {% include 'portals/sidebar.html' %}
@@ -11,7 +11,7 @@
     <div class="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 animate-fadeIn">
 
         {% include 'components/breadcrumb/_user_create_breadcrumb.html' %}
-        
+
         {% include 'components/page_header/_user_create_page_header.html' %}
 
         <div class="rounded-md">

@@ -27,6 +27,9 @@ class TailwindFormMixin:
             "must_change_password": "Phải đổi mật khẩu",
             "password_expires_at": "Mật khẩu hết hạn",
             "locked_until": "Khóa tài khoản đến ngày",
+            "created_at": "Ngày tạo",
+            "updated_at": "Ngày cập nhật gần nhất",
+            "deleted_at": "Ngày xóa",
         }
 
         placeholders = {
@@ -78,6 +81,17 @@ class TailwindFormMixin:
 
 
 class UserBaseForm(TailwindFormMixin, forms.ModelForm):
+
+    created_at = forms.DateTimeField(
+        required=False, disabled=True, widget=forms.DateTimeInput()
+    )
+    updated_at = forms.DateTimeField(
+        required=False, disabled=True, widget=forms.DateTimeInput()
+    )
+    deleted_at = forms.DateTimeField(
+        required=False, disabled=True, widget=forms.DateTimeInput()
+    )
+
     class Meta:
         model = UserAccount
         fields = [
@@ -127,6 +141,13 @@ class UserBaseForm(TailwindFormMixin, forms.ModelForm):
                 value = getattr(self.instance, field, None)
                 if value:
                     self.fields[field].initial = value.strftime("%Y-%m-%d %H:%M")
+
+            for readonly_field in ["created_at", "updated_at", "deleted_at"]:
+                val = getattr(self.instance, readonly_field, None)
+                if val:
+                    self.fields[readonly_field].initial = val.strftime(
+                        "%Y-%m-%d %H:%M:%S"
+                    )
 
     def clean_password(self):
         password = self.cleaned_data.get("password")

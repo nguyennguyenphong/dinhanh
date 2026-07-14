@@ -1,0 +1,41 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-15">
+    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Audit
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="space-y-4">
+            <div class="space-y-1">
+                <label for="{{ form.created_at.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.created_at.label }}</label>
+                {{ form.created_at }}
+                {% if form.created_at.errors %}<p class="text-red-500 text-xs mt-1">{{ form.created_at.errors.0 }}</p>{% endif %}
+            </div>
+            <div class="space-y-1">
+                <label for="{{ form.created_by.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.created_by.label }}</label>
+                {{ form.created_by }}
+                {% if form.created_by.errors %}<p class="text-red-500 text-xs mt-1">{{ form.created_by.errors.0 }}</p>{% endif %}
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="space-y-1">
+                <label for="{{ form.updated_at.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.updated_at.label }}</label>
+                {{ form.updated_at }}
+                {% if form.updated_at.errors %}<p class="text-red-500 text-xs mt-1">{{ form.updated_at.errors.0 }}</p>{% endif %}
+            </div>
+            <div class="space-y-1">
+                <label for="{{ form.updated_by.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.updated_by.label }}</label>
+                {{ form.updated_by }}
+                {% if form.updated_by.errors %}<p class="text-red-500 text-xs mt-1">{{ form.updated_by.errors.0 }}</p>{% endif %}
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="space-y-1">
+                <label for="{{ form.deleted_at.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.deleted_at.label }}</label>
+                {{ form.deleted_at }}
+                {% if form.deleted_at.errors %}<p class="text-red-500 text-xs mt-1">{{ form.deleted_at.errors.0 }}</p>{% endif %}
+            </div>
+        </div>
+    </div>
+</div>
