@@ -20,8 +20,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from media.views.views import ckeditor5_dummy_upload
 from dashboard.views import dashboard
+from media.views.views import ckeditor5_dummy_upload
 
 urlpatterns = [
     path("admin/", admin.site.urls),

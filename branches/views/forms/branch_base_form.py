@@ -1,7 +1,7 @@
 from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
 
 from branches.models import Branch
-from django_ckeditor_5.widgets import CKEditor5Widget
 
 
 class TailwindFormMixin:
