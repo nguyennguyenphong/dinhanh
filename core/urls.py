@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from media.views.views import ckeditor5_dummy_upload
 from dashboard.views import dashboard
 
 urlpatterns = [
@@ -39,6 +40,12 @@ urlpatterns = [
     path("", include("assets.urls")),
     # branches
     path("", include("branches.urls")),
+    # ckeditor5
+    path(
+        "media/ck5-dummy-upload/",
+        ckeditor5_dummy_upload,
+        name="ck_editor_5_upload_file",
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "core.views.page_not_found"

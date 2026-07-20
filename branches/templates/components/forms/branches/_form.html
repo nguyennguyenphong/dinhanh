@@ -2,7 +2,7 @@
 
 <form action="{% if object %}{% url 'branch_update' object.id %}{% else %}{% url 'branch_create' %}{% endif %}" method="POST" class="space-y-6" autocomplete="off">
     {% csrf_token %}
-
+    {{ form.media }}
     <div class="mb-4">
         {% include 'components/forms/branches/sections/_identity_and_tenancy.html' %}
         {% include 'components/forms/branches/sections/_contact_and_manager.html' %}

@@ -119,8 +119,6 @@ class NotificationTemplateRepositoryImpl(INotificationTemplateRepository):
         return self.get_by_id(entity.id)  # type: ignore
 
     def delete(self, template_id: int) -> None:
-        from notifications.models.notification_templates import NotificationTemplate
-
         self._qs.filter(pk=template_id).delete()
 
     def exists_by_code_channel(

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "drf_spectacular",
     "django_vite",
+    "django_ckeditor_5",
     # apps
     "accounts",
     "branches",

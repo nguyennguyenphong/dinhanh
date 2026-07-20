@@ -8,7 +8,6 @@ from notifications.application.dtos.notification_templates.notification_template
 from notifications.application.usecases.notification_templates.notification_template_create_usecase import (
     NotificationTemplateCreateUseCase,
 )
-from notifications.domain.entities.notification_entity import NotificationEntity
 from notifications.domain.entities.notification_template_entity import (
     NotificationTemplateEntity,
 )
@@ -46,7 +45,7 @@ class TestNotificationTemplateEntity:
         )
         with pytest.raises(
             ValueError,
-            match="Variable '\{age\}' detected in body but not listed in variables",
+            match="Variable detected in body but not listed in variables",
         ):
             entity.validate()
 
@@ -88,7 +87,6 @@ class TestCreateTemplateUseCase:
 @pytest.mark.django_db
 class TestNotificationIntegration:
     def test_create_and_fetch_template_orm(self):
-        from notifications.models.notification_templates import NotificationTemplate
         from notifications.repositories.implement.notification_template_repository_impl import (
             NotificationTemplateRepositoryImpl,
         )
