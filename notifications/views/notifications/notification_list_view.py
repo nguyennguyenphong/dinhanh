@@ -34,7 +34,9 @@ class NotificationListView(LoginRequiredMixin, View):
         grid_builder.add_column(
             "recipient_type", "Loại người nhận", col_type="text", width=150
         )
-        grid_builder.add_column("recipient_phone", "SĐT", col_type="text", width=130)
+        grid_builder.add_column(
+            "recipient_phone", "Số điện thoại", col_type="text", width=150
+        )
         grid_builder.add_column("recipient_email", "Email", col_type="text", width=180)
         grid_builder.add_column("channel", "Kênh gửi", col_type="text", width=120)
         grid_builder.add_column("status", "Trạng thái", col_type="status", width=130)

@@ -1,9 +1,9 @@
-from notifications.views.forms.notification_form import NotificationForm
-from notifications.views.forms.notification_template_form import (
-    NotificationTemplateForm,
+from notifications.views.forms.notification_base_form import NotificationBaseForm
+from notifications.views.forms.notification_template_base_form import (
+    NotificationTemplateBaseForm,
 )
 
 __all__ = [
-    "NotificationTemplateForm",
-    "NotificationForm",
+    "NotificationTemplateBaseForm",
+    "NotificationBaseForm",
 ]

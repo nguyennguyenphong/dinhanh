@@ -1,0 +1,62 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Tham chiếu nghiệp vụ
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.ref_type.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                {{ form.ref_type.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.ref_type }}
+            {% if form.ref_type.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.ref_type.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-1">
+                <label for="{{ form.ref_id.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                    {{ form.ref_id.label }} <span class="text-red-500">*</span>
+                </label>
+                <div class="flex items-center gap-x-2">
+                    {{ form.ref_id }}
+                    <button type="button"
+                        class="p-3 text-gray-500 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-md transition-colors dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-600"
+                        title="Chọn đối tượng">
+                        <svg class="size-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+                {% if form.ref_id.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.ref_id.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="space-y-1">
+                <label for="{{ form.tenant_id.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                    {{ form.tenant_id.label }} <span class="text-red-500">*</span>
+                </label>
+                <div class="flex items-center gap-x-2">
+                    {{ form.tenant_id }}
+                    <button type="button"
+                        class="p-3 text-gray-500 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-md transition-colors dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-600"
+                        title="Chọn đối tượng">
+                        <svg class="size-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+                {% if form.tenant_id.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.tenant_id.errors.0 }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

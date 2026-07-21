@@ -21,8 +21,8 @@ from notifications.serializers.notification_templates.notification_template_resp
 from notifications.serializers.notification_templates.notification_template_update_serializer import (
     NotificationTemplateUpdateSerializer,
 )
-from notifications.views.forms.notification_template_form import (
-    NotificationTemplateForm,
+from notifications.views.forms.notification_template_base_form import (
+    NotificationTemplateBaseForm,
 )
 
 
@@ -30,7 +30,7 @@ class NotificationTemplateUpdateView(LoginRequiredMixin, View):
 
     def get(self, request, pk):
         template = get_object_or_404(NotificationTemplate, pk=pk)
-        form = NotificationTemplateForm(instance=template)
+        form = NotificationTemplateBaseForm(instance=template)
         return render(
             request,
             "pages/notification_templates/update.html",
@@ -39,7 +39,7 @@ class NotificationTemplateUpdateView(LoginRequiredMixin, View):
 
     def post(self, request, pk):
         template = get_object_or_404(NotificationTemplate, pk=pk)
-        form = NotificationTemplateForm(request.POST, instance=template)
+        form = NotificationTemplateBaseForm(request.POST, instance=template)
         if form.is_valid():
             try:
                 data = form.cleaned_data

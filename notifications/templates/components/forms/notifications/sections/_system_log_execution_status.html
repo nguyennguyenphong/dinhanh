@@ -1,0 +1,42 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Trạng thái & Nhật ký hệ thống
+    </h3>
+
+    <div class="space-y-1">
+        <label for="{{ form.status.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.status.label
+            }} <span class="text-red-500">*</span></label>
+        {{ form.status }}
+        {% if form.status.errors %}<p class="text-red-500 text-xs mt-1">{{ form.status.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.retry_count.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                {{ form.retry_count.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.retry_count }}
+            {% if form.retry_count.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.retry_count.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="space-y-1">
+            <label for="{{ form.sent_at.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                {{ form.sent_at.label }}
+            </label>
+            {{ form.sent_at }}
+            {% if form.sent_at.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.sent_at.errors.0 }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.error_msg.id_for_label }}" class="block text-sm font-medium text-gray-700">{{
+            form.error_msg.label }}</label>
+        {{ form.error_msg }}
+        {% if form.error_msg.errors %}<p class="text-red-500 text-xs mt-1">{{ form.error_msg.errors.0 }}</p>{% endif %}
+    </div>
+</div>

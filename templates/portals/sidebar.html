@@ -509,35 +509,86 @@
             </li>
             <li class="px-3 pt-5 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider dark:text-slate-500">
                 Thông báo</li>
+
+            <li class="px-3 pt-5 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider dark:text-slate-500">
+                Thông báo
+            </li>
             <li id="accordion-notification-group" data-accordion="collapse">
                 <div id="notification-accordion">
                     <button type="button"
-                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
-                        aria-expanded="false" aria-controls="notification-accordion-child"
+                        class="w-full text-start flex items-center justify-between gap-x-3.5 py-2.5 px-3 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800
+            {% if request.resolver_match.url_name in 'notification_log_list,notification_send,notification_template_list,notification_template_create' %} text-blue-600 dark:text-blue-400 {% else %} text-gray-700 dark:text-slate-400 {% endif %}"
+                        aria-expanded="{% if request.resolver_match.url_name in 'notification_log_list,notification_send,notification_template_list,notification_template_create' %}true{% else %}false{% endif %}"
+                        aria-controls="notification-accordion-child"
                         data-accordion-target="#notification-accordion-child">
                         <div class="flex items-center gap-x-3.5">
                             <img src="{% static 'icons/bell.svg' %}" alt="bell" class="size-4.5">
                             <span> Quản lý thông báo </span>
                         </div>
                         <img src="{% static 'icons/chevron-down.svg' %}" alt="chevron-down" data-accordion-icon
-                            class="size-4.5 transition-transform">
+                            class="size-4.5 transition-transform {% if request.resolver_match.url_name in 'notification_log_list,notification_send,notification_template_list,notification_template_create' %} rotate-180 {% endif %}">
                     </button>
                 </div>
-                <div id="notification-accordion-child" class="w-full overflow-hidden hidden"
+
+                <div id="notification-accordion-child"
+                    class="w-full overflow-hidden {% if request.resolver_match.url_name in 'notification_log_list,notification_send,notification_template_list,notification_template_create' %} block {% else %} hidden {% endif %}"
                     aria-labelledby="notification-accordion">
                     <ul class="pt-1.5 ps-7 space-y-1">
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="{% url 'notification_log_list' %}"><span class="size-1.5 bg-gray-400 rounded-md"></span> Nhật ký gửi</a>
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                    {% if request.resolver_match.url_name == 'notification_send' %}
+                        bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                    {% else %}
+                        text-gray-600 dark:text-slate-400
+                    {% endif %}" href="{% url 'notification_send' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'notification_send' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Gửi thông báo
+                            </a>
                         </li>
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="{% url 'notification_template_list' %}"><span class="size-1.5 bg-gray-400 rounded-md"></span> Mẫu thông báo</a>
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                    {% if request.resolver_match.url_name == 'notification_log_list' %}
+                        bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                    {% else %}
+                        text-gray-600 dark:text-slate-400
+                    {% endif %}" href="{% url 'notification_log_list' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'notification_log_list' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Nhật ký gửi
+                            </a>
                         </li>
-                        <li><a class="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-600 rounded-md hover:bg-gray-50 dark:text-slate-400 dark:hover:bg-slate-800"
-                                href="{% url 'notification_template_create' %}"><span class="size-1.5 bg-gray-400 rounded-md"></span> Tạo mẫu mới</a>
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                    {% if request.resolver_match.url_name == 'notification_template_list' %}
+                        bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                    {% else %}
+                        text-gray-600 dark:text-slate-400
+                    {% endif %}" href="{% url 'notification_template_list' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'notification_template_list' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Mẫu thông báo
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="flex items-center gap-x-3 py-2 px-3 text-sm rounded-md hover:bg-gray-50 dark:hover:bg-slate-800
+                    {% if request.resolver_match.url_name == 'notification_template_create' %}
+                        bg-blue-50 text-blue-600 font-semibold dark:bg-slate-800 dark:text-blue-400
+                    {% else %}
+                        text-gray-600 dark:text-slate-400
+                    {% endif %}" href="{% url 'notification_template_create' %}">
+                                <span
+                                    class="size-1.5 {% if request.resolver_match.url_name == 'notification_template_create' %} bg-blue-600 {% else %} bg-gray-400 {% endif %} rounded-md"></span>
+                                Tạo mẫu mới
+                            </a>
                         </li>
                     </ul>
                 </div>
             </li>
+
             <li class="px-3 pt-5 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider dark:text-slate-500">
                 Thống kê tài chính
             </li>
@@ -862,7 +913,7 @@
                                     {% endif %}
                                     rounded-md">
                                 </span>
-                               Danh sách tài khoản
+                                Danh sách tài khoản
                             </a>
                         </li>
 

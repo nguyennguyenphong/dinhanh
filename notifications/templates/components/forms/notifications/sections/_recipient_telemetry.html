@@ -1,0 +1,66 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Thông tin người nhận
+    </h3>
+
+    <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-1">
+                <label for="{{ form.recipient_type.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                    {{ form.recipient_type.label }} <span class="text-red-500">*</span>
+                </label>
+                {{ form.recipient_type }}
+                {% if form.recipient_type.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.recipient_type.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="space-y-1">
+                <label for="{{ form.recipient_id.id_for_label }}"
+                    class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                    {{ form.recipient_id.label }}
+                </label>
+
+                <div class="flex items-center gap-x-2">
+                    {{ form.recipient_id }}
+                    <button type="button"
+                        class="p-3 text-gray-500 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-md transition-colors dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-600"
+                        title="Chọn đối tượng">
+                        <svg class="size-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                {% if form.recipient_id.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.recipient_id.errors.0 }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-1">
+                <label for="{{ form.recipient_phone.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                    {{ form.recipient_phone.label }}
+                </label>
+                {{ form.recipient_phone }}
+                {% if form.recipient_phone.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.recipient_phone.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="space-y-1">
+                <label for="{{ form.recipient_email.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                    {{ form.recipient_email.label }}
+                </label>
+                {{ form.recipient_email }}
+                {% if form.recipient_email.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.recipient_email.errors.0 }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

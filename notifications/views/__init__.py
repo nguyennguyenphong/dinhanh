@@ -17,6 +17,7 @@ from notifications.views.notifications import (
     NotificationListApiView,
     NotificationListView,
     NotificationTriggerTemplatedApiView,
+    NotificationSendView,
 )
 
 __all__ = [
@@ -36,4 +37,5 @@ __all__ = [
     "NotificationDetailApiView",
     "NotificationTriggerTemplatedApiView",
     "NotificationDispatchNowApiView",
+    "NotificationSendView",
 ]

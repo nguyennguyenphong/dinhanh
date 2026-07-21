@@ -977,9 +977,7 @@
       },
       "_files": [
         "admin.py",
-        "apps.py",
-        "tests.py",
-        "views.py"
+        "apps.py"
       ]
     },
     "financials": {
@@ -1001,9 +999,7 @@
       },
       "_files": [
         "admin.py",
-        "apps.py",
-        "tests.py",
-        "views.py"
+        "apps.py"
       ]
     },
     "hr": {
@@ -1037,9 +1033,7 @@
       },
       "_files": [
         "admin.py",
-        "apps.py",
-        "tests.py",
-        "views.py"
+        "apps.py"
       ]
     },
     "logs": [
@@ -1054,8 +1048,7 @@
       ],
       "_files": [
         "admin.py",
-        "apps.py",
-        "tests.py"
+        "apps.py"
       ]
     },
     "menus": {
@@ -1442,16 +1435,35 @@
       "templates": {
         "components": {
           "breadcrumb": [
+            "_notification_detail_breadcrumb.html",
+            "_notification_list_breadcrumb.html",
+            "_notification_send_breadcrumb.html",
             "_notification_template_create_breadcrumb.html",
             "_notification_template_detail_breadcrumb.html",
             "_notification_template_list_breadcrumb.html",
             "_notification_template_update_breadcrumb.html"
           ],
           "forms": {
+            "notifications": {
+              "sections": [
+                "_audit_tracking.html",
+                "_business_reference.html",
+                "_button_action.html",
+                "_communication_content_channel.html",
+                "_recipient_telemetry.html",
+                "_system_log_execution_status.html"
+              ],
+              "_files": [
+                "_form.html"
+              ]
+            },
             "notification_templates": {
               "sections": [
                 "_basic_information.html",
-                "_button_action.html"
+                "_button_action.html",
+                "_dynamic_variables.html",
+                "_message_content.html",
+                "_settings_status.html"
               ],
               "_files": [
                 "_form.html"
@@ -1459,6 +1471,9 @@
             }
           },
           "page_header": [
+            "_notification_detail_page_header.html",
+            "_notification_list_page_header.html",
+            "_notification_send_page_header.html",
             "_notification_template_create_page_header.html",
             "_notification_template_detail_page_header.html",
             "_notification_template_list_page_header.html",
@@ -1468,7 +1483,8 @@
         "pages": {
           "notifications": [
             "detail.html",
-            "list.html"
+            "list.html",
+            "send.html"
           ],
           "notification_templates": [
             "create.html",
@@ -1492,13 +1508,14 @@
       },
       "views": {
         "forms": [
-          "notification_form.py",
-          "notification_template_form.py"
+          "notification_base_form.py",
+          "notification_template_base_form.py"
         ],
         "notifications": [
           "notification_create_view.py",
           "notification_detail_view.py",
-          "notification_list_view.py"
+          "notification_list_view.py",
+          "notifiction_send_view.py"
         ],
         "notification_templates": [
           "notification_template_create_view.py",
@@ -1522,9 +1539,7 @@
       ],
       "_files": [
         "admin.py",
-        "apps.py",
-        "tests.py",
-        "views.py"
+        "apps.py"
       ]
     },
     "promotions_loyalty": {
@@ -1536,9 +1551,7 @@
       ],
       "_files": [
         "admin.py",
-        "apps.py",
-        "tests.py",
-        "views.py"
+        "apps.py"
       ]
     },
     "reports": {

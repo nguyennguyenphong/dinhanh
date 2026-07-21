@@ -1,0 +1,14 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4 dark:bg-slate-850 dark:border-slate-700">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Quản lý biến động
+    </h3>
+
+    <div class="space-y-1">
+        <label for="{{ form.variables.id_for_label }}"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ form.variables.label }}</label>
+        {{ form.variables }}
+        {% if form.variables.errors %}<p class="text-red-500 text-xs mt-1">{{ form.variables.errors.0 }}</p>{% endif
+        %}
+    </div>
+</div>

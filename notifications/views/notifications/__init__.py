@@ -11,6 +11,9 @@ from notifications.views.notifications.notification_list_view import (
     NotificationListApiView,
     NotificationListView,
 )
+from notifications.views.notifications.notifiction_send_view import (
+    NotificationSendView,
+)
 
 __all__ = [
     "NotificationListView",
@@ -20,4 +23,5 @@ __all__ = [
     "NotificationDetailApiView",
     "NotificationTriggerTemplatedApiView",
     "NotificationDispatchNowApiView",
+    "NotificationSendView",
 ]

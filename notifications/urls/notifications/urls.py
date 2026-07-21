@@ -8,13 +8,14 @@ from notifications.views import (
     NotificationListApiView,
     NotificationListView,
     NotificationTriggerTemplatedApiView,
+    NotificationSendView,
 )
 
 urlpatterns = [
     # UI Views
-    path("list/ui/", NotificationListView.as_view(), name="notification_log_list"),
+    path("logs/list/ui/", NotificationListView.as_view(), name="notification_log_list"),
     path(
-        "detail/<int:pk>/",
+        "log/detail/<int:pk>/",
         NotificationDetailView.as_view(),
         name="notification_log_detail",
     ),
@@ -43,5 +44,11 @@ urlpatterns = [
         "api/v1/<int:pk>/dispatch/",
         NotificationDispatchNowApiView.as_view(),
         name="notification_dispatch_now",
+    ),
+    # Send notifications
+    path(
+        "send/",
+        NotificationSendView.as_view(),
+        name="notification_send",
     ),
 ]

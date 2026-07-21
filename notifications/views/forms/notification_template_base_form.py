@@ -1,4 +1,5 @@
 from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
 
 from notifications.models.notification_templates import NotificationTemplate
 
@@ -64,7 +65,7 @@ class TailwindFormMixin:
                 )
 
 
-class NotificationTemplateForm(TailwindFormMixin, forms.ModelForm):
+class NotificationTemplateBaseForm(TailwindFormMixin, forms.ModelForm):
 
     class Meta:
         model = NotificationTemplate
@@ -81,5 +82,9 @@ class NotificationTemplateForm(TailwindFormMixin, forms.ModelForm):
         widgets = {
             "is_active": forms.RadioSelect(
                 choices=[(True, "Kích hoạt"), (False, "Ngừng kích hoạt")]
+            ),
+            "body": CKEditor5Widget(
+                attrs={"class": "django_ckeditor_5"},
+                config_name="extends",
             ),
         }

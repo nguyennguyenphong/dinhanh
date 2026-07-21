@@ -1,0 +1,42 @@
+<div class="space-y-4 p-4 rounded-md bg-white border border-gray-200 mb-4">
+    <h3
+        class="text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-slate-800 pb-1">
+        Nội dung & Kênh gửi
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1">
+            <label for="{{ form.template.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                {{ form.template.label }}
+            </label>
+            {{ form.template }}
+            {% if form.template.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.template.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="space-y-1">
+            <label for="{{ form.channel.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                {{ form.channel.label }} <span class="text-red-500">*</span>
+            </label>
+            {{ form.channel }}
+            {% if form.channel.errors %}
+            <p class="text-red-500 text-xs mt-1">{{ form.channel.errors.0 }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.subject.id_for_label }}" class="block text-sm font-medium text-gray-700">{{
+            form.subject.label }}</label>
+        {{ form.subject }}
+        {% if form.subject.errors %}<p class="text-red-500 text-xs mt-1">{{ form.subject.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div class="space-y-1">
+        <label for="{{ form.body.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.body.label }}
+            <span class="text-red-500">*</span></label>
+        {{ form.body }}
+        {% if form.body.errors %}<p class="text-red-500 text-xs mt-1">{{ form.body.errors.0 }}</p>{% endif %}
+    </div>
+</div>

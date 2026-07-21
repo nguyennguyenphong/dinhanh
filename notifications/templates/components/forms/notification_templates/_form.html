@@ -2,9 +2,14 @@
 
 <form action="{% if object %}{% url 'notification_template_update' object.id %}{% else %}{% url 'notification_template_create' %}{% endif %}" method="POST" class="space-y-6" autocomplete="off">
     {% csrf_token %}
+    
+    {{ form.media }}
 
     <div class="mb-4">
         {% include 'components/forms/notification_templates/sections/_basic_information.html' %}
+        {% include 'components/forms/notification_templates/sections/_message_content.html' %}
+        {% include 'components/forms/notification_templates/sections/_dynamic_variables.html' %}
+        {% include 'components/forms/notification_templates/sections/_settings_status.html' %}
     </div>
     {% include 'components/forms/notification_templates/sections/_button_action.html' %}
 </form>

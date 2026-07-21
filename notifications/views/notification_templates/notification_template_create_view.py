@@ -17,21 +17,21 @@ from notifications.serializers.notification_templates.notification_template_crea
 from notifications.serializers.notification_templates.notification_template_response_serializer import (
     NotificationTemplateResponseSerializer,
 )
-from notifications.views.forms.notification_template_form import (
-    NotificationTemplateForm,
+from notifications.views.forms.notification_template_base_form import (
+    NotificationTemplateBaseForm,
 )
 
 
 class NotificationTemplateCreateView(LoginRequiredMixin, View):
 
     def get(self, request):
-        form = NotificationTemplateForm()
+        form = NotificationTemplateBaseForm()
         return render(
             request, "pages/notification_templates/create.html", {"form": form}
         )
 
     def post(self, request):
-        form = NotificationTemplateForm(request.POST)
+        form = NotificationTemplateBaseForm(request.POST)
         if form.is_valid():
             try:
                 data = form.cleaned_data

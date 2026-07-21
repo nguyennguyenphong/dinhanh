@@ -15,22 +15,22 @@ from notifications.views import (
 urlpatterns = [
     # UI Views
     path(
-        "list/ui/",
+        "templates/list/ui/",
         NotificationTemplateListView.as_view(),
         name="notification_template_list",
     ),
     path(
-        "create/",
+        "templates/create/",
         NotificationTemplateCreateView.as_view(),
         name="notification_template_create",
     ),
     path(
-        "detail/<int:pk>/",
+        "templates/detail/<int:pk>/",
         NotificationTemplateDetailView.as_view(),
         name="notification_template_detail",
     ),
     path(
-        "update/<int:pk>/",
+        "templates/update/<int:pk>/",
         NotificationTemplateUpdateView.as_view(),
         name="notification_template_update",
     ),

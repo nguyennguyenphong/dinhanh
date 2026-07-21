@@ -1,5 +1,4 @@
 from django import forms
-from django_ckeditor_5.widgets import CKEditor5Widget
 
 from branches.models import Branch
 
@@ -105,10 +104,7 @@ class BranchBaseForm(TailwindFormMixin, forms.ModelForm):
             "tenant": forms.Select(),
             "code": forms.TextInput(),
             "name": forms.TextInput(),
-            "address": CKEditor5Widget(
-                attrs={"class": "django_ckeditor_5"},
-                config_name="extends",
-            ),
+            "address": forms.Textarea(attrs={"row": 2}),
             "phone": forms.TextInput(),
             "email": forms.EmailInput(),
             "manager": forms.Select(),
