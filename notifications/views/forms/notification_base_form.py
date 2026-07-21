@@ -1,4 +1,5 @@
 from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
 
 from notifications.models.notifications import Notification
 
@@ -139,7 +140,10 @@ class NotificationBaseForm(TailwindFormMixin, forms.ModelForm):
         ]
         widgets = {
             "sent_at": forms.DateTimeInput(),
-            "body": forms.Textarea(attrs={"rows": 7}),
+            "body": CKEditor5Widget(
+                attrs={"class": "django_ckeditor_5"},
+                config_name="extends",
+            ),
             "error_msg": forms.Textarea(attrs={"rows": 3}),
         }
 

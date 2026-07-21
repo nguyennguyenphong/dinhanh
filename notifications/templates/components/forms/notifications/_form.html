@@ -4,6 +4,8 @@
     method="POST" class="space-y-6" autocomplete="off">
     {% csrf_token %}
 
+    {{ form.media }}
+
     <div class="mb-4">
         {% include 'components/forms/notifications/sections/_recipient_telemetry.html' %}
         {% include 'components/forms/notifications/sections/_communication_content_channel.html' %}

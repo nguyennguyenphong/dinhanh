@@ -89,6 +89,7 @@ CKEDITOR_5_CONFIGS = {
             "numberedList",
             "|",
             "blockQuote",
+            "imageUpload",
         ],
         "toolbar": [
             "heading",
@@ -121,12 +122,30 @@ CKEDITOR_5_CONFIGS = {
             "codeBlock",
             "htmlEmbed",
             "|",
+            "imageUpload",
+            "|",
             "sourceEditing",
             "|",
             "undo",
             "redo",
         ],
         "upload_url": "ck_editor_5_upload_file",
+        "image": {
+            "toolbar": [
+                "imageTextAlternative",
+                "|",
+                "imageStyle:alignLeft",
+                "imageStyle:alignCenter",
+                "imageStyle:alignRight",
+                "|",
+                "resizeImage",
+            ],
+            "styles": [
+                "alignLeft",
+                "alignCenter",
+                "alignRight",
+            ],
+        },
         "table": {
             "contentToolbar": [
                 "tableColumn",
