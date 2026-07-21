@@ -114,7 +114,7 @@ rpds-py==2026.5.1
 s3transfer==0.18.0
 scipy==1.17.1
 sentry-sdk==2.61.1
-setuptools==82.0.1
+setuptools>=83.0.0
 six==1.17.0
 sortedcontainers==2.4.0
 sqlparse==0.5.5
