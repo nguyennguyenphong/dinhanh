@@ -7,8 +7,8 @@ from notifications.views import (
     NotificationDispatchNowApiView,
     NotificationListApiView,
     NotificationListView,
-    NotificationTriggerTemplatedApiView,
     NotificationSendView,
+    NotificationTriggerTemplatedApiView,
 )
 
 urlpatterns = [
